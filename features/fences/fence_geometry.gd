@@ -35,7 +35,7 @@ static func build(snapshot: Dictionary) -> Array:
 					MeshParts.box(
 						builder,
 						Vector3(p.x, field.height_at(p) + 0.45, p.y),
-						Vector3(0.11, 0.9, 0.11),
+						KitProfiles.POST,
 						Color("89643e")
 					)
 				if step == count:
@@ -53,7 +53,7 @@ static func build(snapshot: Dictionary) -> Array:
 					MeshParts.box(
 						local,
 						Vector3.ZERO,
-						Vector3(0.07, 0.07, first.distance_to(last)),
+						Vector3(KitProfiles.RAIL.y, KitProfiles.RAIL.z, first.distance_to(last)),
 						Color("89643e")
 					)
 					var frame: Basis = Basis.looking_at(last - first)

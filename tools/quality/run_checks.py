@@ -39,7 +39,7 @@ def main():
     parser.add_argument("--week", type=int, default=1)
     parser.add_argument("--negative-control", action="store_true")
     args = parser.parse_args()
-    if args.week not in [1, 2, 3, 4, 5]:
+    if args.week not in [1, 2, 3, 4, 5, 6]:
         raise RuntimeError("No gate registered for this week; add its tests before marking it done")
     (ROOT / "reports").mkdir(exist_ok=True)
     (ROOT / "reports/.gdignore").touch()
@@ -55,6 +55,8 @@ def main():
     entries.append(run_step("format", [str(executable_dir / "gdformat"), "--check", *source]))
     entries.append(run_step("lint", [str(executable_dir / "gdlint"), *source]))
     entries.append(run_step("asset_contract", [sys.executable, "tools/quality/validate_assets.py", "--week", str(args.week)]))
+    if args.week >= 6:
+        entries.append(run_step("week_06_media", [sys.executable, "tools/quality/validate_week_six_media.py"]))
     count = failures = skipped = 0
     groups = []
     for week in range(1, args.week + 1):
@@ -68,7 +70,7 @@ def main():
         tested = int(suite.attrib.get("tests", 0))
         failed = int(suite.attrib.get("failures", 0))
         omitted = sum(int(part.attrib.get("skipped", 0)) for part in suite.findall("testsuite"))
-        if tested < {1: 42, 2: 52, 3: 42, 4: 50, 5: 45}[week] or failed or omitted:
+        if tested < {1: 42, 2: 52, 3: 42, 4: 50, 5: 45, 6: 68}[week] or failed or omitted:
             raise RuntimeError(f"Invalid {label} suite: {tested} tests, {failed} failed, {omitted} skipped")
         count += tested
         failures += failed

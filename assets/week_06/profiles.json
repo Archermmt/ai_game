@@ -1,0 +1,62 @@
+{
+  "wood_post": {
+    "parent_asset_id": "BLD-11",
+    "size_godot": [
+      0.11,
+      0.9,
+      0.11
+    ],
+    "axis": "y_height",
+    "source": "art_source/week_06/wood_post.blend"
+  },
+  "wood_rail": {
+    "parent_asset_id": "BLD-11",
+    "size_godot": [
+      1,
+      0.07,
+      0.07
+    ],
+    "axis": "x_length_y_up",
+    "source": "art_source/week_06/wood_rail.blend"
+  },
+  "corner_post": {
+    "parent_asset_id": "BLD-11",
+    "size_godot": [
+      0.13,
+      0.95,
+      0.13
+    ],
+    "axis": "y_height",
+    "source": "art_source/week_06/corner_post.blend"
+  },
+  "foundation_piece": {
+    "parent_asset_id": "BLD-03",
+    "size_godot": [
+      1,
+      0.5,
+      0.22
+    ],
+    "axis": "x_length_y_up",
+    "source": "art_source/week_06/foundation_piece.blend"
+  },
+  "timber_trim": {
+    "parent_asset_id": "BLD-19",
+    "size_godot": [
+      1,
+      0.09,
+      0.09
+    ],
+    "axis": "x_length_y_up",
+    "source": "art_source/week_06/timber_trim.blend"
+  },
+  "stone_tread": {
+    "parent_asset_id": "BLD-10",
+    "size_godot": [
+      1,
+      0.18,
+      1.2
+    ],
+    "axis": "x_length_y_up",
+    "source": "art_source/week_06/stone_tread.blend"
+  }
+}

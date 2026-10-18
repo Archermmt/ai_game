@@ -14,7 +14,7 @@ from common import ROOT, engine_binary
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--week', type=int, default=5, choices=[1, 2, 3, 4, 5])
+    parser.add_argument('--week', type=int, default=6, choices=[1, 2, 3, 4, 5, 6])
     args = parser.parse_args()
     revision = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
     archive = subprocess.check_output(['git', 'archive', revision], cwd=ROOT)

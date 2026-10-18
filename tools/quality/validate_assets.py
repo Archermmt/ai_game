@@ -18,8 +18,11 @@ def main():
         manifest.extend(json.loads((ROOT / f"art_source/week_{week:02d}/manifest.json").read_text()))
     ids = set()
     for asset in manifest:
-        assert asset["asset_id"] not in ids or asset.get("supersedes") in ["week_02", "week_03", "week_04"], "duplicate asset ID"
-        ids.add(asset["asset_id"])
+        if not asset.get("component", False):
+            assert asset["asset_id"] not in ids or asset.get("supersedes") in ["week_02", "week_03", "week_04", "week_05"], "duplicate asset ID"
+            ids.add(asset["asset_id"])
+        else:
+            assert asset["asset_id"] in ["BLD-03", "BLD-10", "BLD-11", "BLD-19"]
         assert (ROOT / asset["source"]).is_file(), asset["source"]
         assert asset["triangles"] > 0
         raw = (ROOT / asset["export"]).read_bytes()

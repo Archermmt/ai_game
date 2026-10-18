@@ -11,7 +11,7 @@ parser.add_argument('--output',required=True)
 args=parser.parse_args(sys.argv[sys.argv.index('--')+1:])
 root=Path(args.root).resolve()
 records=[]
-for week in [1,2,3,4,5]:
+for week in [1,2,3,4,5,6]:
     manifest=json.loads((root/f'art_source/week_{week:02d}/manifest.json').read_text())
     for asset in manifest:
         bpy.ops.wm.open_mainfile(filepath=str(root/asset['source']),load_ui=False)
@@ -37,6 +37,16 @@ for week in [1,2,3,4,5]:
                     colors=sheet.data.color_attributes['wind_mask'].data
                     assert all(colors[i].color[0]==0 for i in range(9)),sheet.name
                     assert any(c.color[0]>.8 for c in colors),sheet.name
+        if week == 6:
+            assert asset['triangles'] <= asset['budget']
+            if asset['asset_id']=='PROP-07':
+                cups=[o for o in meshes if o.name.startswith('pot_cup_inner_wall')]
+                assert len(cups)==2
+                assert any(o.name.startswith('pot_teapot_thick_body') for o in meshes)
+            if asset['asset_id']=='PROP-08':
+                panes=[o for o in meshes if o.name.startswith('lamp_emission')]
+                assert len(panes)==4
+                assert all(c.color[2]==1 for o in panes for c in o.data.color_attributes['wind_mask'].data)
         records.append({'source':asset['source'],'mesh_objects':len(meshes),'passed':True})
 library=root/'art_source/week_02/painted_material_library.blend'
 bpy.ops.wm.open_mainfile(filepath=str(library),load_ui=False)

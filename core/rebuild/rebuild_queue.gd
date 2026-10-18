@@ -4,6 +4,9 @@ extends Node
 
 signal batch_prepared(token: int, payload: Dictionary, committed: bool)
 
+var consumer_busy: bool = false
+var consumer_locked: bool = false
+
 var evaluator: Callable = WorldRebuild.evaluate
 var epoch: int = 0
 var newest_token: int = 0
@@ -16,7 +19,7 @@ var _closed: bool = false
 
 
 func request(snapshot: Dictionary, bounds: Rect2, committed: bool = false) -> int:
-	if _closed or commit_locked:
+	if _closed or commit_locked or consumer_locked:
 		return -1
 	newest_token += 1
 	dirty_bounds = bounds if dirty_bounds.size == Vector2.ZERO else dirty_bounds.merge(bounds)
@@ -40,11 +43,13 @@ func invalidate() -> void:
 	newest_token += 1
 	_pending.clear()
 	commit_locked = false
+	consumer_busy = false
+	consumer_locked = false
 	# Unpublished dirty bounds deliberately survive invalidation.
 
 
 func is_busy() -> bool:
-	return _active or not _pending.is_empty()
+	return _active or not _pending.is_empty() or consumer_busy
 
 
 func _start(job: Dictionary) -> void:

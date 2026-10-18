@@ -78,6 +78,41 @@ func finish_reserved(prepared: Dictionary) -> Dictionary:
 	)
 
 
+func finish_prepared(payload: Dictionary) -> Dictionary:
+	# Reserved source is an immutable validated copy; worker must return that exact source.
+	if phase != Phase.PENDING_COMMIT:
+		return {"ok": false, "error": "no_pending_commit"}
+	var candidate: Dictionary = _pending_candidate
+	var label: String = _pending_label
+	if not payload.get("ok", false) or payload.get("source", {}) != candidate:
+		cancel_gesture()
+		return {"ok": false, "error": "prepared_source_mismatch"}
+	if candidate["revision"] != document.state["revision"]:
+		cancel_gesture()
+		return {"ok": false, "error": "stale_candidate"}
+	if JSON.stringify(candidate, "", true, true).to_utf8_buffer().size() > MAX_SOURCE_BYTES:
+		cancel_gesture()
+		return {"ok": false, "error": "history_source_budget"}
+	var before: Dictionary = document.snapshot()
+	_prepared_snapshot = candidate.duplicate(true)
+	_prepared_snapshot["revision"] = before["revision"] + 1
+	_prepared_payload = payload
+	var after: Dictionary = _prepared_snapshot.duplicate(true)
+	_pending_candidate = {}
+	_publish_prepared()
+	_commands = _commands.slice(0, _cursor)
+	_commands.append({"before": before, "after": after})
+	_cursor += 1
+	if _commands.size() > 50:
+		_commands.pop_front()
+		_cursor -= 1
+	_history.create_action(label)
+	_history.add_do_method(_publish_prepared)
+	_history.add_undo_method(_publish_prepared)
+	_history.commit_action(false)
+	return {"ok": true}
+
+
 func release_gesture(label: String, prepare: Callable = Callable()) -> Dictionary:
 	if phase != Phase.PREVIEW:
 		return {"ok": false, "error": "no_gesture"}

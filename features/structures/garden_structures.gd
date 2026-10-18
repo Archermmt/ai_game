@@ -181,7 +181,7 @@ static func build(snapshot: Dictionary) -> Dictionary:
 					var hswap: float = ha
 					ha = hb
 					hb = hswap
-				var count: int = maxi(1, ceili(absf(hb - ha) / 0.18))
+				var count: int = maxi(1, ceili(absf(hb - ha) / KitProfiles.TREAD_RISE))
 				for i: int in range(count):
 					var p: Vector2 = a.lerp(b, (float(i) + 0.5) / count)
 					var top: float = lerpf(ha, hb, float(i + 1) / count)

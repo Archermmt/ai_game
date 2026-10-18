@@ -7,12 +7,21 @@ const NAMES: Dictionary = {
 }
 const ATLAS: Texture2D = preload("res://assets/materials/textures/vegetation_atlas.png")
 
+const PACKS: Dictionary = {
+	"tree_broadleaf": preload("res://assets/nature/week_03/tree_broadleaf.glb"),
+	"tree_conifer": preload("res://assets/nature/week_03/tree_conifer.glb"),
+	"tree_fruit": preload("res://assets/nature/week_03/tree_fruit.glb"),
+	"tree_broadleaf_lod1": preload("res://assets/nature/week_03/tree_broadleaf_lod1.glb"),
+	"tree_conifer_lod1": preload("res://assets/nature/week_03/tree_conifer_lod1.glb"),
+	"tree_fruit_lod1": preload("res://assets/nature/week_03/tree_fruit_lod1.glb")
+}
+
 
 static func instantiate_asset(asset_id: String, key: String, lod: int = 0) -> Node3D:
 	var filename: String = NAMES.get(asset_id, "tree_broadleaf")
 	if lod > 0:
 		filename += "_lod1"
-	var packed: PackedScene = load("res://assets/nature/week_03/" + filename + ".glb")
+	var packed: PackedScene = PACKS[filename]
 	var root: Node3D = packed.instantiate() as Node3D
 	root.set_meta("object_id", key)
 	apply_material(root, key)

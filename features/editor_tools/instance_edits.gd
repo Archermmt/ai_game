@@ -102,17 +102,20 @@ static func duplicate_selection(draft: Dictionary, selected: Array[String]) -> A
 	return result
 
 
-static func support_height(snapshot: Dictionary, item: Dictionary, depth: int = 0) -> float:
+static func support_height(
+	snapshot: Dictionary, item: Dictionary, depth: int = 0, ground_field: TerrainField = null
+) -> float:
 	var p: Array = item["position"]
-	if depth > 8:
-		return TerrainField.new(snapshot).height_at(Vector2(p[0], p[2]))
+	var field: TerrainField = ground_field if ground_field != null else TerrainField.new(snapshot)
+	if depth > 8 or not item.has("support_id"):
+		return field.height_at(Vector2(p[0], p[2]))
 	for parent: Dictionary in snapshot["instances"]:
 		if parent["id"] == item.get("support_id", ""):
 			return (
-				support_height(snapshot, parent, depth + 1)
+				support_height(snapshot, parent, depth + 1, field)
 				+ float(parent["scale"]) * (0.8 if parent["asset_id"] == "PROP-05" else 0.58)
 			)
-	return TerrainField.new(snapshot).height_at(Vector2(p[0], p[2]))
+	return field.height_at(Vector2(p[0], p[2]))
 
 
 static func support_error(snapshot: Dictionary, item: Dictionary) -> String:
@@ -180,6 +183,7 @@ static func validate(snapshot: Dictionary, existing_ids: Dictionary) -> String:
 					"NAT-04",
 					"NAT-05",
 					"NAT-06",
+					"NAT-07",
 					"NAT-08",
 					"NAT-09",
 					"PROP-01",
@@ -194,6 +198,18 @@ static func validate(snapshot: Dictionary, existing_ids: Dictionary) -> String:
 			)
 		):
 			return "invalid_instance_source"
+		if (
+			item.has("height_locked")
+			and (
+				not item["height_locked"] is bool or not WorldDocument._number(item.get("locked_y"))
+			)
+		):
+			return "invalid_height_lock"
+		if (
+			item.has("lamp_mode")
+			and (item["asset_id"] != "PROP-08" or item["lamp_mode"] not in ["on", "off", "auto"])
+		):
+			return "invalid_lamp_mode"
 		var support_issue: String = support_error(snapshot, item)
 		if not support_issue.is_empty():
 			return support_issue

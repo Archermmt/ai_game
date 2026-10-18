@@ -390,6 +390,9 @@ func _finish_smoke() -> void:
 					"terrain_samples": document.state["terrain"]["height_deltas"].size(),
 					"pond_present": not document.state["pool"].is_empty(),
 					"wind_materials": wind_materials.size(),
+					"font_license_in_pack": FileAccess.file_exists("res://assets/fonts/OFL.txt"),
+					"audio_resource_in_pack":
+					ResourceLoader.exists("res://assets/audio/forest.wav"),
 					"test_framework_in_pack": ResourceLoader.exists("res://addons/gut/gut.gd"),
 					"test_sources_in_pack":
 					(
@@ -400,6 +403,7 @@ func _finish_smoke() -> void:
 						)
 						or ResourceLoader.exists("res://tests/week_04/test_week_four_playground.gd")
 						or ResourceLoader.exists("res://tests/week_05/test_garden_rules.gd")
+						or ResourceLoader.exists("res://tests/week_06/test_local_rebuild.gd")
 					),
 					"frames": _benchmark.size(),
 					"sample_duration_seconds": _benchmark_seconds,

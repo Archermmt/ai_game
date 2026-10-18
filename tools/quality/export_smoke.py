@@ -14,7 +14,7 @@ from run_checks import run_step
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--week", type=int, default=5, choices=[1, 2, 3, 4, 5])
+    parser.add_argument("--week", type=int, default=6, choices=[1, 2, 3, 4, 5, 6])
     args = parser.parse_args()
     label = f"week_{args.week:02d}"
     if f'config/version="0.{args.week}.0-w{args.week:02d}"' not in (ROOT / "project.godot").read_text():
@@ -61,6 +61,8 @@ def main():
         smoke = json.loads(smoke_file.read_text())
         assert smoke["buildings"] == 2 and smoke["frames"] > 0
         assert not smoke["test_framework_in_pack"] and not smoke["test_sources_in_pack"]
+        if args.week >= 6:
+            assert smoke["font_license_in_pack"] and smoke["audio_resource_in_pack"]
         result["macos_clean_room_visible_boot"] = smoke
     result["artifacts"] = []
     for target in [windows, build_root / "macos" / f"windhaven_{label}.zip"]:
@@ -68,6 +70,8 @@ def main():
                                     "sha256": hashlib.sha256(target.read_bytes()).hexdigest()})
     for folder in ["windows", "macos"]:
         shutil.copyfile(ROOT / "THIRD_PARTY.md", build_root / folder / "THIRD_PARTY.md")
+        if args.week >= 6:
+            shutil.copyfile(ROOT / "assets/fonts/OFL.txt", build_root / folder / "FONT_OFL.txt")
         license_path = ROOT / "docs/licenses/GODOT_LICENSE.txt"
         if license_path.exists():
             shutil.copyfile(license_path, build_root / folder / "GODOT_LICENSE.txt")

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="68" >
+  <testsuite name="tests/week_06/test_assets_media.gd" tests="14" failures="0" skipped="0" time="1.889082" >
+      <testcase name="test_six_audio_families_and_seventeen_original_files" assertions="36" status="pass" classname="tests/week_06/test_assets_media.gd" time="0.000429" >
+      </testcase>
+      <testcase name="test_audio_pcm_headers_and_original_sources_match" assertions="102" status="pass" classname="tests/week_06/test_assets_media.gd" time="1.745002" >
+      </testcase>
+      <testcase name="test_ambient_loops_have_no_hard_seam_and_audio_has_headroom" assertions="42" status="pass" classname="tests/week_06/test_assets_media.gd" time="0.000486" >
+      </testcase>
+      <testcase name="test_three_variants_for_each_surface_and_ui_are_distinct" assertions="4" status="pass" classname="tests/week_06/test_assets_media.gd" time="0.000759" >
+      </testcase>
+      <testcase name="test_tool_icons_and_feedback_have_editable_vector_sources" assertions="62" status="pass" classname="tests/week_06/test_assets_media.gd" time="0.001449" >
+      </testcase>
+      <testcase name="test_bundled_font_has_pinned_origin_hash_and_full_license" assertions="4" status="pass" classname="tests/week_06/test_assets_media.gd" time="0.021007" >
+      </testcase>
+      <testcase name="test_finished_tea_and_lantern_stay_within_triangle_budgets" assertions="6" status="pass" classname="tests/week_06/test_assets_media.gd" time="0.000194" >
+      </testcase>
+      <testcase name="test_source_kit_parts_are_components_not_new_asset_families" assertions="19" status="pass" classname="tests/week_06/test_assets_media.gd" time="0.000223" >
+      </testcase>
+      <testcase name="test_runtime_generator_sections_match_source_profiles" assertions="6" status="pass" classname="tests/week_06/test_assets_media.gd" time="0.000134" >
+      </testcase>
+      <testcase name="test_lantern_has_four_emissive_panes_and_consistent_light_anchor" assertions="6" status="pass" classname="tests/week_06/test_assets_media.gd" time="0.000592" >
+      </testcase>
+      <testcase name="test_tea_cups_have_separate_thick_inner_wall_meshes" assertions="2" status="pass" classname="tests/week_06/test_assets_media.gd" time="0.000164" >
+      </testcase>
+      <testcase name="test_lamp_modes_separate_emission_from_local_light_budget" assertions="3" status="pass" classname="tests/week_06/test_assets_media.gd" time="0.000059" >
+      </testcase>
+      <testcase name="test_invalid_lamp_or_height_lock_fields_rejected" assertions="2" status="pass" classname="tests/week_06/test_assets_media.gd" time="0.000117" >
+      </testcase>
+      <testcase name="test_batch_custom_data_phase_is_stable_after_unrelated_edits" assertions="2" status="pass" classname="tests/week_06/test_assets_media.gd" time="0.118467" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_06/test_local_rebuild.gd" tests="15" failures="0" skipped="0" time="2.631544" >
+      <testcase name="test_cold_local_generation_matches_full_reference_geometry" assertions="7" status="pass" classname="tests/week_06/test_local_rebuild.gd" time="1.078272" >
+      </testcase>
+      <testcase name="test_identical_snapshot_reuses_all_units" assertions="3" status="pass" classname="tests/week_06/test_local_rebuild.gd" time="0.101654" >
+      </testcase>
+      <testcase name="test_far_terrain_edit_rebuilds_halo_not_buildings_path_or_water" assertions="7" status="pass" classname="tests/week_06/test_local_rebuild.gd" time="0.835529" >
+      </testcase>
+      <testcase name="test_environment_change_does_not_regenerate_geometry_or_poses" assertions="1" status="pass" classname="tests/week_06/test_local_rebuild.gd" time="0.101543" >
+      </testcase>
+      <testcase name="test_instance_edit_changes_own_pose_without_geometry_rebuild" assertions="1" status="pass" classname="tests/week_06/test_local_rebuild.gd" time="0.102586" >
+      </testcase>
+      <testcase name="test_parent_support_change_invalidates_child_pose" assertions="2" status="pass" classname="tests/week_06/test_local_rebuild.gd" time="0.10154" >
+      </testcase>
+      <testcase name="test_deleted_objects_pruned_from_pure_cache" assertions="1" status="pass" classname="tests/week_06/test_local_rebuild.gd" time="0.101776" >
+      </testcase>
+      <testcase name="test_dirty_regions_include_old_and_new_locations_plus_terrain" assertions="4" status="pass" classname="tests/week_06/test_local_rebuild.gd" time="0.000369" >
+      </testcase>
+      <testcase name="test_worker_and_sync_caches_are_independent" assertions="3" status="pass" classname="tests/week_06/test_local_rebuild.gd" time="0.207534" >
+      </testcase>
+      <testcase name="test_staged_publication_requires_matching_reserved_source" assertions="4" status="pass" classname="tests/week_06/test_local_rebuild.gd" time="0.000219" >
+      </testcase>
+      <testcase name="test_staged_commit_records_one_history_and_undo_redo" assertions="6" status="pass" classname="tests/week_06/test_local_rebuild.gd" time="0.000205" >
+      </testcase>
+      <testcase name="test_cancel_reserved_staged_result_cannot_publish" assertions="3" status="pass" classname="tests/week_06/test_local_rebuild.gd" time="0.000083" >
+      </testcase>
+      <testcase name="test_resource_stage_spreads_jobs_and_keeps_detached_nodes_invisible" assertions="3" status="pass" classname="tests/week_06/test_local_rebuild.gd" time="0.000082" >
+      </testcase>
+      <testcase name="test_cancel_stage_destroys_only_unpublished_nodes" assertions="1" status="pass" classname="tests/week_06/test_local_rebuild.gd" time="0.000044" >
+      </testcase>
+      <testcase name="test_rebuild_queue_commit_preparation_is_an_input_barrier" assertions="4" status="pass" classname="tests/week_06/test_local_rebuild.gd" time="0.000108" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_06/test_source_precision.gd" tests="4" failures="0" skipped="0" time="0.010673" >
+      <testcase name="test_brush_numbers_and_exact_double_neighbors_survive_container" assertions="2" status="pass" classname="tests/week_06/test_source_precision.gd" time="0.010274" >
+      </testcase>
+      <testcase name="test_legacy_plain_json_container_is_still_readable" assertions="2" status="pass" classname="tests/week_06/test_source_precision.gd" time="0.000138" >
+      </testcase>
+      <testcase name="test_bad_exact_metadata_paths_and_nan_fail_without_engine_errors" assertions="4" status="pass" classname="tests/week_06/test_source_precision.gd" time="0.000078" >
+      </testcase>
+      <testcase name="test_source_extra_keys_cannot_collide_with_envelope_metadata" assertions="2" status="pass" classname="tests/week_06/test_source_precision.gd" time="0.000183" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_06/test_vegetation_brush.gd" tests="14" failures="0" skipped="0" time="0.054873" >
+      <testcase name="test_seeded_brush_is_repeatable_including_ids_yaw_and_scale" assertions="3" status="pass" classname="tests/week_06/test_vegetation_brush.gd" time="0.004867" >
+      </testcase>
+      <testcase name="test_density_zero_places_nothing_and_high_density_is_bounded" assertions="4" status="pass" classname="tests/week_06/test_vegetation_brush.gd" time="0.00317" >
+      </testcase>
+      <testcase name="test_tree_density_and_spacing_are_separate_from_grass" assertions="73" status="pass" classname="tests/week_06/test_vegetation_brush.gd" time="0.003468" >
+      </testcase>
+      <testcase name="test_erase_only_current_category_and_protects_manual_and_locked" assertions="2" status="pass" classname="tests/week_06/test_vegetation_brush.gd" time="0.001145" >
+      </testcase>
+      <testcase name="test_visited_cells_and_repeated_strokes_do_not_duplicate_source_ids" assertions="3" status="pass" classname="tests/week_06/test_vegetation_brush.gd" time="0.004847" >
+      </testcase>
+      <testcase name="test_brush_avoids_paths_door_clearance_and_pool_bank" assertions="138" status="pass" classname="tests/week_06/test_vegetation_brush.gd" time="0.009196" >
+      </testcase>
+      <testcase name="test_brush_avoids_bridge_and_stair_endpoints" assertions="3" status="pass" classname="tests/week_06/test_vegetation_brush.gd" time="0.000084" >
+      </testcase>
+      <testcase name="test_far_brush_preserves_all_existing_records" assertions="52" status="pass" classname="tests/week_06/test_vegetation_brush.gd" time="0.02047" >
+      </testcase>
+      <testcase name="test_one_brush_gesture_undoes_and_redoes_as_one_command" assertions="7" status="pass" classname="tests/week_06/test_vegetation_brush.gd" time="0.004716" >
+      </testcase>
+      <testcase name="test_spatial_groups_keep_source_identity_and_manual_unbatched" assertions="2" status="pass" classname="tests/week_06/test_vegetation_brush.gd" time="0.00164" >
+      </testcase>
+      <testcase name="test_manual_edit_promotes_brushed_item_and_preserves_seed" assertions="3" status="pass" classname="tests/week_06/test_vegetation_brush.gd" time="0.000136" >
+      </testcase>
+      <testcase name="test_compact_hedge_is_reused_shrub_not_a_new_handmade_asset" assertions="2" status="pass" classname="tests/week_06/test_vegetation_brush.gd" time="0.000266" >
+      </testcase>
+      <testcase name="test_new_geometry_clears_only_unlocked_automatic_foliage" assertions="4" status="pass" classname="tests/week_06/test_vegetation_brush.gd" time="0.000793" >
+      </testcase>
+      <testcase name="test_invalid_brush_parameters_do_not_mutate_source" assertions="3" status="pass" classname="tests/week_06/test_vegetation_brush.gd" time="0.000075" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_06/test_week_six_interactions.gd" tests="11" failures="0" skipped="0" time="4.140117" >
+      <testcase name="test_lamp_mode_buttons_are_transactions" assertions="4" status="pass" classname="tests/week_06/test_week_six_interactions.gd" time="0.644621" >
+      </testcase>
+      <testcase name="test_height_lock_preserves_world_y_when_terrain_changes" assertions="3" status="pass" classname="tests/week_06/test_week_six_interactions.gd" time="0.372782" >
+      </testcase>
+      <testcase name="test_ui_150_percent_panels_stay_inside_viewport_and_scroll" assertions="8" status="pass" classname="tests/week_06/test_week_six_interactions.gd" time="0.317452" >
+      </testcase>
+      <testcase name="test_chinese_font_covers_core_product_labels" assertions="12" status="pass" classname="tests/week_06/test_week_six_interactions.gd" time="0.307178" >
+      </testcase>
+      <testcase name="test_cancel_after_visible_preview_restores_every_source_field" assertions="5" status="pass" classname="tests/week_06/test_week_six_interactions.gd" time="0.368202" >
+      </testcase>
+      <testcase name="test_failed_pond_edit_keeps_source_and_derived_resources" assertions="3" status="pass" classname="tests/week_06/test_week_six_interactions.gd" time="0.323522" >
+      </testcase>
+      <testcase name="test_sixth_week_source_roundtrip_preserves_lamp_and_height_modes" assertions="3" status="pass" classname="tests/week_06/test_week_six_interactions.gd" time="0.318039" >
+      </testcase>
+      <testcase name="test_promoting_batched_plant_keeps_original_id_and_creates_individual_view" assertions="4" status="pass" classname="tests/week_06/test_week_six_interactions.gd" time="0.372599" >
+      </testcase>
+      <testcase name="test_rapid_previews_never_publish_a_stale_height" assertions="3" status="pass" classname="tests/week_06/test_week_six_interactions.gd" time="0.397206" >
+      </testcase>
+      <testcase name="test_metrics_separate_atomic_publication_and_preparation_slices" assertions="4" status="pass" classname="tests/week_06/test_week_six_interactions.gd" time="0.352612" >
+      </testcase>
+      <testcase name="test_preview_replacement_frees_unpublished_nodes_before_cache_reuse" assertions="3" status="pass" classname="tests/week_06/test_week_six_interactions.gd" time="0.365904" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_06/test_week_six_playground.gd" tests="10" failures="0" skipped="0" time="3.46525" >
+      <testcase name="test_scene_has_real_tea_lantern_and_classified_tools" assertions="6" status="pass" classname="tests/week_06/test_week_six_playground.gd" time="0.308552" >
+      </testcase>
+      <testcase name="test_commit_keeps_document_unchanged_until_all_preparation_finishes" assertions="7" status="pass" classname="tests/week_06/test_week_six_playground.gd" time="0.362253" >
+      </testcase>
+      <testcase name="test_local_edit_reuses_distant_buildings_water_and_props_nodes" assertions="29" status="pass" classname="tests/week_06/test_week_six_playground.gd" time="0.348301" >
+      </testcase>
+      <testcase name="test_cancel_pending_resources_preserves_source_history_and_scene" assertions="4" status="pass" classname="tests/week_06/test_week_six_playground.gd" time="0.351483" >
+      </testcase>
+      <testcase name="test_brush_commit_builds_spatial_multimeshes_and_undo_restores" assertions="717" status="pass" classname="tests/week_06/test_week_six_playground.gd" time="0.394623" >
+      </testcase>
+      <testcase name="test_actual_mouse_brush_is_one_history_transaction" assertions="3" status="pass" classname="tests/week_06/test_week_six_playground.gd" time="0.374157" >
+      </testcase>
+      <testcase name="test_option_left_camera_modifier_does_not_paint" assertions="3" status="pass" classname="tests/week_06/test_week_six_playground.gd" time="0.323604" >
+      </testcase>
+      <testcase name="test_ctrl_wheel_changes_brush_radius_without_editing_source" assertions="2" status="pass" classname="tests/week_06/test_week_six_playground.gd" time="0.323908" >
+      </testcase>
+      <testcase name="test_environment_only_commit_retains_all_world_units" assertions="99" status="pass" classname="tests/week_06/test_week_six_playground.gd" time="0.3386" >
+      </testcase>
+      <testcase name="test_real_lantern_manual_on_off_modes_and_nearest_four_limit" assertions="8" status="pass" classname="tests/week_06/test_week_six_playground.gd" time="0.339769" >
+      </testcase>
+  </testsuite>
+</testsuites>

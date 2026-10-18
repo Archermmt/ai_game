@@ -25,8 +25,8 @@ static func build(spec: Dictionary, field: TerrainField) -> Dictionary:
 			wood._quad(
 				qa + n,
 				qb + n,
-				qb + n + Vector3.UP * 0.09,
-				qa + n + Vector3.UP * 0.09,
+				qb + n + Vector3.UP * KitProfiles.TRIM_HEIGHT,
+				qa + n + Vector3.UP * KitProfiles.TRIM_HEIGHT,
 				n.normalized(),
 				Color("8a6440")
 			)

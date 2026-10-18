@@ -11,7 +11,7 @@ static func encode(snapshot: Dictionary) -> PackedByteArray:
 	var validation: String = WorldDocument.validate(snapshot)
 	if not validation.is_empty():
 		return PackedByteArray()
-	var raw: PackedByteArray = JSON.stringify(snapshot, "", true, true).to_utf8_buffer()
+	var raw: PackedByteArray = ExactFloatJson.encode(snapshot).to_utf8_buffer()
 	var compressed: PackedByteArray = raw.compress(FileAccess.COMPRESSION_DEFLATE)
 	var output: PackedByteArray = MAGIC.to_utf8_buffer()
 	output.resize(12)
@@ -36,7 +36,10 @@ static func decode(bytes: PackedByteArray) -> Dictionary:
 	var parser: JSON = JSON.new()
 	if parser.parse(raw.get_string_from_utf8()) != OK or not parser.data is Dictionary:
 		return {"ok": false, "error": "invalid_json"}
-	var snapshot: Dictionary = parser.data
+	var restored: Dictionary = ExactFloatJson.restore(parser.data)
+	if not restored["ok"]:
+		return {"ok": false, "error": "invalid_json"}
+	var snapshot: Dictionary = restored["snapshot"]
 	# JSON numbers are doubles; restore fields whose schema requires integer indices.
 	for key: String in ["schema_version", "revision", "next_id"]:
 		if snapshot.get(key) is float and is_finite(snapshot[key]):

@@ -1,0 +1,46 @@
+{
+  "audio_resource_in_pack": true,
+  "buildings": 2,
+  "edit_metrics": {
+    "commit_latency_max_ms": 90.107,
+    "commit_latency_p95_ms": 90.107,
+    "foliage_batches": 0,
+    "generated_units": [
+      "terrain:37",
+      "terrain:45",
+      "instance:0737f6c6fddd757c3853e41a",
+      "instance:e5c0314205da16e6fd53513d",
+      "instance:04a10912ed358ecdb5a1c0cc"
+    ],
+    "gpu_mean_ms": null,
+    "gpu_p95_ms": null,
+    "gpu_samples": 0,
+    "last_worker_terrain_chunks": 2,
+    "local_lights": 0,
+    "main_apply_max_ms": 1.389,
+    "main_apply_p95_ms": 1.389,
+    "main_apply_samples": 20,
+    "preparation_slice_max_ms": 0.239,
+    "preparation_slices": 20,
+    "probe_edits": 20,
+    "worker_compute_ms": 14.899
+  },
+  "engine": "4.7.2-stable (official)",
+  "font_license_in_pack": true,
+  "frames": 1201,
+  "instances": 25,
+  "mean_frame_ms": 8.33333333333334,
+  "p95_frame_ms": 8.33333333333333,
+  "paths": 1,
+  "pond_present": true,
+  "renderer": "forward_plus",
+  "sample_duration_seconds": 10.0,
+  "terrain_samples": 305,
+  "test_framework_in_pack": true,
+  "test_sources_in_pack": true,
+  "viewport_size": [
+    1920,
+    1080
+  ],
+  "wind_materials": 493
+}
