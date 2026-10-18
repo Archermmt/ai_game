@@ -37,18 +37,18 @@
 | 真实 GPU 风效 | 开风 t=0/1 变化 146851 字节；风量零与减少动态变化均为 0 |
 | 1080p 小样板 | Forward+ / Mobile 各 60 秒，P95 帧间隔约 8.33ms，垂直同步开启；不能替代完整压力场景 |
 | `python3 tools/quality/export_smoke.py` | Windows x86_64 PE 导出通过；macOS 导出包实际可见运行，未包含 GUT/测试源码 |
-| 干净 Git 检出 | 待本次代码提交后执行；不会复用 `.godot/` 缓存 |
+| 干净 Git 检出 | 从 `db4451f` Git 归档全新导入，无 `.godot/` 缓存；42 项与失败注入再次通过 |
 | Windows 真机 / 云端 CI | 未执行；不得标记通过 |
 
 快照证据：[自动摘要](docs/weekly/week_01/checks.json)、[GUT XML](docs/weekly/week_01/gut.xml)、
-[渲染/性能](docs/weekly/week_01/render_checks.json)、[导出/哈希](docs/weekly/week_01/exports.json)。
+[渲染/性能](docs/weekly/week_01/render_checks.json)、[导出/哈希](docs/weekly/week_01/exports.json)、[干净检出](docs/weekly/week_01/clean_checkout.json)。
 后续每周验收约定与新增测试范围见 [TESTING.md](docs/TESTING.md)。没有测试的周次不能标记完成。
 
 ## 运行与版本
 
 启动：`python3 tools/quality/run_game.py`。操作说明与重建/导出命令见 [README.md](README.md)。
 本地包：`builds/windows/windhaven_week_01.exe`、`builds/macos/windhaven_week_01.zip`（不进入 Git）。
-Git 主分支：`main`；已建立设计基线提交 `3513d74`，代码和验收记录按里程碑提交。
+Git 主分支：`main`；已建立设计基线提交 `3513d74`，工程/源模型/42 项测试里程碑：`db4451f`；最终验收记录另作提交。
 当前仅管理本地版本，未配置远程仓库或推送；引擎、虚拟环境、缓存、报告临时文件与存档均忽略。
 
 ## 下一阶段

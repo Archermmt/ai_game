@@ -1,0 +1,57 @@
+{
+  "revision": "db4451f10757b9347dd411833751bdf4de5bb46b",
+  "fresh_source_from": "git archive HEAD",
+  "initial_godot_cache": false,
+  "shared_dependencies": "locked Godot binary and lint virtualenv only; no import cache",
+  "exit_code": 0,
+  "checks": {
+    "week": 1,
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "tests": 42,
+    "failures": 0,
+    "skipped": 0,
+    "negative_control": true,
+    "steps": [
+      {
+        "name": "engine_import",
+        "exit_code": 0,
+        "seconds": 2.024
+      },
+      {
+        "name": "format",
+        "exit_code": 0,
+        "seconds": 0.335
+      },
+      {
+        "name": "lint",
+        "exit_code": 0,
+        "seconds": 0.338
+      },
+      {
+        "name": "asset_contract",
+        "exit_code": 0,
+        "seconds": 0.023
+      },
+      {
+        "name": "week_01_tests",
+        "exit_code": 0,
+        "seconds": 1.265
+      },
+      {
+        "name": "restart_write",
+        "exit_code": 0,
+        "seconds": 0.17
+      },
+      {
+        "name": "restart_read",
+        "exit_code": 0,
+        "seconds": 0.164
+      },
+      {
+        "name": "negative_control",
+        "exit_code": 1,
+        "seconds": 1.074
+      }
+    ]
+  }
+}
