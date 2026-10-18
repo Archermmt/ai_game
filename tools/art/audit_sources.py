@@ -11,7 +11,7 @@ parser.add_argument('--output',required=True)
 args=parser.parse_args(sys.argv[sys.argv.index('--')+1:])
 root=Path(args.root).resolve()
 records=[]
-for week in [1,2,3]:
+for week in [1,2,3,4]:
     manifest=json.loads((root/f'art_source/week_{week:02d}/manifest.json').read_text())
     for asset in manifest:
         bpy.ops.wm.open_mainfile(filepath=str(root/asset['source']),load_ui=False)

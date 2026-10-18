@@ -91,6 +91,22 @@ static func validate(candidate: Dictionary) -> String:
 	var wind: Variant = candidate["environment"].get("wind_strength")
 	if not _number(wind) or wind < 0.0 or wind > 1.0:
 		return "invalid_environment"
+	var direction: Variant = candidate["environment"].get("wind_direction", 0.4)
+	if not _number(direction):
+		return "invalid_wind_direction"
+	var lamps: Variant = candidate["environment"].get("lamp_probes", [])
+	if not lamps is Array or lamps.size() > 32:
+		return "invalid_lamp_probes"
+	var lamp_ids: Dictionary = {}
+	for lamp: Variant in lamps:
+		if not lamp is Dictionary or not lamp.get("id") is String or lamp_ids.has(lamp["id"]):
+			return "invalid_lamp_probes"
+		lamp_ids[lamp["id"]] = true
+		if not lamp.get("position") is Array or lamp["position"].size() != 3:
+			return "invalid_lamp_probes"
+		for value: Variant in lamp["position"]:
+			if not _number(value):
+				return "invalid_lamp_probes"
 	for collection: String in COLLECTIONS:
 		if not candidate.get(collection) is Array:
 			return "invalid_collection:" + collection
@@ -148,6 +164,9 @@ static func validate(candidate: Dictionary) -> String:
 	var instance_error: String = InstanceEdits.validate(candidate, ids)
 	if not instance_error.is_empty():
 		return instance_error
+	var fence_error: String = FenceGeometry.validate(candidate, ids)
+	if not fence_error.is_empty():
+		return fence_error
 	var path_error: String = RiskEdits.validate_paths(candidate, ids)
 	if not path_error.is_empty():
 		return path_error

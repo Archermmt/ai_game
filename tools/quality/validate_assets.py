@@ -18,7 +18,7 @@ def main():
         manifest.extend(json.loads((ROOT / f"art_source/week_{week:02d}/manifest.json").read_text()))
     ids = set()
     for asset in manifest:
-        assert asset["asset_id"] not in ids or asset.get("supersedes") == "week_02", "duplicate asset ID"
+        assert asset["asset_id"] not in ids or asset.get("supersedes") in ["week_02", "week_03"], "duplicate asset ID"
         ids.add(asset["asset_id"])
         assert (ROOT / asset["source"]).is_file(), asset["source"]
         assert asset["triangles"] > 0
@@ -57,6 +57,8 @@ def main():
         for asset in manifest:
             if asset.get("lod1"):
                 assert asset["triangles"] <= 4000 and asset["lod1_triangles"] < asset["triangles"] * 0.7
+    if args.week >= 4:
+        expected |= {"PROP-01", "PROP-02", "PROP-03", "PROP-04"}
     assert expected == ids
     assert (ROOT / "docs/.gdignore").is_file()
     assert (ROOT / "art_source/.gdignore").is_file()

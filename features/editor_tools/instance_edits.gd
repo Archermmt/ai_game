@@ -133,7 +133,24 @@ static func validate(snapshot: Dictionary, existing_ids: Dictionary) -> String:
 			item.get("source") not in ["manual", "brush"]
 			or not item.get("locked") is bool
 			or not item.get("seed") is String
-			or item.get("asset_id") not in ["grey_prop", "NAT-01", "NAT-02", "NAT-03"]
+			or (
+				item.get("asset_id")
+				not in [
+					"grey_prop",
+					"NAT-01",
+					"NAT-02",
+					"NAT-03",
+					"NAT-04",
+					"NAT-05",
+					"NAT-06",
+					"NAT-08",
+					"NAT-09",
+					"PROP-01",
+					"PROP-02",
+					"PROP-03",
+					"PROP-04"
+				]
+			)
 		):
 			return "invalid_instance_source"
 		for building: Dictionary in snapshot["buildings"]:

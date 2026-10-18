@@ -1,0 +1,218 @@
+{
+  "device": "Apple M4 Pro / 20-core GPU / 48GB RAM / macOS arm64",
+  "renderer": "Forward+ / Metal 3.2",
+  "scope": "W04 sample, 1920x1080, VSync enabled; not minimum-spec or final MVP stress gate",
+  "steps": [
+    {
+      "name": "w04_render_day",
+      "exit_code": 0,
+      "seconds": 2.494
+    },
+    {
+      "name": "w04_render_dusk",
+      "exit_code": 0,
+      "seconds": 2.484
+    },
+    {
+      "name": "w04_render_angle_45",
+      "exit_code": 0,
+      "seconds": 2.585
+    },
+    {
+      "name": "w04_render_angle_135",
+      "exit_code": 0,
+      "seconds": 2.563
+    },
+    {
+      "name": "w04_render_angle_225",
+      "exit_code": 0,
+      "seconds": 2.579
+    },
+    {
+      "name": "w04_render_angle_315",
+      "exit_code": 0,
+      "seconds": 2.56
+    },
+    {
+      "name": "w04_render_links",
+      "exit_code": 0,
+      "seconds": 2.563
+    },
+    {
+      "name": "w04_render_terrain",
+      "exit_code": 0,
+      "seconds": 2.603
+    },
+    {
+      "name": "w04_gallery_45",
+      "exit_code": 0,
+      "seconds": 2.533
+    },
+    {
+      "name": "w04_gallery_135",
+      "exit_code": 0,
+      "seconds": 2.512
+    },
+    {
+      "name": "w04_gallery_225",
+      "exit_code": 0,
+      "seconds": 2.555
+    },
+    {
+      "name": "w04_gallery_315",
+      "exit_code": 0,
+      "seconds": 2.528
+    },
+    {
+      "name": "w04_wind_on0",
+      "exit_code": 0,
+      "seconds": 2.575
+    },
+    {
+      "name": "w04_wind_on1",
+      "exit_code": 0,
+      "seconds": 2.596
+    },
+    {
+      "name": "w04_wind_zero0",
+      "exit_code": 0,
+      "seconds": 2.584
+    },
+    {
+      "name": "w04_wind_zero1",
+      "exit_code": 0,
+      "seconds": 2.584
+    },
+    {
+      "name": "w04_wind_still0",
+      "exit_code": 0,
+      "seconds": 2.579
+    },
+    {
+      "name": "w04_wind_still1",
+      "exit_code": 0,
+      "seconds": 2.583
+    },
+    {
+      "name": "w04_wind_pixels",
+      "exit_code": 0,
+      "seconds": 0.369
+    },
+    {
+      "name": "w04_metrics_day",
+      "exit_code": 0,
+      "seconds": 13.001
+    },
+    {
+      "name": "w04_metrics_dusk",
+      "exit_code": 0,
+      "seconds": 13.028
+    },
+    {
+      "name": "w04_metrics_editing",
+      "exit_code": 0,
+      "seconds": 13.033
+    }
+  ],
+  "wind": {
+    "on_different_bytes": 230559,
+    "passed": true,
+    "still_different_bytes": 0,
+    "zero_different_bytes": 0
+  },
+  "benchmarks": {
+    "day": {
+      "buildings": 2,
+      "edit_metrics": {
+        "gpu_mean_ms": null,
+        "gpu_p95_ms": null,
+        "gpu_samples": 0,
+        "last_worker_terrain_chunks": 64,
+        "local_lights": 0,
+        "main_apply_max_ms": 0.0,
+        "main_apply_p95_ms": 0.0,
+        "main_apply_samples": 0,
+        "probe_edits": 0
+      },
+      "engine": "4.7.2-stable (official)",
+      "frames": 1198,
+      "instances": 19,
+      "mean_frame_ms": 8.34129660545354,
+      "p95_frame_ms": 8.33333333333333,
+      "paths": 1,
+      "pond_present": true,
+      "renderer": "forward_plus",
+      "sample_duration_seconds": 10.0,
+      "terrain_samples": 305,
+      "test_framework_in_pack": true,
+      "test_sources_in_pack": true,
+      "viewport_size": [
+        1920,
+        1080
+      ],
+      "wind_materials": 479
+    },
+    "dusk": {
+      "buildings": 2,
+      "edit_metrics": {
+        "gpu_mean_ms": null,
+        "gpu_p95_ms": null,
+        "gpu_samples": 0,
+        "last_worker_terrain_chunks": 64,
+        "local_lights": 4,
+        "main_apply_max_ms": 0.0,
+        "main_apply_p95_ms": 0.0,
+        "main_apply_samples": 0,
+        "probe_edits": 0
+      },
+      "engine": "4.7.2-stable (official)",
+      "frames": 1199,
+      "instances": 19,
+      "mean_frame_ms": 8.35263858771199,
+      "p95_frame_ms": 8.33333333333333,
+      "paths": 1,
+      "pond_present": true,
+      "renderer": "forward_plus",
+      "sample_duration_seconds": 10.0,
+      "terrain_samples": 305,
+      "test_framework_in_pack": true,
+      "test_sources_in_pack": true,
+      "viewport_size": [
+        1920,
+        1080
+      ],
+      "wind_materials": 479
+    },
+    "editing": {
+      "buildings": 2,
+      "edit_metrics": {
+        "gpu_mean_ms": null,
+        "gpu_p95_ms": null,
+        "gpu_samples": 0,
+        "last_worker_terrain_chunks": 2,
+        "local_lights": 0,
+        "main_apply_max_ms": 5.861,
+        "main_apply_p95_ms": 5.861,
+        "main_apply_samples": 20,
+        "probe_edits": 20
+      },
+      "engine": "4.7.2-stable (official)",
+      "frames": 1200,
+      "instances": 19,
+      "mean_frame_ms": 8.34648861111112,
+      "p95_frame_ms": 8.33333333333333,
+      "paths": 1,
+      "pond_present": true,
+      "renderer": "forward_plus",
+      "sample_duration_seconds": 10.0,
+      "terrain_samples": 305,
+      "test_framework_in_pack": true,
+      "test_sources_in_pack": true,
+      "viewport_size": [
+        1920,
+        1080
+      ],
+      "wind_materials": 479
+    }
+  }
+}

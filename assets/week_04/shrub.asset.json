@@ -1,0 +1,15 @@
+{
+  "asset_id": "NAT-06",
+  "source": "art_source/week_04/shrub.blend",
+  "export": "assets/week_04/shrub.glb",
+  "units": "meters",
+  "blender": "5.1.2",
+  "up_axis": "gltf_y_up",
+  "triangles": 400,
+  "sockets": [
+    "socket_ground"
+  ],
+  "stage": "w04_source",
+  "source_license": "Project original; authored by Blender script",
+  "supersedes": "week_03"
+}

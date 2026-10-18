@@ -10,9 +10,9 @@ config_version=5
 
 [application]
 
-config/name="风栖小筑 · Week 03"
-config/version="0.3.0-w03"
-run/main_scene="res://app/week_three_root.tscn"
+config/name="风栖小筑 · Week 04"
+config/version="0.4.0-w04"
+run/main_scene="res://app/week_four_root.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://assets/icon.svg"
 

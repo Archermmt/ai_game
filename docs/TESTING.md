@@ -3,7 +3,7 @@
 ## 当前可执行门槛
 
 ```bash
-python3 tools/quality/run_checks.py --week 3 --negative-control
+python3 tools/quality/run_checks.py --week 4 --negative-control
 ```
 
 按顺序执行锁定引擎导入、格式、lint、资源契约、GUT、各周两个独立进程的保存/重载，
@@ -31,8 +31,8 @@ python3 tools/quality/run_checks.py --week 3 --negative-control
 | W11 | 既有全部 | 冻结包十人体验、反馈缺陷回归；不以新增需求挤掉可靠性验证 |
 | W12 | 既有全部 | 最终包全新解压、Windows实机、许可/哈希/操作说明、保存重启摄影退出 |
 
-W01 / W02 / W03 已注册并实际执行；W03 命令顺序运行三周全部回归。W04–12 仍是计划，当前传入
-`--week 4` 会明确失败。以后新增周次必须注册 gate 并保留既有回归，不能只增加一个空目录。
+W01–W04 已注册并实际执行；W04 命令顺序运行四周全部回归。W05–12 仍是计划，当前传入
+`--week 5` 会明确失败。以后新增周次必须注册 gate 并保留既有回归，不能只增加一个空目录。
 
 ## 四类证据分开
 
@@ -83,3 +83,23 @@ W03 新增 42 项：参数极值 / 几何法线 / 米制 UV、连续尺寸预览
 可见验证检查四向 / LOD1 / 黄昏 / 建筑极值场景、风动与零风 / 减少动态像素对照、迎光水面不过曝像素检查，
 并记录单池显示 / 隐藏的 1080p 帧时间。GPU 计时不可用时明确标记 unavailable，不能把 0 当成无开销。
 Blender 审计需重开三周 22 份模型源、8 个基础材质图及 2K 共享图集节点。
+
+
+## W04 专项命令
+
+```bash
+python3 tools/quality/run_checks.py --week 4 --negative-control
+python3 tools/quality/week_four_render_checks.py
+python3 tools/quality/export_smoke.py --week 4
+python3 tools/quality/clean_checkout.py --week 4
+```
+
+W04 新增 50 项：曲线控制点 / 路宽 / 距离高差 / 复用门 / 最后一条供门路径删除 / 锁定保留 / 手窗优先，
+手放五开口、跨 UI 松键、取消和准备失败回滚；地形平滑恢复 / 核心边界 / 池域与入口保护 / 3m 支撑；
+64 块缓存、邻接采样 halo / 改池删池失效 / 全量结果一致；五自然资源及道具源件、根 / 挂点风权重、
+坡面贴地、最近四灯与连续光照；围栏开工数据 / 路径开口；以及新工具下的 Option 环绕与捏合隔离。
+
+源变更须重开三周原件及 W04 九件，当前共 31 份模型源。每次可见验收记录日暮 / 四向 / 资源近景、
+路门与基座演示、零风 / 减少动态像素对照及 20 笔编辑。图形验证与 headless 回归分开执行。
+缓存是精确源签名和原始数组；主线程缓存与单 worker 缓存分离，不能从两条线程并发写同一字典。
+最终全场压力与 Windows 真机仍独立验收。

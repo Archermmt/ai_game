@@ -397,6 +397,7 @@ func _finish_smoke() -> void:
 						or ResourceLoader.exists(
 							"res://tests/week_03/test_week_three_playground.gd"
 						)
+						or ResourceLoader.exists("res://tests/week_04/test_week_four_playground.gd")
 					),
 					"frames": _benchmark.size(),
 					"sample_duration_seconds": _benchmark_seconds,

@@ -1,0 +1,14 @@
+{
+  "asset_id": "PROP-02",
+  "source": "art_source/week_04/mailbox.blend",
+  "export": "assets/week_04/mailbox.glb",
+  "units": "meters",
+  "blender": "5.1.2",
+  "up_axis": "gltf_y_up",
+  "triangles": 648,
+  "sockets": [
+    "socket_ground"
+  ],
+  "stage": "w04_source",
+  "source_license": "Project original; authored by Blender script"
+}

@@ -156,17 +156,25 @@ func _rebuild_instances(snapshot: Dictionary) -> void:
 			_instance_views[key] = view
 			_instance_kinds[key] = item["asset_id"]
 		var p: Array = item["position"]
-		view.position = Vector3(
+		var next_position: Vector3 = Vector3(
 			p[0],
 			(
 				p[1]
 				+ _field.height_at(Vector2(p[0], p[2]))
-				+ (0.0 if is_tree else 0.4 * float(item["scale"]))
+				+ (
+					0.0
+					if is_tree or item["asset_id"] != "grey_prop"
+					else 0.4 * float(item["scale"])
+				)
 			),
 			p[2]
 		)
-		view.scale = Vector3.ONE * float(item["scale"])
-		view.rotation.y = item["yaw"]
+		if view.position != next_position:
+			view.position = next_position
+		if view.scale != Vector3.ONE * float(item["scale"]):
+			view.scale = Vector3.ONE * float(item["scale"])
+		if view.rotation.y != item["yaw"]:
+			view.rotation.y = item["yaw"]
 		if is_tree:
 			_tree_views[key] = view
 			for lod: int in range(2):
@@ -179,7 +187,9 @@ func _rebuild_instances(snapshot: Dictionary) -> void:
 	_set_wind(snapshot["environment"]["reduce_motion"])
 	for material: ShaderMaterial in wind_materials:
 		material.set_shader_parameter("wind_strength", snapshot["environment"]["wind_strength"])
-		material.set_shader_parameter("wind_direction", 0.4)
+		material.set_shader_parameter(
+			"wind_direction", snapshot["environment"].get("wind_direction", 0.4)
+		)
 	_show_selection()
 
 

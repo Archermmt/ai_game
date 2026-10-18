@@ -66,10 +66,18 @@ static func validate_paths(snapshot: Dictionary, existing: Dictionary) -> String
 			if absf(float(point[0])) > 24 or absf(float(point[2])) > 24:
 				return "path_outside_bounds"
 		var width: Variant = path.get("width")
+		if path.has("curved") and not path["curved"] is bool:
+			return "invalid_path_curve"
 		if not (width is float or width is int) or width < 0.5 or width > 3:
 			return "invalid_path_width"
 	for building: Dictionary in snapshot["buildings"]:
 		for opening: Dictionary in building["openings"]:
 			if opening.has("source_path") and not path_ids.has(opening["source_path"]):
 				return "invalid_opening_path_reference"
+			if opening.has("source_paths"):
+				if not opening["source_paths"] is Array:
+					return "invalid_opening_path_reference"
+				for key: Variant in opening["source_paths"]:
+					if not key is String or not path_ids.has(key):
+						return "invalid_opening_path_reference"
 	return ""

@@ -1,0 +1,15 @@
+{
+  "asset_id": "NAT-08",
+  "source": "art_source/week_04/moss_rock.blend",
+  "export": "assets/week_04/moss_rock.glb",
+  "units": "meters",
+  "blender": "5.1.2",
+  "up_axis": "gltf_y_up",
+  "triangles": 100,
+  "sockets": [
+    "socket_ground"
+  ],
+  "stage": "w04_source",
+  "source_license": "Project original; authored by Blender script",
+  "supersedes": "week_03"
+}

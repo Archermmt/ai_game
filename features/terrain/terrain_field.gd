@@ -5,10 +5,14 @@ extends RefCounted
 var spacing: float = 0.5
 var heights: Dictionary = {}
 var pool: Dictionary = {}
+var forest_profile: bool = false
+var forest_phase: float = 0.0
 
 
 func _init(snapshot: Dictionary) -> void:
 	spacing = float(snapshot["terrain"].get("spacing", 0.5))
+	forest_profile = snapshot["terrain"].get("base_profile", "flat") == "forest_slope_v1"
+	forest_phase = float(str(snapshot["world_seed"]).hash() % 10000) * 0.001
 	for entry: Array in snapshot["terrain"]["height_deltas"]:
 		heights[Vector2i(int(entry[0]), int(entry[1]))] = float(entry[2])
 	pool = snapshot.get("pool", {}).duplicate(true)
@@ -24,7 +28,13 @@ func player_height(point: Vector2) -> float:
 	var b: float = lerpf(
 		heights.get(cell + Vector2i.DOWN, 0.0), heights.get(cell + Vector2i.ONE, 0.0), fraction.x
 	)
-	return lerpf(a, b, fraction.y)
+	return base_height(point) + lerpf(a, b, fraction.y)
+
+
+func base_height(point: Vector2) -> float:
+	if not forest_profile:
+		return 0.0
+	return -0.15 + 0.06 * sin(point.x * 0.1 + forest_phase) * cos(point.y * 0.13) + point.x * 0.002
 
 
 func height_at(point: Vector2) -> float:
@@ -115,6 +125,8 @@ static func validate(snapshot: Dictionary) -> String:
 	var step: Variant = terrain.get("spacing", 0.5)
 	if not (step is float or step is int) or step not in [0.25, 0.5]:
 		return "invalid_spacing"
+	if terrain.get("base_profile", "flat") not in ["flat", "forest_slope_v1"]:
+		return "invalid_base_profile"
 	var occupied: Dictionary = {}
 	for entry: Array in terrain["height_deltas"]:
 		var key: Vector2i = Vector2i(int(entry[0]), int(entry[1]))

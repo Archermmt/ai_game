@@ -59,6 +59,7 @@ static func reattach(
 			opening["attachment_id"] = attachment_id
 			opening["source"] = "manual"
 			opening.erase("source_path")
+			opening.erase("source_paths")
 			opening["facade"] = 0 if building["shape"] == "round" else facade
 			building["openings"].append(opening)
 			draft["attachments"].remove_at(index)
