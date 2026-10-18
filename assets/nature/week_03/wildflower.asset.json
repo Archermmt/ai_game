@@ -1,0 +1,14 @@
+{
+  "asset_id": "NAT-05",
+  "source": "art_source/week_03/wildflower.blend",
+  "export": "assets/nature/week_03/wildflower.glb",
+  "blender": "5.1.2",
+  "units": "meters",
+  "up_axis": "gltf_y_up",
+  "triangles": 14,
+  "sockets": [
+    "socket_ground"
+  ],
+  "stage": "w03_draft_pending_w04_finish",
+  "source_license": "Project original; authored by project Blender script"
+}

@@ -6,6 +6,8 @@ signal state_published(snapshot: Dictionary, prepared: Dictionary)
 
 enum Phase { IDLE, PREVIEW, PENDING_COMMIT }
 
+const MAX_SOURCE_BYTES: int = 1048576
+
 var document: WorldDocument
 var phase: Phase = Phase.IDLE
 var preview: Dictionary = {}
@@ -156,6 +158,9 @@ func dispose() -> void:
 
 
 func _prepare(candidate: Dictionary, prepare: Callable) -> Dictionary:
+	# 50 commands, two snapshots each: bounded to 100 MiB of serialized source.
+	if JSON.stringify(candidate).to_utf8_buffer().size() > MAX_SOURCE_BYTES:
+		return {"ok": false, "error": "history_source_budget"}
 	var validation: String = WorldDocument.validate(candidate)
 	if not validation.is_empty():
 		return {"ok": false, "error": validation}

@@ -38,8 +38,10 @@ func _ready() -> void:
 	title.add_theme_font_size_override("font_size", 22)
 	stack.add_child(title)
 	var subtitle: Label = Label.new()
-	subtitle.text = "WEEK 02 · 地形与编辑样板" if week == 2 else "WEEK 01 · 工程与建造原型"
+	subtitle.text = "WEEK 02 · 地形与编辑样板" if week >= 2 else "WEEK 01 · 工程与建造原型"
 	subtitle.add_theme_color_override("font_color", Color("748371"))
+	if week == 3:
+		subtitle.text = "WEEK 03 · 建筑与林间素材"
 	stack.add_child(subtitle)
 	var rows: Array = [
 		[["rect", "矩形小屋"], ["round", "圆形小屋"]],
@@ -47,7 +49,7 @@ func _ready() -> void:
 		[["save", "保存"], ["load", "读取"], ["camera", "复位视角"]],
 		[["light", "日间 / 黄昏"], ["wind", "风动开关"]],
 	]
-	if week == 2:
+	if week >= 2:
 		(
 			rows
 			. append_array(
@@ -85,7 +87,7 @@ func _ready() -> void:
 		+ "滚轮/双指捏合或滑动缩放 · F 复位\n⌘/Ctrl+Z 撤销 · ⇧+Z 重做\n"
 		+ "⌘/Ctrl+S 保存 · ⌘/Ctrl+O 读取"
 	)
-	if week == 2:
+	if week >= 2:
 		help.text = "选择灰模后可移动/旋转/复制\nCtrl/Cmd+点选多选 · 红/蓝杆锁轴\n" + help.text
 	help.add_theme_color_override("font_color", Color("657260"))
 	stack.add_child(help)

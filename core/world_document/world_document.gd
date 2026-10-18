@@ -142,6 +142,9 @@ static func validate(candidate: Dictionary) -> String:
 		for b: int in range(a + 1, candidate["buildings"].size()):
 			if PlacementRules.overlaps(candidate["buildings"][a], candidate["buildings"][b]):
 				return "building_overlap"
+	var attachment_error: String = BuildingEdits.validate_attachments(candidate, ids)
+	if not attachment_error.is_empty():
+		return attachment_error
 	var instance_error: String = InstanceEdits.validate(candidate, ids)
 	if not instance_error.is_empty():
 		return instance_error

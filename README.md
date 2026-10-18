@@ -1,9 +1,9 @@
 # 风栖小筑 · Godot MVP
 
-第二周可运行技术样板：拖建矩形 / 圆形小屋，刷坡、画圆池，并放置 / 多选编辑灰模物件。
-地形与池岸分层保存，后台计算完成后原子提交；门窗真实开洞与风动导入继续保留。
-开发进度见 [STATUS.md](STATUS.md)，详细验收见 [W02 报告](docs/weekly/week_02/README.md)。
-当前有笔触化基础材质和两种窗的源模型；正式树木 LOD / 图集、任意池岸编辑和完整建筑编辑仍按后续排期实现。
+第三周可运行样板：矩形 / 圆形小屋可选中并预览修改尺寸、檐高；支持批量删除、门窗待附着恢复、可撤销的恢复初始布局。
+场景接入三树及 LOD、2K 共享植被图集、浅岸静水与石径笔刷初版，保留地形 / 圆池 / 灰模编辑及 Mac 手势。
+开发进度见 [STATUS.md](STATUS.md)，验收见 [W03 报告](docs/weekly/week_03/README.md)。
+跨 W04 的曲线石径、灌草岩石精修、支撑收边与风场整合继续按计划；当前仍非完整 MVP。
 
 ## 运行
 
@@ -12,7 +12,7 @@
 
 ```bash
 python3 tools/quality/bootstrap.py
-python3 tools/quality/run_checks.py --week 2 --negative-control
+python3 tools/quality/run_checks.py --week 3 --negative-control
 python3 tools/quality/run_game.py
 ```
 
@@ -30,25 +30,27 @@ python3 tools/quality/run_game.py
 | 存档 / 读档 | Ctrl/Cmd+S / Ctrl/Cmd+O；或按钮 |
 | 日暮色 / 减少动态 | 左侧按钮 |
 
-建筑宽深 3–12m、高 2.4–7.2m；当前拖建高度固定，旋转仅支持 0°。
+建筑宽深 3–12m、高 2.4–7.2m；拖建时默认高 3m，右侧属性面板可连续改尺寸与檐高后提交；建筑旋转仅支持 0°。
 重叠放置被拒绝，相切 / 同朝向侧贴可通过数据检查；接触墙消隐与端部封边已有风险实现；正式局部屋檐与木石收边继续后续任务。
-存档位置为 Godot `user://week_02/forest.wgs`，包含校验及一个备份，不是完整五存档产品界面。
+存档位置为 Godot `user://week_03/forest.wgs`，包含校验及一个备份，不是完整五存档产品界面。
 
 ## 测试与导出
 
 ```bash
 # 自动化回归、格式、lint、资源契约、跨进程重启与失败注入
-python3 tools/quality/run_checks.py --week 2 --negative-control
+python3 tools/quality/run_checks.py --week 3 --negative-control
 # 有桌面 GPU 的机器：真实风效图像比较、日暮色截图及两渲染器采样
-python3 tools/quality/render_checks.py
+python3 tools/quality/week_three_render_checks.py
 # 本机 macOS：取匹配的桌面模板、注册、导出并实际启动 macOS 包
 python3 tools/quality/fetch_desktop_runtime.py --templates-only
 python3 tools/quality/install_desktop_templates.py
-python3 tools/quality/export_smoke.py --week 2
+python3 tools/quality/export_smoke.py --week 3
+# 提交后，从无导入缓存的 Git 归档复测
+python3 tools/quality/clean_checkout.py --week 3
 ```
 
 导入、导出以及质量检查按顺序运行，避免两个编辑器进程同时修改同一 `.godot/`。
-自动报告输出到 `reports/`；试玩包位于 `builds/week_02/windows/` 和 `builds/week_02/macos/`。
+自动报告输出到 `reports/`；试玩包位于 `builds/week_03/windows/` 和 `builds/week_03/macos/`。
 macOS 包是本地未公证开发包。Windows EXE 导出成功仍需 Windows 设备完成可见交互验证。
 CI 已配置 Ubuntu / Windows 自动回归，尚未推送远程触发。
 每周新增功能必须补测试并保留既有回归，见 [测试约定](docs/TESTING.md)。
@@ -56,9 +58,9 @@ CI 已配置 Ubuntu / Windows 自动回归，尚未推送远程触发。
 ## 模块与资源
 
 - `app/`：试玩组合根；`core/`：源数据、放置约束和事务。
-- `features/`：建筑网格、轨道相机、存档与风着色器；`ui/`：W01 操作面板。
-- `tests/week_01/` 与 `week_02/`：累计 GUT 回归和独立进程探针；`tools/quality/`：可复现质量命令。
-- `art_source/week_01/` 与 `week_02/`：模型、纹理与材质库源文件；`assets/`：GLB、贴图和导入配置。
+- `features/`：建筑网格、轨道相机、存档与风着色器；`ui/`：操作面板与建筑属性 / 恢复面板。
+- `tests/week_01/`–`week_03/`：累计 GUT 回归和独立进程探针；`tools/quality/`：可复现质量命令。
+- `art_source/week_01/`–`week_03/`：模型、纹理与材质库源文件；`assets/`：GLB、贴图和导入配置。
 - `docs/`：已批准 PRD、开发计划、每周证据与许可。
 
 Blender 5.1.2 为唯一主模型源，三种门与树 / 布 / 长凳样板，以及 W02 窗 / 树初稿 / 笔触纹理可分别重建：
@@ -66,6 +68,7 @@ Blender 5.1.2 为唯一主模型源，三种门与树 / 布 / 长凳样板，以
 ```bash
 /Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python tools/art/build_week_one_assets.py -- --root "$PWD"
 /Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python tools/art/build_week_two_assets.py -- --root "$PWD"
+/Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python tools/art/build_week_three_assets.py -- --root "$PWD"
 ```
 
 Windows / Linux 改用当地 Blender 路径。Three.js 暂未引入；GUT 9.7.1 已随源码保存。
@@ -74,7 +77,7 @@ Windows / Linux 改用当地 Blender 路径。Three.js 暂未引入；GUT 9.7.1 
 修改源资产后还需在 Blender 中重新打开检查（报告目录先由质量命令建立）：
 
 ```bash
-/Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python tools/art/audit_sources.py -- --root "$PWD" --output "$PWD/reports/week_02_source_audit.json"
+/Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python tools/art/audit_sources.py -- --root "$PWD" --output "$PWD/reports/week_03_source_audit.json"
 ```
 
 ## W02 新操作与边界
@@ -91,3 +94,20 @@ Windows / Linux 改用当地 Blender 路径。Three.js 暂未引入；GUT 9.7.1 
 圆池、灰模物件和全场重建是 W02 风险样板；完整曲线池岸/路径工具、局部依赖图和预算化提交不是本周完成项。
 仅用于验收的演示：`python3 tools/quality/run_game.py -- --contact-demo --low-angle`，
 或 `--road-demo` 查看单笔路径→门的窄范围契约样板。该演示不代表完整路径编辑已开放。
+
+
+## W03 操作
+
+- 右侧列表选小屋，Cmd/Ctrl 多选；调整宽度、檐高、进深后点“提交尺寸”。圆屋进深始终等于直径。Esc 取消预览。
+- “删除所选小屋”一次记录一条历史；手放门窗保留在“待重新附着”列表。选列表中的门窗与目标小屋，再点重新附着；冲突时保留原态。
+- “恢复初始布局”可撤销，不清空历史；读取存档会开始新的历史会话。
+- “画石径”在草地拖动，路宽 0.5–3m；坡面投影、交汇去重、建筑内隐藏和水域避让已接入。曲线控制点编辑、联动生门继续 W04。
+- 自然树实例可复用“选择灰模 / 移动”等入口编辑，复制保留树种；正式分类种树笔刷仍是 W06。
+- 右上角可收起小屋面板。参数极值检查场景可用 Godot 打开 `app/building_parameter_gallery.tscn`，或运行：
+
+```bash
+.tools/godot/Godot.app/Contents/MacOS/Godot --path . res://app/building_parameter_gallery.tscn
+```
+
+每周包分目录保存，旧存档未自动迁移到 W03 槽；数据结构仍兼容 W01/W02 源数据。当前 50 条历史、每份源快照最多 1MiB JSON，
+超限整笔拒绝。历史仅保存源参数，生成网格不进入历史或存档。详细内存策略与性能限制见 W03 报告。

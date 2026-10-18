@@ -25,10 +25,17 @@ static func evaluate(snapshot: Dictionary) -> Dictionary:
 				direction /= maxf(absf(direction.x), absf(direction.y))
 			var point: Vector2 = Vector2(p[0], p[2]) + direction * Vector2(size[0], size[2]) * 0.5
 			minimum = minf(minimum, field.height_at(point))
-		result["supports"].append({"bottom": minimum, "floor": float(p[1])})
+		result["supports"].append(
+			{
+				"bottom": minimum,
+				"floor": float(p[1]),
+				"perimeter": SupportGeometry.perimeter(building, field)
+			}
+		)
 	for z: int in range(-32, 32, 8):
 		for x: int in range(-32, 32, 8):
 			result["terrain_arrays"].append(TerrainGeometry.chunk(field, Vector2(x, z)))
+	result["path_arrays"] = PathGeometry.arrays(snapshot)
 	return result
 
 
@@ -50,4 +57,7 @@ static func materialize(data: Dictionary, cache: Dictionary = {}) -> Dictionary:
 			else:
 				result[mesh_key].append(BuildingGeometry.mesh_from_arrays(data[array_key][index]))
 		result[array_key] = data[array_key]
+	result["path_mesh"] = null
+	if data.get("path_arrays", []).size() > 0 and data["path_arrays"][Mesh.ARRAY_VERTEX].size() > 0:
+		result["path_mesh"] = BuildingGeometry.mesh_from_arrays(data["path_arrays"])
 	return result

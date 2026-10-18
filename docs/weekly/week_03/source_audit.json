@@ -1,0 +1,123 @@
+{
+  "blender": "5.1.2",
+  "sources": [
+    {
+      "source": "art_source/week_01/door_plank.blend",
+      "mesh_objects": 8,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_01/door_arch.blend",
+      "mesh_objects": 23,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_01/door_glass.blend",
+      "mesh_objects": 11,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_01/tree_sample.blend",
+      "mesh_objects": 7,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_01/cloth_sample.blend",
+      "mesh_objects": 7,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_01/bench_sample.blend",
+      "mesh_objects": 11,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_02/window_rect.blend",
+      "mesh_objects": 8,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_02/window_round.blend",
+      "mesh_objects": 36,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_02/tree_broadleaf.blend",
+      "mesh_objects": 7,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_02/tree_conifer.blend",
+      "mesh_objects": 5,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_02/tree_fruit.blend",
+      "mesh_objects": 16,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_03/tree_broadleaf.blend",
+      "mesh_objects": 19,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_03/tree_broadleaf_lod1.blend",
+      "mesh_objects": 19,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_03/tree_conifer.blend",
+      "mesh_objects": 6,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_03/tree_conifer_lod1.blend",
+      "mesh_objects": 6,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_03/tree_fruit.blend",
+      "mesh_objects": 31,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_03/tree_fruit_lod1.blend",
+      "mesh_objects": 31,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_03/fern.blend",
+      "mesh_objects": 7,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_03/wildflower.blend",
+      "mesh_objects": 7,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_03/shrub.blend",
+      "mesh_objects": 4,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_03/moss_rock.blend",
+      "mesh_objects": 1,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_03/flat_rock.blend",
+      "mesh_objects": 1,
+      "passed": true
+    }
+  ],
+  "material_library_graphs": 8,
+  "images_reopened": 9,
+  "atlas_graphs": 1,
+  "atlas_resolution": [
+    2048,
+    2048
+  ],
+  "passed": true
+}

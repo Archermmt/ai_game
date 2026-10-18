@@ -11,7 +11,7 @@ parser.add_argument('--output',required=True)
 args=parser.parse_args(sys.argv[sys.argv.index('--')+1:])
 root=Path(args.root).resolve()
 records=[]
-for week in [1,2]:
+for week in [1,2,3]:
     manifest=json.loads((root/f'art_source/week_{week:02d}/manifest.json').read_text())
     for asset in manifest:
         bpy.ops.wm.open_mainfile(filepath=str(root/asset['source']),load_ui=False)
@@ -37,7 +37,14 @@ for entry in material_manifest:
     path=Path(bpy.path.abspath(image.filepath)).resolve()
     assert path==root/entry['source'] and path.is_file(),(entry['name'],str(path))
     assert list(image.size)==entry['resolution'],entry['name']
-result={'blender':bpy.app.version_string,'sources':records,'material_library_graphs':len(material_manifest),
-    'images_reopened':len(material_manifest),'passed':True}
+atlas=root/'art_source/week_03/vegetation_atlas.blend'
+bpy.ops.wm.open_mainfile(filepath=str(atlas),load_ui=False)
+mat=bpy.data.materials.get('shared_vegetation_atlas')
+assert mat and mat.use_fake_user
+img=next(n.image for n in mat.node_tree.nodes if n.type=='TEX_IMAGE')
+assert list(img.size)==[2048,2048]
+assert Path(bpy.path.abspath(img.filepath)).resolve()==root/'art_source/week_03/vegetation_atlas.png'
+result={'blender' :bpy.app.version_string,'sources':records,'material_library_graphs':len(material_manifest),
+    'images_reopened':len(material_manifest)+1,'atlas_graphs':1,'atlas_resolution':[2048,2048],'passed':True}
 Path(args.output).write_text(json.dumps(result,indent=2)+'\n')
 print('SOURCE_AUDIT_PASS',len(records),len(material_manifest))

@@ -14,7 +14,7 @@ from run_checks import run_step
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--week", type=int, default=2, choices=[1, 2])
+    parser.add_argument("--week", type=int, default=3, choices=[1, 2, 3])
     args = parser.parse_args()
     label = f"week_{args.week:02d}"
     if f'config/version="0.{args.week}.0-w{args.week:02d}"' not in (ROOT / "project.godot").read_text():

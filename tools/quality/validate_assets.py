@@ -18,7 +18,7 @@ def main():
         manifest.extend(json.loads((ROOT / f"art_source/week_{week:02d}/manifest.json").read_text()))
     ids = set()
     for asset in manifest:
-        assert asset["asset_id"] not in ids, "duplicate asset ID"
+        assert asset["asset_id"] not in ids or asset.get("supersedes") == "week_02", "duplicate asset ID"
         ids.add(asset["asset_id"])
         assert (ROOT / asset["source"]).is_file(), asset["source"]
         assert asset["triangles"] > 0
@@ -47,6 +47,16 @@ def main():
             assert list(struct.unpack_from(">II", raw, 16)) == material["resolution"]
             assert hashlib.sha256(raw).digest() == hashlib.sha256((ROOT / material["source"]).read_bytes()).digest()
         assert (ROOT / "art_source/week_02/painted_material_library.blend").is_file()
+    if args.week >= 3:
+        expected |= {"NAT-01-LOD1", "NAT-02-LOD1", "NAT-03-LOD1", "NAT-04", "NAT-05", "NAT-06", "NAT-08", "NAT-09"}
+        atlas = json.loads((ROOT / "art_source/week_03/atlas_manifest.json").read_text())
+        raw = (ROOT / atlas["export"]).read_bytes()
+        assert list(struct.unpack_from(">II", raw, 16)) == [2048, 2048]
+        assert raw == (ROOT / atlas["source"]).read_bytes()
+        assert (ROOT / "art_source/week_03/atlas_layers/layers.npz").is_file()
+        for asset in manifest:
+            if asset.get("lod1"):
+                assert asset["triangles"] <= 4000 and asset["lod1_triangles"] < asset["triangles"] * 0.7
     assert expected == ids
     assert (ROOT / "docs/.gdignore").is_file()
     assert (ROOT / "art_source/.gdignore").is_file()

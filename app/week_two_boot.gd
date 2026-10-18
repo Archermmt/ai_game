@@ -301,13 +301,14 @@ func _show_selection() -> void:
 		return
 	_clear_children(gizmo_root)
 	for key: String in _instance_views:
-		var view: MeshInstance3D = _instance_views[key]
+		var view: Node3D = _instance_views[key]
 		if key in tools.selected:
 			var selected_material: StandardMaterial3D = wood_material.duplicate()
 			selected_material.albedo_color = Color("ffd48a")
 			selected_material.emission_enabled = true
 			selected_material.emission = Color(0.1, 0.07, 0.01)
-			view.material_override = selected_material
+			if view is MeshInstance3D:
+				view.material_override = selected_material
 			for axis: Vector3 in [Vector3.RIGHT, Vector3.BACK]:
 				var handle: MeshInstance3D = MeshInstance3D.new()
 				var bar: BoxMesh = BoxMesh.new()
@@ -330,7 +331,7 @@ func _show_selection() -> void:
 				tint.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 				handle.material_override = tint
 				gizmo_root.add_child(handle)
-		else:
+		elif view is MeshInstance3D:
 			view.material_override = wood_material
 
 
@@ -581,7 +582,11 @@ static func _reason(error: String) -> String:
 			"pool_building_safety": "不能放下：池岸与建筑需保留 0.5 米安全带",
 			"pool_manual_instance_safety": "不能改岸：会吞入已放置物件",
 			"opening_on_contact": "不能贴靠：已有门窗被遮挡",
-			"building_overlap": "不能放下：建筑体块重叠"
+			"building_overlap": "不能放下：建筑体块重叠",
+			"history_source_budget": "作品源数据超过当前历史预算，保留原态",
+			"instance_building_collision": "不能放下：会覆盖已放置物件",
+			"invalid_openings": "不能提交：门窗超出可用墙面",
+			"opening_overlap": "不能附着：门窗开口重叠"
 		}
 		. get(error, "不能放下：" + error)
 	)

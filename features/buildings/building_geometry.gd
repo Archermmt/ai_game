@@ -113,6 +113,8 @@ func _wall(
 		var b: float = cuts[index + 1]
 		if b - a < 0.00001:
 			continue
+		_cap(a, b, height, height, facade, width, depth, round_shape, Vector3.UP)
+		_cap(a, b, 0.0, 0.0, facade, width, depth, round_shape, Vector3.DOWN)
 		var active_contacts: Array[Vector2] = []
 		for contact: Rect2 in contacts:
 			if (a + b) * 0.5 > contact.position.x and (a + b) * 0.5 < contact.end.x:
@@ -230,6 +232,7 @@ func _strip(
 	var np: Vector3 = _normal(a, facade, width, depth, round_shape)
 	var nq: Vector3 = _normal(b, facade, width, depth, round_shape)
 	var n: Vector3 = (np + nq).normalized()
+	var first_vertex: int = _vertices.size()
 	_quad(
 		p + Vector3.UP * low_a,
 		q + Vector3.UP * low_b,
@@ -246,6 +249,14 @@ func _strip(
 		-n,
 		PLASTER.darkened(0.18)
 	)
+
+	if round_shape:
+		for index: int in range(first_vertex, _vertices.size()):
+			var point: Vector3 = _vertices[index]
+			var angle: float = atan2(point.x, point.z)
+			if angle < a / (width * 0.5) - 0.001:
+				angle += TAU
+			_uvs[index] = Vector2(angle * Vector2(point.x, point.z).length(), point.y)
 
 
 func _cap(
@@ -283,6 +294,9 @@ func _roof(
 			var p: Vector3 = Vector3(sin(a) * radius, height, cos(a) * radius)
 			var q: Vector3 = Vector3(sin(b) * radius, height, cos(b) * radius)
 			_triangle(p, q, tip, Vector3(sin(a), 0.8, cos(a)).normalized(), ROOF)
+			var drop: Vector3 = Vector3.DOWN * 0.12
+			_triangle(p + drop, tip + drop, q + drop, Vector3.DOWN, ROOF.darkened(0.2))
+			_quad(p, p + drop, q + drop, q, Vector3(sin(a), 0, cos(a)), ROOF.darkened(0.15))
 	else:
 		var w: float = width * 0.5 + (0.0 if trim_x else 0.35)
 		var d: float = depth * 0.5 + (0.0 if trim_z else 0.35)
@@ -318,6 +332,38 @@ func _roof(
 			PLASTER
 		)
 
+		# Two closed thin roof prisms, including underside and exposed fascia ends.
+		for side: float in [-1.0, 1.0]:
+			var outer: Vector3 = Vector3(side * w, height, -d)
+			var inner: Vector3 = Vector3(0, ridge, -d)
+			var span: Vector3 = Vector3(0, 0, d * 2.0)
+			var drop: Vector3 = Vector3.DOWN * 0.12
+			_quad(
+				outer + drop,
+				inner + drop,
+				inner + span + drop,
+				outer + span + drop,
+				Vector3.DOWN,
+				ROOF.darkened(0.2)
+			)
+			_quad(
+				outer,
+				outer + span,
+				outer + span + drop,
+				outer + drop,
+				Vector3(side, 0, 0),
+				ROOF.darkened(0.15)
+			)
+			_quad(outer, inner, inner + drop, outer + drop, Vector3.FORWARD, ROOF.darkened(0.12))
+			_quad(
+				outer + span,
+				outer + span + drop,
+				inner + span + drop,
+				inner + span,
+				Vector3.BACK,
+				ROOF.darkened(0.12)
+			)
+
 
 func _quad(a: Vector3, b: Vector3, c: Vector3, d: Vector3, n: Vector3, tint: Color) -> void:
 	_triangle(a, b, c, n, tint)
@@ -327,6 +373,7 @@ func _quad(a: Vector3, b: Vector3, c: Vector3, d: Vector3, n: Vector3, tint: Col
 func _triangle(a: Vector3, b: Vector3, c: Vector3, n: Vector3, tint: Color) -> void:
 	if (b - a).cross(c - a).length_squared() < 0.00000001:
 		return
+	n = (b - a).cross(c - a).normalized() * (-1.0 if (b - a).cross(c - a).dot(n) < 0.0 else 1.0)
 	var points: Array[Vector3] = [a, b, c]
 	if (b - a).cross(c - a).dot(n) > 0.0:
 		points[1] = c
@@ -335,7 +382,11 @@ func _triangle(a: Vector3, b: Vector3, c: Vector3, n: Vector3, tint: Color) -> v
 		_vertices.append(point)
 		_normals.append(n)
 		_colors.append(tint)
-		_uvs.append(Vector2(point.x + point.z, point.y))
+		var tangent: Vector3 = Vector3.UP.cross(n).normalized()
+		if absf(n.y) > 0.99:
+			tangent = Vector3.RIGHT
+		var bitangent: Vector3 = n.cross(tangent).normalized()
+		_uvs.append(Vector2(point.dot(tangent), point.dot(bitangent)))
 
 
 static func _point(u: float, facade: int, width: float, depth: float, rounded: bool) -> Vector3:

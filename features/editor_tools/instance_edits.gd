@@ -102,6 +102,7 @@ static func duplicate_selection(draft: Dictionary, selected: Array[String]) -> A
 		var copy: Dictionary = allocate(draft, Vector3(p[0] + 1, p[1], p[2] + 1))
 		copy["yaw"] = item["yaw"]
 		copy["scale"] = item["scale"]
+		copy["asset_id"] = item["asset_id"]
 		result.append(copy["id"])
 	return result
 
@@ -132,7 +133,7 @@ static func validate(snapshot: Dictionary, existing_ids: Dictionary) -> String:
 			item.get("source") not in ["manual", "brush"]
 			or not item.get("locked") is bool
 			or not item.get("seed") is String
-			or item.get("asset_id") != "grey_prop"
+			or item.get("asset_id") not in ["grey_prop", "NAT-01", "NAT-02", "NAT-03"]
 		):
 			return "invalid_instance_source"
 		for building: Dictionary in snapshot["buildings"]:

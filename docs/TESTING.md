@@ -3,10 +3,10 @@
 ## 当前可执行门槛
 
 ```bash
-python3 tools/quality/run_checks.py --week 2 --negative-control
+python3 tools/quality/run_checks.py --week 3 --negative-control
 ```
 
-按顺序执行锁定引擎导入、格式、lint、资源契约、GUT、两个独立进程的保存/重载，
+按顺序执行锁定引擎导入、格式、lint、资源契约、GUT、各周两个独立进程的保存/重载，
 最后注入一个必失败测试，验证退出码和失败报告确实生效。生成报告在忽略版本管理的
 `reports/`，发布节点将摘要、XML 和必要截图复制到 `docs/weekly/week_XX/`。
 
@@ -31,8 +31,8 @@ python3 tools/quality/run_checks.py --week 2 --negative-control
 | W11 | 既有全部 | 冻结包十人体验、反馈缺陷回归；不以新增需求挤掉可靠性验证 |
 | W12 | 既有全部 | 最终包全新解压、Windows实机、许可/哈希/操作说明、保存重启摄影退出 |
 
-W01 / W02 已注册并实际执行；W02 命令顺序运行两周全部回归。W03–12 仍是计划，当前传入
-`--week 3` 会明确失败。以后新增周次必须注册 gate 并保留既有回归，不能只增加一个空目录。
+W01 / W02 / W03 已注册并实际执行；W03 命令顺序运行三周全部回归。W04–12 仍是计划，当前传入
+`--week 4` 会明确失败。以后新增周次必须注册 gate 并保留既有回归，不能只增加一个空目录。
 
 ## 四类证据分开
 
@@ -48,7 +48,7 @@ CI 工作流对 Ubuntu / Windows 配置同一组自动检查；本地没有远�
 ## W02 专项命令
 
 ```bash
-python3 tools/quality/run_checks.py --week 2 --negative-control
+python3 tools/quality/run_checks.py --week 3 --negative-control
 python3 tools/quality/render_checks.py
 python3 tools/quality/run_game.py -- --edit-benchmark --benchmark-seconds=10 --smoke-output=/absolute/path/edit_metrics.json
 python3 tools/quality/export_smoke.py --week 2
@@ -66,3 +66,20 @@ W02 新增：带实际高度变化的 0.25/0.5m 分块接缝测试、单独池�
 Mac 相机输入增加 6 项视口事件测试：Option+左键环绕不误编辑、Option/Shift 优先级、
 双指捏合方向与边界、双指滚动与精确滚轮、UI 隔离及跨 UI 松键。W02 当前最低 52 项，
 累计最低 94 项；实体触控板操作与事件注入测试区分记录。
+
+
+## W03 专项命令
+
+```bash
+python3 tools/quality/run_checks.py --week 3 --negative-control
+python3 tools/quality/week_three_render_checks.py
+python3 tools/quality/export_smoke.py --week 3
+```
+
+W03 新增 42 项：参数极值 / 几何法线 / 米制 UV、连续尺寸预览 / 取消 / 失败回滚、批量删父对象与门窗恢复、
+附着冲突、50 条历史与分支、源快照容量、树 LOD / 图集 / 根与果实风权重、稳定实例映射、石径贴坡 / 交汇去重 / 避水 / 建筑内隐藏，
+以及 W03 的实际 UI 多选、鼠标石径和 Mac 手势。独立进程检查包含待附着门窗、树种和路径源数据。
+
+可见验证检查四向 / LOD1 / 黄昏 / 建筑极值场景、风动与零风 / 减少动态像素对照、迎光水面不过曝像素检查，
+并记录单池显示 / 隐藏的 1080p 帧时间。GPU 计时不可用时明确标记 unavailable，不能把 0 当成无开销。
+Blender 审计需重开三周 22 份模型源、8 个基础材质图及 2K 共享图集节点。
