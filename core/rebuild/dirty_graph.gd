@@ -8,6 +8,8 @@ static func key(value: Variant) -> String:
 
 
 static func bounds(record: Dictionary) -> Rect2:
+	if record.has("hedge"):
+		return HedgeRules.bounds(record)
 	if record.has("points"):
 		var first: Array = record["points"][0]
 		var result: Rect2 = Rect2(Vector2(first[0], first[2]), Vector2.ZERO)

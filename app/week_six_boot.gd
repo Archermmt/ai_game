@@ -474,3 +474,15 @@ func _apply_render_flags() -> void:
 					"wind_strength", argument.trim_prefix("--wind-strength=").to_float()
 				)
 	_advance_light(0)
+
+
+func _instance_signature(item: Dictionary, _snapshot: Dictionary) -> String:
+	return DirtyGraph.key([item["asset_id"], item["id"]])
+
+
+func _instance_view(item: Dictionary, _snapshot: Dictionary) -> Node3D:
+	return WeekSixCatalog.create(item["asset_id"], item["id"], wood_material, stone_material)
+
+
+func _decorated_building_view(home: Dictionary, mesh: ArrayMesh, _snapshot: Dictionary) -> Node3D:
+	return _building_view(home, mesh)

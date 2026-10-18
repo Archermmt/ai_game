@@ -6,6 +6,7 @@ uniform float wind_direction = 0.4;
 uniform float amplitude = 0.16;
 uniform float phase = 0.0;
 uniform bool batched = false;
+uniform vec4 foliage_tint : source_color = vec4(1.0);
 uniform bool reduce_motion = false;
 uniform bool freeze_time = false;
 uniform float sample_time = 0.0;
@@ -20,7 +21,7 @@ void vertex() {
 }
 void fragment() {
     vec4 paint = texture(atlas, UV);
-    ALBEDO = mix(paint.rgb, vec3(0.66, 0.29, 0.12), fruit);
+    ALBEDO = mix(paint.rgb * foliage_tint.rgb, vec3(0.66, 0.29, 0.12), fruit);
     ALPHA = paint.a;
     ALPHA_SCISSOR_THRESHOLD = 0.45;
     ROUGHNESS = 0.94;

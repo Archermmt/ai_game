@@ -88,6 +88,8 @@ static func validate(candidate: Dictionary) -> String:
 			return "invalid_environment"
 	if candidate["environment"].has("aged") and not candidate["environment"]["aged"] is bool:
 		return "invalid_environment"
+	if not GardenPalette.valid(candidate["environment"].get("palette", {})):
+		return "invalid_palette"
 	var wind: Variant = candidate["environment"].get("wind_strength")
 	if not _number(wind) or wind < 0.0 or wind > 1.0:
 		return "invalid_environment"

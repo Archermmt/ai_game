@@ -1,0 +1,122 @@
+{
+  "passed": true,
+  "native_material_thumbnails": [
+    {
+      "id": "plaster_cream",
+      "sha256": "988e04af7caf25780a533618b5c9ee3597753fbb6a9c788461ce717b1433d360",
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "plaster_rose",
+      "sha256": "2ac7e7d7bcf0fb8e70115634fce3cccaa8c7191b6fa8d073dfa5d9d008c6b597",
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "wood_honey",
+      "sha256": "84e78877fa692d37098bd6e78f39b74febae839abc2a3d431c06719cafba0582",
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "wood_walnut",
+      "sha256": "1c1dcc640007db4b83cb70eefd3ef1870a1a5f1a2d8465033aa560d24ba7c1e6",
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "wood_sage",
+      "sha256": "cbfa0bc3a258ce4758c6f0746ae88e0be93cf7327ac6c98353362c9015ac78cc",
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "roof_terracotta",
+      "sha256": "34ef8f3257bc015528d947b2fc3ebc21ac19f8223bfbb8e191379f699f7e28df",
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "roof_smoke",
+      "sha256": "201b8583d12e8c861d4551b039724c6a690ec4ab27ed3db52bcdcf2541fde54e",
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "stone_grey",
+      "sha256": "99f2352aedd56220c2023146be9c5adada5d86fac6bda7e87dc1a0dc470a7e59",
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "stone_moss",
+      "sha256": "37f3de8aee32c702e4f1ced9df156096dc17afbe94c60a701c1dc069f5b6b0b2",
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "stone_sand",
+      "sha256": "ce76468277371cd5f02d9a49dac09586839820b7642ccc4830147f1a848ee820",
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "foliage_spring",
+      "sha256": "c5678c802158229ad53b5114c941d1969cef903920e87821688a87b86501c74d",
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "foliage_deep",
+      "sha256": "fa1f3dd2045fcff2cce32d339858fccf58765327f54243cb99a6d8c567633109",
+      "size": [
+        96,
+        96
+      ]
+    }
+  ],
+  "wrappers": [
+    "features/assets/wrappers/nat_01.tscn",
+    "features/assets/wrappers/nat_02.tscn",
+    "features/assets/wrappers/nat_03.tscn",
+    "features/assets/wrappers/nat_04.tscn",
+    "features/assets/wrappers/nat_05.tscn",
+    "features/assets/wrappers/nat_06.tscn",
+    "features/assets/wrappers/nat_07.tscn",
+    "features/assets/wrappers/nat_08.tscn",
+    "features/assets/wrappers/nat_09.tscn",
+    "features/assets/wrappers/prop_01.tscn",
+    "features/assets/wrappers/prop_02.tscn",
+    "features/assets/wrappers/prop_03.tscn",
+    "features/assets/wrappers/prop_04.tscn",
+    "features/assets/wrappers/prop_05.tscn",
+    "features/assets/wrappers/prop_06.tscn",
+    "features/assets/wrappers/prop_07.tscn",
+    "features/assets/wrappers/prop_08.tscn"
+  ],
+  "budget_models_checked": 24,
+  "scope": "Existing source models reused; no new model families; NAT-07 generated from shared NAT-06 meshes/UVs."
+}

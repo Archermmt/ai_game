@@ -12,7 +12,7 @@ third-party acknowledgements are available at <https://godotengine.org/license/>
 Export bundles must include the Godot license notice. Blender does not impose its
 software license on original artwork created using it.
 
-Week 1–6 `.blend`, GLB models, painted-source PNGs and their Python generators are original project assets;
+Week 1–7 `.blend`, GLB models, painted-source PNGs and their Python generators are original project assets;
 they do not incorporate third-party models, demo textures or optional add-on output.
 Concept images in `docs/` remain design references and are excluded from game exports.
 
@@ -30,3 +30,6 @@ Hash and origin are recorded in `assets/fonts/manifest.json`.
 Week 6 tool/feedback SVGs and DSP-generated PCM audio are original project assets,
 with editable SVG and synthesis scripts retained. Audio uses synthesized noise and
 original note sequences, without third-party field recordings, samples or music.
+
+Week 7 continuous circular window and editable material swatches are original project assets.
+Native material thumbnails reuse the project’s original painted textures; no new external artwork is bundled.

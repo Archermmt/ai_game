@@ -23,8 +23,8 @@ func prepare(data: Dictionary, stage: ResourceStage = null) -> Dictionary:
 			"building:" + home["id"],
 			versions["building:" + home["id"]],
 			func() -> Node3D:
-				return owner_root._building_view(
-					home, BuildingGeometry.mesh_from_arrays(data["building_arrays"][i])
+				return owner_root._decorated_building_view(
+					home, BuildingGeometry.mesh_from_arrays(data["building_arrays"][i]), snapshot
 				),
 			payload,
 			jobs,
@@ -93,14 +93,8 @@ func prepare(data: Dictionary, stage: ResourceStage = null) -> Dictionary:
 			continue
 		_unit(
 			"item:" + item["id"],
-			DirtyGraph.key([item["asset_id"], item["id"]]),
-			func() -> Node3D:
-				return WeekSixCatalog.create(
-					item["asset_id"],
-					item["id"],
-					owner_root.wood_material,
-					owner_root.stone_material
-				),
+			owner_root._instance_signature(item, snapshot),
+			func() -> Node3D: return owner_root._instance_view(item, snapshot),
 			payload,
 			jobs,
 			stage

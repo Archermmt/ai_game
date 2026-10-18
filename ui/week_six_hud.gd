@@ -102,6 +102,7 @@ func _ready() -> void:
 	]
 	for entry: Array in asset_entries:
 		assets.add_item(entry[1])
+		assets.set_item_metadata(assets.item_count - 1, entry[0])
 	assets.item_selected.connect(
 		func(index: int) -> void: asset_selected.emit(asset_entries[index][0])
 	)

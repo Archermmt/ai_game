@@ -36,7 +36,12 @@ static func paint(
 			var item: Dictionary = draft["instances"][i]
 			if item["source"] != "brush" or item["locked"] or item["asset_id"] not in assets:
 				continue
-			if point.distance_to(Vector2(item["position"][0], item["position"][2])) <= radius:
+			var distance: float = (
+				HedgeRules.distance(item, point)
+				if item.has("hedge")
+				else point.distance_to(Vector2(item["position"][0], item["position"][2]))
+			)
+			if distance <= radius:
 				draft["instances"].remove_at(i)
 				changed += 1
 		return changed
@@ -129,6 +134,10 @@ static func reconcile(snapshot: Dictionary) -> Dictionary:
 		if item["source"] != "brush" or item["locked"] or not item.has("category"):
 			continue
 		var p: Vector2 = Vector2(item["position"][0], item["position"][2])
-		if not geometry_clear(draft, p):
+		if (
+			not HedgeRules.clearance(draft, item)
+			if item.has("hedge")
+			else not geometry_clear(draft, p)
+		):
 			draft["instances"].remove_at(i)
 	return draft

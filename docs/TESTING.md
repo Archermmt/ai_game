@@ -3,7 +3,7 @@
 ## 当前可执行门槛
 
 ```bash
-python3 tools/quality/run_checks.py --week 6 --negative-control
+python3 tools/quality/run_checks.py --week 7 --negative-control
 ```
 
 按顺序执行锁定引擎导入、格式、lint、资源契约、GUT、各周两个独立进程的保存/重载，
@@ -31,8 +31,8 @@ python3 tools/quality/run_checks.py --week 6 --negative-control
 | W11 | 既有全部 | 冻结包十人体验、反馈缺陷回归；不以新增需求挤掉可靠性验证 |
 | W12 | 既有全部 | 最终包全新解压、Windows实机、许可/哈希/操作说明、保存重启摄影退出 |
 
-W01–W06 已注册：42 + 52 + 42 + 50 + 45 + 68 = **299 项**，执行累计回归。
-W07–12 仍是计划，传入未注册周次会明确失败。新增周次必须注册 gate 并保留既有回归。
+W01–W07 已注册：42 + 52 + 42 + 50 + 45 + 68 + 51 = **350 项**，执行累计回归。
+W08–12 仍是计划，传入未注册周次会明确失败。新增周次必须注册 gate 并保留既有回归。
 
 ## 四类证据分开
 
@@ -140,3 +140,26 @@ W06 新增 68 项，覆盖分类密度/稳定种子/擦除保护、自动植被�
 性能分开记录 worker 计算、分帧资源准备、主线程发布、提交到显示的总延迟；原生调用不可抢占，
 分帧预算是目标而非硬实时承诺。采样设备与场景、GPU 计时有效性必须随报告保留。
 W06 只验收声音资产波形与导入；完整播放、混音、听感签核继续 T063，不能据此宣称声音系统完成。
+
+## W07 专项命令
+
+```bash
+python3 tools/quality/run_checks.py --week 7 --negative-control
+python3 tools/quality/week_seven_render_checks.py
+python3 tools/quality/export_smoke.py --week 7
+python3 tools/quality/clean_checkout.py --week 7
+```
+
+W07 新增 51 项：绿篱短段/端头/转角/缩放/整段擦除/手放保护/控制点/完整区域失效，
+共享网格与 UV、坡面/锁高；17 包装/拾取/挂点、12 材质卡、五开口与极值、共享角柱；
+物件属性提交/拒绝/取消、UI150%、真实鼠标 Dock/绿篱与 Option 隔离、提灯复制/四灯限制，
+新格式 DTO/旧容器/校验/未知版本保护/int64/无效引用与独立进程重启。
+24 个当前手工模型含 LOD 按 PRD 建议预算审计；圆窗优化源额外重开，模型源累计 46 份。
+原生 96px 缩略图须实际渲染后导入；headless 格式检查不能代替图像签核。
+
+Dummy 渲染后端不提供 MultiMesh 变换缓冲读回，自动化验证纯数据布局，
+原生 Metal 单独确认坡面变换范围和可见结果。不得把 Dummy 零值当作 GPU/动画无成本。
+存档格式 2 与源 schema 1 分开，未来格式不能覆盖原文件；完整迁移/多槽/自动保存仍为 W08。
+
+当前 51 实例草案可见编辑存在超过目标的发布/准备尖峰，W08 T054 必须继续剖析；
+功能回归通过不代表最终性能、最低配置或 Windows 可见交互通过。

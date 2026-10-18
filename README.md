@@ -1,10 +1,9 @@
 # 风栖小筑 · Godot MVP
 
-第六周试玩切片：分类植被单放/刷植/擦除、独立密度、分块 MultiMesh 与树木 LOD；
-局部依赖重建、主线程分帧准备后原子发布；茶具/提灯与灯光模式、中文主题和 100–150% UI。
-进度见 [STATUS.md](STATUS.md)，验证见 [W06 报告](docs/weekly/week_06/README.md)。
-木石模块与图标已完成本周交付；绿篱延伸/转角、完整道具属性卡等跨周任务继续 W07。
-17 段原创声音已入库，完整播放/混音按 T063 在 W10 接入。
+第七周试玩切片：底部工具 Dock、八道具属性卡、十二张原生材质选择卡、可拉伸/转角绿篱，
+接入正式开口与木构套件、资源包装与拾取挂点。进度见 [STATUS.md](STATUS.md)，
+验证见 [W07 报告](docs/weekly/week_07/README.md)。
+默认进入可编辑的林间坡地示范草案；完整场景签核与存档可靠性继续 W08，摄影与混音维持后续排期。
 
 ## 运行
 
@@ -13,7 +12,7 @@
 
 ```bash
 python3 tools/quality/bootstrap.py
-python3 tools/quality/run_checks.py --week 6 --negative-control
+python3 tools/quality/run_checks.py --week 7 --negative-control
 python3 tools/quality/run_game.py
 ```
 
@@ -35,25 +34,25 @@ python3 tools/quality/run_game.py
 
 建筑宽深 3–12m、高 2.4–7.2m；拖建时默认高 3m，右侧属性面板可连续改尺寸与檐高后提交；建筑旋转仅支持 0°。
 重叠放置被拒绝，相切 / 同朝向侧贴可通过数据检查；接触墙消隐与端部封边已有风险实现；正式局部屋檐与木石收边继续后续任务。
-存档位置为 Godot `user://week_06/forest.wgs`，包含校验及一个备份；精确浮点封装保证种子、地形采样和支撑高度跨进程一致，兼容旧 JSON 容器。完整五存档界面在后续排期。
+当前存档位置为 Godot `user://week_07/forest.wgs`，WGLADE02 单容器包含元信息、压缩源数据及一个备份；保持浮点位值与整数类型，兼容旧 WGLADE01。完整五存档界面在后续排期。
 
 ## 测试与导出
 
 ```bash
 # 自动化回归、格式、lint、资源契约、跨进程重启与失败注入
-python3 tools/quality/run_checks.py --week 6 --negative-control
+python3 tools/quality/run_checks.py --week 7 --negative-control
 # 有桌面 GPU 的机器：真实风效、日暮/资源四向与可见编辑采样
-python3 tools/quality/week_six_render_checks.py
+python3 tools/quality/week_seven_render_checks.py
 # 本机 macOS：取匹配的桌面模板、注册、导出并实际启动 macOS 包
 python3 tools/quality/fetch_desktop_runtime.py --templates-only
 python3 tools/quality/install_desktop_templates.py
-python3 tools/quality/export_smoke.py --week 6
+python3 tools/quality/export_smoke.py --week 7
 # 提交后，从无导入缓存的 Git 归档复测
-python3 tools/quality/clean_checkout.py --week 6
+python3 tools/quality/clean_checkout.py --week 7
 ```
 
 导入、导出以及质量检查按顺序运行，避免两个编辑器进程同时修改同一 `.godot/`。
-自动报告输出到 `reports/`；试玩包位于 `builds/week_06/windows/` 和 `builds/week_06/macos/`。
+自动报告输出到 `reports/`；试玩包位于 `builds/week_07/windows/` 和 `builds/week_07/macos/`。
 macOS 包是本地未公证开发包。Windows EXE 导出成功仍需 Windows 设备完成可见交互验证。
 CI 已配置 Ubuntu / Windows 自动回归，尚未推送远程触发。
 每周新增功能必须补测试并保留既有回归，见 [测试约定](docs/TESTING.md)。
@@ -62,8 +61,8 @@ CI 已配置 Ubuntu / Windows 自动回归，尚未推送远程触发。
 
 - `app/`：试玩组合根；`core/`：源数据、放置约束和事务。
 - `features/`：建筑网格、轨道相机、存档与风着色器；`ui/`：操作面板与建筑属性 / 恢复面板。
-- `tests/week_01/`–`week_06/`：累计 GUT 回归和独立进程探针；`tools/quality/`：可复现质量命令。
-- `art_source/week_01/`–`week_06/`：模型、纹理与材质库源文件；`assets/`：GLB、贴图和导入配置。
+- `tests/week_01/`–`week_07/`：累计 GUT 回归和独立进程探针；`tools/quality/`：可复现质量命令。
+- `art_source/week_01/`–`week_07/`：模型、纹理与材质库源文件；`assets/`：GLB、贴图和导入配置。
 - `docs/`：已批准 PRD、开发计划、每周证据与许可。
 
 Blender 5.1.2 为唯一主模型源，三种门与树 / 布 / 长凳样板，以及 W02 窗 / 树初稿 / 笔触纹理可分别重建：
@@ -76,6 +75,8 @@ Blender 5.1.2 为唯一主模型源，三种门与树 / 布 / 长凳样板，以
 /Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python tools/art/build_week_five_assets.py -- --root "$PWD"
 /Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python tools/art/build_week_six_assets.py -- --root "$PWD"
 python3 tools/art/build_week_six_media.py
+/Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python tools/art/build_week_seven_assets.py -- --root "$PWD"
+python3 tools/art/build_week_seven_ui.py
 ```
 
 Windows / Linux 改用当地 Blender 路径。Three.js 暂未引入；GUT 9.7.1 已随源码保存。
@@ -84,7 +85,7 @@ Windows / Linux 改用当地 Blender 路径。Three.js 暂未引入；GUT 9.7.1 
 修改源资产后还需在 Blender 中重新打开检查（报告目录先由质量命令建立）：
 
 ```bash
-/Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python tools/art/audit_sources.py -- --root "$PWD" --output "$PWD/reports/week_06_source_audit.json"
+/Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python tools/art/audit_sources.py -- --root "$PWD" --output "$PWD/reports/week_07_source_audit.json"
 ```
 
 ## W02 新操作与边界
@@ -160,3 +161,20 @@ W05 历史包存档使用独立 `user://week_05/forest.wgs`；完整精度 JSON 
 选提灯后点“亮 / 灭 / 随日暮”，发光面独立于最近四盏实时光；“环境”页可调 UI 比例。
 演示参数 `--w06-gallery` 和 `--w06-foliage` 可结合 `--hide-ui` / `--view-angle=45`。
 正式源片装配、属性卡、色板、拉伸绿篱继续 W07；音频目前交付资源，完整混音按 W10。
+
+
+## W07 操作
+
+- 底部 16 工具直接进入小屋、路、门窗、地形、池桥阶、围栏、树木、刷植和道具；窄窗口可横向滚动。
+- “物件”页从列表或场景选择，改 X/Z、朝向和比例后点“提交属性”；多选按首项计算差量，整笔撤销。
+  移动、复制、删除和锁高均有鼠标入口；依赖中的支撑需要先移开上层。提灯可选自动 / 开 / 关。
+- “色板”页选择 12 张材质卡，改变整园对应材料；✓ 表示当前选中，修改随作品和历史保存。
+- “自然”页选择“拖绘绿篱 / 转角”，拖动后松手提交；选绿篱后可拖控制点或改宽。
+  复用灌木而不拉伸叶片 UV；分类擦除能命中自动绿篱任意一段，手动调整后受保护。
+- 物件选中显示 X/Z 字母/箭头和选环；错误提示会说明可调整的原因。150% 界面用滚动访问下方内容。
+- 当前“记住当前构图”保存源书签；完整摄影、载入构图体验与命名多槽在后续任务完成。
+
+演示：`--w07-hedges`、`--w07-hedge-slope`、`--w07-buildings`、`--w07-contact`、
+`--w07-round-close`、`--w07-palette`、`--w07-objects`；可组合 `--hide-ui` / `--view-angle=135`。
+[W07 美术重建说明](art_source/week_07/README.md) 包含原生 96px 缩略图生成步骤。
+当前 51 实例样例的 20 笔编辑仍有发布/资源创建尖峰，详见周报；W08 T054 继续性能优化。

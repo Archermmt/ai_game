@@ -437,7 +437,8 @@
     "week_three_authoring_script": "tools/art/build_week_three_assets.py",
     "week_four_authoring_script": "tools/art/build_week_four_assets.py",
     "week_five_authoring_script": "tools/art/build_week_five_assets.py",
-    "week_six_authoring_script": "tools/art/build_week_six_assets.py"
+    "week_six_authoring_script": "tools/art/build_week_six_assets.py",
+    "week_seven_authoring_script": "tools/art/build_week_seven_assets.py"
   },
   "gut": {
     "version": "9.7.1",
@@ -461,8 +462,10 @@
     "proton_scatter": "not adopted",
     "blender_mcp": "not required"
   },
-  "asset_contract": "w06.1",
+  "asset_contract": "w07.1",
   "save_schema_version": 1,
   "media_authoring_script": "tools/art/build_week_six_media.py",
-  "save_payload_codec": "exact-floats-v1; legacy plain schema-1 JSON supported"
+  "save_payload_codec": "exact-floats-v1 + optional integer_paths; legacy WGLADE01 supported",
+  "week_seven_ui_authoring_script": "tools/art/build_week_seven_ui.py",
+  "save_container_version": 2
 }

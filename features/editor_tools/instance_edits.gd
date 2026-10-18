@@ -98,6 +98,9 @@ static func duplicate_selection(draft: Dictionary, selected: Array[String]) -> A
 		copy["yaw"] = item["yaw"]
 		copy["scale"] = item["scale"]
 		copy["asset_id"] = item["asset_id"]
+		for key: String in ["hedge", "lamp_mode", "height_locked", "locked_y"]:
+			if item.has(key):
+				copy[key] = item[key].duplicate(true) if item[key] is Dictionary else item[key]
 		result.append(copy["id"])
 	return result
 
@@ -105,6 +108,8 @@ static func duplicate_selection(draft: Dictionary, selected: Array[String]) -> A
 static func support_height(
 	snapshot: Dictionary, item: Dictionary, depth: int = 0, ground_field: TerrainField = null
 ) -> float:
+	if item.get("height_locked", false):
+		return float(item["locked_y"]) - float(item["position"][1])
 	var p: Array = item["position"]
 	var field: TerrainField = ground_field if ground_field != null else TerrainField.new(snapshot)
 	if depth > 8 or not item.has("support_id"):
@@ -113,6 +118,7 @@ static func support_height(
 		if parent["id"] == item.get("support_id", ""):
 			return (
 				support_height(snapshot, parent, depth + 1, field)
+				+ float(parent["position"][1])
 				+ float(parent["scale"]) * (0.8 if parent["asset_id"] == "PROP-05" else 0.58)
 			)
 	return field.height_at(Vector2(p[0], p[2]))
@@ -210,6 +216,12 @@ static func validate(snapshot: Dictionary, existing_ids: Dictionary) -> String:
 			and (item["asset_id"] != "PROP-08" or item["lamp_mode"] not in ["on", "off", "auto"])
 		):
 			return "invalid_lamp_mode"
+		if item.has("hedge"):
+			var hedge_issue: String = HedgeRules.shape_error(item)
+			if not hedge_issue.is_empty():
+				return hedge_issue
+			if not HedgeRules.clearance(snapshot, item):
+				return "hedge_clearance"
 		var support_issue: String = support_error(snapshot, item)
 		if not support_issue.is_empty():
 			return support_issue

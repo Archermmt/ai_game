@@ -7,7 +7,8 @@ static func groups(snapshot: Dictionary) -> Dictionary:
 	var result: Dictionary = {}
 	for item: Dictionary in snapshot["instances"]:
 		if (
-			item["source"] != "brush"
+			item.has("hedge")
+			or item["source"] != "brush"
 			or item["locked"]
 			or not String(item["asset_id"]).begins_with("NAT")
 		):

@@ -1,0 +1,18 @@
+[
+  {
+    "asset_id": "BLD-09",
+    "source": "art_source/week_07/window_round.blend",
+    "export": "assets/week_07/window_round.glb",
+    "triangles": 1360,
+    "budget": 1600,
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "blender": "5.1.2",
+    "sockets": [
+      "socket_wall_mount"
+    ],
+    "supersedes": "week_02",
+    "stage": "w07_formal_integration",
+    "source_license": "Project original; authored by Blender script"
+  }
+]

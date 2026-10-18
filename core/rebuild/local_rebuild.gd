@@ -156,7 +156,10 @@ static func pose(snapshot: Dictionary, item: Dictionary, field: TerrainField) ->
 	if item.get("height_locked", false):
 		y = item.get("locked_y", y)
 	var basis_value: Basis = Basis(Vector3.UP, float(item["yaw"]))
-	if item["asset_id"] in ["NAT-04", "NAT-05", "NAT-06", "NAT-07", "NAT-08", "NAT-09"]:
+	if (
+		not item.has("hedge")
+		and item["asset_id"] in ["NAT-04", "NAT-05", "NAT-06", "NAT-07", "NAT-08", "NAT-09"]
+	):
 		basis_value = Basis(Quaternion(Vector3.UP, field.normal_at(point))) * basis_value
 	return Transform3D(
 		basis_value.scaled(Vector3.ONE * float(item["scale"])), Vector3(p[0], y, p[2])
