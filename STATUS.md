@@ -4,7 +4,7 @@
 
 ## 当前阶段
 
-**W07 排期切片实现、累计回归与可见验证完成；正在归档导出和 Git 干净检出。**
+**W07 排期切片完成：实现、累计回归、可见验证、导出与 Git 干净检出均已归档。**
 默认入口 `app/week_seven_root.tscn`，Godot 4.7.2 Standard，版本 `0.7.0-w07`。
 批准 PRD / 开发计划 / backlog CSV 保留基线，实际进度在此维护。
 T051 / T052 按批准计划跨周：本周开工，W08 收尾；完整 MVP 尚未冻结。
@@ -53,7 +53,7 @@ Esc 取消预览/PendingCommit，核心准备成功后才原子发布；非法�
 | 延迟与风险 | 提交到显示最大/P95 **157.247ms**；末笔 worker **12.527ms**；超过建议预算，T054 W08 继续优化，未性能放行 |
 | GPU 计时 | null / unavailable，0 有效样本；完整压力、最低配置与最终艺术仍待验收 |
 | 导出 | Windows x86_64 PE/打包；Mac 0.7.0 ZIP 空目录可见启动/退出；字体许可/资源随包，GUT 和七周测试源排除 |
-| 干净检出 | 实现提交后从无 `.godot` 的 Git 归档重导入，结果归档于 W07 `clean_checkout.json` |
+| 干净检出 | Git `06e91f9` 无 `.godot` 缓存重导入，350 项、七周重启与负控通过；[证据](docs/weekly/week_07/clean_checkout.json) |
 | Windows 真机 / 云端 CI | 未执行；CI 已升级 W07 配置，不能以本地导出代替真机或远程执行 |
 
 命令：`python3 tools/quality/run_checks.py --week 7 --negative-control`。
@@ -73,6 +73,7 @@ W08 尚未注册；新增周次必须补测试并保留全部回归，见 [测�
 | W04 | `fb3771b` 实现 / `13af20c` 归档；`v0.4.0-w04`；[路径/门/环境](docs/weekly/week_04/README.md) |
 | W05 | `fea93d2` 实现；`v0.5.0-w05`；[庭园/池桥/回退](docs/weekly/week_05/README.md)，干净检出通过 |
 | W06 | `7dacd8e` 实现；`v0.6.0-w06`；[分类植被/局部重建/中文主题](docs/weekly/week_06/README.md)，干净检出通过 |
+| W07 | `06e91f9` 实现；`v0.7.0-w07`；[绿篱/材质卡/属性/包装](docs/weekly/week_07/README.md)，干净检出通过 |
 
 本地 `main`，未配置远程、未推送。源 `.blend`、导入设置、UID 与必要证据入库；缓存/引擎/包/用户存档忽略。
 启动：`python3 tools/quality/run_game.py`；[README.md](README.md) 记录工具操作与资源重建。
