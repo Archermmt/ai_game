@@ -81,8 +81,8 @@ func _ready() -> void:
 	stack.add_child(status_label)
 	var help: Label = Label.new()
 	help.text = (
-		"左键拖出小屋 · Esc 取消\n右键环绕 · 中键或 Shift+左键平移\n"
-		+ "滚轮缩放 · F 复位\n⌘/Ctrl+Z 撤销 · ⇧+Z 重做\n"
+		"左键拖出小屋 · Esc 取消\n右键/⌥+左键环绕 · Shift+左键平移\n"
+		+ "滚轮/双指捏合或滑动缩放 · F 复位\n⌘/Ctrl+Z 撤销 · ⇧+Z 重做\n"
 		+ "⌘/Ctrl+S 保存 · ⌘/Ctrl+O 读取"
 	)
 	if week == 2:

@@ -110,7 +110,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 			return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.shift_pressed:
+		if event.shift_pressed or (event.alt_pressed and event.pressed):
 			return
 		if event.pressed:
 			var point: Variant = camera_rig.ground_point(event.position)

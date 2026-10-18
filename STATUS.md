@@ -41,7 +41,7 @@ W01 历史结果保留在 [W01 报告](docs/weekly/week_01/README.md)。任务 C
 
 | 检查 | 实际结果 |
 | --- | --- |
-| `python3 tools/quality/run_checks.py --week 2 --negative-control` | W01 42 + W02 46 = 88 项 / 1130 断言；0 失败、0 跳过；格式/lint/资源契约通过 |
+| `python3 tools/quality/run_checks.py --week 2 --negative-control` | W01 42 + W02 52 = 94 项 / 1191 断言；0 失败、0 跳过；格式/lint/资源契约通过 |
 | 失败注入 | 故意失败退出 1，正常回归退出 0；注入文件已清理 |
 | 两周跨进程保存重启 | 均通过；W02 覆盖种子/高度/池域/实例/路径/洞口/环境 |
 | 异步与事务 | 旧任务故意晚到、epoch、脏区合并、PendingCommit、真实鼠标、已显示预览后失败恢复通过 |
@@ -58,6 +58,14 @@ W01 历史结果保留在 [W01 报告](docs/weekly/week_01/README.md)。任务 C
 [编辑发布](docs/weekly/week_02/edit_after_cache.json)、[导出哈希](docs/weekly/week_02/exports.json)、[Blender 源审计](docs/weekly/week_02/source_audit.json)、
 [干净检出](docs/weekly/week_02/clean_checkout.json)。
 之后每周继续新增对应测试并保留既有回归，见 [TESTING.md](docs/TESTING.md)。未注册的 W03 gate 会明确失败。
+
+## Mac 输入补充
+
+已加入 Option（⌥）+左键拖动环绕、双指捏合和双指上下滑动缩放，保留原有鼠标操作。
+新增 6 项事件路由回归，验证 10 种工具不会误编辑、修饰键先释放/跨 UI 松键、缩放边界与 UI 隔离。
+累计 94 项 / 1191 断言通过；Mac 包已重建并通过可见启动/退出，Windows 包同步重建。
+实体触控板操作尚待实际试玩验证。最新证据及包哈希见 [Mac 输入补充报告](docs/weekly/week_02/mac_input/README.md)，
+上方原 W02 归档与干净检出 88 项结果保留为历史快照。
 
 ## 启动与版本管理
 

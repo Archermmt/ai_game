@@ -24,7 +24,7 @@ python3 tools/quality/run_game.py
 | --- | --- |
 | 建房 | 选矩形 / 圆形，左键在草地拖动并释放 |
 | 取消预览 | Esc 或“取消” |
-| 环视 / 平移 / 缩放 | 右键拖动 / 中键或 Shift+左键 / 滚轮 |
+| 环视 / 平移 / 缩放 | 右键或 Option（⌥）+左键拖动 / 中键或 Shift+左键 / 滚轮、双指捏合或双指上下滑动 |
 | 恢复镜头 | F 或“复位视角” |
 | 撤销 / 重做 | Ctrl（macOS 为 Cmd）+Z / Shift+Z；或按钮 |
 | 存档 / 读档 | Ctrl/Cmd+S / Ctrl/Cmd+O；或按钮 |

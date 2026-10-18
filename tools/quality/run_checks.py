@@ -68,7 +68,7 @@ def main():
         tested = int(suite.attrib.get("tests", 0))
         failed = int(suite.attrib.get("failures", 0))
         omitted = sum(int(part.attrib.get("skipped", 0)) for part in suite.findall("testsuite"))
-        if tested < {1: 42, 2: 46}[week] or failed or omitted:
+        if tested < {1: 42, 2: 52}[week] or failed or omitted:
             raise RuntimeError(f"Invalid {label} suite: {tested} tests, {failed} failed, {omitted} skipped")
         count += tested
         failures += failed

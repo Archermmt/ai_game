@@ -11,6 +11,7 @@ var pitch: float = 0.68
 var camera: Camera3D
 var surface_height: Callable = Callable()
 var _orbiting: bool = false
+var _orbit_button: int = MOUSE_BUTTON_NONE
 var _panning: bool = false
 
 
@@ -28,24 +29,42 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	# Releases must clear camera capture even if the cursor finishes over UI.
 	if event is InputEventMouseButton and not event.pressed:
-		if event.button_index == MOUSE_BUTTON_RIGHT:
+		if event.button_index == _orbit_button:
 			_orbiting = false
+			_orbit_button = MOUSE_BUTTON_NONE
+			get_viewport().set_input_as_handled()
 		if event.button_index == MOUSE_BUTTON_MIDDLE or event.button_index == MOUSE_BUTTON_LEFT:
 			_panning = false
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_RIGHT:
+	if event is InputEventGesture:
+		if get_viewport().gui_get_hovered_control() != null:
+			return
+		if event is InputEventMagnifyGesture:
+			if is_finite(event.factor) and event.factor > 0.0:
+				_zoom(1.0 / event.factor)
+		elif event is InputEventPanGesture:
+			# macOS sends precise two-finger scrolling as PanGesture, not wheel ticks.
+			if is_finite(event.delta.y):
+				_zoom(exp(clampf(event.delta.y, -20.0, 20.0) * 0.08))
+		get_viewport().set_input_as_handled()
+	elif event is InputEventMouseButton:
+		if (
+			event.button_index == MOUSE_BUTTON_RIGHT
+			or (event.button_index == MOUSE_BUTTON_LEFT and event.alt_pressed and event.pressed)
+		):
 			_orbiting = event.pressed
+			_orbit_button = event.button_index if event.pressed else MOUSE_BUTTON_NONE
+			_panning = false
 		elif event.button_index == MOUSE_BUTTON_MIDDLE:
 			_panning = event.pressed
 		elif event.button_index == MOUSE_BUTTON_LEFT and event.shift_pressed:
 			_panning = event.pressed
 		elif event.pressed and event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			distance = clampf(distance * 0.9, MIN_DISTANCE, MAX_DISTANCE)
+			_zoom(pow(0.9, clampf(event.factor, 0.0, 100.0)))
 		elif event.pressed and event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			distance = clampf(distance * 1.1, MIN_DISTANCE, MAX_DISTANCE)
+			_zoom(pow(1.1, clampf(event.factor, 0.0, 100.0)))
 		else:
 			return
 		get_viewport().set_input_as_handled()
@@ -61,6 +80,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("reset_camera"):
 		reset_view()
 		get_viewport().set_input_as_handled()
+
+
+func _zoom(multiplier: float) -> void:
+	if not is_finite(multiplier) or multiplier <= 0.0:
+		return
+	distance = clampf(distance * multiplier, MIN_DISTANCE, MAX_DISTANCE)
+	refresh()
 
 
 func pan_by(relative: Vector2) -> void:

@@ -335,6 +335,13 @@ func _show_selection() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if (
+		event is InputEventMouseButton
+		and event.button_index == MOUSE_BUTTON_LEFT
+		and event.alt_pressed
+		and event.pressed
+	):
+		return
 	if tools == null or tools.mode in ["rect", "round"]:
 		if (
 			tools != null
