@@ -4,7 +4,7 @@
 
 ## 当前阶段
 
-**W05 实现与本机验证完成，正在归档导出和干净检出证据。**
+**W05 本机实现与验收归档完成，可继续 W06。**
 默认入口 `app/week_five_root.tscn`，Godot 4.7.2，版本 `0.5.0-w05`。
 本周完成 M2 灰模建造与回退闭环；最终 MVP 的容量、产品界面、全场美术和平台/性能门槛继续后续阶段。
 
@@ -51,7 +51,7 @@ Esc 取消预览或 PendingCommit；非法编辑拒绝整笔，保留作品/视�
 | 20 笔可见编辑 | 全部完成，末笔重建 **2/64** 地形块；主线程发布最大 / P95 **11.652ms**，超过建议 2–4ms，继续 T040，未标性能放行 |
 | GPU 计时 | Metal 查询无有效样本，null / unavailable；帧间隔不代替 GPU 成本 |
 | 导出 | Windows x86_64 PE/打包通过；Mac 0.5.0 ZIP 从空目录解压可见启动/退出，GUT 与五周测试源未入包；[步骤/哈希](docs/weekly/week_05/exports.json) |
-| 干净检出 | 待实现提交后执行并归档 |
+| 干净检出 | Git `fea93d2` 无 `.godot` 缓存重导入，231 项、五周进程存读档与负控通过；[证据](docs/weekly/week_05/clean_checkout.json) |
 | Windows 真机 / 云端 CI | 未执行；只有本地 Windows 导出与 CI 配置，不能标通过 |
 
 证据：[检查摘要](docs/weekly/week_05/checks.json)、[W05 XML](docs/weekly/week_05/gut_week_05.xml)、
@@ -67,6 +67,8 @@ Esc 取消预览或 PendingCommit；非法编辑拒绝整笔，保留作品/视�
 | W02 Mac | `5a5a8b3`；[输入补充](docs/weekly/week_02/mac_input/README.md) |
 | W03 | `2f02d62` 实现 / `90d408e` 归档；`v0.3.0-w03`；[建筑/恢复/自然](docs/weekly/week_03/README.md) |
 | W04 | `fb3771b` 实现 / `13af20c` 归档；`v0.4.0-w04`；[路径/门/环境](docs/weekly/week_04/README.md) |
+
+| W05 | `fea93d2` 实现；`v0.5.0-w05`；[庭园/池桥/回退](docs/weekly/week_05/README.md)，干净检出通过 |
 
 本地 `main`，未配置远程、未推送。源 `.blend`、导入设置、UID 与必要证据入库；缓存/引擎/包/用户存档忽略。
 启动：`python3 tools/quality/run_game.py`；[README.md](README.md) 记录工具操作与资源重建。

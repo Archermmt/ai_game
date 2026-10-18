@@ -1,0 +1,156 @@
+{
+  "revision": "fea93d20ebe5c457eed2ca82989d0fcbe3a0291d",
+  "cache_reused": false,
+  "host_tools_reused": [
+    "locked Godot",
+    "gdtoolkit venv"
+  ],
+  "gate": {
+    "week": 5,
+    "groups": [
+      {
+        "week": 1,
+        "tests": 42,
+        "failures": 0,
+        "skipped": 0
+      },
+      {
+        "week": 2,
+        "tests": 52,
+        "failures": 0,
+        "skipped": 0
+      },
+      {
+        "week": 3,
+        "tests": 42,
+        "failures": 0,
+        "skipped": 0
+      },
+      {
+        "week": 4,
+        "tests": 50,
+        "failures": 0,
+        "skipped": 0
+      },
+      {
+        "week": 5,
+        "tests": 45,
+        "failures": 0,
+        "skipped": 0
+      }
+    ],
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "tests": 231,
+    "failures": 0,
+    "skipped": 0,
+    "negative_control": true,
+    "steps": [
+      {
+        "name": "engine_import",
+        "exit_code": 0,
+        "seconds": 3.351
+      },
+      {
+        "name": "format",
+        "exit_code": 0,
+        "seconds": 1.332
+      },
+      {
+        "name": "lint",
+        "exit_code": 0,
+        "seconds": 1.301
+      },
+      {
+        "name": "asset_contract",
+        "exit_code": 0,
+        "seconds": 0.039
+      },
+      {
+        "name": "week_01_tests",
+        "exit_code": 0,
+        "seconds": 1.349
+      },
+      {
+        "name": "week_01_restart_write",
+        "exit_code": 0,
+        "seconds": 0.262
+      },
+      {
+        "name": "week_01_restart_read",
+        "exit_code": 0,
+        "seconds": 0.265
+      },
+      {
+        "name": "week_02_tests",
+        "exit_code": 0,
+        "seconds": 6.719
+      },
+      {
+        "name": "week_02_restart_write",
+        "exit_code": 0,
+        "seconds": 0.26
+      },
+      {
+        "name": "week_02_restart_read",
+        "exit_code": 0,
+        "seconds": 0.268
+      },
+      {
+        "name": "week_03_tests",
+        "exit_code": 0,
+        "seconds": 8.438
+      },
+      {
+        "name": "week_03_restart_write",
+        "exit_code": 0,
+        "seconds": 0.265
+      },
+      {
+        "name": "week_03_restart_read",
+        "exit_code": 0,
+        "seconds": 0.269
+      },
+      {
+        "name": "week_04_tests",
+        "exit_code": 0,
+        "seconds": 7.296
+      },
+      {
+        "name": "week_04_restart_write",
+        "exit_code": 0,
+        "seconds": 0.271
+      },
+      {
+        "name": "week_04_restart_read",
+        "exit_code": 0,
+        "seconds": 0.265
+      },
+      {
+        "name": "week_05_tests",
+        "exit_code": 0,
+        "seconds": 7.755
+      },
+      {
+        "name": "week_05_restart_write",
+        "exit_code": 0,
+        "seconds": 0.268
+      },
+      {
+        "name": "week_05_restart_read",
+        "exit_code": 0,
+        "seconds": 0.266
+      },
+      {
+        "name": "week_02_risk_metrics",
+        "exit_code": 0,
+        "seconds": 0.65
+      },
+      {
+        "name": "negative_control",
+        "exit_code": 1,
+        "seconds": 1.066
+      }
+    ]
+  },
+  "passed": true
+}
