@@ -1,0 +1,90 @@
+[
+  {
+    "name": "plaster",
+    "resolution": [
+      1024,
+      1024
+    ],
+    "source": "art_source/week_02/textures/plaster.png",
+    "export": "assets/materials/textures/plaster.png",
+    "colorspace": "sRGB",
+    "seamless": true
+  },
+  {
+    "name": "wood",
+    "resolution": [
+      1024,
+      1024
+    ],
+    "source": "art_source/week_02/textures/wood.png",
+    "export": "assets/materials/textures/wood.png",
+    "colorspace": "sRGB",
+    "seamless": true
+  },
+  {
+    "name": "terracotta",
+    "resolution": [
+      1024,
+      1024
+    ],
+    "source": "art_source/week_02/textures/terracotta.png",
+    "export": "assets/materials/textures/terracotta.png",
+    "colorspace": "sRGB",
+    "seamless": true
+  },
+  {
+    "name": "stone",
+    "resolution": [
+      1024,
+      1024
+    ],
+    "source": "art_source/week_02/textures/stone.png",
+    "export": "assets/materials/textures/stone.png",
+    "colorspace": "sRGB",
+    "seamless": true
+  },
+  {
+    "name": "grass",
+    "resolution": [
+      2048,
+      2048
+    ],
+    "source": "art_source/week_02/textures/grass.png",
+    "export": "assets/materials/textures/grass.png",
+    "colorspace": "sRGB",
+    "seamless": true
+  },
+  {
+    "name": "soil",
+    "resolution": [
+      2048,
+      2048
+    ],
+    "source": "art_source/week_02/textures/soil.png",
+    "export": "assets/materials/textures/soil.png",
+    "colorspace": "sRGB",
+    "seamless": true
+  },
+  {
+    "name": "wet_bank",
+    "resolution": [
+      2048,
+      2048
+    ],
+    "source": "art_source/week_02/textures/wet_bank.png",
+    "export": "assets/materials/textures/wet_bank.png",
+    "colorspace": "sRGB",
+    "seamless": true
+  },
+  {
+    "name": "window_emission",
+    "resolution": [
+      1024,
+      1024
+    ],
+    "source": "art_source/week_02/textures/window_emission.png",
+    "export": "assets/materials/textures/window_emission.png",
+    "colorspace": "sRGB",
+    "seamless": true
+  }
+]

@@ -39,7 +39,7 @@ def main():
     parser.add_argument("--week", type=int, default=1)
     parser.add_argument("--negative-control", action="store_true")
     args = parser.parse_args()
-    if args.week != 1:
+    if args.week not in [1, 2]:
         raise RuntimeError("No gate registered for this week; add its tests before marking it done")
     (ROOT / "reports").mkdir(exist_ok=True)
     (ROOT / "reports/.gdignore").touch()
@@ -51,26 +51,39 @@ def main():
     executable_dir = ROOT / ".venv" / ("Scripts" if sys.platform == "win32" else "bin")
     entries = []
     entries.append(run_step("engine_import", [engine, "--headless", "--path", ".", "--editor", "--import"]))
-    source = ["app", "core", "features", "ui", "tests/week_01"]
+    source = ["app", "core", "features", "ui", "tests"]
     entries.append(run_step("format", [str(executable_dir / "gdformat"), "--check", *source]))
     entries.append(run_step("lint", [str(executable_dir / "gdlint"), *source]))
-    entries.append(run_step("asset_contract", [sys.executable, "tools/quality/validate_assets.py"]))
-    entries.append(run_step("week_01_tests", [
-        engine, "--headless", "--path", ".", "-s", "addons/gut/gut_cmdln.gd",
-        "-gdir=res://tests/week_01", "-ginclude_subdirs", "-gexit",
-        "-gjunit_xml_file=reports/week_01.xml",
-    ]))
-    suite = ET.parse(ROOT / "reports/week_01.xml").getroot()
-    count = int(suite.attrib.get("tests", 0))
-    failures = int(suite.attrib.get("failures", 0))
-    skipped = sum(int(s.attrib.get("skipped", 0)) for s in suite.findall("testsuite"))
-    if count < 42 or failures or skipped:
-        raise RuntimeError(f"Invalid suite result: {count} tests, {failures} failed, {skipped} skipped")
-    restart_file = str(ROOT / "reports/restart_probe.wgs")
-    for mode in ["write", "read"]:
-        entries.append(run_step("restart_" + mode, [
-            engine, "--headless", "--path", ".", "-s", "tests/week_01/restart_probe.gd",
-            "--", mode, restart_file,
+    entries.append(run_step("asset_contract", [sys.executable, "tools/quality/validate_assets.py", "--week", str(args.week)]))
+    count = failures = skipped = 0
+    groups = []
+    for week in range(1, args.week + 1):
+        label = f"week_{week:02d}"
+        entries.append(run_step(label + "_tests", [
+            engine, "--headless", "--path", ".", "-s", "addons/gut/gut_cmdln.gd",
+            "-gdir=res://tests/" + label, "-ginclude_subdirs", "-gexit",
+            "-gjunit_xml_file=reports/" + label + ".xml",
+        ]))
+        suite = ET.parse(ROOT / ("reports/" + label + ".xml")).getroot()
+        tested = int(suite.attrib.get("tests", 0))
+        failed = int(suite.attrib.get("failures", 0))
+        omitted = sum(int(part.attrib.get("skipped", 0)) for part in suite.findall("testsuite"))
+        if tested < {1: 42, 2: 46}[week] or failed or omitted:
+            raise RuntimeError(f"Invalid {label} suite: {tested} tests, {failed} failed, {omitted} skipped")
+        count += tested
+        failures += failed
+        skipped += omitted
+        groups.append({"week": week, "tests": tested, "failures": failed, "skipped": omitted})
+        restart_file = str(ROOT / ("reports/" + label + "_restart.wgs"))
+        for mode in ["write", "read"]:
+            entries.append(run_step(label + "_restart_" + mode, [
+                engine, "--headless", "--path", ".", "-s", "tests/" + label + "/restart_probe.gd",
+                "--", mode, restart_file,
+            ]))
+    if args.week >= 2:
+        entries.append(run_step("week_02_risk_metrics", [
+            engine, "--headless", "--path", ".", "-s", "tests/week_02/risk_metrics.gd",
+            "--", str(ROOT / "reports/week_02_risk_metrics.json"),
         ]))
     if args.negative_control:
         injection = ROOT / "tests/week_01/test_failure_injection.gd"
@@ -85,10 +98,10 @@ def main():
         finally:
             injection.unlink(missing_ok=True)
             injection.with_suffix(".gd.uid").unlink(missing_ok=True)
-    result = {"week": 1, "engine": actual, "tests": count, "failures": failures,
+    result = {"week": args.week, "groups": groups, "engine": actual, "tests": count, "failures": failures,
               "skipped": skipped, "negative_control": args.negative_control, "steps": entries}
-    (ROOT / "reports/week_01_checks.json").write_text(json.dumps(result, indent=2) + "\n")
-    print(f"WEEK 01 PASS: {count} tests, {failures} failures; reports/week_01_checks.json")
+    (ROOT / f"reports/week_{args.week:02d}_checks.json").write_text(json.dumps(result, indent=2) + "\n")
+    print(f"WEEK {args.week:02d} PASS: {count} tests, {failures} failures; cumulative regressions")
 
 
 if __name__ == "__main__":

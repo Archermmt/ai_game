@@ -1,0 +1,63 @@
+{
+  "blender": "5.1.2",
+  "sources": [
+    {
+      "source": "art_source/week_01/door_plank.blend",
+      "mesh_objects": 8,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_01/door_arch.blend",
+      "mesh_objects": 23,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_01/door_glass.blend",
+      "mesh_objects": 11,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_01/tree_sample.blend",
+      "mesh_objects": 7,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_01/cloth_sample.blend",
+      "mesh_objects": 7,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_01/bench_sample.blend",
+      "mesh_objects": 11,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_02/window_rect.blend",
+      "mesh_objects": 8,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_02/window_round.blend",
+      "mesh_objects": 36,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_02/tree_broadleaf.blend",
+      "mesh_objects": 7,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_02/tree_conifer.blend",
+      "mesh_objects": 5,
+      "passed": true
+    },
+    {
+      "source": "art_source/week_02/tree_fruit.blend",
+      "mesh_objects": 16,
+      "passed": true
+    }
+  ],
+  "material_library_graphs": 8,
+  "images_reopened": 8,
+  "passed": true
+}

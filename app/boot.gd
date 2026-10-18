@@ -384,12 +384,20 @@ func _finish_smoke() -> void:
 					"renderer": renderer,
 					"viewport_size": [get_viewport().size.x, get_viewport().size.y],
 					"buildings": document.state["buildings"].size(),
+					"paths": document.state["paths"].size(),
+					"instances": document.state["instances"].size(),
+					"terrain_samples": document.state["terrain"]["height_deltas"].size(),
+					"pond_present": not document.state["pool"].is_empty(),
 					"wind_materials": wind_materials.size(),
 					"test_framework_in_pack": ResourceLoader.exists("res://addons/gut/gut.gd"),
 					"test_sources_in_pack":
-					ResourceLoader.exists("res://tests/week_01/test_playground.gd"),
+					(
+						ResourceLoader.exists("res://tests/week_01/test_playground.gd")
+						or ResourceLoader.exists("res://tests/week_02/test_week_two_playground.gd")
+					),
 					"frames": _benchmark.size(),
 					"sample_duration_seconds": _benchmark_seconds,
+					"edit_metrics": _delivery_metrics(),
 					"p95_frame_ms": _benchmark[int(_benchmark.size() * 0.95)],
 					"mean_frame_ms":
 					(
@@ -415,8 +423,12 @@ static func _building_material() -> StandardMaterial3D:
 static func _clear_children(root: Node) -> void:
 	for child: Node in root.get_children():
 		root.remove_child(child)
-		child.queue_free()
+		child.free()
 
 
 func _show_result(result: Dictionary, success: String) -> void:
 	hud.set_status(success if result["ok"] else "保留原状：" + String(result["error"]))
+
+
+func _delivery_metrics() -> Dictionary:
+	return {}

@@ -3,7 +3,7 @@
 ## 当前可执行门槛
 
 ```bash
-python3 tools/quality/run_checks.py --week 1 --negative-control
+python3 tools/quality/run_checks.py --week 2 --negative-control
 ```
 
 按顺序执行锁定引擎导入、格式、lint、资源契约、GUT、两个独立进程的保存/重载，
@@ -31,8 +31,8 @@ python3 tools/quality/run_checks.py --week 1 --negative-control
 | W11 | 既有全部 | 冻结包十人体验、反馈缺陷回归；不以新增需求挤掉可靠性验证 |
 | W12 | 既有全部 | 最终包全新解压、Windows实机、许可/哈希/操作说明、保存重启摄影退出 |
 
-W02–12 是计划，不是已通过结果。新增周次必须注册相应 gate 并实现测试，当前传入
-`--week 2` 会明确失败，防止未建立测试就标记完成。后续命令应包含 W01 的回归。
+W01 / W02 已注册并实际执行；W02 命令顺序运行两周全部回归。W03–12 仍是计划，当前传入
+`--week 3` 会明确失败。以后新增周次必须注册 gate 并保留既有回归，不能只增加一个空目录。
 
 ## 四类证据分开
 
@@ -44,3 +44,21 @@ W02–12 是计划，不是已通过结果。新增周次必须注册相应 gate
 
 CI 工作流对 Ubuntu / Windows 配置同一组自动检查；本地没有远程仓库和 CI 运行记录时，
 只报告“工作流已配置”，不能称云端 CI 已通过。
+
+## W02 专项命令
+
+```bash
+python3 tools/quality/run_checks.py --week 2 --negative-control
+python3 tools/quality/render_checks.py
+python3 tools/quality/run_game.py -- --edit-benchmark --benchmark-seconds=10 --smoke-output=/absolute/path/edit_metrics.json
+python3 tools/quality/export_smoke.py --week 2
+```
+
+W02 新增：带实际高度变化的 0.25/0.5m 分块接缝测试、单独池岸源/派生层、3m 限制、
+双向安全带、手工保护、50 笔混合编辑、真实鼠标与 PendingCommit、已显示预览后的失败回滚，
+以及由 Semaphore 控制的旧任务晚到。性能记录区分 worker 计算、headless 资源准备和可见主线程发布耗时。
+发布阶段仍会整场重建；若超过 2–4ms 建议预算，必须记录风险，不把空闲帧率当成编辑过程达标。
+
+模型/材质源变更还须运行 Blender 的 `tools/art/audit_sources.py`，实际重开源文件，
+确认 UV/权重/插槽以及未链接模型的材质库节点仍被保存（Fake User）。本机报告为 W02 的
+`source_audit.json`；CI 无 Blender 时的 GLB/纹理检查不能代替此源文件审计。

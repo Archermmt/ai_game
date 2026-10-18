@@ -22,7 +22,7 @@ def main():
         for sample in [0, 1]:
             name = f"{mode}_{sample}"
             steps.append(run_step("render_" + name, [
-                engine, "--path", str(ROOT), "--", "--wind-time=" + str(sample), *flags,
+                engine, "--path", str(ROOT), "--", "--render-probe", "--wind-time=" + str(sample), *flags,
                 "--capture=" + str(reports / (name + ".png")),
             ]))
     steps.append(run_step("wind_pixels", [
@@ -30,7 +30,7 @@ def main():
         "--", str(reports), str(reports / "wind_pixels.json"),
     ]))
     steps.append(run_step("render_dusk", [
-        engine, "--path", str(ROOT), "--", "--dusk", "--wind-time=0",
+        engine, "--path", str(ROOT), "--", "--render-probe", "--dusk", "--wind-time=0",
         "--capture=" + str(reports / "dusk.png"),
     ]))
     benchmarks = {}
@@ -39,7 +39,7 @@ def main():
         steps.append(run_step("benchmark_" + renderer, [
             engine, "--path", str(ROOT), "--rendering-method", renderer,
             "--resolution", "1920x1080", "--",
-            "--benchmark-seconds=60", "--smoke-output=" + str(output),
+            "--render-probe", "--benchmark-seconds=60", "--smoke-output=" + str(output),
         ]))
         if not output.exists():
             raise RuntimeError("Benchmark ended without a report; keep its game window open until it exits")
@@ -50,7 +50,7 @@ def main():
               "benchmarks": benchmarks, "benchmark_resolution": [1920, 1080],
               "wind_capture_resolution": [1280, 800],
               "device": "Apple M4 Pro, 20-core GPU, 48 GB RAM, macOS arm64",
-              "scope": "Week 1 two-building sample only; not the MVP stress scene"}
+              "scope": "Current two-building risk sample with water and alpha-scissor leaves; not the MVP stress scene"}
     (reports / "render_checks.json").write_text(json.dumps(result, indent=2) + "\n")
     print("VISIBLE RENDER CHECKS PASS")
 

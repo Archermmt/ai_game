@@ -13,7 +13,17 @@ var _colors: PackedColorArray = PackedColorArray()
 var _uvs: PackedVector2Array = PackedVector2Array()
 
 
-static func build(spec: Dictionary) -> ArrayMesh:
+static func build(spec: Dictionary, world: Array = []) -> ArrayMesh:
+	return mesh_from_arrays(build_arrays(spec, world))
+
+
+static func mesh_from_arrays(arrays: Array) -> ArrayMesh:
+	var mesh: ArrayMesh = ArrayMesh.new()
+	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+	return mesh
+
+
+static func build_arrays(spec: Dictionary, world: Array = []) -> Array:
 	var builder: BuildingGeometry = BuildingGeometry.new()
 	var size: Array = spec["size"]
 	var width: float = float(size[0])
@@ -29,17 +39,32 @@ static func build(spec: Dictionary) -> ArrayMesh:
 		for opening: Dictionary in spec.get("openings", []):
 			if int(opening.get("facade", 0)) == facade:
 				openings.append(opening)
-		builder._wall(length, height, facade, width, depth, round_shape, openings)
-	builder._roof(width, height, depth, round_shape)
+		builder._wall(
+			length,
+			height,
+			facade,
+			width,
+			depth,
+			round_shape,
+			openings,
+			BuildingContact.intervals(spec, world, facade)
+		)
+	var trim_x: bool = (
+		not BuildingContact.intervals(spec, world, 1).is_empty()
+		or not BuildingContact.intervals(spec, world, 3).is_empty()
+	)
+	var trim_z: bool = (
+		not BuildingContact.intervals(spec, world, 0).is_empty()
+		or not BuildingContact.intervals(spec, world, 2).is_empty()
+	)
+	builder._roof(width, height, depth, round_shape, trim_x, trim_z)
 	var arrays: Array = []
 	arrays.resize(Mesh.ARRAY_MAX)
 	arrays[Mesh.ARRAY_VERTEX] = builder._vertices
 	arrays[Mesh.ARRAY_NORMAL] = builder._normals
 	arrays[Mesh.ARRAY_COLOR] = builder._colors
 	arrays[Mesh.ARRAY_TEX_UV] = builder._uvs
-	var mesh: ArrayMesh = ArrayMesh.new()
-	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
-	return mesh
+	return arrays
 
 
 static func opening_interval(opening: Dictionary, u: float, length: float) -> Vector2:
@@ -67,7 +92,8 @@ func _wall(
 	width: float,
 	depth: float,
 	round_shape: bool,
-	openings: Array[Dictionary]
+	openings: Array[Dictionary],
+	contacts: Array[Rect2]
 ) -> void:
 	var cuts: Array[float] = [0.0, length]
 	var steps: int = maxi(12, int(ceil(length / 0.12)))
@@ -78,11 +104,37 @@ func _wall(
 		var half: float = float(opening.get("width", 1.0)) * 0.5
 		for index: int in range(17):
 			cuts.append(clampf(center - half + half * float(index) / 8.0, 0.0, length))
+	for contact: Rect2 in contacts:
+		cuts.append(contact.position.x)
+		cuts.append(contact.end.x)
 	cuts.sort()
 	for index: int in range(cuts.size() - 1):
 		var a: float = cuts[index]
 		var b: float = cuts[index + 1]
 		if b - a < 0.00001:
+			continue
+		var active_contacts: Array[Vector2] = []
+		for contact: Rect2 in contacts:
+			if (a + b) * 0.5 > contact.position.x and (a + b) * 0.5 < contact.end.x:
+				active_contacts.append(Vector2(contact.position.y, contact.end.y))
+		if not active_contacts.is_empty():
+			active_contacts.sort_custom(func(p: Vector2, q: Vector2) -> bool: return p.x < q.x)
+			var bottom: float = 0.0
+			for contact: Vector2 in active_contacts:
+				_strip(
+					a,
+					b,
+					bottom,
+					bottom,
+					maxf(bottom, contact.x),
+					maxf(bottom, contact.x),
+					facade,
+					width,
+					depth,
+					round_shape
+				)
+				bottom = maxf(bottom, contact.y)
+			_strip(a, b, bottom, bottom, height, height, facade, width, depth, round_shape)
 			continue
 		var selected: Dictionary = {}
 		for opening: Dictionary in openings:
@@ -120,6 +172,42 @@ func _wall(
 				p + Vector3.UP * bounds.y,
 				tangent if edge < center else -tangent,
 				PLASTER.darkened(0.12)
+			)
+	for contact: Rect2 in contacts:
+		if contact.end.y < height:
+			_cap(
+				contact.position.x,
+				contact.end.x,
+				contact.end.y,
+				contact.end.y,
+				facade,
+				width,
+				depth,
+				round_shape,
+				Vector3.DOWN
+			)
+		if contact.position.y > 0:
+			_cap(
+				contact.position.x,
+				contact.end.x,
+				contact.position.y,
+				contact.position.y,
+				facade,
+				width,
+				depth,
+				round_shape,
+				Vector3.UP
+			)
+		for edge: float in [contact.position.x, contact.end.x]:
+			var p: Vector3 = _point(edge, facade, width, depth, round_shape)
+			var n: Vector3 = _normal(edge, facade, width, depth, round_shape)
+			_quad(
+				p + Vector3.UP * contact.position.y,
+				p - n * THICKNESS + Vector3.UP * contact.position.y,
+				p - n * THICKNESS + Vector3.UP * contact.end.y,
+				p + Vector3.UP * contact.end.y,
+				n.cross(Vector3.UP) if edge == contact.position.x else -n.cross(Vector3.UP),
+				PLASTER
 			)
 
 
@@ -183,7 +271,9 @@ func _cap(
 	)
 
 
-func _roof(width: float, height: float, depth: float, round_shape: bool) -> void:
+func _roof(
+	width: float, height: float, depth: float, round_shape: bool, trim_x: bool, trim_z: bool
+) -> void:
 	if round_shape:
 		var radius: float = width * 0.5 + 0.35
 		var tip: Vector3 = Vector3(0.0, height + width * 0.48, 0.0)
@@ -194,8 +284,8 @@ func _roof(width: float, height: float, depth: float, round_shape: bool) -> void
 			var q: Vector3 = Vector3(sin(b) * radius, height, cos(b) * radius)
 			_triangle(p, q, tip, Vector3(sin(a), 0.8, cos(a)).normalized(), ROOF)
 	else:
-		var w: float = width * 0.5 + 0.35
-		var d: float = depth * 0.5 + 0.35
+		var w: float = width * 0.5 + (0.0 if trim_x else 0.35)
+		var d: float = depth * 0.5 + (0.0 if trim_z else 0.35)
 		var ridge: float = height + width * 0.38
 		_quad(
 			Vector3(-w, height, -d),

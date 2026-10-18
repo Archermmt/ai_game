@@ -3,6 +3,8 @@ extends CanvasLayer
 
 signal action_requested(action: StringName)
 
+@export var week: int = 1
+
 var status_label: Label
 var buttons: Dictionary = {}
 
@@ -36,15 +38,30 @@ func _ready() -> void:
 	title.add_theme_font_size_override("font_size", 22)
 	stack.add_child(title)
 	var subtitle: Label = Label.new()
-	subtitle.text = "WEEK 01 · 工程与建造原型"
+	subtitle.text = "WEEK 02 · 地形与编辑样板" if week == 2 else "WEEK 01 · 工程与建造原型"
 	subtitle.add_theme_color_override("font_color", Color("748371"))
 	stack.add_child(subtitle)
-	for row_actions: Array in [
+	var rows: Array = [
 		[["rect", "矩形小屋"], ["round", "圆形小屋"]],
 		[["undo", "撤销"], ["redo", "重做"], ["cancel", "取消"]],
 		[["save", "保存"], ["load", "读取"], ["camera", "复位视角"]],
 		[["light", "日间 / 黄昏"], ["wind", "风动开关"]],
-	]:
+	]
+	if week == 2:
+		(
+			rows
+			. append_array(
+				[
+					[["select", "选择灰模"], ["move", "移动"], ["prop", "放灰模"]],
+					[["brush", "灰模刷植"], ["erase", "擦除刷植"]],
+					[["raise", "抬高地形"], ["lower", "降低地形"], ["pool", "画圆池"]],
+					[["delete_pool", "删除池塘"], ["age", "新居/岁月"]],
+					[["rotate", "旋转15°"], ["scale_up", "放大"], ["scale_down", "缩小"]],
+					[["copy", "复制选中"], ["delete", "删除选中"]],
+				]
+			)
+		)
+	for row_actions: Array in rows:
 		var row: HBoxContainer = HBoxContainer.new()
 		row.add_theme_constant_override("separation", 5)
 		stack.add_child(row)
@@ -68,6 +85,8 @@ func _ready() -> void:
 		+ "滚轮缩放 · F 复位\n⌘/Ctrl+Z 撤销 · ⇧+Z 重做\n"
 		+ "⌘/Ctrl+S 保存 · ⌘/Ctrl+O 读取"
 	)
+	if week == 2:
+		help.text = "选择灰模后可移动/旋转/复制\nCtrl/Cmd+点选多选 · 红/蓝杆锁轴\n" + help.text
 	help.add_theme_color_override("font_color", Color("657260"))
 	stack.add_child(help)
 	set_status("已选矩形小屋；在右侧草地上拖动试试")

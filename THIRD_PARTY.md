@@ -12,6 +12,6 @@ third-party acknowledgements are available at <https://godotengine.org/license/>
 Export bundles must include the Godot license notice. Blender does not impose its
 software license on original artwork created using it.
 
-Week 1 `.blend`, GLB models and their Python generator are original project assets;
+Week 1–2 `.blend`, GLB models, painted-source PNGs and their Python generators are original project assets;
 they do not incorporate third-party models, demo textures or optional add-on output.
 Concept images in `docs/` remain design references and are excluded from game exports.

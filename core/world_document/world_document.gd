@@ -86,6 +86,8 @@ static func validate(candidate: Dictionary) -> String:
 	for flag: String in ["dusk", "reduce_motion"]:
 		if not candidate["environment"].get(flag) is bool:
 			return "invalid_environment"
+	if candidate["environment"].has("aged") and not candidate["environment"]["aged"] is bool:
+		return "invalid_environment"
 	var wind: Variant = candidate["environment"].get("wind_strength")
 	if not _number(wind) or wind < 0.0 or wind > 1.0:
 		return "invalid_environment"
@@ -132,10 +134,21 @@ static func validate(candidate: Dictionary) -> String:
 		if absf(float(origin[2])) + float(dimensions[2]) * 0.5 > 24.0:
 			return "outside_plot"
 	for a: int in range(candidate["buildings"].size()):
+		var opening_error: String = BuildingContact.validate(
+			candidate["buildings"][a], candidate["buildings"]
+		)
+		if not opening_error.is_empty():
+			return opening_error
 		for b: int in range(a + 1, candidate["buildings"].size()):
 			if PlacementRules.overlaps(candidate["buildings"][a], candidate["buildings"][b]):
 				return "building_overlap"
-	return ""
+	var instance_error: String = InstanceEdits.validate(candidate, ids)
+	if not instance_error.is_empty():
+		return instance_error
+	var path_error: String = RiskEdits.validate_paths(candidate, ids)
+	if not path_error.is_empty():
+		return path_error
+	return TerrainField.validate(candidate)
 
 
 static func _number(value: Variant) -> bool:

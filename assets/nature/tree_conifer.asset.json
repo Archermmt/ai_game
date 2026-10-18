@@ -1,0 +1,18 @@
+{
+  "asset_id": "NAT-02",
+  "source": "art_source/week_02/tree_conifer.blend",
+  "export": "assets/nature/tree_conifer.glb",
+  "blender": "5.1.2",
+  "units": "meters",
+  "up_axis": "gltf_y_up",
+  "triangles": 212,
+  "material_slots": [
+    "foliage",
+    "wood"
+  ],
+  "sockets": [
+    "socket_ground"
+  ],
+  "stage": "w02_blockout_pending_w03_lod_atlas",
+  "source_license": "Project original; authored by project Blender script"
+}

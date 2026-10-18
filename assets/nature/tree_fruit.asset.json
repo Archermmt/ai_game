@@ -1,0 +1,19 @@
+{
+  "asset_id": "NAT-03",
+  "source": "art_source/week_02/tree_fruit.blend",
+  "export": "assets/nature/tree_fruit.glb",
+  "blender": "5.1.2",
+  "units": "meters",
+  "up_axis": "gltf_y_up",
+  "triangles": 696,
+  "material_slots": [
+    "foliage",
+    "tile",
+    "wood"
+  ],
+  "sockets": [
+    "socket_ground"
+  ],
+  "stage": "w02_blockout_pending_w03_lod_atlas",
+  "source_license": "Project original; authored by project Blender script"
+}

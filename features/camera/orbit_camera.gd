@@ -9,6 +9,7 @@ var distance: float = 29.0
 var yaw: float = 0.65
 var pitch: float = 0.68
 var camera: Camera3D
+var surface_height: Callable = Callable()
 var _orbiting: bool = false
 var _panning: bool = false
 
@@ -73,6 +74,25 @@ func pan_by(relative: Vector2) -> void:
 func ground_point(screen: Vector2) -> Variant:
 	var origin: Vector3 = camera.project_ray_origin(screen)
 	var direction: Vector3 = camera.project_ray_normal(screen)
+	if surface_height.is_valid():
+		var previous: float = 0.0
+		for index: int in range(1, 361):
+			var distance: float = float(index) * 0.5
+			var point: Vector3 = origin + direction * distance
+			if (
+				absf(point.x) <= 32
+				and absf(point.z) <= 32
+				and point.y <= surface_height.call(Vector2(point.x, point.z))
+			):
+				for refinement: int in range(12):
+					var middle: float = (previous + distance) * 0.5
+					var sample: Vector3 = origin + direction * middle
+					if sample.y > surface_height.call(Vector2(sample.x, sample.z)):
+						previous = middle
+					else:
+						distance = middle
+				return origin + direction * ((previous + distance) * 0.5)
+			previous = distance
 	return Plane(Vector3.UP, 0.0).intersects_ray(origin, direction)
 
 
@@ -90,4 +110,11 @@ func refresh() -> void:
 	camera.position = (
 		target + Vector3(sin(yaw) * cos(pitch), sin(pitch), cos(yaw) * cos(pitch)) * distance
 	)
-	camera.look_at(target)
+	var look_target: Vector3 = target
+	if surface_height.is_valid():
+		camera.position.y = maxf(
+			camera.position.y,
+			float(surface_height.call(Vector2(camera.position.x, camera.position.z))) + 0.6
+		)
+		look_target.y = maxf(look_target.y, float(surface_height.call(Vector2(target.x, target.z))))
+	camera.look_at(look_target)

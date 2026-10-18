@@ -14,6 +14,8 @@ var _commands: Array[Dictionary] = []
 var _cursor: int = 0
 var _prepared_snapshot: Dictionary = {}
 var _prepared_payload: Dictionary = {}
+var _pending_candidate: Dictionary = {}
+var _pending_label: String = ""
 
 
 func _init(source: WorldDocument) -> void:
@@ -38,7 +40,38 @@ func update_gesture(candidate: Dictionary) -> bool:
 
 func cancel_gesture() -> void:
 	preview.clear()
+	_pending_candidate.clear()
 	phase = Phase.IDLE
+
+
+func reserve_commit(candidate: Dictionary, label: String) -> Dictionary:
+	if phase == Phase.PENDING_COMMIT:
+		return {"ok": false, "error": "busy"}
+	if int(candidate.get("revision", -1)) != int(document.state["revision"]):
+		return {"ok": false, "error": "stale_candidate"}
+	var error: String = WorldDocument.validate(candidate)
+	if not error.is_empty():
+		cancel_gesture()
+		return {"ok": false, "error": error}
+	_pending_candidate = candidate.duplicate(true)
+	_pending_label = label
+	preview = {}
+	phase = Phase.PENDING_COMMIT
+	return {"ok": true}
+
+
+func finish_reserved(prepared: Dictionary) -> Dictionary:
+	if phase != Phase.PENDING_COMMIT:
+		return {"ok": false, "error": "no_pending_commit"}
+	var candidate: Dictionary = _pending_candidate
+	var label: String = _pending_label
+	_pending_candidate = {}
+	phase = Phase.IDLE
+	if not prepared.get("ok", false):
+		return prepared
+	return commit_snapshot(
+		candidate, label, func(_snapshot: Dictionary) -> Dictionary: return prepared
+	)
 
 
 func release_gesture(label: String, prepare: Callable = Callable()) -> Dictionary:
