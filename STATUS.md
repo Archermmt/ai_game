@@ -4,7 +4,7 @@
 
 ## 当前阶段
 
-**W04 实现与本机验证完成，正在归档干净检出证据。**
+**W04 本机实现与验收归档完成，可继续 W05。**
 默认入口 `app/week_four_root.tscn`，Godot 4.7.2，版本 0.4.0-w04。
 仍是 MVP 分周切片；Windows 真机、最低配置、全场容量与最终美术/性能尚未放行。
 
@@ -51,6 +51,7 @@ Option+左键环绕、双指捏合/上下滑动缩放保留。Esc 可取消预�
 | 20 笔可见编辑 | 主线程发布最大 / P95 **5.861ms，超过建议 2–4ms**；继续 T040 优化，不标完整性能放行 |
 | 独立 GPU 计时 | Metal 查询没有有效样本，null / unavailable；帧间隔不是 GPU 成本 |
 | 导出 | Windows x86_64 PE/打包通过；Mac 0.4.0 ZIP 解压后从空目录可见启动/退出，GUT 与四周测试源未入包 |
+| 干净检出 | Git `fb3771b` 源码在无 `.godot` 缓存目录重新导入，186 项累计测试与失败负控通过；[证据](docs/weekly/week_04/clean_checkout.json) |
 | Windows 真机 / 云端 CI | 未执行，不标通过 |
 
 证据：[检查摘要](docs/weekly/week_04/checks.json)、[W04 XML](docs/weekly/week_04/gut_week_04.xml)、
@@ -66,6 +67,8 @@ Option+左键环绕、双指捏合/上下滑动缩放保留。Esc 可取消预�
 | W02 | `b0b556d` 实现；`v0.2.0-w02`；[地形/事务样板](docs/weekly/week_02/README.md) |
 | W02 Mac | `5a5a8b3`；[输入补充](docs/weekly/week_02/mac_input/README.md)，实体触控板手感待人工验收 |
 | W03 | `2f02d62` 实现 / `90d408e` 归档；`v0.3.0-w03`；[建筑/恢复/自然](docs/weekly/week_03/README.md) |
+
+| W04 | `fb3771b` 实现；`v0.4.0-w04`；[路径/门/地形/环境](docs/weekly/week_04/README.md)，干净检出通过 |
 
 分支 `main`，仅本地 Git，无远程或推送。源 `.blend`、导入配置、UID 与证据入库，缓存/引擎/包/用户存档不入库。
 启动：`python3 tools/quality/run_game.py`；操作与重建见 [README.md](README.md)。
