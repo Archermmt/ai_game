@@ -1,0 +1,15 @@
+{
+  "asset_id": "PROP-07",
+  "source": "art_source/week_05/tea_set.blend",
+  "export": "assets/week_05/tea_set.glb",
+  "units": "meters",
+  "blender": "5.1.2",
+  "up_axis": "gltf_y_up",
+  "triangles": 936,
+  "budget": 2600,
+  "sockets": [
+    "socket_ground"
+  ],
+  "stage": "w05_draft_finish_w06",
+  "source_license": "Project original; authored by Blender script"
+}

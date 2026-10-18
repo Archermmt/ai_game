@@ -124,7 +124,7 @@ static func reconcile(snapshot: Dictionary) -> Dictionary:
 				if place["distance"] > 0.60001:
 					continue
 				if absf(field.height_at(request) - float(building["position"][1])) > 0.45001:
-					notices.append("入口高差超过 0.45m；请调整地形或后续放短阶")
+					notices.append("入口高差超过 0.45m；请调整地形；0.15–0.9m 高差可预览短阶")
 					continue
 				_connect(building, draft["buildings"], place, path["id"], automatic, notices)
 	return {"snapshot": draft, "notices": notices}

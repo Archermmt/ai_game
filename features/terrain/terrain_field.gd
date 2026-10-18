@@ -41,14 +41,13 @@ func height_at(point: Vector2) -> float:
 	var original: float = player_height(point)
 	if pool.is_empty():
 		return original
-	var distance: float = point.distance_to(Vector2(pool["center"][0], pool["center"][1]))
-	var radius: float = float(pool["radius"])
+	var distance: float = PondShape.distance(pool, point)
 	var water: float = float(pool["water_y"])
-	if distance <= radius - 0.35:
+	if distance <= -0.35:
 		return water - 0.45
-	if distance <= radius:
-		return lerpf(water - 0.45, water + 0.1, smoothstep(radius - 0.35, radius, distance))
-	return lerpf(water + 0.1, original, smoothstep(radius, radius + 0.75, distance))
+	if distance <= 0:
+		return lerpf(water - 0.45, water + 0.1, smoothstep(-0.35, 0, distance))
+	return lerpf(water + 0.1, original, smoothstep(0, 0.75, distance))
 
 
 func normal_at(point: Vector2) -> Vector3:
@@ -65,10 +64,7 @@ func normal_at(point: Vector2) -> Vector3:
 func is_protected(point: Vector2) -> bool:
 	if pool.is_empty():
 		return false
-	return (
-		point.distance_to(Vector2(pool["center"][0], pool["center"][1]))
-		<= float(pool["radius"]) + 0.75
-	)
+	return PondShape.distance(pool, point) <= 0.75
 
 
 static func brush(
@@ -192,6 +188,24 @@ static func _pool_format(data: Dictionary) -> String:
 	]:
 		if not (number is int or number is float) or not is_finite(float(number)):
 			return "invalid_pool"
+	if data.has("outline"):
+		if (
+			absf(data["center"][0]) > 22
+			or absf(data["center"][1]) > 22
+			or data["radius"] < 1
+			or data["radius"] > 64
+		):
+			return "invalid_pool"
+		var outline_error: String = PondShape.format_error(data)
+		if not outline_error.is_empty():
+			return outline_error
+		for p: Array in data["outline"]:
+			if (
+				Vector2(p[0] - data["center"][0], p[1] - data["center"][1]).length()
+				> float(data["radius"]) + 0.001
+			):
+				return "invalid_pool_bounds"
+		return ""
 	if data["radius"] < 1.0 or data["radius"] > 10.0:
 		return "pool_minimum_width"
 	if (
@@ -209,7 +223,7 @@ func _validate_pool(snapshot: Dictionary) -> String:
 	var highest: float = -INF
 	for z: float in _samples(center.y - radius - 0.75, center.y + radius + 0.75, spacing):
 		for x: float in _samples(center.x - radius - 0.75, center.x + radius + 0.75, spacing):
-			if center.distance_to(Vector2(x, z)) > radius + 0.75:
+			if PondShape.distance(pool, Vector2(x, z)) > 0.75:
 				continue
 			var original: float = player_height(Vector2(x, z))
 			lowest = minf(lowest, original)
@@ -221,13 +235,11 @@ func _validate_pool(snapshot: Dictionary) -> String:
 	if highest < float(pool["water_y"]) + 0.1:
 		return "pool_floating"
 	for building: Dictionary in snapshot["buildings"]:
-		if conflicts(center, radius + 1.25, building):
+		if PondShape.conflicts(pool, 1.25, building):
 			return "pool_building_safety"
 	for instance: Dictionary in snapshot["instances"]:
-		if conflicts(
-			center,
-			radius + 1.25,
-			{"position": instance["position"], "size": [0.8, 1, 0.8], "shape": "rect"}
+		if PondShape.conflicts(
+			pool, 1.25, {"position": instance["position"], "size": [0.8, 1, 0.8], "shape": "rect"}
 		):
 			return "pool_manual_instance_safety"
 	return ""

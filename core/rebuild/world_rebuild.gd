@@ -48,6 +48,8 @@ static func evaluate(snapshot: Dictionary, terrain_cache: Variant = null) -> Dic
 			result["terrain_arrays"].append(chunk_cache[key]["arrays"])
 	result["path_arrays"] = PathGeometry.arrays(snapshot)
 	result["fence_arrays"] = FenceGeometry.build(snapshot)
+	result["structures"] = GardenStructures.build(snapshot)
+	result["water_arrays"] = PondShape.water_arrays(snapshot["pool"])
 	return result
 
 

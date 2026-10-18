@@ -1,6 +1,6 @@
 class_name FenceGeometry
 extends RefCounted
-## W04 opening slice: saved control points, grounded posts/rails and path gaps.
+## Grounded continuous fence: shared corner posts, inset sealed rails, path gaps.
 
 
 static func allocate(draft: Dictionary, points: Array) -> void:
@@ -44,35 +44,24 @@ static func build(snapshot: Dictionary) -> Array:
 				if _road_gap(snapshot, q) or _road_gap(snapshot, (p + q) * 0.5):
 					continue
 				for height: float in [0.3, 0.65]:
-					var along: Vector3 = Vector3(
-						q.x - p.x, field.height_at(q) - field.height_at(p), q.y - p.y
-					)
-					var side: Vector3 = Vector3(along.z, 0, -along.x).normalized() * 0.035
-					var base: Vector3 = Vector3(p.x, field.height_at(p) + height, p.y)
-					builder._quad(
-						base - side,
-						base + along - side,
-						base + along + side,
-						base + side,
-						Vector3.UP,
+					var direction: Vector2 = (q - p).normalized()
+					var start: Vector2 = p + direction * 0.055
+					var end: Vector2 = q - direction * 0.055
+					var first: Vector3 = Vector3(start.x, field.height_at(p) + height, start.y)
+					var last: Vector3 = Vector3(end.x, field.height_at(q) + height, end.y)
+					var local: BuildingGeometry = BuildingGeometry.new()
+					MeshParts.box(
+						local,
+						Vector3.ZERO,
+						Vector3(0.07, 0.07, first.distance_to(last)),
 						Color("89643e")
 					)
-					builder._quad(
-						base - side,
-						base - side + Vector3.UP * 0.07,
-						base + along - side + Vector3.UP * 0.07,
-						base + along - side,
-						-side.normalized(),
-						Color("89643e")
-					)
-					builder._quad(
-						base + side,
-						base + along + side,
-						base + along + side + Vector3.UP * 0.07,
-						base + side + Vector3.UP * 0.07,
-						side.normalized(),
-						Color("89643e")
-					)
+					var frame: Basis = Basis.looking_at(last - first)
+					for v: int in range(local._vertices.size()):
+						builder._vertices.append((first + last) * 0.5 + frame * local._vertices[v])
+						builder._normals.append(frame * local._normals[v])
+						builder._colors.append(local._colors[v])
+						builder._uvs.append(local._uvs[v])
 	return MeshParts.arrays(builder)
 
 
@@ -102,6 +91,8 @@ static func validate(snapshot: Dictionary, ids: Dictionary) -> String:
 			or fence["points"].size() > 128
 		):
 			return "invalid_fence_points"
+		if fence["closed"] and fence["points"].size() < 3:
+			return "invalid_fence_points"
 		for p: Variant in fence["points"]:
 			if not p is Array or p.size() != 3:
 				return "invalid_fence_points"
@@ -110,4 +101,14 @@ static func validate(snapshot: Dictionary, ids: Dictionary) -> String:
 					return "invalid_fence_points"
 			if absf(float(p[0])) > 23.5 or absf(float(p[2])) > 23.5:
 				return "fence_outside_bounds"
+		for i: int in range(fence["points"].size() - 1):
+			var a: Array = fence["points"][i]
+			var b: Array = fence["points"][i + 1]
+			if Vector2(a[0] - b[0], a[2] - b[2]).length() < 0.2:
+				return "invalid_fence_points"
+		if fence["closed"]:
+			var a: Array = fence["points"][0]
+			var b: Array = fence["points"].back()
+			if Vector2(a[0] - b[0], a[2] - b[2]).length() < 0.2:
+				return "invalid_fence_points"
 	return ""

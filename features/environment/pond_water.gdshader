@@ -4,10 +4,11 @@ uniform bool reduce_motion = false;
 uniform bool freeze_time = false;
 uniform float sample_time = 0.0;
 uniform float radius = 2.5;
+uniform vec2 surface_origin = vec2(0.0);
 uniform float ripple_strength : hint_range(0.0, 1.0) = 0.35;
 uniform bool opaque_probe = false;
 varying vec2 local_xz;
-void vertex() { local_xz = VERTEX.xz; }
+void vertex() { local_xz = VERTEX.xz - surface_origin; }
 void fragment() {
     float t = reduce_motion ? 0.0 : (freeze_time ? sample_time : TIME) * 0.3;
     float shore = 1.0 - smoothstep(radius - 0.65, radius - 0.06, length(local_xz));

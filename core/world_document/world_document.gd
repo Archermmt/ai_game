@@ -170,7 +170,10 @@ static func validate(candidate: Dictionary) -> String:
 	var path_error: String = RiskEdits.validate_paths(candidate, ids)
 	if not path_error.is_empty():
 		return path_error
-	return TerrainField.validate(candidate)
+	var terrain_error: String = TerrainField.validate(candidate)
+	if not terrain_error.is_empty():
+		return terrain_error
+	return GardenStructures.validate(candidate, ids)
 
 
 static func _number(value: Variant) -> bool:

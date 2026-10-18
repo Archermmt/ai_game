@@ -435,7 +435,8 @@
     "authoring_script": "tools/art/build_week_one_assets.py",
     "additional_authoring_script": "tools/art/build_week_two_assets.py",
     "week_three_authoring_script": "tools/art/build_week_three_assets.py",
-    "week_four_authoring_script": "tools/art/build_week_four_assets.py"
+    "week_four_authoring_script": "tools/art/build_week_four_assets.py",
+    "week_five_authoring_script": "tools/art/build_week_five_assets.py"
   },
   "gut": {
     "version": "9.7.1",
@@ -459,6 +460,6 @@
     "proton_scatter": "not adopted",
     "blender_mcp": "not required"
   },
-  "asset_contract": "w04.1",
+  "asset_contract": "w05.1",
   "save_schema_version": 1
 }

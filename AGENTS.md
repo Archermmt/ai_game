@@ -5,7 +5,7 @@
 - Keep source state separate from generated meshes. Runtime edits go through transactions.
 - Every development week must have automated regression tests, a repeatable validation command,
   and an evidence report in `docs/weekly/week_XX/`.
-- Run `python3 tools/quality/run_checks.py --week 4 --negative-control` for cumulative W01–W04 regressions; extend gates for later weeks.
+- Run `python3 tools/quality/run_checks.py --week 5 --negative-control` for cumulative W01–W05 regressions; extend gates for later weeks.
   A failing assertion, an empty test run, or a Godot script error must fail the command.
 - Update `STATUS.md` with completed tasks, test counts, commands, evidence and remaining gates.
   Never mark a Windows real-device gate passed from a macOS export or headless run.

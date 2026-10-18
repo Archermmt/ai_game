@@ -58,14 +58,7 @@ static func brush(
 			for building: Dictionary in draft["buildings"]:
 				exists = exists or TerrainField.conflicts(position, 0.6, building)
 			if not draft["pool"].is_empty():
-				var pond: Dictionary = draft["pool"]
-				exists = (
-					exists
-					or (
-						position.distance_to(Vector2(pond["center"][0], pond["center"][1]))
-						< float(pond["radius"]) + 1.8
-					)
-				)
+				exists = exists or PondShape.distance(draft["pool"], position) < 1.8
 			if exists:
 				continue
 			var item: Dictionary = allocate(draft, Vector3(position.x, 0, position.y), false)
@@ -83,6 +76,8 @@ static func transform_selection(
 	for item: Dictionary in draft["instances"]:
 		if item["id"] not in selected:
 			continue
+		if delta.length_squared() > 0.00001:
+			item.erase("support_id")
 		item["position"][0] += delta.x
 		item["position"][2] += delta.z
 		item["yaw"] += yaw
@@ -105,6 +100,48 @@ static func duplicate_selection(draft: Dictionary, selected: Array[String]) -> A
 		copy["asset_id"] = item["asset_id"]
 		result.append(copy["id"])
 	return result
+
+
+static func support_height(snapshot: Dictionary, item: Dictionary, depth: int = 0) -> float:
+	var p: Array = item["position"]
+	if depth > 8:
+		return TerrainField.new(snapshot).height_at(Vector2(p[0], p[2]))
+	for parent: Dictionary in snapshot["instances"]:
+		if parent["id"] == item.get("support_id", ""):
+			return (
+				support_height(snapshot, parent, depth + 1)
+				+ float(parent["scale"]) * (0.8 if parent["asset_id"] == "PROP-05" else 0.58)
+			)
+	return TerrainField.new(snapshot).height_at(Vector2(p[0], p[2]))
+
+
+static func support_error(snapshot: Dictionary, item: Dictionary) -> String:
+	if not item.has("support_id"):
+		return ""
+	var seen: Array = [item["id"]]
+	var cursor: Dictionary = item
+	for depth: int in range(9):
+		if not cursor.has("support_id"):
+			return ""
+		var found: bool = false
+		for parent: Dictionary in snapshot["instances"]:
+			if parent["id"] != cursor["support_id"]:
+				continue
+			if parent["id"] in seen or parent["asset_id"] not in ["PROP-05", "PROP-01"]:
+				return "invalid_support"
+			var extent: float = 0.3 * float(parent["scale"])
+			if (
+				absf(cursor["position"][0] - parent["position"][0]) > extent
+				or absf(cursor["position"][2] - parent["position"][2]) > extent
+			):
+				return "support_outside_surface"
+			seen.append(parent["id"])
+			cursor = parent
+			found = true
+			break
+		if not found:
+			return "missing_support"
+	return "support_stack_limit"
 
 
 static func validate(snapshot: Dictionary, existing_ids: Dictionary) -> String:
@@ -148,11 +185,18 @@ static func validate(snapshot: Dictionary, existing_ids: Dictionary) -> String:
 					"PROP-01",
 					"PROP-02",
 					"PROP-03",
-					"PROP-04"
+					"PROP-04",
+					"PROP-05",
+					"PROP-06",
+					"PROP-07",
+					"PROP-08"
 				]
 			)
 		):
 			return "invalid_instance_source"
+		var support_issue: String = support_error(snapshot, item)
+		if not support_issue.is_empty():
+			return support_issue
 		for building: Dictionary in snapshot["buildings"]:
 			if TerrainField.conflicts(
 				Vector2(item["position"][0], item["position"][2]),

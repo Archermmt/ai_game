@@ -113,10 +113,6 @@ static func _blocked(point: Vector2, snapshot: Dictionary) -> bool:
 		if TerrainField.conflicts(point, 0.18, building):
 			return true
 	if not snapshot["pool"].is_empty():
-		var pool: Dictionary = snapshot["pool"]
-		if (
-			point.distance_to(Vector2(pool["center"][0], pool["center"][1]))
-			< float(pool["radius"]) + 0.3
-		):
+		if PondShape.distance(snapshot["pool"], point) < 0.3:
 			return true
 	return absf(point.x) > 23.7 or absf(point.y) > 23.7

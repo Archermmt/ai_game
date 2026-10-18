@@ -1,0 +1,16 @@
+{
+  "asset_id": "PROP-05",
+  "source": "art_source/week_05/crate.blend",
+  "export": "assets/week_05/crate.glb",
+  "units": "meters",
+  "blender": "5.1.2",
+  "up_axis": "gltf_y_up",
+  "triangles": 336,
+  "budget": 1200,
+  "sockets": [
+    "socket_support_surface",
+    "socket_ground"
+  ],
+  "stage": "w05_source",
+  "source_license": "Project original; authored by Blender script"
+}

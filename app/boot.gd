@@ -371,7 +371,8 @@ func _set_wind(reduced: bool) -> void:
 
 func _finish_smoke() -> void:
 	if not _capture_path.is_empty():
-		await RenderingServer.frame_post_draw
+		# Capture tools may be occluded by macOS while cycling windows; request a real draw.
+		RenderingServer.force_draw(false)
 		get_viewport().get_texture().get_image().save_png(_capture_path)
 	if not _report_path.is_empty():
 		_benchmark.sort()
@@ -398,6 +399,7 @@ func _finish_smoke() -> void:
 							"res://tests/week_03/test_week_three_playground.gd"
 						)
 						or ResourceLoader.exists("res://tests/week_04/test_week_four_playground.gd")
+						or ResourceLoader.exists("res://tests/week_05/test_garden_rules.gd")
 					),
 					"frames": _benchmark.size(),
 					"sample_duration_seconds": _benchmark_seconds,

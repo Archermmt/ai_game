@@ -11,7 +11,7 @@ static func encode(snapshot: Dictionary) -> PackedByteArray:
 	var validation: String = WorldDocument.validate(snapshot)
 	if not validation.is_empty():
 		return PackedByteArray()
-	var raw: PackedByteArray = JSON.stringify(snapshot).to_utf8_buffer()
+	var raw: PackedByteArray = JSON.stringify(snapshot, "", true, true).to_utf8_buffer()
 	var compressed: PackedByteArray = raw.compress(FileAccess.COMPRESSION_DEFLATE)
 	var output: PackedByteArray = MAGIC.to_utf8_buffer()
 	output.resize(12)

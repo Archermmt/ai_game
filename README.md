@@ -1,9 +1,9 @@
 # 风栖小筑 · Godot MVP
 
-第四周可运行样板：可编辑曲线石径与路径生门，三门两窗手放 / 移动 / 锁定，坡地升降 / 平滑 / 恢复；
-接入五种灌草岩石、长凳、信箱与统一风场，日暮光照 / 窗光平滑过渡。保留尺寸编辑、历史恢复与 Mac 手势。
-进度见 [STATUS.md](STATUS.md)，验证见 [W04 报告](docs/weekly/week_04/README.md)。
-围栏转角 / 闭合、盆栽 / 晾衣架成品和自由池岸继续 W05；当前仍非完整 MVP。
+第五周庭园建造切片：自由池岸、固定水位与岸带保护、短桥预览确认与失效保留、短石阶、连续围栏；
+接入盆栽/晾衣架、木箱/浇水壶及木箱支撑面。曲线石径、门窗、地形、风与 Mac 手势保留。
+进度见 [STATUS.md](STATUS.md)，验证见 [W05 报告](docs/weekly/week_05/README.md)。
+本周是 M2 灰模建造与回退闭环；分类植被笔刷、完整属性 UI、最终美术与容量性能继续后续排期。
 
 ## 运行
 
@@ -12,7 +12,7 @@
 
 ```bash
 python3 tools/quality/bootstrap.py
-python3 tools/quality/run_checks.py --week 4 --negative-control
+python3 tools/quality/run_checks.py --week 5 --negative-control
 python3 tools/quality/run_game.py
 ```
 
@@ -32,25 +32,25 @@ python3 tools/quality/run_game.py
 
 建筑宽深 3–12m、高 2.4–7.2m；拖建时默认高 3m，右侧属性面板可连续改尺寸与檐高后提交；建筑旋转仅支持 0°。
 重叠放置被拒绝，相切 / 同朝向侧贴可通过数据检查；接触墙消隐与端部封边已有风险实现；正式局部屋檐与木石收边继续后续任务。
-存档位置为 Godot `user://week_04/forest.wgs`，包含校验及一个备份，不是完整五存档产品界面。
+存档位置为 Godot `user://week_05/forest.wgs`，包含校验及一个备份，不是完整五存档产品界面。
 
 ## 测试与导出
 
 ```bash
 # 自动化回归、格式、lint、资源契约、跨进程重启与失败注入
-python3 tools/quality/run_checks.py --week 4 --negative-control
+python3 tools/quality/run_checks.py --week 5 --negative-control
 # 有桌面 GPU 的机器：真实风效、日暮/资源四向与可见编辑采样
-python3 tools/quality/week_four_render_checks.py
+python3 tools/quality/week_five_render_checks.py
 # 本机 macOS：取匹配的桌面模板、注册、导出并实际启动 macOS 包
 python3 tools/quality/fetch_desktop_runtime.py --templates-only
 python3 tools/quality/install_desktop_templates.py
-python3 tools/quality/export_smoke.py --week 4
+python3 tools/quality/export_smoke.py --week 5
 # 提交后，从无导入缓存的 Git 归档复测
-python3 tools/quality/clean_checkout.py --week 4
+python3 tools/quality/clean_checkout.py --week 5
 ```
 
 导入、导出以及质量检查按顺序运行，避免两个编辑器进程同时修改同一 `.godot/`。
-自动报告输出到 `reports/`；试玩包位于 `builds/week_04/windows/` 和 `builds/week_04/macos/`。
+自动报告输出到 `reports/`；试玩包位于 `builds/week_05/windows/` 和 `builds/week_05/macos/`。
 macOS 包是本地未公证开发包。Windows EXE 导出成功仍需 Windows 设备完成可见交互验证。
 CI 已配置 Ubuntu / Windows 自动回归，尚未推送远程触发。
 每周新增功能必须补测试并保留既有回归，见 [测试约定](docs/TESTING.md)。
@@ -59,8 +59,8 @@ CI 已配置 Ubuntu / Windows 自动回归，尚未推送远程触发。
 
 - `app/`：试玩组合根；`core/`：源数据、放置约束和事务。
 - `features/`：建筑网格、轨道相机、存档与风着色器；`ui/`：操作面板与建筑属性 / 恢复面板。
-- `tests/week_01/`–`week_04/`：累计 GUT 回归和独立进程探针；`tools/quality/`：可复现质量命令。
-- `art_source/week_01/`–`week_04/`：模型、纹理与材质库源文件；`assets/`：GLB、贴图和导入配置。
+- `tests/week_01/`–`week_05/`：累计 GUT 回归和独立进程探针；`tools/quality/`：可复现质量命令。
+- `art_source/week_01/`–`week_05/`：模型、纹理与材质库源文件；`assets/`：GLB、贴图和导入配置。
 - `docs/`：已批准 PRD、开发计划、每周证据与许可。
 
 Blender 5.1.2 为唯一主模型源，三种门与树 / 布 / 长凳样板，以及 W02 窗 / 树初稿 / 笔触纹理可分别重建：
@@ -70,6 +70,7 @@ Blender 5.1.2 为唯一主模型源，三种门与树 / 布 / 长凳样板，以
 /Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python tools/art/build_week_two_assets.py -- --root "$PWD"
 /Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python tools/art/build_week_three_assets.py -- --root "$PWD"
 /Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python tools/art/build_week_four_assets.py -- --root "$PWD"
+/Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python tools/art/build_week_five_assets.py -- --root "$PWD"
 ```
 
 Windows / Linux 改用当地 Blender 路径。Three.js 暂未引入；GUT 9.7.1 已随源码保存。
@@ -78,7 +79,7 @@ Windows / Linux 改用当地 Blender 路径。Three.js 暂未引入；GUT 9.7.1 
 修改源资产后还需在 Blender 中重新打开检查（报告目录先由质量命令建立）：
 
 ```bash
-/Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python tools/art/audit_sources.py -- --root "$PWD" --output "$PWD/reports/week_04_source_audit.json"
+/Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python tools/art/audit_sources.py -- --root "$PWD" --output "$PWD/reports/week_05_source_audit.json"
 ```
 
 ## W02 新操作与边界
@@ -92,7 +93,7 @@ Windows / Linux 改用当地 Blender 路径。Three.js 暂未引入；GUT 9.7.1 
 - 松手后显示“正在完成上一笔”，完成前不接收下一笔编辑，相机仍可操作；Esc 明确取消。
 - 超过 3m 基座、池区原坡差 >0.6m、池岸与建筑 / 手放物件冲突都会拒绝整笔。
 
-W02 圆池/灰模样板保留作回归；当前已接通 W04 曲线路径。自由池岸、全局依赖图与预算化提交继续后续排期。
+W02 圆池/灰模样板保留作回归；当前已接通曲线路径与 W05 自由池岸；全局依赖图与预算化提交继续 W06。
 仅用于验收的演示：`python3 tools/quality/run_game.py -- --contact-demo --low-angle`，
 或 `--road-demo` 查看单笔路径→门的窄范围契约样板。该演示不代表完整路径编辑已开放。
 
@@ -122,9 +123,22 @@ W02 圆池/灰模样板保留作回归；当前已接通 W04 曲线路径。自�
 - 手放门窗：先选小屋，再选三门 / 两窗中的种类，到墙边拖动。门窗列表可选中移动、锁定或删除手工开口；锁定 / 手动移动使自动门转为手工。
   自动门由路径维护；删除自动门应删除供门路径。开口冲突会整笔拒绝，自动门不会挤掉手放窗。
 - “平滑 / 恢复地形”保留源坡地与池岸；入口净空带保护。石基贴地、地坪固定，超过 3m 支撑仍整笔拒绝。
-- 自然页可放五自然资源、长凳 / 信箱；盆栽和晾衣架标为初稿。正式分类刷植仍在 W06，保留原灰模刷植用于事务验证。
+- 自然页可放五自然资源、长凳 / 信箱；W04 曾将盆栽和晾衣架标为初稿，W05 已收尾。正式分类刷植仍在 W06，保留原灰模刷植用于事务验证。
 - 环境页拖动风量 / 风向滑杆，松手提交；日暮切换约 1.2 秒。最多四盏近景局部灯，其余仅发光；当前小光点为功能探针，正式提灯模型是后续任务。
-- 围栏为 W04D5 直段开工版本，可拖绘和撤销；转角、闭合与最终端头细节继续 W05。
+- W04D5 的直段围栏在 W05 已补齐转角、闭合与端头封边，见下文。
 
 可见验收场景：在 `run_game.py --` 后添加 `--w04-links-demo`、`--w04-terrain-demo` 或 `--w04-asset-gallery --hide-ui`。
 W04 存档有独立目录，读取兼容旧源数据；未自动覆盖旧周包 / 槽。
+
+
+## W05 操作与边界
+
+- 右侧“庭园”：选“绘制 / 重画池岸”，按住左键围绕水域绘一圈，松手闭合；转折点间距约 2m，最窄水域 2m。水位首次确定后固定；不支持自交轮廓。旧圆池和自由轮廓共用单池槽。
+- 短桥 / 短阶：拖动两端，松手只保留预览，点击“确认桥 / 阶”才提交；Esc 取消。桥长 1.5–6m、桥头高差≤0.5m；短阶高差 0.15–0.9m、宽 0.8–2m。短阶上端可吸附外墙手工门的水平地坪。
+- 改池岸或删池使桥失效时，桥以暖红色保留，列表提示调整桥头；撤销同时恢复岸线与有效状态。选列表项后点“拖动所选结构”，黄色点对应可拖端点/围栏点；支持删除并撤销。
+- 左侧“连续围栏”：左键连续拖绘，转折自动留点；回到起点附近闭合。角柱共享、杆端封闭、穿路留开口。
+- “自然”可放四种生活道具。将木箱/盆栽/浇水壶拖到已有木箱中心附近可吸附支撑面；移动上层物件会解除支撑引用。删除或移动仍被依赖的底箱会拒绝并保留原态，先移开上层物件。
+- 茶具/提灯保留 T038 跨周源初稿，W06 收尾。灰模刷植仍用于数据闭环；正式分类植被笔刷为 W06。
+- 演示：`--w05-gallery`、`--w05-stairs`、`--w05-invalid-bridge`，可与 `--hide-ui` / `--view-angle=45` 合用。
+
+W05 存档使用独立 `user://week_05/forest.wgs`；完整精度 JSON 保留采样桥头高度，不覆盖旧周槽。

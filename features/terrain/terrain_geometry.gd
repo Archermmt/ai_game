@@ -19,15 +19,7 @@ static func chunk(field: TerrainField, origin: Vector2, size: float = 8.0) -> Ar
 			uvs.append(point / 4.0)
 			var wet: float = 0.0
 			if not field.pool.is_empty():
-				var center: Vector2 = Vector2(field.pool["center"][0], field.pool["center"][1])
-				wet = (
-					1.0
-					- smoothstep(
-						float(field.pool["radius"]) - 0.2,
-						float(field.pool["radius"]) + 0.75,
-						point.distance_to(center)
-					)
-				)
+				wet = 1.0 - smoothstep(-0.2, 0.75, PondShape.distance(field.pool, point))
 			colors.append(Color(clampf((1.0 - normal.y) * 3.0, 0, 1), wet, 0, 1))
 	for z: int in range(cells):
 		for x: int in range(cells):

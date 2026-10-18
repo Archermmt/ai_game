@@ -52,6 +52,8 @@ func reserve_commit(candidate: Dictionary, label: String) -> Dictionary:
 	if int(candidate.get("revision", -1)) != int(document.state["revision"]):
 		return {"ok": false, "error": "stale_candidate"}
 	var error: String = WorldDocument.validate(candidate)
+	if error.is_empty():
+		error = GardenStructures.transition_error(document.state, candidate)
 	if not error.is_empty():
 		cancel_gesture()
 		return {"ok": false, "error": error}
@@ -91,6 +93,11 @@ func commit_snapshot(
 	if phase != Phase.IDLE:
 		return {"ok": false, "error": "busy"}
 	var before: Dictionary = document.snapshot()
+	var structural_error: String = WorldDocument.validate(candidate)
+	if structural_error.is_empty():
+		structural_error = GardenStructures.transition_error(before, candidate)
+	if not structural_error.is_empty():
+		return {"ok": false, "error": structural_error}
 	if int(candidate.get("revision", -1)) != int(before["revision"]):
 		return {"ok": false, "error": "stale_candidate"}
 	var result: Dictionary = _prepare(candidate, prepare)
@@ -159,7 +166,7 @@ func dispose() -> void:
 
 func _prepare(candidate: Dictionary, prepare: Callable) -> Dictionary:
 	# 50 commands, two snapshots each: bounded to 100 MiB of serialized source.
-	if JSON.stringify(candidate).to_utf8_buffer().size() > MAX_SOURCE_BYTES:
+	if JSON.stringify(candidate, "", true, true).to_utf8_buffer().size() > MAX_SOURCE_BYTES:
 		return {"ok": false, "error": "history_source_budget"}
 	var validation: String = WorldDocument.validate(candidate)
 	if not validation.is_empty():

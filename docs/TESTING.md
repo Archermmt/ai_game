@@ -3,7 +3,7 @@
 ## 当前可执行门槛
 
 ```bash
-python3 tools/quality/run_checks.py --week 4 --negative-control
+python3 tools/quality/run_checks.py --week 5 --negative-control
 ```
 
 按顺序执行锁定引擎导入、格式、lint、资源契约、GUT、各周两个独立进程的保存/重载，
@@ -31,8 +31,8 @@ python3 tools/quality/run_checks.py --week 4 --negative-control
 | W11 | 既有全部 | 冻结包十人体验、反馈缺陷回归；不以新增需求挤掉可靠性验证 |
 | W12 | 既有全部 | 最终包全新解压、Windows实机、许可/哈希/操作说明、保存重启摄影退出 |
 
-W01–W04 已注册并实际执行；W04 命令顺序运行四周全部回归。W05–12 仍是计划，当前传入
-`--week 5` 会明确失败。以后新增周次必须注册 gate 并保留既有回归，不能只增加一个空目录。
+W01–W05 已注册并实际执行；W05 命令顺序运行五周全部回归。W06–12 仍是计划，当前传入
+`--week 6` 会明确失败。以后新增周次必须注册 gate 并保留既有回归，不能只增加一个空目录。
 
 ## 四类证据分开
 
@@ -103,3 +103,20 @@ W04 新增 50 项：曲线控制点 / 路宽 / 距离高差 / 复用门 / 最后
 路门与基座演示、零风 / 减少动态像素对照及 20 笔编辑。图形验证与 headless 回归分开执行。
 缓存是精确源签名和原始数组；主线程缓存与单 worker 缓存分离，不能从两条线程并发写同一字典。
 最终全场压力与 Windows 真机仍独立验收。
+
+
+## W05 专项命令
+
+```bash
+python3 tools/quality/run_checks.py --week 5 --negative-control
+python3 tools/quality/week_five_render_checks.py
+python3 tools/quality/export_smoke.py --week 5
+python3 tools/quality/clean_checkout.py --week 5
+```
+
+W05 新增 45 项：自由轮廓/自交/最窄与边界、池底与岸带、固定水位、删除恢复玩家数据、双向安全带、手放内容保护、精确局部缓存；
+短桥范围/桥头高差/确认、失效保留与撤销同恢复、入口短阶/宽高边界；围栏转角共享与闭合封边/路径开口；
+木箱支撑高度/循环与丢失引用、模型预算、实际鼠标松手预览、取消 PendingCommit、Mac Option 隔离和浮点存档精度。
+50 笔混合样本串联建屋/手工门窗、路径以往回归、刷植、摆物、地形、池塘、桥、围栏、删父与重新附着、全部撤销重做。
+独立进程保存包含非圆岸线、桥头采样、闭合围栏和堆叠引用。源审计重开五周共 37 模型及材质图。
+可见验证和导出仍串行；Windows 真机、最低配置和全场压力不能由本地检查代替。

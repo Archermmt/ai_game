@@ -1,0 +1,16 @@
+{
+  "asset_id": "PROP-04",
+  "source": "art_source/week_05/clothesline.blend",
+  "export": "assets/week_05/clothesline.glb",
+  "units": "meters",
+  "blender": "5.1.2",
+  "up_axis": "gltf_y_up",
+  "triangles": 1388,
+  "budget": 2500,
+  "sockets": [
+    "socket_ground"
+  ],
+  "stage": "w05_source",
+  "source_license": "Project original; authored by Blender script",
+  "supersedes": "week_04"
+}
