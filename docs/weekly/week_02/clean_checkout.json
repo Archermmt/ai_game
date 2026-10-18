@@ -1,0 +1,91 @@
+{
+  "revision": "b0b556df85f7647b4ea02ea85371ea2c885a2021",
+  "fresh_source_from": "git archive HEAD",
+  "initial_godot_cache": false,
+  "shared_dependencies": "locked Godot binary and lint virtualenv only; no imported assets or generation caches",
+  "exit_code": 0,
+  "checks": {
+    "week": 2,
+    "groups": [
+      {
+        "week": 1,
+        "tests": 42,
+        "failures": 0,
+        "skipped": 0
+      },
+      {
+        "week": 2,
+        "tests": 46,
+        "failures": 0,
+        "skipped": 0
+      }
+    ],
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "tests": 88,
+    "failures": 0,
+    "skipped": 0,
+    "negative_control": true,
+    "steps": [
+      {
+        "name": "engine_import",
+        "exit_code": 0,
+        "seconds": 2.388
+      },
+      {
+        "name": "format",
+        "exit_code": 0,
+        "seconds": 0.65
+      },
+      {
+        "name": "lint",
+        "exit_code": 0,
+        "seconds": 0.648
+      },
+      {
+        "name": "asset_contract",
+        "exit_code": 0,
+        "seconds": 0.037
+      },
+      {
+        "name": "week_01_tests",
+        "exit_code": 0,
+        "seconds": 1.362
+      },
+      {
+        "name": "week_01_restart_write",
+        "exit_code": 0,
+        "seconds": 0.266
+      },
+      {
+        "name": "week_01_restart_read",
+        "exit_code": 0,
+        "seconds": 0.17
+      },
+      {
+        "name": "week_02_tests",
+        "exit_code": 0,
+        "seconds": 4.998
+      },
+      {
+        "name": "week_02_restart_write",
+        "exit_code": 0,
+        "seconds": 0.167
+      },
+      {
+        "name": "week_02_restart_read",
+        "exit_code": 0,
+        "seconds": 0.158
+      },
+      {
+        "name": "week_02_risk_metrics",
+        "exit_code": 0,
+        "seconds": 0.549
+      },
+      {
+        "name": "negative_control",
+        "exit_code": 1,
+        "seconds": 1.082
+      }
+    ]
+  }
+}

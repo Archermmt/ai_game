@@ -4,7 +4,7 @@
 
 ## 当前阶段
 
-**W02 本机实现、自动回归与导出通过；正在做最终无缓存检出验证。**
+**W02 本机实现与验收归档完成，可继续 W03。**
 M1 风险样板具备可继续 W03 的本机实现；Windows 真机、最低配置与完整 MVP 最终验收尚未放行。
 默认入口为 `app/week_two_root.tscn`。源数据/派生网格分离，所有编辑继续经过事务。
 
@@ -45,17 +45,18 @@ W01 历史结果保留在 [W01 报告](docs/weekly/week_01/README.md)。任务 C
 | 失败注入 | 故意失败退出 1，正常回归退出 0；注入文件已清理 |
 | 两周跨进程保存重启 | 均通过；W02 覆盖种子/高度/池域/实例/路径/洞口/环境 |
 | 异步与事务 | 旧任务故意晚到、epoch、脏区合并、PendingCommit、真实鼠标、已显示预览后失败恢复通过 |
-| GPU 风效 | 风开启变化 143624 字节；零风/减少动态变化均为 0 |
+| 固定水面相位的 GPU 风效对照 | 风开启变化 143624 字节；零风/减少动态变化均为 0 |
 | 1080p 小样板 | Forward+ / Mobile 各 60s，P95 帧间隔约 8.33ms；仅本机、垂直同步开启 |
 | 20 笔可见编辑 | 主线程发布最大 / P95 从 7.377ms 降到 2.369ms；未改网格和建筑节点复用有回归覆盖 |
 | 地形取样选择 | 选 0.5m / 8m 块；本次完整求值约 77ms 在 worker；0.25m 约 290ms，两档接缝均通过 |
 | W02 导出 | Windows x86_64 导出通过；macOS 解压后空目录可见启动/退出，GUT/两周测试源未入包 |
-| 干净 Git 检出 | 待最终验证，不复用 `.godot/` |
+| 干净 Git 检出 | 从 `b0b556d` 归档全新导入，未复用 `.godot/`；88 项与失败注入再次通过 |
 | Windows 真机 / 云端 CI | 未执行，不标记通过 |
 
 证据：[自动摘要](docs/weekly/week_02/checks.json)、[W01 XML](docs/weekly/week_02/gut_week_01.xml)、
 [W02 XML](docs/weekly/week_02/gut_week_02.xml)、[渲染](docs/weekly/week_02/render_checks.json)、
-[编辑发布](docs/weekly/week_02/edit_after_cache.json)、[导出哈希](docs/weekly/week_02/exports.json)。
+[编辑发布](docs/weekly/week_02/edit_after_cache.json)、[导出哈希](docs/weekly/week_02/exports.json)、[Blender 源审计](docs/weekly/week_02/source_audit.json)、
+[干净检出](docs/weekly/week_02/clean_checkout.json)。
 之后每周继续新增对应测试并保留既有回归，见 [TESTING.md](docs/TESTING.md)。未注册的 W03 gate 会明确失败。
 
 ## 启动与版本管理
@@ -65,7 +66,8 @@ W01 历史结果保留在 [W01 报告](docs/weekly/week_01/README.md)。任务 C
 W01 包保留，W02 包进入独立目录；所有包/缓存/引擎/用户存档不入 Git。
 
 Git 分支 `main`。历史里程碑：`3513d74` 设计基线，`db4451f` W01 实现，`67be9cb` W01 验收归档。
-W02 实现和最终验收按本轮里程碑提交；当前仅本地 Git，未配置远程或推送。
+W02 实现：`b0b556d`；验收证据另作提交。本地版本标签：`v0.2.0-w02`。
+当前仅本地 Git，未配置远程或推送。
 
 ## 下一周与剩余门槛
 
