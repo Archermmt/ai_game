@@ -1,0 +1,99 @@
+"""Week gates. Failed engine logs, empty suites and failed assertions are fatal."""
+
+import argparse
+import json
+import re
+import subprocess
+import sys
+import time
+import xml.etree.ElementTree as ET
+from pathlib import Path
+
+from common import ROOT, engine_binary, toolchain
+
+ERRORS = re.compile(r"SCRIPT ERROR:|(?:^|\n)ERROR:|Program crashed|ObjectDB instances? (?:was|were) leaked")
+ANSI = re.compile(r"\x1b\[[0-9;]*[A-Za-z]")
+
+
+def run_step(name, command, expected_failure=False, working_directory=ROOT):
+    start = time.monotonic()
+    process = subprocess.run(command, cwd=working_directory, text=True, capture_output=True, timeout=180)
+    output = ANSI.sub("", process.stdout + process.stderr)
+    (ROOT / "reports" / (name + ".log")).write_text(output)
+    success = process.returncode != 0 if expected_failure else (
+        process.returncode == 0 and not ERRORS.search(output)
+    )
+    if expected_failure:
+        success = success and "intentional gate control" in output and bool(
+            re.search(r"Failing Tests\s+1", output)
+        )
+    if not success:
+        print(output[-6500:])
+        raise RuntimeError(f"{name} failed; exit={process.returncode}")
+    print(f"PASS {name} ({time.monotonic() - start:.2f}s)")
+    return {"name": name, "exit_code": process.returncode, "seconds": round(time.monotonic() - start, 3)}
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--week", type=int, default=1)
+    parser.add_argument("--negative-control", action="store_true")
+    args = parser.parse_args()
+    if args.week != 1:
+        raise RuntimeError("No gate registered for this week; add its tests before marking it done")
+    (ROOT / "reports").mkdir(exist_ok=True)
+    (ROOT / "reports/.gdignore").touch()
+    engine = engine_binary()
+    actual = subprocess.check_output([engine, "--version"], text=True).strip()
+    expected = toolchain()["godot"]["version"]
+    if not actual.startswith(expected + ".stable"):
+        raise RuntimeError(f"Engine mismatch: expected {expected}, got {actual}")
+    executable_dir = ROOT / ".venv" / ("Scripts" if sys.platform == "win32" else "bin")
+    entries = []
+    entries.append(run_step("engine_import", [engine, "--headless", "--path", ".", "--editor", "--import"]))
+    source = ["app", "core", "features", "ui", "tests/week_01"]
+    entries.append(run_step("format", [str(executable_dir / "gdformat"), "--check", *source]))
+    entries.append(run_step("lint", [str(executable_dir / "gdlint"), *source]))
+    entries.append(run_step("asset_contract", [sys.executable, "tools/quality/validate_assets.py"]))
+    entries.append(run_step("week_01_tests", [
+        engine, "--headless", "--path", ".", "-s", "addons/gut/gut_cmdln.gd",
+        "-gdir=res://tests/week_01", "-ginclude_subdirs", "-gexit",
+        "-gjunit_xml_file=reports/week_01.xml",
+    ]))
+    suite = ET.parse(ROOT / "reports/week_01.xml").getroot()
+    count = int(suite.attrib.get("tests", 0))
+    failures = int(suite.attrib.get("failures", 0))
+    skipped = sum(int(s.attrib.get("skipped", 0)) for s in suite.findall("testsuite"))
+    if count < 42 or failures or skipped:
+        raise RuntimeError(f"Invalid suite result: {count} tests, {failures} failed, {skipped} skipped")
+    restart_file = str(ROOT / "reports/restart_probe.wgs")
+    for mode in ["write", "read"]:
+        entries.append(run_step("restart_" + mode, [
+            engine, "--headless", "--path", ".", "-s", "tests/week_01/restart_probe.gd",
+            "--", mode, restart_file,
+        ]))
+    if args.negative_control:
+        injection = ROOT / "tests/week_01/test_failure_injection.gd"
+        if injection.exists():
+            raise RuntimeError("Refusing to overwrite existing failure-injection file")
+        try:
+            injection.write_text('extends GutTest\n\nfunc test_gate_rejects_failure() -> void:\n\tassert_true(false, "intentional gate control")\n')
+            entries.append(run_step("negative_control", [
+                engine, "--headless", "--path", ".", "-s", "addons/gut/gut_cmdln.gd",
+                "-gtest=res://tests/week_01/test_failure_injection.gd", "-gexit",
+            ], expected_failure=True))
+        finally:
+            injection.unlink(missing_ok=True)
+            injection.with_suffix(".gd.uid").unlink(missing_ok=True)
+    result = {"week": 1, "engine": actual, "tests": count, "failures": failures,
+              "skipped": skipped, "negative_control": args.negative_control, "steps": entries}
+    (ROOT / "reports/week_01_checks.json").write_text(json.dumps(result, indent=2) + "\n")
+    print(f"WEEK 01 PASS: {count} tests, {failures} failures; reports/week_01_checks.json")
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except (RuntimeError, subprocess.SubprocessError, OSError, ValueError, ET.ParseError) as exc:
+        print(f"QUALITY GATE FAILED: {exc}", file=sys.stderr)
+        sys.exit(1)

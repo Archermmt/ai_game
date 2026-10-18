@@ -6,3 +6,5 @@
 *.png binary
 *.blend binary
 *.glb binary
+# Preserve vendored upstream formatting without applying project whitespace rules.
+addons/gut/** -whitespace
