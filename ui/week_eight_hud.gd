@@ -4,6 +4,7 @@ extends "res://ui/week_seven_hud.gd"
 signal slot_requested(operation: String, index: int, title: String)
 signal preference_changed(key: String, value: Variant)
 signal binding_requested(action: String, event: InputEventKey)
+signal activity_detected
 signal preferences_reset
 signal decision_made(decision: String)
 
@@ -126,6 +127,7 @@ func _ready() -> void:
 	options.add_child(reset_button)
 	settings_note = _note(options, "设置自动保存到本机。")
 	decision = ConfirmationDialog.new()
+	decision.window_input.connect(func(_event: InputEvent) -> void: activity_detected.emit())
 	decision.title = "作品尚未保存"
 	decision.dialog_text = "保存当前作品后继续？"
 	decision.ok_button_text = "保存并继续"
@@ -146,12 +148,14 @@ func _window(caption: String, dimensions: Vector2i) -> Window:
 	var window: Window = Window.new()
 	window.title = caption
 	window.size = dimensions
+	window.window_input.connect(func(_event: InputEvent) -> void: activity_detected.emit())
 	window.transient = true
 	window.exclusive = true
 	window.theme = GardenTheme.create()
 	window.close_requested.connect(
 		func() -> void:
 			_binding = ""
+			activity_detected.emit()
 			window.hide()
 	)
 	add_child(window)
@@ -246,6 +250,8 @@ func _capture_binding(event: InputEvent) -> void:
 	if not _binding.is_empty() and event is InputEventKey and event.pressed and not event.echo:
 		settings.set_input_as_handled()
 		get_viewport().set_input_as_handled()
+		if event.keycode in [KEY_META, KEY_CTRL, KEY_ALT, KEY_SHIFT]:
+			return
 		if event.keycode != KEY_ESCAPE:
 			binding_requested.emit(_binding, event)
 		_binding = ""

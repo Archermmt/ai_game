@@ -3,7 +3,7 @@
   "tests": 412,
   "failures": 0,
   "skipped": 0,
-  "assertions": 6730,
+  "assertions": 6732,
   "groups": [
     {
       "week": 1,
@@ -35,7 +35,7 @@
     },
     {
       "week": 8,
-      "assertions": 793
+      "assertions": 795
     }
   ],
   "restart": "Each week uses independent write/read engine processes; W08 includes five named works, thumbnails, camera, precise height/atmosphere and rebinding.",

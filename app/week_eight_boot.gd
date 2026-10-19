@@ -49,6 +49,7 @@ func _ready() -> void:
 		active_slot = 0
 	else:
 		saves.request("catalog")
+	hud.activity_detected.connect(func() -> void: idle_seconds = 0)
 	hud.slot_requested.connect(_slot_requested)
 	hud.preference_changed.connect(_preference_changed)
 	hud.binding_requested.connect(_binding_requested)
@@ -345,6 +346,7 @@ func _notification(what: int) -> void:
 
 
 func _decision_made(choice: String) -> void:
+	idle_seconds = 0
 	if choice == "cancel":
 		_intent = ""
 	elif choice == "discard":

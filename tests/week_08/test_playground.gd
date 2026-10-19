@@ -106,6 +106,9 @@ func test_user_input_and_camera_motion_reset_idle_timer() -> void:
 	playground._input(InputEventKey.new())
 	assert_eq(playground.idle_seconds, 0.0)
 	playground.idle_seconds = 59
+	playground.hud.settings.window_input.emit(InputEventKey.new())
+	assert_eq(playground.idle_seconds, 0.0)
+	playground.idle_seconds = 59
 	playground.camera_rig.yaw += 0.1
 	playground._refresh_dirty_keys()
 	assert_eq(playground.idle_seconds, 0.0)

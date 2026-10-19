@@ -96,9 +96,12 @@ func test_settings_window_captures_new_shortcut_and_escape_cancels_capture() -> 
 	hud.settings.popup_centered()
 	hud._binding_buttons["save_work"].pressed.emit()
 	var event: InputEventKey = InputEventKey.new()
-	event.keycode = KEY_K
+	event.keycode = KEY_ALT
 	event.alt_pressed = true
 	event.pressed = true
+	hud.settings.window_input.emit(event)
+	assert_eq(hud._binding, "save_work", "Modifier down must keep capture active")
+	event.keycode = KEY_K
 	hud.settings.window_input.emit(event)
 	assert_eq(hud._binding, "")
 	assert_true(InputMap.action_get_events("save_work")[0].is_match(event))

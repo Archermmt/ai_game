@@ -109,7 +109,7 @@ static func valid(candidate: Dictionary) -> bool:
 			or not b is Dictionary
 			or not b.get("key") is int
 			or b["key"] <= 0
-			or b["key"] == KEY_ESCAPE
+			or b["key"] in [KEY_ESCAPE, KEY_META, KEY_CTRL, KEY_SHIFT, KEY_ALT]
 		):
 			return false
 		for modifier: String in ["ctrl", "meta", "alt", "shift"]:
