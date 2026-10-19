@@ -28,12 +28,13 @@ static func instantiate_asset(asset_id: String, key: String, lod: int = 0) -> No
 	return root
 
 
-static func apply_material(root: Node, key: String) -> void:
-	if root is MeshInstance3D:
-		var material: ShaderMaterial = ShaderMaterial.new()
+static func apply_material(root: Node, key: String, material: ShaderMaterial = null) -> void:
+	if material == null:
+		material = ShaderMaterial.new()
 		material.shader = preload("res://features/vegetation/vegetation.gdshader")
 		material.set_shader_parameter("atlas", ATLAS)
 		material.set_shader_parameter("phase", float(key.hash() % 10000) * 0.01)
+	if root is MeshInstance3D:
 		root.material_override = material
 	for child: Node in root.get_children():
-		apply_material(child, key)
+		apply_material(child, key, material)

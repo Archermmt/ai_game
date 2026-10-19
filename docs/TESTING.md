@@ -3,7 +3,7 @@
 ## 当前可执行门槛
 
 ```bash
-python3 tools/quality/run_checks.py --week 7 --negative-control
+python3 tools/quality/run_checks.py --week 8 --negative-control
 ```
 
 按顺序执行锁定引擎导入、格式、lint、资源契约、GUT、各周两个独立进程的保存/重载，
@@ -31,8 +31,8 @@ python3 tools/quality/run_checks.py --week 7 --negative-control
 | W11 | 既有全部 | 冻结包十人体验、反馈缺陷回归；不以新增需求挤掉可靠性验证 |
 | W12 | 既有全部 | 最终包全新解压、Windows实机、许可/哈希/操作说明、保存重启摄影退出 |
 
-W01–W07 已注册：42 + 52 + 42 + 50 + 45 + 68 + 51 = **350 项**，执行累计回归。
-W08–12 仍是计划，传入未注册周次会明确失败。新增周次必须注册 gate 并保留既有回归。
+W01–W08 已注册：42 + 52 + 42 + 50 + 45 + 68 + 51 + 62 = **412 项**，执行累计回归。
+W09–12 仍是计划，传入未注册周次会明确失败。新增周次必须注册 gate 并保留既有回归。
 
 ## 四类证据分开
 
@@ -163,3 +163,31 @@ Dummy 渲染后端不提供 MultiMesh 变换缓冲读回，自动化验证纯数
 
 当前 51 实例草案可见编辑存在超过目标的发布/准备尖峰，W08 T054 必须继续剖析；
 功能回归通过不代表最终性能、最低配置或 Windows 可见交互通过。
+
+
+## W08 专项命令
+
+```bash
+python3 tools/quality/run_checks.py --week 8 --negative-control
+python3 tools/quality/export_smoke.py --week 8
+# 支持 --executable /absolute/path/to/exported/app，复测发布包而非编辑器运行时
+python3 tools/quality/week_eight_render_checks.py
+python3 tools/quality/clean_checkout.py --week 8
+```
+
+W08 新增 62 项：五槽隔离/三代轮替/临时文件中断/坏校验与坏头恢复/未来版本保护、
+旧容器迁移/完整元信息/精确冻结布局，设置持久化/默认与新键冲突/重置、
+真实场景保存与分帧载入、载入前未存提示/退出取消/确认期间不自动决策、
+60s 空闲边界/相机与输入重置计时/预览互斥/五槽已满保护、DOF 开关、
+草木与晾布减少动态/新材质继承、150% 常驻反馈、缓存复用与八轮取消。
+每次保存/载入的场景用例使用隔离 QA 目录；`qa_mode` 禁止读写用户偏好。
+独立 write/read 进程验证五份作品的标题、PNG 缩略图、镜头、氛围、精确高度和重绑设置。
+
+实机脚本串行采集 21 张核心截图、一张存档种子图、六张风效图、四组 10s / 1080p 采样和 180 帧环绕录像；
+风效差分固定水面时间，分别比较全部 SCN-01 草木/晾布的正常、零风、本机减少动态。
+FFmpeg 8.1 仅转码审核录像，不进入游戏运行依赖。GPU 计时若为 null/0 样本必须保留此事实。
+本周测试不替代 W09 满容量 60s / 最低配置和 W10 长时间混合编辑；Windows 真机与远程 CI 独立记录。
+
+Blender 源审计：`audit_sources.py` 重新打开累计源文件与九张材质图，
+`audit_week_eight.py` 对当前 24 项预算模型（含三个 LOD1）额外检查法线、UV、正缩放、导出哈希和图集扩色。
+审计不写回 `.blend`，本周模型生产数记为零；UI-06 模板缩略图仍在 W09。

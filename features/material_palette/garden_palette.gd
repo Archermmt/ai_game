@@ -81,12 +81,14 @@ static func tint(environment: Dictionary, group: String) -> Color:
 	return Color.WHITE
 
 
-static func apply(root: Node3D, snapshot: Dictionary) -> void:
+static func apply(root: Node3D, snapshot: Dictionary, update_foliage: bool = true) -> void:
 	var env: Dictionary = snapshot["environment"]
 	root.architecture_material.set_shader_parameter("plaster_tint", tint(env, "plaster"))
 	root.architecture_material.set_shader_parameter("roof_tint", tint(env, "roof"))
 	root.wood_material.albedo_color *= tint(env, "wood")
 	root.stone_material.albedo_color *= tint(env, "stone")
+	if not update_foliage:
+		return
 	for paint: ShaderMaterial in root.wind_materials:
 		if paint.shader == preload("res://features/vegetation/vegetation.gdshader"):
 			paint.set_shader_parameter("foliage_tint", tint(env, "foliage"))

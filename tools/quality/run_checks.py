@@ -39,7 +39,7 @@ def main():
     parser.add_argument("--week", type=int, default=1)
     parser.add_argument("--negative-control", action="store_true")
     args = parser.parse_args()
-    if args.week not in [1, 2, 3, 4, 5, 6, 7]:
+    if args.week not in [1, 2, 3, 4, 5, 6, 7, 8]:
         raise RuntimeError("No gate registered for this week; add its tests before marking it done")
     (ROOT / "reports").mkdir(exist_ok=True)
     (ROOT / "reports/.gdignore").touch()
@@ -72,7 +72,7 @@ def main():
         tested = int(suite.attrib.get("tests", 0))
         failed = int(suite.attrib.get("failures", 0))
         omitted = sum(int(part.attrib.get("skipped", 0)) for part in suite.findall("testsuite"))
-        if tested < {1: 42, 2: 52, 3: 42, 4: 50, 5: 45, 6: 68, 7: 51}[week] or failed or omitted:
+        if tested < {1: 42, 2: 52, 3: 42, 4: 50, 5: 45, 6: 68, 7: 51, 8: 62}[week] or failed or omitted:
             raise RuntimeError(f"Invalid {label} suite: {tested} tests, {failed} failed, {omitted} skipped")
         count += tested
         failures += failed

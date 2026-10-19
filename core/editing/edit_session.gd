@@ -185,6 +185,28 @@ func replace_document(candidate: Dictionary, prepare: Callable = Callable()) -> 
 	return result
 
 
+func replace_prepared(candidate: Dictionary, payload: Dictionary) -> Dictionary:
+	if (
+		phase != Phase.IDLE
+		or not payload.get("ok", false)
+		or payload.get("source", {}) != candidate
+	):
+		return {"ok": false, "error": "prepared_source_mismatch"}
+	var error: String = WorldDocument.validate(candidate)
+	if not error.is_empty():
+		return {"ok": false, "error": error}
+	if JSON.stringify(candidate, "", true, true).to_utf8_buffer().size() > MAX_SOURCE_BYTES:
+		return {"ok": false, "error": "history_source_budget"}
+	_prepared_snapshot = candidate.duplicate(true)
+	_prepared_snapshot["revision"] = int(document.state["revision"]) + 1
+	_prepared_payload = payload
+	_publish_prepared()
+	_history.clear_history()
+	_commands.clear()
+	_cursor = 0
+	return {"ok": true}
+
+
 func history_count() -> int:
 	return _cursor
 

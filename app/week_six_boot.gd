@@ -213,9 +213,13 @@ func _on_published(snapshot: Dictionary, prepared: Dictionary) -> void:
 			renew_wind = true
 	if renew_wind or units.size() != _live_units.size():
 		wind_materials.clear()
+		var known_materials: Dictionary = {}
 		for key: String in units:
 			if key.begins_with("item:") or key.begins_with("batch:"):
-				wind_materials.append_array(WeekSixCatalog.wind_materials(units[key]))
+				for material: ShaderMaterial in WeekSixCatalog.wind_materials(units[key]):
+					if not known_materials.has(material.get_instance_id()):
+						known_materials[material.get_instance_id()] = true
+						wind_materials.append(material)
 	if renew_wind or snapshot["environment"] != _six_snapshot.get("environment", {}):
 		_sync_wind(snapshot)
 	var aged: bool = snapshot["environment"].get("aged", false)

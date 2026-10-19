@@ -14,7 +14,7 @@ from run_checks import run_step
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--week", type=int, default=7, choices=[1, 2, 3, 4, 5, 6, 7])
+    parser.add_argument("--week", type=int, default=7, choices=[1, 2, 3, 4, 5, 6, 7, 8])
     args = parser.parse_args()
     label = f"week_{args.week:02d}"
     if f'config/version="0.{args.week}.0-w{args.week:02d}"' not in (ROOT / "project.godot").read_text():
@@ -57,12 +57,16 @@ def main():
         steps.append(run_step("exported_macos_boot", [
             str(executable), "--", "--smoke-output=" + str(smoke_file),
             "--capture=" + str(ROOT / f"reports/{label}_exported_macos.png"), "--wind-time=0",
+            *(["--qa-settings", "--w08-save-probe"] if args.week >= 8 else []),
         ], working_directory=clean_room))
         smoke = json.loads(smoke_file.read_text())
         assert smoke["buildings"] == 2 and smoke["frames"] > 0
         assert not smoke["test_framework_in_pack"] and not smoke["test_sources_in_pack"]
         if args.week >= 6:
             assert smoke["font_license_in_pack"] and smoke["audio_resource_in_pack"]
+        if args.week >= 8:
+            assert smoke["edit_metrics"]["save_worker_ms"] > 0
+            assert smoke["edit_metrics"]["thumbnail_png_bytes"] > 0
         result["macos_clean_room_visible_boot"] = smoke
     result["artifacts"] = []
     for target in [windows, build_root / "macos" / f"windhaven_{label}.zip"]:

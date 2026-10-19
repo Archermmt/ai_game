@@ -112,6 +112,18 @@ static func validate(candidate: Dictionary) -> String:
 	for collection: String in COLLECTIONS:
 		if not candidate.get(collection) is Array:
 			return "invalid_collection:" + collection
+	var bookmark_ids: Dictionary = {}
+	if candidate["camera_bookmarks"].size() > 32:
+		return "invalid_camera_bookmarks"
+	for bookmark: Variant in candidate["camera_bookmarks"]:
+		if (
+			not CameraRecord.valid(bookmark)
+			or not bookmark.get("id") is String
+			or bookmark["id"].is_empty()
+			or bookmark_ids.has(bookmark["id"])
+		):
+			return "invalid_camera_bookmarks"
+		bookmark_ids[bookmark["id"]] = true
 	var ids: Dictionary = {}
 	for item: Variant in candidate["buildings"]:
 		if not item is Dictionary:

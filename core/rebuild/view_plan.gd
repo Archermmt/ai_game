@@ -4,6 +4,7 @@ extends RefCounted
 
 var owner_root: Node3D
 var cache: Dictionary = {}
+var foliage_parts: Dictionary = {}
 
 
 func _init(root: Node3D) -> void:
@@ -80,10 +81,7 @@ func prepare(data: Dictionary, stage: ResourceStage = null) -> Dictionary:
 		_unit(
 			"batch:" + key,
 			DirtyGraph.key(signatures),
-			func() -> Node3D:
-				return FoliageBatches.build(
-					grouped[key], data["poses"], owner_root.wood_material, owner_root.stone_material
-				),
+			func() -> Node3D: return _foliage(grouped[key], data["poses"]),
 			payload,
 			jobs,
 			stage
@@ -157,3 +155,14 @@ static func _view(mesh: ArrayMesh, material: Material) -> MeshInstance3D:
 	node.mesh = mesh
 	node.material_override = material
 	return node
+
+
+func _foliage(items: Array, poses: Dictionary) -> Node3D:
+	var asset_id: String = items[0]["asset_id"]
+	if not foliage_parts.has(asset_id):
+		foliage_parts[asset_id] = FoliageBatches.describe(
+			asset_id, owner_root.wood_material, owner_root.stone_material
+		)
+	return FoliageBatches.build(
+		items, poses, owner_root.wood_material, owner_root.stone_material, foliage_parts[asset_id]
+	)

@@ -1,18 +1,23 @@
 class_name SceneSave
 extends RefCounted
-## W07 versioned single-container writer; product slots/recovery rotation continue in W08.
+## Versioned source/metadata codec. SlotStore owns W08 slots and backup rotation.
 
 const MAGIC: String = "WGLADE02"
 const LIMIT: int = 8 * 1024 * 1024
 
 
-static func encode(snapshot: Dictionary, title: String = "林间作品") -> PackedByteArray:
+static func encode(
+	snapshot: Dictionary, title: String = "林间作品", presentation: Dictionary = {}
+) -> PackedByteArray:
 	if not WorldDocument.validate(snapshot).is_empty():
 		return PackedByteArray()
 	var raw: PackedByteArray = (
-		ExactFloatJson.encode(SnapshotDto.pack(snapshot, title)).to_utf8_buffer()
+		ExactFloatJson.encode(SnapshotDto.pack(snapshot, title, presentation)).to_utf8_buffer()
 	)
-	if raw.size() > LIMIT:
+	if (
+		raw.size() > LIMIT
+		or not SnapshotDto.unpack(SnapshotDto.pack(snapshot, title, presentation))["ok"]
+	):
 		return PackedByteArray()
 	var zipped: PackedByteArray = raw.compress(FileAccess.COMPRESSION_DEFLATE)
 	var result: PackedByteArray = MAGIC.to_utf8_buffer()
@@ -24,9 +29,17 @@ static func encode(snapshot: Dictionary, title: String = "林间作品") -> Pack
 
 
 static func decode(bytes: PackedByteArray) -> Dictionary:
-	if bytes.slice(0, 8).get_string_from_utf8() == SaveCodec.MAGIC:
-		return SaveCodec.decode(bytes)
-	if bytes.size() <= 44 or bytes.slice(0, 8).get_string_from_utf8() != MAGIC:
+	if bytes.slice(0, 8) == SaveCodec.MAGIC.to_utf8_buffer():
+		var legacy: Dictionary = SaveCodec.decode(bytes)
+		if legacy["ok"]:
+			legacy["metadata"] = {
+				"title": "旧版作品",
+				"scene_id": "SCN-01",
+				"generator": WorldDocument.GENERATOR_VERSION,
+				"presentation": {}
+			}
+		return legacy
+	if bytes.size() <= 44 or bytes.slice(0, 8) != MAGIC.to_utf8_buffer():
 		return {"ok": false, "error": "unsupported_save_format"}
 	var length: int = bytes.decode_u32(8)
 	if length < 2 or length > LIMIT or SaveCodec._digest(bytes.slice(44)) != bytes.slice(12, 44):

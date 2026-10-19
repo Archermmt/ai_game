@@ -7,6 +7,7 @@ var active_ids: Array[String] = []
 var _lamps: Array = []
 var _poses: Dictionary = {}
 var _views: Dictionary = {}
+var _panes: Dictionary = {}
 
 
 func configure(snapshot: Dictionary, poses: Dictionary, views: Dictionary) -> void:
@@ -15,6 +16,14 @@ func configure(snapshot: Dictionary, poses: Dictionary, views: Dictionary) -> vo
 	)
 	_poses = poses
 	_views = views
+	_panes.clear()
+	for item: Dictionary in _lamps:
+		var view: Node3D = views.get(item["id"])
+		_panes[item["id"]] = (
+			view.find_children("lamp_emission*", "MeshInstance3D", true, false)
+			if view != null
+			else []
+		)
 	var alive: Dictionary = {}
 	for item: Dictionary in _lamps:
 		alive[item["id"]] = true
@@ -41,10 +50,8 @@ func advance(camera_position: Vector3, dusk_mix: float) -> void:
 		if strength > 0.001:
 			lit.append(item)
 		lights[item["id"]].light_energy = strength * 0.65
-		var view: Node3D = _views.get(item["id"])
-		if view != null:
-			for node: Node in view.find_children("lamp_emission*", "MeshInstance3D", true, false):
-				node.material_override.emission_energy_multiplier = strength * 1.1
+		for node: Node in _panes.get(item["id"], []):
+			node.material_override.emission_energy_multiplier = strength * 1.1
 	lit.sort_custom(
 		func(a: Dictionary, b: Dictionary) -> bool:
 			var da: float = lights[a["id"]].position.distance_squared_to(camera_position)

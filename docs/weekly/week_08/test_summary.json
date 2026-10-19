@@ -1,0 +1,44 @@
+{
+  "week": 8,
+  "tests": 412,
+  "failures": 0,
+  "skipped": 0,
+  "assertions": 6730,
+  "groups": [
+    {
+      "week": 1,
+      "assertions": 435
+    },
+    {
+      "week": 2,
+      "assertions": 756
+    },
+    {
+      "week": 3,
+      "assertions": 865
+    },
+    {
+      "week": 4,
+      "assertions": 1526
+    },
+    {
+      "week": 5,
+      "assertions": 315
+    },
+    {
+      "week": 6,
+      "assertions": 1585
+    },
+    {
+      "week": 7,
+      "assertions": 455
+    },
+    {
+      "week": 8,
+      "assertions": 793
+    }
+  ],
+  "restart": "Each week uses independent write/read engine processes; W08 includes five named works, thumbnails, camera, precise height/atmosphere and rebinding.",
+  "negative_control": "Intentional failing assertion rejected with nonzero exit; injection removed.",
+  "isolation": "W08 qa_mode never loads or writes player preferences; isolated QA save directories cleaned by fixtures."
+}

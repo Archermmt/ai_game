@@ -1,9 +1,9 @@
 # 风栖小筑 · Godot MVP
 
-第七周试玩切片：底部工具 Dock、八道具属性卡、十二张原生材质选择卡、可拉伸/转角绿篱，
-接入正式开口与木构套件、资源包装与拾取挂点。进度见 [STATUS.md](STATUS.md)，
-验证见 [W07 报告](docs/weekly/week_07/README.md)。
-默认进入可编辑的林间坡地示范草案；完整场景签核与存档可靠性继续 W08，摄影与混音维持后续排期。
+第八周试玩切片：五个命名存档、三代备份与空闲自动保存、退出提示，
+本机缩放/快捷键/景深/减少动态设置，以及正式 SCN-01 源布局。
+进度见 [STATUS.md](STATUS.md)，验证见 [W08 报告](docs/weekly/week_08/README.md)。
+默认进入可编辑的林间坡地；摄影、完整压力场景与声音播放按后续排期。
 
 ## 运行
 
@@ -12,12 +12,12 @@
 
 ```bash
 python3 tools/quality/bootstrap.py
-python3 tools/quality/run_checks.py --week 7 --negative-control
+python3 tools/quality/run_checks.py --week 8 --negative-control
 python3 tools/quality/run_game.py
 ```
 
 本机已准备 `.tools/` 和 `.venv/`，可直接运行后两条命令。也可使用相同版本 Godot 打开
-`project.godot` 后按 F6 / F5。系统的 Godot 4.7 不满足本项目补丁版本锁。
+`project.godot` 后按 F5；单场景测试请打开 `app/week_eight_root.tscn` 后按 F6。系统的 Godot 4.7 不满足本项目补丁版本锁。
 可通过 `GODOT_BIN` 指定同版本引擎；下载的引擎、缓存、试玩包和用户存档不进入 Git。
 
 | 操作 | 输入 |
@@ -28,31 +28,41 @@ python3 tools/quality/run_game.py
 | 恢复镜头 | F 或“复位视角” |
 | 撤销 / 重做 | Ctrl（macOS 为 Cmd）+Z / Shift+Z；或按钮 |
 | 分类植被 | 选择树木 / 植物 / 岩石；调半径和各类密度后选择刷植或擦除；Ctrl/Cmd+滚轮调半径 |
-| 属性 | 手放内容可锁定高度；提灯选择开启 / 关闭 / 自动；左侧环境面板可改 UI 比例 |
+| 属性 | 手放内容可锁定高度；提灯选择开启 / 关闭 / 自动；顶部「设置」可改 UI 比例、重绑快捷键与关闭景深 |
 | 存档 / 读档 | Ctrl/Cmd+S / Ctrl/Cmd+O；或按钮 |
 | 日暮色 / 减少动态 | 左侧按钮 |
 
 建筑宽深 3–12m、高 2.4–7.2m；拖建时默认高 3m，右侧属性面板可连续改尺寸与檐高后提交；建筑旋转仅支持 0°。
 重叠放置被拒绝，相切 / 同朝向侧贴可通过数据检查；接触墙消隐与端部封边已有风险实现；正式局部屋檐与木石收边继续后续任务。
-当前存档位置为 Godot `user://week_07/forest.wgs`，WGLADE02 单容器包含元信息、压缩源数据及一个备份；保持浮点位值与整数类型，兼容旧 WGLADE01。完整五存档界面在后续排期。
+顶部「我的作品」选择五个命名槽之一保存/载入，预览来自当前实机画面；快捷键操作当前作品。
+空闲 60 秒自动保存当前作品，`.bak1`–`.bak3` 保留前三代。启动新示范只选择空槽；五槽已满时
+暂停自动保存，需主动载入或选择保存目标。未保存的载入/退出可选保存、放弃或取消。
+损坏主档按最新有效备份恢复到内存，保留原文件；请另存到空槽。未来版本不会被覆盖。
+
+当前路径为 `user://week_08/saves/slot_01.wgs`–`slot_05.wgs`，本机设置为
+`user://week_08/preferences.cfg`。W08 起使用固定用户目录 `WindhavenDiorama`，避免后续版本名称
+改变导致找不到作品。macOS 对应 `~/Library/Application Support/WindhavenDiorama/`。
+旧周次目录保留；关闭游戏后可将旧 `.wgs` **复制到空槽文件名**，兼容 WGLADE01 / W07 WGLADE02，
+旧容器重存时进入新格式并保留原代备份。不要删除原件，也不要替换已有作品来迁移。
+
 
 ## 测试与导出
 
 ```bash
 # 自动化回归、格式、lint、资源契约、跨进程重启与失败注入
-python3 tools/quality/run_checks.py --week 7 --negative-control
-# 有桌面 GPU 的机器：真实风效、日暮/资源四向与可见编辑采样
-python3 tools/quality/week_seven_render_checks.py
+python3 tools/quality/run_checks.py --week 8 --negative-control
+# 有桌面 GPU 的机器：日暮/四向近远/风效、分阶段性能和真实环绕录像（需 FFmpeg）
+python3 tools/quality/week_eight_render_checks.py
 # 本机 macOS：取匹配的桌面模板、注册、导出并实际启动 macOS 包
 python3 tools/quality/fetch_desktop_runtime.py --templates-only
 python3 tools/quality/install_desktop_templates.py
-python3 tools/quality/export_smoke.py --week 7
+python3 tools/quality/export_smoke.py --week 8
 # 提交后，从无导入缓存的 Git 归档复测
-python3 tools/quality/clean_checkout.py --week 7
+python3 tools/quality/clean_checkout.py --week 8
 ```
 
 导入、导出以及质量检查按顺序运行，避免两个编辑器进程同时修改同一 `.godot/`。
-自动报告输出到 `reports/`；试玩包位于 `builds/week_07/windows/` 和 `builds/week_07/macos/`。
+自动报告输出到 `reports/`；试玩包位于 `builds/week_08/windows/` 和 `builds/week_08/macos/`。
 macOS 包是本地未公证开发包。Windows EXE 导出成功仍需 Windows 设备完成可见交互验证。
 CI 已配置 Ubuntu / Windows 自动回归，尚未推送远程触发。
 每周新增功能必须补测试并保留既有回归，见 [测试约定](docs/TESTING.md)。

@@ -2,6 +2,7 @@ extends "res://app/week_six_boot.gd"
 ## W07 composition only: inherited transactions and all previous weekly fixtures remain.
 
 const W07_SAVE: String = "user://week_07/forest.wgs"
+var _palette_wind_signature: int = 0
 var _hedge_drag: bool = false
 var _hedge_before: Dictionary = {}
 var _hedge_points: Array = []
@@ -66,7 +67,14 @@ func _decorated_building_view(home: Dictionary, mesh: ArrayMesh, snapshot: Dicti
 
 func _on_published(snapshot: Dictionary, prepared: Dictionary) -> void:
 	super._on_published(snapshot, prepared)
-	GardenPalette.apply(self, snapshot)
+	var signature: int = hash(
+		[
+			wind_materials,
+			snapshot["environment"].get("palette", {}).get("foliage", "foliage_spring")
+		]
+	)
+	GardenPalette.apply(self, snapshot, signature != _palette_wind_signature)
+	_palette_wind_signature = signature
 	if tools != null:
 		hud.sync_objects(snapshot, tools.selected)
 
