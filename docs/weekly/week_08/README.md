@@ -1,7 +1,7 @@
 # W08 · 持久化、本机设置与可环绕视觉切片
 
 2026-10-20，Godot 4.7.2 Standard，版本 `0.8.0-w08`。本周完成 T051/T052 收尾与 T053–T057，
-最终发布核验与干净检出归档中。批准 PRD / 计划 / backlog / 资产 CSV 保留基线。
+累计回归、发布包可见验证与无缓存干净检出均已归档。批准 PRD / 计划 / backlog / 资产 CSV 保留基线。
 
 ## 可试玩交付
 
@@ -95,7 +95,7 @@ Apple M4 Pro / 20 核 GPU / 48GB / macOS arm64，Forward+ / Metal 3.2，1920×10
 
 ## 证据、版本与剩余门槛
 
-- [累计 gate](checks.json)、[W08 GUT XML](gut_week_08.xml)、[独立重启与断言摘要](test_summary.json)
+- [累计 gate](checks.json)、[W08 GUT XML](gut_week_08.xml) / [控制台](gut_week_08.log)、[独立重启与断言摘要](test_summary.json)
 - [累计源审计](source_audit_all.json)、[当前预算/法线/UV/扩色](source_audit.json)
 - [发布包可见检查/性能/录像哈希](render_checks.json)、[导出步骤与 SHA256](exports.json)
 - [干净检出](clean_checkout.json)、[实机逐镜检查记录](visual_review.json)
@@ -104,3 +104,9 @@ Mac 包从空工作目录解压可见启动，并在后台生成与保存实机 
 Windows 仅验证 PE x86_64 与导出，不计为 Windows 真机或远程 CI 通过。
 GPU 硬件计时保留 unavailable/null、0 样本；VSync 帧间隔不等于 GPU 时间或最低配置表现。
 W09 满容量 60s/内存与摄影、M4 全资源、W10 混合编辑/音频和 Windows 目标机仍独立待验。
+
+
+实现提交 `e879782`，输入顺序/弹窗活动修复 `e8abdba`；从 `e8abdba` 的 Git 归档建立
+无 `.godot` 的临时检出，412 项、八周独立进程重启与失败负控全部通过。
+仅复用锁定宿主引擎和 gdtoolkit，不复用导入缓存。最终证据归档随 `v0.8.0-w08` 标记。
+本地未配置远程或推送；导出包、运行时、缓存和用户文件不进入 Git。
