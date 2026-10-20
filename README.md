@@ -2,7 +2,7 @@
 
 第八周试玩切片：五个命名存档、三代备份与空闲自动保存、退出提示，
 本机缩放/快捷键/景深/减少动态设置，以及正式 SCN-01 源布局。
-进度见 [STATUS.md](STATUS.md)，验证见 [W08 报告](docs/weekly/week_08/README.md)。
+进度见 [STATUS.md](STATUS.md)，验证见 [W09 报告](docs/weekly/week_09/README.md)。
 默认进入可编辑的林间坡地；摄影、完整压力场景与声音播放按后续排期。
 
 ## 运行
@@ -12,7 +12,7 @@
 
 ```bash
 python3 tools/quality/bootstrap.py
-python3 tools/quality/run_checks.py --week 8 --negative-control
+python3 tools/quality/run_checks.py --week 9 --negative-control
 python3 tools/quality/run_game.py
 ```
 
@@ -24,7 +24,7 @@ python3 tools/quality/run_game.py
 | --- | --- |
 | 建房 | 选矩形 / 圆形，左键在草地拖动并释放 |
 | 取消预览 | Esc 或“取消” |
-| 环视 / 平移 / 缩放 | 右键或 Option（⌥）+左键拖动 / 中键或 Shift+左键 / 滚轮、双指捏合或双指上下滑动 |
+| 环视 / 平移 / 缩放 | 右键或双指上下左右移动 / Option（⌥）+左键、中键或 Shift+左键拖动 / 滚轮或双指捏合 |
 | 恢复镜头 | F 或“复位视角” |
 | 撤销 / 重做 | Ctrl（macOS 为 Cmd）+Z / Shift+Z；或按钮 |
 | 分类植被 | 选择树木 / 植物 / 岩石；调半径和各类密度后选择刷植或擦除；Ctrl/Cmd+滚轮调半径 |
@@ -50,19 +50,19 @@ python3 tools/quality/run_game.py
 
 ```bash
 # 自动化回归、格式、lint、资源契约、跨进程重启与失败注入
-python3 tools/quality/run_checks.py --week 8 --negative-control
+python3 tools/quality/run_checks.py --week 9 --negative-control
 # 有桌面 GPU 的机器：日暮/四向近远/风效、分阶段性能和真实环绕录像（需 FFmpeg）
 python3 tools/quality/week_eight_render_checks.py
 # 本机 macOS：取匹配的桌面模板、注册、导出并实际启动 macOS 包
 python3 tools/quality/fetch_desktop_runtime.py --templates-only
 python3 tools/quality/install_desktop_templates.py
-python3 tools/quality/export_smoke.py --week 8
+python3 tools/quality/export_smoke.py --week 9
 # 提交后，从无导入缓存的 Git 归档复测
-python3 tools/quality/clean_checkout.py --week 8
+python3 tools/quality/clean_checkout.py --week 9
 ```
 
 导入、导出以及质量检查按顺序运行，避免两个编辑器进程同时修改同一 `.godot/`。
-自动报告输出到 `reports/`；试玩包位于 `builds/week_08/windows/` 和 `builds/week_08/macos/`。
+自动报告输出到 `reports/`；试玩包位于 `builds/week_09/windows/` 和 `builds/week_09/macos/`。
 macOS 包是本地未公证开发包。Windows EXE 导出成功仍需 Windows 设备完成可见交互验证。
 CI 已配置 Ubuntu / Windows 自动回归，尚未推送远程触发。
 每周新增功能必须补测试并保留既有回归，见 [测试约定](docs/TESTING.md)。
@@ -188,3 +188,5 @@ W05 历史包存档使用独立 `user://week_05/forest.wgs`；完整精度 JSON 
 `--w07-round-close`、`--w07-palette`、`--w07-objects`；可组合 `--hide-ui` / `--view-angle=135`。
 [W07 美术重建说明](art_source/week_07/README.md) 包含原生 96px 缩略图生成步骤。
 当前 51 实例样例的 20 笔编辑仍有发布/资源创建尖峰，详见周报；W08 T054 继续性能优化。
+
+第九周：顶部「摄影」可隐藏工具、冻结动态、保存构图，选择目录输出 1080p / 2K PNG。Esc 或「返回编辑」恢复进入前相机；「选择布局」提供同场景示范 / 空布局。构图需保存作品到槽位后跨启动保留。

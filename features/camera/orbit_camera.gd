@@ -4,6 +4,8 @@ extends Node3D
 const MIN_DISTANCE: float = 7.0
 const MAX_DISTANCE: float = 60.0
 
+@export var touchpad_orbit: bool = false
+
 var target: Vector3 = Vector3.ZERO
 var distance: float = 29.0
 var yaw: float = 0.65
@@ -46,20 +48,33 @@ func _unhandled_input(event: InputEvent) -> void:
 				_zoom(1.0 / event.factor)
 		elif event is InputEventPanGesture:
 			# macOS sends precise two-finger scrolling as PanGesture, not wheel ticks.
-			if is_finite(event.delta.y):
-				_zoom(exp(clampf(event.delta.y, -20.0, 20.0) * 0.08))
+			if is_finite(event.delta.x) and is_finite(event.delta.y):
+				if touchpad_orbit:
+					yaw -= clampf(event.delta.x, -100, 100) * 0.025
+					pitch = clampf(pitch + event.delta.y * 0.02, 0.3, 1.3)
+					refresh()
+				else:
+					_zoom(exp(clampf(event.delta.y, -20.0, 20.0) * 0.08))
 		get_viewport().set_input_as_handled()
 	elif event is InputEventMouseButton:
 		if (
 			event.button_index == MOUSE_BUTTON_RIGHT
-			or (event.button_index == MOUSE_BUTTON_LEFT and event.alt_pressed and event.pressed)
+			or (
+				event.button_index == MOUSE_BUTTON_LEFT
+				and event.alt_pressed
+				and event.pressed
+				and not touchpad_orbit
+			)
 		):
 			_orbiting = event.pressed
 			_orbit_button = event.button_index if event.pressed else MOUSE_BUTTON_NONE
 			_panning = false
 		elif event.button_index == MOUSE_BUTTON_MIDDLE:
 			_panning = event.pressed
-		elif event.button_index == MOUSE_BUTTON_LEFT and event.shift_pressed:
+		elif (
+			event.button_index == MOUSE_BUTTON_LEFT
+			and (event.shift_pressed or (touchpad_orbit and event.alt_pressed))
+		):
 			_panning = event.pressed
 		elif event.pressed and event.button_index == MOUSE_BUTTON_WHEEL_UP:
 			_zoom(pow(0.9, clampf(event.factor, 0.0, 100.0)))

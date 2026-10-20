@@ -66,7 +66,11 @@ static func paint(
 			var exists: bool = false
 			for item: Dictionary in draft["instances"]:
 				exists = exists or item["id"] == id_value
-			if exists or draft["instances"].size() >= 800:
+			if (
+				exists
+				or draft["instances"].size() >= 1000
+				or capacity_count(draft, category) >= (80 if category == "trees" else 800)
+			):
 				continue
 			draft["instances"].append(
 				{
@@ -141,3 +145,15 @@ static func reconcile(snapshot: Dictionary) -> Dictionary:
 		):
 			draft["instances"].remove_at(i)
 	return draft
+
+
+static func capacity_count(snapshot: Dictionary, category: String) -> int:
+	var count: int = 0
+	for item: Dictionary in snapshot["instances"]:
+		var tree: bool = item["asset_id"] in CATEGORIES["trees"]
+		if (
+			(tree and category == "trees")
+			or (not tree and String(item["asset_id"]).begins_with("NAT") and category != "trees")
+		):
+			count += 1
+	return count

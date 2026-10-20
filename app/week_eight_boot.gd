@@ -40,6 +40,8 @@ func _ready() -> void:
 	if not qa_mode:
 		preferences.load_file(PREFERENCES)
 	saves = SaveService.new()
+	if qa_mode:
+		saves.directory = "user://qa_w08_native"
 	if qa_mode and "--qa-slots" in OS.get_cmdline_user_args():
 		saves.directory = "user://week_08/qa_slots"
 	saves.name = "SaveService"

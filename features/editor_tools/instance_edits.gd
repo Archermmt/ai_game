@@ -155,7 +155,7 @@ static func support_error(snapshot: Dictionary, item: Dictionary) -> String:
 
 static func validate(snapshot: Dictionary, existing_ids: Dictionary) -> String:
 	var ids: Dictionary = existing_ids
-	if snapshot["instances"].size() > 800:
+	if snapshot["instances"].size() > 1000:
 		return "prototype_instance_limit"
 	for item: Variant in snapshot["instances"]:
 		if not item is Dictionary:
