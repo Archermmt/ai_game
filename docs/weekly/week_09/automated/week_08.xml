@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="62" >
+  <testsuite name="tests/week_08/test_playground.gd" tests="20" failures="0" skipped="0" time="6.934966" >
+      <testcase name="test_scene_exposes_library_settings_and_two_recommended_views" assertions="8" status="pass" classname="tests/week_08/test_playground.gd" time="0.774414" >
+      </testcase>
+      <testcase name="test_manual_save_updates_dirty_baseline_only_after_io_success" assertions="10" status="pass" classname="tests/week_08/test_playground.gd" time="0.321585" >
+      </testcase>
+      <testcase name="test_edits_during_save_remain_dirty_and_pause_pending_navigation" assertions="8" status="pass" classname="tests/week_08/test_playground.gd" time="0.316762" >
+      </testcase>
+      <testcase name="test_load_restores_source_camera_title_and_clears_history_atomically" assertions="14" status="pass" classname="tests/week_08/test_playground.gd" time="0.584374" >
+      </testcase>
+      <testcase name="test_failed_load_preserves_entire_world_and_history" assertions="6" status="pass" classname="tests/week_08/test_playground.gd" time="0.299184" >
+      </testcase>
+      <testcase name="test_save_rejects_preview_without_losing_it" assertions="4" status="pass" classname="tests/week_08/test_playground.gd" time="0.288034" >
+      </testcase>
+      <testcase name="test_autosave_requires_sixty_idle_seconds_and_writes_active_slot" assertions="8" status="pass" classname="tests/week_08/test_playground.gd" time="0.326069" >
+      </testcase>
+      <testcase name="test_autosave_does_not_run_during_preview_or_clean_state" assertions="6" status="pass" classname="tests/week_08/test_playground.gd" time="0.310955" >
+      </testcase>
+      <testcase name="test_user_input_and_camera_motion_reset_idle_timer" assertions="5" status="pass" classname="tests/week_08/test_playground.gd" time="0.28816" >
+      </testcase>
+      <testcase name="test_dirty_load_prompts_and_cancel_retains_source" assertions="6" status="pass" classname="tests/week_08/test_playground.gd" time="0.296016" >
+      </testcase>
+      <testcase name="test_dirty_exit_prompts_and_cancel_does_not_quit" assertions="5" status="pass" classname="tests/week_08/test_playground.gd" time="0.290596" >
+      </testcase>
+      <testcase name="test_save_then_load_continuation_uses_original_target_slot" assertions="8" status="pass" classname="tests/week_08/test_playground.gd" time="0.388264" >
+      </testcase>
+      <testcase name="test_dof_off_and_on_are_local_preferences_without_history" assertions="7" status="pass" classname="tests/week_08/test_playground.gd" time="0.293524" >
+      </testcase>
+      <testcase name="test_reduced_motion_overrides_source_and_survives_new_materials" assertions="196" status="pass" classname="tests/week_08/test_playground.gd" time="0.304302" >
+      </testcase>
+      <testcase name="test_zero_wind_is_applied_to_all_plant_and_cloth_materials" assertions="193" status="pass" classname="tests/week_08/test_playground.gd" time="0.308996" >
+      </testcase>
+      <testcase name="test_scaling_keeps_tool_dock_and_access_buttons_in_view" assertions="6" status="pass" classname="tests/week_08/test_playground.gd" time="0.2861" >
+      </testcase>
+      <testcase name="test_preferences_reset_restores_ui_motion_and_clear_focus" assertions="5" status="pass" classname="tests/week_08/test_playground.gd" time="0.286681" >
+      </testcase>
+      <testcase name="test_recommended_views_keep_world_and_history_unchanged" assertions="5" status="pass" classname="tests/week_08/test_playground.gd" time="0.29597" >
+      </testcase>
+      <testcase name="test_load_locks_edits_but_camera_remains_usable" assertions="6" status="pass" classname="tests/week_08/test_playground.gd" time="0.359942" >
+      </testcase>
+      <testcase name="test_save_service_serializes_immutable_source_and_rejects_overlapping_io" assertions="7" status="pass" classname="tests/week_08/test_playground.gd" time="0.315038" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_08/test_preferences.gd" tests="12" failures="0" skipped="0" time="0.002742" >
+      <testcase name="test_defaults_have_clear_view_and_full_motion" assertions="4" status="pass" classname="tests/week_08/test_preferences.gd" time="0.000107" >
+      </testcase>
+      <testcase name="test_preferences_roundtrip_and_key_mapping_apply" assertions="5" status="pass" classname="tests/week_08/test_preferences.gd" time="0.000702" >
+      </testcase>
+      <testcase name="test_duplicate_key_rejected_without_mutating_previous_mapping" assertions="3" status="pass" classname="tests/week_08/test_preferences.gd" time="0.000234" >
+      </testcase>
+      <testcase name="test_escape_and_modifier_only_rebinding_are_rejected" assertions="6" status="pass" classname="tests/week_08/test_preferences.gd" time="0.000069" >
+      </testcase>
+      <testcase name="test_reset_restores_original_input_map_and_preferences" assertions="2" status="pass" classname="tests/week_08/test_preferences.gd" time="0.000095" >
+      </testcase>
+      <testcase name="test_ui_scale_outside_range_is_invalid" assertions="5" status="pass" classname="tests/week_08/test_preferences.gd" time="0.000065" >
+      </testcase>
+      <testcase name="test_wrong_types_and_unknown_actions_are_invalid" assertions="5" status="pass" classname="tests/week_08/test_preferences.gd" time="0.000066" >
+      </testcase>
+      <testcase name="test_bad_config_does_not_mutate_defaults" assertions="2" status="pass" classname="tests/week_08/test_preferences.gd" time="0.000314" >
+      </testcase>
+      <testcase name="test_invalid_preferences_never_replace_valid_file" assertions="3" status="pass" classname="tests/week_08/test_preferences.gd" time="0.000433" >
+      </testcase>
+      <testcase name="test_reset_keeps_camera_mouse_gestures_and_cancel_binding" assertions="2" status="pass" classname="tests/week_08/test_preferences.gd" time="0.000308" >
+      </testcase>
+      <testcase name="test_conflict_with_physical_default_key_is_detected" assertions="1" status="pass" classname="tests/week_08/test_preferences.gd" time="0.000072" >
+      </testcase>
+      <testcase name="test_config_cannot_override_a_default_with_a_conflicting_binding" assertions="1" status="pass" classname="tests/week_08/test_preferences.gd" time="0.000277" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_08/test_resources.gd" tests="13" failures="0" skipped="0" time="4.20509" >
+      <testcase name="test_repeated_object_sync_preserves_in_progress_spinbox_text" assertions="3" status="pass" classname="tests/week_08/test_resources.gd" time="0.288668" >
+      </testcase>
+      <testcase name="test_cached_batch_parts_share_meshes_and_materials_between_cells" assertions="4" status="pass" classname="tests/week_08/test_resources.gd" time="0.291377" >
+      </testcase>
+      <testcase name="test_repeated_cancel_frees_all_detached_stage_nodes" assertions="58" status="pass" classname="tests/week_08/test_resources.gd" time="0.65023" >
+      </testcase>
+      <testcase name="test_frozen_layouts_are_valid_source_and_share_ground_periphery" assertions="22" status="pass" classname="tests/week_08/test_resources.gd" time="0.303597" >
+      </testcase>
+      <testcase name="test_prepared_replacement_rejects_mismatched_source_without_publication" assertions="4" status="pass" classname="tests/week_08/test_resources.gd" time="0.295783" >
+      </testcase>
+      <testcase name="test_property_card_cache_invalidates_when_source_changes" assertions="3" status="pass" classname="tests/week_08/test_resources.gd" time="0.288216" >
+      </testcase>
+      <testcase name="test_settings_window_captures_new_shortcut_and_escape_cancels_capture" assertions="6" status="pass" classname="tests/week_08/test_resources.gd" time="0.290501" >
+      </testcase>
+      <testcase name="test_typing_in_object_properties_does_not_trigger_scene_shortcuts" assertions="4" status="pass" classname="tests/week_08/test_resources.gd" time="0.295568" >
+      </testcase>
+      <testcase name="test_exit_confirmation_never_allows_autosave_to_choose_for_user" assertions="4" status="pass" classname="tests/week_08/test_resources.gd" time="0.288373" >
+      </testcase>
+      <testcase name="test_new_session_catalog_reserves_only_an_empty_slot_for_autosave" assertions="7" status="pass" classname="tests/week_08/test_resources.gd" time="0.322183" >
+      </testcase>
+      <testcase name="test_full_library_does_not_autosave_template_over_existing_work" assertions="9" status="pass" classname="tests/week_08/test_resources.gd" time="0.303795" >
+      </testcase>
+      <testcase name="test_status_feedback_is_visible_outside_scrolling_tools_at_150_percent" assertions="6" status="pass" classname="tests/week_08/test_resources.gd" time="0.299991" >
+      </testcase>
+      <testcase name="test_tree_submeshes_share_shader_without_sharing_seed_state_between_trees" assertions="23" status="pass" classname="tests/week_08/test_resources.gd" time="0.286808" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_08/test_slots.gd" tests="17" failures="0" skipped="0" time="0.770372" >
+      <testcase name="test_five_named_slots_roundtrip_independently" assertions="20" status="pass" classname="tests/week_08/test_slots.gd" time="0.105449" >
+      </testcase>
+      <testcase name="test_three_backups_are_previous_three_generations" assertions="9" status="pass" classname="tests/week_08/test_slots.gd" time="0.116226" >
+      </testcase>
+      <testcase name="test_interrupted_write_keeps_primary_and_ignores_valid_temp" assertions="4" status="pass" classname="tests/week_08/test_slots.gd" time="0.044617" >
+      </testcase>
+      <testcase name="test_newest_valid_backup_is_recovered_without_touching_bad_main" assertions="5" status="pass" classname="tests/week_08/test_slots.gd" time="0.054124" >
+      </testcase>
+      <testcase name="test_recovery_skips_corrupt_first_backup" assertions="2" status="pass" classname="tests/week_08/test_slots.gd" time="0.08347" >
+      </testcase>
+      <testcase name="test_all_corrupt_generations_fail" assertions="1" status="pass" classname="tests/week_08/test_slots.gd" time="0.078369" >
+      </testcase>
+      <testcase name="test_future_magic_never_falls_back_or_overwrites" assertions="3" status="pass" classname="tests/week_08/test_slots.gd" time="0.045878" >
+      </testcase>
+      <testcase name="test_invalid_slots_cannot_escape_storage_directory" assertions="9" status="pass" classname="tests/week_08/test_slots.gd" time="0.001702" >
+      </testcase>
+      <testcase name="test_catalog_lists_five_slots_and_recovery_state" assertions="4" status="pass" classname="tests/week_08/test_slots.gd" time="0.022231" >
+      </testcase>
+      <testcase name="test_invalid_candidate_never_replaces_existing_valid_save" assertions="2" status="pass" classname="tests/week_08/test_slots.gd" time="0.024048" >
+      </testcase>
+      <testcase name="test_thumbnail_camera_environment_and_heights_share_checksum" assertions="4" status="pass" classname="tests/week_08/test_slots.gd" time="0.0361" >
+      </testcase>
+      <testcase name="test_invalid_camera_or_thumbnail_is_rejected_before_writing" assertions="4" status="pass" classname="tests/week_08/test_slots.gd" time="0.015918" >
+      </testcase>
+      <testcase name="test_camera_bookmark_duplicate_and_nonfinite_values_fail_validation" assertions="2" status="pass" classname="tests/week_08/test_slots.gd" time="0.003177" >
+      </testcase>
+      <testcase name="test_legacy_dto_without_presentation_still_migrates" assertions="2" status="pass" classname="tests/week_08/test_slots.gd" time="0.015598" >
+      </testcase>
+      <testcase name="test_pending_attachment_remains_pending_on_roundtrip" assertions="8" status="pass" classname="tests/week_08/test_slots.gd" time="0.027196" >
+      </testcase>
+      <testcase name="test_corrupt_magic_recovers_backup_but_does_not_promote_it_over_main" assertions="6" status="pass" classname="tests/week_08/test_slots.gd" time="0.048897" >
+      </testcase>
+      <testcase name="test_legacy_single_container_has_usable_metadata_and_can_be_resaved" assertions="5" status="pass" classname="tests/week_08/test_slots.gd" time="0.047372" >
+      </testcase>
+  </testsuite>
+</testsuites>

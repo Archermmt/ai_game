@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="42" >
+  <testsuite name="tests/week_03/test_building_production.gd" tests="17" failures="0" skipped="0" time="0.089045" >
+      <testcase name="test_generator_extremes_have_unit_geometric_normals_and_metric_uvs" assertions="36" status="pass" classname="tests/week_03/test_building_production.gd" time="0.032347" >
+      </testcase>
+      <testcase name="test_roofs_have_closed_fascia_and_undersides" assertions="2" status="pass" classname="tests/week_03/test_building_production.gd" time="0.004211" >
+      </testcase>
+      <testcase name="test_repeated_resize_keeps_identity_seed_and_door_dimensions" assertions="24" status="pass" classname="tests/week_03/test_building_production.gd" time="0.001878" >
+      </testcase>
+      <testcase name="test_resize_into_manual_prop_is_rejected_as_one_transaction" assertions="3" status="pass" classname="tests/week_03/test_building_production.gd" time="0.000792" >
+      </testcase>
+      <testcase name="test_resize_cannot_squeeze_existing_locked_opening" assertions="1" status="pass" classname="tests/week_03/test_building_production.gd" time="0.000075" >
+      </testcase>
+      <testcase name="test_delete_parent_retains_manual_frames_with_world_pose" assertions="5" status="pass" classname="tests/week_03/test_building_production.gd" time="0.000192" >
+      </testcase>
+      <testcase name="test_delete_auto_door_omits_it_but_retains_locked_auto_door" assertions="2" status="pass" classname="tests/week_03/test_building_production.gd" time="0.000067" >
+      </testcase>
+      <testcase name="test_reattach_preserves_id_and_is_reversible_with_derived_frames" assertions="11" status="pass" classname="tests/week_03/test_building_production.gd" time="0.002292" >
+      </testcase>
+      <testcase name="test_detached_curved_opening_near_seam_remains_valid" assertions="1" status="pass" classname="tests/week_03/test_building_production.gd" time="0.000151" >
+      </testcase>
+      <testcase name="test_duplicate_or_invalid_attachment_reference_is_rejected" assertions="2" status="pass" classname="tests/week_03/test_building_production.gd" time="0.000126" >
+      </testcase>
+      <testcase name="test_fifty_mixed_commands_batch_delete_and_branch_redo_cleanup" assertions="156" status="pass" classname="tests/week_03/test_building_production.gd" time="0.037627" >
+      </testcase>
+      <testcase name="test_history_source_budget_rejects_without_publication" assertions="3" status="pass" classname="tests/week_03/test_building_production.gd" time="0.003811" >
+      </testcase>
+      <testcase name="test_batch_delete_two_parents_keeps_all_manual_attachments_in_one_history_entry" assertions="6" status="pass" classname="tests/week_03/test_building_production.gd" time="0.001252" >
+      </testcase>
+      <testcase name="test_conflicting_reattach_keeps_detached_source_and_history" assertions="4" status="pass" classname="tests/week_03/test_building_production.gd" time="0.000909" >
+      </testcase>
+      <testcase name="test_malformed_detached_dimensions_fail_validation_without_script_error" assertions="2" status="pass" classname="tests/week_03/test_building_production.gd" time="0.00013" >
+      </testcase>
+      <testcase name="test_terrain_fitting_support_perimeter_preserves_horizontal_floor" assertions="67" status="pass" classname="tests/week_03/test_building_production.gd" time="0.000643" >
+      </testcase>
+      <testcase name="test_round_wall_uvs_unwrap_across_full_circumference" assertions="1" status="pass" classname="tests/week_03/test_building_production.gd" time="0.002542" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_03/test_paths.gd" tests="6" failures="0" skipped="0" time="0.196676" >
+      <testcase name="test_path_projection_samples_actual_terrain_and_is_repeatable" assertions="3" status="pass" classname="tests/week_03/test_paths.gd" time="0.063851" >
+      </testcase>
+      <testcase name="test_intersection_union_has_no_duplicate_triangles" assertions="2" status="pass" classname="tests/week_03/test_paths.gd" time="0.007043" >
+      </testcase>
+      <testcase name="test_path_hides_inside_building_and_stops_at_water" assertions="1" status="pass" classname="tests/week_03/test_paths.gd" time="0.003989" >
+      </testcase>
+      <testcase name="test_width_and_bounds_are_validated_before_mesh_generation" assertions="2" status="pass" classname="tests/week_03/test_paths.gd" time="0.000176" >
+      </testcase>
+      <testcase name="test_source_order_and_unrelated_instance_do_not_reseed_path" assertions="1" status="pass" classname="tests/week_03/test_paths.gd" time="0.061287" >
+      </testcase>
+      <testcase name="test_world_rebuild_prepares_path_before_publication" assertions="2" status="pass" classname="tests/week_03/test_paths.gd" time="0.06033" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_03/test_vegetation_assets.gd" tests="5" failures="0" skipped="0" time="0.008396" >
+      <testcase name="test_three_trees_have_smaller_lod_and_same_atlas_region" assertions="127" status="pass" classname="tests/week_03/test_vegetation_assets.gd" time="0.006715" >
+      </testcase>
+      <testcase name="test_tree_trunks_are_fixed_and_fruit_weights_follow_crown" assertions="2" status="pass" classname="tests/week_03/test_vegetation_assets.gd" time="0.001067" >
+      </testcase>
+      <testcase name="test_atlas_has_transparent_leaf_edge_with_extended_color_and_opaque_bark" assertions="5" status="pass" classname="tests/week_03/test_vegetation_assets.gd" time="0.00009" >
+      </testcase>
+      <testcase name="test_lod_material_seed_phase_matches_for_both_levels" assertions="1" status="pass" classname="tests/week_03/test_vegetation_assets.gd" time="0.000202" >
+      </testcase>
+      <testcase name="test_tree_copy_keeps_asset_kind_and_unrelated_seed" assertions="3" status="pass" classname="tests/week_03/test_vegetation_assets.gd" time="0.000322" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_03/test_week_three_playground.gd" tests="14" failures="0" skipped="0" time="7.572451" >
+      <testcase name="test_w03_scene_has_three_tree_kinds_lod_inspector_and_water" assertions="8" status="pass" classname="tests/week_03/test_week_three_playground.gd" time="0.458152" >
+      </testcase>
+      <testcase name="test_repeated_size_preview_is_one_commit_with_fixed_frame_scale" assertions="6" status="pass" classname="tests/week_03/test_week_three_playground.gd" time="0.643998" >
+      </testcase>
+      <testcase name="test_cancel_after_visible_size_preview_restores_source_and_mesh" assertions="4" status="pass" classname="tests/week_03/test_week_three_playground.gd" time="0.537259" >
+      </testcase>
+      <testcase name="test_delete_parent_ui_lists_frames_and_undo_restores_them" assertions="5" status="pass" classname="tests/week_03/test_week_three_playground.gd" time="0.533235" >
+      </testcase>
+      <testcase name="test_ui_reattach_rebuilds_real_frame_and_undo_restores_detached_list" assertions="4" status="pass" classname="tests/week_03/test_week_three_playground.gd" time="0.766026" >
+      </testcase>
+      <testcase name="test_reset_default_is_undoable_and_preserves_previous_work" assertions="2" status="pass" classname="tests/week_03/test_week_three_playground.gd" time="0.75914" >
+      </testcase>
+      <testcase name="test_actual_mouse_path_gesture_commits_once_and_undo_removes_mesh" assertions="3" status="pass" classname="tests/week_03/test_week_three_playground.gd" time="0.657881" >
+      </testcase>
+      <testcase name="test_option_orbit_in_path_mode_does_not_start_path" assertions="3" status="pass" classname="tests/week_03/test_week_three_playground.gd" time="0.31463" >
+      </testcase>
+      <testcase name="test_far_tree_identity_seed_and_transform_survive_nearby_edit" assertions="4" status="pass" classname="tests/week_03/test_week_three_playground.gd" time="0.539943" >
+      </testcase>
+      <testcase name="test_wind_material_count_stays_bounded_across_rebuilds" assertions="339" status="pass" classname="tests/week_03/test_week_three_playground.gd" time="0.755326" >
+      </testcase>
+      <testcase name="test_actual_inspector_multiselect_batches_parent_deletion" assertions="4" status="pass" classname="tests/week_03/test_week_three_playground.gd" time="0.422265" >
+      </testcase>
+      <testcase name="test_rejected_size_after_preview_restores_derived_view_and_history" assertions="3" status="pass" classname="tests/week_03/test_week_three_playground.gd" time="0.547528" >
+      </testcase>
+      <testcase name="test_mac_pinch_in_w03_preserves_source_and_edit_history" assertions="3" status="pass" classname="tests/week_03/test_week_three_playground.gd" time="0.319675" >
+      </testcase>
+      <testcase name="test_path_click_without_drag_does_not_consume_history_or_source_id" assertions="2" status="pass" classname="tests/week_03/test_week_three_playground.gd" time="0.317393" >
+      </testcase>
+  </testsuite>
+</testsuites>

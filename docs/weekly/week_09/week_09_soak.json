@@ -1,0 +1,310 @@
+{
+	"commits": 50,
+	"elapsed_seconds": 1201.536,
+	"manual_props": 20,
+	"passed": true,
+	"redos": 50,
+	"trace": [
+		{
+			"elapsed_ms": 251,
+			"ok": true,
+			"revision": 2,
+			"step": 0
+		},
+		{
+			"elapsed_ms": 23770,
+			"ok": true,
+			"revision": 3,
+			"step": 1
+		},
+		{
+			"elapsed_ms": 48020,
+			"ok": true,
+			"revision": 4,
+			"step": 2
+		},
+		{
+			"elapsed_ms": 71992,
+			"ok": true,
+			"revision": 5,
+			"step": 3
+		},
+		{
+			"elapsed_ms": 96001,
+			"ok": true,
+			"revision": 6,
+			"step": 4
+		},
+		{
+			"elapsed_ms": 120020,
+			"ok": true,
+			"revision": 7,
+			"step": 5
+		},
+		{
+			"elapsed_ms": 143972,
+			"ok": true,
+			"revision": 8,
+			"step": 6
+		},
+		{
+			"elapsed_ms": 168012,
+			"ok": true,
+			"revision": 9,
+			"step": 7
+		},
+		{
+			"elapsed_ms": 192018,
+			"ok": true,
+			"revision": 10,
+			"step": 8
+		},
+		{
+			"elapsed_ms": 216003,
+			"ok": true,
+			"revision": 11,
+			"step": 9
+		},
+		{
+			"elapsed_ms": 240016,
+			"ok": true,
+			"revision": 12,
+			"step": 10
+		},
+		{
+			"elapsed_ms": 263988,
+			"ok": true,
+			"revision": 13,
+			"step": 11
+		},
+		{
+			"elapsed_ms": 288010,
+			"ok": true,
+			"revision": 14,
+			"step": 12
+		},
+		{
+			"elapsed_ms": 311988,
+			"ok": true,
+			"revision": 15,
+			"step": 13
+		},
+		{
+			"elapsed_ms": 336004,
+			"ok": true,
+			"revision": 16,
+			"step": 14
+		},
+		{
+			"elapsed_ms": 360022,
+			"ok": true,
+			"revision": 17,
+			"step": 15
+		},
+		{
+			"elapsed_ms": 383985,
+			"ok": true,
+			"revision": 18,
+			"step": 16
+		},
+		{
+			"elapsed_ms": 408012,
+			"ok": true,
+			"revision": 19,
+			"step": 17
+		},
+		{
+			"elapsed_ms": 431992,
+			"ok": true,
+			"revision": 20,
+			"step": 18
+		},
+		{
+			"elapsed_ms": 456005,
+			"ok": true,
+			"revision": 21,
+			"step": 19
+		},
+		{
+			"elapsed_ms": 480023,
+			"ok": true,
+			"revision": 22,
+			"step": 20
+		},
+		{
+			"elapsed_ms": 503984,
+			"ok": true,
+			"revision": 23,
+			"step": 21
+		},
+		{
+			"elapsed_ms": 528009,
+			"ok": true,
+			"revision": 24,
+			"step": 22
+		},
+		{
+			"elapsed_ms": 551986,
+			"ok": true,
+			"revision": 25,
+			"step": 23
+		},
+		{
+			"elapsed_ms": 576018,
+			"ok": true,
+			"revision": 26,
+			"step": 24
+		},
+		{
+			"elapsed_ms": 600020,
+			"ok": true,
+			"revision": 27,
+			"step": 25
+		},
+		{
+			"elapsed_ms": 623985,
+			"ok": true,
+			"revision": 28,
+			"step": 26
+		},
+		{
+			"elapsed_ms": 647989,
+			"ok": true,
+			"revision": 29,
+			"step": 27
+		},
+		{
+			"elapsed_ms": 671994,
+			"ok": true,
+			"revision": 30,
+			"step": 28
+		},
+		{
+			"elapsed_ms": 696006,
+			"ok": true,
+			"revision": 31,
+			"step": 29
+		},
+		{
+			"elapsed_ms": 720043,
+			"ok": true,
+			"revision": 32,
+			"step": 30
+		},
+		{
+			"elapsed_ms": 743986,
+			"ok": true,
+			"revision": 33,
+			"step": 31
+		},
+		{
+			"elapsed_ms": 767991,
+			"ok": true,
+			"revision": 34,
+			"step": 32
+		},
+		{
+			"elapsed_ms": 792016,
+			"ok": true,
+			"revision": 35,
+			"step": 33
+		},
+		{
+			"elapsed_ms": 815986,
+			"ok": true,
+			"revision": 36,
+			"step": 34
+		},
+		{
+			"elapsed_ms": 840021,
+			"ok": true,
+			"revision": 37,
+			"step": 35
+		},
+		{
+			"elapsed_ms": 863987,
+			"ok": true,
+			"revision": 38,
+			"step": 36
+		},
+		{
+			"elapsed_ms": 888014,
+			"ok": true,
+			"revision": 39,
+			"step": 37
+		},
+		{
+			"elapsed_ms": 911994,
+			"ok": true,
+			"revision": 40,
+			"step": 38
+		},
+		{
+			"elapsed_ms": 936007,
+			"ok": true,
+			"revision": 41,
+			"step": 39
+		},
+		{
+			"elapsed_ms": 960021,
+			"ok": true,
+			"revision": 42,
+			"step": 40
+		},
+		{
+			"elapsed_ms": 983994,
+			"ok": true,
+			"revision": 43,
+			"step": 41
+		},
+		{
+			"elapsed_ms": 1008008,
+			"ok": true,
+			"revision": 44,
+			"step": 42
+		},
+		{
+			"elapsed_ms": 1032002,
+			"ok": true,
+			"revision": 45,
+			"step": 43
+		},
+		{
+			"elapsed_ms": 1056003,
+			"ok": true,
+			"revision": 46,
+			"step": 44
+		},
+		{
+			"elapsed_ms": 1080030,
+			"ok": true,
+			"revision": 47,
+			"step": 45
+		},
+		{
+			"elapsed_ms": 1103984,
+			"ok": true,
+			"revision": 48,
+			"step": 46
+		},
+		{
+			"elapsed_ms": 1127991,
+			"ok": true,
+			"revision": 49,
+			"step": 47
+		},
+		{
+			"elapsed_ms": 1152005,
+			"ok": true,
+			"revision": 50,
+			"step": 48
+		},
+		{
+			"elapsed_ms": 1175996,
+			"ok": true,
+			"revision": 51,
+			"step": 49
+		}
+	],
+	"undos": 50
+}

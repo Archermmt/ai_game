@@ -1,0 +1,28 @@
+{
+	"camera_restored": true,
+	"failure_retry": true,
+	"outline_restored": true,
+	"photo_active": false,
+	"results": [
+		{
+			"error": "OK",
+			"ok": true,
+			"path": "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/reports/week_09_photography/photo_1920x1080.png",
+			"size": "(1920, 1080)"
+		},
+		{
+			"error": "OK",
+			"ok": true,
+			"path": "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/reports/week_09_photography/photo_2560x1440.png",
+			"size": "(2560, 1440)"
+		},
+		{
+			"error": "OK",
+			"ok": true,
+			"path": "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/reports/week_09_photography/photo_512x288.png",
+			"size": "(512, 288)"
+		}
+	],
+	"selection_restored": true,
+	"source_unchanged": true
+}
