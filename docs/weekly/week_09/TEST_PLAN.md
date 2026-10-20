@@ -3,7 +3,7 @@
 1. `python3 tools/quality/run_checks.py --week 9 --negative-control`：锁定引擎、导入、格式、lint、累计资产、W01–W09 GUT、每周独立进程写/读及故意失败负控。跳过、空套件、引擎错误或断言失败使 gate 失败。
 2. `python3 tools/quality/export_smoke.py --week 9`：依次导出 Windows/macOS、验证 Windows PE、Mac 全新目录可见运行及实际保存探针。不是 Windows 真机验收。
 3. `python3 tools/quality/week_nine_render_checks.py --executable '<W09 Mac app executable>'`：串行、1920×1080、每轮先 2 秒预热再 60 秒，固定满容量静态/20 笔局部/8 笔 9m 大刷；记录未排序帧序列、CPU 阶段、主线程回调、进程 RSS、首帧。任何目标不达即保留失败并自动跑半密度局部复测。校验正式存档前后哈希一致。
-4. 原生运行 `-- --qa-settings --w09-photo-probe --photo-output=<可写绝对目录> --smoke-output=<报告路径>`：不存在目录先失败，随后输出两尺寸及 512×288 图，检查源/相机/选择恢复。PNG 头尺寸、图片解码及可见画面复核；独立视口不包含 Control，工具节点在进入摄影时隐藏。
+4. `python3 tools/quality/week_nine_photo_checks.py --executable <W09 Mac app executable>` 自动验证下面的图片与入口路径。也可原生运行 `-- --qa-settings --w09-photo-probe --photo-output=<可写绝对目录> --smoke-output=<报告路径>`：不存在目录先失败，随后输出两尺寸及 512×288 图，检查源/相机/选择恢复。PNG 头尺寸、图片解码及可见画面复核；独立视口不包含 Control，工具节点在进入摄影时隐藏。
 5. `Godot --headless --path . -s tests/week_09/soak_probe.gd -- 1200 res://reports/week_09_soak.json`：实际等待至少 1200 秒、50 笔混合事务、20 手工道具与外围树源数据、完整 50 撤销/50 重做、最终源一致。小于 1200 参数只用于诊断，不能作为 20 分钟验收。
 6. `python3 tools/quality/clean_checkout.py --week 9`：提交后，从 Git archive 临时目录、无 `.godot` 缓存重跑完整 gate；共享锁定工具而不共享导入缓存。
 

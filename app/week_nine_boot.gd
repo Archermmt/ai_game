@@ -311,3 +311,12 @@ func _announce_first_draw() -> void:
 		file.store_string(JSON.stringify({"unix_seconds": Time.get_unix_time_from_system()}))
 		file.close()
 	print("W09_FIRST_DRAW")
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST and photo_active:
+		if photography != null and photography.busy:
+			hud.photo_note.text = "图片导出进行中，请完成后关闭窗口"
+			return
+		exit_photo()
+	super._notification(what)

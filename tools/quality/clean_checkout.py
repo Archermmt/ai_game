@@ -3,6 +3,7 @@ import argparse
 import io
 import json
 import os
+import shutil
 from pathlib import Path
 import subprocess
 import sys
@@ -38,6 +39,11 @@ def main():
             print(process.stderr, file=sys.stderr)
             raise RuntimeError('Clean checkout regression failed')
         summary = json.loads((checkout / f'reports/week_{args.week:02d}_checks.json').read_text())
+        evidence = ROOT / f'reports/week_{args.week:02d}_clean_evidence'
+        evidence.mkdir(exist_ok=True)
+        for pattern in ['*.xml', '*.log', '*_checks.json']:
+            for report in (checkout / 'reports').glob(pattern):
+                shutil.copyfile(report, evidence / report.name)
         result = {'revision': revision, 'cache_reused': False, 'host_tools_reused': ['locked Godot', 'gdtoolkit venv'],
                   'gate': summary, 'passed': True}
         (ROOT / f'reports/week_{args.week:02d}_clean_checkout.json').write_text(json.dumps(result, indent=2) + '\n')

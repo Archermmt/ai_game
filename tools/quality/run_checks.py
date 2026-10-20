@@ -59,6 +59,8 @@ def main():
         entries.append(run_step("week_06_media", [sys.executable, "tools/quality/validate_week_six_media.py"]))
     if args.week >= 7:
         entries.append(run_step("week_07_assets", [sys.executable, "tools/quality/validate_week_seven_assets.py"]))
+    if args.week >= 9:
+        entries.append(run_step("week_09_assets", [sys.executable, "tools/quality/validate_week_nine_assets.py"]))
     count = failures = skipped = 0
     groups = []
     for week in range(1, args.week + 1):
@@ -72,7 +74,7 @@ def main():
         tested = int(suite.attrib.get("tests", 0))
         failed = int(suite.attrib.get("failures", 0))
         omitted = sum(int(part.attrib.get("skipped", 0)) for part in suite.findall("testsuite"))
-        if tested < {1: 42, 2: 52, 3: 42, 4: 50, 5: 45, 6: 68, 7: 51, 8: 62, 9: 33}[week] or failed or omitted:
+        if tested < {1: 42, 2: 52, 3: 42, 4: 50, 5: 45, 6: 68, 7: 51, 8: 62, 9: 34}[week] or failed or omitted:
             raise RuntimeError(f"Invalid {label} suite: {tested} tests, {failed} failed, {omitted} skipped")
         count += tested
         failures += failed

@@ -112,3 +112,16 @@ func test_bookmark_limit_rejects_without_source_change() -> void:
 	var before: Dictionary = playground.document.snapshot()
 	playground._photo_action("bookmark")
 	assert_eq_deep(playground.document.snapshot(), before)
+
+
+func test_close_in_photo_restores_editor_before_unsaved_decision() -> void:
+	var before: Dictionary = playground._camera_record()
+	playground.enter_photo()
+	playground.camera_rig.yaw += 1
+	playground._notification(NOTIFICATION_WM_CLOSE_REQUEST)
+	assert_false(playground.photo_active)
+	assert_eq_deep(playground._camera_record(), before)
+	assert_true(playground.hud.decision.visible)
+	assert_eq(playground._intent, "quit")
+	playground._decision_made("cancel")
+	assert_eq(playground._intent, "")
