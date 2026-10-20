@@ -24,6 +24,9 @@ def run(name, program, flags, duration=60):
                '--smoke-output=' + str(report), '--capture=' + str(out / (name + '.png')), *flags]
     rss = []
     ready_seconds = None
+    ready_file = report.with_name(report.stem + "_first_draw.json")
+    ready_file.unlink(missing_ok=True)
+    started_unix = time.time()
     before = user_files()
     log_path = out / (name + '.log')
     started = time.monotonic()
@@ -36,8 +39,11 @@ def run(name, program, flags, duration=60):
             output = subprocess.run(['ps', '-o', 'rss=', '-p', str(process.pid)], text=True, capture_output=True).stdout.strip()
             if output.isdigit():
                 rss.append({'elapsed_s': round(time.monotonic() - started, 3), 'rss_bytes': int(output) * 1024})
-            if ready_seconds is None and "W09_FIRST_DRAW" in log_path.read_text():
-                ready_seconds = round(time.monotonic() - started, 3)
+            if ready_seconds is None and ready_file.exists():
+                try:
+                    ready_seconds = round(json.loads(ready_file.read_text())["unix_seconds"] - started_unix, 3)
+                except json.JSONDecodeError:
+                    pass
             time.sleep(0.25)
     if process.returncode or ERRORS.search(log_path.read_text()):
         raise RuntimeError('engine error: ' + name)
@@ -58,10 +64,20 @@ def run(name, program, flags, duration=60):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--executable', type=Path)
+    parser.add_argument('--startup-only', action='store_true')
     args = parser.parse_args()
     out = ROOT / 'reports/week_09_visuals'
     out.mkdir(exist_ok=True)
     program = [str(args.executable.resolve())] if args.executable else [engine_binary(), '--path', str(ROOT)]
+    if args.startup_only:
+        summary_path = ROOT / 'reports/week_09_render_checks.json'
+        summary = json.loads(summary_path.read_text())
+        trials = [run('startup_' + str(i), program, ['--w09-stress'], duration=5) for i in range(3)]
+        summary['startup_trials'] = trials
+        summary['tentative_targets']['load_5s'] = all(t['first_draw_seconds'] is not None and t['first_draw_seconds'] <= 5 for t in trials)
+        summary['startup_measurement_note'] = 'Separate trials after replacing a buffered stdout marker with a flushed first-draw JSON marker; 60s timing runs are retained unchanged.'
+        summary_path.write_text(json.dumps(summary, indent=2) + '\n')
+        return
     result = {'build': 'release' if args.executable else 'runtime',
               'device': 'Apple M4 Pro / 20 GPU cores / 48 GB / macOS arm64',
               'settings': '1920x1080 Forward+ Metal; inherited medium MVP settings; 2s warmup then 60s wall-clock',

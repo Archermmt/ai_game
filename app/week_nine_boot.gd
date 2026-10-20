@@ -304,4 +304,10 @@ func _finish_smoke() -> void:
 
 func _announce_first_draw() -> void:
 	await RenderingServer.frame_post_draw
+	if not _report_path.is_empty():
+		var file: FileAccess = FileAccess.open(
+			_report_path.trim_suffix(".json") + "_first_draw.json", FileAccess.WRITE
+		)
+		file.store_string(JSON.stringify({"unix_seconds": Time.get_unix_time_from_system()}))
+		file.close()
 	print("W09_FIRST_DRAW")
