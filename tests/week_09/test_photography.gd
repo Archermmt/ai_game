@@ -9,6 +9,7 @@ func test_photo_hides_tools_and_returns_exact_camera_source_selection() -> void:
 	assert_true(playground.enter_photo())
 	assert_false(playground.gizmo_root.visible)
 	assert_false(playground.preview_root.visible)
+	assert_false(playground.hud._dock.visible)
 	for panel: CanvasItem in playground.hud._panels:
 		assert_false(panel.visible)
 	playground.camera_rig.yaw += 1
@@ -19,6 +20,7 @@ func test_photo_hides_tools_and_returns_exact_camera_source_selection() -> void:
 	assert_eq_deep(playground.document.snapshot(), source)
 	assert_eq(playground.tools.selected.size(), 1)
 	assert_true(playground.gizmo_root.visible)
+	assert_true(playground.hud._dock.visible)
 	assert_false(playground.hud.photo_panel.visible)
 
 

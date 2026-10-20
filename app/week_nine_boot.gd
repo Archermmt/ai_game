@@ -65,7 +65,7 @@ func enter_photo() -> bool:
 		return false
 	_editor_camera = _camera_record().duplicate(true)
 	photo_active = true
-	for node: Node in hud._panels + [hud._feedback, hud.hint, gizmo_root, preview_root]:
+	for node: Node in hud._panels + [hud._dock, hud._feedback, hud.hint, gizmo_root, preview_root]:
 		_photo_visibility[node] = node.visible
 		node.hide()
 	# Node3D and CanvasItem do not share an inheritance branch; hide 3D tools separately.
