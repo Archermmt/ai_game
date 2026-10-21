@@ -219,3 +219,7 @@ W10 新增30项/2755断言，累计521项/15512断言；每周套件最小数、
 ## W11 当前门禁（2026-10-22）
 
 `python3 tools/quality/week_eleven_checks.py` 串行包含 W01–W10、ART、UI/Meadow、负控制及 W11 卡片反馈/鼠标取消/池岸缓存回归；六项 Python 试玩汇总器测试与真实0/10记录独立输出。原生：`python3 tools/quality/week_eleven_native_checks.py`；干净检出及导出均使用 `--week 11`。详见 [W11测试契约](weekly/week_11/TEST_PLAN.md)。真实试玩、性能和平台门槛独立于自动化通过状态。
+
+## UX-02 当前门禁（2026-10-22）
+
+默认场景 `app/simple_root.tscn`，累计入口 `python3 tools/quality/simple_checks.py`；追加直接编辑/复制/取消/桥阶/指向墙面与UI回归。原生 `python3 tools/quality/simple_native_checks.py` 走真实Godot输入分派、摄影PNG解码及有选中手柄的60秒满容量场景。提交后空缓存与导出使用 `--week 11 --simple`。旧周场景、553项历史测试、六项试玩数据校验和负控制保留，完整契约见 [UX-02测试计划](weekly/ux_02/TEST_PLAN.md)。

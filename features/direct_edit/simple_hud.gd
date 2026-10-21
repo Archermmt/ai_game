@@ -308,3 +308,13 @@ func blocks_scene_at(screen: Vector2) -> bool:
 		):
 			return true
 	return false
+
+
+func set_active_tool(mode: String) -> void:
+	super.set_active_tool(mode)
+	if mode == "smart_erase":
+		active_group = "erase"
+	elif mode == "place_asset" and active_group == "props":
+		active_group = "openings"
+	for key: String in ribbon_buttons:
+		ribbon_buttons[key].set_pressed_no_signal(key == active_group)

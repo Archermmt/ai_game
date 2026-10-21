@@ -292,6 +292,7 @@ func _on_action(action: StringName) -> void:
 			selected_buildings.clear()
 			tools.selected.clear()
 			tools.mode = "inspect"
+			hud.set_active_tool("inspect")
 			hud.close_context()
 		else:
 			_cancel_edit()
@@ -335,6 +336,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			inspect_at(event.position)
 			_delete_subject()
 			tools.mode = "smart_erase"
+			hud.set_active_tool("smart_erase")
 			_suppress_left = true
 			get_viewport().set_input_as_handled()
 			return

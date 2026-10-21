@@ -10,7 +10,7 @@ python3 tools/quality/clean_checkout.py --week 11 --simple
 python3 tools/quality/export_smoke.py --week 11 --simple
 ```
 
-自动门禁在W01–W11/ART/UI-Meadow、跨进程保存读回、6项Python真实试玩统计校验器和负控制之上追加至少25项UX-02测试；无失败/跳过/空套件，Script Error、错误退出、资源泄漏均失败。原有553项保留。所有格式/lint和资源契约继续执行。
+自动门禁在W01–W11/ART/UI-Meadow、跨进程保存读回、6项Python真实试玩统计校验器和负控制之上追加至少26项UX-02测试；无失败/跳过/空套件，Script Error、错误退出、资源泄漏均失败。原有553项保留。所有格式/lint和资源契约继续执行。
 
 | PRD验收 | 测试/证据 |
 | --- | --- |
