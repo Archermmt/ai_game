@@ -1,0 +1,72 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/week_10/test_audio.gd
+* test_scene_owns_bounded_voices_and_loads_all_families
+* test_wind_blend_is_continuous_equal_power_at_extremes_and_middle
+* test_zero_wind_keeps_forest_and_low_wind
+* test_brush_rate_limit_rejects_flood_and_cycles_three_variants
+* test_music_can_be_enabled_muted_and_reenabled_without_changing_world
+* test_mute_applies_to_all_voices_immediately
+* test_pond_is_localized_and_stops_when_deleted
+* test_material_families_and_no_sound_for_unchanged_world
+* test_ui_has_three_distinct_variants_and_rejects_unknown_families
+* test_startup_has_quiet_fade_and_bounded_event_history
+10/10 passed.
+
+
+res://tests/week_10/test_freeze.gd
+* test_ten_art_scene_read_write_cycles_preserve_complete_source
+* test_interruption_then_corrupt_primary_restores_latest_valid_backup
+* test_legacy_preferences_gain_audio_defaults_without_losing_settings
+* test_three_volume_preferences_roundtrip_at_zero_and_full_volume
+* test_invalid_audio_preference_does_not_replace_valid_file
+* test_art_source_audio_and_environment_edits_undo_redo_without_instance_shuffle
+* test_rejected_invalid_resize_keeps_whole_art_document
+7/7 passed.
+
+
+res://tests/week_10/test_playground.gd
+* test_entry_keeps_accepted_art_and_three_accessible_audio_controls
+* test_setting_volume_changes_sound_without_dirtying_source
+* test_preview_cancel_does_not_emit_placement_audio_or_mutate_source
+* test_committed_terrain_edit_plays_once_and_undo_restores_source
+* test_rejected_edit_is_silent_and_retains_source_and_art_views
+* test_settings_150_reduced_motion_rebind_and_audio_coexist
+* test_save_load_rebuilds_art_and_updates_wind_audio
+* test_scaled_embedded_dialogs_are_owned_outside_scaled_hud_and_fit_viewport
+* test_actual_sliders_change_only_their_own_preference_and_do_not_recurse
+9/9 passed.
+
+
+res://tests/week_10/test_spatial_regression.gd
+* test_cached_field_matches_exact_signed_distance_everywhere_on_art_pond
+* test_building_and_shore_conflicts_reject_whole_transactions_both_directions
+* test_all_terrain_modes_preserve_art_pond_and_shore_heights
+* test_locked_window_conflict_rejects_resize_without_changing_art_source
+4/4 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               4
+Tests                30
+Passing Tests        30
+Asserts            2755
+Time              7.016s
+
+
+---- All tests passed! ----
+
+Results saved to reports/week_10.xml

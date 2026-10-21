@@ -2,7 +2,7 @@
 
 当前为底部工具栏与动态草修订，使用已接受的 ART-01 美术：暖灰泥、厚叠瓦、蜂蜜木构、分层叶簇与手绘林间庭院，
 继承 W09 摄影/布局/全部建造工具及五槽保存。默认入口 `app/garden_root.tscn`，版本 `0.10.1-garden01`。
-进度见 [STATUS.md](STATUS.md)，画面与证据见 [美术报告](docs/weekly/art_pass_01/README.md)。
+进度见 [STATUS.md](STATUS.md)，画面与证据见 [工具栏与草层报告](docs/weekly/ui_meadow_01/README.md)。
 F5 运行当前主场景；若用F6，请打开 `app/garden_root.tscn`，旧周场景保留历史画面。
 已接环境、操作、音乐三路音量；局部编辑延迟目标仍开放，完整冻结另看门槛。
 

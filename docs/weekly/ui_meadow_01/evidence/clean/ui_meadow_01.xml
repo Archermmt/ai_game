@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="23" >
+  <testsuite name="tests/garden_presentation/test_garden_scene.gd" tests="15" failures="0" skipped="0" time="13.502715" >
+      <testcase name="test_default_ribbon_replaces_large_panels_and_is_within_viewport" assertions="13" status="pass" classname="tests/garden_presentation/test_garden_scene.gd" time="1.53754" >
+      </testcase>
+      <testcase name="test_every_category_opens_and_closes_without_source_or_history_edits" assertions="41" status="pass" classname="tests/garden_presentation/test_garden_scene.gd" time="0.673122" >
+      </testcase>
+      <testcase name="test_density_drag_changes_draw_count_without_regeneration_or_source_edits" assertions="28" status="pass" classname="tests/garden_presentation/test_garden_scene.gd" time="0.671931" >
+      </testcase>
+      <testcase name="test_reduced_motion_stops_grass_and_photo_freeze_restores_it" assertions="15" status="pass" classname="tests/garden_presentation/test_garden_scene.gd" time="0.616749" >
+      </testcase>
+      <testcase name="test_focus_tracks_camera_zoom_and_can_be_disabled" assertions="11" status="pass" classname="tests/garden_presentation/test_garden_scene.gd" time="0.675051" >
+      </testcase>
+      <testcase name="test_ribbon_and_context_remain_visible_at_150_percent" assertions="9" status="pass" classname="tests/garden_presentation/test_garden_scene.gd" time="0.624583" >
+      </testcase>
+      <testcase name="test_real_category_tool_button_routes_into_transactional_creation" assertions="15" status="pass" classname="tests/garden_presentation/test_garden_scene.gd" time="1.306688" >
+      </testcase>
+      <testcase name="test_edit_click_selects_building_and_opens_its_properties" assertions="8" status="pass" classname="tests/garden_presentation/test_garden_scene.gd" time="0.626259" >
+      </testcase>
+      <testcase name="test_save_load_keeps_manual_objects_and_density_stays_local" assertions="15" status="pass" classname="tests/garden_presentation/test_garden_scene.gd" time="1.15041" >
+      </testcase>
+      <testcase name="test_latest_meadow_wins_after_two_source_replacements" assertions="11" status="pass" classname="tests/garden_presentation/test_garden_scene.gd" time="1.373524" >
+      </testcase>
+      <testcase name="test_zero_density_does_not_lose_manual_plants_or_visible_sources" assertions="9" status="pass" classname="tests/garden_presentation/test_garden_scene.gd" time="0.636224" >
+      </testcase>
+      <testcase name="test_modification_entry_does_not_cancel_a_pending_released_commit" assertions="8" status="pass" classname="tests/garden_presentation/test_garden_scene.gd" time="0.630874" >
+      </testcase>
+      <testcase name="test_zero_density_initial_renderer_allocates_no_batches_until_enabled" assertions="10" status="pass" classname="tests/garden_presentation/test_garden_scene.gd" time="0.898165" >
+      </testcase>
+      <testcase name="test_enable_after_editing_while_disabled_rebuilds_latest_clearances" assertions="51" status="pass" classname="tests/garden_presentation/test_garden_scene.gd" time="1.226378" >
+      </testcase>
+      <testcase name="test_scene_modification_uses_visible_prop_proxy_and_opens_object_fields" assertions="12" status="pass" classname="tests/garden_presentation/test_garden_scene.gd" time="0.855217" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/garden_presentation/test_meadow.gd" tests="8" failures="0" skipped="0" time="7.096463" >
+      <testcase name="test_seeded_meadow_is_repeatable_and_does_not_modify_source" assertions="3" status="pass" classname="tests/garden_presentation/test_meadow.gd" time="2.623375" >
+      </testcase>
+      <testcase name="test_meadow_has_bounded_chunks_and_simple_shared_geometry" assertions="4" status="pass" classname="tests/garden_presentation/test_meadow.gd" time="0.000194" >
+      </testcase>
+      <testcase name="test_all_blades_clear_homes_entrances_and_water" assertions="3" status="pass" classname="tests/garden_presentation/test_meadow.gd" time="0.206203" >
+      </testcase>
+      <testcase name="test_meadow_grounds_follow_the_same_source_height_field" assertions="1" status="pass" classname="tests/garden_presentation/test_meadow.gd" time="0.000944" >
+      </testcase>
+      <testcase name="test_environment_changes_do_not_trigger_geometry_reseeding" assertions="2" status="pass" classname="tests/garden_presentation/test_meadow.gd" time="0.001562" >
+      </testcase>
+      <testcase name="test_grass_density_and_focus_preferences_validate_and_roundtrip" assertions="10" status="pass" classname="tests/garden_presentation/test_meadow.gd" time="0.000594" >
+      </testcase>
+      <testcase name="test_changed_seed_changes_grass_but_leaves_manual_content_identical" assertions="2" status="pass" classname="tests/garden_presentation/test_meadow.gd" time="3.982143" >
+      </testcase>
+      <testcase name="test_paths_are_clear_even_between_their_control_points" assertions="1" status="pass" classname="tests/garden_presentation/test_meadow.gd" time="0.281448" >
+      </testcase>
+  </testsuite>
+</testsuites>
