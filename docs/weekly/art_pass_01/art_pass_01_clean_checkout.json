@@ -1,0 +1,46 @@
+{
+  "revision": "6656ba3f788006dc2a817ee7082b14080360c571",
+  "cache_reused": false,
+  "host_tools_reused": [
+    "locked Godot",
+    "gdtoolkit venv"
+  ],
+  "gate": {
+    "art_tests": 45,
+    "historical_tests": 446,
+    "tests": 491,
+    "failures": 0,
+    "skipped": 0,
+    "steps": [
+      {
+        "name": "art_01_cumulative",
+        "exit_code": 0,
+        "seconds": 97.012
+      },
+      {
+        "name": "art_01_assets",
+        "exit_code": 0,
+        "seconds": 0.035
+      },
+      {
+        "name": "art_01_tests",
+        "exit_code": 0,
+        "seconds": 30.935
+      },
+      {
+        "name": "art_01_restart_write",
+        "exit_code": 0,
+        "seconds": 0.355
+      },
+      {
+        "name": "art_01_restart_read",
+        "exit_code": 0,
+        "seconds": 0.36
+      }
+    ],
+    "negative_control": true,
+    "visual_approval": "separate_native_review",
+    "windows_device": "not_run_on_macos"
+  },
+  "passed": true
+}

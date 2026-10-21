@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="45" >
+  <testsuite name="tests/week_05/test_garden_rules.gd" tests="20" failures="0" skipped="0" time="0.980984" >
+      <testcase name="test_polygon_signed_distance_agrees_with_edges_and_inside" assertions="4" status="pass" classname="tests/week_05/test_garden_rules.gd" time="0.00144" >
+      </testcase>
+      <testcase name="test_legacy_circle_keeps_exact_distance" assertions="2" status="pass" classname="tests/week_05/test_garden_rules.gd" time="0.000199" >
+      </testcase>
+      <testcase name="test_water_level_fixed_after_redrawing_existing_pond" assertions="2" status="pass" classname="tests/week_05/test_garden_rules.gd" time="0.002318" >
+      </testcase>
+      <testcase name="test_crossed_polygon_rejected_without_mutating_source" assertions="2" status="pass" classname="tests/week_05/test_garden_rules.gd" time="0.000566" >
+      </testcase>
+      <testcase name="test_polygon_minimum_width_two_metres" assertions="2" status="pass" classname="tests/week_05/test_garden_rules.gd" time="0.001227" >
+      </testcase>
+      <testcase name="test_degenerate_and_malformed_outlines_fail_safely" assertions="3" status="pass" classname="tests/week_05/test_garden_rules.gd" time="0.000181" >
+      </testcase>
+      <testcase name="test_polygon_boundary_two_metres" assertions="1" status="pass" classname="tests/week_05/test_garden_rules.gd" time="0.000085" >
+      </testcase>
+      <testcase name="test_all_terrain_brushes_preserve_polygon_and_bank" assertions="8" status="pass" classname="tests/week_05/test_garden_rules.gd" time="0.001271" >
+      </testcase>
+      <testcase name="test_delete_pond_restores_player_heights" assertions="3" status="pass" classname="tests/week_05/test_garden_rules.gd" time="0.00421" >
+      </testcase>
+      <testcase name="test_polygon_rejects_excessive_original_slope" assertions="1" status="pass" classname="tests/week_05/test_garden_rules.gd" time="0.001316" >
+      </testcase>
+      <testcase name="test_building_and_shore_use_same_safety_boundary_both_directions" assertions="3" status="pass" classname="tests/week_05/test_garden_rules.gd" time="0.004194" >
+      </testcase>
+      <testcase name="test_manual_objects_not_swallowed_by_shore" assertions="3" status="pass" classname="tests/week_05/test_garden_rules.gd" time="0.00299" >
+      </testcase>
+      <testcase name="test_polygon_water_is_triangulated_at_fixed_height" assertions="8" status="pass" classname="tests/week_05/test_garden_rules.gd" time="0.000109" >
+      </testcase>
+      <testcase name="test_chunk_cache_changes_with_outline_and_matches_fresh" assertions="3" status="pass" classname="tests/week_05/test_garden_rules.gd" time="0.952467" >
+      </testcase>
+      <testcase name="test_failed_pond_transaction_preserves_history_and_view_payload" assertions="3" status="pass" classname="tests/week_05/test_garden_rules.gd" time="0.00068" >
+      </testcase>
+      <testcase name="test_concave_simple_wide_outline_supported" assertions="3" status="pass" classname="tests/week_05/test_garden_rules.gd" time="0.004657" >
+      </testcase>
+      <testcase name="test_crate_support_height_and_cycle_guard" assertions="3" status="pass" classname="tests/week_05/test_garden_rules.gd" time="0.000156" >
+      </testcase>
+      <testcase name="test_missing_support_rejects_delete_without_losing_child" assertions="1" status="pass" classname="tests/week_05/test_garden_rules.gd" time="0.000078" >
+      </testcase>
+      <testcase name="test_bad_fence_points_fail_without_engine_error" assertions="1" status="pass" classname="tests/week_05/test_garden_rules.gd" time="0.000075" >
+      </testcase>
+      <testcase name="test_closed_fence_has_capped_rails_and_shared_corner_posts" assertions="3" status="pass" classname="tests/week_05/test_garden_rules.gd" time="0.002765" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_05/test_structures.gd" tests="13" failures="0" skipped="0" time="0.371255" >
+      <testcase name="test_bridge_valid_two_banks_and_geometry_above_water" assertions="5" status="pass" classname="tests/week_05/test_structures.gd" time="0.001651" >
+      </testcase>
+      <testcase name="test_bridge_range_limits" assertions="2" status="pass" classname="tests/week_05/test_structures.gd" time="0.000125" >
+      </testcase>
+      <testcase name="test_bridge_head_inside_water_and_missing_crossing_rejected" assertions="2" status="pass" classname="tests/week_05/test_structures.gd" time="0.000152" >
+      </testcase>
+      <testcase name="test_new_invalid_bridge_rejected_at_transaction_boundary" assertions="3" status="pass" classname="tests/week_05/test_structures.gd" time="0.001881" >
+      </testcase>
+      <testcase name="test_shore_invalidates_bridge_retains_id_and_undo_restores_together" assertions="9" status="pass" classname="tests/week_05/test_structures.gd" time="0.008296" >
+      </testcase>
+      <testcase name="test_delete_pond_keeps_invalid_bridge_visible" assertions="3" status="pass" classname="tests/week_05/test_structures.gd" time="0.001202" >
+      </testcase>
+      <testcase name="test_bridge_excessive_height_difference_rejected" assertions="1" status="pass" classname="tests/week_05/test_structures.gd" time="0.000096" >
+      </testcase>
+      <testcase name="test_stair_height_limits_and_continuous_treads" assertions="3" status="pass" classname="tests/week_05/test_structures.gd" time="0.000284" >
+      </testcase>
+      <testcase name="test_flat_or_tall_stairs_rejected_preserving_existing" assertions="2" status="pass" classname="tests/week_05/test_structures.gd" time="0.00012" >
+      </testcase>
+      <testcase name="test_fifty_mixed_transactions_undo_redo_reproduce_all_sources" assertions="155" status="pass" classname="tests/week_05/test_structures.gd" time="0.356501" >
+      </testcase>
+      <testcase name="test_stairs_snap_to_manual_door_floor_and_keep_body_outside_house" assertions="3" status="pass" classname="tests/week_05/test_structures.gd" time="0.000654" >
+      </testcase>
+      <testcase name="test_bridge_deck_ramps_join_uneven_heads" assertions="3" status="pass" classname="tests/week_05/test_structures.gd" time="0.00006" >
+      </testcase>
+      <testcase name="test_serialized_pool_bounds_and_collapsed_closed_fence_fail_safely" assertions="3" status="pass" classname="tests/week_05/test_structures.gd" time="0.000233" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_05/test_week_five_playground.gd" tests="12" failures="0" skipped="0" time="5.449437" >
+      <testcase name="test_scene_uses_polygon_water_real_props_and_bridge" assertions="8" status="pass" classname="tests/week_05/test_week_five_playground.gd" time="0.520388" >
+      </testcase>
+      <testcase name="test_bridge_drag_is_preview_until_explicit_confirmation" assertions="5" status="pass" classname="tests/week_05/test_week_five_playground.gd" time="0.586544" >
+      </testcase>
+      <testcase name="test_invalid_bridge_confirmation_keeps_original_geometry" assertions="2" status="pass" classname="tests/week_05/test_week_five_playground.gd" time="0.544935" >
+      </testcase>
+      <testcase name="test_cancel_pending_pond_keeps_source_and_history" assertions="2" status="pass" classname="tests/week_05/test_week_five_playground.gd" time="0.514072" >
+      </testcase>
+      <testcase name="test_invalid_bridge_remains_listed_after_pond_delete_and_undo" assertions="7" status="pass" classname="tests/week_05/test_week_five_playground.gd" time="0.399862" >
+      </testcase>
+      <testcase name="test_fence_freehand_records_turns_and_closed_flag_one_transaction" assertions="3" status="pass" classname="tests/week_05/test_week_five_playground.gd" time="0.555722" >
+      </testcase>
+      <testcase name="test_mac_option_left_does_not_start_garden_gesture" assertions="2" status="pass" classname="tests/week_05/test_week_five_playground.gd" time="0.29282" >
+      </testcase>
+      <testcase name="test_w05_save_roundtrip_includes_polygon_bridge_and_props" assertions="5" status="pass" classname="tests/week_05/test_week_five_playground.gd" time="0.313515" >
+      </testcase>
+      <testcase name="test_invalid_shore_preserves_twenty_manual_objects_ids_and_transforms" assertions="2" status="pass" classname="tests/week_05/test_week_five_playground.gd" time="0.547139" >
+      </testcase>
+      <testcase name="test_new_assets_have_source_models_and_triangle_budgets" assertions="18" status="pass" classname="tests/week_05/test_week_five_playground.gd" time="0.294997" >
+      </testcase>
+      <testcase name="test_actual_bridge_mouse_release_waits_for_confirmation_and_escape_cancels" assertions="5" status="pass" classname="tests/week_05/test_week_five_playground.gd" time="0.572844" >
+      </testcase>
+      <testcase name="test_save_preserves_computed_float_heights_exactly" assertions="3" status="pass" classname="tests/week_05/test_week_five_playground.gd" time="0.306599" >
+      </testcase>
+  </testsuite>
+</testsuites>
