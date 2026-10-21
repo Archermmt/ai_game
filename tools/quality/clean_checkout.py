@@ -15,7 +15,7 @@ from common import ROOT, engine_binary
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--week', type=int, default=7, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+    parser.add_argument('--week', type=int, default=7, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
     parser.add_argument("--art-pass", action="store_true")
     parser.add_argument("--garden", action="store_true")
     args = parser.parse_args()
@@ -39,7 +39,8 @@ def main():
         (checkout / '.venv').symlink_to(ROOT / '.venv', target_is_directory=True)
         environment = os.environ.copy()
         environment['GODOT_BIN'] = engine_binary()
-        command = ([sys.executable, 'tools/quality/ui_meadow_checks.py'] if args.garden else
+        command = ([sys.executable, "tools/quality/week_eleven_checks.py"] if args.week == 11 else
+                   [sys.executable, 'tools/quality/ui_meadow_checks.py'] if args.garden else
                    [sys.executable, 'tools/quality/art_pass_checks.py'] if args.art_pass else
                    [sys.executable, 'tools/quality/run_checks.py', '--week', str(args.week), '--negative-control'])
         process = subprocess.run(command, cwd=checkout, env=environment,

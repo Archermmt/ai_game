@@ -53,7 +53,7 @@ func test_distant_edit_reuses_cottages_and_water_and_refreshes_bank_only_when_ne
 	)
 	await _settle()
 	assert_same(playground.water_view.mesh, water)
-	assert_not_same(playground._pond_bank, bank)
+	assert_same(playground._pond_bank, bank)
 	for id_value: String in homes:
 		assert_same(playground._live_units["building:" + id_value], homes[id_value])
 

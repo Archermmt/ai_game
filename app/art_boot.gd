@@ -157,9 +157,7 @@ func _on_published(snapshot: Dictionary, prepared: Dictionary) -> void:
 		_curtain = ArtScenery.curtain(snapshot, wood_material, stone_material, terrain_material)
 		_curtain_seed = str(snapshot["world_seed"])
 		world_view.add_child(_curtain)
-	var signature: int = hash(
-		[snapshot["world_seed"], snapshot["pool"], snapshot["terrain"], snapshot.get("bridges", [])]
-	)
+	var signature: int = ArtScenery.bank_signature(snapshot)
 	if signature != _bank_signature:
 		if is_instance_valid(_pond_bank):
 			_pond_bank.queue_free()

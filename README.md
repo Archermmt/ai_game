@@ -1,8 +1,8 @@
 # 风栖小筑 · Godot MVP
 
-当前为底部工具栏与动态草修订，使用已接受的 ART-01 美术：暖灰泥、厚叠瓦、蜂蜜木构、分层叶簇与手绘林间庭院，
-继承 W09 摄影/布局/全部建造工具及五槽保存。默认入口 `app/garden_root.tscn`，版本 `0.10.1-garden01`。
-进度见 [STATUS.md](STATUS.md)，画面与证据见 [工具栏与草层报告](docs/weekly/ui_meadow_01/README.md)。
+当前为W11试玩前修复版，使用已接受的 ART-01 美术：暖灰泥、厚叠瓦、蜂蜜木构、分层叶簇与手绘林间庭院，
+继承 W09 摄影/布局/全部建造工具及五槽保存。默认入口 `app/garden_root.tscn`，版本 `0.11.0-w11`。
+进度见 [STATUS.md](STATUS.md)，本周修复与证据见 [W11报告](docs/weekly/week_11/README.md)。
 F5 运行当前主场景；若用F6，请打开 `app/garden_root.tscn`，旧周场景保留历史画面。
 已接环境、操作、音乐三路音量；局部编辑延迟目标仍开放，完整冻结另看门槛。
 
@@ -13,7 +13,7 @@ F5 运行当前主场景；若用F6，请打开 `app/garden_root.tscn`，旧周�
 
 ```bash
 python3 tools/quality/bootstrap.py
-python3 tools/quality/ui_meadow_checks.py
+python3 tools/quality/week_eleven_checks.py
 python3 tools/quality/run_game.py
 ```
 
@@ -24,16 +24,16 @@ python3 tools/quality/run_game.py
 | 操作 | 输入 |
 | --- | --- |
 | 建房 | 选矩形 / 圆形，左键在草地拖动并释放 |
-| 取消预览 | Esc 或“取消” |
+| 取消预览 | Esc 或卡片内“取消本笔” |
 | 环视 / 平移 / 缩放 | 右键或双指上下左右移动 / Option（⌥）+左键、中键或 Shift+左键拖动 / 滚轮或双指捏合 |
 | 恢复镜头 | F 或“复位视角” |
 | 撤销 / 重做 | Ctrl（macOS 为 Cmd）+Z / Shift+Z；或按钮 |
 | 分类植被 | 选择树木 / 植物 / 岩石；调半径和各类密度后选择刷植或擦除；Ctrl/Cmd+滚轮调半径 |
 | 属性 | 手放内容可锁定高度；提灯选择开启 / 关闭 / 自动；顶部「设置」可改 UI 比例、重绑快捷键与关闭景深 |
 | 存档 / 读档 | Ctrl/Cmd+S / Ctrl/Cmd+O；或按钮 |
-| 日暮色 / 减少动态 | 左侧按钮 |
+| 日暮色 / 减少动态 | 底部「光线」/ 顶部「设置」|
 
-建筑宽深 3–12m、高 2.4–7.2m；拖建时默认高 3m，右侧属性面板可连续改尺寸与檐高后提交；建筑旋转仅支持 0°。
+建筑宽深 3–12m、高 2.4–7.2m；拖建时默认高 3m，底部建造卡片展开属性可连续改尺寸与檐高后提交；建筑旋转仅支持 0°。
 重叠放置被拒绝，相切 / 同朝向侧贴可通过数据检查；接触墙消隐与端部封边已有风险实现；当前美术层已接厚屋檐、木石收边与局部贴靠裁剪。
 顶部「我的作品」选择五个命名槽之一保存/载入，预览来自当前实机画面；快捷键操作当前作品。
 空闲 60 秒自动保存当前作品，`.bak1`–`.bak3` 保留前三代。启动新示范只选择空槽；五槽已满时
@@ -51,20 +51,20 @@ python3 tools/quality/run_game.py
 
 ```bash
 # 自动化回归、格式、lint、资源契约、跨进程重启与失败注入
-python3 tools/quality/ui_meadow_checks.py
+python3 tools/quality/week_eleven_checks.py
 # 有桌面 GPU 的机器：日暮/四向近远/风效、分阶段性能和真实环绕录像（需 FFmpeg）
-python3 tools/quality/ui_meadow_native_checks.py
+python3 tools/quality/week_eleven_native_checks.py
 # ART 多角度与环绕录像保留历史入口：art_pass_render_checks.py / art_pass_orbit.py
 # 本机 macOS：取匹配的桌面模板、注册、导出并实际启动 macOS 包
 python3 tools/quality/fetch_desktop_runtime.py --templates-only
 python3 tools/quality/install_desktop_templates.py
-python3 tools/quality/export_smoke.py --week 10 --garden
+python3 tools/quality/export_smoke.py --week 11
 # 提交后，从无导入缓存的 Git 归档复测
-python3 tools/quality/clean_checkout.py --week 10 --garden
+python3 tools/quality/clean_checkout.py --week 11
 ```
 
 导入、导出以及质量检查按顺序运行，避免两个编辑器进程同时修改同一 `.godot/`。
-自动报告输出到 `reports/`；试玩包位于 `builds/ui_meadow_01/windows/` 和 `builds/ui_meadow_01/macos/`。
+自动报告输出到 `reports/`；试玩包位于 `builds/week_11/windows/` 和 `builds/week_11/macos/`。
 macOS 包是本地未公证开发包。Windows EXE 导出成功仍需 Windows 设备完成可见交互验证。
 CI 已配置 Ubuntu / Windows 自动回归，尚未推送远程触发。
 每周新增功能必须补测试并保留既有回归，见 [测试约定](docs/TESTING.md)。
@@ -201,6 +201,6 @@ ART-01 原创自然模型和材质的可重建命令：
 /Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python tools/art/audit_sources.py -- --root "$PWD" --extra-manifest art_source/art_pass_01/nature/manifest.json --output "$PWD/reports/art_source_audit.json"
 ```
 
-W10 默认继承已接受的美术样板，加入环境/操作/音乐三路音量（设置面板；0 为静音，音乐默认关闭）。累计验证：`python3 tools/quality/ui_meadow_checks.py`。进度和未关闭门槛见 `STATUS.md`，当周证据见 `docs/weekly/week_10/`。
+W10 默认继承已接受的美术样板，加入环境/操作/音乐三路音量（设置面板；0 为静音，音乐默认关闭）。累计验证：`python3 tools/quality/week_eleven_checks.py`。进度和未关闭门槛见 `STATUS.md`，当周证据见 `docs/weekly/week_10/`。
 
 底部「花草」卡片内可拖动地表动态草密度，0关闭、默认45%、100%最高，手工种植不受影响。设置可关闭远景柔焦；摄影保留景深并冻结草。修订报告见 `docs/weekly/ui_meadow_01/README.md`。

@@ -215,3 +215,7 @@ W10 新增30项/2755断言，累计521项/15512断言；每周套件最小数、
 
 当前门禁 `python3 tools/quality/ui_meadow_checks.py` 包含W01–10、ART和新工具栏/草层/柔焦，共544项/15794断言；新增23项/282断言。原生 `ui_meadow_native_checks.py` 检查真实1080p截图、草动画/减少动态、柔焦差分、150%滑杆、摄影解码及0/45/100%与满容量的四组60秒预算。
 保存与摄影沿用原路径/格式；草密度与柔焦为本机偏好，不进入源或历史。关草期间编辑后再启用、过期草任务丢弃和提交互斥均有回归。详情见 [本轮交付](weekly/ui_meadow_01/README.md)。
+
+## W11 当前门禁（2026-10-22）
+
+`python3 tools/quality/week_eleven_checks.py` 串行包含 W01–W10、ART、UI/Meadow、负控制及 W11 卡片反馈/鼠标取消/池岸缓存回归；六项 Python 试玩汇总器测试与真实0/10记录独立输出。原生：`python3 tools/quality/week_eleven_native_checks.py`；干净检出及导出均使用 `--week 11`。详见 [W11测试契约](weekly/week_11/TEST_PLAN.md)。真实试玩、性能和平台门槛独立于自动化通过状态。

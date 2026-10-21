@@ -45,6 +45,8 @@ const TOOLS: Dictionary = {
 var ribbon_buttons: Dictionary = {}
 var context: PanelContainer
 var context_body: VBoxContainer
+var context_status: Label
+var cancel_stroke: Button
 var context_title: Label
 var grass_slider: HSlider
 var grass_caption: Label
@@ -77,23 +79,41 @@ func _ready() -> void:
 	context.theme = GardenTheme.create()
 	context.add_theme_stylebox_override("panel", _paper(Color("eee8d6"), 14))
 	add_child(context)
+	var card_stack: VBoxContainer = VBoxContainer.new()
+	card_stack.add_theme_constant_override("separation", 10)
+	context.add_child(card_stack)
 	var scroll: ScrollContainer = ScrollContainer.new()
+	scroll.name = "ToolOptionsScroll"
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	context.add_child(scroll)
+	card_stack.add_child(scroll)
 	context_body = VBoxContainer.new()
 	context_body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	context_body.add_theme_constant_override("separation", 10)
 	scroll.add_child(context_body)
 	var header: HBoxContainer = HBoxContainer.new()
-	context_body.add_child(header)
+	card_stack.add_child(header)
+	card_stack.move_child(header, 0)
 	context_title = Label.new()
 	context_title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	header.add_child(context_title)
+	cancel_stroke = Button.new()
+	cancel_stroke.text = "取消本笔"
+	cancel_stroke.tooltip_text = "放弃预览或尚未完成的提交，保留已保存的作品和历史"
+	cancel_stroke.pressed.connect(func() -> void: action_requested.emit(&"cancel"))
+	header.add_child(cancel_stroke)
 	var close: Button = Button.new()
 	close.text = "收起 ×"
 	close.pressed.connect(close_context)
 	header.add_child(close)
 	_choices = HFlowContainer.new()
+	context_status = Label.new()
+	context_status.name = "OperationFeedback"
+	context_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	context_status.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	context_status.text = status_label.text
+	card_stack.add_child(context_status)
+	card_stack.move_child(context_status, 1)
 	context_body.add_child(_choices)
 	_assets = HFlowContainer.new()
 	context_body.add_child(_assets)
@@ -315,7 +335,7 @@ func _layout_panels() -> void:
 	var ribbon_width: float = minf(666, available.x - 24)
 	_dock.position = Vector2((available.x - ribbon_width) * 0.5, available.y - 76)
 	_dock.size = Vector2(ribbon_width, 56)
-	var height: float = 355 if _properties.visible or group in ["plants", "trees", "light"] else 135
+	var height: float = 355 if _properties.visible or group in ["plants", "trees", "light"] else 190
 	context.size = Vector2(minf(610, available.x - 32), minf(height, available.y - 156))
 	context.position = Vector2(
 		(available.x - context.size.x) * 0.5, available.y - 94 - context.size.y
@@ -341,7 +361,10 @@ func set_photo_mode(enabled: bool) -> void:
 func set_status(message: String) -> void:
 	super.set_status(message)
 	if breadcrumbs != null:
-		breadcrumbs.text = EditorFeedback.humanize(message)
+		var readable: String = EditorFeedback.humanize(message)
+		readable = readable.replace("右侧", "卡片中").replace("Esc 取消", "点取消本笔或 Esc 取消")
+		breadcrumbs.text = readable
+		context_status.text = readable
 		breadcrumbs.tooltip_text = breadcrumbs.text
 
 

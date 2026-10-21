@@ -126,6 +126,25 @@ static func curtain(
 	return root
 
 
+static func bank_signature(source: Dictionary) -> int:
+	# Bank positions are at most 0.48 + 0.60 m outside the contour.
+	# field_key adds two grid cells for bilinear interpolation, including edges.
+	if source["pool"].is_empty():
+		return hash([])
+	var contour: PackedVector2Array = PondShape.contour(source["pool"])
+	var region: Rect2 = Rect2(contour[0], Vector2.ZERO)
+	for point: Vector2 in contour:
+		region = region.expand(point)
+	return hash(
+		[
+			source["world_seed"],
+			source["pool"],
+			source.get("bridges", []),
+			DirtyGraph.field_key(source, region.grow(1.1))
+		]
+	)
+
+
 static func bank(source: Dictionary, wood: Material, stone: Material) -> Node3D:
 	var root: Node3D = Node3D.new()
 	root.name = "LivingPondBank"

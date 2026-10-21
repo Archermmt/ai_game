@@ -15,7 +15,7 @@ from run_checks import run_step
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--week", type=int, default=7, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+    parser.add_argument("--week", type=int, default=7, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
     parser.add_argument("--art-pass", action="store_true", help="ART-01 revision after W09")
     parser.add_argument("--garden", action="store_true", help="Context ribbon and dynamic meadow revision")
     args = parser.parse_args()
