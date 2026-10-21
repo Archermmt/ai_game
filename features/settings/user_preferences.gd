@@ -120,7 +120,9 @@ static func valid(candidate: Dictionary) -> bool:
 		or not candidate.get("bindings") is Dictionary
 	):
 		return false
-	for key: String in ["ambient_volume", "effects_volume", "music_volume"]:
+	if candidate.has("garden_focus") and not candidate["garden_focus"] is bool:
+		return false
+	for key: String in ["ambient_volume", "effects_volume", "music_volume", "grass_density"]:
 		if candidate.has(key):
 			var volume: Variant = candidate[key]
 			if not volume is float or not is_finite(volume) or volume < 0 or volume > 1:

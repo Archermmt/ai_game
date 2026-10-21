@@ -17,11 +17,14 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--week", type=int, default=7, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
     parser.add_argument("--art-pass", action="store_true", help="ART-01 revision after W09")
+    parser.add_argument("--garden", action="store_true", help="Context ribbon and dynamic meadow revision")
     args = parser.parse_args()
+    if args.garden and (args.week != 10 or args.art_pass):
+        raise RuntimeError("Garden revision requires week 10")
     if args.art_pass and args.week != 9:
         raise RuntimeError("ART-01 requires week 9")
-    label = "art_pass_01" if args.art_pass else f"week_{args.week:02d}"
-    expected_version = "0.9.1-art01" if args.art_pass else f"0.{args.week}.0-w{args.week:02d}"
+    label = "ui_meadow_01" if args.garden else ("art_pass_01" if args.art_pass else f"week_{args.week:02d}")
+    expected_version = "0.10.1-garden01" if args.garden else ("0.9.1-art01" if args.art_pass else f"0.{args.week}.0-w{args.week:02d}")
     if f'config/version="{expected_version}"' not in (ROOT / "project.godot").read_text():
         raise RuntimeError("Project version does not match requested export week; use its Git revision")
     build_root = ROOT / "builds" / label

@@ -1,0 +1,14 @@
+{
+  "license": "Project original SVG paths",
+  "generator": "tools/art/build_garden_ui.py",
+  "files": {
+    "palette": "256f71af1acec27d069aaf296b067a64e4699590bb81ac86e87db0434c1feed9",
+    "edit": "86329bacab6b27ea6ce9c237134fc9821d1135f9368294c78a7834208d1863ff",
+    "camera": "43c0dfac94e2c979cf6b6e22d6d89bd7acc9b61e5d2be56c731b60f1ee5f1884",
+    "sun": "5b6236e00aea4726115670d98bc99c119046e7c86bc42e019c92fe7d4f8ed28d",
+    "settings": "d62b0c8f0c68f3415be855aad37db56a55847477af721a92e54438ca9ccdd41a",
+    "library": "c5fd0fba6fe37ab120f7450eaaa29eaf3d6e149c224c9fba15376f5d527c7894",
+    "undo": "5dbf5d499597c96f8f4b309bdf9ccff92d4b3bddcaf62c855e4b8bf14158fa76",
+    "redo": "d2eca00d31a52e4daf6ebb0c9cec4d079dd150304dbaa0feb5709e937c93cc8c"
+  }
+}
