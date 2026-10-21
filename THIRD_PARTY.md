@@ -33,3 +33,9 @@ original note sequences, without third-party field recordings, samples or music.
 
 Week 7 continuous circular window and editable material swatches are original project assets.
 Native material thumbnails reuse the project’s original painted textures; no new external artwork is bundled.
+
+ART-01 replacement nature geometry, painted forest atlas and nine material maps
+are original project artwork. Editable Blender sources, paint recipes, licenses
+and hashes are retained under `art_source/art_pass_01/`. No external models,
+textures or runtime plugins were added. The entry thumbnail is a native Godot
+capture of the editable scene; concept reference images are not shipped as scene assets.

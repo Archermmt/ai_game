@@ -8,6 +8,7 @@ import bpy
 parser=argparse.ArgumentParser()
 parser.add_argument('--root',required=True)
 parser.add_argument('--output',required=True)
+parser.add_argument('--extra-manifest',action='append',default=[])
 args=parser.parse_args(sys.argv[sys.argv.index('--')+1:])
 root=Path(args.root).resolve()
 records=[]
@@ -76,7 +77,25 @@ assert mat and mat.use_fake_user
 img=next(n.image for n in mat.node_tree.nodes if n.type=='TEX_IMAGE')
 assert list(img.size)==[2048,2048]
 assert Path(bpy.path.abspath(img.filepath)).resolve()==root/'art_source/week_03/vegetation_atlas.png'
+extra_records=[]
+for relative_manifest in args.extra_manifest:
+    manifest_path=root/relative_manifest
+    for asset in json.loads(manifest_path.read_text()):
+        bpy.ops.wm.open_mainfile(filepath=str(root/asset['source']),load_ui=False)
+        meshes=[o for o in bpy.context.scene.objects if o.type=='MESH']
+        assert meshes and bpy.context.scene.unit_settings.system=='METRIC'
+        triangles=0
+        for obj in meshes:
+            mesh=obj.data;mesh.calc_loop_triangles();triangles+=len(mesh.loop_triangles)
+            assert mesh.uv_layers and mesh.color_attributes.get('wind_mask') is not None,asset['source']
+            assert all(abs(float(v)-1)<1e-5 for v in obj.scale),asset['source']
+            import math
+            assert all(math.isfinite(c) for v in mesh.vertices for c in v.co),asset['source']
+        assert triangles<=asset['budget'],(asset['source'],triangles,asset['budget'])
+        for socket in asset.get('sockets',[]):
+            assert bpy.context.scene.objects.get(socket) is not None,asset['source']
+        extra_records.append({'source':asset['source'],'triangles':triangles,'mesh_objects':len(meshes),'passed':True})
 result={'blender' :bpy.app.version_string,'sources':records,'material_library_graphs':len(material_manifest),
-    'images_reopened':len(material_manifest)+1,'atlas_graphs':1,'atlas_resolution':[2048,2048],'passed':True}
+    'images_reopened':len(material_manifest)+1,'atlas_graphs':1,'atlas_resolution':[2048,2048],'extra_sources':extra_records,'passed':True}
 Path(args.output).write_text(json.dumps(result,indent=2)+'\n')
 print('SOURCE_AUDIT_PASS',len(records),len(material_manifest))

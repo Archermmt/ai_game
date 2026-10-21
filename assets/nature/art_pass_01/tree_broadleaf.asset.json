@@ -1,0 +1,43 @@
+{
+  "asset_id": "NAT-01",
+  "source": "art_source/art_pass_01/nature/tree_broadleaf.blend",
+  "export": "assets/nature/art_pass_01/tree_broadleaf.glb",
+  "blender": "5.1.2",
+  "generator_version": "art_foliage_01.3",
+  "units": "meters",
+  "up_axis": "gltf_y_up",
+  "triangles": 3630,
+  "budget": 4000,
+  "mesh_objects": 3,
+  "sockets": [
+    "socket_ground"
+  ],
+  "bounds_source_z_up": {
+    "min": [
+      -2.08834,
+      -2.061412,
+      -0.054248
+    ],
+    "max": [
+      2.414175,
+      2.041906,
+      5.21969
+    ]
+  },
+  "roles": [
+    "bark_branching_trunk",
+    "foliage_painted_crown",
+    "foliage_leaf_sprays"
+  ],
+  "source_license": "Project original; reproducible geometry and painted atlas recipe, no downloaded content",
+  "wind_channels": {
+    "R": "root-pinned bend weight",
+    "G": "stable local flutter phase",
+    "B": "fruit marker (1 only fruit)",
+    "A": "1; texture supplies coverage"
+  },
+  "texture": "assets/nature/art_pass_01/painted_forest_atlas.png",
+  "lod": 0,
+  "lod1": "assets/nature/art_pass_01/tree_broadleaf_lod1.glb",
+  "lod1_triangles": 1676
+}

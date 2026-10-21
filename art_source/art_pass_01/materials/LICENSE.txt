@@ -1,0 +1,4 @@
+Original Windhaven Diorama painted material studies.
+Authored by the project generator tools/art/build_art_materials.py.
+No third-party images, photographs, concept image crops or trained image model outputs.
+Dedicated to the public domain under CC0-1.0.

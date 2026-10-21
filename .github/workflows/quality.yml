@@ -1,7 +1,7 @@
 name: Godot weekly quality
 on: [push, pull_request, workflow_dispatch]
 jobs:
-  week-09:
+  art-01:
     strategy:
       fail-fast: false
       matrix:
@@ -16,9 +16,9 @@ jobs:
       - name: Bootstrap locked tools
         run: python3 tools/quality/bootstrap.py
       - name: Weekly regressions and failure-control proof
-        run: python3 tools/quality/run_checks.py --week 9 --negative-control
+        run: python3 tools/quality/art_pass_checks.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: week-09-test-evidence-${{ matrix.os }}
+          name: art-01-test-evidence-${{ matrix.os }}
           path: reports/

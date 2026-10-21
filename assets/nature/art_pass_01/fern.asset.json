@@ -1,0 +1,40 @@
+{
+  "asset_id": "NAT-04",
+  "source": "art_source/art_pass_01/nature/fern.blend",
+  "export": "assets/nature/art_pass_01/fern.glb",
+  "blender": "5.1.2",
+  "generator_version": "art_foliage_01.3",
+  "units": "meters",
+  "up_axis": "gltf_y_up",
+  "triangles": 448,
+  "budget": 500,
+  "mesh_objects": 2,
+  "sockets": [
+    "socket_ground"
+  ],
+  "bounds_source_z_up": {
+    "min": [
+      -0.503163,
+      -0.554532,
+      0.06
+    ],
+    "max": [
+      0.542284,
+      0.452421,
+      0.489939
+    ]
+  },
+  "roles": [
+    "foliage_arching_fern",
+    "bark_fern_stems"
+  ],
+  "source_license": "Project original; reproducible geometry and painted atlas recipe, no downloaded content",
+  "wind_channels": {
+    "R": "root-pinned bend weight",
+    "G": "stable local flutter phase",
+    "B": "fruit marker (1 only fruit)",
+    "A": "1; texture supplies coverage"
+  },
+  "texture": "assets/nature/art_pass_01/painted_forest_atlas.png",
+  "lod": 0
+}

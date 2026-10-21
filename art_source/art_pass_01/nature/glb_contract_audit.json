@@ -1,0 +1,279 @@
+{
+  "passed": true,
+  "exports": [
+    {
+      "export": "assets/nature/art_pass_01/tree_broadleaf.glb",
+      "triangles": 3630,
+      "parts": [
+        {
+          "name": "bark_branching_trunkMesh",
+          "vertices": 291,
+          "wind_min": 0.0,
+          "wind_max": 0.0
+        },
+        {
+          "name": "foliage_painted_crownMesh",
+          "vertices": 486,
+          "wind_min": 0.5391012436102846,
+          "wind_max": 0.9084153505760281
+        },
+        {
+          "name": "foliage_leaf_spraysMesh",
+          "vertices": 2925,
+          "wind_min": 0.44402227817196915,
+          "wind_max": 0.9750362401770046
+        }
+      ],
+      "sha256": "2b21c458612ce3dcc61b5a88d82a142dbb32b30cac4993f2e5c67b28b7790f71",
+      "passed": true
+    },
+    {
+      "export": "assets/nature/art_pass_01/tree_broadleaf_lod1.glb",
+      "triangles": 1676,
+      "parts": [
+        {
+          "name": "bark_branching_trunkMesh",
+          "vertices": 222,
+          "wind_min": 0.0,
+          "wind_max": 0.0
+        },
+        {
+          "name": "foliage_painted_crownMesh",
+          "vertices": 261,
+          "wind_min": 0.5522392614633402,
+          "wind_max": 0.8930800335698482
+        },
+        {
+          "name": "foliage_leaf_spraysMesh",
+          "vertices": 1170,
+          "wind_min": 0.4529182879377432,
+          "wind_max": 0.9714961470969711
+        }
+      ],
+      "sha256": "5a02ff4227c6c84c72c8e060e8ba3d20900fe176cba23184f0aa0ca28dc57426",
+      "passed": true
+    },
+    {
+      "export": "assets/nature/art_pass_01/tree_conifer.glb",
+      "triangles": 3412,
+      "parts": [
+        {
+          "name": "bark_pine_trunkMesh",
+          "vertices": 125,
+          "wind_min": 0.0,
+          "wind_max": 0.0
+        },
+        {
+          "name": "foliage_full_pine_branch_padsMesh",
+          "vertices": 900,
+          "wind_min": 0.1219501029983978,
+          "wind_max": 0.965117875944152
+        },
+        {
+          "name": "foliage_drooping_pine_spraysMesh",
+          "vertices": 2100,
+          "wind_min": 0.11595330739299611,
+          "wind_max": 0.953047989623865
+        }
+      ],
+      "sha256": "604f0a518bcbcc08e52eceb5f73e6aadb0c9189f659ef45b731595ac9a0a51b1",
+      "passed": true
+    },
+    {
+      "export": "assets/nature/art_pass_01/tree_conifer_lod1.glb",
+      "triangles": 1576,
+      "parts": [
+        {
+          "name": "bark_pine_trunkMesh",
+          "vertices": 35,
+          "wind_min": 0.0,
+          "wind_max": 0.0
+        },
+        {
+          "name": "foliage_full_pine_branch_padsMesh",
+          "vertices": 360,
+          "wind_min": 0.1219501029983978,
+          "wind_max": 0.9640192263675899
+        },
+        {
+          "name": "foliage_drooping_pine_spraysMesh",
+          "vertices": 1200,
+          "wind_min": 0.12379644464789807,
+          "wind_max": 0.9515068284122987
+        }
+      ],
+      "sha256": "563799ccff31ca755598d3214b1e96fc83f51a1db73e46bbc9c62caa8b8028e3",
+      "passed": true
+    },
+    {
+      "export": "assets/nature/art_pass_01/tree_fruit.glb",
+      "triangles": 3154,
+      "parts": [
+        {
+          "name": "bark_branching_trunkMesh",
+          "vertices": 255,
+          "wind_min": 0.0,
+          "wind_max": 0.0
+        },
+        {
+          "name": "foliage_painted_crownMesh",
+          "vertices": 378,
+          "wind_min": 0.5010910200656138,
+          "wind_max": 0.874036774242771
+        },
+        {
+          "name": "foliage_leaf_spraysMesh",
+          "vertices": 2275,
+          "wind_min": 0.3911345082780194,
+          "wind_max": 0.9438773174639505
+        },
+        {
+          "name": "fruit_warm_accentsMesh",
+          "vertices": 192,
+          "wind_min": 0.5267109178301671,
+          "wind_max": 0.7241168841077287
+        }
+      ],
+      "sha256": "5bca837ea87738bbd60e2f3c522c00bbcbf48df274ed28f493e282637426c298",
+      "passed": true
+    },
+    {
+      "export": "assets/nature/art_pass_01/tree_fruit_lod1.glb",
+      "triangles": 1500,
+      "parts": [
+        {
+          "name": "bark_branching_trunkMesh",
+          "vertices": 192,
+          "wind_min": 0.0,
+          "wind_max": 0.0
+        },
+        {
+          "name": "foliage_painted_crownMesh",
+          "vertices": 203,
+          "wind_min": 0.514045929655909,
+          "wind_max": 0.8613107499809263
+        },
+        {
+          "name": "foliage_leaf_spraysMesh",
+          "vertices": 910,
+          "wind_min": 0.4101472495613031,
+          "wind_max": 0.930235751888304
+        },
+        {
+          "name": "fruit_warm_accentsMesh",
+          "vertices": 112,
+          "wind_min": 0.5448691538872358,
+          "wind_max": 0.7241168841077287
+        }
+      ],
+      "sha256": "c4be7bf12fa3b954af6a4347c8c2aa2f4c22771328f3fdca88ccdeb24c8205b3",
+      "passed": true
+    },
+    {
+      "export": "assets/nature/art_pass_01/fern.glb",
+      "triangles": 448,
+      "parts": [
+        {
+          "name": "foliage_arching_fernMesh",
+          "vertices": 490,
+          "wind_min": 0.07563897154192416,
+          "wind_max": 0.6665598535133898
+        },
+        {
+          "name": "bark_fern_stemsMesh",
+          "vertices": 112,
+          "wind_min": 0.0,
+          "wind_max": 0.0
+        }
+      ],
+      "sha256": "5088697fe242bb4c5e8eb377bdf9701c7ec3bb7753154275122069812c8c4775",
+      "passed": true
+    },
+    {
+      "export": "assets/nature/art_pass_01/wildflower.glb",
+      "triangles": 290,
+      "parts": [
+        {
+          "name": "foliage_meadow_bladesMesh",
+          "vertices": 222,
+          "wind_min": 0.0,
+          "wind_max": 0.6923018234531166
+        },
+        {
+          "name": "flower_ivory_daisiesMesh",
+          "vertices": 126,
+          "wind_min": 0.38654154268711377,
+          "wind_max": 0.7000076295109483
+        },
+        {
+          "name": "flower_lavender_accentsMesh",
+          "vertices": 40,
+          "wind_min": 0.36231021591515983,
+          "wind_max": 0.669260700389105
+        }
+      ],
+      "sha256": "41dd1b25a21f34791c207be6de9ea06be1155797b86db30d44f87cc1937a8b06",
+      "passed": true
+    },
+    {
+      "export": "assets/nature/art_pass_01/shrub.glb",
+      "triangles": 342,
+      "parts": [
+        {
+          "name": "foliage_compact_shrub_bodyMesh",
+          "vertices": 78,
+          "wind_min": 0.0,
+          "wind_max": 0.73842984664683
+        },
+        {
+          "name": "foliage_shrub_edge_leavesMesh",
+          "vertices": 270,
+          "wind_min": 0.0,
+          "wind_max": 1.0
+        }
+      ],
+      "sha256": "7888907ed3eacef642ebbc993839cc49e48872d7db28df3d3759358c1234987e",
+      "passed": true
+    },
+    {
+      "export": "assets/nature/art_pass_01/moss_rock.glb",
+      "triangles": 682,
+      "parts": [
+        {
+          "name": "stone_closed_worn_bodyMesh",
+          "vertices": 297,
+          "wind_min": 0.0,
+          "wind_max": 0.0
+        },
+        {
+          "name": "moss_upper_surfaceMesh",
+          "vertices": 418,
+          "wind_min": 0.0,
+          "wind_max": 0.0
+        }
+      ],
+      "sha256": "4c76be9ffb2213035c1fab15b637c55236ce507abd55ba9de6169bcd3a8501c2",
+      "passed": true
+    },
+    {
+      "export": "assets/nature/art_pass_01/flat_rock.glb",
+      "triangles": 450,
+      "parts": [
+        {
+          "name": "stone_closed_worn_bodyMesh",
+          "vertices": 207,
+          "wind_min": 0.0,
+          "wind_max": 0.0
+        },
+        {
+          "name": "moss_upper_surfaceMesh",
+          "vertices": 270,
+          "wind_min": 0.0,
+          "wind_max": 0.0
+        }
+      ],
+      "sha256": "bad1a0406abf711de94cca1f3b7dbc851bd0db5fb986d89dcae09db71434a929",
+      "passed": true
+    }
+  ]
+}

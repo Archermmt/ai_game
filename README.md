@@ -1,9 +1,10 @@
 # 风栖小筑 · Godot MVP
 
-第九周试玩切片：摄影两尺寸导出、构图存档、示范/空布局入口、原生模板图，
-以及固定满容量压力验证；继承五存档/备份/设置与全部建造工具。
-进度见 [STATUS.md](STATUS.md)，验证见 [W09 报告](docs/weekly/week_09/README.md)。
-F5运行当前W09主场景，选择示范或空布局；声音播放维持W10。满容量局部编辑仍超暂定目标，详见周报。
+当前为 ART-01 美术返工样板：暖灰泥、厚叠瓦、蜂蜜木构、分层叶簇与手绘林间庭院，
+继承 W09 摄影/布局/全部建造工具及五槽保存。默认入口 `app/art_root.tscn`，版本 `0.9.1-art01`。
+进度见 [STATUS.md](STATUS.md)，画面与证据见 [美术报告](docs/weekly/art_pass_01/README.md)。
+F5 运行当前美术主场景；若用F6，请打开 `app/art_root.tscn`，旧周场景保留历史画面。
+W10声音/功能冻结在用户视觉复核之后继续；局部编辑延迟目标仍开放。
 
 ## 运行
 
@@ -12,12 +13,12 @@ F5运行当前W09主场景，选择示范或空布局；声音播放维持W10。
 
 ```bash
 python3 tools/quality/bootstrap.py
-python3 tools/quality/run_checks.py --week 9 --negative-control
+python3 tools/quality/art_pass_checks.py
 python3 tools/quality/run_game.py
 ```
 
 本机已准备 `.tools/` 和 `.venv/`，可直接运行后两条命令。也可使用相同版本 Godot 打开
-`project.godot` 后按 F5；单场景测试请打开 `app/week_eight_root.tscn` 后按 F6。系统的 Godot 4.7 不满足本项目补丁版本锁。
+`project.godot` 后按 F5；单场景测试请打开 `app/art_root.tscn` 后按 F6。系统的 Godot 4.7 不满足本项目补丁版本锁。
 可通过 `GODOT_BIN` 指定同版本引擎；下载的引擎、缓存、试玩包和用户存档不进入 Git。
 
 | 操作 | 输入 |
@@ -33,7 +34,7 @@ python3 tools/quality/run_game.py
 | 日暮色 / 减少动态 | 左侧按钮 |
 
 建筑宽深 3–12m、高 2.4–7.2m；拖建时默认高 3m，右侧属性面板可连续改尺寸与檐高后提交；建筑旋转仅支持 0°。
-重叠放置被拒绝，相切 / 同朝向侧贴可通过数据检查；接触墙消隐与端部封边已有风险实现；正式局部屋檐与木石收边继续后续任务。
+重叠放置被拒绝，相切 / 同朝向侧贴可通过数据检查；接触墙消隐与端部封边已有风险实现；当前美术层已接厚屋檐、木石收边与局部贴靠裁剪。
 顶部「我的作品」选择五个命名槽之一保存/载入，预览来自当前实机画面；快捷键操作当前作品。
 空闲 60 秒自动保存当前作品，`.bak1`–`.bak3` 保留前三代。启动新示范只选择空槽；五槽已满时
 暂停自动保存，需主动载入或选择保存目标。未保存的载入/退出可选保存、放弃或取消。
@@ -50,19 +51,20 @@ python3 tools/quality/run_game.py
 
 ```bash
 # 自动化回归、格式、lint、资源契约、跨进程重启与失败注入
-python3 tools/quality/run_checks.py --week 9 --negative-control
+python3 tools/quality/art_pass_checks.py
 # 有桌面 GPU 的机器：日暮/四向近远/风效、分阶段性能和真实环绕录像（需 FFmpeg）
-python3 tools/quality/week_eight_render_checks.py
+python3 tools/quality/art_pass_render_checks.py
+python3 tools/quality/art_pass_orbit.py
 # 本机 macOS：取匹配的桌面模板、注册、导出并实际启动 macOS 包
 python3 tools/quality/fetch_desktop_runtime.py --templates-only
 python3 tools/quality/install_desktop_templates.py
-python3 tools/quality/export_smoke.py --week 9
+python3 tools/quality/export_smoke.py --week 9 --art-pass
 # 提交后，从无导入缓存的 Git 归档复测
-python3 tools/quality/clean_checkout.py --week 9
+python3 tools/quality/clean_checkout.py --week 9 --art-pass
 ```
 
 导入、导出以及质量检查按顺序运行，避免两个编辑器进程同时修改同一 `.godot/`。
-自动报告输出到 `reports/`；试玩包位于 `builds/week_09/windows/` 和 `builds/week_09/macos/`。
+自动报告输出到 `reports/`；试玩包位于 `builds/art_pass_01/windows/` 和 `builds/art_pass_01/macos/`。
 macOS 包是本地未公证开发包。Windows EXE 导出成功仍需 Windows 设备完成可见交互验证。
 CI 已配置 Ubuntu / Windows 自动回归，尚未推送远程触发。
 每周新增功能必须补测试并保留既有回归，见 [测试约定](docs/TESTING.md)。
@@ -71,8 +73,8 @@ CI 已配置 Ubuntu / Windows 自动回归，尚未推送远程触发。
 
 - `app/`：试玩组合根；`core/`：源数据、放置约束和事务。
 - `features/`：建筑网格、轨道相机、存档与风着色器；`ui/`：操作面板与建筑属性 / 恢复面板。
-- `tests/week_01/`–`week_07/`：累计 GUT 回归和独立进程探针；`tools/quality/`：可复现质量命令。
-- `art_source/week_01/`–`week_07/`：模型、纹理与材质库源文件；`assets/`：GLB、贴图和导入配置。
+- `tests/week_01/`–`week_09/` 和 `tests/art_pass_01/`：累计 GUT 回归和独立进程探针；`tools/quality/`：可复现质量命令。
+- `art_source/week_01/`–`week_09/` 和 `art_source/art_pass_01/`：模型、纹理与材质库源文件；`assets/`：GLB、贴图和导入配置。
 - `docs/`：已批准 PRD、开发计划、每周证据与许可。
 
 Blender 5.1.2 为唯一主模型源，三种门与树 / 布 / 长凳样板，以及 W02 窗 / 树初稿 / 笔触纹理可分别重建：
@@ -190,3 +192,11 @@ W05 历史包存档使用独立 `user://week_05/forest.wgs`；完整精度 JSON 
 当前 51 实例样例的 20 笔编辑仍有发布/资源创建尖峰，详见周报；W08 T054 继续性能优化。
 
 第九周：顶部「摄影」可隐藏工具、冻结动态、保存构图，选择目录输出 1080p / 2K PNG。Esc 或「返回编辑」恢复进入前相机；「选择布局」提供同场景示范 / 空布局。构图需保存作品到槽位后跨启动保留。
+
+ART-01 原创自然模型和材质的可重建命令：
+
+```bash
+/Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python tools/art/build_art_foliage.py -- --root "$PWD"
+/Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python tools/art/build_art_materials.py -- --root "$PWD"
+/Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python tools/art/audit_sources.py -- --root "$PWD" --extra-manifest art_source/art_pass_01/nature/manifest.json --output "$PWD/reports/art_source_audit.json"
+```

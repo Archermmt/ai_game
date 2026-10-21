@@ -1,0 +1,457 @@
+[
+  {
+    "asset_id": "NAT-01",
+    "source": "art_source/art_pass_01/nature/tree_broadleaf.blend",
+    "export": "assets/nature/art_pass_01/tree_broadleaf.glb",
+    "blender": "5.1.2",
+    "generator_version": "art_foliage_01.3",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 3630,
+    "budget": 4000,
+    "mesh_objects": 3,
+    "sockets": [
+      "socket_ground"
+    ],
+    "bounds_source_z_up": {
+      "min": [
+        -2.08834,
+        -2.061412,
+        -0.054248
+      ],
+      "max": [
+        2.414175,
+        2.041906,
+        5.21969
+      ]
+    },
+    "roles": [
+      "bark_branching_trunk",
+      "foliage_painted_crown",
+      "foliage_leaf_sprays"
+    ],
+    "source_license": "Project original; reproducible geometry and painted atlas recipe, no downloaded content",
+    "wind_channels": {
+      "R": "root-pinned bend weight",
+      "G": "stable local flutter phase",
+      "B": "fruit marker (1 only fruit)",
+      "A": "1; texture supplies coverage"
+    },
+    "texture": "assets/nature/art_pass_01/painted_forest_atlas.png",
+    "lod": 0,
+    "lod1": "assets/nature/art_pass_01/tree_broadleaf_lod1.glb",
+    "lod1_triangles": 1676
+  },
+  {
+    "asset_id": "NAT-01-LOD1",
+    "source": "art_source/art_pass_01/nature/tree_broadleaf_lod1.blend",
+    "export": "assets/nature/art_pass_01/tree_broadleaf_lod1.glb",
+    "blender": "5.1.2",
+    "generator_version": "art_foliage_01.3",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 1676,
+    "budget": 1700,
+    "mesh_objects": 3,
+    "sockets": [
+      "socket_ground"
+    ],
+    "bounds_source_z_up": {
+      "min": [
+        -2.018633,
+        -2.108048,
+        -0.05083
+      ],
+      "max": [
+        2.216208,
+        1.944995,
+        5.201208
+      ]
+    },
+    "roles": [
+      "bark_branching_trunk",
+      "foliage_painted_crown",
+      "foliage_leaf_sprays"
+    ],
+    "source_license": "Project original; reproducible geometry and painted atlas recipe, no downloaded content",
+    "wind_channels": {
+      "R": "root-pinned bend weight",
+      "G": "stable local flutter phase",
+      "B": "fruit marker (1 only fruit)",
+      "A": "1; texture supplies coverage"
+    },
+    "texture": "assets/nature/art_pass_01/painted_forest_atlas.png",
+    "lod": 1
+  },
+  {
+    "asset_id": "NAT-02",
+    "source": "art_source/art_pass_01/nature/tree_conifer.blend",
+    "export": "assets/nature/art_pass_01/tree_conifer.glb",
+    "blender": "5.1.2",
+    "generator_version": "art_foliage_01.3",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 3412,
+    "budget": 3500,
+    "mesh_objects": 3,
+    "sockets": [
+      "socket_ground"
+    ],
+    "bounds_source_z_up": {
+      "min": [
+        -1.783188,
+        -1.59242,
+        -0.009285
+      ],
+      "max": [
+        1.783188,
+        1.59242,
+        5.70022
+      ]
+    },
+    "roles": [
+      "bark_pine_trunk",
+      "foliage_full_pine_branch_pads",
+      "foliage_drooping_pine_sprays"
+    ],
+    "source_license": "Project original; reproducible geometry and painted atlas recipe, no downloaded content",
+    "wind_channels": {
+      "R": "root-pinned bend weight",
+      "G": "stable local flutter phase",
+      "B": "fruit marker (1 only fruit)",
+      "A": "1; texture supplies coverage"
+    },
+    "texture": "assets/nature/art_pass_01/painted_forest_atlas.png",
+    "lod": 0,
+    "lod1": "assets/nature/art_pass_01/tree_conifer_lod1.glb",
+    "lod1_triangles": 1576
+  },
+  {
+    "asset_id": "NAT-02-LOD1",
+    "source": "art_source/art_pass_01/nature/tree_conifer_lod1.blend",
+    "export": "assets/nature/art_pass_01/tree_conifer_lod1.glb",
+    "blender": "5.1.2",
+    "generator_version": "art_foliage_01.3",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 1576,
+    "budget": 1700,
+    "mesh_objects": 3,
+    "sockets": [
+      "socket_ground"
+    ],
+    "bounds_source_z_up": {
+      "min": [
+        -1.6704,
+        -1.6704,
+        -0.009432
+      ],
+      "max": [
+        1.6704,
+        1.6704,
+        5.700216
+      ]
+    },
+    "roles": [
+      "bark_pine_trunk",
+      "foliage_full_pine_branch_pads",
+      "foliage_drooping_pine_sprays"
+    ],
+    "source_license": "Project original; reproducible geometry and painted atlas recipe, no downloaded content",
+    "wind_channels": {
+      "R": "root-pinned bend weight",
+      "G": "stable local flutter phase",
+      "B": "fruit marker (1 only fruit)",
+      "A": "1; texture supplies coverage"
+    },
+    "texture": "assets/nature/art_pass_01/painted_forest_atlas.png",
+    "lod": 1
+  },
+  {
+    "asset_id": "NAT-03",
+    "source": "art_source/art_pass_01/nature/tree_fruit.blend",
+    "export": "assets/nature/art_pass_01/tree_fruit.glb",
+    "blender": "5.1.2",
+    "generator_version": "art_foliage_01.3",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 3154,
+    "budget": 4000,
+    "mesh_objects": 4,
+    "sockets": [
+      "socket_ground"
+    ],
+    "bounds_source_z_up": {
+      "min": [
+        -1.78522,
+        -1.560285,
+        -0.043749
+      ],
+      "max": [
+        1.983571,
+        1.822572,
+        4.301933
+      ]
+    },
+    "roles": [
+      "bark_branching_trunk",
+      "foliage_painted_crown",
+      "foliage_leaf_sprays",
+      "fruit_warm_accents"
+    ],
+    "source_license": "Project original; reproducible geometry and painted atlas recipe, no downloaded content",
+    "wind_channels": {
+      "R": "root-pinned bend weight",
+      "G": "stable local flutter phase",
+      "B": "fruit marker (1 only fruit)",
+      "A": "1; texture supplies coverage"
+    },
+    "texture": "assets/nature/art_pass_01/painted_forest_atlas.png",
+    "lod": 0,
+    "lod1": "assets/nature/art_pass_01/tree_fruit_lod1.glb",
+    "lod1_triangles": 1500
+  },
+  {
+    "asset_id": "NAT-03-LOD1",
+    "source": "art_source/art_pass_01/nature/tree_fruit_lod1.blend",
+    "export": "assets/nature/art_pass_01/tree_fruit_lod1.glb",
+    "blender": "5.1.2",
+    "generator_version": "art_foliage_01.3",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 1500,
+    "budget": 1700,
+    "mesh_objects": 4,
+    "sockets": [
+      "socket_ground"
+    ],
+    "bounds_source_z_up": {
+      "min": [
+        -1.726662,
+        -1.574524,
+        -0.040992
+      ],
+      "max": [
+        1.833212,
+        1.732104,
+        4.241628
+      ]
+    },
+    "roles": [
+      "bark_branching_trunk",
+      "foliage_painted_crown",
+      "foliage_leaf_sprays",
+      "fruit_warm_accents"
+    ],
+    "source_license": "Project original; reproducible geometry and painted atlas recipe, no downloaded content",
+    "wind_channels": {
+      "R": "root-pinned bend weight",
+      "G": "stable local flutter phase",
+      "B": "fruit marker (1 only fruit)",
+      "A": "1; texture supplies coverage"
+    },
+    "texture": "assets/nature/art_pass_01/painted_forest_atlas.png",
+    "lod": 1
+  },
+  {
+    "asset_id": "NAT-04",
+    "source": "art_source/art_pass_01/nature/fern.blend",
+    "export": "assets/nature/art_pass_01/fern.glb",
+    "blender": "5.1.2",
+    "generator_version": "art_foliage_01.3",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 448,
+    "budget": 500,
+    "mesh_objects": 2,
+    "sockets": [
+      "socket_ground"
+    ],
+    "bounds_source_z_up": {
+      "min": [
+        -0.503163,
+        -0.554532,
+        0.06
+      ],
+      "max": [
+        0.542284,
+        0.452421,
+        0.489939
+      ]
+    },
+    "roles": [
+      "foliage_arching_fern",
+      "bark_fern_stems"
+    ],
+    "source_license": "Project original; reproducible geometry and painted atlas recipe, no downloaded content",
+    "wind_channels": {
+      "R": "root-pinned bend weight",
+      "G": "stable local flutter phase",
+      "B": "fruit marker (1 only fruit)",
+      "A": "1; texture supplies coverage"
+    },
+    "texture": "assets/nature/art_pass_01/painted_forest_atlas.png",
+    "lod": 0
+  },
+  {
+    "asset_id": "NAT-05",
+    "source": "art_source/art_pass_01/nature/wildflower.blend",
+    "export": "assets/nature/art_pass_01/wildflower.glb",
+    "blender": "5.1.2",
+    "generator_version": "art_foliage_01.3",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 290,
+    "budget": 450,
+    "mesh_objects": 3,
+    "sockets": [
+      "socket_ground"
+    ],
+    "bounds_source_z_up": {
+      "min": [
+        -0.415971,
+        -0.405876,
+        0.0
+      ],
+      "max": [
+        0.421814,
+        0.421365,
+        0.511483
+      ]
+    },
+    "roles": [
+      "foliage_meadow_blades",
+      "flower_ivory_daisies",
+      "flower_lavender_accents"
+    ],
+    "source_license": "Project original; reproducible geometry and painted atlas recipe, no downloaded content",
+    "wind_channels": {
+      "R": "root-pinned bend weight",
+      "G": "stable local flutter phase",
+      "B": "fruit marker (1 only fruit)",
+      "A": "1; texture supplies coverage"
+    },
+    "texture": "assets/nature/art_pass_01/painted_forest_atlas.png",
+    "lod": 0
+  },
+  {
+    "asset_id": "NAT-06",
+    "source": "art_source/art_pass_01/nature/shrub.blend",
+    "export": "assets/nature/art_pass_01/shrub.glb",
+    "blender": "5.1.2",
+    "generator_version": "art_foliage_01.3",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 342,
+    "budget": 500,
+    "mesh_objects": 2,
+    "sockets": [
+      "socket_ground"
+    ],
+    "bounds_source_z_up": {
+      "min": [
+        -0.909327,
+        -0.867445,
+        -0.251018
+      ],
+      "max": [
+        1.044217,
+        0.845444,
+        0.904762
+      ]
+    },
+    "roles": [
+      "foliage_compact_shrub_body",
+      "foliage_shrub_edge_leaves"
+    ],
+    "source_license": "Project original; reproducible geometry and painted atlas recipe, no downloaded content",
+    "wind_channels": {
+      "R": "root-pinned bend weight",
+      "G": "stable local flutter phase",
+      "B": "fruit marker (1 only fruit)",
+      "A": "1; texture supplies coverage"
+    },
+    "texture": "assets/nature/art_pass_01/painted_forest_atlas.png",
+    "lod": 0
+  },
+  {
+    "asset_id": "NAT-08",
+    "source": "art_source/art_pass_01/nature/moss_rock.blend",
+    "export": "assets/nature/art_pass_01/moss_rock.glb",
+    "blender": "5.1.2",
+    "generator_version": "art_foliage_01.3",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 682,
+    "budget": 1000,
+    "mesh_objects": 2,
+    "sockets": [
+      "socket_ground"
+    ],
+    "bounds_source_z_up": {
+      "min": [
+        -0.689483,
+        -0.573073,
+        0.0
+      ],
+      "max": [
+        0.752749,
+        0.554161,
+        1.252615
+      ]
+    },
+    "roles": [
+      "stone_closed_worn_body",
+      "moss_upper_surface"
+    ],
+    "source_license": "Project original; reproducible geometry and painted atlas recipe, no downloaded content",
+    "wind_channels": {
+      "R": "root-pinned bend weight",
+      "G": "stable local flutter phase",
+      "B": "fruit marker (1 only fruit)",
+      "A": "1; texture supplies coverage"
+    },
+    "texture": "assets/nature/art_pass_01/painted_forest_atlas.png",
+    "lod": 0
+  },
+  {
+    "asset_id": "NAT-09",
+    "source": "art_source/art_pass_01/nature/flat_rock.blend",
+    "export": "assets/nature/art_pass_01/flat_rock.glb",
+    "blender": "5.1.2",
+    "generator_version": "art_foliage_01.3",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 450,
+    "budget": 800,
+    "mesh_objects": 2,
+    "sockets": [
+      "socket_ground"
+    ],
+    "bounds_source_z_up": {
+      "min": [
+        -0.827883,
+        -0.599298,
+        0.0
+      ],
+      "max": [
+        0.840313,
+        0.528842,
+        0.427115
+      ]
+    },
+    "roles": [
+      "stone_closed_worn_body",
+      "moss_upper_surface"
+    ],
+    "source_license": "Project original; reproducible geometry and painted atlas recipe, no downloaded content",
+    "wind_channels": {
+      "R": "root-pinned bend weight",
+      "G": "stable local flutter phase",
+      "B": "fruit marker (1 only fruit)",
+      "A": "1; texture supplies coverage"
+    },
+    "texture": "assets/nature/art_pass_01/painted_forest_atlas.png",
+    "lod": 0
+  }
+]

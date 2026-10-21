@@ -1,0 +1,104 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/week_08/test_playground.gd
+* test_scene_exposes_library_settings_and_two_recommended_views
+* test_manual_save_updates_dirty_baseline_only_after_io_success
+* test_edits_during_save_remain_dirty_and_pause_pending_navigation
+* test_load_restores_source_camera_title_and_clears_history_atomically
+* test_failed_load_preserves_entire_world_and_history
+* test_save_rejects_preview_without_losing_it
+* test_autosave_requires_sixty_idle_seconds_and_writes_active_slot
+* test_autosave_does_not_run_during_preview_or_clean_state
+* test_user_input_and_camera_motion_reset_idle_timer
+* test_dirty_load_prompts_and_cancel_retains_source
+* test_dirty_exit_prompts_and_cancel_does_not_quit
+* test_save_then_load_continuation_uses_original_target_slot
+* test_dof_off_and_on_are_local_preferences_without_history
+* test_reduced_motion_overrides_source_and_survives_new_materials
+* test_zero_wind_is_applied_to_all_plant_and_cloth_materials
+* test_scaling_keeps_tool_dock_and_access_buttons_in_view
+* test_preferences_reset_restores_ui_motion_and_clear_focus
+* test_recommended_views_keep_world_and_history_unchanged
+* test_load_locks_edits_but_camera_remains_usable
+* test_save_service_serializes_immutable_source_and_rejects_overlapping_io
+20/20 passed.
+
+
+res://tests/week_08/test_preferences.gd
+* test_defaults_have_clear_view_and_full_motion
+* test_preferences_roundtrip_and_key_mapping_apply
+* test_duplicate_key_rejected_without_mutating_previous_mapping
+* test_escape_and_modifier_only_rebinding_are_rejected
+* test_reset_restores_original_input_map_and_preferences
+* test_ui_scale_outside_range_is_invalid
+* test_wrong_types_and_unknown_actions_are_invalid
+* test_bad_config_does_not_mutate_defaults
+* test_invalid_preferences_never_replace_valid_file
+* test_reset_keeps_camera_mouse_gestures_and_cancel_binding
+* test_conflict_with_physical_default_key_is_detected
+* test_config_cannot_override_a_default_with_a_conflicting_binding
+12/12 passed.
+
+
+res://tests/week_08/test_resources.gd
+* test_repeated_object_sync_preserves_in_progress_spinbox_text
+* test_cached_batch_parts_share_meshes_and_materials_between_cells
+* test_repeated_cancel_frees_all_detached_stage_nodes
+* test_frozen_layouts_are_valid_source_and_share_ground_periphery
+* test_prepared_replacement_rejects_mismatched_source_without_publication
+* test_property_card_cache_invalidates_when_source_changes
+* test_settings_window_captures_new_shortcut_and_escape_cancels_capture
+* test_typing_in_object_properties_does_not_trigger_scene_shortcuts
+* test_exit_confirmation_never_allows_autosave_to_choose_for_user
+* test_new_session_catalog_reserves_only_an_empty_slot_for_autosave
+* test_full_library_does_not_autosave_template_over_existing_work
+* test_status_feedback_is_visible_outside_scrolling_tools_at_150_percent
+* test_tree_submeshes_share_shader_without_sharing_seed_state_between_trees
+13/13 passed.
+
+
+res://tests/week_08/test_slots.gd
+* test_five_named_slots_roundtrip_independently
+* test_three_backups_are_previous_three_generations
+* test_interrupted_write_keeps_primary_and_ignores_valid_temp
+* test_newest_valid_backup_is_recovered_without_touching_bad_main
+* test_recovery_skips_corrupt_first_backup
+* test_all_corrupt_generations_fail
+* test_future_magic_never_falls_back_or_overwrites
+* test_invalid_slots_cannot_escape_storage_directory
+* test_catalog_lists_five_slots_and_recovery_state
+* test_invalid_candidate_never_replaces_existing_valid_save
+* test_thumbnail_camera_environment_and_heights_share_checksum
+* test_invalid_camera_or_thumbnail_is_rejected_before_writing
+* test_camera_bookmark_duplicate_and_nonfinite_values_fail_validation
+* test_legacy_dto_without_presentation_still_migrates
+* test_pending_attachment_remains_pending_on_roundtrip
+* test_corrupt_magic_recovers_backup_but_does_not_promote_it_over_main
+* test_legacy_single_container_has_usable_metadata_and_can_be_resaved
+17/17 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               4
+Tests                62
+Passing Tests        62
+Asserts             795
+Time              12.037s
+
+
+---- All tests passed! ----
+
+Results saved to reports/week_08.xml

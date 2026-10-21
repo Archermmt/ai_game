@@ -31,6 +31,8 @@ func capture(source: Camera3D, dimensions: Vector2i, destination: String) -> Dic
 	viewport.world_3d = source.get_world_3d()
 	viewport.transparent_bg = false
 	viewport.msaa_3d = source.get_viewport().msaa_3d
+	viewport.use_taa = source.get_viewport().use_taa
+	viewport.screen_space_aa = source.get_viewport().screen_space_aa
 	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	add_child(viewport)
 	var camera: Camera3D = Camera3D.new()
@@ -43,8 +45,8 @@ func capture(source: Camera3D, dimensions: Vector2i, destination: String) -> Dic
 	camera.attributes = source.attributes
 	viewport.add_child(camera)
 	camera.current = true
-	await RenderingServer.frame_post_draw
-	await RenderingServer.frame_post_draw
+	for frame: int in range(8 if viewport.use_taa else 2):
+		await RenderingServer.frame_post_draw
 	var image: Image = viewport.get_texture().get_image()
 	var error: Error = image.save_png(destination)
 	viewport.free()

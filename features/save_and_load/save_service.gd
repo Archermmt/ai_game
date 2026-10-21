@@ -4,6 +4,8 @@ extends Node
 
 signal completed(operation: String, result: Dictionary)
 var directory: String = "user://week_08/saves"
+var evaluator: Callable = func(snapshot: Dictionary) -> Dictionary:
+	return LocalRebuild.evaluate(snapshot, {})
 var _thread: Thread
 var _operation: String = ""
 
@@ -24,6 +26,7 @@ func request(
 	var source: Dictionary = snapshot.duplicate(true)
 	var metadata: Dictionary = presentation.duplicate(true)
 	var location: String = directory
+	var generate: Callable = evaluator
 	_operation = operation
 	_thread = Thread.new()
 	var error: Error = _thread.start(
@@ -35,7 +38,7 @@ func request(
 			elif operation == "load":
 				result = SlotStore.read_slot(location, index)
 				if result["ok"]:
-					result["generated"] = LocalRebuild.evaluate(result["snapshot"], {})
+					result["generated"] = generate.call(result["snapshot"])
 			else:
 				result = {"ok": true, "slots": SlotStore.catalog(location)}
 			result["worker_ms"] = float(Time.get_ticks_usec() - start) / 1000

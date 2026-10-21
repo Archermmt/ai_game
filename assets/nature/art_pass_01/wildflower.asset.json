@@ -1,0 +1,41 @@
+{
+  "asset_id": "NAT-05",
+  "source": "art_source/art_pass_01/nature/wildflower.blend",
+  "export": "assets/nature/art_pass_01/wildflower.glb",
+  "blender": "5.1.2",
+  "generator_version": "art_foliage_01.3",
+  "units": "meters",
+  "up_axis": "gltf_y_up",
+  "triangles": 290,
+  "budget": 450,
+  "mesh_objects": 3,
+  "sockets": [
+    "socket_ground"
+  ],
+  "bounds_source_z_up": {
+    "min": [
+      -0.415971,
+      -0.405876,
+      0.0
+    ],
+    "max": [
+      0.421814,
+      0.421365,
+      0.511483
+    ]
+  },
+  "roles": [
+    "foliage_meadow_blades",
+    "flower_ivory_daisies",
+    "flower_lavender_accents"
+  ],
+  "source_license": "Project original; reproducible geometry and painted atlas recipe, no downloaded content",
+  "wind_channels": {
+    "R": "root-pinned bend weight",
+    "G": "stable local flutter phase",
+    "B": "fruit marker (1 only fruit)",
+    "A": "1; texture supplies coverage"
+  },
+  "texture": "assets/nature/art_pass_01/painted_forest_atlas.png",
+  "lod": 0
+}

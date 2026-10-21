@@ -1,0 +1,84 @@
+{
+  "blender": "5.1.2",
+  "generator": "tools/art/build_art_foliage.py",
+  "sources": [
+    {
+      "source": "art_source/art_pass_01/nature/tree_broadleaf.blend",
+      "triangles": 3630,
+      "mesh_objects": 3,
+      "image_reopened": true,
+      "passed": true
+    },
+    {
+      "source": "art_source/art_pass_01/nature/tree_broadleaf_lod1.blend",
+      "triangles": 1676,
+      "mesh_objects": 3,
+      "image_reopened": true,
+      "passed": true
+    },
+    {
+      "source": "art_source/art_pass_01/nature/tree_conifer.blend",
+      "triangles": 3412,
+      "mesh_objects": 3,
+      "image_reopened": true,
+      "passed": true
+    },
+    {
+      "source": "art_source/art_pass_01/nature/tree_conifer_lod1.blend",
+      "triangles": 1576,
+      "mesh_objects": 3,
+      "image_reopened": true,
+      "passed": true
+    },
+    {
+      "source": "art_source/art_pass_01/nature/tree_fruit.blend",
+      "triangles": 3154,
+      "mesh_objects": 4,
+      "image_reopened": true,
+      "passed": true
+    },
+    {
+      "source": "art_source/art_pass_01/nature/tree_fruit_lod1.blend",
+      "triangles": 1500,
+      "mesh_objects": 4,
+      "image_reopened": true,
+      "passed": true
+    },
+    {
+      "source": "art_source/art_pass_01/nature/fern.blend",
+      "triangles": 448,
+      "mesh_objects": 2,
+      "image_reopened": true,
+      "passed": true
+    },
+    {
+      "source": "art_source/art_pass_01/nature/wildflower.blend",
+      "triangles": 290,
+      "mesh_objects": 3,
+      "image_reopened": true,
+      "passed": true
+    },
+    {
+      "source": "art_source/art_pass_01/nature/shrub.blend",
+      "triangles": 342,
+      "mesh_objects": 2,
+      "image_reopened": true,
+      "passed": true
+    },
+    {
+      "source": "art_source/art_pass_01/nature/moss_rock.blend",
+      "triangles": 682,
+      "mesh_objects": 2,
+      "image_reopened": true,
+      "passed": true
+    },
+    {
+      "source": "art_source/art_pass_01/nature/flat_rock.blend",
+      "triangles": 450,
+      "mesh_objects": 2,
+      "image_reopened": true,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

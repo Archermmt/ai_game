@@ -1,0 +1,54 @@
+{
+  "blender": "5.1.2",
+  "source_reopened": "art_source/art_pass_01/materials/painted_material_library.blend",
+  "material_library_graphs": 9,
+  "images_reopened": 9,
+  "sources": [
+    {
+      "source": "art_source/art_pass_01/materials/meadow.png",
+      "sha256": "6c8254dc1376faa1bd3d1feff75fcd663685af5e90dcdd7e713a0897334b37ce",
+      "passed": true
+    },
+    {
+      "source": "art_source/art_pass_01/materials/meadow_macro.png",
+      "sha256": "9f83a6080ce6d84513b8cbb5120836cb62cf87e732db44bfd87776714fb6da1c",
+      "passed": true
+    },
+    {
+      "source": "art_source/art_pass_01/materials/plaster.png",
+      "sha256": "ae92cc65a1db5d0bfc2db5440048f8ff4e315c6ad6f25f8cc416133108a2121f",
+      "passed": true
+    },
+    {
+      "source": "art_source/art_pass_01/materials/terracotta.png",
+      "sha256": "e76a77bf1ea4079d8dd8743f451d77c4d5d5f3ed619fcd80b9f2634003806123",
+      "passed": true
+    },
+    {
+      "source": "art_source/art_pass_01/materials/honey_timber.png",
+      "sha256": "70df502528dc07b84a09652f567aafdfb82c95b44c4ed0354aaa6ad17779f7f7",
+      "passed": true
+    },
+    {
+      "source": "art_source/art_pass_01/materials/moss_stone.png",
+      "sha256": "dbc2cf01b39b96204b9addf1dcc6c253d241769f3cd6c6d0bd696f0c757f266a",
+      "passed": true
+    },
+    {
+      "source": "art_source/art_pass_01/materials/warm_soil.png",
+      "sha256": "2ff013788c3e2f8761a34a4fbb83ea4603be4c64b37aa063f3bf538ca3ed8822",
+      "passed": true
+    },
+    {
+      "source": "art_source/art_pass_01/materials/wet_bank.png",
+      "sha256": "42577a3c461b8feed552a5845f272ce5eea95dc7eb23c0dd82a996182342ad30",
+      "passed": true
+    },
+    {
+      "source": "art_source/art_pass_01/materials/window_glow.png",
+      "sha256": "bcc04f9905b3930898ce96e48138891d5b76ddd9da90f0c8ce18800d242eb431",
+      "passed": true
+    }
+  ],
+  "passed": true
+}
