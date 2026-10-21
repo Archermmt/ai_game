@@ -19,6 +19,8 @@ func _ready() -> void:
 		saves.directory = "user://qa_w10_native"
 		if "--w10-save-probe" in OS.get_cmdline_user_args():
 			_start_save(0, "第十周发布版存档探针")
+	if qa_mode and "--w10-settings-zoom" in OS.get_cmdline_user_args():
+		_zoom_settings_probe.call_deferred()
 	hud.set_status("林间坡地 · 声音与功能联调 / 设置中可分别调整环境、操作和音乐音量")
 
 
@@ -68,3 +70,8 @@ func _delivery_metrics() -> Dictionary:
 	result["native_window_size"] = [get_window().size.x, get_window().size.y]
 	result["audio_events"] = soundscape.sequence if soundscape != null else 0
 	return result
+
+
+func _zoom_settings_probe() -> void:
+	hud.settings.popup_centered()
+	hud.scale_control.value = 1.5

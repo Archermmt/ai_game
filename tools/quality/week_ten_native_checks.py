@@ -53,7 +53,7 @@ def main():
     run_step('week_10_native_audio', [engine_binary(), '--path', str(ROOT), '-s', 'tests/week_10/audio_native_probe.gd'])
     audio = json.loads((ROOT / 'reports/week_10_audio_native.json').read_text())
     assert audio['passed'] and audio['audio_driver'] != 'Dummy' and audio['effect_events'] == 24
-    settings = probe('settings_150', ['--w08-settings', '--ui-scale=1.5', '--w08-reduced'])
+    settings = probe('settings_150', ['--w10-settings-zoom', '--w08-reduced'])
     x, y, width, height = settings['metrics']['settings_rect']
     assert x >= 0 and y >= 0 and x + width <= 1920 and y + height <= 1080
     run_step('week_10_photography', [engine_binary(), '--path', str(ROOT), '--', '--qa-settings', '--art-fhd',

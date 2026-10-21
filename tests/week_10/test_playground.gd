@@ -86,7 +86,14 @@ func test_save_load_rebuilds_art_and_updates_wind_audio() -> void:
 
 
 func test_scaled_embedded_dialogs_are_owned_outside_scaled_hud_and_fit_viewport() -> void:
-	playground._preference_changed("ui_scale", 1.5)
+	playground.hud.settings.popup_centered()
+	playground.hud.scale_control.value = 1.5
+	await get_tree().process_frame
+	assert_eq(
+		playground.hud.settings.position,
+		Vector2i((Vector2(viewport.size) - Vector2(playground.hud.settings.size)) * 0.5)
+	)
+	playground.hud.settings.hide()
 	for dialog: Window in [playground.hud.settings, playground.hud.library, playground.hud.entry]:
 		assert_same(dialog.get_parent(), playground)
 		assert_eq(dialog.content_scale_factor, 1.5)

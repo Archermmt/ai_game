@@ -35,6 +35,11 @@ func _ready() -> void:
 
 func sync_preferences(value: UserPreferences) -> void:
 	super.sync_preferences(value)
+	for dialog: Window in [library, settings, entry]:
+		if dialog != null and dialog.visible:
+			dialog.position = Vector2i(
+				(get_viewport().get_visible_rect().size - Vector2(dialog.size)) * 0.5
+			)
 	_audio_sync = true
 	for key: String in volume_controls:
 		volume_controls[key].value = value.values.get(key, 0.0)
