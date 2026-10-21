@@ -4,7 +4,15 @@ extends RefCounted
 
 const ACTIONS: Array[String] = ["undo_edit", "redo_edit", "save_work", "load_work", "reset_camera"]
 const LABELS: Array[String] = ["撤销", "重做", "保存", "载入", "重置相机"]
-var values: Dictionary = {"ui_scale": 1.0, "dof": false, "reduce_motion": false, "bindings": {}}
+var values: Dictionary = {
+	"ui_scale": 1.0,
+	"dof": false,
+	"reduce_motion": false,
+	"bindings": {},
+	"ambient_volume": 0.7,
+	"effects_volume": 0.65,
+	"music_volume": 0.0
+}
 var defaults: Dictionary = {}
 
 
@@ -22,6 +30,9 @@ func load_file(path: String) -> Error:
 	if not candidate is Dictionary or not valid(candidate) or not effective_valid(candidate):
 		return ERR_INVALID_DATA
 	values = candidate.duplicate(true)
+	for key: String in ["ambient_volume", "effects_volume", "music_volume"]:
+		if not values.has(key):
+			values[key] = {"ambient_volume": 0.7, "effects_volume": 0.65, "music_volume": 0.0}[key]
 	apply_bindings()
 	return OK
 
@@ -63,7 +74,15 @@ func rebind(action: String, event: InputEventKey) -> String:
 
 
 func reset() -> void:
-	values = {"ui_scale": 1.0, "dof": false, "reduce_motion": false, "bindings": {}}
+	values = {
+		"ui_scale": 1.0,
+		"dof": false,
+		"reduce_motion": false,
+		"bindings": {},
+		"ambient_volume": 0.7,
+		"effects_volume": 0.65,
+		"music_volume": 0.0
+	}
 	apply_bindings()
 
 
@@ -101,6 +120,11 @@ static func valid(candidate: Dictionary) -> bool:
 		or not candidate.get("bindings") is Dictionary
 	):
 		return false
+	for key: String in ["ambient_volume", "effects_volume", "music_volume"]:
+		if candidate.has(key):
+			var volume: Variant = candidate[key]
+			if not volume is float or not is_finite(volume) or volume < 0 or volume > 1:
+				return false
 	var used: Array[String] = []
 	for action: Variant in candidate["bindings"]:
 		var b: Variant = candidate["bindings"][action]

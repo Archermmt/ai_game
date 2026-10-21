@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://app/art_root.tscn" id="1_base"]
+[ext_resource type="Script" path="res://app/week_ten_boot.gd" id="2_script"]
+[ext_resource type="Script" path="res://features/audio/audio_hud.gd" id="3_hud"]
+
+[node name="Playground" instance=ExtResource("1_base")]
+script = ExtResource("2_script")
+
+[node name="Hud" parent="." index="2"]
+script = ExtResource("3_hud")

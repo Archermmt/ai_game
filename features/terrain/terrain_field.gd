@@ -7,6 +7,8 @@ var heights: Dictionary = {}
 var pool: Dictionary = {}
 var forest_profile: bool = false
 var forest_phase: float = 0.0
+var pool_contour: PackedVector2Array = PackedVector2Array()
+var pool_bounds: Rect2
 
 
 func _init(snapshot: Dictionary) -> void:
@@ -16,6 +18,11 @@ func _init(snapshot: Dictionary) -> void:
 	for entry: Array in snapshot["terrain"]["height_deltas"]:
 		heights[Vector2i(int(entry[0]), int(entry[1]))] = float(entry[2])
 	pool = snapshot.get("pool", {}).duplicate(true)
+	if pool.has("outline"):
+		pool_contour = PondShape.contour(pool)
+		pool_bounds = Rect2(pool_contour[0], Vector2.ZERO)
+		for point: Vector2 in pool_contour:
+			pool_bounds = pool_bounds.expand(point)
 
 
 func player_height(point: Vector2) -> float:
@@ -41,7 +48,13 @@ func height_at(point: Vector2) -> float:
 	var original: float = player_height(point)
 	if pool.is_empty():
 		return original
-	var distance: float = PondShape.distance(pool, point)
+	if not pool_contour.is_empty() and not pool_bounds.grow(0.75).has_point(point):
+		return original
+	var distance: float = (
+		PondShape.polygon_distance(pool_contour, point)
+		if not pool_contour.is_empty()
+		else PondShape.distance(pool, point)
+	)
 	var water: float = float(pool["water_y"])
 	if distance <= -0.35:
 		return water - 0.45
@@ -223,7 +236,14 @@ func _validate_pool(snapshot: Dictionary) -> String:
 	var highest: float = -INF
 	for z: float in _samples(center.y - radius - 0.75, center.y + radius + 0.75, spacing):
 		for x: float in _samples(center.x - radius - 0.75, center.x + radius + 0.75, spacing):
-			if PondShape.distance(pool, Vector2(x, z)) > 0.75:
+			if (
+				(
+					PondShape.polygon_distance(pool_contour, Vector2(x, z))
+					if not pool_contour.is_empty()
+					else PondShape.distance(pool, Vector2(x, z))
+				)
+				> 0.75
+			):
 				continue
 			var original: float = player_height(Vector2(x, z))
 			lowest = minf(lowest, original)

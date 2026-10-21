@@ -22,7 +22,10 @@ static func distance(pool: Dictionary, point: Vector2) -> float:
 		return (
 			point.distance_to(Vector2(pool["center"][0], pool["center"][1])) - float(pool["radius"])
 		)
-	var polygon: PackedVector2Array = contour(pool)
+	return polygon_distance(contour(pool), point)
+
+
+static func polygon_distance(polygon: PackedVector2Array, point: Vector2) -> float:
 	var nearest: float = INF
 	for i: int in range(polygon.size()):
 		nearest = minf(
@@ -106,6 +109,14 @@ static func conflicts(pool: Dictionary, margin: float, object: Dictionary) -> bo
 			Vector2(pool["center"][0], pool["center"][1]), pool["radius"] + margin, object
 		)
 	var c: Vector2 = Vector2(object["position"][0], object["position"][2])
+	# Conservative broad phase: keep exact shoreline tests for every nearby object.
+	var polygon: PackedVector2Array = contour(pool)
+	var bounds: Rect2 = Rect2(polygon[0], Vector2.ZERO)
+	for point: Vector2 in polygon:
+		bounds = bounds.expand(point)
+	var extent: Vector2 = Vector2(object["size"][0], object["size"][2]) * 0.5
+	if not bounds.grow(margin + 0.00001).intersects(Rect2(c - extent, extent * 2), true):
+		return false
 	if object["shape"] == "round":
 		return distance(pool, c) < margin + float(object["size"][0]) * 0.5 - 0.00001
 	var half: Vector2 = Vector2(object["size"][0], object["size"][2]) * 0.5

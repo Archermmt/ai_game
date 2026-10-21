@@ -1,10 +1,10 @@
 # 风栖小筑 · Godot MVP
 
-当前为 ART-01 美术返工样板：暖灰泥、厚叠瓦、蜂蜜木构、分层叶簇与手绘林间庭院，
-继承 W09 摄影/布局/全部建造工具及五槽保存。默认入口 `app/art_root.tscn`，版本 `0.9.1-art01`。
+当前为 W10 声音与功能联调候选，使用已接受的 ART-01 美术：暖灰泥、厚叠瓦、蜂蜜木构、分层叶簇与手绘林间庭院，
+继承 W09 摄影/布局/全部建造工具及五槽保存。默认入口 `app/week_ten_root.tscn`，版本 `0.10.0-w10`。
 进度见 [STATUS.md](STATUS.md)，画面与证据见 [美术报告](docs/weekly/art_pass_01/README.md)。
-F5 运行当前美术主场景；若用F6，请打开 `app/art_root.tscn`，旧周场景保留历史画面。
-W10声音/功能冻结在用户视觉复核之后继续；局部编辑延迟目标仍开放。
+F5 运行当前主场景；若用F6，请打开 `app/week_ten_root.tscn`，旧周场景保留历史画面。
+已接环境、操作、音乐三路音量；局部编辑延迟目标仍开放，完整冻结另看门槛。
 
 ## 运行
 
@@ -13,12 +13,12 @@ W10声音/功能冻结在用户视觉复核之后继续；局部编辑延迟目�
 
 ```bash
 python3 tools/quality/bootstrap.py
-python3 tools/quality/art_pass_checks.py
+python3 tools/quality/run_checks.py --week 10 --negative-control
 python3 tools/quality/run_game.py
 ```
 
 本机已准备 `.tools/` 和 `.venv/`，可直接运行后两条命令。也可使用相同版本 Godot 打开
-`project.godot` 后按 F5；单场景测试请打开 `app/art_root.tscn` 后按 F6。系统的 Godot 4.7 不满足本项目补丁版本锁。
+`project.godot` 后按 F5；单场景测试请打开 `app/week_ten_root.tscn` 后按 F6。系统的 Godot 4.7 不满足本项目补丁版本锁。
 可通过 `GODOT_BIN` 指定同版本引擎；下载的引擎、缓存、试玩包和用户存档不进入 Git。
 
 | 操作 | 输入 |
@@ -51,20 +51,20 @@ python3 tools/quality/run_game.py
 
 ```bash
 # 自动化回归、格式、lint、资源契约、跨进程重启与失败注入
-python3 tools/quality/art_pass_checks.py
+python3 tools/quality/run_checks.py --week 10 --negative-control
 # 有桌面 GPU 的机器：日暮/四向近远/风效、分阶段性能和真实环绕录像（需 FFmpeg）
-python3 tools/quality/art_pass_render_checks.py
-python3 tools/quality/art_pass_orbit.py
+python3 tools/quality/week_ten_native_checks.py
+# ART 多角度与环绕录像保留历史入口：art_pass_render_checks.py / art_pass_orbit.py
 # 本机 macOS：取匹配的桌面模板、注册、导出并实际启动 macOS 包
 python3 tools/quality/fetch_desktop_runtime.py --templates-only
 python3 tools/quality/install_desktop_templates.py
-python3 tools/quality/export_smoke.py --week 9 --art-pass
+python3 tools/quality/export_smoke.py --week 10
 # 提交后，从无导入缓存的 Git 归档复测
-python3 tools/quality/clean_checkout.py --week 9 --art-pass
+python3 tools/quality/clean_checkout.py --week 10
 ```
 
 导入、导出以及质量检查按顺序运行，避免两个编辑器进程同时修改同一 `.godot/`。
-自动报告输出到 `reports/`；试玩包位于 `builds/art_pass_01/windows/` 和 `builds/art_pass_01/macos/`。
+自动报告输出到 `reports/`；试玩包位于 `builds/week_10/windows/` 和 `builds/week_10/macos/`。
 macOS 包是本地未公证开发包。Windows EXE 导出成功仍需 Windows 设备完成可见交互验证。
 CI 已配置 Ubuntu / Windows 自动回归，尚未推送远程触发。
 每周新增功能必须补测试并保留既有回归，见 [测试约定](docs/TESTING.md)。
@@ -73,8 +73,8 @@ CI 已配置 Ubuntu / Windows 自动回归，尚未推送远程触发。
 
 - `app/`：试玩组合根；`core/`：源数据、放置约束和事务。
 - `features/`：建筑网格、轨道相机、存档与风着色器；`ui/`：操作面板与建筑属性 / 恢复面板。
-- `tests/week_01/`–`week_09/` 和 `tests/art_pass_01/`：累计 GUT 回归和独立进程探针；`tools/quality/`：可复现质量命令。
-- `art_source/week_01/`–`week_09/` 和 `art_source/art_pass_01/`：模型、纹理与材质库源文件；`assets/`：GLB、贴图和导入配置。
+- `tests/week_01/`–`week_10/` 和 `tests/art_pass_01/`：累计 GUT 回归和独立进程探针；`tools/quality/`：可复现质量命令。
+- `art_source/week_01/`–`week_10/` 和 `art_source/art_pass_01/`：模型、纹理与材质库源文件；`assets/`：GLB、贴图和导入配置。
 - `docs/`：已批准 PRD、开发计划、每周证据与许可。
 
 Blender 5.1.2 为唯一主模型源，三种门与树 / 布 / 长凳样板，以及 W02 窗 / 树初稿 / 笔触纹理可分别重建：
@@ -200,3 +200,5 @@ ART-01 原创自然模型和材质的可重建命令：
 /Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python tools/art/build_art_materials.py -- --root "$PWD"
 /Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python tools/art/audit_sources.py -- --root "$PWD" --extra-manifest art_source/art_pass_01/nature/manifest.json --output "$PWD/reports/art_source_audit.json"
 ```
+
+W10 默认继承已接受的美术样板，加入环境/操作/音乐三路音量（设置面板；0 为静音，音乐默认关闭）。累计验证：`python3 tools/quality/run_checks.py --week 10 --negative-control`。进度和未关闭门槛见 `STATUS.md`，当周证据见 `docs/weekly/week_10/`。

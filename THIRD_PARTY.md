@@ -39,3 +39,7 @@ are original project artwork. Editable Blender sources, paint recipes, licenses
 and hashes are retained under `art_source/art_pass_01/`. No external models,
 textures or runtime plugins were added. The entry thumbnail is a native Godot
 capture of the editable scene; concept reference images are not shipped as scene assets.
+
+### W10 stereo forest
+
+`assets/audio/forest_stereo.wav` derives exclusively from the project-original W06 DSP forest source, with stereo decorrelation and a short seam envelope. Rebuild: `python3 tools/art/build_week_ten_audio.py`; source and hash in `art_source/week_10/audio_manifest.json`. No external samples, recordings, services, or additional licenses. W10 playback reuses the existing original W06 wind, water, wood/stone/grass/UI and optional 24-second musical motif; the motif is not represented as a final 2–3 minute composition.

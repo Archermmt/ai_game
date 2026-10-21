@@ -15,7 +15,7 @@ from run_checks import run_step
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--week", type=int, default=7, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9])
+    parser.add_argument("--week", type=int, default=7, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
     parser.add_argument("--art-pass", action="store_true", help="ART-01 revision after W09")
     args = parser.parse_args()
     if args.art_pass and args.week != 9:
@@ -65,10 +65,10 @@ def main():
         steps.append(run_step("exported_macos_boot", [
             str(executable), "--", "--smoke-output=" + str(smoke_file),
             "--capture=" + str(ROOT / f"reports/{label}_exported_macos.png"), "--wind-time=0",
-            *(["--qa-settings", "--art-save-probe" if args.art_pass else "--w08-save-probe"] if args.week >= 8 else []),
+            *(["--qa-settings", "--w10-save-probe" if args.week >= 10 else ("--art-save-probe" if args.art_pass else "--w08-save-probe")] if args.week >= 8 else []),
         ], working_directory=clean_room))
         smoke = json.loads(smoke_file.read_text())
-        assert smoke["buildings"] == (3 if args.art_pass else 2) and smoke["frames"] > 0
+        assert smoke["buildings"] == (3 if args.art_pass or args.week >= 10 else 2) and smoke["frames"] > 0
         assert not smoke["test_framework_in_pack"] and not smoke["test_sources_in_pack"]
         if args.week >= 6:
             assert smoke["font_license_in_pack"] and smoke["audio_resource_in_pack"]

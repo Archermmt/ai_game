@@ -15,7 +15,7 @@ from common import ROOT, engine_binary
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--week', type=int, default=7, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9])
+    parser.add_argument('--week', type=int, default=7, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
     parser.add_argument("--art-pass", action="store_true")
     args = parser.parse_args()
     if args.art_pass and args.week != 9:

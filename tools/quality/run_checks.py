@@ -39,7 +39,7 @@ def main():
     parser.add_argument("--week", type=int, default=1)
     parser.add_argument("--negative-control", action="store_true")
     args = parser.parse_args()
-    if args.week not in [1, 2, 3, 4, 5, 6, 7, 8, 9]:
+    if args.week not in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]:
         raise RuntimeError("No gate registered for this week; add its tests before marking it done")
     (ROOT / "reports").mkdir(exist_ok=True)
     (ROOT / "reports/.gdignore").touch()
@@ -54,7 +54,7 @@ def main():
     source = ["app", "core", "features", "ui", "tests", "levels"]
     entries.append(run_step("format", [str(executable_dir / "gdformat"), "--check", *source]))
     entries.append(run_step("lint", [str(executable_dir / "gdlint"), *source]))
-    entries.append(run_step("asset_contract", [sys.executable, "tools/quality/validate_assets.py", "--week", str(args.week)]))
+    entries.append(run_step("asset_contract", [sys.executable, "tools/quality/validate_assets.py", "--week", str(min(args.week, 9))]))
     if args.week >= 6:
         entries.append(run_step("week_06_media", [sys.executable, "tools/quality/validate_week_six_media.py"]))
     if args.week >= 7:
@@ -74,7 +74,7 @@ def main():
         tested = int(suite.attrib.get("tests", 0))
         failed = int(suite.attrib.get("failures", 0))
         omitted = sum(int(part.attrib.get("skipped", 0)) for part in suite.findall("testsuite"))
-        if tested < {1: 42, 2: 52, 3: 42, 4: 50, 5: 45, 6: 68, 7: 51, 8: 62, 9: 34}[week] or failed or omitted:
+        if tested < {1: 42, 2: 52, 3: 42, 4: 50, 5: 45, 6: 68, 7: 51, 8: 62, 9: 34, 10: 30}[week] or failed or omitted:
             raise RuntimeError(f"Invalid {label} suite: {tested} tests, {failed} failed, {omitted} skipped")
         count += tested
         failures += failed
@@ -86,6 +86,20 @@ def main():
                 engine, "--headless", "--path", ".", "-s", "tests/" + label + "/restart_probe.gd",
                 "--", mode, restart_file,
             ]))
+    if args.week >= 10:
+        entries.append(run_step("art_01_assets", [sys.executable, "tools/quality/validate_art_pass_assets.py"]))
+        entries.append(run_step("week_10_audio_assets", [sys.executable, "tools/quality/validate_week_ten_audio.py"]))
+        entries.append(run_step("art_01_tests", [engine, "--headless", "--path", ".", "-s", "addons/gut/gut_cmdln.gd",
+            "-gdir=res://tests/art_pass_01", "-ginclude_subdirs", "-gexit", "-gjunit_xml_file=reports/art_pass_01.xml"]))
+        art = ET.parse(ROOT / "reports/art_pass_01.xml").getroot()
+        art_count = int(art.attrib.get("tests", 0))
+        if art_count < 45 or int(art.attrib.get("failures", 0)) or any(int(p.attrib.get("skipped", 0)) for p in art.findall("testsuite")):
+            raise RuntimeError("ART baseline regression")
+        count += art_count
+        groups.append({"week": "art_pass_01", "tests": art_count, "failures": 0, "skipped": 0})
+        for mode in ["write", "read"]:
+            entries.append(run_step("art_01_restart_" + mode, [engine, "--headless", "--path", ".", "-s",
+                "tests/art_pass_01/restart_probe.gd", "--", mode, str(ROOT / "reports/art_01_restart")]))
     if args.week >= 2:
         entries.append(run_step("week_02_risk_metrics", [
             engine, "--headless", "--path", ".", "-s", "tests/week_02/risk_metrics.gd",
