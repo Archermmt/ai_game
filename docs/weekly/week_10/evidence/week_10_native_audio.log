@@ -1,0 +1,7 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M4 Pro (Apple9)
+
+W09_FIRST_DRAW
+W10_NATIVE_AUDIO { "audio_driver": "CoreAudio", "frames": 181248, "peak": 0.22762914001942, "rms": 0.04444244293256, "mute_peak": 0.0, "effect_events": 24, "families": ["wood", "stone", "grass", "ui"], "passed": true }
+2026-10-21 22:37:09.463 Godot[80647:13924284] +[IMKClient subclass]: chose IMKClient_Modern
+2026-10-21 22:37:11.087 Godot[80647:13924284] +[IMKInputSession subclass]: chose IMKInputSession_Modern

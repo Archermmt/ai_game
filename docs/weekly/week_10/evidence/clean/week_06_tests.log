@@ -1,0 +1,118 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/week_06/test_assets_media.gd
+* test_six_audio_families_and_seventeen_original_files
+* test_audio_pcm_headers_and_original_sources_match
+* test_ambient_loops_have_no_hard_seam_and_audio_has_headroom
+* test_three_variants_for_each_surface_and_ui_are_distinct
+* test_tool_icons_and_feedback_have_editable_vector_sources
+* test_bundled_font_has_pinned_origin_hash_and_full_license
+* test_finished_tea_and_lantern_stay_within_triangle_budgets
+* test_source_kit_parts_are_components_not_new_asset_families
+* test_runtime_generator_sections_match_source_profiles
+* test_lantern_has_four_emissive_panes_and_consistent_light_anchor
+* test_tea_cups_have_separate_thick_inner_wall_meshes
+* test_lamp_modes_separate_emission_from_local_light_budget
+* test_invalid_lamp_or_height_lock_fields_rejected
+* test_batch_custom_data_phase_is_stable_after_unrelated_edits
+14/14 passed.
+
+
+res://tests/week_06/test_local_rebuild.gd
+* test_cold_local_generation_matches_full_reference_geometry
+* test_identical_snapshot_reuses_all_units
+* test_far_terrain_edit_rebuilds_halo_not_buildings_path_or_water
+* test_environment_change_does_not_regenerate_geometry_or_poses
+* test_instance_edit_changes_own_pose_without_geometry_rebuild
+* test_parent_support_change_invalidates_child_pose
+* test_deleted_objects_pruned_from_pure_cache
+* test_dirty_regions_include_old_and_new_locations_plus_terrain
+* test_worker_and_sync_caches_are_independent
+* test_staged_publication_requires_matching_reserved_source
+* test_staged_commit_records_one_history_and_undo_redo
+* test_cancel_reserved_staged_result_cannot_publish
+* test_resource_stage_spreads_jobs_and_keeps_detached_nodes_invisible
+* test_cancel_stage_destroys_only_unpublished_nodes
+* test_rebuild_queue_commit_preparation_is_an_input_barrier
+15/15 passed.
+
+
+res://tests/week_06/test_source_precision.gd
+* test_brush_numbers_and_exact_double_neighbors_survive_container
+* test_legacy_plain_json_container_is_still_readable
+* test_bad_exact_metadata_paths_and_nan_fail_without_engine_errors
+* test_source_extra_keys_cannot_collide_with_envelope_metadata
+4/4 passed.
+
+
+res://tests/week_06/test_vegetation_brush.gd
+* test_seeded_brush_is_repeatable_including_ids_yaw_and_scale
+* test_density_zero_places_nothing_and_high_density_is_bounded
+* test_tree_density_and_spacing_are_separate_from_grass
+* test_erase_only_current_category_and_protects_manual_and_locked
+* test_visited_cells_and_repeated_strokes_do_not_duplicate_source_ids
+* test_brush_avoids_paths_door_clearance_and_pool_bank
+* test_brush_avoids_bridge_and_stair_endpoints
+* test_far_brush_preserves_all_existing_records
+* test_one_brush_gesture_undoes_and_redoes_as_one_command
+* test_spatial_groups_keep_source_identity_and_manual_unbatched
+* test_manual_edit_promotes_brushed_item_and_preserves_seed
+* test_compact_hedge_is_reused_shrub_not_a_new_handmade_asset
+* test_new_geometry_clears_only_unlocked_automatic_foliage
+* test_invalid_brush_parameters_do_not_mutate_source
+14/14 passed.
+
+
+res://tests/week_06/test_week_six_interactions.gd
+* test_lamp_mode_buttons_are_transactions
+* test_height_lock_preserves_world_y_when_terrain_changes
+* test_ui_150_percent_panels_stay_inside_viewport_and_scroll
+* test_chinese_font_covers_core_product_labels
+* test_cancel_after_visible_preview_restores_every_source_field
+* test_failed_pond_edit_keeps_source_and_derived_resources
+* test_sixth_week_source_roundtrip_preserves_lamp_and_height_modes
+* test_promoting_batched_plant_keeps_original_id_and_creates_individual_view
+* test_rapid_previews_never_publish_a_stale_height
+* test_metrics_separate_atomic_publication_and_preparation_slices
+* test_preview_replacement_frees_unpublished_nodes_before_cache_reuse
+11/11 passed.
+
+
+res://tests/week_06/test_week_six_playground.gd
+* test_scene_has_real_tea_lantern_and_classified_tools
+* test_commit_keeps_document_unchanged_until_all_preparation_finishes
+* test_local_edit_reuses_distant_buildings_water_and_props_nodes
+* test_cancel_pending_resources_preserves_source_history_and_scene
+* test_brush_commit_builds_spatial_multimeshes_and_undo_restores
+* test_actual_mouse_brush_is_one_history_transaction
+* test_option_left_camera_modifier_does_not_paint
+* test_ctrl_wheel_changes_brush_radius_without_editing_source
+* test_environment_only_commit_retains_all_world_units
+* test_real_lantern_manual_on_off_modes_and_nearest_four_limit
+10/10 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               6
+Tests                68
+Passing Tests        68
+Asserts            1585
+Time              11.732s
+
+
+---- All tests passed! ----
+
+Results saved to reports/week_06.xml

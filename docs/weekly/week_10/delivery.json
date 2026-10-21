@@ -1,0 +1,109 @@
+{
+  "week": 10,
+  "date": "2026-10-21",
+  "version": "0.10.0-w10",
+  "status": "freeze_candidate_with_open_performance_and_external_gates",
+  "source_revision": "ac7ddadcb54d3e6fba4e2dad4df9ec1eb7112cf5",
+  "visual_baseline": "v0.9.1-art01",
+  "visual_accepted_by_user": "2026-10-21",
+  "automated": {
+    "tests": 521,
+    "new_tests": 30,
+    "assertions": 15512,
+    "new_assertions": 2755,
+    "failures": 0,
+    "skipped": 0,
+    "negative_control": true,
+    "empty_import_cache": true
+  },
+  "native_metrics_revision": "932c1c8",
+  "native_metrics_note": "60s source probes before the follow-up live dialog recenter fix; same source and audio rendering, no art changes. Latest UI verified separately and in the exported artifact.",
+  "native_metrics": {
+    "demo_edit": {
+      "p95_frame_ms": 6.94444444444444,
+      "commit_max_ms": 157.051,
+      "main_callback_max_ms": 13.387,
+      "rss_peak_bytes": 843546624
+    },
+    "capacity_edit": {
+      "p95_frame_ms": 10.0,
+      "commit_max_ms": 213.983,
+      "main_callback_max_ms": 41.157,
+      "rss_peak_bytes": 944357376
+    },
+    "capacity_large_brush": {
+      "p95_frame_ms": 6.94444444444444,
+      "commit_max_ms": 366.234,
+      "main_callback_max_ms": 41.855,
+      "rss_peak_bytes": 916602880
+    }
+  },
+  "targets": {
+    "local_150ms": false,
+    "large_brush_500ms": true,
+    "p95_20ms": true,
+    "callback_100ms": true,
+    "rss_2gib": true,
+    "export_first_draw_5s": false
+  },
+  "macos_first_export_draw_seconds": 35.63,
+  "macos_repeat_draw_seconds": 1.5117900371551514,
+  "native_audio": {
+    "audio_driver": "CoreAudio",
+    "effect_events": 24,
+    "families": [
+      "wood",
+      "stone",
+      "grass",
+      "ui"
+    ],
+    "frames": 181248,
+    "mute_peak": 0.0,
+    "passed": true,
+    "peak": 0.227629140019417,
+    "rms": 0.0444424429325563
+  },
+  "production_saves_preferences_unchanged": true,
+  "photo_sizes": [
+    [
+      1920,
+      1080
+    ],
+    [
+      2560,
+      1440
+    ],
+    [
+      512,
+      288
+    ]
+  ],
+  "photo_state_restoration": true,
+  "live_settings_scale_recheck": true,
+  "macos_visible_export_save_thumbnail": true,
+  "windows_pe_x86_64": true,
+  "release_artifacts": [
+    {
+      "path": "builds/week_10/windows/windhaven_week_10.exe",
+      "bytes": 131607584,
+      "sha256": "03d155573ad8286294cf8fc2b56ffc9ea99f5f5e0563d87e11a4bc51156034b4"
+    },
+    {
+      "path": "builds/week_10/macos/windhaven_week_10.zip",
+      "bytes": 79888000,
+      "sha256": "71e530112a53d7717151fe7db46db2b8031e890983bcee43d1c2ea173eb38d80"
+    }
+  ],
+  "music_status": "optional original 24-second motif; final 2–3 minute arrangement remains audio finishing",
+  "external": {
+    "windows_device": "not_run_on_macos",
+    "minimum_spec_pc": "not_run",
+    "physical_touchpad_and_listening": "manual_required",
+    "remote_ci": "not_triggered",
+    "first_time_players_completed": 0,
+    "first_time_players_target": 10
+  },
+  "m4_complete": false,
+  "m5_complete": false,
+  "observation": "One early native attempt was rejected for an exit ObjectDB warning. It was not counted as passing. Three final verbose 60s runs, latest UI recheck, exported launches and clean gate passed without this warning; root cause of the isolated early warning was not established."
+}

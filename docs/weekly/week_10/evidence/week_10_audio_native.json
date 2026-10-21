@@ -1,0 +1,15 @@
+{
+  "audio_driver": "CoreAudio",
+  "effect_events": 24,
+  "families": [
+    "wood",
+    "stone",
+    "grass",
+    "ui"
+  ],
+  "frames": 181248,
+  "mute_peak": 0.0,
+  "passed": true,
+  "peak": 0.227629140019417,
+  "rms": 0.0444424429325563
+}

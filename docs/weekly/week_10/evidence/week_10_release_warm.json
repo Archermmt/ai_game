@@ -1,0 +1,11 @@
+{
+  "first_draw_seconds": 1.5117900371551514,
+  "step": {
+    "name": "week_10_release_warm",
+    "exit_code": 0,
+    "seconds": 3.094
+  },
+  "production_unchanged": true,
+  "same_release_artifact": true,
+  "cold_first_draw_seconds": 35.63
+}
