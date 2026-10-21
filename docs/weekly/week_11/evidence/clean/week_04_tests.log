@@ -1,0 +1,92 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/week_04/test_assets_environment.gd
+* test_nature_and_props_import_with_uv_color_ground_socket_and_budget
+* test_bench_has_tea_support_and_mailbox_distinct_geometry
+* test_plants_have_zero_weight_roots_and_moving_tops
+* test_rock_geometry_has_closed_bottom_faces_and_no_wind
+* test_light_rig_selects_nearest_four_and_emits_all_six
+* test_daytime_lamps_are_off_and_removed_probes_release_nodes
+* test_environment_validation_rejects_invalid_wind_and_lamp_sources
+* test_fence_foundation_geometry_is_grounded_and_path_creates_gap
+* test_fence_invalid_points_are_rejected_without_script_errors
+* test_cloth_draft_retains_fixed_hanging_vertices_and_wind_weights
+10/10 passed.
+
+
+res://tests/week_04/test_path_doors.gd
+* test_path_endpoint_generates_real_arch_and_valid_back_reference
+* test_endpoint_distance_and_height_thresholds
+* test_multiple_paths_reuse_door_and_last_path_removal_removes_it
+* test_lock_converts_auto_door_to_manual_and_survives_road_deletion
+* test_hand_door_has_priority_without_being_replaced
+* test_manual_window_conflict_never_swallows_window
+* test_crossing_house_creates_exterior_entries_and_hides_interior_road
+* test_curved_wall_entry_uses_arc_coordinates
+* test_reconciliation_is_idempotent_and_independent_of_path_order
+* test_one_transaction_undo_restores_path_and_opening_together
+* test_curve_sampling_passes_controls_and_stays_in_plot
+* test_path_seed_changes_stones_but_keeps_distant_path_geometry
+* test_all_three_doors_and_two_windows_create_valid_fixed_size_source
+* test_near_limit_endpoint_cannot_snap_sideways_beyond_distance_limit
+* test_manual_window_near_corner_snaps_to_nearest_legal_wall_region
+15/15 passed.
+
+
+res://tests/week_04/test_terrain_production.gd
+* test_formal_base_profile_is_finite_and_delta_restore_keeps_base
+* test_smoothing_reduces_peak_without_changing_far_data
+* test_pool_and_core_boundary_are_protected_for_all_new_brush_modes
+* test_entrance_clearance_is_not_eroded_by_brush
+* test_chunk_cache_rebuilds_only_local_halo_and_matches_full_generation
+* test_pool_deletion_invalidates_affected_chunks_and_restores_player_data
+* test_base_profile_change_invalidates_all_chunks
+* test_foundation_timbers_leave_entrance_clear_and_stone_follows_ground
+* test_three_metre_support_boundary_still_rejects_whole_source
+* test_unchanged_path_mesh_is_reused_when_terrain_is_far_away
+10/10 passed.
+
+
+res://tests/week_04/test_week_four_playground.gd
+* test_w04_scene_has_formal_assets_terrain_and_bounded_ui
+* test_path_node_drag_is_one_transaction_and_escape_preserves_source
+* test_auto_entry_delete_road_undo_and_locked_preservation_through_ui
+* test_manual_window_gesture_rejects_conflicting_placement_and_keeps_history
+* test_new_terrain_brush_undo_restores_delta_and_far_tree_node
+* test_lighting_transition_is_smooth_and_local_lights_never_exceed_four
+* test_shared_wind_direction_and_reduce_motion_reach_all_asset_materials
+* test_path_change_emits_local_bounds_covering_old_and_new_control_points
+* test_visible_preview_failure_restores_doors_paths_and_scene
+* test_option_orbit_and_pinch_do_not_paint_in_new_tools
+* test_asset_place_uses_selected_model_and_undo_removes_same_id
+* test_fence_drag_is_one_history_and_undo_restores_source
+* test_missing_control_and_zero_length_fence_do_not_consume_history
+* test_custom_release_over_toolbar_cancels_visible_asset_preview
+* test_nature_instances_align_up_to_slope_without_changing_source_yaw
+15/15 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               4
+Tests                50
+Passing Tests        50
+Asserts            1526
+Time              7.023s
+
+
+---- All tests passed! ----
+
+Results saved to reports/week_04.xml

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="9" >
+  <testsuite name="tests/week_11/test_bank_cache.gd" tests="2" failures="0" skipped="0" time="0.064275" >
+      <testcase name="test_bank_signature_tracks_pool_bridge_profile_and_bilinear_halo" assertions="7" status="pass" classname="tests/week_11/test_bank_cache.gd" time="0.006207" >
+      </testcase>
+      <testcase name="test_distant_brush_keeps_fresh_bank_geometry_exactly_equal_for_polygon_and_circle" assertions="20" status="pass" classname="tests/week_11/test_bank_cache.gd" time="0.058068" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_11/test_usability.gd" tests="7" failures="0" skipped="0" time="7.631633" >
+      <testcase name="test_rejected_pool_action_is_readable_with_context_open_at_150_percent" assertions="12" status="pass" classname="tests/week_11/test_usability.gd" time="1.544081" >
+      </testcase>
+      <testcase name="test_feedback_survives_close_reopen_and_photography_without_source_edits" assertions="14" status="pass" classname="tests/week_11/test_usability.gd" time="0.685596" >
+      </testcase>
+      <testcase name="test_mouse_cancel_drops_pending_commit_and_ignores_late_worker_result" assertions="14" status="pass" classname="tests/week_11/test_usability.gd" time="0.74973" >
+      </testcase>
+      <testcase name="test_mouse_cancel_discards_preview_and_can_start_next_stroke" assertions="14" status="pass" classname="tests/week_11/test_usability.gd" time="1.054759" >
+      </testcase>
+      <testcase name="test_bank_reuses_live_resources_for_distant_terrain_but_rebuilds_for_seed" assertions="17" status="pass" classname="tests/week_11/test_usability.gd" time="1.431137" >
+      </testcase>
+      <testcase name="test_near_bank_terrain_change_and_undo_refresh_grounding" assertions="20" status="pass" classname="tests/week_11/test_usability.gd" time="1.469873" >
+      </testcase>
+      <testcase name="test_feedback_and_cancel_remain_pinned_when_properties_scroll" assertions="10" status="pass" classname="tests/week_11/test_usability.gd" time="0.696457" >
+      </testcase>
+  </testsuite>
+</testsuites>

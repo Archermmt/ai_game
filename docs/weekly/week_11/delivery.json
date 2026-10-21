@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-22",
+  "version": "0.11.0-w11",
+  "runtime_revision": "7372231791d8cdca05f848cbb51bb4699ffaaab7",
+  "scope": "Pre-freeze local usability fixes and T067 preparation; no actual first-player observations",
+  "tasks": {
+    "T067": "protocol_and_validator_ready; actual_players_0_of_10",
+    "T068": "local_feedback_visibility_fixed; formal_player_feedback_pending",
+    "T069": "local_cancel_and_bank_rebuild_fixes_verified; formal_player_feedback_pending"
+  },
+  "godot_tests": 553,
+  "godot_assertions": 15922,
+  "new_godot_tests": 9,
+  "new_godot_assertions": 128,
+  "python_tests": 6,
+  "failures": 0,
+  "skipped": 0,
+  "negative_control": true,
+  "empty_import_cache": true,
+  "native_device": "Apple M4 Pro / macOS / Metal",
+  "native_metrics": {
+    "demo_edit": {
+      "frame_p95_ms": 9.09090909090909,
+      "commit_p95_ms": 172.058,
+      "commit_max_ms": 172.058,
+      "main_callback_max_ms": 15.203,
+      "rss_peak_mib": 847.05
+    },
+    "capacity_edit": {
+      "frame_p95_ms": 11.6666666666667,
+      "commit_p95_ms": 239.271,
+      "commit_max_ms": 239.271,
+      "main_callback_max_ms": 45.274,
+      "rss_peak_mib": 930.03
+    },
+    "capacity_large_brush": {
+      "frame_p95_ms": 11.6666666666667,
+      "commit_p95_ms": 411.277,
+      "commit_max_ms": 411.277,
+      "main_callback_max_ms": 48.827,
+      "rss_peak_mib": 949.62
+    }
+  },
+  "native_targets": {
+    "local_p95_150ms": false,
+    "large_brush_500ms": true,
+    "frame_p95_20ms": true,
+    "callback_100ms": true,
+    "rss_2gib": true
+  },
+  "macos_export_visible_boot": true,
+  "macos_export_first_draw_seconds": 2.813,
+  "first_draw_caveat": "Existing host/driver caches; not proof of fresh-machine cold startup fix",
+  "windows_pe_x86_64": true,
+  "windows_real_device": "not_run",
+  "minimum_spec_pc": "not_run",
+  "actual_first_players": 0,
+  "m4_approved": false,
+  "m5_approved": false,
+  "production_files_unchanged_during_native_checks": true,
+  "artifacts": [
+    {
+      "path": "builds/week_11/windows/windhaven_week_11.exe",
+      "bytes": 131659584,
+      "sha256": "48310e76cb283e6923a502b24b8dd7b7b1a6ad019b3586a8267c7ccab1b66ca5"
+    },
+    {
+      "path": "builds/week_11/macos/windhaven_week_11.zip",
+      "bytes": 79930607,
+      "sha256": "cc3bd58e7fa0e64397750212d59fad1d5d7e8463d9d14320fe866f620cd8c962"
+    }
+  ],
+  "remaining": [
+    "local_edit_p95_150ms",
+    "fresh_host_startup",
+    "Windows_real_device",
+    "minimum_spec_PC",
+    "physical_trackpad_and_listening",
+    "remote_CI",
+    "T067_ten_real_first_players"
+  ]
+}
