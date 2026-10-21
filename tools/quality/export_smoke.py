@@ -18,13 +18,16 @@ def main():
     parser.add_argument("--week", type=int, default=7, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
     parser.add_argument("--art-pass", action="store_true", help="ART-01 revision after W09")
     parser.add_argument("--garden", action="store_true", help="Context ribbon and dynamic meadow revision")
+    parser.add_argument("--simple", action="store_true", help="UX-02 direct manipulation revision")
     args = parser.parse_args()
+    if args.simple and (args.week != 11 or args.garden or args.art_pass):
+        raise RuntimeError("UX-02 requires week 11 and no historical revision flag")
     if args.garden and (args.week != 10 or args.art_pass):
         raise RuntimeError("Garden revision requires week 10")
     if args.art_pass and args.week != 9:
         raise RuntimeError("ART-01 requires week 9")
-    label = "ui_meadow_01" if args.garden else ("art_pass_01" if args.art_pass else f"week_{args.week:02d}")
-    expected_version = "0.10.1-garden01" if args.garden else ("0.9.1-art01" if args.art_pass else f"0.{args.week}.0-w{args.week:02d}")
+    label = "ux_02" if args.simple else "ui_meadow_01" if args.garden else ("art_pass_01" if args.art_pass else f"week_{args.week:02d}")
+    expected_version = "0.11.1-ux02" if args.simple else "0.10.1-garden01" if args.garden else ("0.9.1-art01" if args.art_pass else f"0.{args.week}.0-w{args.week:02d}")
     if f'config/version="{expected_version}"' not in (ROOT / "project.godot").read_text():
         raise RuntimeError("Project version does not match requested export week; use its Git revision")
     build_root = ROOT / "builds" / label
@@ -78,6 +81,8 @@ def main():
         if args.week >= 8:
             assert smoke["edit_metrics"]["save_worker_ms"] > 0
             assert smoke["edit_metrics"]["thumbnail_png_bytes"] > 0
+        if args.simple:
+            assert smoke["edit_metrics"]["ux02_direct_interface"] and smoke["edit_metrics"]["ribbon_categories"] == 11
         result["macos_clean_room_visible_boot"] = smoke
         result["macos_first_draw_seconds"] = (
             round(json.loads(first_draw.read_text())["unix_seconds"] - started_unix, 3)

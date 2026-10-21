@@ -18,12 +18,15 @@ def main():
     parser.add_argument('--week', type=int, default=7, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
     parser.add_argument("--art-pass", action="store_true")
     parser.add_argument("--garden", action="store_true")
+    parser.add_argument("--simple", action="store_true", help="UX-02 direct manipulation revision")
     args = parser.parse_args()
+    if args.simple and (args.week != 11 or args.garden or args.art_pass):
+        raise RuntimeError("UX-02 requires week 11 and no historical revision flag")
     if args.garden and (args.week != 10 or args.art_pass):
         raise RuntimeError("Garden revision requires week 10")
     if args.art_pass and args.week != 9:
         raise RuntimeError("ART-01 requires week 9")
-    label = "ui_meadow_01" if args.garden else ("art_pass_01" if args.art_pass else f"week_{args.week:02d}")
+    label = "ux_02" if args.simple else "ui_meadow_01" if args.garden else ("art_pass_01" if args.art_pass else f"week_{args.week:02d}")
     revision = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
     archive = subprocess.check_output(['git', 'archive', revision], cwd=ROOT)
     with tempfile.TemporaryDirectory(prefix='windhaven-clean-') as folder:
@@ -32,14 +35,15 @@ def main():
             source.extractall(checkout, filter='data')
         if '.godot' in os.listdir(checkout):
             raise RuntimeError('Archive unexpectedly contains an import cache')
-        expected_version = "0.10.1-garden01" if args.garden else ("0.9.1-art01" if args.art_pass else f"0.{args.week}.0-w{args.week:02d}")
+        expected_version = "0.11.1-ux02" if args.simple else "0.10.1-garden01" if args.garden else ("0.9.1-art01" if args.art_pass else f"0.{args.week}.0-w{args.week:02d}")
         version = f'config/version="{expected_version}"'
         if version not in (checkout / 'project.godot').read_text():
             raise RuntimeError('Committed version does not match week; commit implementation first')
         (checkout / '.venv').symlink_to(ROOT / '.venv', target_is_directory=True)
         environment = os.environ.copy()
         environment['GODOT_BIN'] = engine_binary()
-        command = ([sys.executable, "tools/quality/week_eleven_checks.py"] if args.week == 11 else
+        command = ([sys.executable, "tools/quality/simple_checks.py"] if args.simple else
+                   [sys.executable, "tools/quality/week_eleven_checks.py"] if args.week == 11 else
                    [sys.executable, 'tools/quality/ui_meadow_checks.py'] if args.garden else
                    [sys.executable, 'tools/quality/art_pass_checks.py'] if args.art_pass else
                    [sys.executable, 'tools/quality/run_checks.py', '--week', str(args.week), '--negative-control'])
