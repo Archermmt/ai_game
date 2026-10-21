@@ -112,8 +112,13 @@ func _ready() -> void:
 	context_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	context_status.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	context_status.text = status_label.text
-	card_stack.add_child(context_status)
-	card_stack.move_child(context_status, 1)
+	var feedback_area: Control = Control.new()
+	feedback_area.custom_minimum_size = Vector2(0, 52)
+	feedback_area.clip_contents = true
+	card_stack.add_child(feedback_area)
+	card_stack.move_child(feedback_area, 1)
+	feedback_area.add_child(context_status)
+	context_status.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	context_body.add_child(_choices)
 	_assets = HFlowContainer.new()
 	context_body.add_child(_assets)
@@ -365,6 +370,7 @@ func set_status(message: String) -> void:
 		readable = readable.replace("右侧", "卡片中").replace("Esc 取消", "点取消本笔或 Esc 取消")
 		breadcrumbs.text = readable
 		context_status.text = readable
+		context_status.tooltip_text = readable
 		breadcrumbs.tooltip_text = breadcrumbs.text
 
 

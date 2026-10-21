@@ -16,7 +16,8 @@ def main():
     run_step('w11_visible_feedback', [engine_binary(), '--path', '.', '--resolution', '1920x1080',
              '-s', 'tests/week_11/usability_probe.gd', '--', '--qa-settings', '--art-fhd', str(target)])
     feedback = json.loads(target.with_suffix('.json').read_text())
-    assert feedback['context_visible'] and feedback['context_status_visible']
+    assert all(feedback[k] for k in ['context_visible', 'context_status_visible',
+        'context_inside_viewport', 'feedback_inside_viewport', 'cancel_inside_viewport'])
     assert struct.unpack_from('>II', target.with_suffix('.png').read_bytes(), 16) == (1920, 1080)
     metrics = {}
     for name, flags in [('demo_edit', []), ('capacity_edit', ['--w09-stress']),

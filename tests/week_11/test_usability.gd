@@ -5,7 +5,10 @@ func test_rejected_pool_action_is_readable_with_context_open_at_150_percent() ->
 	playground._preference_changed("ui_scale", 1.5)
 	playground.hud.open_group("water")
 	playground.hud.set_status("bridge_missing_pond")
-	await get_tree().process_frame
+	for i: int in range(10):
+		await get_tree().process_frame
+	var bounds: Rect2 = Rect2(Vector2.ZERO, Vector2(viewport.size))
+	assert_true(bounds.encloses(playground.hud.context.get_global_rect()))
 	var feedback: Label = playground.hud.context_status
 	assert_true(feedback.is_visible_in_tree())
 	assert_true("请先画池塘" in feedback.text)

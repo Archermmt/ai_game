@@ -35,6 +35,18 @@ func _run() -> void:
 					playground.hud.get("context_status") != null
 					and playground.hud.context_status.is_visible_in_tree()
 				),
+				"context_inside_viewport":
+				Rect2(Vector2.ZERO, Vector2(root.size)).encloses(
+					playground.hud.context.get_global_rect()
+				),
+				"feedback_inside_viewport":
+				Rect2(Vector2.ZERO, Vector2(root.size)).encloses(
+					playground.hud.context_status.get_global_rect()
+				),
+				"cancel_inside_viewport":
+				Rect2(Vector2.ZERO, Vector2(root.size)).encloses(
+					playground.hud.cancel_stroke.get_global_rect()
+				),
 				"source_revision": playground.document.state["revision"]
 			},
 			"\t"
