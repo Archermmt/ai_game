@@ -4,6 +4,7 @@ import json
 from common import ROOT, engine_binary
 from run_checks import run_step
 from hover_native_checks import main as hover_main
+from art_pass_render_checks import production_files
 import week_ten_native_checks as native
 
 
@@ -11,6 +12,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--silent-audio', action='store_true')
     args = parser.parse_args()
+    before = production_files()
     audio = ['--audio-driver', 'Dummy'] if args.silent_audio else []
     hover_main('perf_01', audio)
     result = json.loads((ROOT / 'reports/perf_01_native_checks.json').read_text())
@@ -22,6 +24,7 @@ def main():
     targets = {
         'frame_p95_20ms': all(p['p95_frame_ms'] <= 20 for p in probes.values()),
         'local_edit_p95_150ms': all(probes[k]['metrics']['commit_latency_p95_ms'] <= 150 for k in ['capacity', 'demo']),
+        'legacy_upper_local_150ms': all(probes[k]['metrics']['commit_latency_legacy_upper_ms'] <= 150 for k in ['capacity', 'demo']),
         'large_brush_500ms': probes['large_brush']['metrics']['commit_latency_max_ms'] <= 500,
         'main_callback_100ms': all(p['metrics']['main_callback_max_ms'] <= 100 for p in probes.values()),
         'rss_2gib': all(p['rss_peak_bytes'] < 2 * 1024**3 for p in probes.values()),
@@ -34,9 +37,10 @@ def main():
             '--ux-select', '--perf-report=' + str(output), *flags])
         phases[name] = json.loads(output.read_text())
         assert len(phases[name]['commits_ms']) == 20 and phases[name]['warmup_edits'] == 0
+    assert production_files() == before, 'Performance QA changed formal saves/preferences'
     result.update({'probes': probes, 'combined_targets': targets, 'phases': phases,
                    'm4_approved': False, 'm5_approved': False,
-                   'protocol_note': 'Legacy pre-draw 60-second gates retained; first-visible-input is a separate diagnostic, never substitutes them'})
+                   'protocol_note': 'Pre-draw 60-second samples retained. p95 corrected to nearest-rank; raw samples, maximum and previous upper statistic retained. Visible-input is a separate diagnostic.'})
     (ROOT / 'reports/perf_01_native_checks.json').write_text(json.dumps(result, indent=2) + '\n')
     print('PERF-01 native functional PASS; unchanged performance gates:', targets)
 

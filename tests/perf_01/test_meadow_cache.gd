@@ -140,3 +140,4 @@ func test_indexed_vegetation_clearance_and_reconcile_match_exhaustive_source() -
 	var item: Dictionary = invalid["instances"][0]
 	item["position"] = invalid["buildings"][0]["position"].duplicate()
 	assert_eq(WorldDocument.validate(invalid), "instance_building_collision")
+

@@ -17,3 +17,5 @@ python3 tools/quality/perf_native_checks.py --silent-audio
 ```
 
 引擎脚本错误、失败、空套件或跳过均拒绝功能通过；性能未过则保留失败门槛，不修改目标或隐藏样本。
+
+统计修正：局部提交p95使用nearest-rank（ceil(0.95×n)−1）；旧实现int(n×0.95)在20笔时取最大。新增3项统计回归，保留raw samples、max和legacy_upper并分别报告。改善幅度只用相同口径的最大值/CPU阶段对比，不将分位数改名当优化收益。首帧前20笔保持全部采集；额外首绘后诊断不替代旧样本。

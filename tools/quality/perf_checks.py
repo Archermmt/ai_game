@@ -13,7 +13,7 @@ def main():
         'addons/gut/gut_cmdln.gd', '-gdir=res://tests/perf_01', '-gexit', '-gjunit_xml_file=reports/perf_01.xml']))
     suite = ET.parse(ROOT / 'reports/perf_01.xml').getroot()
     count = int(suite.attrib.get('tests', 0))
-    assert count >= 9 and not int(suite.attrib.get('failures', 0))
+    assert count >= 12 and not int(suite.attrib.get('failures', 0))
     assert not any(int(s.attrib.get('skipped', 0)) for s in suite.findall('testsuite'))
     previous = json.loads((ROOT / 'reports/week_12_checks.json').read_text())
     result = {'godot_tests': previous['godot_tests'] + count, 'python_tests': previous['python_tests'],

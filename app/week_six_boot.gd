@@ -431,9 +431,11 @@ func _delivery_metrics() -> Dictionary:
 	result["rebuild_phase_timings"] = _phase_timings.duplicate(true)
 	result["commit_latency_samples_ms"] = _commit_latencies.duplicate()
 	result["commit_latency_max_ms"] = latency.back() if not latency.is_empty() else 0
-	result["commit_latency_p95_ms"] = (
+	result["commit_latency_legacy_upper_ms"] = (
 		latency[int(latency.size() * 0.95)] if not latency.is_empty() else 0
 	)
+	result["commit_latency_p95_ms"] = PerformanceSamples.percentile(_commit_latencies)
+	result["commit_percentile_method"] = "nearest_rank"
 	result["local_lights"] = lanterns.active_ids.size() if lanterns != null else 0
 	return result
 
