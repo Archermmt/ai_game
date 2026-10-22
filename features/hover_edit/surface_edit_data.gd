@@ -99,7 +99,9 @@ static func transform(
 				item["width"] = clampf(float(item["width"]) + amount.x, 0.35, 3)
 			elif kind == "height":
 				item["height"] = clampf(
-					float(item["height"]) + amount.x, 0.35 if window else 1.8, 3.5
+					float(item["height"]) + amount.x,
+					0.35 if window else 1.8,
+					1.79 if window else 3.5
 				)
 			if draft == source:
 				return draft

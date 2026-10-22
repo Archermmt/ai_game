@@ -64,6 +64,9 @@ func test_window_move_and_resize_preserve_identity_and_wall_holes() -> void:
 	var widened: Dictionary = SurfaceEditData.transform(moved, target, "width", Vector3(0.3, 0, 0))
 	assert_eq(SurfaceEditData.issue(source, widened), "")
 	assert_almost_eq(SurfaceEditData.resolve(widened, target)["width"], 1.2, 0.0001)
+	var tall: Dictionary = SurfaceEditData.transform(source, target, "height", Vector3(10, 0, 0))
+	assert_lt(SurfaceEditData.resolve(tall, target)["height"], 1.8)
+	assert_eq(WorldDocument.validate(tall), "")
 	assert_eq_deep(source, before)
 
 

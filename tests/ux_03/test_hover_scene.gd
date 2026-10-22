@@ -82,7 +82,7 @@ func test_invalid_window_drag_reverts_history_and_keeps_selected_identity() -> v
 	var home: Dictionary = await _house()
 	var before: Dictionary = playground.document.snapshot()
 	playground.hovered = _target(home, true)
-	playground.begin_direct("height", Vector2(600, 300))
+	playground.begin_direct("move", Vector2(600, 300))
 	playground.update_surface(Vector2(600, -800))
 	playground.finish_surface()
 	await _settle()
