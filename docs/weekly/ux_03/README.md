@@ -22,4 +22,30 @@
 
 未修改Blender源件或生成脚本，未新增第三方插件/模型；本轮不宣称实现任意屋面布尔、自由屋脊、城垛或原版全部造型系统。已知150ms、全新设备启动、Windows/低配机、人工触摸板、十人试玩门槛继续独立开放。
 
-最终验证及截图在本目录归档；命令与覆盖见 [TEST_PLAN.md](TEST_PLAN.md)。
+最终验证及截图归档在下方；命令与覆盖见 [TEST_PLAN.md](TEST_PLAN.md)，范围限制见 [KNOWN_ISSUES.md](KNOWN_ISSUES.md)。
+
+
+## 验证与交付
+
+代码 `176f9ec` 通过Git archive空导入缓存累计验证；文档随后归档，交付标签 `v0.11.2-ux03`。功能通过不代表M4/M5通过。
+
+| 项目 | 最终结果 |
+| --- | --- |
+| 累计回归 | 609项Godot / 16,679条断言，另6项Python；0失败、0跳过，负控制生效 |
+| 本次新增 | 30项 / 380条断言；包括慢移到窗口外手柄、复制后目标、自动门重排及窗型边界 |
+| 原生交互 | 24项全真，真实Input→GUI分派：屋顶升高/平顶、窗宽、门高、桥头、原状态撤销、UI150%、摄影隐藏/恢复 |
+| 满容量60秒 | 24屋/1000源实例、45%草、有选择手柄；帧p95 11.667ms、主回调最大53.079ms、RSS峰值953.86MiB |
+| 编辑提交 | p95/最大 241.525ms；150ms目标仍未通过 |
+| 文件隔离 | 原生验证前后正式存档/偏好哈希未变 |
+| 导出 | macOS解包运行/保存/缩略图/新入口/资源检查通过；Windows x86_64 PE格式通过，Windows实机未测 |
+| macOS首绘 | 3.240秒；有既有主机/驱动缓存，不代替全新设备冷启动 |
+
+完整机器回执见 [delivery.json](delivery.json)，XML、日志、输入报告、帧样本和包哈希在 [evidence/](evidence/)，本目录文件哈希见 [checksums.json](checksums.json)。实际首次玩家0/10，Windows/最低配置、人工触摸板/听音、远端CI及M4/M5继续开放。
+
+## 本项目原生截图
+
+![悬停即出现屋顶和墙面修改引导](evidence/hover_roof.png)
+
+[下拉变为平顶](evidence/roof_flat.png) · [窗口引导](evidence/hover_window.png) · [门的移动/宽高](evidence/hover_door.png) · [桥的两端/宽度](evidence/hover_bridge.png) · [UI150%](evidence/hover_150.png) · [摄影返回](evidence/photo_return.png)
+
+停止旧试玩，打开 `app/hover_root.tscn` 按F6，或重新打开工程后F5。不要在旧周场景上F6判断新版。当前本机包 `builds/ux_03/macos/windhaven_ux_03.zip`、`builds/ux_03/windows/windhaven_ux_03.exe`；包、缓存和作品不进Git。

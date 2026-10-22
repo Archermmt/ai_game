@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-22",
+  "version": "0.11.2-ux03",
+  "runtime_revision": "176f9ec6288900c48f9f62f4540183781fb4c880",
+  "default_scene": "app/hover_root.tscn",
+  "godot_tests": 609,
+  "godot_assertions": 16679,
+  "new_godot_tests": 30,
+  "new_godot_assertions": 380,
+  "python_tests": 6,
+  "failures": 0,
+  "skipped": 0,
+  "negative_control": true,
+  "empty_import_cache": true,
+  "native_input_checks": {
+    "bridge_head_changed": true,
+    "door_changed": true,
+    "end_a_gui_capture": true,
+    "end_a_handle_visible": true,
+    "handles_150_inside": true,
+    "height_gui_capture": true,
+    "height_handle_visible": true,
+    "hover_bridge": true,
+    "hover_door": true,
+    "hover_keeps_creation_tool": true,
+    "hover_unselected_roof": true,
+    "hover_window": true,
+    "photo_hides_handles": true,
+    "photo_restores_hover": true,
+    "roof_flat": true,
+    "roof_gui_capture": true,
+    "roof_handle_visible": true,
+    "roof_source_changed_once": true,
+    "roof_undo_exact": true,
+    "width_gui_capture": true,
+    "width_handle_visible": true,
+    "window_caption_clear": true,
+    "window_changed": true,
+    "window_fixture": true
+  },
+  "native_device": "Apple M4 Pro / macOS / Metal",
+  "native_metrics": {
+    "frame_p95_ms": 11.6666666666667,
+    "commit_p95_ms": 241.525,
+    "commit_max_ms": 241.525,
+    "main_callback_max_ms": 53.079,
+    "rss_peak_mib": 953.859375
+  },
+  "native_targets": {
+    "frame_p95_20ms": true,
+    "main_callback_100ms": true,
+    "rss_2gib": true,
+    "local_edit_p95_150ms": false
+  },
+  "production_files_unchanged": true,
+  "macos_export_visible_boot": true,
+  "macos_first_draw_seconds": 3.24,
+  "startup_caveat": "Existing host/driver caches; not fresh-machine cold startup validation",
+  "windows_pe_x86_64": true,
+  "windows_real_device": "not_run",
+  "minimum_spec_PC": "not_run",
+  "physical_trackpad": "not_run",
+  "actual_first_players": 0,
+  "m4_approved": false,
+  "m5_approved": false,
+  "artifacts": [
+    {
+      "path": "builds/ux_03/windows/windhaven_ux_03.exe",
+      "bytes": 131725992,
+      "sha256": "88031af71db7f6233ae528998f73eedeee38bc4f370dcd537c2867f81d6342a3"
+    },
+    {
+      "path": "builds/ux_03/macos/windhaven_ux_03.zip",
+      "bytes": 79989738,
+      "sha256": "00762cd031b883aa1e378f7e4ed7effba6aacbaaa656bd589f867305bfa958d4"
+    }
+  ],
+  "remaining": [
+    "local_edit_p95_150ms",
+    "fresh_machine_startup",
+    "Windows_real_device",
+    "minimum_spec_PC",
+    "physical_trackpad_and_listening",
+    "remote_CI",
+    "T067_ten_real_first_players"
+  ]
+}

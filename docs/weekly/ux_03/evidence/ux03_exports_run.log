@@ -1,0 +1,4 @@
+PASS export_windows (2.25s)
+PASS export_macos (6.73s)
+PASS exported_macos_boot (4.83s)
+Export checks passed; Windows 3D/input real-device gate remains external.
