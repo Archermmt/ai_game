@@ -143,3 +143,29 @@ func test_picker_does_not_select_hidden_window_or_round_box_corner() -> void:
 	assert_eq(hit["family"], "house")
 	assert_ne(hit.get("zone", ""), "roof")
 	assert_true(SurfacePicker.pick(source, Vector3(4, 1, 12), Vector3.FORWARD).is_empty())
+
+
+func test_automatic_opening_identity_survives_reconcile_reordering() -> void:
+	var source: Dictionary = _source()
+	var home: Dictionary = source["buildings"][0]
+	for center: float in [0.2, 0.5, 0.8]:
+		home["openings"].append(
+			{
+				"kind": "rect",
+				"width": 0.7,
+				"height": 0.9,
+				"sill": 1.0,
+				"center": center,
+				"facade": 0,
+				"source": "manual" if center == 0.5 else "auto_path"
+			}
+		)
+	var target: Dictionary = {"family": "opening", "parent": home["id"], "index": 2}
+	var draft: Dictionary = SurfaceEditData.transform(source, target, "width", Vector3(0.1, 0, 0))
+	var identity: Dictionary = SurfaceEditData.identity_target(source, target)
+	var changed: Dictionary = SurfaceEditData.resolve(draft, identity)
+	assert_false(changed.is_empty())
+	assert_almost_eq(changed["width"], 0.8, 0.0001)
+	assert_eq(changed["center"], 0.8)
+	assert_eq(draft["buildings"][0]["openings"].size(), 2)
+	assert_eq(WorldDocument.validate(draft), "")

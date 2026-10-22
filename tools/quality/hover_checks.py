@@ -13,7 +13,7 @@ def main():
         'addons/gut/gut_cmdln.gd', '-gdir=res://tests/ux_03', '-gexit', '-gjunit_xml_file=reports/ux_03.xml']))
     suite = ET.parse(ROOT / 'reports/ux_03.xml').getroot()
     count = int(suite.attrib.get('tests', 0))
-    assert count >= 28 and not int(suite.attrib.get('failures', 0))
+    assert count >= 30 and not int(suite.attrib.get('failures', 0))
     assert not any(int(s.attrib.get('skipped', 0)) for s in suite.findall('testsuite'))
     baseline = json.loads((ROOT / 'reports/ux_02_checks.json').read_text())
     result = {'godot_tests': baseline['godot_tests'] + count, 'new_godot_tests': count,

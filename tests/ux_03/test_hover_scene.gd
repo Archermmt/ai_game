@@ -293,3 +293,38 @@ func test_house_copy_drop_keeps_the_new_house_as_edit_target() -> void:
 	playground.hovered = {}
 	assert_eq(playground._display_target()["id"], playground.selected_buildings[0])
 	assert_ne(playground._display_target()["id"], home["id"])
+
+
+func test_promoted_auto_opening_stays_selected_after_reordering() -> void:
+	await _house()
+	var source: Dictionary = playground.document.snapshot()
+	var home: Dictionary = source["buildings"][0]
+	home["openings"] = []
+	for center: float in [0.2, 0.5, 0.8]:
+		home["openings"].append(
+			{
+				"kind": "rect",
+				"width": 0.7,
+				"height": 0.9,
+				"sill": 1.0,
+				"center": center,
+				"facade": 0,
+				"source": "manual" if center == 0.5 else "auto_path"
+			}
+		)
+	assert_true(playground.session.replace_document(source, playground._prepare_views)["ok"])
+	await _settle()
+	playground.hovered = {"family": "opening", "parent": home["id"], "index": 2}
+	playground.begin_direct("width", Vector2(600, 300))
+	playground.update_surface(Vector2(603, 300))
+	assert_false(
+		SurfaceEditData.resolve(playground.session.preview, playground._display_target()).is_empty()
+	)
+	playground.finish_surface()
+	await _settle()
+	var selected: Dictionary = SurfaceEditData.resolve(
+		playground.document.state, playground.surface_selected
+	)
+	assert_false(selected.is_empty())
+	assert_eq(selected.get("center"), 0.8)
+	assert_true(playground.surface_selected.has("attachment_id"))

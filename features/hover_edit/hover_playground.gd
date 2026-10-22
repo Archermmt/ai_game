@@ -109,7 +109,7 @@ func refresh_hover(screen: Vector2) -> void:
 
 func _display_target() -> Dictionary:
 	if not surface_drag.is_empty():
-		return surface_drag["target"]
+		return surface_drag.get("display_target", surface_drag["target"])
 	if not direct.is_empty():
 		return {"family": "house" if direct["house"] else "prop", "id": direct["id"]}
 	if not hovered.is_empty() and not SurfaceEditData.resolve(document.state, hovered).is_empty():
@@ -222,6 +222,9 @@ func update_surface(screen: Vector2) -> void:
 	var draft: Dictionary = SurfaceEditData.transform(
 		drag["source"], drag["target"], drag["kind"], amount
 	)
+	var identity: Dictionary = SurfaceEditData.identity_target(drag["source"], drag["target"])
+	if not SurfaceEditData.resolve(draft, identity).is_empty():
+		surface_drag["display_target"] = identity
 	session.update_gesture(draft)
 	_preview_token = queue.request(draft, Rect2(-24, -24, 48, 48))
 	var issue: String = SurfaceEditData.issue(drag["source"], draft)
@@ -241,9 +244,10 @@ func finish_surface() -> void:
 		_cancel_edit()
 		hud.set_status(_reason(issue))
 		return
-	var item: Dictionary = SurfaceEditData.resolve(session.preview, pending["target"])
+	var identity: Dictionary = pending.get("display_target", pending["target"])
+	var item: Dictionary = SurfaceEditData.resolve(session.preview, identity)
 	if pending["target"]["family"] == "opening" and item.has("attachment_id"):
-		surface_selected["attachment_id"] = item["attachment_id"]
+		surface_selected = identity.duplicate(true)
 		hovered = surface_selected.duplicate(true)
 	_submit_async(session.preview, "表面拖拽修改")
 

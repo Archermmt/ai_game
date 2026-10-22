@@ -107,11 +107,7 @@ static func transform(
 			item.erase("source_path")
 			item.erase("source_paths")
 			if not item.has("attachment_id"):
-				item["attachment_id"] = (
-					(str(draft["world_seed"]) + ":hover-opening:" + str(draft["next_id"]))
-					. sha256_text()
-					. left(24)
-				)
+				item["attachment_id"] = identity_target(source, target)["attachment_id"]
 				draft["next_id"] += 1
 		"bridge", "stair":
 			if kind == "width":
@@ -143,3 +139,18 @@ static func width_axis(source: Dictionary, target: Dictionary) -> Vector3:
 		)
 		return Vector3(axis.x, 0, axis.y)
 	return Vector3.RIGHT
+
+
+static func identity_target(source: Dictionary, target: Dictionary) -> Dictionary:
+	var result: Dictionary = target.duplicate(true)
+	if target.get("family", "") == "opening":
+		var item: Dictionary = resolve(source, target)
+		result["attachment_id"] = item.get(
+			"attachment_id",
+			(
+				(str(source["world_seed"]) + ":hover-opening:" + str(source["next_id"]))
+				. sha256_text()
+				. left(24)
+			)
+		)
+	return result
