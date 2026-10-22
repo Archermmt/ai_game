@@ -26,7 +26,9 @@ static func decorate(
 	var stonework: CottageMesh = MeshBuilder.new()
 	var neighbors: Array = snapshot.get("buildings", [])
 	var seed_value: float = float(absi(hash(String(home["id"]))) % 100003) * 0.013
-	if home["shape"] == "round":
+	if RoofProfile.rise(home) <= 0.02:
+		_flat_roof(home, roof)
+	elif home["shape"] == "round":
 		_roof_underlay(shell, roof)
 		_round_roof(home, roof, timber, seed_value)
 	else:
@@ -102,12 +104,12 @@ static func _roof_underlay(shell: ArrayMesh, roof: CottageMesh) -> void:
 
 
 static func _closed_gables(walls: ArrayMesh, home: Dictionary, neighbors: Array) -> ArrayMesh:
-	if home["shape"] == "round":
+	if home["shape"] == "round" or RoofProfile.rise(home) <= 0.02:
 		return walls
 	var width: float = float(home["size"][0])
 	var depth: float = float(home["size"][2])
 	var height: float = float(home["size"][1])
-	var rise: float = width * 0.38
+	var rise: float = RoofProfile.rise(home)
 	var half: float = width * 0.5
 	var margins: Array[float] = _roof_margins(home, neighbors)
 	# The original gable apex uses the wall span; its roof bed uses the larger
@@ -152,7 +154,7 @@ static func _rect_roof(
 	var front: float = depth * 0.5 + margins[0]
 	var back: float = depth * 0.5 + margins[2]
 	var span_depth: float = front + back
-	var ridge: float = height + width * 0.38
+	var ridge: float = height + RoofProfile.rise(home)
 	var columns: int = ceili(span_depth / TILE_WIDTH)
 	for side: float in [-1.0, 1.0]:
 		var facade: int = 1 if side > 0 else 3
@@ -278,7 +280,7 @@ static func _roof_margins(home: Dictionary, neighbors: Array) -> Array[float]:
 	var own_x: float = float(home["position"][0])
 	var own_top: float = float(home["position"][1]) + float(home["size"][1])
 	var own_half: float = float(home["size"][0]) * 0.5
-	var own_rise: float = float(home["size"][0]) * 0.38
+	var own_rise: float = RoofProfile.rise(home)
 	for facade: int in range(4):
 		for other: Dictionary in neighbors:
 			if other["id"] == home["id"] or other["shape"] != "rect":
@@ -287,7 +289,7 @@ static func _roof_margins(home: Dictionary, neighbors: Array) -> Array[float]:
 			if contact.is_empty():
 				continue
 			var other_half: float = float(other["size"][0]) * 0.5
-			var other_rise: float = float(other["size"][0]) * 0.38
+			var other_rise: float = RoofProfile.rise(other)
 			var other_top: float = float(other["position"][1]) + float(other["size"][1])
 			if facade % 2 == 1:
 				# Test the neighboring roof at the far edge of our possible eave.
@@ -419,7 +421,7 @@ static func _round_roof(
 	var width: float = float(home["size"][0])
 	var height: float = float(home["size"][1])
 	var radius: float = width * 0.5 + 0.39
-	var rise: float = width * 0.48
+	var rise: float = RoofProfile.rise(home)
 	var rows: int = ceili(Vector2(radius, rise).length() / TILE_COURSE)
 	for row: int in range(rows):
 		var low: float = maxf(0.09, float(row) / rows)
@@ -735,3 +737,61 @@ static func _trim_allowance(
 		)
 		result = minf(result, gap * 0.43)
 	return maxf(0.025, result)
+
+
+static func _flat_roof(home: Dictionary, roof: CottageMesh) -> void:
+	var y: float = home["size"][1] + 0.04
+	var half: Vector2 = Vector2(home["size"][0], home["size"][2]) * 0.5 + Vector2.ONE * 0.35
+	if home["shape"] == "round":
+		for i: int in range(64):
+			var a: float = i * TAU / 64
+			var b: float = (i + 1) * TAU / 64
+			var p: Vector3 = Vector3(sin(a) * half.x, y, cos(a) * half.x)
+			var q: Vector3 = Vector3(sin(b) * half.x, y, cos(b) * half.x)
+			roof.triangle(Vector3(0, y, 0), p, q, Vector3.UP, CLAY)
+			roof.quad(
+				p,
+				q,
+				q - Vector3.UP * 0.15,
+				p - Vector3.UP * 0.15,
+				Vector3(sin(a), 0, cos(a)),
+				CLAY.darkened(0.15)
+			)
+	else:
+		var columns: int = ceili(half.x * 2 / TILE_WIDTH)
+		var rows: int = ceili(half.y * 2 / TILE_COURSE)
+		for x: int in range(columns):
+			for z: int in range(rows):
+				var a: Vector2 = Vector2(
+					lerpf(-half.x, half.x, float(x) / columns),
+					lerpf(-half.y, half.y, float(z) / rows)
+				)
+				var b: Vector2 = Vector2(
+					lerpf(-half.x, half.x, float(x + 1) / columns),
+					lerpf(-half.y, half.y, float(z + 1) / rows)
+				)
+				roof.quad(
+					Vector3(a.x, y, a.y),
+					Vector3(b.x, y, a.y),
+					Vector3(b.x, y, b.y),
+					Vector3(a.x, y, b.y),
+					Vector3.UP,
+					_tile_color(x * 3.71 + z * 17.2)
+				)
+		for side: int in range(4):
+			var corners: Array[Vector3] = [
+				Vector3(-half.x, y, -half.y),
+				Vector3(half.x, y, -half.y),
+				Vector3(half.x, y, half.y),
+				Vector3(-half.x, y, half.y)
+			]
+			var a: Vector3 = corners[side]
+			var b: Vector3 = corners[(side + 1) % 4]
+			roof.quad(
+				a,
+				b,
+				b - Vector3.UP * 0.15,
+				a - Vector3.UP * 0.15,
+				(a + b).normalized(),
+				CLAY.darkened(0.15)
+			)

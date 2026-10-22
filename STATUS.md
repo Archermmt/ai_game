@@ -2,7 +2,11 @@
 
 更新日期：2026-10-22（Asia/Shanghai）
 
-## UX-02 当前交付
+## UX-03 当前开发
+
+2026-10-22：按用户截图补齐无需先选中的悬停引导、坡顶/平顶、门窗及桥阶就地拖拽。PRD附录D记录本次明确范围；默认入口 `app/hover_root.tscn`，版本 `0.11.2-ux03`。新回归、原生GUI、空缓存累计与导出正在最终验证；结果归档 [UX-03报告](docs/weekly/ux_03/README.md)。当前命令 `python3 tools/quality/hover_checks.py`。保留历史门槛，未宣称Windows实机、十人试玩或M4/M5通过。
+
+## UX-02 历史交付
 
 2026-10-22：先提交参考调查与PRD附录C `f8c1e82`，再完成用户授权的UX-02-A开发。最终代码 `7b0b68a`；归档标签 `v0.11.1-ux02`。默认入口 `app/simple_root.tscn`，版本 `0.11.1-ux02`。
 

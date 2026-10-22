@@ -22,6 +22,8 @@ static func clone(source: Dictionary, id_value: String, house: bool) -> Dictiona
 		item = WorldDocument.allocate_building(
 			draft, Vector3(p[0], p[1], p[2]), Vector3(s[0], s[1], s[2]), original["shape"]
 		)
+		if original.has("roof_rise"):
+			item["roof_rise"] = original["roof_rise"]
 		item["openings"] = []
 		for opening: Dictionary in original["openings"]:
 			if opening.get("source", "manual") == "auto_path":

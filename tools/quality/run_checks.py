@@ -15,9 +15,9 @@ ERRORS = re.compile(r"SCRIPT ERROR:|(?:^|\n)ERROR:|Program crashed|ObjectDB inst
 ANSI = re.compile(r"\x1b\[[0-9;]*[A-Za-z]")
 
 
-def run_step(name, command, expected_failure=False, working_directory=ROOT):
+def run_step(name, command, expected_failure=False, working_directory=ROOT, timeout=180):
     start = time.monotonic()
-    process = subprocess.run(command, cwd=working_directory, text=True, capture_output=True, timeout=180)
+    process = subprocess.run(command, cwd=working_directory, text=True, capture_output=True, timeout=timeout)
     output = ANSI.sub("", process.stdout + process.stderr)
     (ROOT / "reports" / (name + ".log")).write_text(output)
     success = process.returncode != 0 if expected_failure else (

@@ -223,3 +223,6 @@ W10 新增30项/2755断言，累计521项/15512断言；每周套件最小数、
 ## UX-02 当前门禁（2026-10-22）
 
 默认场景 `app/simple_root.tscn`，累计入口 `python3 tools/quality/simple_checks.py`；追加直接编辑/复制/取消/桥阶/指向墙面与UI回归。原生 `python3 tools/quality/simple_native_checks.py` 走真实Godot输入分派、摄影PNG解码及有选中手柄的60秒满容量场景。提交后空缓存与导出使用 `--week 11 --simple`。旧周场景、553项历史测试、六项试玩数据校验和负控制保留，完整契约见 [UX-02测试计划](weekly/ux_02/TEST_PLAN.md)。
+
+
+UX-03悬停编辑为当前默认版本：`python3 tools/quality/hover_checks.py`，原生 `python3 tools/quality/hover_native_checks.py`；空缓存/导出使用 `--week 11 --hover`。完整契约和证据在 `docs/weekly/ux_03/`；旧UX-02工具门禁保留历史场景。

@@ -57,7 +57,7 @@ static func build_arrays(spec: Dictionary, world: Array = []) -> Array:
 		not BuildingContact.intervals(spec, world, 0).is_empty()
 		or not BuildingContact.intervals(spec, world, 2).is_empty()
 	)
-	builder._roof(width, height, depth, round_shape, trim_x, trim_z)
+	builder._roof(width, height, depth, round_shape, trim_x, trim_z, RoofProfile.rise(spec))
 	var arrays: Array = []
 	arrays.resize(Mesh.ARRAY_MAX)
 	arrays[Mesh.ARRAY_VERTEX] = builder._vertices
@@ -283,11 +283,17 @@ func _cap(
 
 
 func _roof(
-	width: float, height: float, depth: float, round_shape: bool, trim_x: bool, trim_z: bool
+	width: float,
+	height: float,
+	depth: float,
+	round_shape: bool,
+	trim_x: bool,
+	trim_z: bool,
+	rise: float
 ) -> void:
 	if round_shape:
 		var radius: float = width * 0.5 + 0.35
-		var tip: Vector3 = Vector3(0.0, height + width * 0.48, 0.0)
+		var tip: Vector3 = Vector3(0.0, height + rise, 0.0)
 		for index: int in range(64):
 			var a: float = float(index) * TAU / 64.0
 			var b: float = float(index + 1) * TAU / 64.0
@@ -300,7 +306,10 @@ func _roof(
 	else:
 		var w: float = width * 0.5 + (0.0 if trim_x else 0.35)
 		var d: float = depth * 0.5 + (0.0 if trim_z else 0.35)
-		var ridge: float = height + width * 0.38
+		if rise <= 0.02:
+			MeshParts.box(self, Vector3(0, height - 0.03, 0), Vector3(w * 2, 0.12, d * 2), ROOF)
+			return
+		var ridge: float = height + rise
 		_quad(
 			Vector3(-w, height, -d),
 			Vector3(-w, height, d),

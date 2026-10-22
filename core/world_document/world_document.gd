@@ -156,6 +156,15 @@ static func validate(candidate: Dictionary) -> String:
 			return "invalid_depth"
 		if float(dimensions[1]) < 2.4 or float(dimensions[1]) > 7.2:
 			return "invalid_height"
+		if (
+			building.has("roof_rise")
+			and (
+				not _number(building["roof_rise"])
+				or building["roof_rise"] < 0
+				or building["roof_rise"] > 6
+			)
+		):
+			return "invalid_roof_rise"
 		if not _valid_openings(building):
 			return "invalid_openings"
 		var origin: Array = building["position"]
