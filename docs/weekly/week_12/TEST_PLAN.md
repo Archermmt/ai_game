@@ -14,7 +14,7 @@ python3 tools/quality/week_twelve_release.py
 python3 tools/quality/week_twelve_release.py --require-release
 ```
 
-常规累计入口：`python3 tools/quality/week_twelve_checks.py`。保留 W01–W09 `run_checks.py --week 9 --negative-control`，通过 UX-03 基线累计运行，不省略历史周跨进程保存和故意失败负控。预期 609 项 Godot 加 23 项 Python；本周新增 17 项 Python 检查资产完整性、重复/路径逃逸、包篡改、固定包清单、无证据放行、错误版本/哈希及缺失平台结果。合成通过数据只在临时单测目录，不进入实际玩家或设备记录。
+常规累计入口：`python3 tools/quality/week_twelve_checks.py`。保留 W01–W09 `run_checks.py --week 9 --negative-control`，通过 UX-03 基线累计运行，不省略历史周跨进程保存和故意失败负控。预期 611 项 Godot 加 23 项 Python；本周新增 2 项 Godot 音频退出回归及 17 项 Python 检查资产完整性、重复/路径逃逸、包篡改、固定包清单、无证据放行、错误版本/哈希及缺失平台结果。合成通过数据只在临时单测目录，不进入实际玩家或设备记录。
 
 AC01–14 用 `ac_index.json` 指向 XML 的真实通过用例，自动通过和人工视觉/Windows 验收分开记录。包仅允许十个文档/可执行/清单文件，严格逐项哈希验证。Git archive 源码、导出和原生报告必须同一源码提交；归档文档提交可后置。
 
