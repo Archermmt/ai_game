@@ -1,5 +1,6 @@
 extends GutTest
 
+
 func test_nearest_rank_p95_does_not_mislabel_the_maximum_of_twenty_edits() -> void:
 	var samples: Array[float] = []
 	for index: int in range(19):
