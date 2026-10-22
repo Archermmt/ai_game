@@ -171,3 +171,12 @@ static func _asset_family(asset: String) -> String:
 	if asset.begins_with("NAT-"):
 		return "stone" if asset in ["NAT-08", "NAT-09"] else "grass"
 	return "wood"
+
+
+func _exit_tree() -> void:
+	# Release active mixer playback references before the scene resources disappear.
+	for child: Node in get_children():
+		if child is AudioStreamPlayer or child is AudioStreamPlayer3D:
+			child.stop()
+			child.stream = null
+	streams.clear()
