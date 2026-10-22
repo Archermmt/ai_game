@@ -255,14 +255,24 @@ func _validate_pool(snapshot: Dictionary) -> String:
 	if highest < float(pool["water_y"]) + 0.1:
 		return "pool_floating"
 	for building: Dictionary in snapshot["buildings"]:
-		if PondShape.conflicts(pool, 1.25, building):
+		if _pool_conflicts(1.25, building):
 			return "pool_building_safety"
 	for instance: Dictionary in snapshot["instances"]:
-		if PondShape.conflicts(
-			pool, 1.25, {"position": instance["position"], "size": [0.8, 1, 0.8], "shape": "rect"}
+		if _pool_conflicts(
+			1.25, {"position": instance["position"], "size": [0.8, 1, 0.8], "shape": "rect"}
 		):
 			return "pool_manual_instance_safety"
 	return ""
+
+
+func _pool_conflicts(margin: float, object: Dictionary) -> bool:
+	# Reuse this field's contour bounds for the far majority of distant objects.
+	if pool.has("outline"):
+		var center: Vector2 = Vector2(object["position"][0], object["position"][2])
+		var half: Vector2 = Vector2(object["size"][0], object["size"][2]) * 0.5
+		if not pool_bounds.grow(margin + 0.00001).intersects(Rect2(center - half, half * 2), true):
+			return false
+	return PondShape.conflicts(pool, margin, object)
 
 
 static func conflicts(center: Vector2, radius: float, building: Dictionary) -> bool:

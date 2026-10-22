@@ -157,6 +157,7 @@ static func validate(snapshot: Dictionary, existing_ids: Dictionary) -> String:
 	var ids: Dictionary = existing_ids
 	if snapshot["instances"].size() > 1000:
 		return "prototype_instance_limit"
+	var buildings: BuildingIndex = BuildingIndex.new(snapshot["buildings"])
 	for item: Variant in snapshot["instances"]:
 		if not item is Dictionary:
 			return "invalid_instance"
@@ -225,11 +226,8 @@ static func validate(snapshot: Dictionary, existing_ids: Dictionary) -> String:
 		var support_issue: String = support_error(snapshot, item)
 		if not support_issue.is_empty():
 			return support_issue
-		for building: Dictionary in snapshot["buildings"]:
-			if TerrainField.conflicts(
-				Vector2(item["position"][0], item["position"][2]),
-				0.46 * float(item["scale"]),
-				building
-			):
-				return "instance_building_collision"
+		if buildings.conflicts(
+			Vector2(item["position"][0], item["position"][2]), 0.46 * float(item["scale"])
+		):
+			return "instance_building_collision"
 	return ""

@@ -94,12 +94,18 @@ static func paint(
 	return changed
 
 
-static func geometry_clear(snapshot: Dictionary, p: Vector2) -> bool:
+static func geometry_clear(
+	snapshot: Dictionary, p: Vector2, buildings: BuildingIndex = null
+) -> bool:
 	if absf(p.x) > 23 or absf(p.y) > 23 or PondShape.distance(snapshot["pool"], p) < 1.8:
 		return false
-	for home: Dictionary in snapshot["buildings"]:
-		if TerrainField.conflicts(p, 0.7, home):
+	if buildings != null:
+		if buildings.conflicts(p, 0.7):
 			return false
+	else:
+		for home: Dictionary in snapshot["buildings"]:
+			if TerrainField.conflicts(p, 0.7, home):
+				return false
 	if TerrainEdits.entrance_protected(snapshot, p):
 		return false
 	for path: Dictionary in snapshot["paths"]:
@@ -132,6 +138,7 @@ static func clear(snapshot: Dictionary, p: Vector2, category: String) -> bool:
 
 
 static func reconcile(snapshot: Dictionary) -> Dictionary:
+	var buildings: BuildingIndex = BuildingIndex.new(snapshot["buildings"])
 	var draft: Dictionary = snapshot.duplicate(true)
 	for i: int in range(draft["instances"].size() - 1, -1, -1):
 		var item: Dictionary = draft["instances"][i]
@@ -141,7 +148,7 @@ static func reconcile(snapshot: Dictionary) -> Dictionary:
 		if (
 			not HedgeRules.clearance(draft, item)
 			if item.has("hedge")
-			else not geometry_clear(draft, p)
+			else not geometry_clear(draft, p, buildings)
 		):
 			draft["instances"].remove_at(i)
 	return draft

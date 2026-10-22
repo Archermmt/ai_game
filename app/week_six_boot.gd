@@ -20,6 +20,8 @@ var _prepare_started: int = 0
 var _latencies: Array[float] = []
 var _last_generated: Array = []
 var _batch_count: int = 0
+var _phase_timings: Array[Dictionary] = []
+var _phase_timing: Dictionary = {}
 
 
 func _ready() -> void:
@@ -112,7 +114,12 @@ func _on_batch(token: int, data: Dictionary, committed: bool) -> void:
 	if not committed and (token != _preview_token or session.phase != EditSession.Phase.PREVIEW):
 		return
 	_prepare_started = Time.get_ticks_usec()
+	_phase_timing = {
+		"worker_ms": data.get("worker_ms", 0.0),
+		"request_to_ready_ms": float(_prepare_started - _submitted_usec) / 1000.0
+	}
 	var plan: Dictionary = _planner.prepare(data, stage)
+	_phase_timing["planner_ms"] = float(Time.get_ticks_usec() - _prepare_started) / 1000.0
 	_stage_epoch = queue.epoch
 	_stage_committed = committed
 	queue.consumer_busy = true
@@ -136,6 +143,11 @@ func _stage_done(token: int, payload: Dictionary) -> void:
 		_preview_visible = false
 		if _submitted_usec > 0 and result["ok"]:
 			_commit_latencies.append(float(Time.get_ticks_usec() - _submitted_usec) / 1000)
+			_phase_timing["publish_ms"] = float(Time.get_ticks_usec() - start) / 1000.0
+			_phase_timing["complete_ms"] = _commit_latencies.back()
+			_phase_timings.append(_phase_timing.duplicate())
+			if _phase_timings.size() > 50:
+				_phase_timings.pop_front()
 		_submitted_usec = 0
 	elif session.phase == EditSession.Phase.PREVIEW:
 		_on_published(session.preview, payload)
@@ -416,6 +428,8 @@ func _delivery_metrics() -> Dictionary:
 	result["worker_compute_ms"] = _last_worker_ms
 	var latency: Array[float] = _commit_latencies.duplicate()
 	latency.sort()
+	result["rebuild_phase_timings"] = _phase_timings.duplicate(true)
+	result["commit_latency_samples_ms"] = _commit_latencies.duplicate()
 	result["commit_latency_max_ms"] = latency.back() if not latency.is_empty() else 0
 	result["commit_latency_p95_ms"] = (
 		latency[int(latency.size() * 0.95)] if not latency.is_empty() else 0

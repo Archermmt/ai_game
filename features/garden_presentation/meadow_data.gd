@@ -58,6 +58,61 @@ static func generate(source: Dictionary) -> Dictionary:
 	}
 
 
+static func generate_cached(source: Dictionary, cache: Dictionary) -> Dictionary:
+	# This cache belongs to the single meadow worker. Published arrays remain immutable.
+	var started: int = Time.get_ticks_usec()
+	var geometry: String = DirtyGraph.key(
+		[
+			source["world_seed"],
+			source["pool"],
+			source["buildings"],
+			source["paths"],
+			source.get("bridges", []),
+			source.get("stairs", []),
+			source["instances"]
+		]
+	)
+	var chunks: Dictionary = {}
+	var signatures: Dictionary = {}
+	var count: int = 0
+	var updated: int = 0
+	if cache.get("geometry", "") != geometry:
+		var fresh: Dictionary = generate(source)
+		chunks = fresh["chunks"]
+		count = fresh["count"]
+		updated = chunks.size()
+		for key: Vector2i in chunks:
+			signatures[key] = TerrainChunks.signature(source, Vector2(key) * CELL_SIZE)
+	else:
+		var field: TerrainField = TerrainField.new(source)
+		for key: Vector2i in cache["chunks"]:
+			var signature: String = TerrainChunks.signature(source, Vector2(key) * CELL_SIZE)
+			signatures[key] = signature
+			var items: Array = cache["chunks"][key]
+			count += items.size()
+			if signature == cache["signatures"][key]:
+				chunks[key] = items
+				continue
+			updated += 1
+			var next: Array = []
+			for item: Dictionary in items:
+				var copy: Dictionary = item.duplicate()
+				var p: Vector3 = item["p"]
+				p.y = field.height_at(Vector2(p.x, p.z)) - 0.015
+				copy["p"] = p
+				next.append(copy)
+			chunks[key] = next
+	cache["geometry"] = geometry
+	cache["chunks"] = chunks
+	cache["signatures"] = signatures
+	return {
+		"chunks": chunks,
+		"count": count,
+		"updated_chunks": updated,
+		"worker_ms": (Time.get_ticks_usec() - started) / 1000.0
+	}
+
+
 static func clear(p: Vector2, obstacles: Dictionary, pool: Dictionary) -> bool:
 	if not pool.is_empty() and PondShape.distance(pool, p) < 0.58:
 		return false

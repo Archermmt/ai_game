@@ -18,6 +18,7 @@ var _data: Dictionary = {}
 var _chunk_keys: Array = []
 var _staging: Array[MultiMeshInstance3D] = []
 var _closed: bool = false
+var _generation_cache: Dictionary = {}
 
 
 func _init() -> void:
@@ -63,7 +64,7 @@ func _start() -> void:
 	_pending = {}
 	_task = WorkerThreadPool.add_task(
 		func() -> void:
-			var data: Dictionary = MeadowData.generate(job["source"])
+			var data: Dictionary = MeadowData.generate_cached(job["source"], _generation_cache)
 			_deliver.call_deferred(job["token"], data),
 		false,
 		"Derived meadow"
