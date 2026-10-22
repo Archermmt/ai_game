@@ -12,9 +12,9 @@ from art_pass_render_checks import production_files
 OUT = ROOT / 'reports/week_10/native'
 
 
-def probe(name, flags, seconds=0):
+def probe(name, flags, seconds=0, audio_args=None):
     report = OUT / (name + '.json')
-    command = [engine_binary(), '--path', str(ROOT), '--verbose', '--resolution', '1920x1080', '--', '--qa-settings', '--art-fhd',
+    command = [engine_binary(), *(audio_args or []), '--path', str(ROOT), '--verbose', '--resolution', '1920x1080', '--', '--qa-settings', '--art-fhd',
                '--smoke-output=' + str(report), '--capture=' + str(OUT / (name + '.png')), *flags]
     if seconds:
         command.append('--benchmark-seconds=' + str(seconds))

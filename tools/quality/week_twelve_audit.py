@@ -109,6 +109,7 @@ def decision(root, facts, observations):
         'package_identity': valid_identity,
         'asset_47_79_technical': facts.get('assets_passed') is True,
         'asset_visual_signoff': observations.get('asset_visual_signoff') == revision,
+        'native_audio_output': facts.get('native_audio_output_verified') is True,
         'cumulative_regression': facts.get('regression_passed') is True,
         'ac_01_to_14_automated': set(facts.get('ac', {})) == {f'AC-{i:02}' for i in range(1, 15)} and all(v is True for v in facts.get('ac', {}).values()),
         'frame_p95_20ms': measured(metrics.get('frame_p95_ms'), 20),

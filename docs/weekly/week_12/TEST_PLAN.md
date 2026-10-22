@@ -19,3 +19,5 @@ python3 tools/quality/week_twelve_release.py --require-release
 AC01–14 用 `ac_index.json` 指向 XML 的真实通过用例，自动通过和人工视觉/Windows 验收分开记录。包仅允许十个文档/可执行/清单文件，严格逐项哈希验证。Git archive 源码、导出和原生报告必须同一源码提交；归档文档提交可后置。
 
 性能记录帧 p95、提交 p95、主线程回调最大、RSS；提交 p95 目标 150ms，未通过不能被帧率或回调代替。最小配置、全新机器首帧、Windows 完整流程、十位首次玩家、M4 审批、最终美术复核必须有独立证据。macOS 上导出 Windows EXE 不代表 Windows 运行通过。
+
+本机 CoreAudio 最小单声部复现的混音时钟不推进，停止后仍遗留播放引用；保留失败日志。可显式加 `--silent-audio` 到 clean_checkout 与 week_twelve_native_checks 做无声 GUI/性能 QA；仅为测试进程选择 Dummy，不改变游戏默认驱动。报告标记音频未验，放行新增 native_audio_output 阻塞；不能用静音模式关闭听音/设备验收。

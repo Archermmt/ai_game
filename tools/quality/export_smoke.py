@@ -23,6 +23,7 @@ def main():
     parser.add_argument("--garden", action="store_true", help="Context ribbon and dynamic meadow revision")
     parser.add_argument("--simple", action="store_true", help="UX-02 direct manipulation revision")
     parser.add_argument("--hover", action="store_true", help="UX-03 surface hover revision")
+    parser.add_argument("--silent-audio", action="store_true", help="Use Dummy for GUI QA; report real audio as unverified")
     args = parser.parse_args()
     if args.hover and (args.week != 11 or args.simple or args.garden or args.art_pass):
         raise RuntimeError("UX-03 requires week 11 and no other revision flag")
@@ -83,7 +84,7 @@ def main():
         first_draw.unlink(missing_ok=True)
         started_unix = time.time()
         steps.append(run_step("exported_macos_boot", [
-            str(executable), "--", "--smoke-output=" + str(smoke_file),
+            str(executable), *(["--audio-driver", "Dummy"] if args.silent_audio else []), "--", "--smoke-output=" + str(smoke_file),
             "--capture=" + str(ROOT / f"reports/{label}_exported_macos.png"), "--wind-time=0",
             *(["--qa-settings", "--w10-save-probe" if args.week >= 10 else ("--art-save-probe" if args.art_pass else "--w08-save-probe")] if args.week >= 8 else []),
         ], working_directory=clean_room))
@@ -99,6 +100,8 @@ def main():
             assert smoke["edit_metrics"]["ux03_hover_interface"] and smoke["edit_metrics"]["ribbon_categories"] == 11
         if args.simple:
             assert smoke["edit_metrics"]["ux02_direct_interface"] and smoke["edit_metrics"]["ribbon_categories"] == 11
+        result["macos_audio_output_verified"] = not args.silent_audio
+        result["qa_audio_mode"] = "Dummy; CoreAudio mixer clock not advancing on this host" if args.silent_audio else "native driver; human listening unverified"
         result["macos_clean_room_visible_boot"] = smoke
         result["macos_first_draw_seconds"] = (
             round(json.loads(first_draw.read_text())["unix_seconds"] - started_unix, 3)

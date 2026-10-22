@@ -20,7 +20,7 @@ class DeliveryTests(unittest.TestCase):
         self.addCleanup(self.temporary.cleanup)
         self.folder = Path(self.temporary.name)
         self.index = json.loads((ROOT / 'docs/weekly/week_12/asset_index.json').read_text())
-        self.facts = {'revision': 'a' * 40, 'zip_sha256': 'b' * 64, 'assets_passed': True,
+        self.facts = {'revision': 'a' * 40, 'zip_sha256': 'b' * 64, 'native_audio_output_verified': True, 'assets_passed': True,
                       'regression_passed': True, 'ac': {f'AC-{i:02}': True for i in range(1, 15)},
                       'performance': {'frame_p95_ms': 12, 'commit_p95_ms': 120, 'main_callback_ms': 50, 'rss_bytes': 800000000},
                       'playtest_passed': True, 'actual_first_players': 10}
@@ -67,6 +67,8 @@ class DeliveryTests(unittest.TestCase):
         self.assertIn('windows_real_device', decision(self.folder, self.facts, self.observations)['blockers'])
 
     def test_mac_export_and_no_real_records_cannot_approve_release(self):
+        self.facts['native_audio_output_verified'] = False
+        self.assertIn('native_audio_output', decision(self.folder, self.facts, self.observations)['blockers'])
         result = decision(self.folder, self.facts, {})
         self.assertFalse(result['m5_approved'])
         self.assertIn('windows_real_device', result['blockers'])

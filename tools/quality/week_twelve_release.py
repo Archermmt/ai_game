@@ -36,6 +36,7 @@ def main():
              'ac': {key: row['automated_passed'] for key, row in ac.items()},
              'performance': {'frame_p95_ms': capacity['p95_frame_ms'], 'commit_p95_ms': m['commit_latency_p95_ms'],
                              'main_callback_ms': m['main_callback_max_ms'], 'rss_bytes': capacity['rss_peak_bytes']},
+             'native_audio_output_verified': metrics.get('native_audio_output_verified') is True,
              'playtest_passed': players['t067_passed'], 'actual_first_players': players['eligible_first_players']}
     observations = json.loads((ROOT / 'docs/weekly/week_12/platform_observations.json').read_text())
     result = {**decision(ROOT, facts, observations), 'facts': facts, 'ac': ac, 'playtest': players}

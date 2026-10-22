@@ -20,6 +20,7 @@ def main():
     parser.add_argument("--garden", action="store_true")
     parser.add_argument("--simple", action="store_true", help="UX-02 direct manipulation revision")
     parser.add_argument("--hover", action="store_true", help="UX-03 surface hover revision")
+    parser.add_argument("--silent-audio", action="store_true", help="Explicit Dummy driver for W12 export QA only; never audio acceptance")
     parser.add_argument("--export", action="store_true", help="W12: export desktop artifacts from this clean archive")
     args = parser.parse_args()
     if args.export and args.week != 12:
@@ -65,7 +66,7 @@ def main():
         clean_exports = None
         if args.export:
             (checkout / '.tools').symlink_to(ROOT / '.tools', target_is_directory=True)
-            export = subprocess.run([sys.executable, 'tools/quality/export_smoke.py', '--week', '12'],
+            export = subprocess.run([sys.executable, 'tools/quality/export_smoke.py', '--week', '12', *(['--silent-audio'] if args.silent_audio else [])],
                                     cwd=checkout, env=environment, text=True, capture_output=True, timeout=240)
             print(export.stdout, end='')
             if export.returncode:
