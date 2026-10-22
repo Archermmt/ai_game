@@ -85,9 +85,5 @@ func _request_quit() -> void:
 	if soundscape != null:
 		soundscape.shutdown()
 		# Let the audio mixer consume the stopped voices before engine teardown.
-		await (
-			get_tree()
-			. create_timer(maxf(0.12, AudioServer.get_time_to_next_mix() + 0.12), true, false, true)
-			. timeout
-		)
+		await get_tree().create_timer(0.4, true, false, true).timeout
 	super._request_quit()
