@@ -1,0 +1,16 @@
+extends SceneTree
+
+func _initialize() -> void:
+	call_deferred("probe")
+
+func probe() -> void:
+	var scene = load("res://app/hover_root.tscn").instantiate()
+	root.add_child(scene)
+	await create_timer(3).timeout
+	print("AUDIO BEFORE ", scene.soundscape.loops.forest.playing)
+	scene.soundscape.shutdown()
+	print("AUDIO AFTER ", scene.soundscape.loops.forest.playing, " ", scene.soundscape.loops.forest.stream)
+	await create_timer(1).timeout
+	scene.free()
+	await create_timer(1).timeout
+	quit()

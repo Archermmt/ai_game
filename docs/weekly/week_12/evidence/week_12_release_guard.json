@@ -1,0 +1,7 @@
+{
+  "expected_exit": 2,
+  "actual_exit": 2,
+  "passed": true,
+  "reason": "Open performance and external acceptance gates must refuse M5",
+  "stdout": "W12 release status: internal_qa_only ; blockers: asset_visual_signoff, native_audio_output, frame_p95_20ms, local_edit_p95_150ms, main_callback_100ms, windows_real_device, minimum_spec_pc, fresh_machine_startup_5s, t067_ten_first_players, explicit_m4_approval\n"
+}

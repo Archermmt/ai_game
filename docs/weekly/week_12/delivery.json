@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-23",
+  "version": "0.12.0-w12",
+  "runtime_revision": "0e184a7fc9e8ede61c1f57a0341a66fab8a8659d",
+  "default_scene": "app/hover_root.tscn",
+  "godot_tests": 611,
+  "godot_assertions": 16705,
+  "python_tests": 23,
+  "new_godot_tests": 2,
+  "new_python_tests": 17,
+  "failures": 0,
+  "skipped": 0,
+  "negative_control": true,
+  "empty_import_cache": true,
+  "exported_from_clean_archive": true,
+  "native_gui_checks": 24,
+  "production_files_unchanged": true,
+  "native_audio_output_verified": false,
+  "qa_audio_mode": "Dummy; native CoreAudio clock not advancing, minimum reproduction and failed logs retained",
+  "native_metrics": {
+    "frame_p95_ms": 23.2183333333333,
+    "commit_p95_ms": 363.913,
+    "main_callback_ms": 128.981,
+    "rss_bytes": 993132544
+  },
+  "native_targets": {
+    "frame_p95_20ms": false,
+    "main_callback_100ms": false,
+    "rss_2gib": true,
+    "local_edit_p95_150ms": false
+  },
+  "asset_families": 47,
+  "asset_base_units": 79,
+  "manual_model_families": 21,
+  "ac_automated": 14,
+  "macos_export_visible_boot": true,
+  "macos_first_draw_seconds": 2.836,
+  "startup_caveat": "Existing host/driver caches; silent QA; not fresh-machine cold startup",
+  "windows_pe_x86_64": true,
+  "windows_real_device": "not_run",
+  "minimum_spec_pc": "not_run",
+  "actual_first_players": 0,
+  "m4_approved": false,
+  "m5_approved": false,
+  "status": "internal_qa_only",
+  "artifacts": [
+    {
+      "path": "builds/week_12/windows/windhaven_week_12.exe",
+      "bytes": 131726472,
+      "sha256": "bc8fdda33695688f2268f84c2755fde2f77fcef03288e6f73c1705d418b427d6"
+    },
+    {
+      "path": "builds/week_12/macos/windhaven_week_12.zip",
+      "bytes": 79991100,
+      "sha256": "1808d1b34d835436d6dc34c407913f5bd273be187058a2b7309c7618071283e4"
+    }
+  ],
+  "internal_windows_zip": {
+    "path": "builds/week_12/windows/Windhaven_0.12.0-w12_Windows_Internal.zip",
+    "bytes": 58155485,
+    "sha256": "887bcb21e00324867ee028a4bdb7edc6ac95f0bc472de5d61a249fa15e39e64f",
+    "revision": "0e184a7fc9e8ede61c1f57a0341a66fab8a8659d",
+    "version": "0.12.0-w12",
+    "status": "internal_qa_only",
+    "m5_approved": false
+  },
+  "remaining_gates": [
+    "asset_visual_signoff",
+    "native_audio_output",
+    "frame_p95_20ms",
+    "local_edit_p95_150ms",
+    "main_callback_100ms",
+    "windows_real_device",
+    "minimum_spec_pc",
+    "fresh_machine_startup_5s",
+    "t067_ten_first_players",
+    "explicit_m4_approval"
+  ]
+}

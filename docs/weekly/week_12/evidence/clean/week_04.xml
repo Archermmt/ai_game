@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="50" >
+  <testsuite name="tests/week_04/test_assets_environment.gd" tests="10" failures="0" skipped="0" time="0.016705" >
+      <testcase name="test_nature_and_props_import_with_uv_color_ground_socket_and_budget" assertions="341" status="pass" classname="tests/week_04/test_assets_environment.gd" time="0.007163" >
+      </testcase>
+      <testcase name="test_bench_has_tea_support_and_mailbox_distinct_geometry" assertions="3" status="pass" classname="tests/week_04/test_assets_environment.gd" time="0.001123" >
+      </testcase>
+      <testcase name="test_plants_have_zero_weight_roots_and_moving_tops" assertions="6" status="pass" classname="tests/week_04/test_assets_environment.gd" time="0.004322" >
+      </testcase>
+      <testcase name="test_rock_geometry_has_closed_bottom_faces_and_no_wind" assertions="4" status="pass" classname="tests/week_04/test_assets_environment.gd" time="0.000717" >
+      </testcase>
+      <testcase name="test_light_rig_selects_nearest_four_and_emits_all_six" assertions="10" status="pass" classname="tests/week_04/test_assets_environment.gd" time="0.000901" >
+      </testcase>
+      <testcase name="test_daytime_lamps_are_off_and_removed_probes_release_nodes" assertions="3" status="pass" classname="tests/week_04/test_assets_environment.gd" time="0.000361" >
+      </testcase>
+      <testcase name="test_environment_validation_rejects_invalid_wind_and_lamp_sources" assertions="2" status="pass" classname="tests/week_04/test_assets_environment.gd" time="0.000101" >
+      </testcase>
+      <testcase name="test_fence_foundation_geometry_is_grounded_and_path_creates_gap" assertions="2" status="pass" classname="tests/week_04/test_assets_environment.gd" time="0.001259" >
+      </testcase>
+      <testcase name="test_fence_invalid_points_are_rejected_without_script_errors" assertions="2" status="pass" classname="tests/week_04/test_assets_environment.gd" time="0.000102" >
+      </testcase>
+      <testcase name="test_cloth_draft_retains_fixed_hanging_vertices_and_wind_weights" assertions="2" status="pass" classname="tests/week_04/test_assets_environment.gd" time="0.000656" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_04/test_path_doors.gd" tests="15" failures="0" skipped="0" time="0.073425" >
+      <testcase name="test_path_endpoint_generates_real_arch_and_valid_back_reference" assertions="5" status="pass" classname="tests/week_04/test_path_doors.gd" time="0.000471" >
+      </testcase>
+      <testcase name="test_endpoint_distance_and_height_thresholds" assertions="4" status="pass" classname="tests/week_04/test_path_doors.gd" time="0.000382" >
+      </testcase>
+      <testcase name="test_multiple_paths_reuse_door_and_last_path_removal_removes_it" assertions="4" status="pass" classname="tests/week_04/test_path_doors.gd" time="0.000411" >
+      </testcase>
+      <testcase name="test_lock_converts_auto_door_to_manual_and_survives_road_deletion" assertions="3" status="pass" classname="tests/week_04/test_path_doors.gd" time="0.000365" >
+      </testcase>
+      <testcase name="test_hand_door_has_priority_without_being_replaced" assertions="3" status="pass" classname="tests/week_04/test_path_doors.gd" time="0.000208" >
+      </testcase>
+      <testcase name="test_manual_window_conflict_never_swallows_window" assertions="3" status="pass" classname="tests/week_04/test_path_doors.gd" time="0.000264" >
+      </testcase>
+      <testcase name="test_crossing_house_creates_exterior_entries_and_hides_interior_road" assertions="2" status="pass" classname="tests/week_04/test_path_doors.gd" time="0.002534" >
+      </testcase>
+      <testcase name="test_curved_wall_entry_uses_arc_coordinates" assertions="3" status="pass" classname="tests/week_04/test_path_doors.gd" time="0.000282" >
+      </testcase>
+      <testcase name="test_reconciliation_is_idempotent_and_independent_of_path_order" assertions="2" status="pass" classname="tests/week_04/test_path_doors.gd" time="0.001768" >
+      </testcase>
+      <testcase name="test_one_transaction_undo_restores_path_and_opening_together" assertions="7" status="pass" classname="tests/week_04/test_path_doors.gd" time="0.000975" >
+      </testcase>
+      <testcase name="test_curve_sampling_passes_controls_and_stays_in_plot" assertions="5" status="pass" classname="tests/week_04/test_path_doors.gd" time="0.000137" >
+      </testcase>
+      <testcase name="test_path_seed_changes_stones_but_keeps_distant_path_geometry" assertions="4" status="pass" classname="tests/week_04/test_path_doors.gd" time="0.064033" >
+      </testcase>
+      <testcase name="test_all_three_doors_and_two_windows_create_valid_fixed_size_source" assertions="20" status="pass" classname="tests/week_04/test_path_doors.gd" time="0.001129" >
+      </testcase>
+      <testcase name="test_near_limit_endpoint_cannot_snap_sideways_beyond_distance_limit" assertions="1" status="pass" classname="tests/week_04/test_path_doors.gd" time="0.000177" >
+      </testcase>
+      <testcase name="test_manual_window_near_corner_snaps_to_nearest_legal_wall_region" assertions="4" status="pass" classname="tests/week_04/test_path_doors.gd" time="0.000289" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_04/test_terrain_production.gd" tests="10" failures="0" skipped="0" time="1.001515" >
+      <testcase name="test_formal_base_profile_is_finite_and_delta_restore_keeps_base" assertions="4" status="pass" classname="tests/week_04/test_terrain_production.gd" time="0.00028" >
+      </testcase>
+      <testcase name="test_smoothing_reduces_peak_without_changing_far_data" assertions="2" status="pass" classname="tests/week_04/test_terrain_production.gd" time="0.000374" >
+      </testcase>
+      <testcase name="test_pool_and_core_boundary_are_protected_for_all_new_brush_modes" assertions="42" status="pass" classname="tests/week_04/test_terrain_production.gd" time="0.000774" >
+      </testcase>
+      <testcase name="test_entrance_clearance_is_not_eroded_by_brush" assertions="1" status="pass" classname="tests/week_04/test_terrain_production.gd" time="0.000169" >
+      </testcase>
+      <testcase name="test_chunk_cache_rebuilds_only_local_halo_and_matches_full_generation" assertions="5" status="pass" classname="tests/week_04/test_terrain_production.gd" time="0.698687" >
+      </testcase>
+      <testcase name="test_pool_deletion_invalidates_affected_chunks_and_restores_player_data" assertions="4" status="pass" classname="tests/week_04/test_terrain_production.gd" time="0.065263" >
+      </testcase>
+      <testcase name="test_base_profile_change_invalidates_all_chunks" assertions="1" status="pass" classname="tests/week_04/test_terrain_production.gd" time="0.114031" >
+      </testcase>
+      <testcase name="test_foundation_timbers_leave_entrance_clear_and_stone_follows_ground" assertions="2" status="pass" classname="tests/week_04/test_terrain_production.gd" time="0.000591" >
+      </testcase>
+      <testcase name="test_three_metre_support_boundary_still_rejects_whole_source" assertions="2" status="pass" classname="tests/week_04/test_terrain_production.gd" time="0.000411" >
+      </testcase>
+      <testcase name="test_unchanged_path_mesh_is_reused_when_terrain_is_far_away" assertions="1" status="pass" classname="tests/week_04/test_terrain_production.gd" time="0.120935" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_04/test_week_four_playground.gd" tests="15" failures="0" skipped="0" time="5.24821" >
+      <testcase name="test_w04_scene_has_formal_assets_terrain_and_bounded_ui" assertions="7" status="pass" classname="tests/week_04/test_week_four_playground.gd" time="0.461877" >
+      </testcase>
+      <testcase name="test_path_node_drag_is_one_transaction_and_escape_preserves_source" assertions="4" status="pass" classname="tests/week_04/test_week_four_playground.gd" time="0.400634" >
+      </testcase>
+      <testcase name="test_auto_entry_delete_road_undo_and_locked_preservation_through_ui" assertions="3" status="pass" classname="tests/week_04/test_week_four_playground.gd" time="0.447308" >
+      </testcase>
+      <testcase name="test_manual_window_gesture_rejects_conflicting_placement_and_keeps_history" assertions="2" status="pass" classname="tests/week_04/test_week_four_playground.gd" time="0.255193" >
+      </testcase>
+      <testcase name="test_new_terrain_brush_undo_restores_delta_and_far_tree_node" assertions="2" status="pass" classname="tests/week_04/test_week_four_playground.gd" time="0.388266" >
+      </testcase>
+      <testcase name="test_lighting_transition_is_smooth_and_local_lights_never_exceed_four" assertions="8" status="pass" classname="tests/week_04/test_week_four_playground.gd" time="0.267572" >
+      </testcase>
+      <testcase name="test_shared_wind_direction_and_reduce_motion_reach_all_asset_materials" assertions="958" status="pass" classname="tests/week_04/test_week_four_playground.gd" time="0.373051" >
+      </testcase>
+      <testcase name="test_path_change_emits_local_bounds_covering_old_and_new_control_points" assertions="3" status="pass" classname="tests/week_04/test_week_four_playground.gd" time="0.365851" >
+      </testcase>
+      <testcase name="test_visible_preview_failure_restores_doors_paths_and_scene" assertions="5" status="pass" classname="tests/week_04/test_week_four_playground.gd" time="0.381821" >
+      </testcase>
+      <testcase name="test_option_orbit_and_pinch_do_not_paint_in_new_tools" assertions="2" status="pass" classname="tests/week_04/test_week_four_playground.gd" time="0.251684" >
+      </testcase>
+      <testcase name="test_asset_place_uses_selected_model_and_undo_removes_same_id" assertions="3" status="pass" classname="tests/week_04/test_week_four_playground.gd" time="0.383002" >
+      </testcase>
+      <testcase name="test_fence_drag_is_one_history_and_undo_restores_source" assertions="4" status="pass" classname="tests/week_04/test_week_four_playground.gd" time="0.377459" >
+      </testcase>
+      <testcase name="test_missing_control_and_zero_length_fence_do_not_consume_history" assertions="2" status="pass" classname="tests/week_04/test_week_four_playground.gd" time="0.259757" >
+      </testcase>
+      <testcase name="test_custom_release_over_toolbar_cancels_visible_asset_preview" assertions="4" status="pass" classname="tests/week_04/test_week_four_playground.gd" time="0.396196" >
+      </testcase>
+      <testcase name="test_nature_instances_align_up_to_slope_without_changing_source_yaw" assertions="10" status="pass" classname="tests/week_04/test_week_four_playground.gd" time="0.238539" >
+      </testcase>
+  </testsuite>
+</testsuites>

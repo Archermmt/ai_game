@@ -1,0 +1,9 @@
+{
+  "path": "builds/week_12/windows/Windhaven_0.12.0-w12_Windows_Internal.zip",
+  "bytes": 58155485,
+  "sha256": "887bcb21e00324867ee028a4bdb7edc6ac95f0bc472de5d61a249fa15e39e64f",
+  "revision": "0e184a7fc9e8ede61c1f57a0341a66fab8a8659d",
+  "version": "0.12.0-w12",
+  "status": "internal_qa_only",
+  "m5_approved": false
+}

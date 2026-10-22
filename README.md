@@ -56,19 +56,23 @@ python3 tools/quality/run_game.py
 ```bash
 # 自动化回归、格式、lint、资源契约、跨进程重启与失败注入
 python3 tools/quality/week_twelve_checks.py
-# 有桌面 GPU 的机器：日暮/四向近远/风效、分阶段性能和真实环绕录像（需 FFmpeg）
+# 有桌面 GPU 的机器：24项悬停GUI与60秒满容量性能
 python3 tools/quality/week_twelve_native_checks.py
 # ART 多角度与环绕录像保留历史入口：art_pass_render_checks.py / art_pass_orbit.py
 # 本机 macOS：取匹配的桌面模板、注册、导出并实际启动 macOS 包
 python3 tools/quality/fetch_desktop_runtime.py --templates-only
 python3 tools/quality/install_desktop_templates.py
 python3 tools/quality/clean_checkout.py --week 12 --export
-# 提交后，从无导入缓存的 Git 归档复测
-python3 tools/quality/clean_checkout.py --week 11 --hover
+# 内部Windows ZIP（必须已有同提交的导出/原生报告）
+python3 tools/quality/week_twelve_audit.py
+python3 tools/quality/week_twelve_package.py
+python3 tools/quality/week_twelve_release.py
 ```
 
+当前本机CoreAudio混音时钟停滞；可在clean_checkout与week_twelve_native_checks显式添加 `--silent-audio` 验证非音频功能。报告会标记Dummy，真实音频不计通过，游戏包默认音频驱动不变。
+
 导入、导出以及质量检查按顺序运行，避免两个编辑器进程同时修改同一 `.godot/`。
-自动报告输出到 `reports/`；试玩包位于 `builds/ux_03/windows/` 和 `builds/ux_03/macos/`。
+自动报告输出到 `reports/`；试玩包位于 `builds/week_12/windows/` 和 `builds/week_12/macos/`。
 macOS 包是本地未公证开发包。Windows EXE 导出成功仍需 Windows 设备完成可见交互验证。
 CI 已配置 Ubuntu / Windows 自动回归，尚未推送远程触发。
 每周新增功能必须补测试并保留既有回归，见 [测试约定](docs/TESTING.md)。
@@ -77,7 +81,7 @@ CI 已配置 Ubuntu / Windows 自动回归，尚未推送远程触发。
 
 - `app/`：试玩组合根；`core/`：源数据、放置约束和事务。
 - `features/`：建筑网格、轨道相机、存档与风着色器；`ui/`：操作面板与建筑属性 / 恢复面板。
-- `tests/week_01/`–`week_10/` 和 `tests/art_pass_01/`：累计 GUT 回归和独立进程探针；`tools/quality/`：可复现质量命令。
+- `tests/week_01/`–`week_12/`、`tests/art_pass_01/`、`tests/ux_02/` 与 `tests/ux_03/`：累计 GUT 回归和独立进程探针；`tools/quality/`：可复现质量命令。
 - `art_source/week_01/`–`week_10/` 和 `art_source/art_pass_01/`：模型、纹理与材质库源文件；`assets/`：GLB、贴图和导入配置。
 - `docs/`：已批准 PRD、开发计划、每周证据与许可。
 

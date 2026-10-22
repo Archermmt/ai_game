@@ -230,3 +230,5 @@ UX-03悬停编辑为当前默认版本：`python3 tools/quality/hover_checks.py`
 ## W12 内部交付
 
 累计入口 `python3 tools/quality/week_twelve_checks.py`；干净源码测试与实际重导出 `python3 tools/quality/clean_checkout.py --week 12 --export`。随后串行执行原生、资产、打包、放行检查，详见 [W12测试契约](weekly/week_12/TEST_PLAN.md)。功能通过不代表正式 M5 放行；无真实 Windows、最低配置、首次玩家或 M4 证据时，`week_twelve_release.py --require-release` 必须退出2。
+
+本机W12记录：CoreAudio混音时钟不推进的最小复现及失败日志保留；最终clean_checkout与native命令使用显式 `--silent-audio`。该参数只给测试进程选择Dummy，不修改包的默认驱动，native_audio_output保持未通过。不能以此替代真实音频验收。

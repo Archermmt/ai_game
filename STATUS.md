@@ -1,14 +1,20 @@
 # 风栖小筑 · 开发状态
 
-更新日期：2026-10-22（Asia/Shanghai）
+更新日期：2026-10-23（Asia/Shanghai）
 
-## W12 当前进度
+## W12 当前交付（本机部分）
 
-版本 `0.12.0-w12`，默认 `app/hover_root.tscn`。UX-03 已归档；继续 T070–T073 的本机交付准备。47族/79基础单元与21手工模型族技术映射、内部包构建、放行门禁和新增17项Python回归已实现，正在执行干净源码与原生验证。正式 Windows、低配、首次玩家及 M4/M5 未完成，不能标记整周正式验收通过。
+2026-10-23：版本 `0.12.0-w12`，默认 `app/hover_root.tscn`，源码 `0e184a7`，本地归档标签 `v0.12.0-w12`。悬停修改沿用UX-03，新增内部包交付与逐项放行检查；**W12本机工作完成，正式M5仍阻塞**。
 
-[W12报告](docs/weekly/week_12/README.md) · [测试契约](docs/weekly/week_12/TEST_PLAN.md)。
+- T070技术核对：47族/79基础单元/21手工模型族、许可证、文件哈希及既存重开审计通过；最终逐族视觉签核待补。
+- T071：空缓存累计611项Godot+23项Python，0失败/0跳过、负控通过；AC01–14自动证据齐全，原生GUI24项全真，正式文件未变。新增2项音频生命周期与17项交付回归。
+- 满容量帧p95 23.218ms、提交p95 363.913ms、回调最大128.981ms、RSS峰值947.12MiB；性能逐项结果见本周报告与放行决定，未达项保持开放。本机CoreAudio混音时钟停滞，失败日志保留；最终原生/导出为显式Dummy静音QA，音频未验。
+- T072内部ZIP：Git archive实际重导出，版本/精确提交/十文件清单/SHA256/操作说明/许可证齐全，Mac实际解包启动保存通过；Windows只PE结构通过。`builds/week_12/windows/Windhaven_0.12.0-w12_Windows_Internal.zip`。
+- T073与正式放行：Windows/低配机/全新启动、真实音频、首次玩家0/10、M4/M5保持待验；`--require-release`实际退出2。未声称整周正式验收通过。
 
-## UX-03 当前交付
+复验 `python3 tools/quality/clean_checkout.py --week 12 --export --silent-audio`；原生 `python3 tools/quality/week_twelve_native_checks.py --silent-audio`；资产/打包/放行命令见[W12测试契约](docs/weekly/week_12/TEST_PLAN.md)。[完整报告与证据](docs/weekly/week_12/README.md)。
+
+## UX-03 历史交付
 
 2026-10-22：按用户截图完成无需预先选中的悬停引导、屋顶坡度/平顶、门窗与桥阶表面编辑。PRD附录D保留本次范围；最终代码 `176f9ec`，归档标签 `v0.11.2-ux03`。默认入口 `app/hover_root.tscn`，版本 `0.11.2-ux03`。
 
@@ -189,8 +195,7 @@ W09 QA原生自动保存使用 `user://qa_w09_native`，单测使用 `user://qa_
 ART-01 本地包：`builds/art_pass_01/macos/windhaven_art_pass_01.zip`、`builds/art_pass_01/windows/windhaven_art_pass_01.exe`。
 W09 历史包：`builds/week_09/macos/windhaven_week_09.zip`、`builds/week_09/windows/windhaven_week_09.exe`。
 
-## 下一周与剩余门槛
+## 后续与剩余门槛
 
-先完成ART-01用户视觉复核，W10–12按补充计划顺延。W10：T063声音播放/三类音量，T064 AC09–14持久化/摄影/设置/池岸组合，T065–066已复现缺陷与功能冻结。
-Windows真机、最低配置性能、远程CI、物理触控板手感独立待验；Mac导出不替代Windows输入验收。
-摄影与入口的15分钟人工计时体验未冒充已完成，按周目录脚本复核。
+十二周MVP计划已推进至W12本机内部交付，正式T072/T073与M4/M5仍不能关闭。下一轮先修复当前帧/主回调与150ms局部提交性能门槛，再用最终ZIP完成Windows、最低配置、全新设备首帧、真实音频及十位首次玩家验证；不自动扩充P1/P2。
+物理触控板手感、远端CI与最终逐族视觉签核独立待验。macOS导出或静音QA不替代Windows输入、音频与首次启动验收。

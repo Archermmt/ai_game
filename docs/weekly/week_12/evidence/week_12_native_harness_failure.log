@@ -1,0 +1,19 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M4 Pro (Apple9)
+
+W09_FIRST_DRAW
+WARNING: 8 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+
+Traceback (most recent call last):
+  File "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/tools/quality/week_twelve_native_checks.py", line 9, in <module>
+    main('week_12', ['--audio-driver', 'Dummy'] if args.silent_audio else None)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/tools/quality/hover_native_checks.py", line 15, in main
+    run_step(label + '_native_dispatch', [engine_binary(), *(audio_args or []), '--path', '.', '--resolution', '1920x1080',
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        '-s', 'tests/ux_03/native_probe.gd', '--', '--qa-settings', '--art-fhd', str(out)])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/tools/quality/run_checks.py", line 32, in run_step
+    raise RuntimeError(f"{name} failed; exit={process.returncode}")
+RuntimeError: week_12_native_dispatch failed; exit=0
