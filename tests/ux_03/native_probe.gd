@@ -149,9 +149,10 @@ func _run() -> void:
 	for value: bool in evidence.values():
 		passed = passed and value
 	# Dispose the scene before engine teardown so stopped mixer voices can drain.
+	playground.soundscape.shutdown()
+	await create_timer(0.4, true, false, true).timeout
 	playground.queue_free()
 	await process_frame
-	await create_timer(0.1, true, false, true).timeout
 	quit(0 if passed else 1)
 
 
