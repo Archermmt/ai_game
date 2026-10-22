@@ -165,6 +165,12 @@ func surface(
 	if handles.has(key) and handles[key].visible:
 		caption.position = handles[key].position + Vector2(24, -26)
 		caption.position.x = clampf(caption.position.x, 18, maxf(18, bounds.end.x - 240))
-		caption.position.y = maxf(18, caption.position.y)
+		var top: float = INF
+		var bottom: float = 0
+		for chip: Control in handles.values():
+			if chip.visible:
+				top = minf(top, chip.position.y)
+				bottom = maxf(bottom, chip.position.y + chip.size.y)
+		caption.position.y = top - 30 if top >= 48 else bottom + 6
 		caption.show()
 	queue_redraw()

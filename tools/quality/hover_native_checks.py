@@ -14,7 +14,7 @@ def main():
     run_step('ux03_native_dispatch', [engine_binary(), '--path', '.', '--resolution', '1920x1080',
         '-s', 'tests/ux_03/native_probe.gd', '--', '--qa-settings', '--art-fhd', str(out)])
     report = json.loads((out / 'native_report.json').read_text())
-    assert len(report) >= 23 and all(report.values())
+    assert len(report) >= 24 and all(report.values())
     for name in ['hover_roof', 'roof_raised', 'roof_flat', 'hover_window', 'hover_bridge', 'hover_150', 'photo', 'photo_return']:
         assert struct.unpack_from('>II', (out / (name + '.png')).read_bytes(), 16) == (1920, 1080)
     native.OUT = out

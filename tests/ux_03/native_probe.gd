@@ -88,6 +88,7 @@ func _run() -> void:
 		await _hover_at(SurfaceEditData.opening_origin(home, opening))
 		_check("hover_window", playground.hovered.get("family", "") == "opening")
 		await _frame("hover_window")
+		_check("window_caption_clear", _caption_clear())
 		await _drag_handle("width", Vector2(14, 0))
 		_check(
 			"window_changed",
@@ -156,5 +157,13 @@ func _handles_inside() -> bool:
 			chip.visible
 			and not Rect2(Vector2.ZERO, Vector2(root.size)).encloses(chip.get_global_rect())
 		):
+			return false
+	return true
+
+
+func _caption_clear() -> bool:
+	var caption: Label = playground.hud.direct_handles.caption
+	for chip: Control in playground.hud.direct_handles.handles.values():
+		if chip.visible and caption.get_global_rect().intersects(chip.get_global_rect()):
 			return false
 	return true
