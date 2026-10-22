@@ -23,4 +23,33 @@
 
 W01–W11、ART及UI/Meadow旧场景保持独立回归。当前Godot默认入口变更不要求迁移正式五槽存档。QA均使用独立目录，不能使用正式作品测试。
 
-验证命令、逐项映射见 [TEST_PLAN.md](TEST_PLAN.md)。结果、截图、性能、导出哈希完成后归档在本目录；实际人数、Windows/低配机和150ms门槛仍独立记录。
+验证命令、逐项映射见 [TEST_PLAN.md](TEST_PLAN.md)。完整结果见下表及 [delivery.json](delivery.json)，未关闭门槛见 [KNOWN_ISSUES.md](KNOWN_ISSUES.md)。
+
+
+## 最终验证结果
+
+实现/修复版本 `7b0b68a` 经Git archive检出，不复用导入缓存；文档与UID元数据随后归档，交付标签 `v0.11.1-ux02`。功能门禁通过，M4/M5仍未批准。
+
+| 项目 | 结果 |
+| --- | --- |
+| 累计自动回归 | 579项Godot、16,299条断言，另6项Python；0失败、0跳过；负控制生效 |
+| 本次新增 | 26项 / 377条断言；格式、lint、资源契约与历史测试均通过 |
+| 原生输入 | 11项断言全真：真实Input分派点选、拖转、GUI手柄、一次提交/撤销、150%布局及摄影恢复 |
+| 摄影 | 1080p/1440p实际PNG解码；复核无UI、手柄和选择轮廓 |
+| 满容量60秒 | 24屋/1000源实例，45%动态草、有选中手柄；帧p95 11.494ms，主回调最大45.751ms，RSS峰值948.73MiB |
+| 编辑延迟 | 提交p95/最大277.353ms，**150ms目标未通过** |
+| 本机文件隔离 | 原生验证前后正式作品/偏好哈希一致 |
+| 导出 | Windows x86_64 PE检查通过；macOS实际解包运行，保存/缩略图/11卡新入口/资源打包检查通过 |
+| 启动 | 空缓存回归结束后串行导出复测首绘2.710s；并行CPU负载期间35.955s。保留两次记录，不据此关闭全新设备冷启动门槛 |
+
+原始回归XML、去ANSI日志、clean receipt、原生事件报告及性能帧样本均在 [evidence/](evidence/)。构建哈希记录在 [delivery.json](delivery.json)，本目录文件哈希在 [checksums.json](checksums.json)。Windows实机、最低配置、人工触摸板/听音、远端CI和十人首次试玩没有用本机自动化替代。
+
+## 实机截图
+
+以下来自本项目最终修复版本，不是原版游戏参考图。已复核工具小条、对象就地手柄和摄影隐藏；原版参考图单独保留在调查文档。
+
+![选中房屋后就地修改](evidence/house_handles.png)
+
+[紧凑建筑工具条](evidence/build.png) · [花草150%与两个独立滑杆](evidence/plants_150.png) · [手柄150%](evidence/handles_150.png) · [1080p摄影输出](evidence/photo_1920x1080.png)
+
+本机试玩包：`builds/ux_02/macos/windhaven_ux_02.zip` 与 `builds/ux_02/windows/windhaven_ux_02.exe`。包和缓存不进Git；直接在Godot按F5运行默认新入口即可，旧周场景保留回归基准。

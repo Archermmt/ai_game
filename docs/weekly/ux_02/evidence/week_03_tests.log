@@ -1,0 +1,84 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/week_03/test_building_production.gd
+* test_generator_extremes_have_unit_geometric_normals_and_metric_uvs
+* test_roofs_have_closed_fascia_and_undersides
+* test_repeated_resize_keeps_identity_seed_and_door_dimensions
+* test_resize_into_manual_prop_is_rejected_as_one_transaction
+* test_resize_cannot_squeeze_existing_locked_opening
+* test_delete_parent_retains_manual_frames_with_world_pose
+* test_delete_auto_door_omits_it_but_retains_locked_auto_door
+* test_reattach_preserves_id_and_is_reversible_with_derived_frames
+* test_detached_curved_opening_near_seam_remains_valid
+* test_duplicate_or_invalid_attachment_reference_is_rejected
+* test_fifty_mixed_commands_batch_delete_and_branch_redo_cleanup
+* test_history_source_budget_rejects_without_publication
+* test_batch_delete_two_parents_keeps_all_manual_attachments_in_one_history_entry
+* test_conflicting_reattach_keeps_detached_source_and_history
+* test_malformed_detached_dimensions_fail_validation_without_script_error
+* test_terrain_fitting_support_perimeter_preserves_horizontal_floor
+* test_round_wall_uvs_unwrap_across_full_circumference
+17/17 passed.
+
+
+res://tests/week_03/test_paths.gd
+* test_path_projection_samples_actual_terrain_and_is_repeatable
+* test_intersection_union_has_no_duplicate_triangles
+* test_path_hides_inside_building_and_stops_at_water
+* test_width_and_bounds_are_validated_before_mesh_generation
+* test_source_order_and_unrelated_instance_do_not_reseed_path
+* test_world_rebuild_prepares_path_before_publication
+6/6 passed.
+
+
+res://tests/week_03/test_vegetation_assets.gd
+* test_three_trees_have_smaller_lod_and_same_atlas_region
+* test_tree_trunks_are_fixed_and_fruit_weights_follow_crown
+* test_atlas_has_transparent_leaf_edge_with_extended_color_and_opaque_bark
+* test_lod_material_seed_phase_matches_for_both_levels
+* test_tree_copy_keeps_asset_kind_and_unrelated_seed
+5/5 passed.
+
+
+res://tests/week_03/test_week_three_playground.gd
+* test_w03_scene_has_three_tree_kinds_lod_inspector_and_water
+* test_repeated_size_preview_is_one_commit_with_fixed_frame_scale
+* test_cancel_after_visible_size_preview_restores_source_and_mesh
+* test_delete_parent_ui_lists_frames_and_undo_restores_them
+* test_ui_reattach_rebuilds_real_frame_and_undo_restores_detached_list
+* test_reset_default_is_undoable_and_preserves_previous_work
+* test_actual_mouse_path_gesture_commits_once_and_undo_removes_mesh
+* test_option_orbit_in_path_mode_does_not_start_path
+* test_far_tree_identity_seed_and_transform_survive_nearby_edit
+* test_wind_material_count_stays_bounded_across_rebuilds
+* test_actual_inspector_multiselect_batches_parent_deletion
+* test_rejected_size_after_preview_restores_derived_view_and_history
+* test_mac_pinch_in_w03_preserves_source_and_edit_history
+* test_path_click_without_drag_does_not_consume_history_or_source_id
+14/14 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               4
+Tests                42
+Passing Tests        42
+Asserts             865
+Time              16.277s
+
+
+---- All tests passed! ----
+
+Results saved to reports/week_03.xml

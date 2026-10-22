@@ -1,0 +1,11 @@
+test_duplicate_invalid_times_and_missing_evidence_fail (test_playtest_report.PlaytestReportTest.test_duplicate_invalid_times_and_missing_evidence_fail) ... ok
+test_empty_live_cohort_does_not_pass (test_playtest_report.PlaytestReportTest.test_empty_live_cohort_does_not_pass) ... ok
+test_exact_thresholds_need_full_ten (test_playtest_report.PlaytestReportTest.test_exact_thresholds_need_full_ten) ... ok
+test_freeze_requires_revision_and_explicit_boolean (test_playtest_report.PlaytestReportTest.test_freeze_requires_revision_and_explicit_boolean) ... ok
+test_pre_freeze_old_revision_and_experienced_do_not_qualify (test_playtest_report.PlaytestReportTest.test_pre_freeze_old_revision_and_experienced_do_not_qualify) ... ok
+test_prompted_late_incomplete_or_unreviewed_does_not_count (test_playtest_report.PlaytestReportTest.test_prompted_late_incomplete_or_unreviewed_does_not_count) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.005s
+
+OK
