@@ -4,8 +4,11 @@ import argparse
 import hashlib
 import json
 import platform
+import os
+import re
 import shutil
 import struct
+import subprocess
 import time
 import zipfile
 
@@ -15,7 +18,7 @@ from run_checks import run_step
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--week", type=int, default=7, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
+    parser.add_argument("--week", type=int, default=7, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
     parser.add_argument("--art-pass", action="store_true", help="ART-01 revision after W09")
     parser.add_argument("--garden", action="store_true", help="Context ribbon and dynamic meadow revision")
     parser.add_argument("--simple", action="store_true", help="UX-02 direct manipulation revision")
@@ -33,6 +36,14 @@ def main():
     expected_version = "0.11.2-ux03" if args.hover else "0.11.1-ux02" if args.simple else "0.10.1-garden01" if args.garden else ("0.9.1-art01" if args.art_pass else f"0.{args.week}.0-w{args.week:02d}")
     if f'config/version="{expected_version}"' not in (ROOT / "project.godot").read_text():
         raise RuntimeError("Project version does not match requested export week; use its Git revision")
+    if (ROOT / ".git").exists():
+        revision = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+        if args.week == 12:
+            subprocess.run(["git", "diff", "--exit-code", "HEAD"], cwd=ROOT, check=True, capture_output=True)
+    else:
+        revision = os.environ.get("WINDHAVEN_SOURCE_REVISION", "")
+        if not re.fullmatch(r"[0-9a-f]{40}", revision):
+            raise RuntimeError("Archive export requires its exact parent-provided Git revision")
     build_root = ROOT / "builds" / label
     (ROOT / "builds").mkdir(exist_ok=True)
     (ROOT / "builds/.gdignore").touch()
@@ -55,7 +66,7 @@ def main():
     pe = struct.unpack_from("<I", raw, 0x3C)[0]
     assert raw[pe:pe + 4] == b"PE\x00\x00"
     assert struct.unpack_from("<H", raw, pe + 4)[0] == 0x8664
-    result = {"week": args.week, "art_pass": args.art_pass, "windows_pe_x86_64": True, "windows_real_device": "not_run_on_macos", "steps": steps}
+    result = {"revision": revision, "version": expected_version, "week": args.week, "art_pass": args.art_pass, "windows_pe_x86_64": True, "windows_real_device": "not_run_on_macos", "steps": steps}
     if platform.system() == "Darwin":
         extracted = build_root / "macos/unpacked"
         extracted.mkdir(exist_ok=True)
@@ -84,7 +95,7 @@ def main():
         if args.week >= 8:
             assert smoke["edit_metrics"]["save_worker_ms"] > 0
             assert smoke["edit_metrics"]["thumbnail_png_bytes"] > 0
-        if args.hover:
+        if args.hover or args.week == 12:
             assert smoke["edit_metrics"]["ux03_hover_interface"] and smoke["edit_metrics"]["ribbon_categories"] == 11
         if args.simple:
             assert smoke["edit_metrics"]["ux02_direct_interface"] and smoke["edit_metrics"]["ribbon_categories"] == 11

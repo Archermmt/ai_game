@@ -15,12 +15,15 @@ from common import ROOT, engine_binary
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--week', type=int, default=7, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
+    parser.add_argument('--week', type=int, default=7, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
     parser.add_argument("--art-pass", action="store_true")
     parser.add_argument("--garden", action="store_true")
     parser.add_argument("--simple", action="store_true", help="UX-02 direct manipulation revision")
     parser.add_argument("--hover", action="store_true", help="UX-03 surface hover revision")
+    parser.add_argument("--export", action="store_true", help="W12: export desktop artifacts from this clean archive")
     args = parser.parse_args()
+    if args.export and args.week != 12:
+        raise RuntimeError("Clean export is registered for week 12 only")
     if args.hover and (args.week != 11 or args.simple or args.garden or args.art_pass):
         raise RuntimeError("UX-03 requires week 11 and no other revision flag")
     if args.simple and (args.week != 11 or args.garden or args.art_pass):
@@ -45,7 +48,9 @@ def main():
         (checkout / '.venv').symlink_to(ROOT / '.venv', target_is_directory=True)
         environment = os.environ.copy()
         environment['GODOT_BIN'] = engine_binary()
-        command = ([sys.executable, "tools/quality/hover_checks.py"] if args.hover else
+        environment['WINDHAVEN_SOURCE_REVISION'] = revision
+        command = ([sys.executable, "tools/quality/week_twelve_checks.py"] if args.week == 12 else
+                   [sys.executable, "tools/quality/hover_checks.py"] if args.hover else
                    [sys.executable, "tools/quality/simple_checks.py"] if args.simple else
                    [sys.executable, "tools/quality/week_eleven_checks.py"] if args.week == 11 else
                    [sys.executable, 'tools/quality/ui_meadow_checks.py'] if args.garden else
@@ -57,6 +62,26 @@ def main():
         if process.returncode:
             print(process.stderr, file=sys.stderr)
             raise RuntimeError('Clean checkout regression failed')
+        clean_exports = None
+        if args.export:
+            (checkout / '.tools').symlink_to(ROOT / '.tools', target_is_directory=True)
+            export = subprocess.run([sys.executable, 'tools/quality/export_smoke.py', '--week', '12'],
+                                    cwd=checkout, env=environment, text=True, capture_output=True, timeout=240)
+            print(export.stdout, end='')
+            if export.returncode:
+                print(export.stderr, file=sys.stderr)
+                raise RuntimeError('Clean archive export/smoke failed')
+            clean_exports = json.loads((checkout / 'reports/week_12_exports.json').read_text())
+            for artifact in clean_exports['artifacts']:
+                target = ROOT / artifact['path']
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(checkout / artifact['path'], target)
+                for sidecar in (checkout / artifact['path']).parent.iterdir():
+                    if sidecar.is_file() and sidecar.suffix in ['.txt', '.md']:
+                        shutil.copyfile(sidecar, target.parent / sidecar.name)
+            for pattern in ['week_12_export*.json', 'week_12_export*.png']:
+                for report in (checkout / 'reports').glob(pattern):
+                    shutil.copyfile(report, ROOT / 'reports' / report.name)
         summary = json.loads((checkout / f'reports/{label}_checks.json').read_text())
         evidence = ROOT / f'reports/{label}_clean_evidence'
         evidence.mkdir(exist_ok=True)
@@ -64,7 +89,7 @@ def main():
             for report in (checkout / 'reports').glob(pattern):
                 shutil.copyfile(report, evidence / report.name)
         result = {'revision': revision, 'cache_reused': False, 'host_tools_reused': ['locked Godot', 'gdtoolkit venv'],
-                  'gate': summary, 'passed': True}
+                  'gate': summary, 'passed': True, 'exported_from_clean_archive': args.export, 'exports': clean_exports}
         (ROOT / f'reports/{label}_clean_checkout.json').write_text(json.dumps(result, indent=2) + '\n')
         print('CLEAN CHECKOUT PASS', revision[:7])
 

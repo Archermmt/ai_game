@@ -226,3 +226,7 @@ W10 新增30项/2755断言，累计521项/15512断言；每周套件最小数、
 
 
 UX-03悬停编辑为当前默认版本：`python3 tools/quality/hover_checks.py`，原生 `python3 tools/quality/hover_native_checks.py`；空缓存/导出使用 `--week 11 --hover`。完整契约和证据在 `docs/weekly/ux_03/`；旧UX-02工具门禁保留历史场景。
+
+## W12 内部交付
+
+累计入口 `python3 tools/quality/week_twelve_checks.py`；干净源码测试与实际重导出 `python3 tools/quality/clean_checkout.py --week 12 --export`。随后串行执行原生、资产、打包、放行检查，详见 [W12测试契约](weekly/week_12/TEST_PLAN.md)。功能通过不代表正式 M5 放行；无真实 Windows、最低配置、首次玩家或 M4 证据时，`week_twelve_release.py --require-release` 必须退出2。

@@ -1,0 +1,904 @@
+{
+  "schema": 1,
+  "scope": "P0 only; 47 families / 79 base delivery units; no final visual sign-off inferred",
+  "assets": [
+    {
+      "asset_id": "ENV-01",
+      "production_type": "程序化生成器",
+      "units": [
+        {
+          "name": "林间坡地生成器",
+          "files": [
+            "features/terrain/terrain_field.gd",
+            "features/terrain/terrain_geometry.gd"
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "ENV-02",
+      "production_type": "程序化生成器",
+      "units": [
+        {
+          "name": "池塘轮廓与岸线生成器",
+          "files": [
+            "features/ponds/pond_shape.gd",
+            "features/terrain/terrain_field.gd"
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "ENV-03",
+      "production_type": "程序化生成器",
+      "units": [
+        {
+          "name": "地面石径生成器",
+          "files": [
+            "features/paths/path_geometry.gd",
+            "features/art_direction/art_path_geometry.gd"
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "ENV-04",
+      "production_type": "程序化生成器",
+      "units": [
+        {
+          "name": "木桥生成器",
+          "files": [
+            "features/structures/garden_structures.gd"
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "BLD-01",
+      "production_type": "程序化生成器",
+      "units": [
+        {
+          "name": "矩形墙体生成器",
+          "files": [
+            "features/buildings/building_geometry.gd"
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "BLD-02",
+      "production_type": "程序化生成器",
+      "units": [
+        {
+          "name": "圆形墙体生成器",
+          "files": [
+            "features/buildings/building_geometry.gd"
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "BLD-03",
+      "production_type": "程序化生成器",
+      "units": [
+        {
+          "name": "山墙屋顶生成器",
+          "files": [
+            "features/buildings/building_geometry.gd",
+            "features/buildings/roof_profile.gd",
+            "features/art_direction/cottage_art.gd"
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "BLD-04",
+      "production_type": "程序化生成器",
+      "units": [
+        {
+          "name": "圆锥屋顶生成器",
+          "files": [
+            "features/buildings/building_geometry.gd",
+            "features/buildings/roof_profile.gd",
+            "features/art_direction/cottage_art.gd"
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "BLD-05",
+      "production_type": "手工模型",
+      "units": [
+        {
+          "name": "蜂蜜木板门",
+          "files": [
+            "art_source/week_01/door_plank.blend",
+            "assets/buildings/door_plank.glb",
+            "art_source/week_01/manifest.json"
+          ]
+        }
+      ],
+      "model_source": "art_source/week_01/door_plank.blend"
+    },
+    {
+      "asset_id": "BLD-06",
+      "production_type": "手工模型",
+      "units": [
+        {
+          "name": "圆拱木门",
+          "files": [
+            "art_source/week_01/door_arch.blend",
+            "assets/buildings/door_arch.glb",
+            "art_source/week_01/manifest.json"
+          ]
+        }
+      ],
+      "model_source": "art_source/week_01/door_arch.blend"
+    },
+    {
+      "asset_id": "BLD-07",
+      "production_type": "手工模型",
+      "units": [
+        {
+          "name": "嵌玻璃木门",
+          "files": [
+            "art_source/week_01/door_glass.blend",
+            "assets/buildings/door_glass.glb",
+            "art_source/week_01/manifest.json"
+          ]
+        }
+      ],
+      "model_source": "art_source/week_01/door_glass.blend"
+    },
+    {
+      "asset_id": "BLD-08",
+      "production_type": "手工模型",
+      "units": [
+        {
+          "name": "方形深窗",
+          "files": [
+            "art_source/week_02/window_rect.blend",
+            "assets/buildings/window_rect.glb",
+            "art_source/week_02/manifest.json"
+          ]
+        }
+      ],
+      "model_source": "art_source/week_02/window_rect.blend"
+    },
+    {
+      "asset_id": "BLD-09",
+      "production_type": "手工模型",
+      "units": [
+        {
+          "name": "圆形小窗",
+          "files": [
+            "art_source/week_07/window_round.blend",
+            "assets/week_07/window_round.glb",
+            "art_source/week_07/manifest.json"
+          ]
+        }
+      ],
+      "model_source": "art_source/week_07/window_round.blend"
+    },
+    {
+      "asset_id": "BLD-10",
+      "production_type": "程序化生成器",
+      "units": [
+        {
+          "name": "短石阶生成器",
+          "files": [
+            "features/structures/garden_structures.gd"
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "BLD-11",
+      "production_type": "程序化生成器",
+      "units": [
+        {
+          "name": "木围栏与开口生成器",
+          "files": [
+            "features/fences/fence_geometry.gd"
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "BLD-19",
+      "production_type": "程序化生成器",
+      "units": [
+        {
+          "name": "坡地石基与木构收边生成器",
+          "files": [
+            "features/buildings/foundation_geometry.gd",
+            "features/buildings/support_geometry.gd",
+            "features/buildings/architectural_kit.gd"
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "NAT-01",
+      "production_type": "手工模型",
+      "units": [
+        {
+          "name": "阔叶树",
+          "files": [
+            "art_source/art_pass_01/nature/tree_broadleaf.blend",
+            "assets/nature/art_pass_01/tree_broadleaf.glb",
+            "art_source/art_pass_01/nature/manifest.json"
+          ]
+        }
+      ],
+      "model_source": "art_source/art_pass_01/nature/tree_broadleaf.blend"
+    },
+    {
+      "asset_id": "NAT-02",
+      "production_type": "手工模型",
+      "units": [
+        {
+          "name": "针叶树",
+          "files": [
+            "art_source/art_pass_01/nature/tree_conifer.blend",
+            "assets/nature/art_pass_01/tree_conifer.glb",
+            "art_source/art_pass_01/nature/manifest.json"
+          ]
+        }
+      ],
+      "model_source": "art_source/art_pass_01/nature/tree_conifer.blend"
+    },
+    {
+      "asset_id": "NAT-03",
+      "production_type": "手工模型",
+      "units": [
+        {
+          "name": "果树",
+          "files": [
+            "art_source/art_pass_01/nature/tree_fruit.blend",
+            "assets/nature/art_pass_01/tree_fruit.glb",
+            "art_source/art_pass_01/nature/manifest.json"
+          ]
+        }
+      ],
+      "model_source": "art_source/art_pass_01/nature/tree_fruit.blend"
+    },
+    {
+      "asset_id": "NAT-04",
+      "production_type": "手工模型",
+      "units": [
+        {
+          "name": "林下蕨",
+          "files": [
+            "art_source/art_pass_01/nature/fern.blend",
+            "assets/nature/art_pass_01/fern.glb",
+            "art_source/art_pass_01/nature/manifest.json"
+          ]
+        }
+      ],
+      "model_source": "art_source/art_pass_01/nature/fern.blend"
+    },
+    {
+      "asset_id": "NAT-05",
+      "production_type": "手工模型",
+      "units": [
+        {
+          "name": "野花草簇",
+          "files": [
+            "art_source/art_pass_01/nature/wildflower.blend",
+            "assets/nature/art_pass_01/wildflower.glb",
+            "art_source/art_pass_01/nature/manifest.json"
+          ]
+        }
+      ],
+      "model_source": "art_source/art_pass_01/nature/wildflower.blend"
+    },
+    {
+      "asset_id": "NAT-06",
+      "production_type": "手工模型",
+      "units": [
+        {
+          "name": "低矮灌木",
+          "files": [
+            "art_source/art_pass_01/nature/shrub.blend",
+            "assets/nature/art_pass_01/shrub.glb",
+            "art_source/art_pass_01/nature/manifest.json"
+          ]
+        }
+      ],
+      "model_source": "art_source/art_pass_01/nature/shrub.blend"
+    },
+    {
+      "asset_id": "NAT-07",
+      "production_type": "程序化生成器",
+      "units": [
+        {
+          "name": "可拉伸绿篱",
+          "files": [
+            "features/vegetation/hedge_rules.gd",
+            "features/vegetation/hedge_view.gd"
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "NAT-08",
+      "production_type": "手工模型",
+      "units": [
+        {
+          "name": "苔石",
+          "files": [
+            "art_source/art_pass_01/nature/moss_rock.blend",
+            "assets/nature/art_pass_01/moss_rock.glb",
+            "art_source/art_pass_01/nature/manifest.json"
+          ]
+        }
+      ],
+      "model_source": "art_source/art_pass_01/nature/moss_rock.blend"
+    },
+    {
+      "asset_id": "NAT-09",
+      "production_type": "手工模型",
+      "units": [
+        {
+          "name": "扁石",
+          "files": [
+            "art_source/art_pass_01/nature/flat_rock.blend",
+            "assets/nature/art_pass_01/flat_rock.glb",
+            "art_source/art_pass_01/nature/manifest.json"
+          ]
+        }
+      ],
+      "model_source": "art_source/art_pass_01/nature/flat_rock.blend"
+    },
+    {
+      "asset_id": "NAT-15",
+      "production_type": "程序化生成器",
+      "units": [
+        {
+          "name": "植被笔刷与局部散布规则",
+          "files": [
+            "features/vegetation/vegetation_brush.gd",
+            "features/vegetation/foliage_batches.gd"
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "PROP-01",
+      "production_type": "手工模型",
+      "units": [
+        {
+          "name": "木长凳",
+          "files": [
+            "art_source/week_04/bench.blend",
+            "assets/week_04/bench.glb",
+            "art_source/week_04/manifest.json"
+          ]
+        }
+      ],
+      "model_source": "art_source/week_04/bench.blend"
+    },
+    {
+      "asset_id": "PROP-02",
+      "production_type": "手工模型",
+      "units": [
+        {
+          "name": "信箱",
+          "files": [
+            "art_source/week_04/mailbox.blend",
+            "assets/week_04/mailbox.glb",
+            "art_source/week_04/manifest.json"
+          ]
+        }
+      ],
+      "model_source": "art_source/week_04/mailbox.blend"
+    },
+    {
+      "asset_id": "PROP-03",
+      "production_type": "手工模型",
+      "units": [
+        {
+          "name": "陶盆栽",
+          "files": [
+            "art_source/week_05/pot.blend",
+            "assets/week_05/pot.glb",
+            "art_source/week_05/manifest.json"
+          ]
+        }
+      ],
+      "model_source": "art_source/week_05/pot.blend"
+    },
+    {
+      "asset_id": "PROP-04",
+      "production_type": "手工模型",
+      "units": [
+        {
+          "name": "晾衣架（含布）",
+          "files": [
+            "art_source/week_05/clothesline.blend",
+            "assets/week_05/clothesline.glb",
+            "art_source/week_05/manifest.json"
+          ]
+        }
+      ],
+      "model_source": "art_source/week_05/clothesline.blend"
+    },
+    {
+      "asset_id": "PROP-05",
+      "production_type": "手工模型",
+      "units": [
+        {
+          "name": "木箱",
+          "files": [
+            "art_source/week_05/crate.blend",
+            "assets/week_05/crate.glb",
+            "art_source/week_05/manifest.json"
+          ]
+        }
+      ],
+      "model_source": "art_source/week_05/crate.blend"
+    },
+    {
+      "asset_id": "PROP-06",
+      "production_type": "手工模型",
+      "units": [
+        {
+          "name": "浇水壶",
+          "files": [
+            "art_source/week_05/watering_can.blend",
+            "assets/week_05/watering_can.glb",
+            "art_source/week_05/manifest.json"
+          ]
+        }
+      ],
+      "model_source": "art_source/week_05/watering_can.blend"
+    },
+    {
+      "asset_id": "PROP-07",
+      "production_type": "手工模型",
+      "units": [
+        {
+          "name": "茶盘茶具组合",
+          "files": [
+            "art_source/week_06/tea_set.blend",
+            "assets/week_06/tea_set.glb",
+            "art_source/week_06/manifest.json"
+          ]
+        }
+      ],
+      "model_source": "art_source/week_06/tea_set.blend"
+    },
+    {
+      "asset_id": "PROP-08",
+      "production_type": "手工模型",
+      "units": [
+        {
+          "name": "可点亮提灯",
+          "files": [
+            "art_source/week_06/lantern.blend",
+            "assets/week_06/lantern.glb",
+            "art_source/week_06/manifest.json"
+          ]
+        }
+      ],
+      "model_source": "art_source/week_06/lantern.blend"
+    },
+    {
+      "asset_id": "MAT-01",
+      "production_type": "材质",
+      "units": [
+        {
+          "name": "草土坡地混合材质",
+          "files": [
+            "features/art_direction/materials/painted_meadow.gdshader",
+            "art_source/art_pass_01/materials/meadow.png",
+            "assets/materials/art_pass_01/meadow.png"
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "MAT-02",
+      "production_type": "材质",
+      "units": [
+        {
+          "name": "plaster",
+          "files": [
+            "art_source/art_pass_01/materials/plaster.png",
+            "assets/materials/art_pass_01/plaster.png",
+            "art_source/art_pass_01/materials/painted_material_library.blend",
+            "features/art_direction/materials/art_materials.gd"
+          ]
+        },
+        {
+          "name": "honey_timber",
+          "files": [
+            "art_source/art_pass_01/materials/honey_timber.png",
+            "assets/materials/art_pass_01/honey_timber.png",
+            "art_source/art_pass_01/materials/painted_material_library.blend",
+            "features/art_direction/materials/art_materials.gd"
+          ]
+        },
+        {
+          "name": "moss_stone",
+          "files": [
+            "art_source/art_pass_01/materials/moss_stone.png",
+            "assets/materials/art_pass_01/moss_stone.png",
+            "art_source/art_pass_01/materials/painted_material_library.blend",
+            "features/art_direction/materials/art_materials.gd"
+          ]
+        },
+        {
+          "name": "terracotta",
+          "files": [
+            "art_source/art_pass_01/materials/terracotta.png",
+            "assets/materials/art_pass_01/terracotta.png",
+            "art_source/art_pass_01/materials/painted_material_library.blend",
+            "features/art_direction/materials/art_materials.gd"
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "MAT-03",
+      "production_type": "贴图",
+      "units": [
+        {
+          "name": "植被手绘共享图集",
+          "files": [
+            "art_source/art_pass_01/nature/painted_forest_atlas.png",
+            "assets/nature/art_pass_01/painted_forest_atlas.png"
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "MAT-04",
+      "production_type": "材质",
+      "units": [
+        {
+          "name": "静水与溪水共享材质",
+          "files": [
+            "features/art_direction/materials/painted_water.gdshader"
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "FX-01",
+      "production_type": "FX",
+      "units": [
+        {
+          "name": "柔和日光预设",
+          "files": [
+            "features/art_direction/art_environment.gd",
+            "features/lighting/light_rig.gd"
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "FX-02",
+      "production_type": "FX",
+      "units": [
+        {
+          "name": "蜂蜜色黄昏预设",
+          "files": [
+            "features/art_direction/art_environment.gd",
+            "features/lighting/light_rig.gd"
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "FX-03",
+      "production_type": "动画",
+      "units": [
+        {
+          "name": "轻风环境动势",
+          "files": [
+            "features/environment/wind.gdshader",
+            "features/garden_presentation/meadow.gdshader"
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "SCN-01",
+      "production_type": "场景模板",
+      "units": [
+        {
+          "name": "林间坡地搭景模板",
+          "files": [
+            "levels/forest_slope/art_layout.gd",
+            "app/hover_root.tscn"
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "UI-01",
+      "production_type": "UI",
+      "units": [
+        {
+          "name": "house",
+          "files": [
+            "art_source/week_06/ui/house.svg",
+            "assets/ui/house.svg"
+          ]
+        },
+        {
+          "name": "round_house",
+          "files": [
+            "art_source/week_06/ui/round_house.svg",
+            "assets/ui/round_house.svg"
+          ]
+        },
+        {
+          "name": "path",
+          "files": [
+            "art_source/week_06/ui/path.svg",
+            "assets/ui/path.svg"
+          ]
+        },
+        {
+          "name": "door",
+          "files": [
+            "art_source/week_06/ui/door.svg",
+            "assets/ui/door.svg"
+          ]
+        },
+        {
+          "name": "window",
+          "files": [
+            "art_source/week_06/ui/window.svg",
+            "assets/ui/window.svg"
+          ]
+        },
+        {
+          "name": "raise",
+          "files": [
+            "art_source/week_06/ui/raise.svg",
+            "assets/ui/raise.svg"
+          ]
+        },
+        {
+          "name": "lower",
+          "files": [
+            "art_source/week_06/ui/lower.svg",
+            "assets/ui/lower.svg"
+          ]
+        },
+        {
+          "name": "smooth",
+          "files": [
+            "art_source/week_06/ui/smooth.svg",
+            "assets/ui/smooth.svg"
+          ]
+        },
+        {
+          "name": "pond",
+          "files": [
+            "art_source/week_06/ui/pond.svg",
+            "assets/ui/pond.svg"
+          ]
+        },
+        {
+          "name": "bridge",
+          "files": [
+            "art_source/week_06/ui/bridge.svg",
+            "assets/ui/bridge.svg"
+          ]
+        },
+        {
+          "name": "stair",
+          "files": [
+            "art_source/week_06/ui/stair.svg",
+            "assets/ui/stair.svg"
+          ]
+        },
+        {
+          "name": "fence",
+          "files": [
+            "art_source/week_06/ui/fence.svg",
+            "assets/ui/fence.svg"
+          ]
+        },
+        {
+          "name": "tree",
+          "files": [
+            "art_source/week_06/ui/tree.svg",
+            "assets/ui/tree.svg"
+          ]
+        },
+        {
+          "name": "plant",
+          "files": [
+            "art_source/week_06/ui/plant.svg",
+            "assets/ui/plant.svg"
+          ]
+        },
+        {
+          "name": "props",
+          "files": [
+            "art_source/week_06/ui/props.svg",
+            "assets/ui/props.svg"
+          ]
+        },
+        {
+          "name": "light",
+          "files": [
+            "art_source/week_06/ui/light.svg",
+            "assets/ui/light.svg"
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "UI-02",
+      "production_type": "UI",
+      "units": [
+        {
+          "name": "selected",
+          "files": [
+            "art_source/week_06/ui/selected.svg",
+            "assets/ui/selected.svg"
+          ]
+        },
+        {
+          "name": "snap",
+          "files": [
+            "art_source/week_06/ui/snap.svg",
+            "assets/ui/snap.svg"
+          ]
+        },
+        {
+          "name": "dimensions",
+          "files": [
+            "art_source/week_06/ui/dimensions.svg",
+            "assets/ui/dimensions.svg"
+          ]
+        },
+        {
+          "name": "invalid",
+          "files": [
+            "art_source/week_06/ui/invalid.svg",
+            "assets/ui/invalid.svg"
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "UI-04",
+      "production_type": "UI",
+      "units": [
+        {
+          "name": "plaster_cream",
+          "files": [
+            "art_source/week_07/ui/plaster_cream.svg",
+            "assets/week_07/ui/plaster_cream.png",
+            "assets/week_07/palette_manifest.json"
+          ]
+        },
+        {
+          "name": "plaster_rose",
+          "files": [
+            "art_source/week_07/ui/plaster_rose.svg",
+            "assets/week_07/ui/plaster_rose.png",
+            "assets/week_07/palette_manifest.json"
+          ]
+        },
+        {
+          "name": "wood_honey",
+          "files": [
+            "art_source/week_07/ui/wood_honey.svg",
+            "assets/week_07/ui/wood_honey.png",
+            "assets/week_07/palette_manifest.json"
+          ]
+        },
+        {
+          "name": "wood_walnut",
+          "files": [
+            "art_source/week_07/ui/wood_walnut.svg",
+            "assets/week_07/ui/wood_walnut.png",
+            "assets/week_07/palette_manifest.json"
+          ]
+        },
+        {
+          "name": "wood_sage",
+          "files": [
+            "art_source/week_07/ui/wood_sage.svg",
+            "assets/week_07/ui/wood_sage.png",
+            "assets/week_07/palette_manifest.json"
+          ]
+        },
+        {
+          "name": "roof_terracotta",
+          "files": [
+            "art_source/week_07/ui/roof_terracotta.svg",
+            "assets/week_07/ui/roof_terracotta.png",
+            "assets/week_07/palette_manifest.json"
+          ]
+        },
+        {
+          "name": "roof_smoke",
+          "files": [
+            "art_source/week_07/ui/roof_smoke.svg",
+            "assets/week_07/ui/roof_smoke.png",
+            "assets/week_07/palette_manifest.json"
+          ]
+        },
+        {
+          "name": "stone_grey",
+          "files": [
+            "art_source/week_07/ui/stone_grey.svg",
+            "assets/week_07/ui/stone_grey.png",
+            "assets/week_07/palette_manifest.json"
+          ]
+        },
+        {
+          "name": "stone_moss",
+          "files": [
+            "art_source/week_07/ui/stone_moss.svg",
+            "assets/week_07/ui/stone_moss.png",
+            "assets/week_07/palette_manifest.json"
+          ]
+        },
+        {
+          "name": "stone_sand",
+          "files": [
+            "art_source/week_07/ui/stone_sand.svg",
+            "assets/week_07/ui/stone_sand.png",
+            "assets/week_07/palette_manifest.json"
+          ]
+        },
+        {
+          "name": "foliage_spring",
+          "files": [
+            "art_source/week_07/ui/foliage_spring.svg",
+            "assets/week_07/ui/foliage_spring.png",
+            "assets/week_07/palette_manifest.json"
+          ]
+        },
+        {
+          "name": "foliage_deep",
+          "files": [
+            "art_source/week_07/ui/foliage_deep.svg",
+            "assets/week_07/ui/foliage_deep.png",
+            "assets/week_07/palette_manifest.json"
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "UI-06",
+      "production_type": "UI",
+      "units": [
+        {
+          "name": "林间坡地模板缩略图",
+          "files": [
+            "art_source/art_pass_01/ui/scene_day.png",
+            "assets/ui/art_pass_01/template_forest.png",
+            "art_source/art_pass_01/ui/manifest.json"
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "UI-07",
+      "production_type": "UI",
+      "units": [
+        {
+          "name": "基础面板与中文排版组件",
+          "files": [
+            "features/hover_edit/hover_hud.gd",
+            "features/direct_edit/simple_hud.gd",
+            "ui/theme/garden_theme.gd",
+            "assets/fonts/manifest.json"
+          ]
+        }
+      ]
+    }
+  ]
+}
