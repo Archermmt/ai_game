@@ -344,7 +344,7 @@ func _notification(what: int) -> void:
 			_intent = "quit"
 			hud.decision.popup_centered()
 		else:
-			get_tree().quit()
+			_request_quit()
 
 
 func _decision_made(choice: String) -> void:
@@ -366,7 +366,7 @@ func _continue_intent() -> void:
 	var intent: String = _intent
 	_intent = ""
 	if intent == "quit":
-		get_tree().quit()
+		_request_quit()
 	elif intent == "load":
 		_start_load(_intent_index)
 

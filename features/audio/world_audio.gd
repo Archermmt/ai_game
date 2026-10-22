@@ -173,10 +173,15 @@ static func _asset_family(asset: String) -> String:
 	return "wood"
 
 
-func _exit_tree() -> void:
+func shutdown() -> void:
+	set_process(false)
 	# Release active mixer playback references before the scene resources disappear.
 	for child: Node in get_children():
 		if child is AudioStreamPlayer or child is AudioStreamPlayer3D:
 			child.stop()
 			child.stream = null
 	streams.clear()
+
+
+func _exit_tree() -> void:
+	shutdown()

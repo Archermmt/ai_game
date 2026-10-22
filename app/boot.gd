@@ -422,7 +422,7 @@ func _finish_smoke() -> void:
 			)
 		)
 		stream.close()
-	get_tree().quit()
+	_request_quit()
 
 
 static func _building_material() -> StandardMaterial3D:
@@ -445,3 +445,7 @@ func _show_result(result: Dictionary, success: String) -> void:
 
 func _delivery_metrics() -> Dictionary:
 	return {}
+
+
+func _request_quit() -> void:
+	get_tree().quit()

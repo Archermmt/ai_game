@@ -4,6 +4,7 @@ extends "res://app/art_boot.gd"
 var soundscape: WorldAudio
 var submit_ms: Array[float] = []
 var _audio_snapshot: Dictionary = {}
+var _closing_audio: bool = false
 
 
 func _ready() -> void:
@@ -75,3 +76,14 @@ func _delivery_metrics() -> Dictionary:
 func _zoom_settings_probe() -> void:
 	hud.settings.popup_centered()
 	hud.scale_control.value = 1.5
+
+
+func _request_quit() -> void:
+	if _closing_audio:
+		return
+	_closing_audio = true
+	if soundscape != null:
+		soundscape.shutdown()
+		# Let the audio mixer consume the stopped voices before engine teardown.
+		await get_tree().create_timer(0.1, true, false, true).timeout
+	super._request_quit()
