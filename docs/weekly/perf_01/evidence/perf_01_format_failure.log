@@ -1,0 +1,53 @@
+Traceback (most recent call last):
+  File "/private/var/folders/d8/yztht2gs5c52mvn26gqc9_mr0000gn/T/windhaven-clean-p0ti1i5_/tools/quality/perf_checks.py", line 27, in <module>
+    if __name__ == '__main__': main()
+                               ~~~~^^
+  File "/private/var/folders/d8/yztht2gs5c52mvn26gqc9_mr0000gn/T/windhaven-clean-p0ti1i5_/tools/quality/perf_checks.py", line 11, in main
+    steps = [run_step('perf01_cumulative', [sys.executable, 'tools/quality/week_twelve_checks.py'], timeout=400)]
+             ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/var/folders/d8/yztht2gs5c52mvn26gqc9_mr0000gn/T/windhaven-clean-p0ti1i5_/tools/quality/run_checks.py", line 32, in run_step
+    raise RuntimeError(f"{name} failed; exit={process.returncode}")
+RuntimeError: perf01_cumulative failed; exit=1
+
+PASS engine_import (4.53s)
+would reformat tests/perf_01/test_performance_samples.gd
+would reformat tests/perf_01/test_meadow_cache.gd
+2 files would be reformatted, 215 files would be left unchanged.
+
+QUALITY GATE FAILED: format failed; exit=1
+
+GARDEN GATE FAILED: garden_cumulative failed; exit=1
+
+W11 GATE FAILED: w11_cumulative failed; exit=1
+
+UX-02 GATE FAILED: ux02_cumulative failed; exit=1
+
+Traceback (most recent call last):
+  File "/private/var/folders/d8/yztht2gs5c52mvn26gqc9_mr0000gn/T/windhaven-clean-p0ti1i5_/tools/quality/hover_checks.py", line 29, in <module>
+    main()
+    ~~~~^^
+  File "/private/var/folders/d8/yztht2gs5c52mvn26gqc9_mr0000gn/T/windhaven-clean-p0ti1i5_/tools/quality/hover_checks.py", line 11, in main
+    steps = [run_step('ux03_cumulative', [sys.executable, 'tools/quality/simple_checks.py'], timeout=350)]
+             ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/var/folders/d8/yztht2gs5c52mvn26gqc9_mr0000gn/T/windhaven-clean-p0ti1i5_/tools/quality/run_checks.py", line 32, in run_step
+    raise RuntimeError(f"{name} failed; exit={process.returncode}")
+RuntimeError: ux03_cumulative failed; exit=1
+
+Traceback (most recent call last):
+  File "/private/var/folders/d8/yztht2gs5c52mvn26gqc9_mr0000gn/T/windhaven-clean-p0ti1i5_/tools/quality/week_twelve_checks.py", line 34, in <module>
+    if __name__ == '__main__': main()
+                               ~~~~^^
+  File "/private/var/folders/d8/yztht2gs5c52mvn26gqc9_mr0000gn/T/windhaven-clean-p0ti1i5_/tools/quality/week_twelve_checks.py", line 12, in main
+    steps = [run_step('w12_cumulative', [sys.executable, 'tools/quality/hover_checks.py'], timeout=350)]
+             ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/var/folders/d8/yztht2gs5c52mvn26gqc9_mr0000gn/T/windhaven-clean-p0ti1i5_/tools/quality/run_checks.py", line 32, in run_step
+    raise RuntimeError(f"{name} failed; exit={process.returncode}")
+RuntimeError: w12_cumulative failed; exit=1
+
+Traceback (most recent call last):
+  File "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/tools/quality/clean_checkout.py", line 103, in <module>
+    main()
+    ~~~~^^
+  File "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/tools/quality/clean_checkout.py", line 69, in main
+    raise RuntimeError('Clean checkout regression failed')
+RuntimeError: Clean checkout regression failed

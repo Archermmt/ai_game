@@ -1,0 +1,93 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/week_07/test_assets_palette.gd
+* test_twelve_palette_ids_cover_five_existing_material_groups
+* test_invalid_palette_keys_cannot_enter_source_or_history
+* test_all_seventeen_ids_have_owned_wrappers_and_simple_pick_proxies
+* test_support_and_lamp_anchors_match_runtime_contract
+* test_source_query_picks_bench_ends_and_rotated_clothesline
+* test_wrapper_keeps_imported_meshes_and_source_bytes_unchanged
+* test_timber_kit_has_no_posts_above_eaves_at_min_and_max_heights
+* test_curved_kit_and_contact_wall_trim_are_bounded
+* test_extreme_buildings_keep_valid_holes_and_complete_roof_shells
+* test_feedback_translates_recoverable_errors_into_player_actions
+* test_formal_round_window_replaces_over_budget_block_ring
+11/11 passed.
+
+
+res://tests/week_07/test_hedges.gd
+* test_short_and_turning_paths_have_closed_end_volumes
+* test_invalid_hedge_shapes_are_rejected_without_crashing
+* test_transform_rotates_scales_all_segments_and_full_bounds
+* test_hedge_far_end_cannot_cross_a_building_or_boundary
+* test_hedges_avoid_path_and_pool_at_every_sample
+* test_category_erase_near_far_end_removes_whole_automatic_hedge
+* test_manual_adjustment_and_unrelated_categories_protect_hedges
+* test_hedge_is_not_accidentally_batched_as_compact_shrub
+* test_duplicate_keeps_shape_but_has_independent_source_and_id
+* test_slope_change_at_far_end_invalidates_hedge_region_only
+* test_generated_shrub_mesh_uv_is_reused_at_ends_and_turns
+* test_surface_follow_and_height_lock_do_not_tilt_whole_hedge
+12/12 passed.
+
+
+res://tests/week_07/test_playground.gd
+* test_scene_has_sixteen_mouse_tools_and_all_core_property_pages
+* test_actual_mouse_toolbar_selects_tree_without_creating_object
+* test_window_and_lamp_mouse_entries_set_explicit_catalog_values
+* test_object_card_applies_numbers_as_one_transaction_and_undoes
+* test_invalid_object_card_keeps_entire_source_and_history
+* test_palette_selection_reuses_world_nodes_and_is_undoable
+* test_hedge_commit_reuses_distant_props_and_cancels_without_half_publication
+* test_hedge_commit_is_one_history_entry_and_full_wrapped_view
+* test_actual_hedge_mouse_drag_is_undoable_and_option_does_not_draw
+* test_height_lock_on_card_follows_terrain_only_when_unlocked
+* test_ui_150_percent_panels_and_dock_stay_inside_viewport
+* test_lamp_copy_keeps_mode_and_nearest_four_remains_bounded
+* test_bookmark_is_source_data_and_does_not_change_layout
+* test_object_selection_pending_commit_is_blocked
+* test_pending_property_click_does_not_change_selected_object_or_queue_another_edit
+* test_geometry_preparation_failure_keeps_object_properties_and_view
+* test_hedge_control_edit_preserves_id_and_undo_restores_points
+17/17 passed.
+
+
+res://tests/week_07/test_scene_save.gd
+* test_template_and_empty_share_terrain_periphery_and_two_views
+* test_template_has_editable_required_objects_and_valid_structures
+* test_new_container_roundtrip_keeps_hedges_palette_and_composition
+* test_container_compresses_height_deltas_together_with_source_metadata
+* test_legacy_week_six_container_still_loads
+* test_corruption_and_size_header_fail_before_decode
+* test_future_dto_and_invalid_reference_do_not_load
+* test_disposable_generated_cache_is_never_authoritative
+* test_unknown_container_is_preserved_on_write_and_read
+* test_locked_parent_support_height_and_copy_lamp_parameters_are_preserved
+* test_json_envelope_preserves_integer_types_and_rejects_invalid_integer_metadata
+11/11 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               4
+Tests                51
+Passing Tests        51
+Asserts             455
+Time              4.014s
+
+
+---- All tests passed! ----
+
+Results saved to reports/week_07.xml

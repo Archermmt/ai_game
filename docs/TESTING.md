@@ -232,3 +232,9 @@ UX-03悬停编辑为当前默认版本：`python3 tools/quality/hover_checks.py`
 累计入口 `python3 tools/quality/week_twelve_checks.py`；干净源码测试与实际重导出 `python3 tools/quality/clean_checkout.py --week 12 --export`。随后串行执行原生、资产、打包、放行检查，详见 [W12测试契约](weekly/week_12/TEST_PLAN.md)。功能通过不代表正式 M5 放行；无真实 Windows、最低配置、首次玩家或 M4 证据时，`week_twelve_release.py --require-release` 必须退出2。
 
 本机W12记录：CoreAudio混音时钟不推进的最小复现及失败日志保留；最终clean_checkout与native命令使用显式 `--silent-audio`。该参数只给测试进程选择Dummy，不修改包的默认驱动，native_audio_output保持未通过。不能以此替代真实音频验收。
+
+## PERF-01 性能修复
+
+累计命令 `python3 tools/quality/perf_checks.py`；空缓存复验 `python3 tools/quality/clean_checkout.py --week 12 --perf`；原生串行 `python3 tools/quality/perf_native_checks.py --silent-audio`。新增12项草缓存、空间索引、池岸边界和分位数回归。
+
+提交p95修正为nearest-rank，保留原始20笔、最大值和旧upper统计；不能把统计定义修正当作性能收益。原先首绘前自动提交的60秒样本继续保留，另做首个可见画面后提交的独立诊断，不用后者替代旧样本。详见 [PERF-01测试契约](weekly/perf_01/TEST_PLAN.md)。Dummy不代替真实音频、Windows或最低配置验证。

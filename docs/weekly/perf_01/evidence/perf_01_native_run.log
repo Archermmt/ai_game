@@ -1,0 +1,8 @@
+PASS perf_01_native_dispatch (12.43s)
+selected_capacity p95= 11.6666666666667 commit= 218.798
+UX-03 native functional PASS; targets {'frame_p95_20ms': True, 'main_callback_100ms': True, 'rss_2gib': True, 'local_edit_p95_150ms': True}
+demo_edit p95= 9.09090909090909 commit= 178.137
+capacity_large_brush p95= 11.6666666666667 commit= 354.981
+PASS perf01_latency_legacy (5.07s)
+PASS perf01_latency_visible (5.10s)
+PERF-01 native functional PASS; unchanged performance gates: {'frame_p95_20ms': True, 'local_edit_p95_150ms': True, 'legacy_upper_local_150ms': False, 'large_brush_500ms': True, 'main_callback_100ms': True, 'rss_2gib': True}

@@ -1,0 +1,4 @@
+PASS perf01_cumulative (204.02s)
+PASS perf01_tests (31.31s)
+PERF-01 FUNCTIONAL PASS: 620 Godot + 23 Python; performance separate
+CLEAN CHECKOUT PASS bff380c

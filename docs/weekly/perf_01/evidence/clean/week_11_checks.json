@@ -1,0 +1,47 @@
+{
+  "godot_tests": 553,
+  "new_godot_tests": 9,
+  "python_tests": 6,
+  "failures": 0,
+  "skipped": 0,
+  "negative_control": true,
+  "steps": [
+    {
+      "name": "w11_cumulative",
+      "exit_code": 0,
+      "seconds": 145.187
+    },
+    {
+      "name": "w11_playtest_validator",
+      "exit_code": 0,
+      "seconds": 0.042
+    },
+    {
+      "name": "w11_scene_tests",
+      "exit_code": 0,
+      "seconds": 8.268
+    },
+    {
+      "name": "w11_actual_playtest_report",
+      "exit_code": 0,
+      "seconds": 0.035
+    }
+  ],
+  "playtest": {
+    "actual_records": 0,
+    "eligible_first_players": 0,
+    "required": 10,
+    "house_3min": 0,
+    "screenshot_15min": 0,
+    "no_management_understood": 0,
+    "targets": {
+      "house_8_of_10": false,
+      "photo_7_of_10": false,
+      "understanding_8_of_10": false
+    },
+    "t067_passed": false,
+    "status": "awaiting_m4_freeze"
+  },
+  "functional_gate_passed": true,
+  "m5_release_approved": false
+}
