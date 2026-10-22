@@ -128,7 +128,9 @@ func _display_target() -> Dictionary:
 
 func _choose_surface(target: Dictionary) -> void:
 	hovered = target.duplicate(true)
-	surface_selected = target.duplicate(true)
+	surface_selected = (
+		target.duplicate(true) if target["family"] in ["opening", "bridge", "stair"] else {}
+	)
 	selected_buildings.clear()
 	tools.selected.clear()
 	if target["family"] == "house":
@@ -206,7 +208,7 @@ func update_surface(screen: Vector2) -> void:
 			axis = (
 				Vector3(drag["normal"].z, 0, -drag["normal"].x)
 				if drag.has("normal")
-				else Vector3.RIGHT
+				else SurfaceEditData.width_axis(drag["source"], drag["target"])
 			)
 		var pixel_axis: Vector2 = (
 			camera_rig.camera.unproject_position(drag["origin"] + axis)

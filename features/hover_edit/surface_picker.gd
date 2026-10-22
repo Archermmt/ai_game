@@ -111,4 +111,12 @@ static func roof_triangles(home: Dictionary) -> Array:
 			var e: Vector3 = center + Vector3(0, rise, -d)
 			result.append([a, b, c])
 			result.append([a, c, e])
+		for side: float in [-1.0, 1.0]:
+			result.append(
+				[
+					center + Vector3(-s[0] * 0.5, 0, side * s[2] * 0.5),
+					center + Vector3(s[0] * 0.5, 0, side * s[2] * 0.5),
+					center + Vector3(0, rise, side * s[2] * 0.5)
+				]
+			)
 	return result

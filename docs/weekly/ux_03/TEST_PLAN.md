@@ -8,7 +8,7 @@ python3 tools/quality/clean_checkout.py --week 11 --hover
 python3 tools/quality/export_smoke.py --week 11 --hover
 ```
 
-继承W01–W11、ART、UI/Meadow、UX-02累计579项Godot/6项Python和失败负控制；新增至少26项，拒绝空套件、失败、跳过、Script Error、泄漏及错误退出。保留XML、断言总数、原生截图及回执；测试槽与正式作品隔离。
+继承W01–W11、ART、UI/Meadow、UX-02累计579项Godot/6项Python和失败负控制；新增至少28项，拒绝空套件、失败、跳过、Script Error、泄漏及错误退出。保留XML、断言总数、原生截图及回执；测试槽与正式作品隔离。
 
 | 验证目标 | 自动化与原生证据 |
 | --- | --- |

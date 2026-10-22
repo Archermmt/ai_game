@@ -131,3 +131,15 @@ static func transform(
 static func issue(before: Dictionary, draft: Dictionary) -> String:
 	var error: String = WorldDocument.validate(draft)
 	return error if not error.is_empty() else GardenStructures.transition_error(before, draft)
+
+
+static func width_axis(source: Dictionary, target: Dictionary) -> Vector3:
+	var item: Dictionary = resolve(source, target)
+	if target.get("family", "") in ["bridge", "stair"] and not item.is_empty():
+		var axis: Vector2 = (
+			(Vector2(item["b"][0], item["b"][1]) - Vector2(item["a"][0], item["a"][1]))
+			. normalized()
+			. orthogonal()
+		)
+		return Vector3(axis.x, 0, axis.y)
+	return Vector3.RIGHT

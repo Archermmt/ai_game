@@ -261,3 +261,35 @@ func test_slow_pointer_travel_to_window_handle_does_not_switch_to_parent_wall() 
 		playground._hover_signature = ""
 		playground._process(0)
 		assert_eq(playground._display_target()["family"], "opening")
+
+
+func test_bridge_width_drag_follows_its_own_cross_axis() -> void:
+	var target: Dictionary = await _bridge()
+	playground.hovered = target
+	var source: Dictionary = playground.document.snapshot()
+	var origin: Vector3 = SurfaceEditData.origin(source, target)
+	var axis: Vector3 = SurfaceEditData.width_axis(source, target)
+	var start: Vector2 = playground.camera_rig.camera.unproject_position(origin)
+	var end: Vector2 = playground.camera_rig.camera.unproject_position(origin + axis * 0.1)
+	playground.begin_direct("width", start)
+	playground.update_surface(end)
+	playground.finish_surface()
+	await _settle()
+	assert_almost_eq(
+		playground.document.state["bridges"][0]["width"], source["bridges"][0]["width"] + 0.2, 0.02
+	)
+	assert_eq(playground.session.history_count(), 1)
+
+
+func test_house_copy_drop_keeps_the_new_house_as_edit_target() -> void:
+	var home: Dictionary = await _house()
+	playground.hovered = _target(home)
+	playground.begin_direct("copy", Vector2(600, 300))
+	var screen: Vector2 = playground.camera_rig.camera.unproject_position(Vector3(12, 0, 0))
+	playground.update_direct(screen)
+	playground.finish_direct()
+	await _settle()
+	assert_eq(playground.document.state["buildings"].size(), 2)
+	playground.hovered = {}
+	assert_eq(playground._display_target()["id"], playground.selected_buildings[0])
+	assert_ne(playground._display_target()["id"], home["id"])
