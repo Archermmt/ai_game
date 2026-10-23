@@ -1,0 +1,1041 @@
+{
+  "families": 47,
+  "base_units": 79,
+  "manual_model_families": 21,
+  "technical_passed": true,
+  "fresh_blender_audit": false,
+  "source_reopen_scope": "Existing audit records checked; sources not modified this week",
+  "visual_signoff": "pending",
+  "entries": [
+    {
+      "asset_id": "ENV-01",
+      "production_type": "程序化生成器",
+      "base_units": 1,
+      "name": "林间坡地生成器",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "ENV-02",
+      "production_type": "程序化生成器",
+      "base_units": 1,
+      "name": "池塘轮廓与岸线生成器",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "ENV-03",
+      "production_type": "程序化生成器",
+      "base_units": 1,
+      "name": "地面石径生成器",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "ENV-04",
+      "production_type": "程序化生成器",
+      "base_units": 1,
+      "name": "木桥生成器",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "BLD-01",
+      "production_type": "程序化生成器",
+      "base_units": 1,
+      "name": "矩形墙体生成器",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "BLD-02",
+      "production_type": "程序化生成器",
+      "base_units": 1,
+      "name": "圆形墙体生成器",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "BLD-03",
+      "production_type": "程序化生成器",
+      "base_units": 1,
+      "name": "山墙屋顶生成器",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "BLD-04",
+      "production_type": "程序化生成器",
+      "base_units": 1,
+      "name": "圆锥屋顶生成器",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "BLD-05",
+      "production_type": "手工模型",
+      "base_units": 1,
+      "name": "蜂蜜木板门",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "BLD-06",
+      "production_type": "手工模型",
+      "base_units": 1,
+      "name": "圆拱木门",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "BLD-07",
+      "production_type": "手工模型",
+      "base_units": 1,
+      "name": "嵌玻璃木门",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "BLD-08",
+      "production_type": "手工模型",
+      "base_units": 1,
+      "name": "方形深窗",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "BLD-09",
+      "production_type": "手工模型",
+      "base_units": 1,
+      "name": "圆形小窗",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "BLD-10",
+      "production_type": "程序化生成器",
+      "base_units": 1,
+      "name": "短石阶生成器",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "BLD-11",
+      "production_type": "程序化生成器",
+      "base_units": 1,
+      "name": "木围栏与开口生成器",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "BLD-19",
+      "production_type": "程序化生成器",
+      "base_units": 1,
+      "name": "坡地石基与木构收边生成器",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "NAT-01",
+      "production_type": "手工模型",
+      "base_units": 1,
+      "name": "阔叶树",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "NAT-02",
+      "production_type": "手工模型",
+      "base_units": 1,
+      "name": "针叶树",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "NAT-03",
+      "production_type": "手工模型",
+      "base_units": 1,
+      "name": "果树",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "NAT-04",
+      "production_type": "手工模型",
+      "base_units": 1,
+      "name": "林下蕨",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "NAT-05",
+      "production_type": "手工模型",
+      "base_units": 1,
+      "name": "野花草簇",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "NAT-06",
+      "production_type": "手工模型",
+      "base_units": 1,
+      "name": "低矮灌木",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "NAT-07",
+      "production_type": "程序化生成器",
+      "base_units": 1,
+      "name": "可拉伸绿篱",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "NAT-08",
+      "production_type": "手工模型",
+      "base_units": 1,
+      "name": "苔石",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "NAT-09",
+      "production_type": "手工模型",
+      "base_units": 1,
+      "name": "扁石",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "NAT-15",
+      "production_type": "程序化生成器",
+      "base_units": 1,
+      "name": "植被笔刷与局部散布规则",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "PROP-01",
+      "production_type": "手工模型",
+      "base_units": 1,
+      "name": "木长凳",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "PROP-02",
+      "production_type": "手工模型",
+      "base_units": 1,
+      "name": "信箱",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "PROP-03",
+      "production_type": "手工模型",
+      "base_units": 1,
+      "name": "陶盆栽",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "PROP-04",
+      "production_type": "手工模型",
+      "base_units": 1,
+      "name": "晾衣架（含布）",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "PROP-05",
+      "production_type": "手工模型",
+      "base_units": 1,
+      "name": "木箱",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "PROP-06",
+      "production_type": "手工模型",
+      "base_units": 1,
+      "name": "浇水壶",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "PROP-07",
+      "production_type": "手工模型",
+      "base_units": 1,
+      "name": "茶盘茶具组合",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "PROP-08",
+      "production_type": "手工模型",
+      "base_units": 1,
+      "name": "可点亮提灯",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "MAT-01",
+      "production_type": "材质",
+      "base_units": 1,
+      "name": "草土坡地混合材质",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "MAT-02",
+      "production_type": "材质",
+      "base_units": 4,
+      "name": "建筑与道具手绘材质库",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "MAT-03",
+      "production_type": "贴图",
+      "base_units": 1,
+      "name": "植被手绘共享图集",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "MAT-04",
+      "production_type": "材质",
+      "base_units": 1,
+      "name": "静水与溪水共享材质",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "FX-01",
+      "production_type": "FX",
+      "base_units": 1,
+      "name": "柔和日光预设",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "FX-02",
+      "production_type": "FX",
+      "base_units": 1,
+      "name": "蜂蜜色黄昏预设",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "FX-03",
+      "production_type": "动画",
+      "base_units": 1,
+      "name": "轻风环境动势",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "SCN-01",
+      "production_type": "场景模板",
+      "base_units": 1,
+      "name": "林间坡地搭景模板",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "UI-01",
+      "production_type": "UI",
+      "base_units": 16,
+      "name": "建造工具图标集",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "UI-02",
+      "production_type": "UI",
+      "base_units": 4,
+      "name": "操作反馈图形集",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "UI-04",
+      "production_type": "UI",
+      "base_units": 12,
+      "name": "色板与材质选择卡",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "UI-06",
+      "production_type": "UI",
+      "base_units": 1,
+      "name": "林间坡地模板缩略图",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    },
+    {
+      "asset_id": "UI-07",
+      "production_type": "UI",
+      "base_units": 1,
+      "name": "基础面板与中文排版组件",
+      "technical_passed": true,
+      "final_visual_signoff": "pending"
+    }
+  ],
+  "files": {
+    "features/terrain/terrain_field.gd": {
+      "bytes": 9955,
+      "sha256": "227a2327ac541433d4869bc82a23001afbb04bb65edad00fddcd89f9a59fa91c"
+    },
+    "features/terrain/terrain_geometry.gd": {
+      "bytes": 1499,
+      "sha256": "9a8c959525f36888a9b7d29463205f7bf717a68a7cedad9a66c99e3791011787"
+    },
+    "features/ponds/pond_shape.gd": {
+      "bytes": 5703,
+      "sha256": "4306f21fe229891c86ccad8892df7967f0d629adb75666ab54ceb4e3042cb409"
+    },
+    "features/paths/path_geometry.gd": {
+      "bytes": 4404,
+      "sha256": "0582ec4b4ed4bc2d50bebf03636f5d4d872fa4846b4984ff07c8bf181eefe142"
+    },
+    "features/art_direction/art_path_geometry.gd": {
+      "bytes": 2733,
+      "sha256": "add1aa5f9aa2162d26ddb72260d8262a7f9e1e711cc87a1c7800f0d1f1b3521a"
+    },
+    "features/structures/garden_structures.gd": {
+      "bytes": 8242,
+      "sha256": "c6175edca280ecec9445250710fffe53946dcc5e0a3ece23e2b4be9ac57ee792"
+    },
+    "features/buildings/building_geometry.gd": {
+      "bytes": 13263,
+      "sha256": "6c82f4201d6733b9de16ad76a53508ca2d850771ed1b6ddbff81dff41a20fcdf"
+    },
+    "features/buildings/roof_profile.gd": {
+      "bytes": 283,
+      "sha256": "e84197e7dddb1f89f988ea226732465a4af827ed6fd9c0e7f6e416c28ba54d63"
+    },
+    "features/art_direction/cottage_art.gd": {
+      "bytes": 28418,
+      "sha256": "94ffa4d3fdba60fa6457bf81d841e56362ce9b294517fbd9cd892ec17b9fbb4b"
+    },
+    "art_source/week_01/door_plank.blend": {
+      "bytes": 106181,
+      "sha256": "5d7d4806f5e7bdea3e14936db71aa70566e803d0d32f05845d899ef636fdbe3a"
+    },
+    "assets/buildings/door_plank.glb": {
+      "bytes": 70088,
+      "sha256": "5abbfbc09e4758201ee3054965762cc0521ae09634da6b5ee09085f6e53679f6"
+    },
+    "art_source/week_01/manifest.json": {
+      "bytes": 3318,
+      "sha256": "f35d2c2be74b33ddc661ebc6d07908d3ea84c436a0e1963a66210304b7a5c7fa"
+    },
+    "art_source/week_01/door_arch.blend": {
+      "bytes": 123698,
+      "sha256": "6837ce48fb175a6cdba2abf269b3fbe92ae528be49efeb5138a9fc989f5b5c6c"
+    },
+    "assets/buildings/door_arch.glb": {
+      "bytes": 222308,
+      "sha256": "4717584f8aeb6c23498d8ad9a638da2f2c221e57c16910b65b145674d8065dc4"
+    },
+    "art_source/week_01/door_glass.blend": {
+      "bytes": 111108,
+      "sha256": "1b82d3a0ac03c20ad818428d77f0725660c0d84692b3d1cf63f72f51032ae6fc"
+    },
+    "assets/buildings/door_glass.glb": {
+      "bytes": 91236,
+      "sha256": "bc1a002b61999029ed91e222b4308188fa924680bd5b33b60faa24d1fefc02f9"
+    },
+    "art_source/week_02/window_rect.blend": {
+      "bytes": 106587,
+      "sha256": "5df2c268fd7f0401779694803a86d4cf04c492d9a58075209bdddc54f516b8cc"
+    },
+    "assets/buildings/window_rect.glb": {
+      "bytes": 63612,
+      "sha256": "1b2b674629d31197ca3401611e4ee744479325ddf069f99a9b2d50c4cea1957c"
+    },
+    "art_source/week_02/manifest.json": {
+      "bytes": 2402,
+      "sha256": "cae98cae10510ed4beb34b832195aa9e74de819ce731cbdb1f181e342ac4abde"
+    },
+    "art_source/week_07/window_round.blend": {
+      "bytes": 119905,
+      "sha256": "94a1abb5084e0f345ee77795f41d68e267f09d789361e9102732eaaf61964308"
+    },
+    "assets/week_07/window_round.glb": {
+      "bytes": 106136,
+      "sha256": "071f78c244cebfc8e20e60b5c3feac9b77bb0dca20f196649c232d53b26e0acd"
+    },
+    "art_source/week_07/manifest.json": {
+      "bytes": 447,
+      "sha256": "30eec0542c8c9d18841b1da4ae59b10b8abd09646fbced164a3a37a1dd475e7e"
+    },
+    "features/fences/fence_geometry.gd": {
+      "bytes": 4273,
+      "sha256": "1d1cb457269cc816df5bc47565e00fcc4dcb0bbc08c83a2193417e0f11057908"
+    },
+    "features/buildings/foundation_geometry.gd": {
+      "bytes": 1846,
+      "sha256": "5a1a082090360c3d2f87505b74b72ef65ccd8e4c06be938bcb4f655f3121f057"
+    },
+    "features/buildings/support_geometry.gd": {
+      "bytes": 727,
+      "sha256": "fdd5870d96239c964570685bf291634abcf1f41fb19c6dd38dc3a84d29da2ff1"
+    },
+    "features/buildings/architectural_kit.gd": {
+      "bytes": 3195,
+      "sha256": "5d05ce54d42f685112bba92fde1be9ce0c02979881bdb19acb63f77aa8ad3c49"
+    },
+    "art_source/art_pass_01/nature/tree_broadleaf.blend": {
+      "bytes": 231138,
+      "sha256": "24bb5600ce9a5ec6ba1c4fd443ce102f4a8db3d7b105ec309af023f682214c35"
+    },
+    "assets/nature/art_pass_01/tree_broadleaf.glb": {
+      "bytes": 173048,
+      "sha256": "2b21c458612ce3dcc61b5a88d82a142dbb32b30cac4993f2e5c67b28b7790f71"
+    },
+    "art_source/art_pass_01/nature/manifest.json": {
+      "bytes": 12111,
+      "sha256": "80c8d719f3d342a75c0bda6bc86fb487b5d82126d0d826472e6033e69dd94e6a"
+    },
+    "art_source/art_pass_01/nature/tree_conifer.blend": {
+      "bytes": 187434,
+      "sha256": "66a1271d6afccc61150d6afa1af371fbeb1bde88b26fee2711e1d173918a9465"
+    },
+    "assets/nature/art_pass_01/tree_conifer.glb": {
+      "bytes": 148688,
+      "sha256": "604f0a518bcbcc08e52eceb5f73e6aadb0c9189f659ef45b731595ac9a0a51b1"
+    },
+    "art_source/art_pass_01/nature/tree_fruit.blend": {
+      "bytes": 211365,
+      "sha256": "e26b17979c9cceb4ac88639f2d3217b5f0b82d050cc2a9d601b93872ee17e4bb"
+    },
+    "assets/nature/art_pass_01/tree_fruit.glb": {
+      "bytes": 147096,
+      "sha256": "5bca837ea87738bbd60e2f3c522c00bbcbf48df274ed28f493e282637426c298"
+    },
+    "art_source/art_pass_01/nature/fern.blend": {
+      "bytes": 107477,
+      "sha256": "8ba75d6853865a830365a6857603146538396b09de660505325e0cbe1176972b"
+    },
+    "assets/nature/art_pass_01/fern.glb": {
+      "bytes": 28960,
+      "sha256": "5088697fe242bb4c5e8eb377bdf9701c7ec3bb7753154275122069812c8c4775"
+    },
+    "art_source/art_pass_01/nature/wildflower.blend": {
+      "bytes": 102549,
+      "sha256": "b26538109b691c94a52db91c98670a71624e5a0f74e4183293ee7aee3eb95888"
+    },
+    "assets/nature/art_pass_01/wildflower.glb": {
+      "bytes": 20424,
+      "sha256": "41dd1b25a21f34791c207be6de9ea06be1155797b86db30d44f87cc1937a8b06"
+    },
+    "art_source/art_pass_01/nature/shrub.blend": {
+      "bytes": 107775,
+      "sha256": "44ad76499ad6f711a11cc6217607389ac8e54d2a337da4d3801c04d5abeeba27"
+    },
+    "assets/nature/art_pass_01/shrub.glb": {
+      "bytes": 18180,
+      "sha256": "7888907ed3eacef642ebbc993839cc49e48872d7db28df3d3759358c1234987e"
+    },
+    "features/vegetation/hedge_rules.gd": {
+      "bytes": 3539,
+      "sha256": "e909ff49a90b4b161869288f40765932f2453e39dd1ca9fc69e77305b1d8b585"
+    },
+    "features/vegetation/hedge_view.gd": {
+      "bytes": 1444,
+      "sha256": "2aaf8bba52e58eafa35e4e88b9a3c78290bd5df0fe791426477da387d8dab70e"
+    },
+    "art_source/art_pass_01/nature/moss_rock.blend": {
+      "bytes": 109424,
+      "sha256": "abc4074240c350aa7ab862f1e3aaf7ba96ba2863a9fb6ba39944c97a2139ac74"
+    },
+    "assets/nature/art_pass_01/moss_rock.glb": {
+      "bytes": 34872,
+      "sha256": "4c76be9ffb2213035c1fab15b637c55236ce507abd55ba9de6169bcd3a8501c2"
+    },
+    "art_source/art_pass_01/nature/flat_rock.blend": {
+      "bytes": 104258,
+      "sha256": "90ac0acfc6d7d159a10e700f98d4b84dbe9fb812d428083eeba95cef6086d02b"
+    },
+    "assets/nature/art_pass_01/flat_rock.glb": {
+      "bytes": 23956,
+      "sha256": "bad1a0406abf711de94cca1f3b7dbc851bd0db5fb986d89dcae09db71434a929"
+    },
+    "features/vegetation/vegetation_brush.gd": {
+      "bytes": 5305,
+      "sha256": "c4cd147450e5cbdc0da940ea9bae518b6bda292ed11fd94fd72ac8ed2b27d6ae"
+    },
+    "features/vegetation/foliage_batches.gd": {
+      "bytes": 3389,
+      "sha256": "17d0274115c0a5854217030ae6ef8ab13faa8555c0497f07a24845ed2409606f"
+    },
+    "art_source/week_04/bench.blend": {
+      "bytes": 106218,
+      "sha256": "1401bf4f10a08f15570f842d9ef245ba3b8022cae422c9b22c32e7c486ee64ee"
+    },
+    "assets/week_04/bench.glb": {
+      "bytes": 105984,
+      "sha256": "ffec305ce030b3e0eb1b9852f33635d87e50f09d9f2b2fc8db00adf67e3e3a55"
+    },
+    "art_source/week_04/manifest.json": {
+      "bytes": 3513,
+      "sha256": "a835b71bdf746d1b81ff6e3ee92bfd1b301e38e260624fdb4a071a6c4b4bfc2c"
+    },
+    "art_source/week_04/mailbox.blend": {
+      "bytes": 108830,
+      "sha256": "93f248a1fd684831a63822d1025f327cf1e211b4af6fdbb30089e9ebfed5eb35"
+    },
+    "assets/week_04/mailbox.glb": {
+      "bytes": 60328,
+      "sha256": "4e9a58cef679e6662dedbf689663f1adb62aa54d016e18808d4255053774dd48"
+    },
+    "art_source/week_05/pot.blend": {
+      "bytes": 112594,
+      "sha256": "a866bcd3a99f795a6f558e9ea127e1b422d042593d31c6ccf6efb8c3dd0922aa"
+    },
+    "assets/week_05/pot.glb": {
+      "bytes": 51548,
+      "sha256": "06146ca998ce19012c1f48acfe2ed052779dbd43f13f7ba211b9e1ff483d37ae"
+    },
+    "art_source/week_05/manifest.json": {
+      "bytes": 2497,
+      "sha256": "863467fe9bb1a4d6e23bc3658283d443655f5ef69daf0ef8a44ebecd866c20c1"
+    },
+    "art_source/week_05/clothesline.blend": {
+      "bytes": 118118,
+      "sha256": "41ac1e4284b00bbd4cc4d15465f169a7160e409238af64790741b14f1dc8d28b"
+    },
+    "assets/week_05/clothesline.glb": {
+      "bytes": 124532,
+      "sha256": "0759c437b37a0f8c257ae6d0ffdb278e215ec53b4c70b9830c50604092321e40"
+    },
+    "art_source/week_05/crate.blend": {
+      "bytes": 111201,
+      "sha256": "51304a84efd416f57e8093370b333995dee1e2bc0ac1b6ce4dc4f63a23fff178"
+    },
+    "assets/week_05/crate.glb": {
+      "bytes": 52788,
+      "sha256": "8b772c40f5ec6284a467736daf45e768ceae95a33f425f773464cc77d6fd7c99"
+    },
+    "art_source/week_05/watering_can.blend": {
+      "bytes": 112932,
+      "sha256": "a074ef5a3c0204ddc9e41cfa480a1c93c2cf0b07037b1c3495e7a99cfdade04f"
+    },
+    "assets/week_05/watering_can.glb": {
+      "bytes": 55904,
+      "sha256": "5ebefdc26ef1af77082efd6e15484b490151f3db246038572e72c88f7177fad9"
+    },
+    "art_source/week_06/tea_set.blend": {
+      "bytes": 127245,
+      "sha256": "cfe507ef919377c75471aaddae0765d85dec62b9df74490516e85b262308c0ac"
+    },
+    "assets/week_06/tea_set.glb": {
+      "bytes": 158856,
+      "sha256": "a8565687335d99ec3ffe08fb8f72dcf805af44e1400f0e90f68cecdbd2261823"
+    },
+    "art_source/week_06/manifest.json": {
+      "bytes": 3941,
+      "sha256": "e012d9f6a649e7d08f92ff94b639e4da95748a110459123661c79fad4c3192a0"
+    },
+    "art_source/week_06/lantern.blend": {
+      "bytes": 113262,
+      "sha256": "3a4e2902d05b60fc3e1fb65d678b7ba753112014f1791c50af069715be9b4feb"
+    },
+    "assets/week_06/lantern.glb": {
+      "bytes": 94208,
+      "sha256": "646efddf6e886853c01522f93780872a296822d00c9a05abf191cfc02d802315"
+    },
+    "features/art_direction/materials/painted_meadow.gdshader": {
+      "bytes": 1276,
+      "sha256": "6cafc5fac81b660be7f17e599c952f35dfa7314e54fc7b5edb2b18a4b4517deb"
+    },
+    "art_source/art_pass_01/materials/meadow.png": {
+      "bytes": 206784,
+      "sha256": "6c8254dc1376faa1bd3d1feff75fcd663685af5e90dcdd7e713a0897334b37ce"
+    },
+    "assets/materials/art_pass_01/meadow.png": {
+      "bytes": 206784,
+      "sha256": "6c8254dc1376faa1bd3d1feff75fcd663685af5e90dcdd7e713a0897334b37ce"
+    },
+    "art_source/art_pass_01/materials/plaster.png": {
+      "bytes": 196673,
+      "sha256": "ae92cc65a1db5d0bfc2db5440048f8ff4e315c6ad6f25f8cc416133108a2121f"
+    },
+    "assets/materials/art_pass_01/plaster.png": {
+      "bytes": 196673,
+      "sha256": "ae92cc65a1db5d0bfc2db5440048f8ff4e315c6ad6f25f8cc416133108a2121f"
+    },
+    "art_source/art_pass_01/materials/painted_material_library.blend": {
+      "bytes": 104825,
+      "sha256": "468e689b7b0e729aee4f9a0456a2a7a9c6a7f3eaaa3c8826e3f280d0d01bc66b"
+    },
+    "features/art_direction/materials/art_materials.gd": {
+      "bytes": 2642,
+      "sha256": "d85bcfdfbf1c35a03a5335d26ef8e7d3d2f8b44cc1c7e5b7be58473878473131"
+    },
+    "art_source/art_pass_01/materials/honey_timber.png": {
+      "bytes": 257079,
+      "sha256": "70df502528dc07b84a09652f567aafdfb82c95b44c4ed0354aaa6ad17779f7f7"
+    },
+    "assets/materials/art_pass_01/honey_timber.png": {
+      "bytes": 257079,
+      "sha256": "70df502528dc07b84a09652f567aafdfb82c95b44c4ed0354aaa6ad17779f7f7"
+    },
+    "art_source/art_pass_01/materials/moss_stone.png": {
+      "bytes": 289064,
+      "sha256": "dbc2cf01b39b96204b9addf1dcc6c253d241769f3cd6c6d0bd696f0c757f266a"
+    },
+    "assets/materials/art_pass_01/moss_stone.png": {
+      "bytes": 289064,
+      "sha256": "dbc2cf01b39b96204b9addf1dcc6c253d241769f3cd6c6d0bd696f0c757f266a"
+    },
+    "art_source/art_pass_01/materials/terracotta.png": {
+      "bytes": 218046,
+      "sha256": "e76a77bf1ea4079d8dd8743f451d77c4d5d5f3ed619fcd80b9f2634003806123"
+    },
+    "assets/materials/art_pass_01/terracotta.png": {
+      "bytes": 218046,
+      "sha256": "e76a77bf1ea4079d8dd8743f451d77c4d5d5f3ed619fcd80b9f2634003806123"
+    },
+    "art_source/art_pass_01/nature/painted_forest_atlas.png": {
+      "bytes": 3768921,
+      "sha256": "2ddfd87cb279029b27da251320b84e496cd3f65f157dac342b44fcda4883909b"
+    },
+    "assets/nature/art_pass_01/painted_forest_atlas.png": {
+      "bytes": 3768921,
+      "sha256": "2ddfd87cb279029b27da251320b84e496cd3f65f157dac342b44fcda4883909b"
+    },
+    "features/art_direction/materials/painted_water.gdshader": {
+      "bytes": 1260,
+      "sha256": "83522b88323dc847f74b3730ccce8d75579e238a18a3ef25694f2e9f21f8ccfd"
+    },
+    "features/art_direction/art_environment.gd": {
+      "bytes": 2152,
+      "sha256": "4aba6f2ab675cfc74b9b94b0ecb47732f2d8c48fffa32fa6fc79f11b47671efa"
+    },
+    "features/lighting/light_rig.gd": {
+      "bytes": 1983,
+      "sha256": "8f7120af3d053e7223a4a59f16b6bea4a0aa2dd0ca0bb07c5ee106d5da04d331"
+    },
+    "features/environment/wind.gdshader": {
+      "bytes": 1016,
+      "sha256": "88781cbd3b8cde97e58e5614be918cad2bf5e2928255e9c9e77b4d1646422bf7"
+    },
+    "features/garden_presentation/meadow.gdshader": {
+      "bytes": 1182,
+      "sha256": "1a7cd0a8b73363549a86182dd79c1019f3e6c27bb316e33e6eb725a2486eb141"
+    },
+    "levels/forest_slope/art_layout.gd": {
+      "bytes": 5012,
+      "sha256": "ae66010460a9fbed290fa8da09368cd1f4a75aa36ecb705440bd4aa841d14445"
+    },
+    "app/hover_root.tscn": {
+      "bytes": 456,
+      "sha256": "343ce9de71a421a62185fc3a37c7fb6927fa798ce51121798e6abdfda9bca549"
+    },
+    "art_source/week_06/ui/house.svg": {
+      "bytes": 275,
+      "sha256": "1d48d0c72627cd7fcf185ab8146f3ba7bf7710919e7047f8b288320691ef58dd"
+    },
+    "assets/ui/house.svg": {
+      "bytes": 275,
+      "sha256": "1d48d0c72627cd7fcf185ab8146f3ba7bf7710919e7047f8b288320691ef58dd"
+    },
+    "art_source/week_06/ui/round_house.svg": {
+      "bytes": 284,
+      "sha256": "5e2b4771ebd8a8adb003e7fb1c62f56e7a88eb0cc5916f1224a5958a97e30cbb"
+    },
+    "assets/ui/round_house.svg": {
+      "bytes": 284,
+      "sha256": "5e2b4771ebd8a8adb003e7fb1c62f56e7a88eb0cc5916f1224a5958a97e30cbb"
+    },
+    "art_source/week_06/ui/path.svg": {
+      "bytes": 281,
+      "sha256": "2b584efd26509380f15dee24eb47206f631968a445703c0f8715fa54f6188936"
+    },
+    "assets/ui/path.svg": {
+      "bytes": 281,
+      "sha256": "2b584efd26509380f15dee24eb47206f631968a445703c0f8715fa54f6188936"
+    },
+    "art_source/week_06/ui/door.svg": {
+      "bytes": 255,
+      "sha256": "4bda075de0b6194147eee51e11d49d83b0e72af947b55e87b399e6bcc11a0d4d"
+    },
+    "assets/ui/door.svg": {
+      "bytes": 255,
+      "sha256": "4bda075de0b6194147eee51e11d49d83b0e72af947b55e87b399e6bcc11a0d4d"
+    },
+    "art_source/week_06/ui/window.svg": {
+      "bytes": 260,
+      "sha256": "e1af150abe6eb9756e7ba8c74ef6dab1481e9f98e2dba4dc97e61ebd293e9061"
+    },
+    "assets/ui/window.svg": {
+      "bytes": 260,
+      "sha256": "e1af150abe6eb9756e7ba8c74ef6dab1481e9f98e2dba4dc97e61ebd293e9061"
+    },
+    "art_source/week_06/ui/raise.svg": {
+      "bytes": 268,
+      "sha256": "7ce524e404a168afc54e603bb9c2cf9727d2b0e27917adb38c062fa485ae5177"
+    },
+    "assets/ui/raise.svg": {
+      "bytes": 268,
+      "sha256": "7ce524e404a168afc54e603bb9c2cf9727d2b0e27917adb38c062fa485ae5177"
+    },
+    "art_source/week_06/ui/lower.svg": {
+      "bytes": 268,
+      "sha256": "fc1b54fbb1a8c06dc4f9ac51bfacac0df3a3de6fe4daadb4c73788e91b6c1444"
+    },
+    "assets/ui/lower.svg": {
+      "bytes": 268,
+      "sha256": "fc1b54fbb1a8c06dc4f9ac51bfacac0df3a3de6fe4daadb4c73788e91b6c1444"
+    },
+    "art_source/week_06/ui/smooth.svg": {
+      "bytes": 254,
+      "sha256": "44cecf338a3cb6939ddd03d22129d6ee53d69df9d5a6a3edf3d1cef5acfb8766"
+    },
+    "assets/ui/smooth.svg": {
+      "bytes": 254,
+      "sha256": "44cecf338a3cb6939ddd03d22129d6ee53d69df9d5a6a3edf3d1cef5acfb8766"
+    },
+    "art_source/week_06/ui/pond.svg": {
+      "bytes": 279,
+      "sha256": "e9d5c5dafa7ebe7a1fa15aeac209549dfc95a9d247d0858c8fac4805a5a1c8b8"
+    },
+    "assets/ui/pond.svg": {
+      "bytes": 279,
+      "sha256": "e9d5c5dafa7ebe7a1fa15aeac209549dfc95a9d247d0858c8fac4805a5a1c8b8"
+    },
+    "art_source/week_06/ui/bridge.svg": {
+      "bytes": 288,
+      "sha256": "22cfd54909676c06f49bf475fc57c3d3176526ecb0b579ac0488b7a810a1b0b4"
+    },
+    "assets/ui/bridge.svg": {
+      "bytes": 288,
+      "sha256": "22cfd54909676c06f49bf475fc57c3d3176526ecb0b579ac0488b7a810a1b0b4"
+    },
+    "art_source/week_06/ui/stair.svg": {
+      "bytes": 262,
+      "sha256": "01c6521fc7dfbcde536a7b9d337897781b61bd7ed9642c0af991780c4c3e1da7"
+    },
+    "assets/ui/stair.svg": {
+      "bytes": 262,
+      "sha256": "01c6521fc7dfbcde536a7b9d337897781b61bd7ed9642c0af991780c4c3e1da7"
+    },
+    "art_source/week_06/ui/fence.svg": {
+      "bytes": 271,
+      "sha256": "26b028ba9f65c5c0d457e2693741267a64c4d364972f01e0278481ee1848f3ea"
+    },
+    "assets/ui/fence.svg": {
+      "bytes": 271,
+      "sha256": "26b028ba9f65c5c0d457e2693741267a64c4d364972f01e0278481ee1848f3ea"
+    },
+    "art_source/week_06/ui/tree.svg": {
+      "bytes": 288,
+      "sha256": "03f45263054f3853257d3876c61c96124e2baa6759c5ada70d6e691ad402baf8"
+    },
+    "assets/ui/tree.svg": {
+      "bytes": 288,
+      "sha256": "03f45263054f3853257d3876c61c96124e2baa6759c5ada70d6e691ad402baf8"
+    },
+    "art_source/week_06/ui/plant.svg": {
+      "bytes": 292,
+      "sha256": "7f131dad8ccbfa3e2eb4b284431f43f62994dc346f5bca54bd4e012854722490"
+    },
+    "assets/ui/plant.svg": {
+      "bytes": 292,
+      "sha256": "7f131dad8ccbfa3e2eb4b284431f43f62994dc346f5bca54bd4e012854722490"
+    },
+    "art_source/week_06/ui/props.svg": {
+      "bytes": 289,
+      "sha256": "a8b7f79df89215862656eea0dc4b4f32082e142b42e33adf4ed5978ab5a7d080"
+    },
+    "assets/ui/props.svg": {
+      "bytes": 289,
+      "sha256": "a8b7f79df89215862656eea0dc4b4f32082e142b42e33adf4ed5978ab5a7d080"
+    },
+    "art_source/week_06/ui/light.svg": {
+      "bytes": 291,
+      "sha256": "bf2ef07c0ca89370c14f8faa6699a0f4f706747cb3d65717aec0ed4260455aa3"
+    },
+    "assets/ui/light.svg": {
+      "bytes": 291,
+      "sha256": "bf2ef07c0ca89370c14f8faa6699a0f4f706747cb3d65717aec0ed4260455aa3"
+    },
+    "art_source/week_06/ui/selected.svg": {
+      "bytes": 300,
+      "sha256": "63cb3e2b36f4a5d9e60efb28dab2686998c55e89f95be124209c2d691c25e2b2"
+    },
+    "assets/ui/selected.svg": {
+      "bytes": 300,
+      "sha256": "63cb3e2b36f4a5d9e60efb28dab2686998c55e89f95be124209c2d691c25e2b2"
+    },
+    "art_source/week_06/ui/snap.svg": {
+      "bytes": 280,
+      "sha256": "09891620c8776d8236748c789f058ef85cce4793e6464d5ddb01d41d139021f3"
+    },
+    "assets/ui/snap.svg": {
+      "bytes": 280,
+      "sha256": "09891620c8776d8236748c789f058ef85cce4793e6464d5ddb01d41d139021f3"
+    },
+    "art_source/week_06/ui/dimensions.svg": {
+      "bytes": 325,
+      "sha256": "0d71e7a08ef6b2284e13788b8a8acafda3996c1e14a4684bb90949dd330e98e5"
+    },
+    "assets/ui/dimensions.svg": {
+      "bytes": 325,
+      "sha256": "0d71e7a08ef6b2284e13788b8a8acafda3996c1e14a4684bb90949dd330e98e5"
+    },
+    "art_source/week_06/ui/invalid.svg": {
+      "bytes": 258,
+      "sha256": "916d12de1307d1023215a20df9ed4e16883ef1f4dd96d047b708a4223b422e7c"
+    },
+    "assets/ui/invalid.svg": {
+      "bytes": 258,
+      "sha256": "916d12de1307d1023215a20df9ed4e16883ef1f4dd96d047b708a4223b422e7c"
+    },
+    "art_source/week_07/ui/plaster_cream.svg": {
+      "bytes": 1014,
+      "sha256": "9e8e1a3a01f70a3478c1492e664a92654349e7cfb12a9bb7bba57c4b5f2c7ffd"
+    },
+    "assets/week_07/ui/plaster_cream.png": {
+      "bytes": 4097,
+      "sha256": "988e04af7caf25780a533618b5c9ee3597753fbb6a9c788461ce717b1433d360"
+    },
+    "assets/week_07/palette_manifest.json": {
+      "bytes": 1570,
+      "sha256": "00fd0a8b54ee8548d1af25d7d911afe01ac598890b8e2f97045453218dda3add"
+    },
+    "art_source/week_07/ui/plaster_rose.svg": {
+      "bytes": 1014,
+      "sha256": "165261825b4db60a03aa27c6648dd2df9e91c1e808099f19273945ddec5b217b"
+    },
+    "assets/week_07/ui/plaster_rose.png": {
+      "bytes": 3818,
+      "sha256": "2ac7e7d7bcf0fb8e70115634fce3cccaa8c7191b6fa8d073dfa5d9d008c6b597"
+    },
+    "art_source/week_07/ui/wood_honey.svg": {
+      "bytes": 1011,
+      "sha256": "6c5555c51664a98e5ffaa84d45286745f17a9ca2f15aa87481d2a5fc4e2f8f99"
+    },
+    "assets/week_07/ui/wood_honey.png": {
+      "bytes": 5493,
+      "sha256": "84e78877fa692d37098bd6e78f39b74febae839abc2a3d431c06719cafba0582"
+    },
+    "art_source/week_07/ui/wood_walnut.svg": {
+      "bytes": 1011,
+      "sha256": "6927185bdaea2f21ed52d286afcc43d7846652b035aec1d4448ebf0ef8f55d15"
+    },
+    "assets/week_07/ui/wood_walnut.png": {
+      "bytes": 4282,
+      "sha256": "1c1dcc640007db4b83cb70eefd3ef1870a1a5f1a2d8465033aa560d24ba7c1e6"
+    },
+    "art_source/week_07/ui/wood_sage.svg": {
+      "bytes": 1014,
+      "sha256": "1cedca1bddd188ba29f7ea5e812b8ea83b4ff1b7679c1510f2eb647f0f4532ae"
+    },
+    "assets/week_07/ui/wood_sage.png": {
+      "bytes": 4894,
+      "sha256": "cbfa0bc3a258ce4758c6f0746ae88e0be93cf7327ac6c98353362c9015ac78cc"
+    },
+    "art_source/week_07/ui/roof_terracotta.svg": {
+      "bytes": 1011,
+      "sha256": "48416f24650d58d50aaa172b058d15259ef06e431406eb33759b7d3cc34442de"
+    },
+    "assets/week_07/ui/roof_terracotta.png": {
+      "bytes": 5041,
+      "sha256": "34ef8f3257bc015528d947b2fc3ebc21ac19f8223bfbb8e191379f699f7e28df"
+    },
+    "art_source/week_07/ui/roof_smoke.svg": {
+      "bytes": 1011,
+      "sha256": "3685dea637f63cb8b4e250d3ef0518797db13d5e31b35f08046f4ffd9bd3a167"
+    },
+    "assets/week_07/ui/roof_smoke.png": {
+      "bytes": 4382,
+      "sha256": "201b8583d12e8c861d4551b039724c6a690ec4ab27ed3db52bcdcf2541fde54e"
+    },
+    "art_source/week_07/ui/stone_grey.svg": {
+      "bytes": 1011,
+      "sha256": "9ff6529fe0eac408501e20b153b4a6a5c2e5fcb8de559c061ed2cadcc121346c"
+    },
+    "assets/week_07/ui/stone_grey.png": {
+      "bytes": 4394,
+      "sha256": "99f2352aedd56220c2023146be9c5adada5d86fac6bda7e87dc1a0dc470a7e59"
+    },
+    "art_source/week_07/ui/stone_moss.svg": {
+      "bytes": 1011,
+      "sha256": "6c135a177a3932e0f9ffb7d682842e3c3b0b812a5c88065d583aa14ad7730f47"
+    },
+    "assets/week_07/ui/stone_moss.png": {
+      "bytes": 4032,
+      "sha256": "37f3de8aee32c702e4f1ced9df156096dc17afbe94c60a701c1dc069f5b6b0b2"
+    },
+    "art_source/week_07/ui/stone_sand.svg": {
+      "bytes": 1011,
+      "sha256": "292aa26cb911180027658f4a9b6bb48cf2a19c21140f17e8907704b86f12c09d"
+    },
+    "assets/week_07/ui/stone_sand.png": {
+      "bytes": 4104,
+      "sha256": "ce76468277371cd5f02d9a49dac09586839820b7642ccc4830147f1a848ee820"
+    },
+    "art_source/week_07/ui/foliage_spring.svg": {
+      "bytes": 1008,
+      "sha256": "4d6c5f166490eee441a00fe06034887b2696375aa18ccf23bd14a2fae5692fff"
+    },
+    "assets/week_07/ui/foliage_spring.png": {
+      "bytes": 3716,
+      "sha256": "c5678c802158229ad53b5114c941d1969cef903920e87821688a87b86501c74d"
+    },
+    "art_source/week_07/ui/foliage_deep.svg": {
+      "bytes": 1008,
+      "sha256": "c3c45ccdd36a33f6ac58d5aec120812498c5ac8d340a400b49328020a2d1cc39"
+    },
+    "assets/week_07/ui/foliage_deep.png": {
+      "bytes": 3412,
+      "sha256": "fa1f3dd2045fcff2cce32d339858fccf58765327f54243cb99a6d8c567633109"
+    },
+    "art_source/art_pass_01/ui/scene_day.png": {
+      "bytes": 2907237,
+      "sha256": "0155961369277bfe82004e5ebec996ec44871bbc2094dca5c2712c124ef39aac"
+    },
+    "assets/ui/art_pass_01/template_forest.png": {
+      "bytes": 263203,
+      "sha256": "a3ef38ca7df2e90d3db7487c7dd151fd5bba9ff5fe830d3b2e1336fe6fd68b59"
+    },
+    "art_source/art_pass_01/ui/manifest.json": {
+      "bytes": 577,
+      "sha256": "9634b2bfdd113e38aa8f8527f2d2828f7b6ad32ebdff2f4c0d0bd46f494d02de"
+    },
+    "features/hover_edit/hover_hud.gd": {
+      "bytes": 510,
+      "sha256": "a5095c7ad933c1aedd475373e9e455608c6501c3051309d531499ed9a074d0ca"
+    },
+    "features/direct_edit/simple_hud.gd": {
+      "bytes": 10794,
+      "sha256": "b3b5f3eccf5add2c2eb9faaea42d180e764b75d998faaca5c22bd17cdef1ebb7"
+    },
+    "ui/theme/garden_theme.gd": {
+      "bytes": 2009,
+      "sha256": "c34e180fff13940a2c9b9d65f345d866bee8efdd24ff39009bf3e1a0c9240d6b"
+    },
+    "assets/fonts/manifest.json": {
+      "bytes": 466,
+      "sha256": "916c23609a9a25afb36faa1524b9ce5a07194d02dc9135914660636d5e3d7bb2"
+    },
+    "THIRD_PARTY.md": {
+      "bytes": 4176,
+      "sha256": "8d5d05b9fc474df545279c56ddf571e3c76793f83924217f3faff2e7c3ac549e"
+    },
+    "assets/fonts/OFL.txt": {
+      "bytes": 4301,
+      "sha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2"
+    },
+    "docs/licenses/GODOT_LICENSE.txt": {
+      "bytes": 1149,
+      "sha256": "b0435e3b3e4e55238f05f4b306f30524a1b2e20147810d436eaa554fa6855c80"
+    }
+  }
+}

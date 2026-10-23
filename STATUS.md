@@ -2,6 +2,17 @@
 
 更新日期：2026-10-23（Asia/Shanghai）
 
+## CLEANUP-01 工程清理
+
+2026-10-23：核对十二周计划后完成工程清理，没有新增功能范围。
+
+- 删除3,285个忽略文件，释放6,528,294,162字节（约6.53GB）：旧导出/解包、验证检出副本、重复运行报告、下载缓存及Python/系统/Blender自动备份；另删除2个旧检出软链接。
+- 保留3个W12内部包及许可，清理前后SHA-256一致；旧包不含当前PERF-01修复。锁定引擎、导出模板、虚拟环境与正在使用的Godot编辑器缓存保留。
+- 主场景的14层继承、建筑参数画廊、正式测试探针及清单约束素材仍有用途；保留源件、导入设置、用户作品和逐周证据，核验1,055份归档哈希。未改运行时代码或美术源件。
+- 精简README重复旧版操作，更新docs索引与旧包状态。清理后累计623项Godot / 18,055断言 + 23项Python，0失败/0跳过，负控通过；命令 `python3 tools/quality/perf_checks.py`。本轮未重测GPU或实机。
+
+[清理清单与测试证据](docs/weekly/cleanup_01/README.md)。没有已批准W13功能；下一步仍是启动/编辑重叠尖峰和Windows/低配/冷启动/音频/物理触摸板/远端CI/十位首次玩家与最终放行，M4/M5保持开放。
+
 ## PERF-01 当前性能修复
 
 2026-10-23：T065/T071性能排查与本轮修复完成，源码 `de0fa40`，本地标签`perf-01`。玩法与美术密度不变，旧W12包未覆盖；Godot F5运行本轮源码。
@@ -204,8 +215,7 @@ W09 QA原生自动保存使用 `user://qa_w09_native`，单测使用 `user://qa_
 | W08 | `e879782` 实现 / `e8abdba` 输入完善；`v0.8.0-w08`；[存档/设置/M3 切片](docs/weekly/week_08/README.md)，无缓存干净检出 412 项通过 |
 
 本地 `main`，未配置远程、未推送。源件、导入设置、UID 与必要证据入库，缓存/运行时/导出包忽略。
-ART-01 本地包：`builds/art_pass_01/macos/windhaven_art_pass_01.zip`、`builds/art_pass_01/windows/windhaven_art_pass_01.exe`。
-W09 历史包：`builds/week_09/macos/windhaven_week_09.zip`、`builds/week_09/windows/windhaven_week_09.exe`。
+ART-01 / W09 等历史本地导出已在 CLEANUP-01 删除；源码标签和归档证据保留，需要时按对应周命令重建。当前保留 W12 内部安装包及许可文件。
 
 ## 后续与剩余门槛
 

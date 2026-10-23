@@ -9,6 +9,15 @@
 | [开发状态](../STATUS.md) | 每周任务状态、测试结果与未通过门槛 |
 | [运行说明](../README.md) | 启动、操作、测试和导出命令 |
 | [每周测试约定](TESTING.md) | W01–W12 测试范围与证据要求 |
+| [CLEANUP-01 清理记录](weekly/cleanup_01/README.md) | 缓存与旧产物清理、依赖保护及验证 |
+| [PERF-01 性能报告](weekly/perf_01/README.md) | 当前源码、原始性能样本与剩余尖峰 |
+| [W12 内部交付](weekly/week_12/README.md) | 包哈希、操作说明、资产/验收索引与待验门槛 |
+| [UX-03 悬停修改](weekly/ux_03/README.md) | 房屋、屋顶、门窗与桥阶就地拖动 |
+| [UX-02 交互修订](weekly/ux_02/README.md) | 底栏与直接操作 |
+| [W11 缺陷收尾](weekly/week_11/README.md) | 本机修复与首次玩家测试协议 |
+| [W10 体验收尾](weekly/week_10/README.md) | 音频、输入、回归与试玩材料 |
+| [ART-01 美术返工](weekly/art_pass_01/README.md) | 建筑、手绘材质、植物与美术源件 |
+| [底栏、远景柔焦与草](weekly/ui_meadow_01/README.md) | 展示与性能设置 |
 | [W09 验收报告](weekly/week_09/README.md) | Mac手势、摄影/模板/入口、满容量60秒与20分钟组合回归；局部性能缺陷仍开放 |
 | [W08 验收报告](weekly/week_08/README.md) | 五槽/备份/自动保存、设置与重绑、SCN-01、局部性能与实机环绕录像 |
 | [W07 验收报告](weekly/week_07/README.md) | 工具 Dock / 属性卡、十二色板、拉伸绿篱、资源包装与存档/示范草案开工 |
@@ -28,8 +37,6 @@
 | [C03 建筑套件](art/concepts/03_architecture_kit.png) | 墙体、屋顶、门窗与连接模块方向 |
 | [C04 道具与自然](art/concepts/04_props_nature.png) | 八类生活道具、树木、灌草与岩石 |
 
-开发进度以 [STATUS.md](../STATUS.md) 为准；前四周已建立 Godot 地形/池岸/编辑风险样板、三种门与两种窗源模型，以及笔触化基础材质；W03 接入尺寸预览、门窗恢复、三树 LOD；W04 接通曲线石径与门窗、正式地形刷和自然/道具源件。正式模型集、材质与后续功能按周验收，不将概念图或技术样板计为全部资产完成。图示中的藤蔓、炊烟、复杂廊檐等后续内容，在 PRD 第 8 节标明范围。资源数量按资产族与基础交付单元统计，不能当作模型数量。
+开发进度以 [STATUS.md](../STATUS.md) 为准：已完成 W01–W12 本机开发、ART-01 美术、UX-02/03 交互和 PERF-01 性能修复。Windows 真机、最低配置、真实音频与触摸板、首次玩家及最终放行仍待验；不自动开启 P1/P2。
 
 ![风栖小筑主视觉](art/concepts/01_key_visual.png)
-
-- [W05 庭园、浅池、短桥/短阶与回退闭环](weekly/week_05/README.md)
