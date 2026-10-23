@@ -113,6 +113,8 @@ func _refresh_dirty_keys() -> void:
 		_source_key = DirtyGraph.key(source)
 		_source_revision = int(document.state["revision"])
 	var next_camera: String = DirtyGraph.key(_camera_record())
+	if has_method("_extra_dirty_key"):
+		next_camera = DirtyGraph.key([_camera_record(), call("_extra_dirty_key")])
 	if _camera_key != next_camera:
 		idle_seconds = 0
 		_camera_key = next_camera
@@ -229,6 +231,8 @@ func _start_save(index: int, title: String, preserve_dialogs: bool = false) -> v
 	var presentation: Dictionary = {
 		"camera": _camera_record(), "saved_unix": int(Time.get_unix_time_from_system())
 	}
+	if has_method("_extra_presentation"):
+		presentation.merge(call("_extra_presentation"))
 	if DisplayServer.get_name() != "headless":
 		var was_visible: bool = hud.visible
 		var library_was_visible: bool = hud.library.visible and preserve_dialogs
@@ -317,6 +321,10 @@ func _stage_done(token: int, payload: Dictionary) -> void:
 	active_slot = _load_index
 	active_title = _load_result.get("metadata", {}).get("title", "林间作品")
 	_restore_camera(_load_result.get("metadata", {}).get("presentation", {}).get("camera", {}))
+	if has_method("_restore_extra_presentation"):
+		call(
+			"_restore_extra_presentation", _load_result.get("metadata", {}).get("presentation", {})
+		)
 	tools.selected.clear()
 	_show_selection()
 	_refresh_dirty_keys()

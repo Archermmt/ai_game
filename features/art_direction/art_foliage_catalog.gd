@@ -50,6 +50,7 @@ static func create(asset_id: String, key: String, _wood: Material, _stone: Mater
 	var paint: ShaderMaterial = ShaderMaterial.new()
 	paint.shader = _shader
 	paint.set_shader_parameter("atlas", ATLAS)
+	paint.set_shader_parameter("season_deciduous", asset_id in ["NAT-01", "NAT-03"])
 	paint.set_shader_parameter("phase", float(posmod(key.hash(), 10000)) * 0.01)
 	paint.set_shader_parameter("amplitude", 0.13 if LODS.has(asset_id) else 0.065)
 	# Variation is deliberately subtle; hue comes from the painted atlas itself.

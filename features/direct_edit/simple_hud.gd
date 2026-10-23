@@ -95,7 +95,12 @@ func _ready() -> void:
 		["direct_copy", "复制"], ["direct_delete", "删除"], ["exact", "精确参数"], ["finish_edit", "结束修改"]
 	]:
 		var button: Button = Button.new()
-		button.text = pair[1]
+		button.icon = IllustratedIcons.texture(pair[1])
+		button.tooltip_text = pair[1]
+		button.accessibility_name = pair[1]
+		button.expand_icon = true
+		button.custom_minimum_size = Vector2(44, 38)
+		button.add_theme_constant_override("icon_max_width", 30)
 		button.pressed.connect(
 			func() -> void:
 				if pair[0] == "exact":
@@ -126,11 +131,7 @@ func _make_ribbon() -> void:
 	scroll.add_child(row)
 	for card: Array in SIMPLE_GROUPS:
 		var button: Button = Button.new()
-		button.icon = (
-			preload("res://features/garden_presentation/eraser.svg")
-			if card[1] == "eraser"
-			else _icon(card[1])
-		)
+		button.icon = IllustratedIcons.texture(card[1])
 		button.expand_icon = true
 		button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		button.custom_minimum_size = Vector2(50, 56)
@@ -224,7 +225,15 @@ func open_group(key: String, activate: bool = true) -> void:
 
 func _choice(parent: Node, title: String, callback: Callable) -> Button:
 	var button: Button = Button.new()
-	button.text = title
+	button.icon = IllustratedIcons.texture(title)
+	button.tooltip_text = title
+	button.accessibility_name = title
+	button.add_theme_stylebox_override("normal", _paper(Color("dec29c"), 7))
+	button.add_theme_stylebox_override("hover", _paper(Color("efe0bb"), 7))
+	button.expand_icon = true
+	button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	button.custom_minimum_size = Vector2(62, 62)
+	button.add_theme_constant_override("icon_max_width", 48)
 	button.pressed.connect(callback)
 	parent.add_child(button)
 	return button
@@ -265,7 +274,7 @@ func _layout_panels() -> void:
 	if quick == null:
 		return
 	var available: Vector2 = get_viewport().get_visible_rect().size / _scale_value
-	var width: float = minf(610, available.x - 24)
+	var width: float = minf(720, available.x - 24)
 	_dock.position.x = (available.x - width) * 0.5
 	_dock.size.x = width
 	quick.size = Vector2(
@@ -276,7 +285,7 @@ func _layout_panels() -> void:
 			else (
 				150
 				if group in ["openings", "props", "palette", "trees"]
-				else (110 if group == "path" else 65)
+				else (110 if group == "path" else 96)
 			)
 		)
 	)

@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="风栖小筑 · 手绘林间"
-config/version="0.12.0-w12"
-run/main_scene="res://app/hover_root.tscn"
+config/version="0.13.0-w13"
+run/main_scene="res://app/living_root.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="WindhavenDiorama"
 config/features=PackedStringArray("4.7", "Forward Plus")
@@ -78,3 +78,22 @@ reset_camera={
 textures/vram_compression/import_s3tc_bptc=true
 textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.72, 0.8, 0.76, 1)
+
+[shader_globals]
+
+living_time={
+"type": "float",
+"value": 0.0
+}
+living_cloud={
+"type": "float",
+"value": 0.0
+}
+living_snow={
+"type": "float",
+"value": 0.0
+}
+living_season={
+"type": "float",
+"value": -1.0
+}

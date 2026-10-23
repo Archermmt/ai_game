@@ -45,6 +45,11 @@ static func unpack(payload: Dictionary) -> Dictionary:
 
 
 static func valid_presentation(value: Dictionary) -> bool:
+	if (
+		value.has("calendar")
+		and (not value["calendar"] is Dictionary or not CalendarState.valid(value["calendar"]))
+	):
+		return false
 	if value.has("camera") and not CameraRecord.valid(value["camera"]):
 		return false
 	if value.has("thumbnail"):

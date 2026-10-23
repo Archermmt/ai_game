@@ -29,12 +29,13 @@ func _ready() -> void:
 		style.set_border_width_all(1)
 		style.set_corner_radius_all(16)
 		chip.add_theme_stylebox_override("panel", style)
-		var label: Label = Label.new()
-		label.text = pair[1]
-		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		label.add_theme_color_override("font_color", Color("40594b"))
-		chip.add_child(label)
+		var picture: TextureRect = TextureRect.new()
+		picture.texture = IllustratedIcons.texture(pair[0])
+		picture.custom_minimum_size = Vector2(24, 24)
+		picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		picture.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		chip.add_child(picture)
 		chip.gui_input.connect(
 			func(event: InputEvent) -> void:
 				if (

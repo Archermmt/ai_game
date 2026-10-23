@@ -15,7 +15,7 @@ from common import ROOT, engine_binary
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--week', type=int, default=7, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+    parser.add_argument('--week', type=int, default=7, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13])
     parser.add_argument("--art-pass", action="store_true")
     parser.add_argument("--garden", action="store_true")
     parser.add_argument("--simple", action="store_true", help="UX-02 direct manipulation revision")
@@ -54,7 +54,8 @@ def main():
         environment = os.environ.copy()
         environment['GODOT_BIN'] = engine_binary()
         environment['WINDHAVEN_SOURCE_REVISION'] = revision
-        command = ([sys.executable, "tools/quality/perf_followup_checks.py"] if args.perf_followup else
+        command = ([sys.executable, "tools/quality/week_thirteen_checks.py"] if args.week == 13 else
+                   [sys.executable, "tools/quality/perf_followup_checks.py"] if args.perf_followup else
                    [sys.executable, "tools/quality/perf_checks.py"] if args.perf else
                    [sys.executable, "tools/quality/week_twelve_checks.py"] if args.week == 12 else
                    [sys.executable, "tools/quality/hover_checks.py"] if args.hover else
@@ -64,7 +65,7 @@ def main():
                    [sys.executable, 'tools/quality/art_pass_checks.py'] if args.art_pass else
                    [sys.executable, 'tools/quality/run_checks.py', '--week', str(args.week), '--negative-control'])
         process = subprocess.run(command, cwd=checkout, env=environment,
-                                 text=True, capture_output=True, timeout=700 if args.perf_followup else 600 if args.perf else 420)
+                                 text=True, capture_output=True, timeout=800 if args.week == 13 else 700 if args.perf_followup else 600 if args.perf else 420)
         print(process.stdout, end='')
         if process.returncode:
             print(process.stderr, file=sys.stderr)

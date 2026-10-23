@@ -6,6 +6,7 @@ var spacing: float = 0.5
 var heights: Dictionary = {}
 var pool: Dictionary = {}
 var forest_profile: bool = false
+var rolling_profile: bool = false
 var forest_phase: float = 0.0
 var pool_contour: PackedVector2Array = PackedVector2Array()
 var pool_bounds: Rect2
@@ -14,6 +15,7 @@ var pool_bounds: Rect2
 func _init(snapshot: Dictionary) -> void:
 	spacing = float(snapshot["terrain"].get("spacing", 0.5))
 	forest_profile = snapshot["terrain"].get("base_profile", "flat") == "forest_slope_v1"
+	rolling_profile = snapshot["terrain"].get("base_profile", "flat") == "rolling_hills_v2"
 	forest_phase = float(str(snapshot["world_seed"]).hash() % 10000) * 0.001
 	for entry: Array in snapshot["terrain"]["height_deltas"]:
 		heights[Vector2i(int(entry[0]), int(entry[1]))] = float(entry[2])
@@ -39,6 +41,14 @@ func player_height(point: Vector2) -> float:
 
 
 func base_height(point: Vector2) -> float:
+	if rolling_profile:
+		return (
+			-0.15
+			+ 0.06 * sin(point.x * 0.1 + forest_phase) * cos(point.y * 0.13)
+			+ point.x * 0.002
+			+ TerrainRelief.height(point, forest_phase)
+			+ 0.15
+		)
 	if not forest_profile:
 		return 0.0
 	return -0.15 + 0.06 * sin(point.x * 0.1 + forest_phase) * cos(point.y * 0.13) + point.x * 0.002
@@ -134,7 +144,7 @@ static func validate(snapshot: Dictionary) -> String:
 	var step: Variant = terrain.get("spacing", 0.5)
 	if not (step is float or step is int) or step not in [0.25, 0.5]:
 		return "invalid_spacing"
-	if terrain.get("base_profile", "flat") not in ["flat", "forest_slope_v1"]:
+	if terrain.get("base_profile", "flat") not in ["flat", "forest_slope_v1", "rolling_hills_v2"]:
 		return "invalid_base_profile"
 	var occupied: Dictionary = {}
 	for entry: Array in terrain["height_deltas"]:
