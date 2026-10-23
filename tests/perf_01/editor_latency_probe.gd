@@ -15,21 +15,30 @@ func _run() -> void:
 	var scene: Node3D = load("res://app/hover_root.tscn").instantiate()
 	scene.qa_mode = true
 	root.add_child(scene)
+	var initial_revision: int = scene.document.state["revision"]
 	await RenderingServer.frame_post_draw
-	var first_draw_ms: float = float(Time.get_ticks_usec() - started) / 1000.0
-	var pre_draw_submission: bool = scene._submitted_usec > 0
+	var first_draw_usec: int = Time.get_ticks_usec()
+	var first_draw_ms: float = float(first_draw_usec - started) / 1000.0
+	var in_flight_at_first_draw: bool = scene._submitted_usec > 0
 	if "--perf-visible-input" in OS.get_cmdline_user_args():
 		scene._exercise_edits()
 	var deadline: int = Time.get_ticks_msec() + 15000
 	while scene._probe_edits < 20 and Time.get_ticks_msec() < deadline:
 		await process_frame
-	if scene._probe_edits != 20:
+	if (
+		scene._probe_edits != 20
+		or scene._commit_latencies.size() != 20
+		or scene._phase_timings.size() != 20
+		or scene.session.history_count() != 20
+		or scene.document.state["revision"] != initial_revision + 20
+	):
 		push_error("Performance probe did not finish all 20 edits")
 		quit(1)
 		return
 	var result: Dictionary = {
 		"first_draw_ms": first_draw_ms,
-		"submission_before_first_draw": pre_draw_submission,
+		"submission_before_first_draw": scene._phase_timings[0]["submitted_usec"] < first_draw_usec,
+		"commit_in_flight_at_first_draw": in_flight_at_first_draw,
 		"warmup_edits": 0,
 		"commits_ms": scene._commit_latencies.duplicate(),
 		"metrics": scene._delivery_metrics(),

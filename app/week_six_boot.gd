@@ -115,6 +115,7 @@ func _on_batch(token: int, data: Dictionary, committed: bool) -> void:
 		return
 	_prepare_started = Time.get_ticks_usec()
 	_phase_timing = {
+		"submitted_usec": _submitted_usec,
 		"worker_ms": data.get("worker_ms", 0.0),
 		"request_to_ready_ms": float(_prepare_started - _submitted_usec) / 1000.0
 	}

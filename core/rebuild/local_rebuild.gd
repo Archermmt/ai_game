@@ -2,6 +2,8 @@ class_name LocalRebuild
 extends RefCounted
 ## One worker-owned cache, or a separate main-thread cache; never shared across threads.
 
+const HeightIndex = preload("res://core/rebuild/height_delta_index.gd")
+
 
 static func evaluate(snapshot: Dictionary, cache: Dictionary) -> Dictionary:
 	var started: int = Time.get_ticks_usec()
@@ -9,6 +11,7 @@ static func evaluate(snapshot: Dictionary, cache: Dictionary) -> Dictionary:
 	if not error.is_empty():
 		return {"ok": false, "error": error}
 	var field: TerrainField = TerrainField.new(snapshot)
+	var height_index: HeightIndex = HeightIndex.new(snapshot)
 	var versions: Dictionary = {}
 	var reused: Array[String] = []
 	var generated: Array[String] = []
@@ -42,7 +45,7 @@ static func evaluate(snapshot: Dictionary, cache: Dictionary) -> Dictionary:
 		result["supports"].append(
 			memo.call(
 				"support:" + home["id"],
-				DirtyGraph.key([home, DirtyGraph.field_key(snapshot, region)]),
+				DirtyGraph.key([home, DirtyGraph.field_key(snapshot, region, height_index)]),
 				func() -> Dictionary: return _support(home, field)
 			)
 		)
@@ -53,7 +56,7 @@ static func evaluate(snapshot: Dictionary, cache: Dictionary) -> Dictionary:
 			result["terrain_arrays"].append(
 				memo.call(
 					id_value,
-					TerrainChunks.signature(snapshot, origin),
+					TerrainChunks.signature(snapshot, origin, height_index),
 					func() -> Array: return TerrainGeometry.chunk(field, origin)
 				)
 			)
@@ -67,7 +70,7 @@ static func evaluate(snapshot: Dictionary, cache: Dictionary) -> Dictionary:
 			[
 				paths,
 				DirtyGraph.nearby(snapshot["buildings"], path_region),
-				DirtyGraph.field_key(snapshot, path_region)
+				DirtyGraph.field_key(snapshot, path_region, height_index)
 			]
 		),
 		func() -> Array: return PathGeometry.arrays(snapshot)
@@ -80,7 +83,7 @@ static func evaluate(snapshot: Dictionary, cache: Dictionary) -> Dictionary:
 			[
 				fences,
 				DirtyGraph.nearby(paths, fence_region),
-				DirtyGraph.field_key(snapshot, fence_region)
+				DirtyGraph.field_key(snapshot, fence_region, height_index)
 			]
 		),
 		func() -> Array: return FenceGeometry.build(snapshot)
@@ -99,7 +102,7 @@ static func evaluate(snapshot: Dictionary, cache: Dictionary) -> Dictionary:
 					item,
 					DirtyGraph.nearby(snapshot["buildings"], region),
 					snapshot["pool"],
-					DirtyGraph.field_key(snapshot, region)
+					DirtyGraph.field_key(snapshot, region, height_index)
 				]
 			)
 			var structure: Dictionary = memo.call(
@@ -118,8 +121,8 @@ static func evaluate(snapshot: Dictionary, cache: Dictionary) -> Dictionary:
 		var signature: String = DirtyGraph.key(
 			[
 				item,
-				_support_chain(snapshot, item),
-				DirtyGraph.field_key(snapshot, DirtyGraph.bounds(item))
+				_support_chain(snapshot, item, 0, height_index),
+				DirtyGraph.field_key(snapshot, DirtyGraph.bounds(item), height_index)
 			]
 		)
 		result["poses"][item["id"]] = memo.call(
@@ -166,14 +169,16 @@ static func pose(snapshot: Dictionary, item: Dictionary, field: TerrainField) ->
 	)
 
 
-static func _support_chain(snapshot: Dictionary, item: Dictionary, depth: int = 0) -> Array:
+static func _support_chain(
+	snapshot: Dictionary, item: Dictionary, depth: int = 0, height_index: HeightIndex = null
+) -> Array:
 	if depth > 8 or not item.has("support_id"):
 		return []
 	for parent: Dictionary in snapshot["instances"]:
 		if parent["id"] == item.get("support_id", ""):
 			return [
 				parent,
-				DirtyGraph.field_key(snapshot, DirtyGraph.bounds(parent)),
-				_support_chain(snapshot, parent, depth + 1)
+				DirtyGraph.field_key(snapshot, DirtyGraph.bounds(parent), height_index),
+				_support_chain(snapshot, parent, depth + 1, height_index)
 			]
 	return []

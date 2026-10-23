@@ -2,12 +2,18 @@ class_name TerrainChunks
 extends RefCounted
 ## Exact source signature per chunk, including the normal-sampling halo.
 
+const HeightIndex = preload("res://core/rebuild/height_delta_index.gd")
 
-static func signature(snapshot: Dictionary, origin: Vector2) -> String:
+
+static func signature(
+	snapshot: Dictionary, origin: Vector2, height_index: HeightIndex = null
+) -> String:
 	var spacing: float = snapshot["terrain"].get("spacing", 0.5)
 	var bounds: Rect2 = Rect2(origin, Vector2(8, 8)).grow(spacing * 2)
 	var entries: Array = []
-	for entry: Array in snapshot["terrain"]["height_deltas"]:
+	if height_index != null:
+		entries = height_index.entries_within(bounds)
+	for entry: Array in snapshot["terrain"]["height_deltas"] if height_index == null else []:
 		var p: Vector2 = Vector2(entry[0], entry[1]) * spacing - Vector2.ONE * 32
 		if (
 			p.x >= bounds.position.x

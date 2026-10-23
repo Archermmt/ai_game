@@ -61,22 +61,14 @@ static func generate(source: Dictionary) -> Dictionary:
 static func generate_cached(source: Dictionary, cache: Dictionary) -> Dictionary:
 	# This cache belongs to the single meadow worker. Published arrays remain immutable.
 	var started: int = Time.get_ticks_usec()
-	var geometry: String = DirtyGraph.key(
-		[
-			source["world_seed"],
-			source["pool"],
-			source["buildings"],
-			source["paths"],
-			source.get("bridges", []),
-			source.get("stairs", []),
-			source["instances"]
-		]
-	)
+	var geometry: String = distribution_key(source)
 	var chunks: Dictionary = {}
 	var signatures: Dictionary = {}
 	var count: int = 0
 	var updated: int = 0
+	var distribution_epoch: int = cache.get("distribution_epoch", 0)
 	if cache.get("geometry", "") != geometry:
+		distribution_epoch += 1
 		var fresh: Dictionary = generate(source)
 		chunks = fresh["chunks"]
 		count = fresh["count"]
@@ -102,6 +94,19 @@ static func generate_cached(source: Dictionary, cache: Dictionary) -> Dictionary
 				copy["p"] = p
 				next.append(copy)
 			chunks[key] = next
+	var buffers: Dictionary = {}
+	var versions: Dictionary = {}
+	for key: Vector2i in chunks:
+		var version: Array = [distribution_epoch, signatures[key]]
+		versions[key] = version
+		buffers[key] = (
+			cache["buffers"][key]
+			if cache.get("versions", {}).get(key, []) == version
+			else chunk_buffer(chunks[key], key)
+		)
+	cache["distribution_epoch"] = distribution_epoch
+	cache["buffers"] = buffers
+	cache["versions"] = versions
 	cache["geometry"] = geometry
 	cache["chunks"] = chunks
 	cache["signatures"] = signatures
@@ -109,8 +114,70 @@ static func generate_cached(source: Dictionary, cache: Dictionary) -> Dictionary
 		"chunks": chunks,
 		"count": count,
 		"updated_chunks": updated,
+		"buffers": buffers,
+		"versions": versions,
 		"worker_ms": (Time.get_ticks_usec() - started) / 1000.0
 	}
+
+
+static func distribution_key(source: Dictionary) -> String:
+	# Match _obstacles' actual 2D inputs. Roofs, wall height, windows and prop yaw/Y
+	# do not change clearance; terrain heights remain tracked per chunk separately.
+	var homes: Array = []
+	for home: Dictionary in source["buildings"]:
+		var entrances: Array = []
+		for opening: Dictionary in home["openings"]:
+			if opening["height"] >= 1.8 and opening.get("sill", 0) <= 0.1:
+				entrances.append([opening.get("facade", 0), opening["center"], opening["width"]])
+		homes.append(
+			[
+				home["shape"],
+				[home["position"][0], home["position"][2]],
+				[home["size"][0], home["size"][2]],
+				entrances
+			]
+		)
+	var props: Array = []
+	for item: Dictionary in source["instances"]:
+		if String(item["asset_id"]).begins_with("PROP-"):
+			props.append(
+				[item["asset_id"], [item["position"][0], item["position"][2]], item["scale"]]
+			)
+	return DirtyGraph.key(
+		[
+			source["world_seed"],
+			source["pool"],
+			homes,
+			source["paths"],
+			source.get("bridges", []),
+			source.get("stairs", []),
+			props
+		]
+	)
+
+
+static func chunk_buffer(items: Array, key: Vector2i) -> PackedFloat32Array:
+	# RenderingServer's row-major Transform3D (12 floats), then custom Color (4).
+	# Build on the worker; publish once instead of making two server calls per blade.
+	var buffer: PackedFloat32Array = PackedFloat32Array()
+	buffer.resize(items.size() * 16)
+	var origin: Vector3 = Vector3(key.x * 8 + 4, 0, key.y * 8 + 4)
+	for i: int in range(items.size()):
+		var item: Dictionary = items[i]
+		var pose: Transform3D = Transform3D(
+			Basis(Vector3.UP, item["yaw"]).scaled(Vector3.ONE * item["scale"]), item["p"] - origin
+		)
+		var offset: int = i * 16
+		for axis: int in range(3):
+			buffer[offset + axis * 4] = pose.basis.x[axis]
+			buffer[offset + axis * 4 + 1] = pose.basis.y[axis]
+			buffer[offset + axis * 4 + 2] = pose.basis.z[axis]
+			buffer[offset + axis * 4 + 3] = pose.origin[axis]
+		buffer[offset + 12] = item["phase"]
+		buffer[offset + 13] = item["rank"]
+		buffer[offset + 14] = 0
+		buffer[offset + 15] = 1
+	return buffer
 
 
 static func clear(p: Vector2, obstacles: Dictionary, pool: Dictionary) -> bool:

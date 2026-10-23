@@ -2,6 +2,8 @@ class_name DirtyGraph
 extends RefCounted
 ## Pure spatial dependencies. Exact source signatures, including height interpolation halo.
 
+const HeightIndex = preload("res://core/rebuild/height_delta_index.gd")
+
 
 static func key(value: Variant) -> String:
 	return JSON.stringify(value, "", true, true)
@@ -27,10 +29,14 @@ static func bounds(record: Dictionary) -> Rect2:
 	return Rect2(p - size * 0.5, size).grow(0.6)
 
 
-static func field_key(snapshot: Dictionary, region: Rect2) -> String:
+static func field_key(
+	snapshot: Dictionary, region: Rect2, height_index: HeightIndex = null
+) -> String:
 	var halo: Rect2 = region.grow(float(snapshot["terrain"].get("spacing", 0.5)) * 2)
 	var entries: Array = []
-	for entry: Array in snapshot["terrain"]["height_deltas"]:
+	if height_index != null:
+		entries = height_index.entries_within(halo)
+	for entry: Array in snapshot["terrain"]["height_deltas"] if height_index == null else []:
 		var p: Vector2 = (
 			Vector2(entry[0], entry[1]) * float(snapshot["terrain"].get("spacing", 0.5))
 			- Vector2.ONE * 32

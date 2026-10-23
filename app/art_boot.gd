@@ -8,6 +8,8 @@ var _curtain: Node3D
 var _pond_bank: Node3D
 var _curtain_seed: String = ""
 var _bank_signature: int = 0
+var _art_wind_cache: Dictionary = {}
+var _art_wind_collections: int = 0
 
 
 func _setup_materials() -> void:
@@ -164,24 +166,51 @@ func _on_published(snapshot: Dictionary, prepared: Dictionary) -> void:
 		_pond_bank = ArtScenery.bank(snapshot, wood_material, stone_material)
 		world_view.add_child(_pond_bank)
 		_bank_signature = signature
-	var gathered: Array[ShaderMaterial] = []
-	for key: String in _live_units:
-		if key.begins_with("item:") or key.begins_with("batch:"):
-			for paint: ShaderMaterial in WeekSixCatalog.wind_materials(_live_units[key]):
-				if paint not in gathered:
-					gathered.append(paint)
-	for node: Node3D in [_curtain, _pond_bank]:
-		if is_instance_valid(node):
-			for paint: ShaderMaterial in WeekSixCatalog.wind_materials(node):
-				if paint not in gathered:
-					gathered.append(paint)
-	wind_materials.assign(gathered)
+	wind_materials.assign(_collect_art_wind())
 	for paint: ShaderMaterial in wind_materials:
 		if paint.shader == art_materials["foliage"].shader:
 			paint.set_shader_parameter(
 				"foliage_tint", GardenPalette.tint(snapshot["environment"], "foliage")
 			)
 	_sync_wind(snapshot)
+
+
+func _collect_art_wind() -> Array[ShaderMaterial]:
+	# View hierarchies/material identities are immutable after construction. Source
+	# edits replace the corresponding root; wind/tint/freeze only change parameters.
+	var roots: Dictionary = {}
+	for key: String in _live_units:
+		if key.begins_with("item:") or key.begins_with("batch:"):
+			roots[key] = _live_units[key]
+	for pair: Array in [["curtain", _curtain], ["bank", _pond_bank]]:
+		if is_instance_valid(pair[1]):
+			roots[pair[0]] = pair[1]
+	var result: Array[ShaderMaterial] = []
+	var known: Dictionary = {}
+	for key: String in roots:
+		var node: Node3D = roots[key]
+		var root_id: int = node.get_instance_id()
+		if _art_wind_cache.get(key, {}).get("root_id", 0) != root_id:
+			_art_wind_cache[key] = {
+				"root_id": root_id, "materials": WeekSixCatalog.wind_materials(node)
+			}
+			_art_wind_collections += 1
+		for paint: ShaderMaterial in _art_wind_cache[key]["materials"]:
+			var material_id: int = paint.get_instance_id()
+			if not known.has(material_id):
+				known[material_id] = true
+				result.append(paint)
+	for key: String in _art_wind_cache.keys():
+		if not roots.has(key):
+			_art_wind_cache.erase(key)
+	return result
+
+
+func _delivery_metrics() -> Dictionary:
+	var result: Dictionary = super._delivery_metrics()
+	result["art_wind_root_collections"] = _art_wind_collections
+	result["art_wind_cached_roots"] = _art_wind_cache.size()
+	return result
 
 
 func _apply_layout() -> void:

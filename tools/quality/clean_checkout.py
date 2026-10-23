@@ -21,11 +21,12 @@ def main():
     parser.add_argument("--simple", action="store_true", help="UX-02 direct manipulation revision")
     parser.add_argument("--hover", action="store_true", help="UX-03 surface hover revision")
     parser.add_argument("--perf", action="store_true", help="PERF-01 cumulative regression; no exports")
+    parser.add_argument("--perf-followup", action="store_true", help="PERF-02 cumulative regression; no exports")
     parser.add_argument("--silent-audio", action="store_true", help="Explicit Dummy driver for W12 export QA only; never audio acceptance")
     parser.add_argument("--export", action="store_true", help="W12: export desktop artifacts from this clean archive")
     args = parser.parse_args()
-    if args.perf and (args.week != 12 or args.export or args.hover or args.simple or args.garden or args.art_pass):
-        raise RuntimeError("PERF-01 requires week 12 with no export or historical revision flags")
+    if (args.perf or args.perf_followup) and (args.week != 12 or args.export or args.hover or args.simple or args.garden or args.art_pass or (args.perf and args.perf_followup)):
+        raise RuntimeError("Performance gates require week 12 with no export or other revision flags")
     if args.export and args.week != 12:
         raise RuntimeError("Clean export is registered for week 12 only")
     if args.hover and (args.week != 11 or args.simple or args.garden or args.art_pass):
@@ -36,7 +37,7 @@ def main():
         raise RuntimeError("Garden revision requires week 10")
     if args.art_pass and args.week != 9:
         raise RuntimeError("ART-01 requires week 9")
-    label = "perf_01" if args.perf else "ux_03" if args.hover else "ux_02" if args.simple else "ui_meadow_01" if args.garden else ("art_pass_01" if args.art_pass else f"week_{args.week:02d}")
+    label = "perf_02" if args.perf_followup else "perf_01" if args.perf else "ux_03" if args.hover else "ux_02" if args.simple else "ui_meadow_01" if args.garden else ("art_pass_01" if args.art_pass else f"week_{args.week:02d}")
     revision = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
     archive = subprocess.check_output(['git', 'archive', revision], cwd=ROOT)
     with tempfile.TemporaryDirectory(prefix='windhaven-clean-') as folder:
@@ -53,7 +54,8 @@ def main():
         environment = os.environ.copy()
         environment['GODOT_BIN'] = engine_binary()
         environment['WINDHAVEN_SOURCE_REVISION'] = revision
-        command = ([sys.executable, "tools/quality/perf_checks.py"] if args.perf else
+        command = ([sys.executable, "tools/quality/perf_followup_checks.py"] if args.perf_followup else
+                   [sys.executable, "tools/quality/perf_checks.py"] if args.perf else
                    [sys.executable, "tools/quality/week_twelve_checks.py"] if args.week == 12 else
                    [sys.executable, "tools/quality/hover_checks.py"] if args.hover else
                    [sys.executable, "tools/quality/simple_checks.py"] if args.simple else
@@ -62,7 +64,7 @@ def main():
                    [sys.executable, 'tools/quality/art_pass_checks.py'] if args.art_pass else
                    [sys.executable, 'tools/quality/run_checks.py', '--week', str(args.week), '--negative-control'])
         process = subprocess.run(command, cwd=checkout, env=environment,
-                                 text=True, capture_output=True, timeout=600 if args.perf else 420)
+                                 text=True, capture_output=True, timeout=700 if args.perf_followup else 600 if args.perf else 420)
         print(process.stdout, end='')
         if process.returncode:
             print(process.stderr, file=sys.stderr)
@@ -90,7 +92,7 @@ def main():
         summary = json.loads((checkout / f'reports/{label}_checks.json').read_text())
         evidence = ROOT / f'reports/{label}_clean_evidence'
         evidence.mkdir(exist_ok=True)
-        for pattern in ['*.xml', '*.log', '*_checks.json']:
+        for pattern in ['*.xml', '*.log', '*_checks.json', '*_python.json']:
             for report in (checkout / 'reports').glob(pattern):
                 shutil.copyfile(report, evidence / report.name)
         result = {'revision': revision, 'cache_reused': False, 'host_tools_reused': ['locked Godot', 'gdtoolkit venv'],

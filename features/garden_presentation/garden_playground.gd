@@ -194,6 +194,8 @@ func _delivery_metrics() -> Dictionary:
 		result["meadow_batches"] = meadow.batches.size()
 		result["meadow_worker_ms"] = meadow.worker_ms
 		result["meadow_apply_max_ms"] = meadow.apply_max_ms
+		result["meadow_rebuilt_chunks"] = meadow.rebuilt_chunks
+		result["meadow_reused_chunks"] = meadow.reused_chunks
 		result["grass_density"] = meadow.density
 	result["garden_focus"] = (
 		preferences.values.get("garden_focus", true) if preferences != null else true

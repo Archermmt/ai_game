@@ -8,15 +8,18 @@ from art_pass_render_checks import production_files
 import week_ten_native_checks as native
 
 
-def main():
+def main(label="perf_01"):
     parser = argparse.ArgumentParser()
     parser.add_argument('--silent-audio', action='store_true')
+    parser.add_argument('--followup', action='store_true', help='Archive the same protocol under PERF-02')
     args = parser.parse_args()
+    if args.followup:
+        label = 'perf_02'
     before = production_files()
     audio = ['--audio-driver', 'Dummy'] if args.silent_audio else []
-    hover_main('perf_01', audio)
-    result = json.loads((ROOT / 'reports/perf_01_native_checks.json').read_text())
-    native.OUT = ROOT / 'reports/perf_01/native'
+    hover_main(label, audio)
+    result = json.loads((ROOT / f'reports/{label}_native_checks.json').read_text())
+    native.OUT = ROOT / f'reports/{label}/native'
     probes = {'capacity': result['capacity']}
     probes['demo'] = native.probe('demo_edit', ['--ux-select', '--edit-benchmark'], 60, audio_args=audio)
     probes['large_brush'] = native.probe('capacity_large_brush',
@@ -29,10 +32,14 @@ def main():
         'main_callback_100ms': all(p['metrics']['main_callback_max_ms'] <= 100 for p in probes.values()),
         'rss_2gib': all(p['rss_peak_bytes'] < 2 * 1024**3 for p in probes.values()),
     }
+    for name, probe in probes.items():
+        count = 8 if name == 'large_brush' else 20
+        assert len(probe['metrics']['commit_latency_samples_ms']) == count
+        assert len(probe['metrics']['rebuild_phase_timings']) == count
     phases = {}
     for name, flags in [('legacy', ['--edit-benchmark']), ('visible', ['--perf-visible-input'])]:
-        output = ROOT / f'reports/perf_01/phases_{name}.json'
-        run_step('perf01_latency_' + name, [engine_binary(), *audio, '--path', str(ROOT), '--resolution', '1920x1080',
+        output = ROOT / f'reports/{label}/phases_{name}.json'
+        run_step(label + '_latency_' + name, [engine_binary(), *audio, '--path', str(ROOT), '--resolution', '1920x1080',
             '-s', 'tests/perf_01/editor_latency_probe.gd', '--', '--qa-settings', '--art-fhd', '--w09-stress',
             '--ux-select', '--perf-report=' + str(output), *flags])
         phases[name] = json.loads(output.read_text())
@@ -41,8 +48,8 @@ def main():
     result.update({'probes': probes, 'combined_targets': targets, 'phases': phases,
                    'm4_approved': False, 'm5_approved': False,
                    'protocol_note': 'Pre-draw 60-second samples retained. p95 corrected to nearest-rank; raw samples, maximum and previous upper statistic retained. Visible-input is a separate diagnostic.'})
-    (ROOT / 'reports/perf_01_native_checks.json').write_text(json.dumps(result, indent=2) + '\n')
-    print('PERF-01 native functional PASS; unchanged performance gates:', targets)
+    (ROOT / f'reports/{label}_native_checks.json').write_text(json.dumps(result, indent=2) + '\n')
+    print(label.upper() + ' native functional PASS; unchanged performance gates:', targets)
 
 
 if __name__ == '__main__': main()

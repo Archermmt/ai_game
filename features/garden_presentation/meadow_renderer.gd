@@ -7,6 +7,8 @@ var density: float = 0.45
 var total: int = 0
 var worker_ms: float = 0
 var apply_max_ms: float = 0
+var rebuilt_chunks: int = 0
+var reused_chunks: int = 0
 var batches: Array[MultiMeshInstance3D] = []
 var _mesh: ArrayMesh
 var _signature: int = -1
@@ -19,6 +21,11 @@ var _chunk_keys: Array = []
 var _staging: Array[MultiMeshInstance3D] = []
 var _closed: bool = false
 var _generation_cache: Dictionary = {}
+var _published_chunks: Dictionary = {}
+var _published_versions: Dictionary = {}
+var _staged_chunks: Dictionary = {}
+var _rebuilt: int = 0
+var _reused: int = 0
 
 
 func _init() -> void:
@@ -83,11 +90,19 @@ func _deliver(token: int, data: Dictionary) -> void:
 
 
 func _process(_delta: float) -> void:
-	if _chunk_keys.is_empty():
+	if _data.is_empty():
 		return
 	var started: int = Time.get_ticks_usec()
 	while not _chunk_keys.is_empty():
 		var key: Vector2i = _chunk_keys.pop_back()
+		if _published_versions.get(key, []) == _data["versions"][key]:
+			var retained: MultiMeshInstance3D = _published_chunks[key]
+			_staging.append(retained)
+			_staged_chunks[key] = retained
+			_reused += 1
+			if Time.get_ticks_usec() - started > 2000:
+				break
+			continue
 		var items: Array = _data["chunks"][key]
 		var multimesh: MultiMesh = MultiMesh.new()
 		multimesh.transform_format = MultiMesh.TRANSFORM_3D
@@ -95,16 +110,7 @@ func _process(_delta: float) -> void:
 		multimesh.mesh = _mesh
 		multimesh.instance_count = items.size()
 		var origin: Vector3 = Vector3(key.x * 8 + 4, 0, key.y * 8 + 4)
-		for i: int in range(items.size()):
-			var item: Dictionary = items[i]
-			multimesh.set_instance_transform(
-				i,
-				Transform3D(
-					Basis(Vector3.UP, item["yaw"]).scaled(Vector3.ONE * item["scale"]),
-					item["p"] - origin
-				)
-			)
-			multimesh.set_instance_custom_data(i, Color(item["phase"], item["rank"], 0, 1))
+		multimesh.buffer = _data["buffers"][key]
 		multimesh.visible_instance_count = floori(items.size() * density)
 		var batch: MultiMeshInstance3D = MultiMeshInstance3D.new()
 		batch.name = "GrassChunk"
@@ -115,17 +121,31 @@ func _process(_delta: float) -> void:
 		batch.extra_cull_margin = 0.5
 		batch.visibility_range_end = 62
 		_staging.append(batch)
+		_staged_chunks[key] = batch
+		_rebuilt += 1
 		if Time.get_ticks_usec() - started > 2000:
 			break
 	apply_max_ms = maxf(apply_max_ms, (Time.get_ticks_usec() - started) / 1000.0)
 	if _chunk_keys.is_empty():
 		for batch: MultiMeshInstance3D in batches:
-			batch.queue_free()
+			if batch not in _staging:
+				batch.queue_free()
 		batches = _staging
 		_staging = []
 		for batch: MultiMeshInstance3D in batches:
-			add_child(batch)
+			if batch.get_parent() == null:
+				add_child(batch)
+			batch.multimesh.visible_instance_count = floori(
+				batch.multimesh.instance_count * density
+			)
 			batch.visible = density > 0
+		_published_chunks = _staged_chunks
+		_staged_chunks = {}
+		_published_versions = _data["versions"]
+		rebuilt_chunks = _rebuilt
+		reused_chunks = _reused
+		_rebuilt = 0
+		_reused = 0
 		total = _data["count"]
 		worker_ms = _data["worker_ms"]
 		_data = {}
@@ -139,13 +159,17 @@ func visible_count() -> int:
 
 
 func is_busy() -> bool:
-	return _task >= 0 or not _chunk_keys.is_empty()
+	return _task >= 0 or not _data.is_empty() or (density > 0 and not _pending.is_empty())
 
 
 func _clear_staging() -> void:
 	for batch: MultiMeshInstance3D in _staging:
-		batch.free()
+		if batch.get_parent() == null:
+			batch.free()
 	_staging.clear()
+	_staged_chunks.clear()
+	_rebuilt = 0
+	_reused = 0
 	_chunk_keys.clear()
 	_data.clear()
 
