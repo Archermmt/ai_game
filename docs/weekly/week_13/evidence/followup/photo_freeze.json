@@ -1,0 +1,14 @@
+{
+  "tests": 19,
+  "assertions": 958,
+  "failures": 0,
+  "skipped": 0,
+  "step": {
+    "name": "week13_photo_strengthened",
+    "exit_code": 0,
+    "seconds": 4.371
+  },
+  "test_sha256": "5d388c4d7ced4b6bfdc415f932ad0e71c9f262df16efe8ecd22ca3f8d52e7864",
+  "runtime_revision": "0340993c1c0d0eb476e167bebe3e67dc907ce89c",
+  "precondition": "calendar.speed=20 before freezing photo; runtime unchanged"
+}

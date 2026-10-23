@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="2" >
+  <testsuite name="tests/week_12/test_audio_shutdown.gd" tests="2" failures="0" skipped="0" time="0.053787" >
+      <testcase name="test_leaving_scene_releases_active_ambient_music_water_and_effect_streams" assertions="22" status="pass" classname="tests/week_12/test_audio_shutdown.gd" time="0.027033" >
+      </testcase>
+      <testcase name="test_shutdown_is_idempotent_before_scene_teardown" assertions="4" status="pass" classname="tests/week_12/test_audio_shutdown.gd" time="0.026754" >
+      </testcase>
+  </testsuite>
+</testsuites>

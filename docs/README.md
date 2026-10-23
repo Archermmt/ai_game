@@ -8,7 +8,8 @@
 | --- | --- |
 | [开发状态](../STATUS.md) | 每周任务状态、测试结果与未通过门槛 |
 | [运行说明](../README.md) | 启动、操作、测试和导出命令 |
-| [每周测试约定](TESTING.md) | W01–W12 测试范围与证据要求 |
+| [每周测试约定](TESTING.md) | W01–W13 测试范围与证据要求 |
+| [W13 自然庭园扩展](weekly/week_13/README.md) | 自然起伏、图标工具、虚构日历、昼夜四季与天气 |
 | [CLEANUP-01 清理记录](weekly/cleanup_01/README.md) | 缓存与旧产物清理、依赖保护及验证 |
 | [PERF-02 性能优化](weekly/perf_02/README.md) | 高度查询索引、草块/风材质复用及真实鼠标响应验证 |
 | [PERF-01 性能报告](weekly/perf_01/README.md) | 上一轮原始性能样本与剩余尖峰 |
@@ -38,6 +39,6 @@
 | [C03 建筑套件](art/concepts/03_architecture_kit.png) | 墙体、屋顶、门窗与连接模块方向 |
 | [C04 道具与自然](art/concepts/04_props_nature.png) | 八类生活道具、树木、灌草与岩石 |
 
-开发进度以 [STATUS.md](../STATUS.md) 为准：已完成 W01–W12 本机开发、ART-01 美术、UX-02/03 交互和 PERF-01/02 性能修复。Windows 真机、最低配置、真实音频与触摸板、首次玩家及最终放行仍待验；不自动开启 P1/P2。
+开发进度以 [STATUS.md](../STATUS.md) 为准：已完成 W01–W12 本机开发、ART-01 美术、UX-02/03 交互、PERF-01/02 性能修复与用户授权的W13自然庭园扩展。Windows 真机、最低配置、真实音频与触摸板、首次玩家及最终放行仍待验；不自动开启 P1/P2。
 
 ![风栖小筑主视觉](art/concepts/01_key_visual.png)

@@ -1,0 +1,5 @@
+PASS garden_cumulative (118.65s)
+PASS garden_tests (21.36s)
+PASS garden_restart_write (0.37s)
+PASS garden_restart_read (0.37s)
+GARDEN PASS: 544 tests; visual/performance results recorded separately

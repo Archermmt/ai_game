@@ -105,6 +105,7 @@ func test_reduced_motion_and_photo_freeze_weather_and_clock() -> void:
 	playground.atmosphere.reduced_motion = false
 	playground.atmosphere.update(0, playground.calendar.sample())
 	assert_true(playground.atmosphere.bolt.visible)
+	playground.calendar.speed = 20
 	assert_true(playground.enter_photo())
 	playground._freeze_photo(true)
 	var record: Dictionary = playground.calendar.record()
@@ -114,6 +115,7 @@ func test_reduced_motion_and_photo_freeze_weather_and_clock() -> void:
 	assert_eq(playground.atmosphere.elapsed, phase)
 	assert_false(playground.hud.calendar.visible)
 	playground.exit_photo()
+	playground.calendar.speed = 0
 	assert_true(playground.hud.calendar.visible)
 
 

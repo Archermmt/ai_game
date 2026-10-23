@@ -239,10 +239,18 @@ UX-03悬停编辑为当前默认版本：`python3 tools/quality/hover_checks.py`
 
 提交p95修正为nearest-rank，保留原始20笔、最大值和旧upper统计；不能把统计定义修正当作性能收益。原先首绘前自动提交的60秒样本继续保留，另做首个可见画面后提交的独立诊断，不用后者替代旧样本。详见 [PERF-01测试契约](weekly/perf_01/TEST_PLAN.md)。Dummy不代替真实音频、Windows或最低配置验证。
 
-## PERF-02 当前累计门禁
+## PERF-02 历史累计门禁
 
 `python3 tools/quality/perf_followup_checks.py` 保留此前全部回归、负控及每周重启，新增33项Godot精确等价/发布/取消/密度/风材质/退出音频引用回归与5项Python测量协议负控。
 提交后以 `python3 tools/quality/clean_checkout.py --week 12 --perf-followup` 从Git archive空缓存复验；Python报告也随空缓存证据复制。
 原生串行运行 `python3 tools/quality/perf_native_checks.py --followup --silent-audio` 与 `python3 tools/quality/perf_visible_checks.py --silent-audio`，保留原先20笔/8笔60秒协议与首笔，新增首绘后真实鼠标屋顶拖拽。
-输入→发布、渲染完成、草稳定分开记录；不能用渲染完成冒充物理显示时延，也不能用新协议替代旧门槛。当前CI指向本门禁，远端尚未运行。
+输入→发布、渲染完成、草稳定分开记录；不能用渲染完成冒充物理显示时延，也不能用新协议替代旧门槛。该版本CI指向本门禁，远端尚未运行。
 完整规范与证据见 [PERF-02测试契约](weekly/perf_02/TEST_PLAN.md)。
+
+
+## W13 当前累计门禁
+
+`python3 tools/quality/week_thirteen_checks.py` 继承全部W01–W12/ART/UX/PERF回归与负控，新增历法、自然地形、图片工具、季节天气及实际异步存读档回归。
+空缓存 `python3 tools/quality/clean_checkout.py --week 13`；原生 `python3 tools/quality/week_thirteen_native_checks.py`，气候性能 `python3 tools/quality/week_thirteen_performance.py`，三者串行。
+原生明确使用Dummy，不冒充真实音频；四组60秒、首笔和全部20笔保留，目标未达单列。日期为虚构360日历，月/日选择与天气不依赖操作系统时间；自动流逝不写建造历史。
+当前CI指向W13，远端仍未执行。完整规范见[W13测试契约](weekly/week_13/TEST_PLAN.md)，结果见[W13交付](weekly/week_13/README.md)。

@@ -1,0 +1,141 @@
+{
+  "runtime_revision": "0340993c1c0d0eb476e167bebe3e67dc907ce89c",
+  "application_version": "0.13.0-w13",
+  "source_frozen_during_native_and_performance": true,
+  "native_command": "python3 tools/quality/week_thirteen_native_checks.py",
+  "performance_command": "python3 tools/quality/week_thirteen_performance.py",
+  "clean_command": "python3 tools/quality/clean_checkout.py --week 13",
+  "native_probe_sha256": "d5f46af1033f4b660ac0449f07c76567bcbba0a6b33c9ce60133f954176c2b5a",
+  "date": "2026-10-24",
+  "godot_tests": 675,
+  "godot_assertions": 20172,
+  "python_tests": 28,
+  "new_godot_tests": 19,
+  "new_assertions": 958,
+  "failures": 0,
+  "skipped": 0,
+  "negative_control": true,
+  "empty_import_cache": true,
+  "native_checks": {
+    "all_build_options_illustrated": true,
+    "calendar_150_inside": true,
+    "date_not_a_source_edit": true,
+    "month_dropdown_input": true,
+    "moving_cloud_shadow_pixels": true,
+    "night_darker": true,
+    "rain_and_lightning_visible": true,
+    "real_build_button": true,
+    "snow_visible": true,
+    "summer_sun_stronger": true
+  },
+  "production_unchanged": true,
+  "performance_targets": {
+    "frame_p95_20ms": true,
+    "local_p95_150ms": true,
+    "local_max_150ms": false,
+    "main_callback_100ms": true,
+    "rss_2gib": true
+  },
+  "all_performance_targets_passed": false,
+  "performance": {
+    "rolling_demo": {
+      "frame_p95_ms": 10.0,
+      "commit_p95_ms": 52.496,
+      "commit_max_ms": 182.365,
+      "callback_max_ms": 15.278,
+      "rss_peak_bytes": 933478400,
+      "weather_particles": 0,
+      "calendar": {
+        "day": 15,
+        "hour": 13,
+        "minute": 2,
+        "minute_of_day": 782.049094222257,
+        "month": 4,
+        "season": "spring",
+        "speed": 1.0,
+        "weather": "clear",
+        "year": 1
+      },
+      "terrain_profile": "rolling_hills_v2"
+    },
+    "capacity_clear": {
+      "frame_p95_ms": 12.1212121212121,
+      "commit_p95_ms": 79.821,
+      "commit_max_ms": 227.38,
+      "callback_max_ms": 25.469,
+      "rss_peak_bytes": 1068679168,
+      "weather_particles": 0,
+      "calendar": {
+        "day": 15,
+        "hour": 13,
+        "minute": 2,
+        "minute_of_day": 782.019252000217,
+        "month": 7,
+        "season": "summer",
+        "speed": 1.0,
+        "weather": "clear",
+        "year": 1
+      },
+      "terrain_profile": "forest_slope_v1"
+    },
+    "capacity_rain": {
+      "frame_p95_ms": 12.5,
+      "commit_p95_ms": 83.828,
+      "commit_max_ms": 228.462,
+      "callback_max_ms": 25.534,
+      "rss_peak_bytes": 1086193664,
+      "weather_particles": 1400,
+      "calendar": {
+        "day": 15,
+        "hour": 13,
+        "minute": 2,
+        "minute_of_day": 782.007551666819,
+        "month": 10,
+        "season": "autumn",
+        "speed": 1.0,
+        "weather": "rain",
+        "year": 1
+      },
+      "terrain_profile": "forest_slope_v1"
+    },
+    "capacity_snow": {
+      "frame_p95_ms": 15.384,
+      "commit_p95_ms": 85.91,
+      "commit_max_ms": 229.547,
+      "callback_max_ms": 25.698,
+      "rss_peak_bytes": 1043365888,
+      "weather_particles": 900,
+      "calendar": {
+        "day": 15,
+        "hour": 13,
+        "minute": 2,
+        "minute_of_day": 782.016120000094,
+        "month": 1,
+        "season": "winter",
+        "speed": 1.0,
+        "weather": "snow",
+        "year": 1
+      },
+      "terrain_profile": "forest_slope_v1"
+    }
+  },
+  "qa_audio": "Dummy; real audio not verified",
+  "old_saves_terrain_preserved": true,
+  "old_w12_packages_updated": false,
+  "blender_sources_changed": false,
+  "remote_ci_executed": false,
+  "m4_approved": false,
+  "m5_approved": false,
+  "remaining": [
+    "First edit maximum above150ms",
+    "Dense gesture latency fromPERF02 remains unclosed",
+    "Windows/minimum-spec/cold-machine/physical-trackpad/real-audio validation",
+    "Ten first players0/10 and final visual/release sign-off"
+  ],
+  "followup_test": {
+    "source": "tests/week_13/test_living_scene.gd",
+    "sha256": "5d388c4d7ced4b6bfdc415f932ad0e71c9f262df16efe8ecd22ca3f8d52e7864",
+    "change": "Use running speed20 before photo freeze; runtime identical to validated revision",
+    "report": "followup/photo_freeze.json"
+  }
+}
