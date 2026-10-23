@@ -19,6 +19,27 @@ class ClosingQueue:
 		super._exit_tree()
 
 
+func test_wallclock_wait_yields_frames_for_at_least_the_requested_real_duration() -> void:
+	var started: int = Time.get_ticks_usec()
+	var frame: int = Engine.get_process_frames()
+	await SceneShutdown.wait_wallclock(get_tree(), 0.05)
+	var elapsed: int = Time.get_ticks_usec() - started
+	assert_gte(elapsed, 50000)
+	assert_gt(Engine.get_process_frames(), frame)
+	print("WALLCLOCK_REGULAR elapsed_usec=", elapsed)
+
+
+func test_wallclock_wait_excludes_a_long_frame_before_voices_would_stop() -> void:
+	await get_tree().process_frame
+	# Reproduce slow capture/resource work before shutdown in the same frame.
+	OS.delay_msec(150)
+	var started: int = Time.get_ticks_usec()
+	await SceneShutdown.wait_wallclock(get_tree(), 0.05)
+	var elapsed: int = Time.get_ticks_usec() - started
+	assert_gte(elapsed, 50000, "The earlier 150 ms cannot consume a new audio-drain delay")
+	print("WALLCLOCK_AFTER_LONG_FRAME elapsed_usec=", elapsed)
+
+
 func test_exit_continuation_runs_after_two_frames_and_scene_children_are_released() -> void:
 	var scene: Node3D = Node3D.new()
 	var child: MeshInstance3D = MeshInstance3D.new()

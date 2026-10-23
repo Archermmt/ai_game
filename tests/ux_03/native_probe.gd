@@ -1,5 +1,7 @@
 extends "res://tests/ux_02/native_probe.gd"
 
+var _photo_hover_trace: Array[Dictionary] = []
+
 
 func _check(name: String, value: bool) -> void:
 	evidence[name] = value
@@ -12,6 +14,57 @@ func _hover_at(point: Vector3) -> void:
 	await _motion(screen, Vector2.ZERO)
 	for i: int in range(5):
 		await process_frame
+
+
+func _roof_hover_ready(id_value: String) -> bool:
+	var target: Dictionary = playground._display_target()
+	return (
+		playground._can_hover()
+		and playground.hovered.get("family", "") == "house"
+		and playground.hovered.get("id", "") == id_value
+		and playground.hovered.get("zone", "") == "roof"
+		and target.get("family", "") == "house"
+		and target.get("id", "") == id_value
+		and playground.hud.direct_handles.handles["roof"].is_visible_in_tree()
+	)
+
+
+func _trace_photo_hover(stage: String) -> void:
+	_photo_hover_trace.append(
+		{
+			"stage": stage,
+			"pointer": str(playground._pointer),
+			"viewport_pointer": str(root.get_mouse_position()),
+			"hovered": playground.hovered.duplicate(true),
+			"display_target": playground._display_target().duplicate(true),
+			"can_hover": playground._can_hover(),
+			"roof_visible": playground.hud.direct_handles.handles["roof"].is_visible_in_tree(),
+			"photo_active": playground.photo_active,
+			"context_visible": playground.hud.context.visible,
+			"phase": playground.session.phase,
+			"camera": playground._camera_record()
+		}
+	)
+
+
+func _ensure_roof_hover(point: Vector3, id_value: String) -> bool:
+	var screen: Vector2 = playground.camera_rig.camera.unproject_position(point)
+	var deadline: int = Time.get_ticks_msec() + 3000
+	var attempt: int = 0
+	while Time.get_ticks_msec() < deadline:
+		# Reacquire through dispatched motion after the 150% layout settles. A small
+		# movement also gives an unchanged pointer a fresh hover-signature input.
+		var target: Vector2 = screen + Vector2(2 if attempt % 2 == 0 else -2, 0)
+		await _motion(target, target - playground._pointer)
+		await RenderingServer.frame_post_draw
+		_trace_photo_hover("precondition_attempt_%d" % attempt)
+		if _roof_hover_ready(id_value):
+			await process_frame
+			await RenderingServer.frame_post_draw
+			if _roof_hover_ready(id_value):
+				return true
+		attempt += 1
+	return false
 
 
 func _drag_handle(kind: String, delta: Vector2) -> void:
@@ -126,22 +179,35 @@ func _run() -> void:
 	await _settle()
 	await _hover_at(roof_point)
 	playground._preference_changed("ui_scale", 1.5)
+	for i: int in range(5):
+		await process_frame
+	_check("hover_150_roof_ready", await _ensure_roof_hover(roof_point, home["id"]))
 	await _frame("hover_150")
 	_check("handles_150_inside", _handles_inside())
-	playground.enter_photo()
+	_trace_photo_hover("before_photo")
+	var photo_entered: bool = playground.enter_photo()
 	await _frame("photo")
 	_check(
 		"photo_hides_handles",
 		(
-			not playground.hud.direct_handles.visible
-			or not playground.hud.direct_handles.handles["roof"].visible
+			photo_entered
+			and (
+				not playground.hud.direct_handles.visible
+				or not playground.hud.direct_handles.handles["roof"].visible
+			)
 		)
 	)
 	playground.exit_photo()
 	for i: int in range(5):
 		await process_frame
 	await _frame("photo_return")
-	_check("photo_restores_hover", playground.hud.direct_handles.handles["roof"].visible)
+	_trace_photo_hover("after_photo_without_new_input")
+	_check("photo_restores_hover", _roof_hover_ready(home["id"]))
+	var trace: FileAccess = FileAccess.open(
+		folder.path_join("photo_hover_trace.json"), FileAccess.WRITE
+	)
+	trace.store_string(JSON.stringify(_photo_hover_trace, "\t"))
+	trace.close()
 	var file: FileAccess = FileAccess.open(folder.path_join("native_report.json"), FileAccess.WRITE)
 	file.store_string(JSON.stringify(evidence, "\t"))
 	file.close()
@@ -150,7 +216,7 @@ func _run() -> void:
 		passed = passed and value
 	# Dispose the scene before engine teardown so stopped mixer voices can drain.
 	playground.soundscape.shutdown()
-	await create_timer(0.4, true, false, true).timeout
+	await SceneShutdown.wait_wallclock(self, 0.4)
 	await SceneShutdown.release_scene(playground)
 	quit(0 if passed else 1)
 

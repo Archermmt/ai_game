@@ -87,5 +87,5 @@ func _request_quit() -> void:
 		soundscape.queue_free()
 		soundscape = null
 		# Let the audio mixer consume the stopped voices before engine teardown.
-		await get_tree().create_timer(0.4, true, false, true).timeout
+		await SceneShutdown.wait_wallclock(get_tree(), 0.4)
 	super._request_quit()
