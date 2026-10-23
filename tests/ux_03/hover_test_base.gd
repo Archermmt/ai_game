@@ -22,7 +22,7 @@ func after_each() -> void:
 	await _settle()
 	_clean_slots()
 	playground.preferences.reset()
-	await get_tree().process_frame
+	await SceneShutdown.release_scene(playground)
 
 
 func _clean_slots() -> void:

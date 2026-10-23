@@ -151,8 +151,7 @@ func _run() -> void:
 	# Dispose the scene before engine teardown so stopped mixer voices can drain.
 	playground.soundscape.shutdown()
 	await create_timer(0.4, true, false, true).timeout
-	playground.queue_free()
-	await process_frame
+	await SceneShutdown.release_scene(playground)
 	quit(0 if passed else 1)
 
 

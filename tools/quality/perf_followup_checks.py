@@ -13,7 +13,7 @@ def main():
         'addons/gut/gut_cmdln.gd', '-gdir=res://tests/perf_02', '-gexit', '-gjunit_xml_file=reports/perf_02.xml']))
     suite = ET.parse(ROOT / 'reports/perf_02.xml').getroot()
     count = int(suite.attrib.get('tests', 0))
-    assert count >= 27 and not int(suite.attrib.get('failures', 0))
+    assert count >= 29 and not int(suite.attrib.get('failures', 0))
     assert not any(int(s.attrib.get('skipped', 0)) for s in suite.findall('testsuite'))
     steps.append(run_step('perf02_protocol_tests', [sys.executable, 'tests/perf_02/run_python_checks.py']))
     python = json.loads((ROOT / 'reports/perf_02_python.json').read_text())

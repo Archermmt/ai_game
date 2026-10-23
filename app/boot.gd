@@ -448,4 +448,4 @@ func _delivery_metrics() -> Dictionary:
 
 
 func _request_quit() -> void:
-	get_tree().quit()
+	SceneShutdown.release_scene(self, Callable(get_tree(), "quit").bind(0))
