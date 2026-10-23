@@ -1,0 +1,90 @@
+{
+	"driver": "Dummy",
+	"identities": [
+		{
+			"kind": "playback",
+			"resource_id": "-9223371647136816947",
+			"voice": "Forest"
+		},
+		{
+			"kind": "stream",
+			"resource_id": "-9223371647153594165",
+			"voice": "Forest"
+		},
+		{
+			"kind": "playback",
+			"resource_id": "-9223371646901935919",
+			"voice": "WindLow"
+		},
+		{
+			"kind": "stream",
+			"resource_id": "-9223371646918713137",
+			"voice": "WindLow"
+		},
+		{
+			"kind": "playback",
+			"resource_id": "-9223371646667054891",
+			"voice": "WindHigh"
+		},
+		{
+			"kind": "stream",
+			"resource_id": "-9223371646683832109",
+			"voice": "WindHigh"
+		},
+		{
+			"kind": "playback",
+			"resource_id": "-9223371643848482575",
+			"voice": "PondWater"
+		},
+		{
+			"kind": "stream",
+			"resource_id": "-9223371646432173864",
+			"voice": "PondWater"
+		}
+	],
+	"snapshots": [
+		{
+			"label": "initial",
+			"living_count": 8,
+			"living_resource_ids": [
+				"-9223371647136816947",
+				"-9223371647153594165",
+				"-9223371646901935919",
+				"-9223371646918713137",
+				"-9223371646667054891",
+				"-9223371646683832109",
+				"-9223371643848482575",
+				"-9223371646432173864"
+			],
+			"mix_stamp_seconds": 1.870897,
+			"ticks_seconds": 1.895583,
+			"time_since_last_mix": 0.024686
+		},
+		{
+			"label": "before_shutdown",
+			"living_count": 8,
+			"living_resource_ids": [
+				"-9223371647136816947",
+				"-9223371647153594165",
+				"-9223371646901935919",
+				"-9223371646918713137",
+				"-9223371646667054891",
+				"-9223371646683832109",
+				"-9223371643848482575",
+				"-9223371646432173864"
+			],
+			"mix_stamp_seconds": 63.847625,
+			"probe_edits": 20,
+			"ticks_seconds": 63.884551,
+			"time_since_last_mix": 0.036927
+		},
+		{
+			"label": "after_shutdown_300ms",
+			"living_count": 0,
+			"living_resource_ids": [],
+			"mix_stamp_seconds": 64.141578,
+			"ticks_seconds": 64.171878,
+			"time_since_last_mix": 0.030301
+		}
+	]
+}

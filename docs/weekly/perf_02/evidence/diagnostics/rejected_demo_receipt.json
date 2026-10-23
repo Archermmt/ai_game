@@ -1,0 +1,10 @@
+{
+  "status": "failed",
+  "failed_command": "python3 tools/quality/perf_visible_checks.py --silent-audio --layout demo",
+  "recorded_cohorts": 1,
+  "requested_cohorts": 3,
+  "process_exit_code": 0,
+  "residual_objects": 10,
+  "strict_gate_rejected": true,
+  "note": "Timing file exists; sample is diagnostic only because exit warning failed the gate. Two remaining demo cohorts not run by fail-fast command."
+}

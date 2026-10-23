@@ -1,0 +1,116 @@
+{
+  "date": "2026-10-23",
+  "runtime_revision": "975a3674d4f266f7a45e47ef6d3e89f54a2c3a79",
+  "performance_implementation_revision": "77b6adfb0b8ecdc1e37729a8e5a2a83735917f66",
+  "baseline_revision": "fd2bccb67e47ecafc35b6055a9e76ab3f8a4d362",
+  "godot_tests": 656,
+  "godot_assertions": 19214,
+  "python_tests": 28,
+  "new_godot_tests": 33,
+  "new_assertions": 1159,
+  "new_python_tests": 5,
+  "failures": 0,
+  "skipped": 0,
+  "negative_control": true,
+  "empty_import_cache": true,
+  "functional_gate_passed": true,
+  "clean_receipt": "evidence/clean/receipt.json",
+  "cpu_manifest": "evidence/cpu/manifest.json",
+  "cpu_worker_mean_ms": {
+    "local_all6_before": 26.769,
+    "local_all6_after": 22.433,
+    "large_all4_before": 139.459,
+    "large_all4_after": 46.701,
+    "scope": "Headless CPU microbenchmark, not native input latency or GPU performance"
+  },
+  "native_gui_checks": 25,
+  "native_all_functional_passed": true,
+  "native_receipt": "evidence/perf_02_native_checks.json",
+  "native_protocols": {
+    "seconds_per_layout": 60,
+    "local_edits": 20,
+    "large_brush_edits": 8,
+    "first_draw_phase_edits": 20,
+    "warmup_edits": 0,
+    "first_sample_retained": true
+  },
+  "native_performance_targets": {
+    "frame_p95_20ms": true,
+    "local_edit_p95_150ms": true,
+    "legacy_upper_local_150ms": false,
+    "large_brush_500ms": true,
+    "main_callback_100ms": true,
+    "rss_2gib": true
+  },
+  "all_native_performance_targets_passed": false,
+  "native_summary": {
+    "capacity": {
+      "frame_p95_ms": 11.5598888888889,
+      "commit_p95_ms": 114.535,
+      "commit_max_ms": 224.568,
+      "main_callback_max_ms": 25.289,
+      "rss_peak_bytes": 1058766848
+    },
+    "demo": {
+      "frame_p95_ms": 9.09090909090909,
+      "commit_p95_ms": 120.979,
+      "commit_max_ms": 174.629,
+      "main_callback_max_ms": 15.169,
+      "rss_peak_bytes": 912441344
+    },
+    "large_brush": {
+      "frame_p95_ms": 11.6666666666667,
+      "commit_p95_ms": 280.442,
+      "commit_max_ms": 280.442,
+      "main_callback_max_ms": 36.374,
+      "rss_peak_bytes": 1022656512
+    }
+  },
+  "gui_input_receipt": "evidence/perf_02_visible_checks.json",
+  "real_gui_processes": 6,
+  "real_gui_edits_per_process": 20,
+  "real_gui_all_functional_passed": true,
+  "real_gui_diagnostic_targets": {
+    "motion_to_publish_ms_p95_150ms": false,
+    "motion_to_publish_ms_max_150ms": false,
+    "motion_to_draw_ms_p95_150ms": false,
+    "motion_to_draw_ms_max_150ms": false,
+    "press_to_publish_ms_p95_150ms": false,
+    "press_to_publish_ms_max_150ms": false,
+    "press_to_draw_ms_p95_150ms": false,
+    "press_to_draw_ms_max_150ms": false,
+    "release_to_publish_ms_p95_150ms": true,
+    "release_to_publish_ms_max_150ms": false,
+    "release_to_draw_ms_p95_150ms": true,
+    "release_to_draw_ms_max_150ms": false,
+    "render_frame_interval_p95_20ms": false
+  },
+  "capacity_release_to_grass_stable_p95_mean_ms": {
+    "before": 452.021,
+    "after": 137.864,
+    "reduction_percent": 69.50053205492665,
+    "note": "Mean of3 independent process p95s; does not represent entire motion-to-draw latency."
+  },
+  "unchanged_visible_grass": 15285,
+  "default_grass_density": 0.45,
+  "production_files_unchanged": true,
+  "qa_audio": "Explicit Dummy; audio processing remains active, real output not verified",
+  "final_native_exit_residuals_detected": false,
+  "historical_failures_retained": "evidence/diagnostics/",
+  "exit_fix": "Actual400ms monotonic-clock audio drain, then release scene and drain2frames. Previous SceneTreeTimer delay could include prior frame work.",
+  "physical_scanout_latency_measured": false,
+  "gpu_timer": null,
+  "m4_approved": false,
+  "m5_approved": false,
+  "existing_w12_packages_updated": false,
+  "blender_sources_changed": false,
+  "remote_ci_executed": false,
+  "remaining": [
+    "First-edit/init overlap maximum above150ms",
+    "Motion/press full input latency and dense-edit frame intervals",
+    "Windows/minimum-spec/cold-machine real-device tests",
+    "Real CoreAudio output and physical trackpad",
+    "Remote CI and final visual sign-offs",
+    "Ten first players0/10 and M4/M5 release"
+  ]
+}

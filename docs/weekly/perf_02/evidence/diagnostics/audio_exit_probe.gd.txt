@@ -1,0 +1,107 @@
+extends SceneTree
+## Lifecycle diagnosis only. Never holds strong stream or playback references.
+
+var scene: Node3D
+var refs: Array[WeakRef] = []
+var identities: Array[Dictionary] = []
+var snapshots: Array[Dictionary] = []
+var output: String = "reports/perf_02/experiments/audio_exit.json"
+
+
+func _initialize() -> void:
+	_run.call_deferred()
+
+
+func _snapshot(label: String) -> Dictionary:
+	var living: Array[String] = []
+	for index: int in range(refs.size()):
+		if refs[index].get_ref() != null:
+			living.append(identities[index]["resource_id"])
+	return {
+		"label": label,
+		"ticks_seconds": Time.get_ticks_usec() / 1000000.0,
+		"mix_stamp_seconds":
+		Time.get_ticks_usec() / 1000000.0 - AudioServer.get_time_since_last_mix(),
+		"time_since_last_mix": AudioServer.get_time_since_last_mix(),
+		"living_resource_ids": living,
+		"living_count": living.size()
+	}
+
+
+func _write() -> void:
+	var file: FileAccess = FileAccess.open(output, FileAccess.WRITE)
+	file.store_string(
+		JSON.stringify(
+			{
+				"driver": AudioServer.get_driver_name(),
+				"identities": identities,
+				"snapshots": snapshots
+			},
+			"\t"
+		)
+	)
+	file.close()
+
+
+func _observe_shutdown() -> void:
+	var before: Dictionary = _snapshot("before_shutdown")
+	before["probe_edits"] = scene._probe_edits
+	snapshots.append(before)
+	_write()
+	create_timer(0.3, true, false, true).timeout.connect(_post_shutdown)
+
+
+func _post_shutdown() -> void:
+	snapshots.append(_snapshot("after_shutdown_300ms"))
+	_write()
+
+
+func _capture_identities() -> bool:
+	var audio: WorldAudio = scene.soundscape
+	var voices: Array[Node] = [
+		audio.loops["forest"], audio.loops["wind_low"], audio.loops["wind_high"], audio.water
+	]
+	for voice: Node in voices:
+		if not voice.has_stream_playback():
+			return false
+	for voice: Node in voices:
+		refs.append(weakref(voice.get_stream_playback()))
+		identities.append(
+			{
+				"voice": str(voice.name),
+				"kind": "playback",
+				"resource_id": str(voice.get_stream_playback().get_instance_id())
+			}
+		)
+		refs.append(weakref(voice.stream))
+		identities.append(
+			{
+				"voice": str(voice.name),
+				"kind": "stream",
+				"resource_id": str(voice.stream.get_instance_id())
+			}
+		)
+	return true
+
+
+func _run() -> void:
+	for argument: String in OS.get_cmdline_user_args():
+		if argument.begins_with("--audio-exit-report="):
+			output = argument.trim_prefix("--audio-exit-report=")
+	scene = load("res://app/hover_root.tscn").instantiate()
+	scene.set_script(load("res://tests/perf_02/audio_exit_scene.gd"))
+	scene.qa_mode = true
+	scene.shutdown_observer = _observe_shutdown
+	root.add_child(scene)
+	var deadline: int = Time.get_ticks_msec() + 3000
+	while not _capture_identities():
+		if Time.get_ticks_msec() >= deadline:
+			push_error("Audio exit probe could not capture four active loop identities")
+			quit(1)
+			return
+		await process_frame
+	snapshots.append(_snapshot("initial"))
+	_write()
+	if "--audio-exit-legacy" not in OS.get_cmdline_user_args():
+		await create_timer(3.0, true, false, true).timeout
+		scene._request_quit()

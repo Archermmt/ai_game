@@ -238,3 +238,11 @@ UX-03悬停编辑为当前默认版本：`python3 tools/quality/hover_checks.py`
 累计命令 `python3 tools/quality/perf_checks.py`；空缓存复验 `python3 tools/quality/clean_checkout.py --week 12 --perf`；原生串行 `python3 tools/quality/perf_native_checks.py --silent-audio`。新增12项草缓存、空间索引、池岸边界和分位数回归。
 
 提交p95修正为nearest-rank，保留原始20笔、最大值和旧upper统计；不能把统计定义修正当作性能收益。原先首绘前自动提交的60秒样本继续保留，另做首个可见画面后提交的独立诊断，不用后者替代旧样本。详见 [PERF-01测试契约](weekly/perf_01/TEST_PLAN.md)。Dummy不代替真实音频、Windows或最低配置验证。
+
+## PERF-02 当前累计门禁
+
+`python3 tools/quality/perf_followup_checks.py` 保留此前全部回归、负控及每周重启，新增33项Godot精确等价/发布/取消/密度/风材质/退出音频引用回归与5项Python测量协议负控。
+提交后以 `python3 tools/quality/clean_checkout.py --week 12 --perf-followup` 从Git archive空缓存复验；Python报告也随空缓存证据复制。
+原生串行运行 `python3 tools/quality/perf_native_checks.py --followup --silent-audio` 与 `python3 tools/quality/perf_visible_checks.py --silent-audio`，保留原先20笔/8笔60秒协议与首笔，新增首绘后真实鼠标屋顶拖拽。
+输入→发布、渲染完成、草稳定分开记录；不能用渲染完成冒充物理显示时延，也不能用新协议替代旧门槛。当前CI指向本门禁，远端尚未运行。
+完整规范与证据见 [PERF-02测试契约](weekly/perf_02/TEST_PLAN.md)。

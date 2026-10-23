@@ -1,0 +1,10 @@
+extends "res://features/hover_edit/hover_playground.gd"
+## QA observer runs after the performance window, before production shutdown.
+
+var shutdown_observer: Callable
+
+
+func _request_quit() -> void:
+	if not _closing_audio and shutdown_observer.is_valid():
+		shutdown_observer.call()
+	super._request_quit()

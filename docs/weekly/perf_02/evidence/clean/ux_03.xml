@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="30" >
+  <testsuite name="tests/ux_03/test_hover_scene.gd" tests="19" failures="0" skipped="0" time="19.998107" >
+      <testcase name="test_unselected_hover_reveals_roof_without_changing_tool_or_history" assertions="15" status="pass" classname="tests/ux_03/test_hover_scene.gd" time="2.02785" >
+      </testcase>
+      <testcase name="test_roof_drag_one_transaction_with_undo_redo" assertions="24" status="pass" classname="tests/ux_03/test_hover_scene.gd" time="0.997985" >
+      </testcase>
+      <testcase name="test_cancel_and_focus_loss_leave_source_unchanged" assertions="16" status="pass" classname="tests/ux_03/test_hover_scene.gd" time="0.924743" >
+      </testcase>
+      <testcase name="test_window_width_and_wall_move_use_one_commit_each" assertions="16" status="pass" classname="tests/ux_03/test_hover_scene.gd" time="0.963014" >
+      </testcase>
+      <testcase name="test_invalid_window_drag_reverts_history_and_keeps_selected_identity" assertions="16" status="pass" classname="tests/ux_03/test_hover_scene.gd" time="0.927932" >
+      </testcase>
+      <testcase name="test_surface_drag_release_over_ui_cancels" assertions="15" status="pass" classname="tests/ux_03/test_hover_scene.gd" time="0.927792" >
+      </testcase>
+      <testcase name="test_selected_window_delete_and_undo_restore_its_parent" assertions="19" status="pass" classname="tests/ux_03/test_hover_scene.gd" time="0.990918" >
+      </testcase>
+      <testcase name="test_roof_save_reload_and_photo_hide_hover_handles" assertions="32" status="pass" classname="tests/ux_03/test_hover_scene.gd" time="1.090746" >
+      </testcase>
+      <testcase name="test_150_percent_surface_handles_stay_inside_viewport" assertions="16" status="pass" classname="tests/ux_03/test_hover_scene.gd" time="0.86046" >
+      </testcase>
+      <testcase name="test_zero_roof_drag_does_not_create_history" assertions="14" status="pass" classname="tests/ux_03/test_hover_scene.gd" time="0.928967" >
+      </testcase>
+      <testcase name="test_bridge_head_drag_commits_once_and_undo_restores_both_heads" assertions="20" status="pass" classname="tests/ux_03/test_hover_scene.gd" time="1.472624" >
+      </testcase>
+      <testcase name="test_illegal_bridge_head_drag_is_rejected_and_late_preview_cannot_publish" assertions="16" status="pass" classname="tests/ux_03/test_hover_scene.gd" time="0.9961" >
+      </testcase>
+      <testcase name="test_pending_commit_blocks_a_second_surface_gesture" assertions="16" status="pass" classname="tests/ux_03/test_hover_scene.gd" time="0.956326" >
+      </testcase>
+      <testcase name="test_camera_gestures_do_not_start_hover_edits" assertions="13" status="pass" classname="tests/ux_03/test_hover_scene.gd" time="0.859049" >
+      </testcase>
+      <testcase name="test_window_handles_remain_targetable_when_pointer_leaves_the_hole" assertions="12" status="pass" classname="tests/ux_03/test_hover_scene.gd" time="0.865941" >
+      </testcase>
+      <testcase name="test_slow_pointer_travel_to_window_handle_does_not_switch_to_parent_wall" assertions="21" status="pass" classname="tests/ux_03/test_hover_scene.gd" time="0.859996" >
+      </testcase>
+      <testcase name="test_bridge_width_drag_follows_its_own_cross_axis" assertions="15" status="pass" classname="tests/ux_03/test_hover_scene.gd" time="1.234403" >
+      </testcase>
+      <testcase name="test_house_copy_drop_keeps_the_new_house_as_edit_target" assertions="16" status="pass" classname="tests/ux_03/test_hover_scene.gd" time="1.124625" >
+      </testcase>
+      <testcase name="test_promoted_auto_opening_stays_selected_after_reordering" assertions="21" status="pass" classname="tests/ux_03/test_hover_scene.gd" time="0.988636" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/ux_03/test_surface_data.gd" tests="11" failures="0" skipped="0" time="0.014546" >
+      <testcase name="test_legacy_roof_defaults_and_flat_to_pitched_geometry" assertions="10" status="pass" classname="tests/ux_03/test_surface_data.gd" time="0.008731" >
+      </testcase>
+      <testcase name="test_roof_validation_rejects_out_of_range_and_non_number" assertions="3" status="pass" classname="tests/ux_03/test_surface_data.gd" time="0.000157" >
+      </testcase>
+      <testcase name="test_roof_survives_save_and_house_copy" assertions="3" status="pass" classname="tests/ux_03/test_surface_data.gd" time="0.000903" >
+      </testcase>
+      <testcase name="test_window_move_and_resize_preserve_identity_and_wall_holes" assertions="8" status="pass" classname="tests/ux_03/test_surface_data.gd" time="0.001168" >
+      </testcase>
+      <testcase name="test_door_stays_grounded_and_round_wall_window_moves_on_arc" assertions="3" status="pass" classname="tests/ux_03/test_surface_data.gd" time="0.000307" >
+      </testcase>
+      <testcase name="test_automatic_door_converts_only_after_actual_drag" assertions="4" status="pass" classname="tests/ux_03/test_surface_data.gd" time="0.00065" >
+      </testcase>
+      <testcase name="test_opening_conflict_is_rejected_without_mutating_source" assertions="2" status="pass" classname="tests/ux_03/test_surface_data.gd" time="0.000664" >
+      </testcase>
+      <testcase name="test_bridge_endpoint_changes_keep_other_head_and_reject_illegal_span" assertions="3" status="pass" classname="tests/ux_03/test_surface_data.gd" time="0.001254" >
+      </testcase>
+      <testcase name="test_picker_prioritizes_opening_over_parent_and_roof_over_wall" assertions="3" status="pass" classname="tests/ux_03/test_surface_data.gd" time="0.000157" >
+      </testcase>
+      <testcase name="test_picker_does_not_select_hidden_window_or_round_box_corner" assertions="3" status="pass" classname="tests/ux_03/test_surface_data.gd" time="0.000207" >
+      </testcase>
+      <testcase name="test_automatic_opening_identity_survives_reconcile_reordering" assertions="5" status="pass" classname="tests/ux_03/test_surface_data.gd" time="0.000348" >
+      </testcase>
+  </testsuite>
+</testsuites>

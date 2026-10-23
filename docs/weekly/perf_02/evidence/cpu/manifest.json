@@ -1,0 +1,19 @@
+{
+  "protocol": "Matched headless CPU protocol before/after; after probe adds isolated index-vs-full reference timers. Not input latency or GPU timing.",
+  "sources": {
+    "before": {
+      "runtime_revision": "fd2bccb67e47ecafc35b6055a9e76ab3f8a4d362",
+      "report": "before.json",
+      "probe": "before_probe.gd.txt",
+      "probe_sha256": "ff16493261bec7e37255d7fb21ec28626962ddab6fbe22dca7f5ebbce32a91ff",
+      "source_contains_complete_validation": true
+    },
+    "after": {
+      "runtime_revision": "77b6adfb0b8ecdc1e37729a8e5a2a83735917f66",
+      "report": "after.json",
+      "probe": "after_probe.gd.txt",
+      "probe_sha256": "83307a381b14b1a89b74a4011204a4e118486cdf84d6584a46bfde5bd6235c5a",
+      "source_contains_complete_validation": true
+    }
+  }
+}

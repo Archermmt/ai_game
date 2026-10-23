@@ -1,0 +1,41 @@
+{
+  "revision": "0ee97bea33a9461c90abf741d16704d896a523e6",
+  "cache_reused": false,
+  "host_tools_reused": [
+    "locked Godot",
+    "gdtoolkit venv"
+  ],
+  "gate": {
+    "godot_tests": 654,
+    "python_tests": 28,
+    "new_godot_tests": 31,
+    "new_assertions": 1156,
+    "new_python_tests": 5,
+    "failures": 0,
+    "skipped": 0,
+    "negative_control": true,
+    "functional_gate_passed": true,
+    "m4_approved": false,
+    "m5_approved": false,
+    "steps": [
+      {
+        "name": "perf02_cumulative",
+        "exit_code": 0,
+        "seconds": 225.122
+      },
+      {
+        "name": "perf02_tests",
+        "exit_code": 0,
+        "seconds": 42.483
+      },
+      {
+        "name": "perf02_protocol_tests",
+        "exit_code": 0,
+        "seconds": 0.049
+      }
+    ]
+  },
+  "passed": true,
+  "exported_from_clean_archive": false,
+  "exports": null
+}

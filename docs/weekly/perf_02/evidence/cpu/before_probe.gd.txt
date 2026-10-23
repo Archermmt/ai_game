@@ -1,0 +1,109 @@
+extends SceneTree
+
+var failures: Array[String] = []
+
+func _initialize() -> void:
+	call_deferred("_run")
+
+func _measure(action: Callable) -> Dictionary:
+	var started: int = Time.get_ticks_usec()
+	var value: Variant = action.call()
+	return {"ms": float(Time.get_ticks_usec() - started) / 1000.0, "value": value}
+
+func _queries(source: Dictionary) -> Dictionary:
+	var queries: Dictionary = {}
+	for home: Dictionary in source["buildings"]:
+		queries["support:" + home["id"]] = DirtyGraph.bounds(home)
+	queries["path"] = DirtyGraph.union(source["paths"])
+	queries["fence"] = DirtyGraph.union(source.get("fences", []))
+	for collection: String in ["bridges", "stairs"]:
+		for item: Dictionary in source.get(collection, []):
+			queries["structure:" + item["id"]] = DirtyGraph.bounds(item)
+	for item: Dictionary in source["instances"]:
+		queries["instance:" + item["id"]] = DirtyGraph.bounds(item)
+	return queries
+
+func _field_keys(source: Dictionary, queries: Dictionary) -> Dictionary:
+	var values: Dictionary = {}
+	for key: String in queries:
+		values[key] = DirtyGraph.field_key(source, queries[key])
+	return values
+
+func _chunk_keys(source: Dictionary) -> Dictionary:
+	var values: Dictionary = {}
+	for z: int in range(-32, 32, 8):
+		for x: int in range(-32, 32, 8):
+			values["terrain:%d" % values.size()] = TerrainChunks.signature(source, Vector2(x, z))
+	return values
+
+func _outer_keys(source: Dictionary, fields: Dictionary, chunks: Dictionary) -> Dictionary:
+	var values: Dictionary = chunks.duplicate()
+	for home: Dictionary in source["buildings"]:
+		var region: Rect2 = DirtyGraph.bounds(home)
+		values["building:" + home["id"]] = DirtyGraph.key([home, DirtyGraph.nearby(source["buildings"], region)])
+		values["support:" + home["id"]] = DirtyGraph.key([home, fields["support:" + home["id"]]])
+	values["path"] = DirtyGraph.key([source["paths"], DirtyGraph.nearby(source["buildings"], DirtyGraph.union(source["paths"])), fields["path"]])
+	values["fence"] = DirtyGraph.key([source.get("fences", []), DirtyGraph.nearby(source["paths"], DirtyGraph.union(source.get("fences", []))), fields["fence"]])
+	values["water"] = DirtyGraph.key(source["pool"])
+	for collection: String in ["bridges", "stairs"]:
+		for item: Dictionary in source.get(collection, []):
+			var key: String = "structure:" + item["id"]
+			values[key] = DirtyGraph.key([item, DirtyGraph.nearby(source["buildings"], DirtyGraph.bounds(item)), source["pool"], fields[key]])
+	for item: Dictionary in source["instances"]:
+		var key: String = "instance:" + item["id"]
+		values[key] = DirtyGraph.key([item, LocalRebuild._support_chain(source, item), fields[key]])
+	return values
+
+func _run() -> void:
+	var report: Dictionary = {"fixture": "StressLayout.create()", "protocol": {"point": [12, 8], "local": {"radius": 2.0, "amount": 0.03, "repeats": 6}, "large": {"radius": 9.0, "amount": 0.02, "repeats": 4}, "note": "Headless CPU microbenchmark; alternating prefixes of native 20/8 protocol. Timings are not additive because separate warm passes."}, "scenarios": {}, "failures": failures}
+	for scenario: String in ["local", "large"]:
+		var source: Dictionary = StressLayout.create()
+		var cache: Dictionary = {}
+		var warm: Dictionary = LocalRebuild.evaluate(source, cache)
+		if not warm.get("ok", false):
+			failures.append(scenario + ":warm:" + str(warm))
+			continue
+		var rows: Array[Dictionary] = []
+		var result: Dictionary = {}
+		var count: int = 6 if scenario == "local" else 4
+		for step: int in range(count):
+			var brush: Dictionary = _measure(func() -> Variant: return TerrainField.brush(source, Vector2(12, 8), (0.03 if scenario == "local" else 0.02) * (1 if step % 2 == 0 else -1), 2.0 if scenario == "local" else 9.0))
+			var draft: Dictionary = brush["value"]
+			var source_before: String = JSON.stringify(draft, "", true, true)
+			var queries: Dictionary = _queries(draft)
+			var validation: Dictionary = _measure(func() -> Variant: return WorldDocument.validate(draft))
+			var data_check: Dictionary = _measure(func() -> Variant: return WorldDocument._is_data(draft, 0))
+			var instances: Dictionary = _measure(func() -> Variant: return InstanceEdits.validate(draft, {}))
+			var terrain: Dictionary = _measure(func() -> Variant: return TerrainField.validate(draft))
+			var garden: Dictionary = _measure(func() -> Variant: return GardenStructures.validate(draft, {}))
+			var field: Dictionary = _measure(func() -> Variant: return _field_keys(draft, queries))
+			var chunks: Dictionary = _measure(func() -> Variant: return _chunk_keys(draft))
+			var outer: Dictionary = _measure(func() -> Variant: return _outer_keys(draft, field["value"], chunks["value"]))
+			var worker: Dictionary = _measure(func() -> Variant: return LocalRebuild.evaluate(draft, cache))
+			result = worker["value"]
+			var signature_equal: bool = result.get("versions", {}) == outer["value"]
+			var source_unchanged: bool = JSON.stringify(draft, "", true, true) == source_before
+			var valid: bool = validation["value"] == "" and data_check["value"] and instances["value"] == "" and terrain["value"] == "" and garden["value"] == "" and result.get("ok", false)
+			if not valid or not signature_equal or not source_unchanged:
+				failures.append("%s:%d:invalid=%s signatures=%s source=%s" % [scenario, step, valid, signature_equal, source_unchanged])
+			rows.append({"step": step, "height_entries": draft["terrain"]["height_deltas"].size(), "field_query_count": queries.size(), "chunk_query_count": chunks["value"].size(), "brush_ms": brush["ms"], "validate_ms": validation["ms"], "is_data_ms": data_check["ms"], "instances_validate_ms": instances["ms"], "terrain_validate_ms": terrain["ms"], "garden_validate_ms": garden["ms"], "field_key_ms": field["ms"], "chunk_signature_ms": chunks["ms"], "outer_signatures_ms": outer["ms"], "evaluate_ms": worker["ms"], "worker_ms": result.get("worker_ms", -1), "terrain_rebuilt": result.get("terrain_rebuilt", -1), "generated_count": result.get("generated", []).size(), "reused_count": result.get("reused", []).size(), "validation_results": {"document": validation["value"], "is_data": data_check["value"], "instances": instances["value"], "terrain": terrain["value"], "garden": garden["value"], "worker_ok": result.get("ok", false)}, "all_version_keys_equal": signature_equal, "source_unchanged": source_unchanged})
+			source = draft
+		var fresh: Dictionary = LocalRebuild.evaluate(source, {})
+		var equality: Dictionary = {}
+		for field_name: String in ["snapshot", "versions", "building_arrays", "supports", "terrain_arrays", "path_arrays", "fence_arrays", "water_arrays", "structures", "poses"]:
+			equality[field_name] = fresh.get(field_name) == result.get(field_name)
+			if not equality[field_name]:
+				failures.append(scenario + ":fresh_mismatch:" + field_name)
+		report["scenarios"][scenario] = {"samples": rows, "cold_cache_equality": equality}
+	report["ok"] = failures.is_empty()
+	var args: PackedStringArray = OS.get_cmdline_user_args()
+	var output: String = args[0] if not args.is_empty() else "/private/tmp/windhaven_worker_profile.json"
+	var file: FileAccess = FileAccess.open(output, FileAccess.WRITE)
+	if file == null:
+		push_error("Cannot write report: " + output)
+		quit(2)
+		return
+	file.store_string(JSON.stringify(report, "\t"))
+	file.close()
+	print(JSON.stringify({"ok": report["ok"], "report": output, "failures": failures}))
+	quit(0 if failures.is_empty() else 1)

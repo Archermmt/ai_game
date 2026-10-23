@@ -1,8 +1,8 @@
 # 风栖小筑 · Godot MVP
 
-当前源码包含PERF-01性能修复与UX-03悬停表面编辑，沿用W12版本，使用已接受的 ART-01 美术：暖灰泥、厚叠瓦、蜂蜜木构、分层叶簇与手绘林间庭院，
+当前源码包含PERF-02性能修复（继承PERF-01）与UX-03悬停表面编辑，沿用W12版本，使用已接受的 ART-01 美术：暖灰泥、厚叠瓦、蜂蜜木构、分层叶簇与手绘林间庭院，
 继承 W09 摄影/布局/全部建造工具及五槽保存。默认入口 `app/hover_root.tscn`，版本 `0.12.0-w12`。
-进度见 [STATUS.md](STATUS.md)，性能排查见 [PERF-01报告](docs/weekly/perf_01/README.md)，历史交付与门槛见 [W12报告](docs/weekly/week_12/README.md)，[UX-03交互报告](docs/weekly/ux_03/README.md)保留。
+进度见 [STATUS.md](STATUS.md)，性能排查见 [PERF-02报告](docs/weekly/perf_02/README.md)，历史交付与门槛见 [W12报告](docs/weekly/week_12/README.md)，[UX-03交互报告](docs/weekly/ux_03/README.md)保留。
 F5 运行当前主场景；若用F6，请打开 `app/hover_root.tscn`，旧周场景保留历史画面。
 已接环境、操作、音乐三路音量；局部编辑延迟目标仍开放，完整冻结另看门槛。
 
@@ -13,7 +13,7 @@ F5 运行当前主场景；若用F6，请打开 `app/hover_root.tscn`，旧周�
 
 ```bash
 python3 tools/quality/bootstrap.py
-python3 tools/quality/perf_checks.py
+python3 tools/quality/perf_followup_checks.py
 python3 tools/quality/run_game.py
 ```
 
@@ -55,12 +55,14 @@ python3 tools/quality/run_game.py
 
 ```bash
 # 自动化回归、格式、lint、资源契约、跨进程重启与失败注入
-python3 tools/quality/perf_checks.py
+python3 tools/quality/perf_followup_checks.py
 # 有桌面 GPU 的机器：24项悬停GUI与60秒满容量性能
-python3 tools/quality/perf_native_checks.py
+python3 tools/quality/perf_native_checks.py --followup
+# 首个可见画面后真实鼠标拖拽，示范/容量各3独立进程
+python3 tools/quality/perf_visible_checks.py
 # ART 多角度与环绕录像保留历史入口：art_pass_render_checks.py / art_pass_orbit.py
 # 提交实现后，从空导入缓存的Git archive复验本轮
-python3 tools/quality/clean_checkout.py --week 12 --perf
+python3 tools/quality/clean_checkout.py --week 12 --perf-followup
 # 历史W12导出/打包请切到 v0.12.0-w12，参见该周报告
 ```
 
@@ -76,7 +78,7 @@ CI 已配置 Ubuntu / Windows 自动回归，尚未推送远程触发。
 
 - `app/`：试玩组合根；`core/`：源数据、放置约束和事务。
 - `features/`：建筑网格、轨道相机、存档与风着色器；`ui/`：操作面板与建筑属性 / 恢复面板。
-- `tests/week_01/`–`week_12/`、`tests/art_pass_01/`、`tests/ux_02/`、`tests/ux_03/` 与 `tests/perf_01/`：累计 GUT 回归和独立进程探针；`tools/quality/`：可复现质量命令。
+- `tests/week_01/`–`week_12/`、`tests/art_pass_01/`、`tests/ux_02/`、`tests/ux_03/`、`tests/perf_01/` 与 `tests/perf_02/`：累计 GUT 回归和独立进程探针；`tools/quality/`：可复现质量命令。
 - `art_source/week_01/`–`week_10/` 和 `art_source/art_pass_01/`：模型、纹理与材质库源文件；`assets/`：GLB、贴图和导入配置。
 - `docs/`：已批准 PRD、开发计划、每周证据与许可。
 
@@ -123,6 +125,6 @@ ART-01 原创自然模型和材质的可重建命令：
 /Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python tools/art/audit_sources.py -- --root "$PWD" --extra-manifest art_source/art_pass_01/nature/manifest.json --output "$PWD/reports/art_source_audit.json"
 ```
 
-W10 默认继承已接受的美术样板，加入环境/操作/音乐三路音量（设置面板；0 为静音，音乐默认关闭）。累计验证：`python3 tools/quality/perf_checks.py`。进度和未关闭门槛见 `STATUS.md`，当周证据见 `docs/weekly/week_10/`。
+W10 默认继承已接受的美术样板，加入环境/操作/音乐三路音量（设置面板；0 为静音，音乐默认关闭）。累计验证：`python3 tools/quality/perf_followup_checks.py`。进度和未关闭门槛见 `STATUS.md`，当周证据见 `docs/weekly/week_10/`。
 
 底部「花草」卡片内可拖动地表动态草密度，0关闭、默认45%、100%最高，手工种植不受影响。设置可关闭远景柔焦；摄影保留景深并冻结草。修订报告见 `docs/weekly/ui_meadow_01/README.md`。
