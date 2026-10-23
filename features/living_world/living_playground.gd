@@ -88,7 +88,7 @@ func _restore_extra_presentation(value: Dictionary) -> void:
 	_calendar_revision = 0
 	var fallback: Dictionary = CalendarState.new().record()
 	if document.state["environment"].get("dusk", false):
-		fallback["minute_of_day"] = 1110.0
+		fallback["minute_of_day"] = 1050.0
 	calendar.restore(value.get("calendar", fallback))
 	if hud.calendar != null:
 		hud.calendar.sync()
@@ -110,7 +110,7 @@ func _apply_layout() -> void:
 
 func _on_action(action: StringName) -> void:
 	if action == &"light" and atmosphere != null:
-		calendar.minute_of_day = 1110.0 if calendar.minute_of_day < 1000 else 630.0
+		calendar.minute_of_day = 1050.0 if calendar.minute_of_day < 1000 else 630.0
 		hud.calendar.sync()
 		_calendar_changed()
 		return

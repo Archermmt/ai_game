@@ -134,6 +134,8 @@ func update(delta: float, state: Dictionary) -> void:
 		)
 		sky.sky_horizon_color = Color("53627d").lerp(Color("e4dfc1"), daylight)
 	if host.window_material != null:
+		# The calendar owns continuous window light, including legacy dusk saves.
+		host.window_material.set_shader_parameter("dusk", false)
 		host.window_material.set_shader_parameter("dusk_mix", 1.0 - daylight)
 	var pulse: bool = (
 		_weather == "rain"

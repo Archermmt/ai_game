@@ -75,7 +75,9 @@ func test_daynight_seasons_and_weather_render_state() -> void:
 	clock.weather = "clear"
 	clock.month = 7
 	clock.minute_of_day = 720
+	playground.window_material.set_shader_parameter("dusk", true)
 	atmosphere.update(0, clock.sample())
+	assert_false(playground.window_material.get_shader_parameter("dusk"))
 	var noon: float = playground.sun.light_energy
 	clock.minute_of_day = 0
 	atmosphere.update(0, clock.sample())
@@ -144,3 +146,18 @@ func test_async_save_and_load_restore_calendar_presentation() -> void:
 		var path: String = SlotStore.path_for(playground.saves.directory, 0) + suffix
 		if FileAccess.file_exists(path):
 			DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
+
+
+func test_legacy_dusk_maps_to_evening_and_can_return_to_daylight() -> void:
+	var original: bool = playground.document.state["environment"]["dusk"]
+	playground.document.state["environment"]["dusk"] = true
+	playground._restore_extra_presentation({})
+	playground.calendar.speed = 0
+	playground.atmosphere.update(0, playground.calendar.sample())
+	assert_gt(playground.sun.light_energy, 0.06)
+	assert_lt(playground.sun.light_energy, 0.5)
+	playground.calendar.minute_of_day = 720
+	playground.atmosphere.update(0, playground.calendar.sample())
+	assert_gt(playground.sun.light_energy, 1.0)
+	assert_false(playground.window_material.get_shader_parameter("dusk"))
+	playground.document.state["environment"]["dusk"] = original
