@@ -163,3 +163,33 @@ func test_legacy_dusk_maps_to_evening_and_can_return_to_daylight() -> void:
 	assert_gt(playground.sun.light_energy, 1.0)
 	assert_false(playground.window_material.get_shader_parameter("dusk"))
 	playground.document.state["environment"]["dusk"] = original
+
+
+func test_compact_calendar_groups_date_time_and_keeps_weather_in_heading() -> void:
+	var panel: CalendarPanel = playground.hud.calendar
+	var clock: CalendarState = playground.calendar
+	var previous: Dictionary = clock.record()
+	clock.month = 1
+	clock.day = 1
+	clock.minute_of_day = 420
+	panel.sync()
+	assert_eq(panel.fields["Month"].text + panel.fields["Day"].text, "Jan.1st")
+	assert_eq(panel.fields["Hour"].text + ":" + panel.fields["Min"].text, "7:00")
+	assert_eq(panel.fields["Month"].get_parent(), panel.fields["Day"].get_parent())
+	assert_eq(panel.fields["Hour"].get_parent(), panel.fields["Min"].get_parent())
+	assert_eq(panel.weather_icon.get_parent(), panel.season_label.get_parent())
+	assert_eq(panel.weather_icon, panel.fields["Weather"])
+	assert_eq(panel.weather_icon.text, "")
+	assert_not_null(panel.weather_icon.icon)
+	assert_eq(CalendarPanel._ordinal(11), "11th")
+	assert_eq(CalendarPanel._ordinal(22), "22nd")
+	panel._selected("Weather", 2)
+	assert_eq(clock.weather, "rain")
+	assert_eq(panel.weather_icon.text, "")
+	panel._selected("Day", 29)
+	panel._selected("Hour", 23)
+	panel._selected("Min", 59)
+	assert_eq(clock.day, 30)
+	assert_eq(clock.minute_of_day, 1439.0)
+	clock.restore(previous)
+	panel.sync()

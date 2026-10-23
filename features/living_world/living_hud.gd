@@ -16,7 +16,7 @@ func _layout_panels() -> void:
 	if calendar != null:
 		var available: Vector2 = get_viewport().get_visible_rect().size / _scale_value
 		calendar.position = Vector2(available.x - 296, 76)
-		calendar.size = Vector2(280, 380)
+		calendar.size = Vector2(280, 270)
 
 
 func blocks_scene_at(screen: Vector2) -> bool:

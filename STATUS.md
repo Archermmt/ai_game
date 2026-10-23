@@ -2,6 +2,12 @@
 
 更新日期：2026-10-24（Asia/Shanghai）
 
+## 日历界面精简
+
+2026-10-24：日期合并为`Jan.1st`形式，时间合并为`7:00`形式，月/日/时/分仍可点击下拉修改；顶部天气图标可点击切换，删除独立天气行。缩短纸色面板并移除多余边框/箭头，Year/Season/Speed保留。
+
+累计676项Godot + 28项Python、历史负控通过；最终间距微调后局部20项/972断言及原生10项再次通过，150%布局及正式文件隔离正常。命令仍为`python3 tools/quality/week_thirteen_checks.py`和`python3 tools/quality/week_thirteen_native_checks.py`。本轮未重跑性能或导出包，历史开放门槛不变。[说明、实拍与证据](docs/weekly/week_13/CALENDAR_COMPACT.md)。
+
 ## W13 用户授权的自然庭园扩展
 
 2026-10-24：六项扩展源码 `0340993`，版本 `0.13.0-w13`，本地标签 `v0.13.0-w13`。默认改为 `app/living_root.tscn`（F5；旧编辑页可打开新入口F6），旧W12包未覆盖。
