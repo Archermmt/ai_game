@@ -127,3 +127,5 @@ ART-01 原创自然模型和材质的可重建命令：
 W10 加入环境/操作/音乐三路音量（设置面板；0 为关闭）。当前主场景使用用户提供的8首音乐，按季节/时段从3首候选中随机播放，柔和混音与6秒交叉淡化；首次启用默认50%，后续记住音量和关闭选择。最新混音可辨识度与1–60倍时间滑块见[界面与音频修复](docs/weekly/week_13/HUD_AUDIO_FOLLOWUP.md)。见[季节音乐说明](docs/weekly/week_13/SEASONAL_MUSIC.md)。累计验证：`python3 tools/quality/week_thirteen_checks.py`。进度和未关闭门槛见 `STATUS.md`，当周证据见 `docs/weekly/week_10/`。
 
 底部「花草」卡片内可拖动地表动态草密度，0关闭、默认45%、100%最高，手工种植不受影响。设置可关闭远景柔焦；摄影保留景深并冻结草。修订报告见 `docs/weekly/ui_meadow_01/README.md`。
+
+日历“明早6:00”可跳过今天；底部太阳图标设置四季天气比例。自动天气每3游戏小时抽取，春夏秋禁雪、冬季禁雨，支持暴风雨/暴风雪/沙尘暴与雾。详见[天气说明](docs/weekly/week_13/WEATHER_CYCLE.md)。

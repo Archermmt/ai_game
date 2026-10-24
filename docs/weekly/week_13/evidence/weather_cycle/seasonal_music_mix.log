@@ -1,0 +1,7 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M4 Pro (Apple9)
+
+W09_FIRST_DRAW
+MUSIC_MIX { "driver": "CoreAudio", "frames": [200192, 200192], "peaks": [0.03252270072699, 0.05364537984133], "music_rms": 0.00613338014954, "ambient_rms": 0.00870072934334, "track": "all_seasons", "position": 10.2320003509521, "music_volume_db": -15.9176006317139, "mix_age": 0.007982, "physical_listening_verified": false }
+2026-10-24 09:17:48.671 Godot[38056:16470307] +[IMKClient subclass]: chose IMKClient_Modern
+2026-10-24 09:17:50.807 Godot[38056:16470307] +[IMKInputSession subclass]: chose IMKInputSession_Modern

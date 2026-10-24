@@ -256,3 +256,5 @@ UX-03悬停编辑为当前默认版本：`python3 tools/quality/hover_checks.py`
 当前CI指向W13，远端仍未执行。完整规范见[W13测试契约](weekly/week_13/TEST_PLAN.md)，结果见[W13交付](weekly/week_13/README.md)。
 
 W13后续界面/音频门禁扩展至至少29项；原生UI至少12项，音乐控制10项。`python3 tools/quality/seasonal_music_mix_checks.py --driver CoreAudio`在macOS实测独立音乐/环境PCM与播放时钟；不以Dummy或playing标记代替。详见[混音修复](weekly/week_13/HUD_AUDIO_FOLLOWUP.md)。
+
+W13天气扩展累计至少40项，原生至少22项；`python3 tools/quality/weather_budget_checks.py`串行测试暴风雨/暴风雪/沙尘暴满容量各30秒，帧p95/RSS与编辑延迟分开。范围和结果见[四季随机天气](weekly/week_13/WEATHER_CYCLE.md)。

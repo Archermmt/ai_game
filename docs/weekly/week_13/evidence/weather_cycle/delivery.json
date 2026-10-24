@@ -1,0 +1,44 @@
+{
+  "revision": "d1921926dd4363faf574fc8097372207bbca504f",
+  "godot_tests": 696,
+  "godot_assertions": 21777,
+  "python_tests": 28,
+  "new_tests": 11,
+  "new_assertions": 1186,
+  "native_ui_checks": 22,
+  "native_music_checks": 10,
+  "severe_weather_capacity": {
+    "storm": {
+      "frame_p95_ms": 12.195,
+      "rss_peak_mib": 883.5625,
+      "particles": 1400
+    },
+    "blizzard": {
+      "frame_p95_ms": 15.2777777777778,
+      "rss_peak_mib": 883.140625,
+      "particles": 900
+    },
+    "duststorm": {
+      "frame_p95_ms": 12.1212121212121,
+      "rss_peak_mib": 873.265625,
+      "particles": 700
+    }
+  },
+  "capacity_seconds_each": 30,
+  "capacity_edit_benchmark": false,
+  "performance_rerun_scope": "Only severe-weather static capacity; earlier edit spikes remain open",
+  "coreaudio_pcm_verified": true,
+  "physical_listening_verified": false,
+  "windows_real_device": false,
+  "fresh_checkout_this_followup": false,
+  "packages_updated": false,
+  "source_sha256": {
+    "features/living_world/weather_cycle.gd": "c55e5f955a669e229cd989c3949be4144b6fbe6bcef2582a69fa48f70665ef54",
+    "features/living_world/weather_controls.gd": "6d8e0956bbf3747dd438e26ee44ad2bb4d97b6aa686d88ab9dde1262dc31fed9",
+    "features/living_world/calendar_state.gd": "a9f909ded7b4eff5cda77056cf808d70ea8e9b685148be513ee92ed421f1d1bc",
+    "features/living_world/living_atmosphere.gd": "6309601e87de4948756bb0ab641928b904b8c22db60ab404522d93ec0c2ce3fc",
+    "features/living_world/precipitation.gdshader": "140fa671a64542d62bf21a719bc66535f3b35d3d1219b830442d0e36f2f4f01a",
+    "features/living_world/calendar_panel.gd": "d1d2c24f40c14702ba48dc7098ed1a7c7a80667221794b319d2e7e19de4fc6f5",
+    "features/living_world/living_hud.gd": "ba4b1c71db23f0a6123d8ffb5686bd7887dbeb58fdedba50857fb20741c48c69"
+  }
+}
