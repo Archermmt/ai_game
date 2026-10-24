@@ -1,6 +1,7 @@
 extends "res://features/hover_edit/hover_playground.gd"
 ## Scene-owned clock/atmosphere. Source edits retain the existing transactions.
 
+var pond_reflections: PondReflections
 var seasonal_music: SeasonalMusic
 var calendar: CalendarState = CalendarState.new()
 var atmosphere: LivingAtmosphere
@@ -30,6 +31,9 @@ func _ready() -> void:
 	soundscape.add_child(seasonal_music)
 	seasonal_music.configure(preferences.values["music_volume"])
 	_persist_preferences()
+	pond_reflections = PondReflections.new()
+	world_view.add_child(pond_reflections)
+	pond_reflections.configure(self)
 	hud.attach_calendar(calendar)
 	atmosphere = LivingAtmosphere.new()
 	world_view.add_child(atmosphere)
@@ -70,6 +74,8 @@ func _process(delta: float) -> void:
 		calendar.advance(delta)
 	atmosphere.frozen = _climate_frozen
 	atmosphere.update(delta, calendar.sample())
+	if pond_reflections != null:
+		pond_reflections.tick(delta, calendar.sample())
 	if seasonal_music != null:
 		seasonal_music.sync_calendar(calendar.sample())
 	if soundscape != null:
@@ -138,6 +144,9 @@ func _on_action(action: StringName) -> void:
 func _delivery_metrics() -> Dictionary:
 	var result: Dictionary = super._delivery_metrics()
 	result["calendar"] = calendar.sample()
+	result["water_reflection_captures"] = (
+		pond_reflections.captures if pond_reflections != null else 0
+	)
 	result["terrain_profile"] = document.state.get("terrain", {}).get("base_profile", "flat")
 	if atmosphere != null:
 		result["weather_particles"] = (
@@ -167,3 +176,14 @@ func _request_quit() -> void:
 		seasonal_music.fade_out()
 		await SceneShutdown.wait_wallclock(get_tree(), 1.6)
 	super._request_quit()
+
+
+func _setup_materials() -> void:
+	super._setup_materials()
+	water_material.shader = preload("res://features/pond_water/reflective_pond.gdshader")
+
+
+func _on_published(snapshot: Dictionary, prepared: Dictionary) -> void:
+	super._on_published(snapshot, prepared)
+	if pond_reflections != null:
+		pond_reflections.request_update()
