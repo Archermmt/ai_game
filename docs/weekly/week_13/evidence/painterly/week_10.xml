@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="30" >
+  <testsuite name="tests/week_10/test_audio.gd" tests="10" failures="0" skipped="0" time="0.179967" >
+      <testcase name="test_scene_owns_bounded_voices_and_loads_all_families" assertions="8" status="pass" classname="tests/week_10/test_audio.gd" time="0.008275" >
+      </testcase>
+      <testcase name="test_wind_blend_is_continuous_equal_power_at_extremes_and_middle" assertions="7" status="pass" classname="tests/week_10/test_audio.gd" time="0.007796" >
+      </testcase>
+      <testcase name="test_zero_wind_keeps_forest_and_low_wind" assertions="3" status="pass" classname="tests/week_10/test_audio.gd" time="0.007504" >
+      </testcase>
+      <testcase name="test_brush_rate_limit_rejects_flood_and_cycles_three_variants" assertions="34" status="pass" classname="tests/week_10/test_audio.gd" time="0.007442" >
+      </testcase>
+      <testcase name="test_music_can_be_enabled_muted_and_reenabled_without_changing_world" assertions="5" status="pass" classname="tests/week_10/test_audio.gd" time="0.07393" >
+      </testcase>
+      <testcase name="test_mute_applies_to_all_voices_immediately" assertions="16" status="pass" classname="tests/week_10/test_audio.gd" time="0.008201" >
+      </testcase>
+      <testcase name="test_pond_is_localized_and_stops_when_deleted" assertions="5" status="pass" classname="tests/week_10/test_audio.gd" time="0.0251" >
+      </testcase>
+      <testcase name="test_material_families_and_no_sound_for_unchanged_world" assertions="4" status="pass" classname="tests/week_10/test_audio.gd" time="0.026245" >
+      </testcase>
+      <testcase name="test_ui_has_three_distinct_variants_and_rejects_unknown_families" assertions="5" status="pass" classname="tests/week_10/test_audio.gd" time="0.007783" >
+      </testcase>
+      <testcase name="test_startup_has_quiet_fade_and_bounded_event_history" assertions="2" status="pass" classname="tests/week_10/test_audio.gd" time="0.007691" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_10/test_freeze.gd" tests="7" failures="0" skipped="0" time="1.699538" >
+      <testcase name="test_ten_art_scene_read_write_cycles_preserve_complete_source" assertions="40" status="pass" classname="tests/week_10/test_freeze.gd" time="1.254445" >
+      </testcase>
+      <testcase name="test_interruption_then_corrupt_primary_restores_latest_valid_backup" assertions="10" status="pass" classname="tests/week_10/test_freeze.gd" time="0.297886" >
+      </testcase>
+      <testcase name="test_legacy_preferences_gain_audio_defaults_without_losing_settings" assertions="6" status="pass" classname="tests/week_10/test_freeze.gd" time="0.001199" >
+      </testcase>
+      <testcase name="test_three_volume_preferences_roundtrip_at_zero_and_full_volume" assertions="9" status="pass" classname="tests/week_10/test_freeze.gd" time="0.001801" >
+      </testcase>
+      <testcase name="test_invalid_audio_preference_does_not_replace_valid_file" assertions="13" status="pass" classname="tests/week_10/test_freeze.gd" time="0.001452" >
+      </testcase>
+      <testcase name="test_art_source_audio_and_environment_edits_undo_redo_without_instance_shuffle" assertions="6" status="pass" classname="tests/week_10/test_freeze.gd" time="0.068006" >
+      </testcase>
+      <testcase name="test_rejected_invalid_resize_keeps_whole_art_document" assertions="4" status="pass" classname="tests/week_10/test_freeze.gd" time="0.074749" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_10/test_playground.gd" tests="9" failures="0" skipped="0" time="4.240776" >
+      <testcase name="test_entry_keeps_accepted_art_and_three_accessible_audio_controls" assertions="11" status="pass" classname="tests/week_10/test_playground.gd" time="1.061479" >
+      </testcase>
+      <testcase name="test_setting_volume_changes_sound_without_dirtying_source" assertions="8" status="pass" classname="tests/week_10/test_playground.gd" time="0.366024" >
+      </testcase>
+      <testcase name="test_preview_cancel_does_not_emit_placement_audio_or_mutate_source" assertions="8" status="pass" classname="tests/week_10/test_playground.gd" time="0.385145" >
+      </testcase>
+      <testcase name="test_committed_terrain_edit_plays_once_and_undo_restores_source" assertions="8" status="pass" classname="tests/week_10/test_playground.gd" time="0.383647" >
+      </testcase>
+      <testcase name="test_rejected_edit_is_silent_and_retains_source_and_art_views" assertions="9" status="pass" classname="tests/week_10/test_playground.gd" time="0.377243" >
+      </testcase>
+      <testcase name="test_settings_150_reduced_motion_rebind_and_audio_coexist" assertions="77" status="pass" classname="tests/week_10/test_playground.gd" time="0.364674" >
+      </testcase>
+      <testcase name="test_save_load_rebuilds_art_and_updates_wind_audio" assertions="12" status="pass" classname="tests/week_10/test_playground.gd" time="0.586569" >
+      </testcase>
+      <testcase name="test_scaled_embedded_dialogs_are_owned_outside_scaled_hud_and_fit_viewport" assertions="13" status="pass" classname="tests/week_10/test_playground.gd" time="0.346759" >
+      </testcase>
+      <testcase name="test_actual_sliders_change_only_their_own_preference_and_do_not_recurse" assertions="10" status="pass" classname="tests/week_10/test_playground.gd" time="0.369236" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_10/test_spatial_regression.gd" tests="4" failures="0" skipped="0" time="0.138753" >
+      <testcase name="test_cached_field_matches_exact_signed_distance_everywhere_on_art_pond" assertions="2401" status="pass" classname="tests/week_10/test_spatial_regression.gd" time="0.03495" >
+      </testcase>
+      <testcase name="test_building_and_shore_conflicts_reject_whole_transactions_both_directions" assertions="9" status="pass" classname="tests/week_10/test_spatial_regression.gd" time="0.003523" >
+      </testcase>
+      <testcase name="test_all_terrain_modes_preserve_art_pond_and_shore_heights" assertions="8" status="pass" classname="tests/week_10/test_spatial_regression.gd" time="0.024947" >
+      </testcase>
+      <testcase name="test_locked_window_conflict_rejects_resize_without_changing_art_source" assertions="4" status="pass" classname="tests/week_10/test_spatial_regression.gd" time="0.075333" >
+      </testcase>
+  </testsuite>
+</testsuites>

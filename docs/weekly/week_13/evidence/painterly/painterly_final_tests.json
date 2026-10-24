@@ -1,0 +1,10 @@
+{
+  "step": {
+    "name": "painterly_final_tests",
+    "exit_code": 0,
+    "seconds": 11.53
+  },
+  "tests": 89,
+  "assertions": 11723,
+  "passed": true
+}

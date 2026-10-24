@@ -264,3 +264,5 @@ W13水面扩展至至少44项；`python3 tools/quality/pond_water_native_checks.
 W13漫步扩展至至少62项，新增18项控制器/支撑/障碍回归；`python3 tools/quality/walk_native_checks.py`验证至少18项实际输入、导出时环顾隔离、无界面PNG与相机恢复，`python3 tools/quality/walk_performance_checks.py`测24屋/1000源进入漫步后的30秒前进/环顾。全部原生串行，保留原始帧间隔；20ms帧p95与冷启动/编辑延迟分开，不把合成PanGesture当作物理触控板验收。见[漫步说明与证据](weekly/week_13/FIRST_PERSON_WALK.md)。
 
 W13天空/交互扩展至至少77项，新增15项天气连续性/图标/天空/风声表现回归；所有天气对检查中间范围、目标端点和快速切换。`python3 tools/quality/sky_weather_native_checks.py`实际投递界面/双指输入并等待天气转场，至少17项像素/状态检查；照片输入18项、水面9项、原UI22项保持。`python3 tools/quality/walk_performance_checks.py --transitions`测满容量每6秒切换天气的30秒漫步，必须实际出现至少两种粒子重叠，保留全部帧间隔并执行20ms p95门槛。详见[本轮说明](weekly/week_13/SKY_WEATHER_UI.md)。
+
+W13整体美术扩展至至少89项，新增12项模型/材质/光照/镜头回归，含檐底正面可见性和闭合、顺纹UV、9三角草根固定/非退化、树冠覆盖/预算与远焦清晰度。`python3 tools/quality/painterly_views_checks.py --diagnostic`检查11个固定镜头和阴影隔离；天空/天气原生扩展至18项并验证按钮前的就绪状态。Blender改动须重开源件；另用`python3 tools/art/audit_foliage_evidence.py --root "$PWD"`测量当前覆盖与LOD尺寸。默认远焦偏移改为6m，旧精确镜头测试同步新设计，关闭与源隔离检查保留。详见[整体美术说明](weekly/week_13/PAINTERLY_REWORK.md)。

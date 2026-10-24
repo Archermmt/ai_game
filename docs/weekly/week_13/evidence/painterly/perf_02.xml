@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="33" >
+  <testsuite name="tests/perf_02/test_audio_shutdown.gd" tests="2" failures="0" skipped="0" time="0.255029" >
+      <testcase name="test_playing_ambient_shutdown_releases_mixer_playback_and_stream_references" assertions="9" status="pass" classname="tests/perf_02/test_audio_shutdown.gd" time="0.074639" >
+      </testcase>
+      <testcase name="test_paused_ambient_shutdown_releases_mixer_playback_and_stream_references" assertions="9" status="pass" classname="tests/perf_02/test_audio_shutdown.gd" time="0.18039" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/perf_02/test_height_index.gd" tests="9" failures="0" skipped="0" time="5.273539" >
+      <testcase name="test_queries_preserve_unsorted_source_order_and_height_precision" assertions="5" status="pass" classname="tests/perf_02/test_height_index.gd" time="0.004111" >
+      </testcase>
+      <testcase name="test_queries_match_closed_edges_zero_area_negative_and_bucket_boundaries" assertions="7" status="pass" classname="tests/perf_02/test_height_index.gd" time="0.002262" >
+      </testcase>
+      <testcase name="test_empty_huge_and_distant_queries_do_not_iterate_unbounded_empty_space" assertions="6" status="pass" classname="tests/perf_02/test_height_index.gd" time="0.003127" >
+      </testcase>
+      <testcase name="test_signatures_match_for_both_spacings_halos_and_seed_profile_changes" assertions="66" status="pass" classname="tests/perf_02/test_height_index.gd" time="0.02425" >
+      </testcase>
+      <testcase name="test_circle_and_outline_pond_signatures_keep_exact_influence_boundary" assertions="30" status="pass" classname="tests/perf_02/test_height_index.gd" time="0.010784" >
+      </testcase>
+      <testcase name="test_seeded_random_regions_match_exhaustive_entries_and_signatures" assertions="602" status="pass" classname="tests/perf_02/test_height_index.gd" time="0.067711" >
+      </testcase>
+      <testcase name="test_support_chain_recursion_uses_identical_parent_height_signatures" assertions="4" status="pass" classname="tests/perf_02/test_height_index.gd" time="0.064065" >
+      </testcase>
+      <testcase name="test_full_capacity_large_brush_then_undo_matches_all_fresh_geometry_and_reference_keys" assertions="29" status="pass" classname="tests/perf_02/test_height_index.gd" time="5.097055" >
+      </testcase>
+      <testcase name="test_indexed_rebuild_still_rejects_malformed_and_duplicate_height_entries" assertions="2" status="pass" classname="tests/perf_02/test_height_index.gd" time="0.000174" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/perf_02/test_meadow_publication.gd" tests="10" failures="0" skipped="0" time="26.410745" >
+      <testcase name="test_packed_buffers_match_legacy_transform_and_custom_data" assertions="78" status="pass" classname="tests/perf_02/test_meadow_publication.gd" time="0.000549" >
+      </testcase>
+      <testcase name="test_local_publication_reuses_unchanged_nodes_and_keeps_density" assertions="8" status="pass" classname="tests/perf_02/test_meadow_publication.gd" time="0.000922" >
+      </testcase>
+      <testcase name="test_cancelling_staging_never_frees_retained_live_chunks" assertions="5" status="pass" classname="tests/perf_02/test_meadow_publication.gd" time="0.000157" >
+      </testcase>
+      <testcase name="test_latest_generation_removes_old_chunks_and_rebuilds_same_terrain" assertions="7" status="pass" classname="tests/perf_02/test_meadow_publication.gd" time="0.000149" >
+      </testcase>
+      <testcase name="test_empty_result_clears_previous_grass_instead_of_claiming_idle_early" assertions="8" status="pass" classname="tests/perf_02/test_meadow_publication.gd" time="0.000117" >
+      </testcase>
+      <testcase name="test_density_zero_and_reenable_use_latest_pending_source" assertions="7" status="pass" classname="tests/perf_02/test_meadow_publication.gd" time="0.194752" >
+      </testcase>
+      <testcase name="test_worker_versions_survive_cancelled_publication_and_undo" assertions="42" status="pass" classname="tests/perf_02/test_meadow_publication.gd" time="3.234041" >
+      </testcase>
+      <testcase name="test_roof_wall_height_and_non_clearance_edits_reuse_grass_distribution" assertions="4" status="pass" classname="tests/perf_02/test_meadow_publication.gd" time="3.450619" >
+      </testcase>
+      <testcase name="test_footprint_entrance_and_prop_clearance_changes_invalidate_distribution" assertions="6" status="pass" classname="tests/perf_02/test_meadow_publication.gd" time="8.637392" >
+      </testcase>
+      <testcase name="test_entrance_height_and_sill_thresholds_keep_exact_clearance" assertions="4" status="pass" classname="tests/perf_02/test_meadow_publication.gd" time="10.892047" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/perf_02/test_shutdown.gd" tests="4" failures="0" skipped="0" time="0.510078" >
+      <testcase name="test_wallclock_wait_yields_frames_for_at_least_the_requested_real_duration" assertions="2" status="pass" classname="tests/perf_02/test_shutdown.gd" time="0.05649" >
+      </testcase>
+      <testcase name="test_wallclock_wait_excludes_a_long_frame_before_voices_would_stop" assertions="1" status="pass" classname="tests/perf_02/test_shutdown.gd" time="0.211779" >
+      </testcase>
+      <testcase name="test_exit_continuation_runs_after_two_frames_and_scene_children_are_released" assertions="8" status="pass" classname="tests/perf_02/test_shutdown.gd" time="0.021115" >
+      </testcase>
+      <testcase name="test_active_workers_close_before_continuation_and_cannot_publish_after_release" assertions="11" status="pass" classname="tests/perf_02/test_shutdown.gd" time="0.220694" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/perf_02/test_wind_cache.gd" tests="8" failures="0" skipped="0" time="8.764211" >
+      <testcase name="test_initial_cache_contains_every_live_material_and_diagnostic_count" assertions="12" status="pass" classname="tests/perf_02/test_wind_cache.gd" time="1.542404" >
+      </testcase>
+      <testcase name="test_environment_and_distant_terrain_reuse_existing_root_materials" assertions="27" status="pass" classname="tests/perf_02/test_wind_cache.gd" time="0.973477" >
+      </testcase>
+      <testcase name="test_added_deleted_and_undone_manual_tree_never_leaves_orphan_materials" assertions="28" status="pass" classname="tests/perf_02/test_wind_cache.gd" time="0.971913" >
+      </testcase>
+      <testcase name="test_same_source_id_with_new_asset_invalidates_only_its_root" assertions="17" status="pass" classname="tests/perf_02/test_wind_cache.gd" time="0.950269" >
+      </testcase>
+      <testcase name="test_rebuilt_brush_batch_refreshes_membership_without_rescanning_other_roots" assertions="17" status="pass" classname="tests/perf_02/test_wind_cache.gd" time="0.938744" >
+      </testcase>
+      <testcase name="test_seed_replacement_refreshes_derived_curtain_and_bank_materials" assertions="18" status="pass" classname="tests/perf_02/test_wind_cache.gd" time="1.253219" >
+      </testcase>
+      <testcase name="test_near_bank_terrain_and_undo_refresh_only_the_bank_material_root" assertions="24" status="pass" classname="tests/perf_02/test_wind_cache.gd" time="1.076248" >
+      </testcase>
+      <testcase name="test_cached_resources_keep_reduce_motion_and_photo_freeze_restore_complete" assertions="56" status="pass" classname="tests/perf_02/test_wind_cache.gd" time="1.057937" >
+      </testcase>
+  </testsuite>
+</testsuites>
