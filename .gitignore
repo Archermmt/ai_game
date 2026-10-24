@@ -1,0 +1,20 @@
+# Godot editor/import cache and local tooling
+.godot/
+.tools/
+.venv/
+venv/
+
+# Generated output and temporary files
+builds/
+reports/
+__pycache__/
+*.py[cod]
+.DS_Store
+*.blend1
+*.blend2
+
+# Local credentials and environment files
+export_credentials.cfg
+.env
+.env.*
+!.env.example
