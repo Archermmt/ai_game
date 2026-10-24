@@ -1,0 +1,14 @@
+.godot/
+.tools/
+.venv/
+builds/
+reports/
+__pycache__/
+*.pyc
+.DS_Store
+*.blend1
+*.blend2
+export_credentials.cfg
+.env
+.env.*
+!.env.example

@@ -1,0 +1,15 @@
+{
+  "asset_id": "PROP-01",
+  "source": "art_source/week_04/bench.blend",
+  "export": "assets/week_04/bench.glb",
+  "units": "meters",
+  "blender": "5.1.2",
+  "up_axis": "gltf_y_up",
+  "triangles": 1188,
+  "sockets": [
+    "socket_tea_surface",
+    "socket_ground"
+  ],
+  "stage": "w04_source",
+  "source_license": "Project original; authored by Blender script"
+}

@@ -1,0 +1,29 @@
+{
+  "godot_tests": 700,
+  "python_tests": 28,
+  "new_tests": 44,
+  "new_assertions": 2556,
+  "negative_control": true,
+  "failures": 0,
+  "skipped": 0,
+  "functional_gate_passed": true,
+  "m4_approved": false,
+  "m5_approved": false,
+  "steps": [
+    {
+      "name": "seasonal_music_assets",
+      "exit_code": 0,
+      "seconds": 0.04
+    },
+    {
+      "name": "w13_cumulative",
+      "exit_code": 0,
+      "seconds": 260.355
+    },
+    {
+      "name": "week_13_tests",
+      "exit_code": 0,
+      "seconds": 8.886
+    }
+  ]
+}

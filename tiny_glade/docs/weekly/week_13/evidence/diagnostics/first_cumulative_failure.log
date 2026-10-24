@@ -1,0 +1,150 @@
+PASS w13_cumulative (274.77s)
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/week_13/test_living_data.gd
+* test_calendar_rolls_minute_day_month_and_year
+* test_pause_and_speed_are_independent_from_wall_clock
+* test_large_delta_rolls_multiple_years
+* test_seasons_follow_months
+* test_invalid_clock_data_is_rejected_without_mutation
+* test_clock_roundtrip_in_save_presentation_and_legacy
+* test_relief_new_demo_is_valid_and_preserves_source_identity
+* test_relief_has_hills_hollows_and_seed_repeatability
+* test_old_flat_world_still_flat
+* test_new_ground_contacts_and_cache_keys
+    [Failed]:  [1.36577220777551477937] expected to equal [1.2151346370858] +/- [0.00001]:  
+      at line 116
+    [Failed]:  [0.54469231001566753569] expected to equal [0.37512030284434] +/- [0.00001]:  
+      at line 116
+    [Failed]:  [1.26014757673154709217] expected to equal [1.09857806614305] +/- [0.00001]:  
+      at line 116
+    [Failed]:  [1.50064949762793964361] expected to equal [1.35811391398659] +/- [0.00001]:  
+      at line 116
+    [Failed]:  [1.32866753031645945526] expected to equal [1.19409677086667] +/- [0.00001]:  
+      at line 116
+    [Failed]:  [0.65881240454216494218] expected to equal [0.5044400265122] +/- [0.00001]:  
+      at line 116
+    [Failed]:  [0.25599677328960412925] expected to equal [0.08510405129975] +/- [0.00001]:  
+      at line 116
+    [Failed]:  [1.58663513292263003152] expected to equal [1.42282815882518] +/- [0.00001]:  
+      at line 116
+    [Failed]:  [0.46687097616201511663] expected to equal [0.3364996171027] +/- [0.00001]:  
+      at line 116
+    [Failed]:  [0.78142055905681950811] expected to equal [0.67895877509071] +/- [0.00001]:  
+      at line 116
+    [Failed]:  [0.42605693892289175917] expected to equal [0.2347258660337] +/- [0.00001]:  
+      at line 116
+    [Failed]:  [1.97842310608419835738] expected to equal [1.82275983843999] +/- [0.00001]:  
+      at line 116
+    [Failed]:  [1.92563662012926428702] expected to equal [1.79905887230911] +/- [0.00001]:  
+      at line 116
+    [Failed]:  [0.35533495653366770073] expected to equal [0.16998194548561] +/- [0.00001]:  
+      at line 116
+    [Failed]:  [2.08799420074848995910] expected to equal [1.99507451867836] +/- [0.00001]:  
+      at line 116
+    [Failed]:  [1.34705039832080530893] expected to equal [1.12037844636673] +/- [0.00001]:  
+      at line 116
+    [Failed]:  [0.91695321600907575554] expected to equal [0.72354542788673] +/- [0.00001]:  
+      at line 116
+    [Failed]:  [1.51334507448141608599] expected to equal [1.43566270874216] +/- [0.00001]:  
+      at line 116
+    [Failed]:  [0.55480190799749573571] expected to equal [0.41323968515085] +/- [0.00001]:  
+      at line 116
+    [Failed]:  [0.35444773473389584728] expected to equal [0.23535144457544] +/- [0.00001]:  
+      at line 116
+* test_illustration_cache_and_different_tool_silhouettes
+* test_calendar_upper_bound_remains_savable
+11/12 passed.
+
+
+res://tests/week_13/test_living_scene.gd
+* test_new_entry_has_real_relief_and_calendar
+* test_every_quick_tool_and_asset_uses_picture_with_accessible_description
+* test_calendar_controls_change_date_weather_speed_without_source_or_history_edits
+* test_daynight_seasons_and_weather_render_state
+* test_reduced_motion_and_photo_freeze_weather_and_clock
+* test_async_save_and_load_restore_calendar_presentation
+6/6 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+res://tests/week_13/test_living_data.gd
+- test_new_ground_contacts_and_cache_keys
+    [Failed]:  [1.36577220777551477937] expected to equal [1.2151346370858] +/- [0.00001]:  
+          at line 116
+    [Failed]:  [0.54469231001566753569] expected to equal [0.37512030284434] +/- [0.00001]:  
+          at line 116
+    [Failed]:  [1.26014757673154709217] expected to equal [1.09857806614305] +/- [0.00001]:  
+          at line 116
+    [Failed]:  [1.50064949762793964361] expected to equal [1.35811391398659] +/- [0.00001]:  
+          at line 116
+    [Failed]:  [1.32866753031645945526] expected to equal [1.19409677086667] +/- [0.00001]:  
+          at line 116
+    [Failed]:  [0.65881240454216494218] expected to equal [0.5044400265122] +/- [0.00001]:  
+          at line 116
+    [Failed]:  [0.25599677328960412925] expected to equal [0.08510405129975] +/- [0.00001]:  
+          at line 116
+    [Failed]:  [1.58663513292263003152] expected to equal [1.42282815882518] +/- [0.00001]:  
+          at line 116
+    [Failed]:  [0.46687097616201511663] expected to equal [0.3364996171027] +/- [0.00001]:  
+          at line 116
+    [Failed]:  [0.78142055905681950811] expected to equal [0.67895877509071] +/- [0.00001]:  
+          at line 116
+    [Failed]:  [0.42605693892289175917] expected to equal [0.2347258660337] +/- [0.00001]:  
+          at line 116
+    [Failed]:  [1.97842310608419835738] expected to equal [1.82275983843999] +/- [0.00001]:  
+          at line 116
+    [Failed]:  [1.92563662012926428702] expected to equal [1.79905887230911] +/- [0.00001]:  
+          at line 116
+    [Failed]:  [0.35533495653366770073] expected to equal [0.16998194548561] +/- [0.00001]:  
+          at line 116
+    [Failed]:  [2.08799420074848995910] expected to equal [1.99507451867836] +/- [0.00001]:  
+          at line 116
+    [Failed]:  [1.34705039832080530893] expected to equal [1.12037844636673] +/- [0.00001]:  
+          at line 116
+    [Failed]:  [0.91695321600907575554] expected to equal [0.72354542788673] +/- [0.00001]:  
+          at line 116
+    [Failed]:  [1.51334507448141608599] expected to equal [1.43566270874216] +/- [0.00001]:  
+          at line 116
+    [Failed]:  [0.55480190799749573571] expected to equal [0.41323968515085] +/- [0.00001]:  
+          at line 116
+    [Failed]:  [0.35444773473389584728] expected to equal [0.23535144457544] +/- [0.00001]:  
+          at line 116
+
+Totals
+------
+Scripts               2
+Tests                18
+Passing Tests        17
+Failing Tests         1
+Asserts           932/952
+Time              3.523s
+
+
+---- 1 failing tests ----
+
+Results saved to reports/week_13.xml
+
+Traceback (most recent call last):
+  File "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/tools/quality/week_thirteen_checks.py", line 28, in <module>
+    main()
+    ~~~~^^
+  File "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/tools/quality/week_thirteen_checks.py", line 12, in main
+    steps.append(run_step('week_13_tests', [engine_binary(), '--headless', '--path', '.', '-s',
+                 ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'addons/gut/gut_cmdln.gd', '-gdir=res://tests/week_13', '-gexit', '-gjunit_xml_file=reports/week_13.xml']))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/tools/quality/run_checks.py", line 32, in run_step
+    raise RuntimeError(f"{name} failed; exit={process.returncode}")
+RuntimeError: week_13_tests failed; exit=1

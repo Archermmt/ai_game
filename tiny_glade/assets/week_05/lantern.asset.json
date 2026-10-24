@@ -1,0 +1,17 @@
+{
+  "asset_id": "PROP-08",
+  "source": "art_source/week_05/lantern.blend",
+  "export": "assets/week_05/lantern.glb",
+  "units": "meters",
+  "blender": "5.1.2",
+  "up_axis": "gltf_y_up",
+  "triangles": 960,
+  "budget": 2000,
+  "sockets": [
+    "socket_ground",
+    "socket_light",
+    "socket_hang"
+  ],
+  "stage": "w05_draft_finish_w06",
+  "source_license": "Project original; authored by Blender script"
+}

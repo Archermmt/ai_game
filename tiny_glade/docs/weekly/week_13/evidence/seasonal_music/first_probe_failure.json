@@ -1,0 +1,18 @@
+{
+	"audio": "Dummy",
+	"checks": {
+		"calendar_selects_music": true,
+		"fade_in_progress": true,
+		"legacy_motif_stopped": true,
+		"music_playing_softly": true,
+		"mute_survives_preferences_apply": false,
+		"quiet_gain": true,
+		"rain_ducks_music": true,
+		"settings_mute_fades_to_stop": false,
+		"settings_unmute_resumes": true,
+		"shutdown_stops_and_releases": true
+	},
+	"passed": false,
+	"physical_listening_verified": false,
+	"track": "all_seasons"
+}

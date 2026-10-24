@@ -1,0 +1,7 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M4 Pro (Apple9)
+
+W09_FIRST_DRAW
+2026-10-24 14:13:19.273 Godot[44210:16564352] +[IMKClient subclass]: chose IMKClient_Modern
+2026-10-24 14:13:21.237 Godot[44210:16564352] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+2026-10-24 14:13:22.279 Godot[44210:16564352] error messaging the mach port for IMKCFRunLoopWakeUpReliable

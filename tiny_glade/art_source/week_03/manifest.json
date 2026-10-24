@@ -1,0 +1,165 @@
+[
+  {
+    "asset_id": "NAT-01",
+    "source": "art_source/week_03/tree_broadleaf.blend",
+    "export": "assets/nature/week_03/tree_broadleaf.glb",
+    "blender": "5.1.2",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 1484,
+    "sockets": [
+      "socket_ground"
+    ],
+    "stage": "w03_source",
+    "source_license": "Project original; authored by project Blender script",
+    "supersedes": "week_02",
+    "lod1": "assets/nature/week_03/tree_broadleaf_lod1.glb",
+    "lod1_triangles": 404
+  },
+  {
+    "asset_id": "NAT-01-LOD1",
+    "source": "art_source/week_03/tree_broadleaf_lod1.blend",
+    "export": "assets/nature/week_03/tree_broadleaf_lod1.glb",
+    "blender": "5.1.2",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 404,
+    "sockets": [
+      "socket_ground"
+    ],
+    "stage": "w03_lod1",
+    "source_license": "Project original; authored by project Blender script"
+  },
+  {
+    "asset_id": "NAT-02",
+    "source": "art_source/week_03/tree_conifer.blend",
+    "export": "assets/nature/week_03/tree_conifer.glb",
+    "blender": "5.1.2",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 384,
+    "sockets": [
+      "socket_ground"
+    ],
+    "stage": "w03_source",
+    "source_license": "Project original; authored by project Blender script",
+    "supersedes": "week_02",
+    "lod1": "assets/nature/week_03/tree_conifer_lod1.glb",
+    "lod1_triangles": 224
+  },
+  {
+    "asset_id": "NAT-02-LOD1",
+    "source": "art_source/week_03/tree_conifer_lod1.blend",
+    "export": "assets/nature/week_03/tree_conifer_lod1.glb",
+    "blender": "5.1.2",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 224,
+    "sockets": [
+      "socket_ground"
+    ],
+    "stage": "w03_lod1",
+    "source_license": "Project original; authored by project Blender script"
+  },
+  {
+    "asset_id": "NAT-03",
+    "source": "art_source/week_03/tree_fruit.blend",
+    "export": "assets/nature/week_03/tree_fruit.glb",
+    "blender": "5.1.2",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 1724,
+    "sockets": [
+      "socket_ground"
+    ],
+    "stage": "w03_source",
+    "source_license": "Project original; authored by project Blender script",
+    "supersedes": "week_02",
+    "lod1": "assets/nature/week_03/tree_fruit_lod1.glb",
+    "lod1_triangles": 644
+  },
+  {
+    "asset_id": "NAT-03-LOD1",
+    "source": "art_source/week_03/tree_fruit_lod1.blend",
+    "export": "assets/nature/week_03/tree_fruit_lod1.glb",
+    "blender": "5.1.2",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 644,
+    "sockets": [
+      "socket_ground"
+    ],
+    "stage": "w03_lod1",
+    "source_license": "Project original; authored by project Blender script"
+  },
+  {
+    "asset_id": "NAT-04",
+    "source": "art_source/week_03/fern.blend",
+    "export": "assets/nature/week_03/fern.glb",
+    "blender": "5.1.2",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 14,
+    "sockets": [
+      "socket_ground"
+    ],
+    "stage": "w03_draft_pending_w04_finish",
+    "source_license": "Project original; authored by project Blender script"
+  },
+  {
+    "asset_id": "NAT-05",
+    "source": "art_source/week_03/wildflower.blend",
+    "export": "assets/nature/week_03/wildflower.glb",
+    "blender": "5.1.2",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 14,
+    "sockets": [
+      "socket_ground"
+    ],
+    "stage": "w03_draft_pending_w04_finish",
+    "source_license": "Project original; authored by project Blender script"
+  },
+  {
+    "asset_id": "NAT-06",
+    "source": "art_source/week_03/shrub.blend",
+    "export": "assets/nature/week_03/shrub.glb",
+    "blender": "5.1.2",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 80,
+    "sockets": [
+      "socket_ground"
+    ],
+    "stage": "w03_draft_pending_w04_finish",
+    "source_license": "Project original; authored by project Blender script"
+  },
+  {
+    "asset_id": "NAT-08",
+    "source": "art_source/week_03/moss_rock.blend",
+    "export": "assets/nature/week_03/moss_rock.glb",
+    "blender": "5.1.2",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 80,
+    "sockets": [
+      "socket_ground"
+    ],
+    "stage": "w03_draft_pending_w04_finish",
+    "source_license": "Project original; authored by project Blender script"
+  },
+  {
+    "asset_id": "NAT-09",
+    "source": "art_source/week_03/flat_rock.blend",
+    "export": "assets/nature/week_03/flat_rock.glb",
+    "blender": "5.1.2",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 80,
+    "sockets": [
+      "socket_ground"
+    ],
+    "stage": "w03_draft_pending_w04_finish",
+    "source_license": "Project original; authored by project Blender script"
+  }
+]

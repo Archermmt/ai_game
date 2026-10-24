@@ -1,0 +1,26 @@
+{
+  "buildings": 2,
+  "edit_metrics": {
+    "main_apply_max_ms": 7.377,
+    "main_apply_p95_ms": 7.377,
+    "main_apply_samples": 20,
+    "probe_edits": 20
+  },
+  "engine": "4.7.2-stable (official)",
+  "frames": 1201,
+  "instances": 2,
+  "mean_frame_ms": 8.33510630030531,
+  "p95_frame_ms": 8.33333333333333,
+  "paths": 0,
+  "pond_present": true,
+  "renderer": "forward_plus",
+  "sample_duration_seconds": 10.0,
+  "terrain_samples": 305,
+  "test_framework_in_pack": true,
+  "test_sources_in_pack": true,
+  "viewport_size": [
+    1280,
+    800
+  ],
+  "wind_materials": 65
+}

@@ -1,0 +1,16 @@
+{
+  "godot_revision": "4.7.2-stable",
+  "source": "https://raw.githubusercontent.com/godotengine/godot/4.7.2-stable/scene/main/scene_tree.cpp",
+  "observation": "SceneTree emits process_frame and processes nodes/deferred calls before subtracting the whole frame unscaled_delta from timers; create_timer stores remaining time without a creation timestamp.",
+  "source_locations": [
+    "664-679",
+    "737-755",
+    "1643-1652"
+  ],
+  "fix": "Start a monotonic clock deadline when voices stop; yield frames for at least400ms independent of prior frame work. Then release scene and drain2frames.",
+  "regressions": {
+    "regular_50ms_actual_usec": 51309,
+    "long_previous_frame_150ms_then_50ms_actual_usec": 50235
+  },
+  "note": "Earlier300ms/0.4secSceneTreeTimer descriptions are nominal; do not infer actual elapsed from their configured delay."
+}

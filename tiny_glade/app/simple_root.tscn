@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="PackedScene" path="res://app/garden_root.tscn" id="1_base"]
+[ext_resource type="Script" path="res://features/direct_edit/simple_playground.gd" id="2_script"]
+[ext_resource type="Script" path="res://features/direct_edit/simple_hud.gd" id="3_hud"]
+
+[ext_resource type="Script" path="res://features/direct_edit/direct_camera.gd" id="4_camera"]
+
+[node name="Playground" instance=ExtResource("1_base")]
+script = ExtResource("2_script")
+
+[node name="Hud" parent="." index="2"]
+script = ExtResource("3_hud")
+
+[node name="CameraRig" parent="." index="1"]
+script = ExtResource("4_camera")

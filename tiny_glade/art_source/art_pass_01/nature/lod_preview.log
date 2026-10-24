@@ -1,0 +1,22 @@
+00:00.056  translation      | WARNING Falling back to standard locale ("C")
+00:00.221  blend            | Read blend: "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/art_source/art_pass_01/nature/tree_broadleaf.blend"
+00:00.274  blend            | Read blend: "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/art_source/art_pass_01/nature/tree_broadleaf_lod1.blend"
+00:00.313  blend            | Read blend: "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/art_source/art_pass_01/nature/tree_conifer.blend"
+00:00.355  blend            | Read blend: "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/art_source/art_pass_01/nature/tree_conifer_lod1.blend"
+00:00.394  blend            | Read blend: "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/art_source/art_pass_01/nature/tree_fruit.blend"
+00:00.436  blend            | Read blend: "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/art_source/art_pass_01/nature/tree_fruit_lod1.blend"
+00:00.474  blend            | Read blend: "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/art_source/art_pass_01/nature/fern.blend"
+00:00.510  blend            | Read blend: "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/art_source/art_pass_01/nature/wildflower.blend"
+00:00.547  blend            | Read blend: "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/art_source/art_pass_01/nature/shrub.blend"
+00:00.582  blend            | Read blend: "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/art_source/art_pass_01/nature/moss_rock.blend"
+00:00.620  blend            | Read blend: "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/art_source/art_pass_01/nature/flat_rock.blend"
+/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/tools/art/build_art_foliage.py:820: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/tools/art/build_art_foliage.py:827: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes = True
+00:09.734  render           | Saved: '/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/art_source/art_pass_01/nature/foliage_contact_sheet_lod1_blender.png'
+ART_FOLIAGE_GLB_CONTRACT_PASS 11
+ART_FOLIAGE_SOURCE_REOPEN_PASS 11
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:30:33)
+
+Blender quit

@@ -1,0 +1,121 @@
+{
+  "revision": "03a41f7c1842fa5e6d9de8261788ea9a5f500024",
+  "godot_tests": 733,
+  "godot_assertions": 30440,
+  "python_tests": 28,
+  "w13_tests": 77,
+  "w13_assertions": 11196,
+  "new_tests": 15,
+  "new_assertions": 8281,
+  "failures": 0,
+  "skipped": 0,
+  "negative_control_passed": true,
+  "validation_composition": "Full cumulative656 historical + W1376, then final W1377 after adding blended-wind test; final77 XML supersedes earlier76. Final performance probes include weather-overlap mode.",
+  "sky_weather_native_checks": 17,
+  "walk_native_checks": 18,
+  "water_native_checks": 9,
+  "existing_ui_checks": 22,
+  "walk_performance": {
+    "climate_transitions": false,
+    "distance_from_start": 12.1580142974854,
+    "duration_ms": 30006.872,
+    "frames": 3600,
+    "max_frame_ms": 23.692,
+    "max_visible_weather_types": 0,
+    "p95_frame_ms": 8.874,
+    "position": "(-9.118338, -0.133843, -1.945691)",
+    "reflections": 226,
+    "safe_support": true,
+    "source_unchanged": true,
+    "step": {
+      "name": "walk_performance",
+      "exit_code": 0,
+      "seconds": 33.364
+    },
+    "frame_budget_passed": true,
+    "production_unchanged": true,
+    "audio": "Dummy",
+    "physical_audio_verified": false,
+    "note": "24-house/1000-instance layout, walking/turning30s after mode entry; optional6s weather retargets; no cold-start or edit-latency claim"
+  },
+  "transition_performance": {
+    "climate_transitions": true,
+    "distance_from_start": 5.14415407180786,
+    "duration_ms": 30006.418,
+    "frames": 3464,
+    "max_frame_ms": 21.702,
+    "max_visible_weather_types": 3,
+    "p95_frame_ms": 10.319,
+    "position": "(-3.558541, -0.155385, 9.148374)",
+    "reflections": 228,
+    "safe_support": true,
+    "source_unchanged": true,
+    "step": {
+      "name": "walk_transition_performance",
+      "exit_code": 0,
+      "seconds": 33.527
+    },
+    "frame_budget_passed": true,
+    "production_unchanged": true,
+    "audio": "Dummy",
+    "physical_audio_verified": false,
+    "note": "24-house/1000-instance layout, walking/turning30s after mode entry; optional6s weather retargets; no cold-start or edit-latency claim"
+  },
+  "weather_capacity": {
+    "storm": {
+      "p95_frame_ms": 12.1212121212121,
+      "rss_peak_bytes": 946126848
+    },
+    "blizzard": {
+      "p95_frame_ms": 15.2777777777778,
+      "rss_peak_bytes": 948060160
+    },
+    "duststorm": {
+      "p95_frame_ms": 12.1212121212121,
+      "rss_peak_bytes": 969211904
+    }
+  },
+  "weather_targets": {
+    "frame_p95_20ms": true,
+    "rss_2gib": true
+  },
+  "source_sha256": {
+    "features/first_person_walk/first_person_walk.gd": "2103ff17822b7506050b6139a633a9578ea307363b7e6cd6c242bbd3ae1b5ccd",
+    "features/living_world/illustrated_icons.gd": "c8e62c98ff7371d390209e5111d7cdaa284f6bb1322a6e94cba72bedf7ab454b",
+    "features/living_world/living_atmosphere.gd": "25ffae9a9dfb7d893b87c93570e4d355e750c5963d650713c6ad69eb3a86cd5c",
+    "features/living_world/living_hud.gd": "3042d99c91d513fc05458653bde5afacdc79fc84617bfea737c8f243e6ae50ac",
+    "features/living_world/living_playground.gd": "f5911c44fba9416c0d64fe672197ced76cd16a6e373e40821c9f8ebb88d90ddd",
+    "features/living_world/mode_icon_feedback.gd": "72e25e219c2942efc6dd78cb3f853577457cd7ecf99b47ae38398863e5d6542d",
+    "features/living_world/mode_icon_feedback.gd.uid": "1cbaa82ccca554a322b67a755f61dde1bc2b8da2807bdbe4f64e366d2278f78e",
+    "features/living_world/painted_sky.gd": "c6c32557b3db9bb685af7c92fd35d3344797b5cd78ebd254d3a2d0ae593e002e",
+    "features/living_world/painted_sky.gd.uid": "ff8e71ce024b20924c00180c3f775b5ce7ad2e8c6a898aa6c53e9e016f2f7af2",
+    "features/living_world/painted_sky.gdshader": "e8daf468d13d623c2c6fb1352e8cb106036f7026a6e7884222b733efc44f325a",
+    "features/living_world/painted_sky.gdshader.uid": "6bc182a7b26c933e4edb6cde6983d05627b1ade9a5967e1a7c0efd02b76efa3c",
+    "features/living_world/precipitation.gdshader": "29b65166cbf54a3eb769129066ab4628ecd64e7515a9044a6ec8c12170933db6",
+    "features/living_world/weather_blend.gd": "465d3f06a2eb53fd37f2a26870e08247e278da2728fa331307a587562dd53f8c",
+    "features/living_world/weather_blend.gd.uid": "e278f2b44b6f86b282d1c6aa784d0d1a4a38827fe20bc04c8f9e549602659dca",
+    "features/pond_water/pond_reflections.gd": "09ad07f7bc40bdbb1c442d50b44f34a432a65a836d12f7a04663a6cbea342981",
+    "tests/week_13/native_probe.gd": "101a241a3b34a379457570acff8c3a7a712f16172a605de3370c42844a4b0ab7",
+    "tests/week_13/sky_weather_native_probe.gd": "c83554ca270199296b57b9f3b6df947701fc50f7a091bc7ad1f52473806cb628",
+    "tests/week_13/sky_weather_native_probe.gd.uid": "43789cda92ce942c5f465b493ad793ae58201b7d4d0db21768bbc26c7dd8dfe7",
+    "tests/week_13/test_living_scene.gd": "d8e62a447e88d8f94ae443fd19ebdc5036c80a63cf46ad81f979081ebffea650",
+    "tests/week_13/test_pond_water.gd": "1dce66b2f9dbf732138b8aa8e8a9bb760593e9a8aae60f34c4274a174c3d664c",
+    "tests/week_13/test_walk.gd": "1b081e521c094832724db182be3d6f98cafd3839b388013fc5dbc6c2400e1355",
+    "tests/week_13/test_weather_blend.gd": "85241348125556d59987eb780e17ded75cc1646bd4b2dcb8addd14eaff3e5742",
+    "tests/week_13/test_weather_blend.gd.uid": "160c865345cffc649c396bc4d80275b82a9fa77a0750434c046b1a890fb5601c",
+    "tests/week_13/walk_native_probe.gd": "7951e3ce4b2ad3ff7a8d33a9e32c047202e11b10515e2e60f0b98078bedcb0cb",
+    "tests/week_13/walk_performance_probe.gd": "d34349880cb2d6afe5c1104ccacb464a6509e5d5e642c3333f52f837b9486154",
+    "tests/week_13/water_native_probe.gd": "e00e1eaa2bf1fd597cde1182d0556dab9aa4f6b6b8fba6d592b586503570b8ed",
+    "tools/quality/sky_weather_native_checks.py": "29eaf394b5d3b95e13d65735c4a94112bedbc7567eb7d09cc1e69eb78b76f647",
+    "tools/quality/walk_performance_checks.py": "6450228b8a2c0fad183d179f01477b5e23b3f32161801073701f259e925a5e14",
+    "tools/quality/week_thirteen_checks.py": "54efb578802d44cdd4de4922a63794f0cfd6c5332f41ff4c5913311bbfdfe8bc"
+  },
+  "formal_files_unchanged": true,
+  "fresh_checkout_this_followup": false,
+  "packages_updated": false,
+  "physical_trackpad_verified": false,
+  "physical_audio_verified": false,
+  "windows_real_device": false,
+  "m4_approved": false,
+  "m5_approved": false
+}

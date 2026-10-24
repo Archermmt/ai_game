@@ -1,0 +1,1710 @@
+WorkerThreadPool: 14 threads, 4 max low-priority.
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+SDL: Init OK!
+Accessibility: AccessKit driver loaded.
+Accessibility: window 0 adapter created.
+Devices:
+  #0: Apple Apple M4 Pro (Apple9) - Supported, Integrated
+- Metal multiview supported:
+  max view count: 16
+  max instances: 4294967295
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M4 Pro (Apple9)
+Using "default" pen tablet driver...
+Shader 'CanvasSdfShaderRD' (group 0) SHA256: a4f6d732dba9a4cc0c37a1ca52936369e2ee148e9d03efe1b81bfed822adb1eb
+Loading cache for shader CanvasSdfShaderRD, variant 0
+Loading cache for shader CanvasSdfShaderRD, variant 1
+Loading cache for shader CanvasSdfShaderRD, variant 2
+Loading cache for shader CanvasSdfShaderRD, variant 3
+Loading cache for shader CanvasSdfShaderRD, variant 4
+Loading cache for shader CanvasSdfShaderRD, variant 5
+Shader 'SkeletonShaderRD' (group 0) SHA256: e6bc641e2a094416c99b1294ac5e453c55d24e0b62c1da47c8f7f93ae7877bfa
+Loading cache for shader SkeletonShaderRD, variant 0
+Loading cache for shader SkeletonShaderRD, variant 1
+Shader 'SortShaderRD' (group 0) SHA256: d8d77897b86870d358bf870233e14233981c2db9ff06641cd8f405379ac8872f
+Loading cache for shader SortShaderRD, variant 0
+Loading cache for shader SortShaderRD, variant 1
+Loading cache for shader SortShaderRD, variant 2
+Shader 'ParticlesShaderRD' (group 0) SHA256: f645828ab356b17f1478c77373935ecd2417e1c227a96b62417396293d13970e
+Loading cache for shader ParticlesShaderRD, variant 0
+Shader 'ParticlesCopyShaderRD' (group 0) SHA256: ce2b95c8a6b9e21f14c989c3ca095de77d9bb5e86213ae4180fb97cbd2c02a10
+Loading cache for shader ParticlesCopyShaderRD, variant 0
+Loading cache for shader ParticlesCopyShaderRD, variant 1
+Loading cache for shader ParticlesCopyShaderRD, variant 2
+Loading cache for shader ParticlesCopyShaderRD, variant 3
+Loading cache for shader ParticlesCopyShaderRD, variant 4
+Loading cache for shader ParticlesCopyShaderRD, variant 5
+Loading cache for shader ParticlesCopyShaderRD, variant 6
+Loading cache for shader ParticlesCopyShaderRD, variant 7
+Loading cache for shader ParticlesCopyShaderRD, variant 8
+Loading cache for shader ParticlesCopyShaderRD, variant 9
+Loading cache for shader ParticlesCopyShaderRD, variant 10
+Loading cache for shader ParticlesCopyShaderRD, variant 11
+Loading cache for shader ParticlesCopyShaderRD, variant 12
+Loading cache for shader ParticlesCopyShaderRD, variant 13
+Loading cache for shader ParticlesCopyShaderRD, variant 14
+Loading cache for shader ParticlesCopyShaderRD, variant 15
+Loading cache for shader ParticlesCopyShaderRD, variant 16
+Loading cache for shader ParticlesCopyShaderRD, variant 17
+Loading cache for shader ParticlesCopyShaderRD, variant 18
+Loading cache for shader ParticlesCopyShaderRD, variant 19
+Loading cache for shader ParticlesCopyShaderRD, variant 20
+Shader 'CanvasShaderRD' (group 0) SHA256: 5454ca85157b6953b76bf324ebe90594c466e36301bf1b3e6adcce117d705c79
+Loading cache for shader CanvasShaderRD, variant 0
+Loading cache for shader CanvasShaderRD, variant 1
+Loading cache for shader CanvasShaderRD, variant 2
+Loading cache for shader CanvasShaderRD, variant 3
+Loading cache for shader CanvasShaderRD, variant 4
+Loading cache for shader CanvasShaderRD, variant 5
+Shader 'CanvasOcclusionShaderRD' (group 0) SHA256: 606df5c981910bc4bc719cf497719273e80d1f314f65e68820bf8e2111368cdb
+Loading cache for shader CanvasOcclusionShaderRD, variant 0
+Loading cache for shader CanvasOcclusionShaderRD, variant 1
+Loading cache for shader CanvasOcclusionShaderRD, variant 2
+Loading cache for shader CanvasShaderRD, variant 0
+Loading cache for shader CanvasShaderRD, variant 1
+Loading cache for shader CanvasShaderRD, variant 2
+Loading cache for shader CanvasShaderRD, variant 3
+Loading cache for shader CanvasShaderRD, variant 4
+Loading cache for shader CanvasShaderRD, variant 5
+Loading cache for shader CanvasShaderRD, variant 0
+Loading cache for shader CanvasShaderRD, variant 1
+Loading cache for shader CanvasShaderRD, variant 2
+Loading cache for shader CanvasShaderRD, variant 3
+Loading cache for shader CanvasShaderRD, variant 4
+Loading cache for shader CanvasShaderRD, variant 5
+Shader 'TexBlitShaderRD' (group 0) SHA256: fd9c885eab1da0d330a04ebfd7796019cde57f82208202f3bfc96cae74155212
+Loading cache for shader TexBlitShaderRD, variant 0
+Loading cache for shader TexBlitShaderRD, variant 1
+Loading cache for shader TexBlitShaderRD, variant 2
+Loading cache for shader TexBlitShaderRD, variant 3
+Shader 'ClusterRenderShaderRD' (group 0) SHA256: 092c9f39b8c42523662d45db394a8d4f7f068d617876866d55d9fd69e5afb357
+Loading cache for shader ClusterRenderShaderRD, variant 0
+Loading cache for shader ClusterRenderShaderRD, variant 1
+Shader 'ClusterStoreShaderRD' (group 0) SHA256: 77e74456f71eccced2f4bd06086f33d4ae56a013ce717690f960759226272eb4
+Loading cache for shader ClusterStoreShaderRD, variant 0
+Shader 'ClusterDebugShaderRD' (group 0) SHA256: 25eb5280da03a5dfefcf122ab21c9f6184c2a0d8edfb398d0b9e784c99ede8d6
+Loading cache for shader ClusterDebugShaderRD, variant 0
+Shader 'SceneForwardClusteredShaderRD' (group 0) SHA256: cdfe2a8d86deff48154b1cd0d6e857301f5e37f0d8930754f63ff9c2c85045a6
+Shader 'SceneForwardClusteredShaderRD' (group 1) SHA256: 073f74b951c9d31091a21a83f7ed2a449ca9faa4f0b5a7052db58dd352175ef7
+Shader 'SceneForwardClusteredShaderRD' (group 2) SHA256: 0e2560bbe3adf526b738f6b3c67897e10ea21a0e17c56f7a5ecbf6797f8e6991
+Shader 'SceneForwardClusteredShaderRD' (group 3) SHA256: 6cb1159e6a2acf7ea3d926a7f1b088c77adebfa34de42d2b2b3c59641632a4d3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Shader 'BestFitNormalShaderRD' (group 0) SHA256: c4b1d2e5a1d6f84559f49734aae94706b402e2be89eae7753b8b413800d96d42
+Loading cache for shader BestFitNormalShaderRD, variant 0
+Shader 'IntegrateDfgShaderRD' (group 0) SHA256: 4d699e26d43b88b86cb33c2b829767ea8e935055bb48dea880f66eb29760577a
+Loading cache for shader IntegrateDfgShaderRD, variant 0
+Shader 'TaaResolveShaderRD' (group 0) SHA256: a1ca2d745847530de0720910ad5bfa2466e0ab33647b7a631f2900d7b4617a60
+Loading cache for shader TaaResolveShaderRD, variant 0
+Shader 'Fsr2DepthClipPassShaderRD' (group 0) SHA256: 4a735c315dc3644fbdbbe70afdfe9bce327e4a10441982ebb38e87c22d502c41
+Shader 'Fsr2ReconstructPreviousDepthPassShaderRD' (group 0) SHA256: c41c89f4fe2f3dc313a48a2ae22a3c88e6ce5e90f5f660b5484d53a3360ab28d
+Shader 'Fsr2LockPassShaderRD' (group 0) SHA256: ba10724396561abfafe1196b0531eeb403087c1e05c5656de71d642bab4d8d3b
+Shader 'Fsr2AccumulatePassShaderRD' (group 0) SHA256: cb0552a6babfc28ea4bdf33f963848da4261ac9b71b063ca392b2e970b4e0680
+Shader 'Fsr2RcasPassShaderRD' (group 0) SHA256: f03d67b5589dcb7ff3abc9fb2a85d5345f179d8e38be7157a9ea142344aa89b1
+Shader 'Fsr2ComputeLuminancePyramidPassShaderRD' (group 0) SHA256: 57b9d245efe60faebf93a8eee4616627480b31f632f2022b12f9fa7b9cf988af
+Shader 'Fsr2AutogenReactivePassShaderRD' (group 0) SHA256: 5aebe0a8d7f2d8328a9a028998145d3b09c1e863870f7b14623d7b876278e897
+Shader 'Fsr2TcrAutogenPassShaderRD' (group 0) SHA256: 5e552f2c8d02cc61ac623cb99ef41218c906a66d96895d32e0e33d953ec53436
+Shader 'SsEffectsDownsampleShaderRD' (group 0) SHA256: d2ccd37f99a0b00eca4ba6f53cddf8d03f02119a69a0b02dc777026129561703
+Loading cache for shader SsEffectsDownsampleShaderRD, variant 0
+Loading cache for shader SsEffectsDownsampleShaderRD, variant 1
+Loading cache for shader SsEffectsDownsampleShaderRD, variant 2
+Loading cache for shader SsEffectsDownsampleShaderRD, variant 3
+Loading cache for shader SsEffectsDownsampleShaderRD, variant 4
+Loading cache for shader SsEffectsDownsampleShaderRD, variant 5
+Loading cache for shader SsEffectsDownsampleShaderRD, variant 6
+Shader 'SsilShaderRD' (group 0) SHA256: 17c51ec55574b54c0834b41688f478d19599eb3f90a1230981e06d74d89473e1
+Loading cache for shader SsilShaderRD, variant 0
+Loading cache for shader SsilShaderRD, variant 1
+Loading cache for shader SsilShaderRD, variant 2
+Shader 'SsilImportanceMapShaderRD' (group 0) SHA256: bf370911d6b5be81e5fbf6014d236deb74697ee1b3e2eeb870f5140913d9bee6
+Loading cache for shader SsilImportanceMapShaderRD, variant 0
+Loading cache for shader SsilImportanceMapShaderRD, variant 1
+Loading cache for shader SsilImportanceMapShaderRD, variant 2
+Shader 'SsilBlurShaderRD' (group 0) SHA256: 4f0d60ba5581090f5efc9941b040e46832bf6864d77d52e8631cea227b5d8279
+Loading cache for shader SsilBlurShaderRD, variant 0
+Loading cache for shader SsilBlurShaderRD, variant 1
+Loading cache for shader SsilBlurShaderRD, variant 2
+Shader 'SsilInterleaveShaderRD' (group 0) SHA256: 0f78dde6bc33a0264706f9a466ae77f41b24641381aa171c2b1ee40923f6547c
+Loading cache for shader SsilInterleaveShaderRD, variant 0
+Loading cache for shader SsilInterleaveShaderRD, variant 1
+Loading cache for shader SsilInterleaveShaderRD, variant 2
+Shader 'SsaoShaderRD' (group 0) SHA256: 40091d5cef6924b0632dfb92dbf5a6c61f97edd6dd653d20e2c7662009912eed
+Loading cache for shader SsaoShaderRD, variant 0
+Loading cache for shader SsaoShaderRD, variant 1
+Loading cache for shader SsaoShaderRD, variant 2
+Shader 'SsaoImportanceMapShaderRD' (group 0) SHA256: 72382d26e5b22e99ee9ed29670565e78ff7ee01c960072119a5be86db2ee0fc8
+Loading cache for shader SsaoImportanceMapShaderRD, variant 0
+Loading cache for shader SsaoImportanceMapShaderRD, variant 1
+Loading cache for shader SsaoImportanceMapShaderRD, variant 2
+Shader 'SsaoBlurShaderRD' (group 0) SHA256: 379e714dbee2f412e6657f0557a56dd9f4a00c93ed1aef7af78b047b59ef4bcb
+Loading cache for shader SsaoBlurShaderRD, variant 0
+Loading cache for shader SsaoBlurShaderRD, variant 1
+Loading cache for shader SsaoBlurShaderRD, variant 2
+Shader 'SsaoInterleaveShaderRD' (group 0) SHA256: cb27e637ffea15e2c6c4ae1b2c90deac962dae9481ef866601d8ecb863d6a9b6
+Loading cache for shader SsaoInterleaveShaderRD, variant 0
+Loading cache for shader SsaoInterleaveShaderRD, variant 1
+Loading cache for shader SsaoInterleaveShaderRD, variant 2
+Shader 'ScreenSpaceReflectionDownsampleShaderRD' (group 0) SHA256: f6b46656954490c0153a8a5200455cc0834ec5881821ec7bf328b4c688fc4f6f
+Loading cache for shader ScreenSpaceReflectionDownsampleShaderRD, variant 0
+Loading cache for shader ScreenSpaceReflectionDownsampleShaderRD, variant 1
+Loading cache for shader ScreenSpaceReflectionDownsampleShaderRD, variant 2
+Loading cache for shader ScreenSpaceReflectionDownsampleShaderRD, variant 3
+Shader 'ScreenSpaceReflectionHizShaderRD' (group 0) SHA256: 4c407c9b5cd4f954c012a0de78629e18a5e9268536eb1d78853c8a247ef0a772
+Loading cache for shader ScreenSpaceReflectionHizShaderRD, variant 0
+Loading cache for shader ScreenSpaceReflectionHizShaderRD, variant 1
+Loading cache for shader ScreenSpaceReflectionHizShaderRD, variant 2
+Loading cache for shader ScreenSpaceReflectionHizShaderRD, variant 3
+Shader 'ScreenSpaceReflectionShaderRD' (group 0) SHA256: a2d0cb08973e8562ed3b82d74b6f0f1ecf1dbd2ac788049eaa06925ad6c28bed
+Loading cache for shader ScreenSpaceReflectionShaderRD, variant 0
+Shader 'ScreenSpaceReflectionFilterShaderRD' (group 0) SHA256: fda60a18cb83e7ff26ce7ee2f43dce1d37326b2767d06922b0e5f9356abd1a1e
+Loading cache for shader ScreenSpaceReflectionFilterShaderRD, variant 0
+Shader 'ScreenSpaceReflectionResolveShaderRD' (group 0) SHA256: b29422945b4d1600883d0fcf89124633e34efb678505e5bcb9fdb6623fbfb8d4
+Loading cache for shader ScreenSpaceReflectionResolveShaderRD, variant 0
+Shader 'SubsurfaceScatteringShaderRD' (group 0) SHA256: 4870fb4fc36514a7031473d566046fc2841628db992f9421056a8dfbc0830d97
+Loading cache for shader SubsurfaceScatteringShaderRD, variant 0
+Loading cache for shader SubsurfaceScatteringShaderRD, variant 1
+Loading cache for shader SubsurfaceScatteringShaderRD, variant 2
+Shader 'MotionVectorsStoreShaderRD' (group 0) SHA256: f9575a30d9fd7eed47522e12f8a7860cc9417f478037c138895aeb3bbd4c585f
+Loading cache for shader MotionVectorsStoreShaderRD, variant 0
+Shader 'SkyShaderRD' (group 0) SHA256: 25c4162ba5ed1f15e722f73bf07201837a6ae7b301288dd32ff9f71634118d9c
+Loading cache for shader SkyShaderRD, variant 0
+Loading cache for shader SkyShaderRD, variant 1
+Loading cache for shader SkyShaderRD, variant 2
+Loading cache for shader SkyShaderRD, variant 3
+Loading cache for shader SkyShaderRD, variant 4
+Loading cache for shader SkyShaderRD, variant 5
+Loading cache for shader SkyShaderRD, variant 0
+Loading cache for shader SkyShaderRD, variant 1
+Loading cache for shader SkyShaderRD, variant 2
+Loading cache for shader SkyShaderRD, variant 3
+Loading cache for shader SkyShaderRD, variant 4
+Loading cache for shader SkyShaderRD, variant 5
+Shader 'VoxelGiShaderRD' (group 0) SHA256: cf478b2dd85c8c4b0519274ac94659b26ee34e27a1714122915056a7010b4b7c
+Loading cache for shader VoxelGiShaderRD, variant 0
+Loading cache for shader VoxelGiShaderRD, variant 1
+Loading cache for shader VoxelGiShaderRD, variant 2
+Loading cache for shader VoxelGiShaderRD, variant 3
+Loading cache for shader VoxelGiShaderRD, variant 4
+Loading cache for shader VoxelGiShaderRD, variant 5
+Loading cache for shader VoxelGiShaderRD, variant 6
+Loading cache for shader VoxelGiShaderRD, variant 7
+Shader 'VoxelGiDebugShaderRD' (group 0) SHA256: e7afc074bea566006e261dd7312ae8e5c1a6a22e1eab6aa29b590ca925df679b
+Loading cache for shader VoxelGiDebugShaderRD, variant 0
+Loading cache for shader VoxelGiDebugShaderRD, variant 1
+Loading cache for shader VoxelGiDebugShaderRD, variant 2
+Loading cache for shader VoxelGiDebugShaderRD, variant 3
+Shader 'SdfgiPreprocessShaderRD' (group 0) SHA256: 548b5bca0563ad9662e1e9577ac4921dfc156154487ba331733b0283ce26fcb9
+Loading cache for shader SdfgiPreprocessShaderRD, variant 0
+Loading cache for shader SdfgiPreprocessShaderRD, variant 1
+Loading cache for shader SdfgiPreprocessShaderRD, variant 2
+Loading cache for shader SdfgiPreprocessShaderRD, variant 3
+Loading cache for shader SdfgiPreprocessShaderRD, variant 4
+Loading cache for shader SdfgiPreprocessShaderRD, variant 5
+Loading cache for shader SdfgiPreprocessShaderRD, variant 6
+Loading cache for shader SdfgiPreprocessShaderRD, variant 7
+Loading cache for shader SdfgiPreprocessShaderRD, variant 8
+Shader 'SdfgiDirectLightShaderRD' (group 0) SHA256: 59245d18d90efd79551ef5eda25bbda9867cb893341a1d23b0f75db5d4490716
+Loading cache for shader SdfgiDirectLightShaderRD, variant 0
+Loading cache for shader SdfgiDirectLightShaderRD, variant 1
+Shader 'SdfgiIntegrateShaderRD' (group 0) SHA256: f20a6d93247c8e2db82979d4e6477fa070ed91e03db2b1320e32dffabdb4ff23
+Loading cache for shader SdfgiIntegrateShaderRD, variant 0
+Loading cache for shader SdfgiIntegrateShaderRD, variant 1
+Loading cache for shader SdfgiIntegrateShaderRD, variant 2
+Loading cache for shader SdfgiIntegrateShaderRD, variant 3
+Shader 'GiShaderRD' (group 0) SHA256: 3fa2391092c717dea4bdf7f4f65ccf42ffd4018c158c431a4e234d9fa17737a6
+Shader 'GiShaderRD' (group 1) SHA256: 87dc8f2e3eb0653ed625d759392e8a08fcd79fe90d61dcc8f6ce34a8cfe35f7f
+Loading cache for shader GiShaderRD, variant 0
+Loading cache for shader GiShaderRD, variant 1
+Loading cache for shader GiShaderRD, variant 2
+Loading cache for shader GiShaderRD, variant 3
+Loading cache for shader GiShaderRD, variant 4
+Shader 'SdfgiDebugShaderRD' (group 0) SHA256: 365142e07e83cbbda433d4ed971a1c8413d3a400e8646e2ed2a0f7dda127068a
+Loading cache for shader SdfgiDebugShaderRD, variant 0
+Shader 'SdfgiDebugProbesShaderRD' (group 0) SHA256: 05e9a03efe957bf14f0a60730a97ab25e037f5a3f347b3427feb9723fd82fb1c
+Loading cache for shader SdfgiDebugProbesShaderRD, variant 0
+Loading cache for shader SdfgiDebugProbesShaderRD, variant 1
+Loading cache for shader SdfgiDebugProbesShaderRD, variant 2
+Loading cache for shader SdfgiDebugProbesShaderRD, variant 3
+Shader 'VolumetricFogShaderRD' (group 0) SHA256: 69e78fd970058cf62da4f8df24a6d7f3acd2d0effbade0dc171226be830ee241
+Shader 'VolumetricFogShaderRD' (group 1) SHA256: fa6cfa14ca66356dd4818ce06073abdefc4058f2531727ea90fe9ea340cc66e5
+Shader 'VolumetricFogShaderRD' (group 2) SHA256: 8454dc7c2a5c9574b6123e01388a4c83969bb236ab7422fd0eb06b91dd9f7449
+Shader 'VolumetricFogShaderRD' (group 3) SHA256: d5ef183ef6e53033bfb50eb7047a431514f4d6533e95530b67e06839ff9676a1
+Loading cache for shader VolumetricFogShaderRD, variant 0
+Shader 'VolumetricFogProcessShaderRD' (group 0) SHA256: ee9496dfb3b0e489158503ab6e3539129bf5f78706cdb7c9ed4d8701f17f14ec
+Shader 'VolumetricFogProcessShaderRD' (group 1) SHA256: 9828e14ae2e94efc4823f8b077ba661a03ef3ba9726264ff7e359144a9b1214b
+Shader 'VolumetricFogProcessShaderRD' (group 2) SHA256: 7ac17802c709a8ec8fb2d47fade023ddd95a3c675451c8e53ce81469b4ce8b5d
+Shader 'VolumetricFogProcessShaderRD' (group 3) SHA256: c75a607ad6ee761bd49d7318ec8f4a39798fcc3822b7360641394f5dc36f0c2a
+Loading cache for shader VolumetricFogProcessShaderRD, variant 0
+Loading cache for shader VolumetricFogProcessShaderRD, variant 1
+Loading cache for shader VolumetricFogProcessShaderRD, variant 2
+Loading cache for shader VolumetricFogProcessShaderRD, variant 3
+Loading cache for shader VolumetricFogProcessShaderRD, variant 4
+Shader 'BokehDofShaderRD' (group 0) SHA256: 8c692c9cd2f46f54f2c82d9a4a12be5f889d873a3c9698546a6eb5ec0c263647
+Loading cache for shader BokehDofShaderRD, variant 0
+Loading cache for shader BokehDofShaderRD, variant 1
+Loading cache for shader BokehDofShaderRD, variant 3
+Loading cache for shader BokehDofShaderRD, variant 5
+Loading cache for shader BokehDofShaderRD, variant 6
+Shader 'CopyShaderRD' (group 0) SHA256: c374588e7ae9bf64919d0186bea3104b4f721cc0691d284a9998e1e7d06c5eb8
+Loading cache for shader CopyShaderRD, variant 0
+Loading cache for shader CopyShaderRD, variant 1
+Loading cache for shader CopyShaderRD, variant 2
+Loading cache for shader CopyShaderRD, variant 3
+Loading cache for shader CopyShaderRD, variant 4
+Loading cache for shader CopyShaderRD, variant 5
+Loading cache for shader CopyShaderRD, variant 6
+Loading cache for shader CopyShaderRD, variant 7
+Loading cache for shader CopyShaderRD, variant 8
+Loading cache for shader CopyShaderRD, variant 9
+Loading cache for shader CopyShaderRD, variant 10
+Loading cache for shader CopyShaderRD, variant 11
+Loading cache for shader CopyShaderRD, variant 12
+Shader 'CopyToFbShaderRD' (group 0) SHA256: 72456b3a82af4da12c412275d4c8ffa4a6a5447d9daffeeef86bc16965803813
+Loading cache for shader CopyToFbShaderRD, variant 0
+Loading cache for shader CopyToFbShaderRD, variant 1
+Loading cache for shader CopyToFbShaderRD, variant 2
+Loading cache for shader CopyToFbShaderRD, variant 3
+Shader 'CubeToDpShaderRD' (group 0) SHA256: da14e2c9b701a4bd7336b87667bf4f3b4f645de09781824763d2bbceead56c83
+Loading cache for shader CubeToDpShaderRD, variant 0
+Shader 'CubeToOctmapShaderRD' (group 0) SHA256: 7a5a6871c4fae131d3fef2e125ac23cbe81a1a042028f8c294461282de463c9a
+Loading cache for shader CubeToOctmapShaderRD, variant 0
+Shader 'OctmapDownsamplerShaderRD' (group 0) SHA256: 17404978f453a0a0388dfb81b2d08f173476d2c3b680e2e6aa35bcf438e24f11
+Loading cache for shader OctmapDownsamplerShaderRD, variant 0
+Loading cache for shader OctmapDownsamplerShaderRD, variant 1
+Shader 'OctmapFilterShaderRD' (group 0) SHA256: cd03c4ea34362e2724f4d4536156039ee5ca21c31167b8840dfc65dad2d6bb11
+Loading cache for shader OctmapFilterShaderRD, variant 0
+Loading cache for shader OctmapFilterShaderRD, variant 1
+Loading cache for shader OctmapFilterShaderRD, variant 2
+Loading cache for shader OctmapFilterShaderRD, variant 3
+Loading cache for shader OctmapFilterShaderRD, variant 4
+Loading cache for shader OctmapFilterShaderRD, variant 5
+Loading cache for shader OctmapFilterShaderRD, variant 6
+Loading cache for shader OctmapFilterShaderRD, variant 7
+Shader 'OctmapRoughnessShaderRD' (group 0) SHA256: 8470960c68b74292e24251e3b7e41d28e9a5054dce0cd1d77c2a2a865a10af43
+Loading cache for shader OctmapRoughnessShaderRD, variant 0
+Loading cache for shader OctmapRoughnessShaderRD, variant 1
+Shader 'SpecularMergeShaderRD' (group 0) SHA256: 70920fc883de48dd253fbc2503dd8f4e65941df0da07e074541df12df090de98
+Loading cache for shader SpecularMergeShaderRD, variant 0
+Loading cache for shader SpecularMergeShaderRD, variant 1
+Loading cache for shader SpecularMergeShaderRD, variant 2
+Loading cache for shader SpecularMergeShaderRD, variant 3
+Shader 'ShadowFrustumShaderRD' (group 0) SHA256: 248bc9deb54d10af912f2da1bd4b006bc43cfe08659a206fa573baf48e4050e0
+Loading cache for shader ShadowFrustumShaderRD, variant 0
+Shader 'MotionVectorsShaderRD' (group 0) SHA256: 4d3ba0c01e8b64c74a0f2f0fd20ddc8099d56cfbb3ee9e7dbe6dc3c54c174725
+Loading cache for shader MotionVectorsShaderRD, variant 0
+Shader 'LuminanceReduceShaderRD' (group 0) SHA256: c759f2761a12e9ff1fa625818963f94aa0ff511eb314a313ea89c615c37dd078
+Loading cache for shader LuminanceReduceShaderRD, variant 0
+Loading cache for shader LuminanceReduceShaderRD, variant 1
+Loading cache for shader LuminanceReduceShaderRD, variant 2
+Shader 'SmaaEdgeDetectionShaderRD' (group 0) SHA256: 8879d099a2601bd01d4582b1e86a091c5f89a7bc46aecc9e805410f75bcda245
+Loading cache for shader SmaaEdgeDetectionShaderRD, variant 0
+Shader 'SmaaWeightCalculationShaderRD' (group 0) SHA256: de1d49d5ff947e8b8382f43a79f57c4cceb02eed6f86d5175093ca63e94052bf
+Loading cache for shader SmaaWeightCalculationShaderRD, variant 0
+Shader 'SmaaBlendingShaderRD' (group 0) SHA256: d7b7c8cec00f24f9aa8db356b4df88c5fe032d38ce38673bd520c280c936fb80
+Loading cache for shader SmaaBlendingShaderRD, variant 0
+Shader 'TonemapShaderRD' (group 0) SHA256: 1b9049fef136690ef56085339cc9ad699de6d63e5d3afa1677201c6dedd6f2a8
+Loading cache for shader TonemapShaderRD, variant 0
+Loading cache for shader TonemapShaderRD, variant 1
+Loading cache for shader TonemapShaderRD, variant 2
+Loading cache for shader TonemapShaderRD, variant 3
+Shader 'FsrUpscaleShaderRD' (group 0) SHA256: a8da3dfed3e309742ca78c4162d15f2ab08af4f694a51407089ecec1d1be54be
+Loading cache for shader FsrUpscaleShaderRD, variant 0
+Loading cache for shader FsrUpscaleShaderRD, variant 1
+Shader 'ResolveShaderRD' (group 0) SHA256: 58e536c56eaff31a31ef93f224579af7b242a06469b7b0a7736cdeb7e16898b6
+Loading cache for shader ResolveShaderRD, variant 0
+Loading cache for shader ResolveShaderRD, variant 1
+Loading cache for shader ResolveShaderRD, variant 2
+Shader 'BlitShaderRD' (group 0) SHA256: ae4daaa7a60bb17ebd7e9de5db9422fb448b52ad89776ae7aa53fee442f7cc60
+
+Loading cache for shader BlitShaderRD, variant 0
+Loading cache for shader BlitShaderRD, variant 1
+Loading cache for shader BlitShaderRD, variant 2
+Loading cache for shader BlitShaderRD, variant 3
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+Loading cache for shader CanvasShaderRD, variant 0
+Loading cache for shader CanvasShaderRD, variant 1
+Loading cache for shader CanvasShaderRD, variant 2
+Loading cache for shader CanvasShaderRD, variant 3
+Loading cache for shader CanvasShaderRD, variant 4
+Loading cache for shader CanvasShaderRD, variant 5
+CORE API HASH: 2004498165
+EDITOR API HASH: 1696660745
+SceneTreeFTI: traversal method DEFAULT
+Loaded system CA certificates
+Loading resource: res://app/hover_root.tscn remapped: res://app/hover_root.tscn
+Loading resource: res://app/simple_root.tscn remapped: res://app/simple_root.tscn
+Loading resource: res://app/garden_root.tscn remapped: res://app/garden_root.tscn
+Loading resource: res://app/week_ten_root.tscn remapped: res://app/week_ten_root.tscn
+Loading resource: res://app/art_root.tscn remapped: res://app/art_root.tscn
+Loading resource: res://app/week_nine_root.tscn remapped: res://app/week_nine_root.tscn
+Loading resource: res://app/week_eight_root.tscn remapped: res://app/week_eight_root.tscn
+Loading resource: res://app/week_seven_root.tscn remapped: res://app/week_seven_root.tscn
+Loading resource: res://app/week_six_root.tscn remapped: res://app/week_six_root.tscn
+Loading resource: res://app/week_five_root.tscn remapped: res://app/week_five_root.tscn
+Loading resource: res://app/week_four_root.tscn remapped: res://app/week_four_root.tscn
+Loading resource: res://app/week_three_root.tscn remapped: res://app/week_three_root.tscn
+Loading resource: res://app/week_two_root.tscn remapped: res://app/week_two_root.tscn
+Loading resource: res://app/app_root.tscn remapped: res://app/app_root.tscn
+Loading resource: res://app/boot.gd remapped: res://app/boot.gd
+Loading resource: res://features/environment/wind.gdshader remapped: res://features/environment/wind.gdshader
+Completed load for: 'res://features/environment/wind.gdshader' remapped 'res://features/environment/wind.gdshader' at thread -1
+Loading resource: res://assets/buildings/door_arch.glb remapped: res://assets/buildings/door_arch.glb
+Loading resource: res://.godot/imported/door_arch.glb-42a7a219825a4656dafab695a1cfc9a4.scn remapped: res://.godot/imported/door_arch.glb-42a7a219825a4656dafab695a1cfc9a4.scn
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Completed load for: 'res://assets/buildings/door_arch.glb' remapped 'res://assets/buildings/door_arch.glb' at thread -1
+Loading resource: res://assets/buildings/door_plank.glb remapped: res://assets/buildings/door_plank.glb
+Loading resource: res://.godot/imported/door_plank.glb-d9ec6406bfbc8d1e2f3f2b51b1f424e0.scn remapped: res://.godot/imported/door_plank.glb-d9ec6406bfbc8d1e2f3f2b51b1f424e0.scn
+Completed load for: 'res://assets/buildings/door_plank.glb' remapped 'res://assets/buildings/door_plank.glb' at thread -1
+Loading resource: res://features/vegetation/vegetation.gdshader remapped: res://features/vegetation/vegetation.gdshader
+Completed load for: 'res://features/vegetation/vegetation.gdshader' remapped 'res://features/vegetation/vegetation.gdshader' at thread -1
+Completed load for: 'res://app/boot.gd' remapped 'res://app/boot.gd' at thread -1
+Completed load for: 'res://app/app_root.tscn' remapped 'res://app/app_root.tscn' at thread -1
+Loading resource: res://app/week_two_boot.gd remapped: res://app/week_two_boot.gd
+Loading resource: res://assets/buildings/window_rect.glb remapped: res://assets/buildings/window_rect.glb
+Loading resource: res://.godot/imported/window_rect.glb-8373e826d7b5837a9a847cc5bdd36a60.scn remapped: res://.godot/imported/window_rect.glb-8373e826d7b5837a9a847cc5bdd36a60.scn
+Completed load for: 'res://assets/buildings/window_rect.glb' remapped 'res://assets/buildings/window_rect.glb' at thread -1
+Loading resource: res://assets/buildings/window_round.glb remapped: res://assets/buildings/window_round.glb
+Loading resource: res://.godot/imported/window_round.glb-f1ae8683c5f40f7473a6ce13107d7dc9.scn remapped: res://.godot/imported/window_round.glb-f1ae8683c5f40f7473a6ce13107d7dc9.scn
+Completed load for: 'res://assets/buildings/window_round.glb' remapped 'res://assets/buildings/window_round.glb' at thread -1
+Loading resource: res://features/environment/architecture.gdshader remapped: res://features/environment/architecture.gdshader
+Completed load for: 'res://features/environment/architecture.gdshader' remapped 'res://features/environment/architecture.gdshader' at thread -1
+Loading resource: res://assets/materials/textures/plaster.png remapped: res://assets/materials/textures/plaster.png
+Loading resource: res://.godot/imported/plaster.png-dec2d94849d69b063929ab071451c664.ctex remapped: res://.godot/imported/plaster.png-dec2d94849d69b063929ab071451c664.ctex
+Completed load for: 'res://assets/materials/textures/plaster.png' remapped 'res://assets/materials/textures/plaster.png' at thread -1
+Loading resource: res://assets/materials/textures/terracotta.png remapped: res://assets/materials/textures/terracotta.png
+Loading resource: res://.godot/imported/terracotta.png-afd18cb1e56aff9b71cb0ec045144445.ctex remapped: res://.godot/imported/terracotta.png-afd18cb1e56aff9b71cb0ec045144445.ctex
+Completed load for: 'res://assets/materials/textures/terracotta.png' remapped 'res://assets/materials/textures/terracotta.png' at thread -1
+Loading resource: res://features/terrain/terrain.gdshader remapped: res://features/terrain/terrain.gdshader
+Completed load for: 'res://features/terrain/terrain.gdshader' remapped 'res://features/terrain/terrain.gdshader' at thread -1
+Loading resource: res://assets/materials/textures/grass.png remapped: res://assets/materials/textures/grass.png
+Loading resource: res://.godot/imported/grass.png-55c52e5b1ef03424191ccba5fe772a56.ctex remapped: res://.godot/imported/grass.png-55c52e5b1ef03424191ccba5fe772a56.ctex
+Completed load for: 'res://assets/materials/textures/grass.png' remapped 'res://assets/materials/textures/grass.png' at thread -1
+Loading resource: res://assets/materials/textures/soil.png remapped: res://assets/materials/textures/soil.png
+Loading resource: res://.godot/imported/soil.png-16eb3b72868c5a39acc4f0f2a2ec4e03.ctex remapped: res://.godot/imported/soil.png-16eb3b72868c5a39acc4f0f2a2ec4e03.ctex
+Completed load for: 'res://assets/materials/textures/soil.png' remapped 'res://assets/materials/textures/soil.png' at thread -1
+Loading resource: res://assets/materials/textures/wet_bank.png remapped: res://assets/materials/textures/wet_bank.png
+Loading resource: res://.godot/imported/wet_bank.png-08abc34da6d904ff1176327426271462.ctex remapped: res://.godot/imported/wet_bank.png-08abc34da6d904ff1176327426271462.ctex
+Completed load for: 'res://assets/materials/textures/wet_bank.png' remapped 'res://assets/materials/textures/wet_bank.png' at thread -1
+Loading resource: res://features/environment/window_light.gdshader remapped: res://features/environment/window_light.gdshader
+Completed load for: 'res://features/environment/window_light.gdshader' remapped 'res://features/environment/window_light.gdshader' at thread -1
+Loading resource: res://assets/materials/textures/window_emission.png remapped: res://assets/materials/textures/window_emission.png
+Loading resource: res://.godot/imported/window_emission.png-d4ded732362ef59b4eca59c845f1054b.ctex remapped: res://.godot/imported/window_emission.png-d4ded732362ef59b4eca59c845f1054b.ctex
+Completed load for: 'res://assets/materials/textures/window_emission.png' remapped 'res://assets/materials/textures/window_emission.png' at thread -1
+Loading resource: res://features/environment/water_sample.gdshader remapped: res://features/environment/water_sample.gdshader
+Completed load for: 'res://features/environment/water_sample.gdshader' remapped 'res://features/environment/water_sample.gdshader' at thread -1
+Loading resource: res://assets/materials/textures/wood.png remapped: res://assets/materials/textures/wood.png
+Loading resource: res://.godot/imported/wood.png-2e5a4530c44376aea672be003a8eb978.ctex remapped: res://.godot/imported/wood.png-2e5a4530c44376aea672be003a8eb978.ctex
+Completed load for: 'res://assets/materials/textures/wood.png' remapped 'res://assets/materials/textures/wood.png' at thread -1
+Loading resource: res://assets/materials/textures/stone.png remapped: res://assets/materials/textures/stone.png
+Loading resource: res://.godot/imported/stone.png-cb0fcc9235bff0f5c911ab5017f0f733.ctex remapped: res://.godot/imported/stone.png-cb0fcc9235bff0f5c911ab5017f0f733.ctex
+Completed load for: 'res://assets/materials/textures/stone.png' remapped 'res://assets/materials/textures/stone.png' at thread -1
+Loading resource: res://assets/buildings/door_glass.glb remapped: res://assets/buildings/door_glass.glb
+Loading resource: res://.godot/imported/door_glass.glb-9cd018015565f8bbcbd0997df20da143.scn remapped: res://.godot/imported/door_glass.glb-9cd018015565f8bbcbd0997df20da143.scn
+Completed load for: 'res://assets/buildings/door_glass.glb' remapped 'res://assets/buildings/door_glass.glb' at thread -1
+Loading resource: res://features/environment/foliage_probe.gdshader remapped: res://features/environment/foliage_probe.gdshader
+Completed load for: 'res://features/environment/foliage_probe.gdshader' remapped 'res://features/environment/foliage_probe.gdshader' at thread -1
+Completed load for: 'res://app/week_two_boot.gd' remapped 'res://app/week_two_boot.gd' at thread -1
+Completed load for: 'res://app/week_two_root.tscn' remapped 'res://app/week_two_root.tscn' at thread -1
+Loading resource: res://app/week_three_boot.gd remapped: res://app/week_three_boot.gd
+Loading resource: res://features/environment/pond_water.gdshader remapped: res://features/environment/pond_water.gdshader
+Completed load for: 'res://features/environment/pond_water.gdshader' remapped 'res://features/environment/pond_water.gdshader' at thread -1
+Loading resource: res://assets/materials/textures/vegetation_atlas.png remapped: res://assets/materials/textures/vegetation_atlas.png
+Loading resource: res://.godot/imported/vegetation_atlas.png-c48b79c05bbfa72afab3fbb04d07c1b9.ctex remapped: res://.godot/imported/vegetation_atlas.png-c48b79c05bbfa72afab3fbb04d07c1b9.ctex
+Completed load for: 'res://assets/materials/textures/vegetation_atlas.png' remapped 'res://assets/materials/textures/vegetation_atlas.png' at thread -1
+Loading resource: res://assets/nature/week_03/tree_broadleaf.glb remapped: res://assets/nature/week_03/tree_broadleaf.glb
+Loading resource: res://.godot/imported/tree_broadleaf.glb-b22d87d4f26341fe7122f4dd940a21d5.scn remapped: res://.godot/imported/tree_broadleaf.glb-b22d87d4f26341fe7122f4dd940a21d5.scn
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Completed load for: 'res://assets/nature/week_03/tree_broadleaf.glb' remapped 'res://assets/nature/week_03/tree_broadleaf.glb' at thread -1
+Loading resource: res://assets/nature/week_03/tree_conifer.glb remapped: res://assets/nature/week_03/tree_conifer.glb
+Loading resource: res://.godot/imported/tree_conifer.glb-f176f62c1f105e13db2b1e8539a101bc.scn remapped: res://.godot/imported/tree_conifer.glb-f176f62c1f105e13db2b1e8539a101bc.scn
+Completed load for: 'res://assets/nature/week_03/tree_conifer.glb' remapped 'res://assets/nature/week_03/tree_conifer.glb' at thread -1
+Loading resource: res://assets/nature/week_03/tree_fruit.glb remapped: res://assets/nature/week_03/tree_fruit.glb
+Loading resource: res://.godot/imported/tree_fruit.glb-9d664f191c02760f8a231b74ee93a18f.scn remapped: res://.godot/imported/tree_fruit.glb-9d664f191c02760f8a231b74ee93a18f.scn
+Completed load for: 'res://assets/nature/week_03/tree_fruit.glb' remapped 'res://assets/nature/week_03/tree_fruit.glb' at thread -1
+Loading resource: res://assets/nature/week_03/tree_broadleaf_lod1.glb remapped: res://assets/nature/week_03/tree_broadleaf_lod1.glb
+Loading resource: res://.godot/imported/tree_broadleaf_lod1.glb-d5d6da9b1a9603c493198d254b56a151.scn remapped: res://.godot/imported/tree_broadleaf_lod1.glb-d5d6da9b1a9603c493198d254b56a151.scn
+Completed load for: 'res://assets/nature/week_03/tree_broadleaf_lod1.glb' remapped 'res://assets/nature/week_03/tree_broadleaf_lod1.glb' at thread -1
+Loading resource: res://assets/nature/week_03/tree_conifer_lod1.glb remapped: res://assets/nature/week_03/tree_conifer_lod1.glb
+Loading resource: res://.godot/imported/tree_conifer_lod1.glb-87c01b1a4fc32c62c7ea964113976017.scn remapped: res://.godot/imported/tree_conifer_lod1.glb-87c01b1a4fc32c62c7ea964113976017.scn
+Completed load for: 'res://assets/nature/week_03/tree_conifer_lod1.glb' remapped 'res://assets/nature/week_03/tree_conifer_lod1.glb' at thread -1
+Loading resource: res://assets/nature/week_03/tree_fruit_lod1.glb remapped: res://assets/nature/week_03/tree_fruit_lod1.glb
+Loading resource: res://.godot/imported/tree_fruit_lod1.glb-212fdbf9052250355350d797cd2dac8a.scn remapped: res://.godot/imported/tree_fruit_lod1.glb-212fdbf9052250355350d797cd2dac8a.scn
+Completed load for: 'res://assets/nature/week_03/tree_fruit_lod1.glb' remapped 'res://assets/nature/week_03/tree_fruit_lod1.glb' at thread -1
+Completed load for: 'res://app/week_three_boot.gd' remapped 'res://app/week_three_boot.gd' at thread -1
+Loading resource: res://ui/week_three_hud.gd remapped: res://ui/week_three_hud.gd
+Completed load for: 'res://ui/week_three_hud.gd' remapped 'res://ui/week_three_hud.gd' at thread -1
+Completed load for: 'res://app/week_three_root.tscn' remapped 'res://app/week_three_root.tscn' at thread -1
+Loading resource: res://app/week_four_boot.gd remapped: res://app/week_four_boot.gd
+Loading resource: res://features/lighting/window_transition.gdshader remapped: res://features/lighting/window_transition.gdshader
+Completed load for: 'res://features/lighting/window_transition.gdshader' remapped 'res://features/lighting/window_transition.gdshader' at thread -1
+Loading resource: res://assets/week_04/fern.glb remapped: res://assets/week_04/fern.glb
+Loading resource: res://.godot/imported/fern.glb-142a151d3b51ac7cfdae17ec170a5539.scn remapped: res://.godot/imported/fern.glb-142a151d3b51ac7cfdae17ec170a5539.scn
+Completed load for: 'res://assets/week_04/fern.glb' remapped 'res://assets/week_04/fern.glb' at thread -1
+Loading resource: res://assets/week_04/wildflower.glb remapped: res://assets/week_04/wildflower.glb
+Loading resource: res://.godot/imported/wildflower.glb-3e77dcdea9df41818f5f3155e33ca36e.scn remapped: res://.godot/imported/wildflower.glb-3e77dcdea9df41818f5f3155e33ca36e.scn
+Completed load for: 'res://assets/week_04/wildflower.glb' remapped 'res://assets/week_04/wildflower.glb' at thread -1
+Loading resource: res://assets/week_04/shrub.glb remapped: res://assets/week_04/shrub.glb
+Loading resource: res://.godot/imported/shrub.glb-03dff2747abb251cc07e71313dd3c835.scn remapped: res://.godot/imported/shrub.glb-03dff2747abb251cc07e71313dd3c835.scn
+Completed load for: 'res://assets/week_04/shrub.glb' remapped 'res://assets/week_04/shrub.glb' at thread -1
+Loading resource: res://assets/week_04/moss_rock.glb remapped: res://assets/week_04/moss_rock.glb
+Loading resource: res://.godot/imported/moss_rock.glb-4eb0222e213b2ee19d8d3878d54c5222.scn remapped: res://.godot/imported/moss_rock.glb-4eb0222e213b2ee19d8d3878d54c5222.scn
+Completed load for: 'res://assets/week_04/moss_rock.glb' remapped 'res://assets/week_04/moss_rock.glb' at thread -1
+Loading resource: res://assets/week_04/flat_rock.glb remapped: res://assets/week_04/flat_rock.glb
+Loading resource: res://.godot/imported/flat_rock.glb-9bbf9084eff37420b1119e0b8ba06626.scn remapped: res://.godot/imported/flat_rock.glb-9bbf9084eff37420b1119e0b8ba06626.scn
+Completed load for: 'res://assets/week_04/flat_rock.glb' remapped 'res://assets/week_04/flat_rock.glb' at thread -1
+Loading resource: res://assets/week_04/bench.glb remapped: res://assets/week_04/bench.glb
+Loading resource: res://.godot/imported/bench.glb-4c1554ab58894562094293d599a21691.scn remapped: res://.godot/imported/bench.glb-4c1554ab58894562094293d599a21691.scn
+Completed load for: 'res://assets/week_04/bench.glb' remapped 'res://assets/week_04/bench.glb' at thread -1
+Loading resource: res://assets/week_04/mailbox.glb remapped: res://assets/week_04/mailbox.glb
+Loading resource: res://.godot/imported/mailbox.glb-13129ea02f9b64cdc17005c0cdfc3e81.scn remapped: res://.godot/imported/mailbox.glb-13129ea02f9b64cdc17005c0cdfc3e81.scn
+Completed load for: 'res://assets/week_04/mailbox.glb' remapped 'res://assets/week_04/mailbox.glb' at thread -1
+Loading resource: res://assets/week_04/pot.glb remapped: res://assets/week_04/pot.glb
+Loading resource: res://.godot/imported/pot.glb-3dbeedb7fb7272b34397fa851cf2a02f.scn remapped: res://.godot/imported/pot.glb-3dbeedb7fb7272b34397fa851cf2a02f.scn
+Completed load for: 'res://assets/week_04/pot.glb' remapped 'res://assets/week_04/pot.glb' at thread -1
+Loading resource: res://assets/week_04/clothesline.glb remapped: res://assets/week_04/clothesline.glb
+Loading resource: res://.godot/imported/clothesline.glb-cfd47afa6f99bede6f78b1a560326019.scn remapped: res://.godot/imported/clothesline.glb-cfd47afa6f99bede6f78b1a560326019.scn
+Completed load for: 'res://assets/week_04/clothesline.glb' remapped 'res://assets/week_04/clothesline.glb' at thread -1
+Completed load for: 'res://app/week_four_boot.gd' remapped 'res://app/week_four_boot.gd' at thread -1
+Loading resource: res://ui/week_four_hud.gd remapped: res://ui/week_four_hud.gd
+Completed load for: 'res://ui/week_four_hud.gd' remapped 'res://ui/week_four_hud.gd' at thread -1
+Completed load for: 'res://app/week_four_root.tscn' remapped 'res://app/week_four_root.tscn' at thread -1
+Loading resource: res://app/week_five_boot.gd remapped: res://app/week_five_boot.gd
+Loading resource: res://assets/week_05/pot.glb remapped: res://assets/week_05/pot.glb
+Loading resource: res://.godot/imported/pot.glb-ca3af23fd79f9e92671544870bd99cef.scn remapped: res://.godot/imported/pot.glb-ca3af23fd79f9e92671544870bd99cef.scn
+Completed load for: 'res://assets/week_05/pot.glb' remapped 'res://assets/week_05/pot.glb' at thread -1
+Loading resource: res://assets/week_05/clothesline.glb remapped: res://assets/week_05/clothesline.glb
+Loading resource: res://.godot/imported/clothesline.glb-c9dbc61beb280496913f9ae276123e48.scn remapped: res://.godot/imported/clothesline.glb-c9dbc61beb280496913f9ae276123e48.scn
+Completed load for: 'res://assets/week_05/clothesline.glb' remapped 'res://assets/week_05/clothesline.glb' at thread -1
+Loading resource: res://assets/week_05/crate.glb remapped: res://assets/week_05/crate.glb
+Loading resource: res://.godot/imported/crate.glb-ec2ed626ff3863d244de698316a3bc9e.scn remapped: res://.godot/imported/crate.glb-ec2ed626ff3863d244de698316a3bc9e.scn
+Completed load for: 'res://assets/week_05/crate.glb' remapped 'res://assets/week_05/crate.glb' at thread -1
+Loading resource: res://assets/week_05/watering_can.glb remapped: res://assets/week_05/watering_can.glb
+Loading resource: res://.godot/imported/watering_can.glb-b7f7754a8351e48c4d3c0c39fbdd0ba4.scn remapped: res://.godot/imported/watering_can.glb-b7f7754a8351e48c4d3c0c39fbdd0ba4.scn
+Completed load for: 'res://assets/week_05/watering_can.glb' remapped 'res://assets/week_05/watering_can.glb' at thread -1
+Loading resource: res://assets/week_05/tea_set.glb remapped: res://assets/week_05/tea_set.glb
+Loading resource: res://.godot/imported/tea_set.glb-1b5f4f1939704b969e92c41c45857b54.scn remapped: res://.godot/imported/tea_set.glb-1b5f4f1939704b969e92c41c45857b54.scn
+Completed load for: 'res://assets/week_05/tea_set.glb' remapped 'res://assets/week_05/tea_set.glb' at thread -1
+Loading resource: res://assets/week_05/lantern.glb remapped: res://assets/week_05/lantern.glb
+Loading resource: res://.godot/imported/lantern.glb-70a5184b0b64b6306aba14f936ec1357.scn remapped: res://.godot/imported/lantern.glb-70a5184b0b64b6306aba14f936ec1357.scn
+Completed load for: 'res://assets/week_05/lantern.glb' remapped 'res://assets/week_05/lantern.glb' at thread -1
+Completed load for: 'res://app/week_five_boot.gd' remapped 'res://app/week_five_boot.gd' at thread -1
+Loading resource: res://ui/week_five_hud.gd remapped: res://ui/week_five_hud.gd
+Completed load for: 'res://ui/week_five_hud.gd' remapped 'res://ui/week_five_hud.gd' at thread -1
+Completed load for: 'res://app/week_five_root.tscn' remapped 'res://app/week_five_root.tscn' at thread -1
+Loading resource: res://app/week_six_boot.gd remapped: res://app/week_six_boot.gd
+Loading resource: res://assets/week_06/tea_set.glb remapped: res://assets/week_06/tea_set.glb
+Loading resource: res://.godot/imported/tea_set.glb-5ac4f002a24eba4269184b0bae14c39d.scn remapped: res://.godot/imported/tea_set.glb-5ac4f002a24eba4269184b0bae14c39d.scn
+Completed load for: 'res://assets/week_06/tea_set.glb' remapped 'res://assets/week_06/tea_set.glb' at thread -1
+Loading resource: res://assets/week_06/lantern.glb remapped: res://assets/week_06/lantern.glb
+Loading resource: res://.godot/imported/lantern.glb-7a0bcba8908304b0d7c03ef4045b6627.scn remapped: res://.godot/imported/lantern.glb-7a0bcba8908304b0d7c03ef4045b6627.scn
+Completed load for: 'res://assets/week_06/lantern.glb' remapped 'res://assets/week_06/lantern.glb' at thread -1
+Completed load for: 'res://app/week_six_boot.gd' remapped 'res://app/week_six_boot.gd' at thread -1
+Loading resource: res://ui/week_six_hud.gd remapped: res://ui/week_six_hud.gd
+Loading resource: res://assets/ui/house.svg remapped: res://assets/ui/house.svg
+Loading resource: res://.godot/imported/house.svg-19da0a604c9e57c4205decc9fe4dec8c.ctex remapped: res://.godot/imported/house.svg-19da0a604c9e57c4205decc9fe4dec8c.ctex
+Completed load for: 'res://assets/ui/house.svg' remapped 'res://assets/ui/house.svg' at thread -1
+Loading resource: res://assets/ui/round_house.svg remapped: res://assets/ui/round_house.svg
+Loading resource: res://.godot/imported/round_house.svg-195dd9def9e34e5657c94a85e32fc57a.ctex remapped: res://.godot/imported/round_house.svg-195dd9def9e34e5657c94a85e32fc57a.ctex
+Completed load for: 'res://assets/ui/round_house.svg' remapped 'res://assets/ui/round_house.svg' at thread -1
+Loading resource: res://assets/ui/path.svg remapped: res://assets/ui/path.svg
+Loading resource: res://.godot/imported/path.svg-bbdc55b0c32bb32915e846fff87d996b.ctex remapped: res://.godot/imported/path.svg-bbdc55b0c32bb32915e846fff87d996b.ctex
+Completed load for: 'res://assets/ui/path.svg' remapped 'res://assets/ui/path.svg' at thread -1
+Loading resource: res://assets/ui/door.svg remapped: res://assets/ui/door.svg
+Loading resource: res://.godot/imported/door.svg-378c2dba704d9d264da662b5920180df.ctex remapped: res://.godot/imported/door.svg-378c2dba704d9d264da662b5920180df.ctex
+Completed load for: 'res://assets/ui/door.svg' remapped 'res://assets/ui/door.svg' at thread -1
+Loading resource: res://assets/ui/window.svg remapped: res://assets/ui/window.svg
+Loading resource: res://.godot/imported/window.svg-abac05d19ffa7d0558a24b3bb4fa1740.ctex remapped: res://.godot/imported/window.svg-abac05d19ffa7d0558a24b3bb4fa1740.ctex
+Completed load for: 'res://assets/ui/window.svg' remapped 'res://assets/ui/window.svg' at thread -1
+Loading resource: res://assets/ui/raise.svg remapped: res://assets/ui/raise.svg
+Loading resource: res://.godot/imported/raise.svg-c9b6bf70d66d24289ee82cf225ac5000.ctex remapped: res://.godot/imported/raise.svg-c9b6bf70d66d24289ee82cf225ac5000.ctex
+Completed load for: 'res://assets/ui/raise.svg' remapped 'res://assets/ui/raise.svg' at thread -1
+Loading resource: res://assets/ui/lower.svg remapped: res://assets/ui/lower.svg
+Loading resource: res://.godot/imported/lower.svg-069949e19a9b6c21e69bff8f575145db.ctex remapped: res://.godot/imported/lower.svg-069949e19a9b6c21e69bff8f575145db.ctex
+Completed load for: 'res://assets/ui/lower.svg' remapped 'res://assets/ui/lower.svg' at thread -1
+Loading resource: res://assets/ui/smooth.svg remapped: res://assets/ui/smooth.svg
+Loading resource: res://.godot/imported/smooth.svg-766b9f7dca9ec950e8778d476f90b963.ctex remapped: res://.godot/imported/smooth.svg-766b9f7dca9ec950e8778d476f90b963.ctex
+Completed load for: 'res://assets/ui/smooth.svg' remapped 'res://assets/ui/smooth.svg' at thread -1
+Loading resource: res://assets/ui/pond.svg remapped: res://assets/ui/pond.svg
+Loading resource: res://.godot/imported/pond.svg-7f26403dd71e2b535e51ea2cd70abdaf.ctex remapped: res://.godot/imported/pond.svg-7f26403dd71e2b535e51ea2cd70abdaf.ctex
+Completed load for: 'res://assets/ui/pond.svg' remapped 'res://assets/ui/pond.svg' at thread -1
+Loading resource: res://assets/ui/bridge.svg remapped: res://assets/ui/bridge.svg
+Loading resource: res://.godot/imported/bridge.svg-9e954fa2a799201c228c8469e4e4cf1b.ctex remapped: res://.godot/imported/bridge.svg-9e954fa2a799201c228c8469e4e4cf1b.ctex
+Completed load for: 'res://assets/ui/bridge.svg' remapped 'res://assets/ui/bridge.svg' at thread -1
+Loading resource: res://assets/ui/stair.svg remapped: res://assets/ui/stair.svg
+Loading resource: res://.godot/imported/stair.svg-10e4e889589ad20409c2f5dba5e4951c.ctex remapped: res://.godot/imported/stair.svg-10e4e889589ad20409c2f5dba5e4951c.ctex
+Completed load for: 'res://assets/ui/stair.svg' remapped 'res://assets/ui/stair.svg' at thread -1
+Loading resource: res://assets/ui/fence.svg remapped: res://assets/ui/fence.svg
+Loading resource: res://.godot/imported/fence.svg-3f5196cd5a4164e31bfa3833831d6dc7.ctex remapped: res://.godot/imported/fence.svg-3f5196cd5a4164e31bfa3833831d6dc7.ctex
+Completed load for: 'res://assets/ui/fence.svg' remapped 'res://assets/ui/fence.svg' at thread -1
+Loading resource: res://assets/ui/tree.svg remapped: res://assets/ui/tree.svg
+Loading resource: res://.godot/imported/tree.svg-b1783024de0b1d5ad79eb297c73a20ea.ctex remapped: res://.godot/imported/tree.svg-b1783024de0b1d5ad79eb297c73a20ea.ctex
+Completed load for: 'res://assets/ui/tree.svg' remapped 'res://assets/ui/tree.svg' at thread -1
+Loading resource: res://assets/ui/plant.svg remapped: res://assets/ui/plant.svg
+Loading resource: res://.godot/imported/plant.svg-c804a5ba8e604c9de39b09d18b8a5401.ctex remapped: res://.godot/imported/plant.svg-c804a5ba8e604c9de39b09d18b8a5401.ctex
+Completed load for: 'res://assets/ui/plant.svg' remapped 'res://assets/ui/plant.svg' at thread -1
+Loading resource: res://assets/ui/props.svg remapped: res://assets/ui/props.svg
+Loading resource: res://.godot/imported/props.svg-47b26112c2fd7ff607ed79e46a2ebe0b.ctex remapped: res://.godot/imported/props.svg-47b26112c2fd7ff607ed79e46a2ebe0b.ctex
+Completed load for: 'res://assets/ui/props.svg' remapped 'res://assets/ui/props.svg' at thread -1
+Loading resource: res://assets/ui/light.svg remapped: res://assets/ui/light.svg
+Loading resource: res://.godot/imported/light.svg-d8ea2489b5acf47a770ff62b2f1b427b.ctex remapped: res://.godot/imported/light.svg-d8ea2489b5acf47a770ff62b2f1b427b.ctex
+Completed load for: 'res://assets/ui/light.svg' remapped 'res://assets/ui/light.svg' at thread -1
+Loading resource: res://assets/ui/selected.svg remapped: res://assets/ui/selected.svg
+Loading resource: res://.godot/imported/selected.svg-a7b09152066bd9bd913e7a819191fc30.ctex remapped: res://.godot/imported/selected.svg-a7b09152066bd9bd913e7a819191fc30.ctex
+Completed load for: 'res://assets/ui/selected.svg' remapped 'res://assets/ui/selected.svg' at thread -1
+Loading resource: res://assets/ui/snap.svg remapped: res://assets/ui/snap.svg
+Loading resource: res://.godot/imported/snap.svg-82c620ca168fc836c63da1475742682f.ctex remapped: res://.godot/imported/snap.svg-82c620ca168fc836c63da1475742682f.ctex
+Completed load for: 'res://assets/ui/snap.svg' remapped 'res://assets/ui/snap.svg' at thread -1
+Loading resource: res://assets/ui/dimensions.svg remapped: res://assets/ui/dimensions.svg
+Loading resource: res://.godot/imported/dimensions.svg-80e31a64f0ce6f42da197d9f6e6735b3.ctex remapped: res://.godot/imported/dimensions.svg-80e31a64f0ce6f42da197d9f6e6735b3.ctex
+Completed load for: 'res://assets/ui/dimensions.svg' remapped 'res://assets/ui/dimensions.svg' at thread -1
+Loading resource: res://assets/ui/invalid.svg remapped: res://assets/ui/invalid.svg
+Loading resource: res://.godot/imported/invalid.svg-6736bae63a97ea6f9b8283aedd5b69d3.ctex remapped: res://.godot/imported/invalid.svg-6736bae63a97ea6f9b8283aedd5b69d3.ctex
+Completed load for: 'res://assets/ui/invalid.svg' remapped 'res://assets/ui/invalid.svg' at thread -1
+Loading resource: res://assets/fonts/NotoSansSC-Regular.otf remapped: res://assets/fonts/NotoSansSC-Regular.otf
+Loading resource: res://.godot/imported/NotoSansSC-Regular.otf-c0c85f3b3b2ad6d96b65df5f3103bb43.fontdata remapped: res://.godot/imported/NotoSansSC-Regular.otf-c0c85f3b3b2ad6d96b65df5f3103bb43.fontdata
+Completed load for: 'res://assets/fonts/NotoSansSC-Regular.otf' remapped 'res://assets/fonts/NotoSansSC-Regular.otf' at thread -1
+Completed load for: 'res://ui/week_six_hud.gd' remapped 'res://ui/week_six_hud.gd' at thread -1
+Completed load for: 'res://app/week_six_root.tscn' remapped 'res://app/week_six_root.tscn' at thread -1
+Loading resource: res://app/week_seven_boot.gd remapped: res://app/week_seven_boot.gd
+Loading resource: res://features/assets/wrappers/nat_01.tscn remapped: res://features/assets/wrappers/nat_01.tscn
+Loading resource: res://features/assets/asset_wrapper.tscn remapped: res://features/assets/asset_wrapper.tscn
+Loading resource: res://features/assets/asset_wrapper.gd remapped: res://features/assets/asset_wrapper.gd
+Completed load for: 'res://features/assets/asset_wrapper.gd' remapped 'res://features/assets/asset_wrapper.gd' at thread -1
+Completed load for: 'res://features/assets/asset_wrapper.tscn' remapped 'res://features/assets/asset_wrapper.tscn' at thread -1
+Completed load for: 'res://features/assets/wrappers/nat_01.tscn' remapped 'res://features/assets/wrappers/nat_01.tscn' at thread -1
+Loading resource: res://features/assets/wrappers/nat_02.tscn remapped: res://features/assets/wrappers/nat_02.tscn
+Completed load for: 'res://features/assets/wrappers/nat_02.tscn' remapped 'res://features/assets/wrappers/nat_02.tscn' at thread -1
+Loading resource: res://features/assets/wrappers/nat_03.tscn remapped: res://features/assets/wrappers/nat_03.tscn
+Completed load for: 'res://features/assets/wrappers/nat_03.tscn' remapped 'res://features/assets/wrappers/nat_03.tscn' at thread -1
+Loading resource: res://features/assets/wrappers/nat_04.tscn remapped: res://features/assets/wrappers/nat_04.tscn
+Completed load for: 'res://features/assets/wrappers/nat_04.tscn' remapped 'res://features/assets/wrappers/nat_04.tscn' at thread -1
+Loading resource: res://features/assets/wrappers/nat_05.tscn remapped: res://features/assets/wrappers/nat_05.tscn
+Completed load for: 'res://features/assets/wrappers/nat_05.tscn' remapped 'res://features/assets/wrappers/nat_05.tscn' at thread -1
+Loading resource: res://features/assets/wrappers/nat_06.tscn remapped: res://features/assets/wrappers/nat_06.tscn
+Completed load for: 'res://features/assets/wrappers/nat_06.tscn' remapped 'res://features/assets/wrappers/nat_06.tscn' at thread -1
+Loading resource: res://features/assets/wrappers/nat_07.tscn remapped: res://features/assets/wrappers/nat_07.tscn
+Completed load for: 'res://features/assets/wrappers/nat_07.tscn' remapped 'res://features/assets/wrappers/nat_07.tscn' at thread -1
+Loading resource: res://features/assets/wrappers/nat_08.tscn remapped: res://features/assets/wrappers/nat_08.tscn
+Completed load for: 'res://features/assets/wrappers/nat_08.tscn' remapped 'res://features/assets/wrappers/nat_08.tscn' at thread -1
+Loading resource: res://features/assets/wrappers/nat_09.tscn remapped: res://features/assets/wrappers/nat_09.tscn
+Completed load for: 'res://features/assets/wrappers/nat_09.tscn' remapped 'res://features/assets/wrappers/nat_09.tscn' at thread -1
+Loading resource: res://features/assets/wrappers/prop_01.tscn remapped: res://features/assets/wrappers/prop_01.tscn
+Completed load for: 'res://features/assets/wrappers/prop_01.tscn' remapped 'res://features/assets/wrappers/prop_01.tscn' at thread -1
+Loading resource: res://features/assets/wrappers/prop_02.tscn remapped: res://features/assets/wrappers/prop_02.tscn
+Completed load for: 'res://features/assets/wrappers/prop_02.tscn' remapped 'res://features/assets/wrappers/prop_02.tscn' at thread -1
+Loading resource: res://features/assets/wrappers/prop_03.tscn remapped: res://features/assets/wrappers/prop_03.tscn
+Completed load for: 'res://features/assets/wrappers/prop_03.tscn' remapped 'res://features/assets/wrappers/prop_03.tscn' at thread -1
+Loading resource: res://features/assets/wrappers/prop_04.tscn remapped: res://features/assets/wrappers/prop_04.tscn
+Completed load for: 'res://features/assets/wrappers/prop_04.tscn' remapped 'res://features/assets/wrappers/prop_04.tscn' at thread -1
+Loading resource: res://features/assets/wrappers/prop_05.tscn remapped: res://features/assets/wrappers/prop_05.tscn
+Completed load for: 'res://features/assets/wrappers/prop_05.tscn' remapped 'res://features/assets/wrappers/prop_05.tscn' at thread -1
+Loading resource: res://features/assets/wrappers/prop_06.tscn remapped: res://features/assets/wrappers/prop_06.tscn
+Completed load for: 'res://features/assets/wrappers/prop_06.tscn' remapped 'res://features/assets/wrappers/prop_06.tscn' at thread -1
+Loading resource: res://features/assets/wrappers/prop_07.tscn remapped: res://features/assets/wrappers/prop_07.tscn
+Completed load for: 'res://features/assets/wrappers/prop_07.tscn' remapped 'res://features/assets/wrappers/prop_07.tscn' at thread -1
+Loading resource: res://features/assets/wrappers/prop_08.tscn remapped: res://features/assets/wrappers/prop_08.tscn
+Completed load for: 'res://features/assets/wrappers/prop_08.tscn' remapped 'res://features/assets/wrappers/prop_08.tscn' at thread -1
+Loading resource: res://assets/week_06/timber_trim.glb remapped: res://assets/week_06/timber_trim.glb
+Loading resource: res://.godot/imported/timber_trim.glb-79ecb4929c7aa284f1a3cbf2e894c922.scn remapped: res://.godot/imported/timber_trim.glb-79ecb4929c7aa284f1a3cbf2e894c922.scn
+Completed load for: 'res://assets/week_06/timber_trim.glb' remapped 'res://assets/week_06/timber_trim.glb' at thread -1
+Loading resource: res://assets/week_06/wood_post.glb remapped: res://assets/week_06/wood_post.glb
+Loading resource: res://.godot/imported/wood_post.glb-48e8d4cd79d53a9d2385776c8287a96b.scn remapped: res://.godot/imported/wood_post.glb-48e8d4cd79d53a9d2385776c8287a96b.scn
+Completed load for: 'res://assets/week_06/wood_post.glb' remapped 'res://assets/week_06/wood_post.glb' at thread -1
+Loading resource: res://assets/week_07/window_round.glb remapped: res://assets/week_07/window_round.glb
+Loading resource: res://.godot/imported/window_round.glb-f270bea7fe5b2bed2f90cfe4bc39a221.scn remapped: res://.godot/imported/window_round.glb-f270bea7fe5b2bed2f90cfe4bc39a221.scn
+Completed load for: 'res://assets/week_07/window_round.glb' remapped 'res://assets/week_07/window_round.glb' at thread -1
+Completed load for: 'res://app/week_seven_boot.gd' remapped 'res://app/week_seven_boot.gd' at thread -1
+Loading resource: res://ui/week_seven_hud.gd remapped: res://ui/week_seven_hud.gd
+Loading resource: res://assets/week_07/ui/plaster_cream.png remapped: res://assets/week_07/ui/plaster_cream.png
+Loading resource: res://.godot/imported/plaster_cream.png-5cb935aa18047a4ed644d5e89bd370d4.ctex remapped: res://.godot/imported/plaster_cream.png-5cb935aa18047a4ed644d5e89bd370d4.ctex
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+     at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+Completed load for: 'res://assets/week_07/ui/plaster_cream.png' remapped 'res://assets/week_07/ui/plaster_cream.png' at thread -1
+Loading resource: res://assets/week_07/ui/plaster_rose.png remapped: res://assets/week_07/ui/plaster_rose.png
+Loading resource: res://.godot/imported/plaster_rose.png-a201ebc811d51628023c227cd01bd070.ctex remapped: res://.godot/imported/plaster_rose.png-a201ebc811d51628023c227cd01bd070.ctex
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+     at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+Completed load for: 'res://assets/week_07/ui/plaster_rose.png' remapped 'res://assets/week_07/ui/plaster_rose.png' at thread -1
+Loading resource: res://assets/week_07/ui/wood_honey.png remapped: res://assets/week_07/ui/wood_honey.png
+Loading resource: res://.godot/imported/wood_honey.png-7849d494c2c75b2da03e84b6f1b85d6f.ctex remapped: res://.godot/imported/wood_honey.png-7849d494c2c75b2da03e84b6f1b85d6f.ctex
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+     at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+Completed load for: 'res://assets/week_07/ui/wood_honey.png' remapped 'res://assets/week_07/ui/wood_honey.png' at thread -1
+Loading resource: res://assets/week_07/ui/wood_walnut.png remapped: res://assets/week_07/ui/wood_walnut.png
+Loading resource: res://.godot/imported/wood_walnut.png-c5b7236441b0f5d96899fccdb13eba0c.ctex remapped: res://.godot/imported/wood_walnut.png-c5b7236441b0f5d96899fccdb13eba0c.ctex
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+     at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+Completed load for: 'res://assets/week_07/ui/wood_walnut.png' remapped 'res://assets/week_07/ui/wood_walnut.png' at thread -1
+Loading resource: res://assets/week_07/ui/wood_sage.png remapped: res://assets/week_07/ui/wood_sage.png
+Loading resource: res://.godot/imported/wood_sage.png-b320d9345417e90aae7178bf6ff8f4cf.ctex remapped: res://.godot/imported/wood_sage.png-b320d9345417e90aae7178bf6ff8f4cf.ctex
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+     at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+Completed load for: 'res://assets/week_07/ui/wood_sage.png' remapped 'res://assets/week_07/ui/wood_sage.png' at thread -1
+Loading resource: res://assets/week_07/ui/roof_terracotta.png remapped: res://assets/week_07/ui/roof_terracotta.png
+Loading resource: res://.godot/imported/roof_terracotta.png-a9a3351cbd4cf50e8db0e5c26957a16c.ctex remapped: res://.godot/imported/roof_terracotta.png-a9a3351cbd4cf50e8db0e5c26957a16c.ctex
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+     at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+Completed load for: 'res://assets/week_07/ui/roof_terracotta.png' remapped 'res://assets/week_07/ui/roof_terracotta.png' at thread -1
+Loading resource: res://assets/week_07/ui/roof_smoke.png remapped: res://assets/week_07/ui/roof_smoke.png
+Loading resource: res://.godot/imported/roof_smoke.png-e53830c3724c359cd6f401d1fed9cb5d.ctex remapped: res://.godot/imported/roof_smoke.png-e53830c3724c359cd6f401d1fed9cb5d.ctex
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+     at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+Completed load for: 'res://assets/week_07/ui/roof_smoke.png' remapped 'res://assets/week_07/ui/roof_smoke.png' at thread -1
+Loading resource: res://assets/week_07/ui/stone_grey.png remapped: res://assets/week_07/ui/stone_grey.png
+Loading resource: res://.godot/imported/stone_grey.png-091b1f748a8ceb34aed669b83ee7ac1d.ctex remapped: res://.godot/imported/stone_grey.png-091b1f748a8ceb34aed669b83ee7ac1d.ctex
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+     at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+Completed load for: 'res://assets/week_07/ui/stone_grey.png' remapped 'res://assets/week_07/ui/stone_grey.png' at thread -1
+Loading resource: res://assets/week_07/ui/stone_moss.png remapped: res://assets/week_07/ui/stone_moss.png
+Loading resource: res://.godot/imported/stone_moss.png-e3c2780fdecc8746e5330ffafe47d2dc.ctex remapped: res://.godot/imported/stone_moss.png-e3c2780fdecc8746e5330ffafe47d2dc.ctex
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+     at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+Completed load for: 'res://assets/week_07/ui/stone_moss.png' remapped 'res://assets/week_07/ui/stone_moss.png' at thread -1
+Loading resource: res://assets/week_07/ui/stone_sand.png remapped: res://assets/week_07/ui/stone_sand.png
+Loading resource: res://.godot/imported/stone_sand.png-7709d669b97523e73444efd149775d10.ctex remapped: res://.godot/imported/stone_sand.png-7709d669b97523e73444efd149775d10.ctex
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+     at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+Completed load for: 'res://assets/week_07/ui/stone_sand.png' remapped 'res://assets/week_07/ui/stone_sand.png' at thread -1
+Loading resource: res://assets/week_07/ui/foliage_spring.png remapped: res://assets/week_07/ui/foliage_spring.png
+Loading resource: res://.godot/imported/foliage_spring.png-dd6dcb9635907f1555f1b3596d701bbb.ctex remapped: res://.godot/imported/foliage_spring.png-dd6dcb9635907f1555f1b3596d701bbb.ctex
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+     at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+Completed load for: 'res://assets/week_07/ui/foliage_spring.png' remapped 'res://assets/week_07/ui/foliage_spring.png' at thread -1
+Loading resource: res://assets/week_07/ui/foliage_deep.png remapped: res://assets/week_07/ui/foliage_deep.png
+Loading resource: res://.godot/imported/foliage_deep.png-1478bf406bdd590021d5222b5843d8ae.ctex remapped: res://.godot/imported/foliage_deep.png-1478bf406bdd590021d5222b5843d8ae.ctex
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+     at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+Completed load for: 'res://assets/week_07/ui/foliage_deep.png' remapped 'res://assets/week_07/ui/foliage_deep.png' at thread -1
+Completed load for: 'res://ui/week_seven_hud.gd' remapped 'res://ui/week_seven_hud.gd' at thread -1
+Completed load for: 'res://app/week_seven_root.tscn' remapped 'res://app/week_seven_root.tscn' at thread -1
+Loading resource: res://app/week_eight_boot.gd remapped: res://app/week_eight_boot.gd
+Loading resource: res://levels/forest_slope/scn_01_filled.tres remapped: res://levels/forest_slope/scn_01_filled.tres
+Loading resource: res://levels/forest_slope/forest_layout.gd remapped: res://levels/forest_slope/forest_layout.gd
+Completed load for: 'res://levels/forest_slope/forest_layout.gd' remapped 'res://levels/forest_slope/forest_layout.gd' at thread -1
+Completed load for: 'res://levels/forest_slope/scn_01_filled.tres' remapped 'res://levels/forest_slope/scn_01_filled.tres' at thread -1
+Completed load for: 'res://app/week_eight_boot.gd' remapped 'res://app/week_eight_boot.gd' at thread -1
+Loading resource: res://ui/week_eight_hud.gd remapped: res://ui/week_eight_hud.gd
+Completed load for: 'res://ui/week_eight_hud.gd' remapped 'res://ui/week_eight_hud.gd' at thread -1
+Completed load for: 'res://app/week_eight_root.tscn' remapped 'res://app/week_eight_root.tscn' at thread -1
+Loading resource: res://app/week_nine_boot.gd remapped: res://app/week_nine_boot.gd
+Completed load for: 'res://app/week_nine_boot.gd' remapped 'res://app/week_nine_boot.gd' at thread -1
+Loading resource: res://ui/week_nine_hud.gd remapped: res://ui/week_nine_hud.gd
+Loading resource: res://assets/ui/template_forest.png remapped: res://assets/ui/template_forest.png
+Loading resource: res://.godot/imported/template_forest.png-9d27b886342a9754d2192f583a5bef9d.ctex remapped: res://.godot/imported/template_forest.png-9d27b886342a9754d2192f583a5bef9d.ctex
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+     at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+Completed load for: 'res://assets/ui/template_forest.png' remapped 'res://assets/ui/template_forest.png' at thread -1
+Completed load for: 'res://ui/week_nine_hud.gd' remapped 'res://ui/week_nine_hud.gd' at thread -1
+Completed load for: 'res://app/week_nine_root.tscn' remapped 'res://app/week_nine_root.tscn' at thread -1
+Loading resource: res://app/art_boot.gd remapped: res://app/art_boot.gd
+Loading resource: res://features/art_direction/materials/painted_architecture.gdshader remapped: res://features/art_direction/materials/painted_architecture.gdshader
+Completed load for: 'res://features/art_direction/materials/painted_architecture.gdshader' remapped 'res://features/art_direction/materials/painted_architecture.gdshader' at thread -1
+Loading resource: res://features/art_direction/materials/painted_roof.gdshader remapped: res://features/art_direction/materials/painted_roof.gdshader
+Completed load for: 'res://features/art_direction/materials/painted_roof.gdshader' remapped 'res://features/art_direction/materials/painted_roof.gdshader' at thread -1
+Loading resource: res://features/art_direction/materials/painted_meadow.gdshader remapped: res://features/art_direction/materials/painted_meadow.gdshader
+Completed load for: 'res://features/art_direction/materials/painted_meadow.gdshader' remapped 'res://features/art_direction/materials/painted_meadow.gdshader' at thread -1
+Loading resource: res://features/art_direction/materials/painted_foliage.gdshader remapped: res://features/art_direction/materials/painted_foliage.gdshader
+Completed load for: 'res://features/art_direction/materials/painted_foliage.gdshader' remapped 'res://features/art_direction/materials/painted_foliage.gdshader' at thread -1
+Loading resource: res://features/art_direction/materials/painted_water.gdshader remapped: res://features/art_direction/materials/painted_water.gdshader
+Completed load for: 'res://features/art_direction/materials/painted_water.gdshader' remapped 'res://features/art_direction/materials/painted_water.gdshader' at thread -1
+Loading resource: res://features/art_direction/materials/painted_window.gdshader remapped: res://features/art_direction/materials/painted_window.gdshader
+Completed load for: 'res://features/art_direction/materials/painted_window.gdshader' remapped 'res://features/art_direction/materials/painted_window.gdshader' at thread -1
+Loading resource: res://assets/nature/art_pass_01/painted_forest_atlas.png remapped: res://assets/nature/art_pass_01/painted_forest_atlas.png
+Loading resource: res://.godot/imported/painted_forest_atlas.png-d4d285ed312757661a7473d46617ad44.ctex remapped: res://.godot/imported/painted_forest_atlas.png-d4d285ed312757661a7473d46617ad44.ctex
+Completed load for: 'res://assets/nature/art_pass_01/painted_forest_atlas.png' remapped 'res://assets/nature/art_pass_01/painted_forest_atlas.png' at thread -1
+Loading resource: res://assets/nature/art_pass_01/tree_broadleaf.glb remapped: res://assets/nature/art_pass_01/tree_broadleaf.glb
+Loading resource: res://.godot/imported/tree_broadleaf.glb-9912cc179f72d710e705b7917d5934ab.scn remapped: res://.godot/imported/tree_broadleaf.glb-9912cc179f72d710e705b7917d5934ab.scn
+Completed load for: 'res://assets/nature/art_pass_01/tree_broadleaf.glb' remapped 'res://assets/nature/art_pass_01/tree_broadleaf.glb' at thread -1
+Loading resource: res://assets/nature/art_pass_01/tree_conifer.glb remapped: res://assets/nature/art_pass_01/tree_conifer.glb
+Loading resource: res://.godot/imported/tree_conifer.glb-9e1c60b9e7b1bd6f496fde6ab8e4560f.scn remapped: res://.godot/imported/tree_conifer.glb-9e1c60b9e7b1bd6f496fde6ab8e4560f.scn
+Completed load for: 'res://assets/nature/art_pass_01/tree_conifer.glb' remapped 'res://assets/nature/art_pass_01/tree_conifer.glb' at thread -1
+Loading resource: res://assets/nature/art_pass_01/tree_fruit.glb remapped: res://assets/nature/art_pass_01/tree_fruit.glb
+Loading resource: res://.godot/imported/tree_fruit.glb-3c93ae4da06167fab296d3fba6b9c56e.scn remapped: res://.godot/imported/tree_fruit.glb-3c93ae4da06167fab296d3fba6b9c56e.scn
+Completed load for: 'res://assets/nature/art_pass_01/tree_fruit.glb' remapped 'res://assets/nature/art_pass_01/tree_fruit.glb' at thread -1
+Loading resource: res://assets/nature/art_pass_01/fern.glb remapped: res://assets/nature/art_pass_01/fern.glb
+Loading resource: res://.godot/imported/fern.glb-94428f3a79c85fbcdb94fb07852f07e0.scn remapped: res://.godot/imported/fern.glb-94428f3a79c85fbcdb94fb07852f07e0.scn
+Completed load for: 'res://assets/nature/art_pass_01/fern.glb' remapped 'res://assets/nature/art_pass_01/fern.glb' at thread -1
+Loading resource: res://assets/nature/art_pass_01/wildflower.glb remapped: res://assets/nature/art_pass_01/wildflower.glb
+Loading resource: res://.godot/imported/wildflower.glb-ce6451eb45f322c53e834cf4e2a0d83f.scn remapped: res://.godot/imported/wildflower.glb-ce6451eb45f322c53e834cf4e2a0d83f.scn
+Completed load for: 'res://assets/nature/art_pass_01/wildflower.glb' remapped 'res://assets/nature/art_pass_01/wildflower.glb' at thread -1
+Loading resource: res://assets/nature/art_pass_01/shrub.glb remapped: res://assets/nature/art_pass_01/shrub.glb
+Loading resource: res://.godot/imported/shrub.glb-0a2e5f484583ebd142b7e9df487d3f0a.scn remapped: res://.godot/imported/shrub.glb-0a2e5f484583ebd142b7e9df487d3f0a.scn
+Completed load for: 'res://assets/nature/art_pass_01/shrub.glb' remapped 'res://assets/nature/art_pass_01/shrub.glb' at thread -1
+Loading resource: res://assets/nature/art_pass_01/moss_rock.glb remapped: res://assets/nature/art_pass_01/moss_rock.glb
+Loading resource: res://.godot/imported/moss_rock.glb-1ea3868ae10040613a48c4f91d2efc41.scn remapped: res://.godot/imported/moss_rock.glb-1ea3868ae10040613a48c4f91d2efc41.scn
+Completed load for: 'res://assets/nature/art_pass_01/moss_rock.glb' remapped 'res://assets/nature/art_pass_01/moss_rock.glb' at thread -1
+Loading resource: res://assets/nature/art_pass_01/flat_rock.glb remapped: res://assets/nature/art_pass_01/flat_rock.glb
+Loading resource: res://.godot/imported/flat_rock.glb-20fed0589e33e429998c3a47c15480c1.scn remapped: res://.godot/imported/flat_rock.glb-20fed0589e33e429998c3a47c15480c1.scn
+Completed load for: 'res://assets/nature/art_pass_01/flat_rock.glb' remapped 'res://assets/nature/art_pass_01/flat_rock.glb' at thread -1
+Loading resource: res://assets/nature/art_pass_01/tree_broadleaf_lod1.glb remapped: res://assets/nature/art_pass_01/tree_broadleaf_lod1.glb
+Loading resource: res://.godot/imported/tree_broadleaf_lod1.glb-c4a034d6003b70672d990d30e1915fcd.scn remapped: res://.godot/imported/tree_broadleaf_lod1.glb-c4a034d6003b70672d990d30e1915fcd.scn
+Completed load for: 'res://assets/nature/art_pass_01/tree_broadleaf_lod1.glb' remapped 'res://assets/nature/art_pass_01/tree_broadleaf_lod1.glb' at thread -1
+Loading resource: res://assets/nature/art_pass_01/tree_conifer_lod1.glb remapped: res://assets/nature/art_pass_01/tree_conifer_lod1.glb
+Loading resource: res://.godot/imported/tree_conifer_lod1.glb-12fc384e70d989d8cdce57d8ee735ca8.scn remapped: res://.godot/imported/tree_conifer_lod1.glb-12fc384e70d989d8cdce57d8ee735ca8.scn
+Completed load for: 'res://assets/nature/art_pass_01/tree_conifer_lod1.glb' remapped 'res://assets/nature/art_pass_01/tree_conifer_lod1.glb' at thread -1
+Loading resource: res://assets/nature/art_pass_01/tree_fruit_lod1.glb remapped: res://assets/nature/art_pass_01/tree_fruit_lod1.glb
+Loading resource: res://.godot/imported/tree_fruit_lod1.glb-67899e093f798ed85d0387168c9fe2bb.scn remapped: res://.godot/imported/tree_fruit_lod1.glb-67899e093f798ed85d0387168c9fe2bb.scn
+Completed load for: 'res://assets/nature/art_pass_01/tree_fruit_lod1.glb' remapped 'res://assets/nature/art_pass_01/tree_fruit_lod1.glb' at thread -1
+Completed load for: 'res://app/art_boot.gd' remapped 'res://app/art_boot.gd' at thread -1
+Loading resource: res://features/art_direction/art_hud.gd remapped: res://features/art_direction/art_hud.gd
+Loading resource: res://assets/ui/art_pass_01/template_forest.png remapped: res://assets/ui/art_pass_01/template_forest.png
+Loading resource: res://.godot/imported/template_forest.png-eabeb4051835f6b5d87794590220f72e.ctex remapped: res://.godot/imported/template_forest.png-eabeb4051835f6b5d87794590220f72e.ctex
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+     at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+Completed load for: 'res://assets/ui/art_pass_01/template_forest.png' remapped 'res://assets/ui/art_pass_01/template_forest.png' at thread -1
+Completed load for: 'res://features/art_direction/art_hud.gd' remapped 'res://features/art_direction/art_hud.gd' at thread -1
+Completed load for: 'res://app/art_root.tscn' remapped 'res://app/art_root.tscn' at thread -1
+Loading resource: res://app/week_ten_boot.gd remapped: res://app/week_ten_boot.gd
+Completed load for: 'res://app/week_ten_boot.gd' remapped 'res://app/week_ten_boot.gd' at thread -1
+Loading resource: res://features/audio/audio_hud.gd remapped: res://features/audio/audio_hud.gd
+Completed load for: 'res://features/audio/audio_hud.gd' remapped 'res://features/audio/audio_hud.gd' at thread -1
+Completed load for: 'res://app/week_ten_root.tscn' remapped 'res://app/week_ten_root.tscn' at thread -1
+Loading resource: res://features/garden_presentation/garden_playground.gd remapped: res://features/garden_presentation/garden_playground.gd
+Loading resource: res://features/garden_presentation/meadow.gdshader remapped: res://features/garden_presentation/meadow.gdshader
+Completed load for: 'res://features/garden_presentation/meadow.gdshader' remapped 'res://features/garden_presentation/meadow.gdshader' at thread -1
+Completed load for: 'res://features/garden_presentation/garden_playground.gd' remapped 'res://features/garden_presentation/garden_playground.gd' at thread -1
+Loading resource: res://features/garden_presentation/garden_hud.gd remapped: res://features/garden_presentation/garden_hud.gd
+Loading resource: res://assets/ui/garden/palette.svg remapped: res://assets/ui/garden/palette.svg
+Loading resource: res://.godot/imported/palette.svg-a5286160ba5fede7e60818f0c3f0e08f.ctex remapped: res://.godot/imported/palette.svg-a5286160ba5fede7e60818f0c3f0e08f.ctex
+Completed load for: 'res://assets/ui/garden/palette.svg' remapped 'res://assets/ui/garden/palette.svg' at thread -1
+Loading resource: res://assets/ui/garden/edit.svg remapped: res://assets/ui/garden/edit.svg
+Loading resource: res://.godot/imported/edit.svg-cbddaccbd43d8ef5de8c6de5295e9d90.ctex remapped: res://.godot/imported/edit.svg-cbddaccbd43d8ef5de8c6de5295e9d90.ctex
+Completed load for: 'res://assets/ui/garden/edit.svg' remapped 'res://assets/ui/garden/edit.svg' at thread -1
+Loading resource: res://assets/ui/garden/camera.svg remapped: res://assets/ui/garden/camera.svg
+Loading resource: res://.godot/imported/camera.svg-82b46f47938a7d3dd760c4c00ea5ed11.ctex remapped: res://.godot/imported/camera.svg-82b46f47938a7d3dd760c4c00ea5ed11.ctex
+Completed load for: 'res://assets/ui/garden/camera.svg' remapped 'res://assets/ui/garden/camera.svg' at thread -1
+Loading resource: res://assets/ui/garden/sun.svg remapped: res://assets/ui/garden/sun.svg
+Loading resource: res://.godot/imported/sun.svg-8d3bec97f04682a8508a36acbcc9ae71.ctex remapped: res://.godot/imported/sun.svg-8d3bec97f04682a8508a36acbcc9ae71.ctex
+Completed load for: 'res://assets/ui/garden/sun.svg' remapped 'res://assets/ui/garden/sun.svg' at thread -1
+Loading resource: res://assets/ui/garden/settings.svg remapped: res://assets/ui/garden/settings.svg
+Loading resource: res://.godot/imported/settings.svg-bd4a6e409f72cd756d57603f1a5e4f82.ctex remapped: res://.godot/imported/settings.svg-bd4a6e409f72cd756d57603f1a5e4f82.ctex
+Completed load for: 'res://assets/ui/garden/settings.svg' remapped 'res://assets/ui/garden/settings.svg' at thread -1
+Loading resource: res://assets/ui/garden/library.svg remapped: res://assets/ui/garden/library.svg
+Loading resource: res://.godot/imported/library.svg-e20c7f957346068068dcf063920f3886.ctex remapped: res://.godot/imported/library.svg-e20c7f957346068068dcf063920f3886.ctex
+Completed load for: 'res://assets/ui/garden/library.svg' remapped 'res://assets/ui/garden/library.svg' at thread -1
+Loading resource: res://assets/ui/garden/undo.svg remapped: res://assets/ui/garden/undo.svg
+Loading resource: res://.godot/imported/undo.svg-89e8546b4d37a03b82f5e8cff1432f7c.ctex remapped: res://.godot/imported/undo.svg-89e8546b4d37a03b82f5e8cff1432f7c.ctex
+Completed load for: 'res://assets/ui/garden/undo.svg' remapped 'res://assets/ui/garden/undo.svg' at thread -1
+Loading resource: res://assets/ui/garden/redo.svg remapped: res://assets/ui/garden/redo.svg
+Loading resource: res://.godot/imported/redo.svg-b6598a4bd532b8a8ad248eb8840f0ade.ctex remapped: res://.godot/imported/redo.svg-b6598a4bd532b8a8ad248eb8840f0ade.ctex
+Completed load for: 'res://assets/ui/garden/redo.svg' remapped 'res://assets/ui/garden/redo.svg' at thread -1
+Completed load for: 'res://features/garden_presentation/garden_hud.gd' remapped 'res://features/garden_presentation/garden_hud.gd' at thread -1
+Completed load for: 'res://app/garden_root.tscn' remapped 'res://app/garden_root.tscn' at thread -1
+Loading resource: res://features/direct_edit/simple_playground.gd remapped: res://features/direct_edit/simple_playground.gd
+Completed load for: 'res://features/direct_edit/simple_playground.gd' remapped 'res://features/direct_edit/simple_playground.gd' at thread -1
+Loading resource: res://features/direct_edit/simple_hud.gd remapped: res://features/direct_edit/simple_hud.gd
+Loading resource: res://features/garden_presentation/eraser.svg remapped: res://features/garden_presentation/eraser.svg
+Loading resource: res://.godot/imported/eraser.svg-dc34be779b4e39516bef28c8a8cbd918.ctex remapped: res://.godot/imported/eraser.svg-dc34be779b4e39516bef28c8a8cbd918.ctex
+Completed load for: 'res://features/garden_presentation/eraser.svg' remapped 'res://features/garden_presentation/eraser.svg' at thread -1
+Completed load for: 'res://features/direct_edit/simple_hud.gd' remapped 'res://features/direct_edit/simple_hud.gd' at thread -1
+Completed load for: 'res://app/simple_root.tscn' remapped 'res://app/simple_root.tscn' at thread -1
+Loading resource: res://features/hover_edit/hover_playground.gd remapped: res://features/hover_edit/hover_playground.gd
+Completed load for: 'res://features/hover_edit/hover_playground.gd' remapped 'res://features/hover_edit/hover_playground.gd' at thread -1
+Loading resource: res://features/hover_edit/hover_hud.gd remapped: res://features/hover_edit/hover_hud.gd
+Completed load for: 'res://features/hover_edit/hover_hud.gd' remapped 'res://features/hover_edit/hover_hud.gd' at thread -1
+Completed load for: 'res://app/hover_root.tscn' remapped 'res://app/hover_root.tscn' at thread -1
+2026-10-23 07:25:35.538 Godot[15893:16068005] +[IMKClient subclass]: chose IMKClient_Modern
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading resource: res://assets/materials/art_pass_01/plaster.png remapped: res://assets/materials/art_pass_01/plaster.png
+Loading resource: res://.godot/imported/plaster.png-463dd024c181c49508293e169f3f83b1.ctex remapped: res://.godot/imported/plaster.png-463dd024c181c49508293e169f3f83b1.ctex
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+     at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+     GDScript backtrace (most recent call first):
+         [0] create (res://features/art_direction/materials/art_materials.gd:12)
+         [1] _setup_materials (res://app/art_boot.gd:15)
+         [2] _ready (res://app/week_two_boot.gd:36)
+         [3] _ready (res://app/week_three_boot.gd:17)
+         [4] _ready (res://app/week_four_boot.gd:30)
+         [5] _ready (res://app/week_five_boot.gd:16)
+         [6] _ready (res://app/week_six_boot.gd:33)
+         [7] _ready (res://app/week_seven_boot.gd:14)
+         [8] _ready (res://app/week_eight_boot.gd:37)
+         [9] _ready (res://app/week_nine_boot.gd:18)
+         [10] _ready (res://app/art_boot.gd:53)
+         [11] _ready (res://app/week_ten_boot.gd:11)
+         [12] _ready (res://features/garden_presentation/garden_playground.gd:9)
+         [13] _ready (res://features/direct_edit/simple_playground.gd:10)
+         [14] _ready (res://features/hover_edit/hover_playground.gd:12)
+Completed load for: 'res://assets/materials/art_pass_01/plaster.png' remapped 'res://assets/materials/art_pass_01/plaster.png' at thread -1
+Loading resource: res://assets/materials/art_pass_01/terracotta.png remapped: res://assets/materials/art_pass_01/terracotta.png
+Loading resource: res://.godot/imported/terracotta.png-847f5bbc76cf60ae126ac58524973804.ctex remapped: res://.godot/imported/terracotta.png-847f5bbc76cf60ae126ac58524973804.ctex
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+     at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+     GDScript backtrace (most recent call first):
+         [0] create (res://features/art_direction/materials/art_materials.gd:13)
+         [1] _setup_materials (res://app/art_boot.gd:15)
+         [2] _ready (res://app/week_two_boot.gd:36)
+         [3] _ready (res://app/week_three_boot.gd:17)
+         [4] _ready (res://app/week_four_boot.gd:30)
+         [5] _ready (res://app/week_five_boot.gd:16)
+         [6] _ready (res://app/week_six_boot.gd:33)
+         [7] _ready (res://app/week_seven_boot.gd:14)
+         [8] _ready (res://app/week_eight_boot.gd:37)
+         [9] _ready (res://app/week_nine_boot.gd:18)
+         [10] _ready (res://app/art_boot.gd:53)
+         [11] _ready (res://app/week_ten_boot.gd:11)
+         [12] _ready (res://features/garden_presentation/garden_playground.gd:9)
+         [13] _ready (res://features/direct_edit/simple_playground.gd:10)
+         [14] _ready (res://features/hover_edit/hover_playground.gd:12)
+Completed load for: 'res://assets/materials/art_pass_01/terracotta.png' remapped 'res://assets/materials/art_pass_01/terracotta.png' at thread -1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading resource: res://assets/materials/art_pass_01/meadow.png remapped: res://assets/materials/art_pass_01/meadow.png
+Loading resource: res://.godot/imported/meadow.png-66456d0d53b4daa82d990ccd36cbe44d.ctex remapped: res://.godot/imported/meadow.png-66456d0d53b4daa82d990ccd36cbe44d.ctex
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+     at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+     GDScript backtrace (most recent call first):
+         [0] create (res://features/art_direction/materials/art_materials.gd:21)
+         [1] _setup_materials (res://app/art_boot.gd:15)
+         [2] _ready (res://app/week_two_boot.gd:36)
+         [3] _ready (res://app/week_three_boot.gd:17)
+         [4] _ready (res://app/week_four_boot.gd:30)
+         [5] _ready (res://app/week_five_boot.gd:16)
+         [6] _ready (res://app/week_six_boot.gd:33)
+         [7] _ready (res://app/week_seven_boot.gd:14)
+         [8] _ready (res://app/week_eight_boot.gd:37)
+         [9] _ready (res://app/week_nine_boot.gd:18)
+         [10] _ready (res://app/art_boot.gd:53)
+         [11] _ready (res://app/week_ten_boot.gd:11)
+         [12] _ready (res://features/garden_presentation/garden_playground.gd:9)
+         [13] _ready (res://features/direct_edit/simple_playground.gd:10)
+         [14] _ready (res://features/hover_edit/hover_playground.gd:12)
+Completed load for: 'res://assets/materials/art_pass_01/meadow.png' remapped 'res://assets/materials/art_pass_01/meadow.png' at thread -1
+Loading resource: res://assets/materials/art_pass_01/meadow_macro.png remapped: res://assets/materials/art_pass_01/meadow_macro.png
+Loading resource: res://.godot/imported/meadow_macro.png-889fc6b390c5512a4c42d854a374ad37.ctex remapped: res://.godot/imported/meadow_macro.png-889fc6b390c5512a4c42d854a374ad37.ctex
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+     at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+     GDScript backtrace (most recent call first):
+         [0] create (res://features/art_direction/materials/art_materials.gd:22)
+         [1] _setup_materials (res://app/art_boot.gd:15)
+         [2] _ready (res://app/week_two_boot.gd:36)
+         [3] _ready (res://app/week_three_boot.gd:17)
+         [4] _ready (res://app/week_four_boot.gd:30)
+         [5] _ready (res://app/week_five_boot.gd:16)
+         [6] _ready (res://app/week_six_boot.gd:33)
+         [7] _ready (res://app/week_seven_boot.gd:14)
+         [8] _ready (res://app/week_eight_boot.gd:37)
+         [9] _ready (res://app/week_nine_boot.gd:18)
+         [10] _ready (res://app/art_boot.gd:53)
+         [11] _ready (res://app/week_ten_boot.gd:11)
+         [12] _ready (res://features/garden_presentation/garden_playground.gd:9)
+         [13] _ready (res://features/direct_edit/simple_playground.gd:10)
+         [14] _ready (res://features/hover_edit/hover_playground.gd:12)
+Completed load for: 'res://assets/materials/art_pass_01/meadow_macro.png' remapped 'res://assets/materials/art_pass_01/meadow_macro.png' at thread -1
+Loading resource: res://assets/materials/art_pass_01/warm_soil.png remapped: res://assets/materials/art_pass_01/warm_soil.png
+Loading resource: res://.godot/imported/warm_soil.png-ba8ba0d875351131996f42e5ee144fbf.ctex remapped: res://.godot/imported/warm_soil.png-ba8ba0d875351131996f42e5ee144fbf.ctex
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+     at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+     GDScript backtrace (most recent call first):
+         [0] create (res://features/art_direction/materials/art_materials.gd:23)
+         [1] _setup_materials (res://app/art_boot.gd:15)
+         [2] _ready (res://app/week_two_boot.gd:36)
+         [3] _ready (res://app/week_three_boot.gd:17)
+         [4] _ready (res://app/week_four_boot.gd:30)
+         [5] _ready (res://app/week_five_boot.gd:16)
+         [6] _ready (res://app/week_six_boot.gd:33)
+         [7] _ready (res://app/week_seven_boot.gd:14)
+         [8] _ready (res://app/week_eight_boot.gd:37)
+         [9] _ready (res://app/week_nine_boot.gd:18)
+         [10] _ready (res://app/art_boot.gd:53)
+         [11] _ready (res://app/week_ten_boot.gd:11)
+         [12] _ready (res://features/garden_presentation/garden_playground.gd:9)
+         [13] _ready (res://features/direct_edit/simple_playground.gd:10)
+         [14] _ready (res://features/hover_edit/hover_playground.gd:12)
+Completed load for: 'res://assets/materials/art_pass_01/warm_soil.png' remapped 'res://assets/materials/art_pass_01/warm_soil.png' at thread -1
+Loading resource: res://assets/materials/art_pass_01/wet_bank.png remapped: res://assets/materials/art_pass_01/wet_bank.png
+Loading resource: res://.godot/imported/wet_bank.png-e309117c5f9cc1a7f9c9020edc56223c.ctex remapped: res://.godot/imported/wet_bank.png-e309117c5f9cc1a7f9c9020edc56223c.ctex
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+     at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+     GDScript backtrace (most recent call first):
+         [0] create (res://features/art_direction/materials/art_materials.gd:24)
+         [1] _setup_materials (res://app/art_boot.gd:15)
+         [2] _ready (res://app/week_two_boot.gd:36)
+         [3] _ready (res://app/week_three_boot.gd:17)
+         [4] _ready (res://app/week_four_boot.gd:30)
+         [5] _ready (res://app/week_five_boot.gd:16)
+         [6] _ready (res://app/week_six_boot.gd:33)
+         [7] _ready (res://app/week_seven_boot.gd:14)
+         [8] _ready (res://app/week_eight_boot.gd:37)
+         [9] _ready (res://app/week_nine_boot.gd:18)
+         [10] _ready (res://app/art_boot.gd:53)
+         [11] _ready (res://app/week_ten_boot.gd:11)
+         [12] _ready (res://features/garden_presentation/garden_playground.gd:9)
+         [13] _ready (res://features/direct_edit/simple_playground.gd:10)
+         [14] _ready (res://features/hover_edit/hover_playground.gd:12)
+Completed load for: 'res://assets/materials/art_pass_01/wet_bank.png' remapped 'res://assets/materials/art_pass_01/wet_bank.png' at thread -1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading resource: res://assets/materials/art_pass_01/window_glow.png remapped: res://assets/materials/art_pass_01/window_glow.png
+Loading resource: res://.godot/imported/window_glow.png-017238112d3b4fa2bc09017cae547014.ctex remapped: res://.godot/imported/window_glow.png-017238112d3b4fa2bc09017cae547014.ctex
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+     at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+     GDScript backtrace (most recent call first):
+         [0] create (res://features/art_direction/materials/art_materials.gd:37)
+         [1] _setup_materials (res://app/art_boot.gd:15)
+         [2] _ready (res://app/week_two_boot.gd:36)
+         [3] _ready (res://app/week_three_boot.gd:17)
+         [4] _ready (res://app/week_four_boot.gd:30)
+         [5] _ready (res://app/week_five_boot.gd:16)
+         [6] _ready (res://app/week_six_boot.gd:33)
+         [7] _ready (res://app/week_seven_boot.gd:14)
+         [8] _ready (res://app/week_eight_boot.gd:37)
+         [9] _ready (res://app/week_nine_boot.gd:18)
+         [10] _ready (res://app/art_boot.gd:53)
+         [11] _ready (res://app/week_ten_boot.gd:11)
+         [12] _ready (res://features/garden_presentation/garden_playground.gd:9)
+         [13] _ready (res://features/direct_edit/simple_playground.gd:10)
+         [14] _ready (res://features/hover_edit/hover_playground.gd:12)
+Completed load for: 'res://assets/materials/art_pass_01/window_glow.png' remapped 'res://assets/materials/art_pass_01/window_glow.png' at thread -1
+Loading resource: res://assets/materials/art_pass_01/honey_timber.png remapped: res://assets/materials/art_pass_01/honey_timber.png
+Loading resource: res://.godot/imported/honey_timber.png-5f2f43d1828ce708f3ac1449a2022f3a.ctex remapped: res://.godot/imported/honey_timber.png-5f2f43d1828ce708f3ac1449a2022f3a.ctex
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+     at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+     GDScript backtrace (most recent call first):
+         [0] _opaque (res://features/art_direction/materials/art_materials.gd:60)
+         [1] create (res://features/art_direction/materials/art_materials.gd:38)
+         [2] _setup_materials (res://app/art_boot.gd:15)
+         [3] _ready (res://app/week_two_boot.gd:36)
+         [4] _ready (res://app/week_three_boot.gd:17)
+         [5] _ready (res://app/week_four_boot.gd:30)
+         [6] _ready (res://app/week_five_boot.gd:16)
+         [7] _ready (res://app/week_six_boot.gd:33)
+         [8] _ready (res://app/week_seven_boot.gd:14)
+         [9] _ready (res://app/week_eight_boot.gd:37)
+         [10] _ready (res://app/week_nine_boot.gd:18)
+         [11] _ready (res://app/art_boot.gd:53)
+         [12] _ready (res://app/week_ten_boot.gd:11)
+         [13] _ready (res://features/garden_presentation/garden_playground.gd:9)
+         [14] _ready (res://features/direct_edit/simple_playground.gd:10)
+         [15] _ready (res://features/hover_edit/hover_playground.gd:12)
+Completed load for: 'res://assets/materials/art_pass_01/honey_timber.png' remapped 'res://assets/materials/art_pass_01/honey_timber.png' at thread -1
+Loading resource: res://assets/materials/art_pass_01/moss_stone.png remapped: res://assets/materials/art_pass_01/moss_stone.png
+Loading resource: res://.godot/imported/moss_stone.png-06d2207746a8f43fe0a20b2f700f307d.ctex remapped: res://.godot/imported/moss_stone.png-06d2207746a8f43fe0a20b2f700f307d.ctex
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+     at: _validate_texture_format (servers/rendering/renderer_rd/storage_rd/texture_storage.cpp:2855)
+     GDScript backtrace (most recent call first):
+         [0] _opaque (res://features/art_direction/materials/art_materials.gd:60)
+         [1] create (res://features/art_direction/materials/art_materials.gd:38)
+         [2] _setup_materials (res://app/art_boot.gd:15)
+         [3] _ready (res://app/week_two_boot.gd:36)
+         [4] _ready (res://app/week_three_boot.gd:17)
+         [5] _ready (res://app/week_four_boot.gd:30)
+         [6] _ready (res://app/week_five_boot.gd:16)
+         [7] _ready (res://app/week_six_boot.gd:33)
+         [8] _ready (res://app/week_seven_boot.gd:14)
+         [9] _ready (res://app/week_eight_boot.gd:37)
+         [10] _ready (res://app/week_nine_boot.gd:18)
+         [11] _ready (res://app/art_boot.gd:53)
+         [12] _ready (res://app/week_ten_boot.gd:11)
+         [13] _ready (res://features/garden_presentation/garden_playground.gd:9)
+         [14] _ready (res://features/direct_edit/simple_playground.gd:10)
+         [15] _ready (res://features/hover_edit/hover_playground.gd:12)
+Completed load for: 'res://assets/materials/art_pass_01/moss_stone.png' remapped 'res://assets/materials/art_pass_01/moss_stone.png' at thread -1
+Loading cache for shader SkyShaderRD, variant 0
+Loading cache for shader SkyShaderRD, variant 1
+Loading cache for shader SkyShaderRD, variant 2
+Loading cache for shader SkyShaderRD, variant 3
+Loading cache for shader SkyShaderRD, variant 4
+Loading cache for shader SkyShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading resource: res://assets/audio/forest_stereo.wav remapped: res://assets/audio/forest_stereo.wav
+Loading resource: res://.godot/imported/forest_stereo.wav-7e2af97a90b49616e2de73294dfeb3de.sample remapped: res://.godot/imported/forest_stereo.wav-7e2af97a90b49616e2de73294dfeb3de.sample
+Completed load for: 'res://assets/audio/forest_stereo.wav' remapped 'res://assets/audio/forest_stereo.wav' at thread -1
+Loading resource: res://assets/audio/wind_low.wav remapped: res://assets/audio/wind_low.wav
+Loading resource: res://.godot/imported/wind_low.wav-be716df4edfdb6cc0a82fad5b506e378.sample remapped: res://.godot/imported/wind_low.wav-be716df4edfdb6cc0a82fad5b506e378.sample
+Completed load for: 'res://assets/audio/wind_low.wav' remapped 'res://assets/audio/wind_low.wav' at thread -1
+Loading resource: res://assets/audio/wind_high.wav remapped: res://assets/audio/wind_high.wav
+Loading resource: res://.godot/imported/wind_high.wav-fc79e6ec7f2da3b657f0a557e5aa1384.sample remapped: res://.godot/imported/wind_high.wav-fc79e6ec7f2da3b657f0a557e5aa1384.sample
+Completed load for: 'res://assets/audio/wind_high.wav' remapped 'res://assets/audio/wind_high.wav' at thread -1
+Loading resource: res://assets/audio/water.wav remapped: res://assets/audio/water.wav
+Loading resource: res://.godot/imported/water.wav-bd2ab1d6bdc9337433d5c6f8111fa80f.sample remapped: res://.godot/imported/water.wav-bd2ab1d6bdc9337433d5c6f8111fa80f.sample
+Completed load for: 'res://assets/audio/water.wav' remapped 'res://assets/audio/water.wav' at thread -1
+Loading resource: res://assets/audio/sparse_music.wav remapped: res://assets/audio/sparse_music.wav
+Loading resource: res://.godot/imported/sparse_music.wav-73070380e31fc254f2330d0e9f185d44.sample remapped: res://.godot/imported/sparse_music.wav-73070380e31fc254f2330d0e9f185d44.sample
+Completed load for: 'res://assets/audio/sparse_music.wav' remapped 'res://assets/audio/sparse_music.wav' at thread -1
+Loading resource: res://assets/audio/wood_1.wav remapped: res://assets/audio/wood_1.wav
+Loading resource: res://.godot/imported/wood_1.wav-15f7762b1287dde098da806ac934d74a.sample remapped: res://.godot/imported/wood_1.wav-15f7762b1287dde098da806ac934d74a.sample
+Completed load for: 'res://assets/audio/wood_1.wav' remapped 'res://assets/audio/wood_1.wav' at thread -1
+Loading resource: res://assets/audio/wood_2.wav remapped: res://assets/audio/wood_2.wav
+Loading resource: res://.godot/imported/wood_2.wav-dcd2cd8800db4db73818d7d12f47ab3a.sample remapped: res://.godot/imported/wood_2.wav-dcd2cd8800db4db73818d7d12f47ab3a.sample
+Completed load for: 'res://assets/audio/wood_2.wav' remapped 'res://assets/audio/wood_2.wav' at thread -1
+Loading resource: res://assets/audio/wood_3.wav remapped: res://assets/audio/wood_3.wav
+Loading resource: res://.godot/imported/wood_3.wav-985ca6a232d1b3822b7dbcdbfeb173c2.sample remapped: res://.godot/imported/wood_3.wav-985ca6a232d1b3822b7dbcdbfeb173c2.sample
+Completed load for: 'res://assets/audio/wood_3.wav' remapped 'res://assets/audio/wood_3.wav' at thread -1
+Loading resource: res://assets/audio/stone_1.wav remapped: res://assets/audio/stone_1.wav
+Loading resource: res://.godot/imported/stone_1.wav-f7bcff2b158a943232253bf9102717b9.sample remapped: res://.godot/imported/stone_1.wav-f7bcff2b158a943232253bf9102717b9.sample
+Completed load for: 'res://assets/audio/stone_1.wav' remapped 'res://assets/audio/stone_1.wav' at thread -1
+Loading resource: res://assets/audio/stone_2.wav remapped: res://assets/audio/stone_2.wav
+Loading resource: res://.godot/imported/stone_2.wav-e4dc12206cf1ab7f91ef0e63ef244f4f.sample remapped: res://.godot/imported/stone_2.wav-e4dc12206cf1ab7f91ef0e63ef244f4f.sample
+Completed load for: 'res://assets/audio/stone_2.wav' remapped 'res://assets/audio/stone_2.wav' at thread -1
+Loading resource: res://assets/audio/stone_3.wav remapped: res://assets/audio/stone_3.wav
+Loading resource: res://.godot/imported/stone_3.wav-2a757af32ca46aac95dbee218a2e3c5f.sample remapped: res://.godot/imported/stone_3.wav-2a757af32ca46aac95dbee218a2e3c5f.sample
+Completed load for: 'res://assets/audio/stone_3.wav' remapped 'res://assets/audio/stone_3.wav' at thread -1
+Loading resource: res://assets/audio/grass_1.wav remapped: res://assets/audio/grass_1.wav
+Loading resource: res://.godot/imported/grass_1.wav-34eb6c592fab4c990147630b3e449ccf.sample remapped: res://.godot/imported/grass_1.wav-34eb6c592fab4c990147630b3e449ccf.sample
+Completed load for: 'res://assets/audio/grass_1.wav' remapped 'res://assets/audio/grass_1.wav' at thread -1
+Loading resource: res://assets/audio/grass_2.wav remapped: res://assets/audio/grass_2.wav
+Loading resource: res://.godot/imported/grass_2.wav-d36d39fa6dae06415f1e689ef686fb43.sample remapped: res://.godot/imported/grass_2.wav-d36d39fa6dae06415f1e689ef686fb43.sample
+Completed load for: 'res://assets/audio/grass_2.wav' remapped 'res://assets/audio/grass_2.wav' at thread -1
+Loading resource: res://assets/audio/grass_3.wav remapped: res://assets/audio/grass_3.wav
+Loading resource: res://.godot/imported/grass_3.wav-94534233057e8ed249a0afcf2a298e66.sample remapped: res://.godot/imported/grass_3.wav-94534233057e8ed249a0afcf2a298e66.sample
+Completed load for: 'res://assets/audio/grass_3.wav' remapped 'res://assets/audio/grass_3.wav' at thread -1
+Loading resource: res://assets/audio/ui_1.wav remapped: res://assets/audio/ui_1.wav
+Loading resource: res://.godot/imported/ui_1.wav-38ea855b2f922bb395dbd57e94a44923.sample remapped: res://.godot/imported/ui_1.wav-38ea855b2f922bb395dbd57e94a44923.sample
+Completed load for: 'res://assets/audio/ui_1.wav' remapped 'res://assets/audio/ui_1.wav' at thread -1
+Loading resource: res://assets/audio/ui_2.wav remapped: res://assets/audio/ui_2.wav
+Loading resource: res://.godot/imported/ui_2.wav-d9e4871b014e517cb3f09e18ea62324a.sample remapped: res://.godot/imported/ui_2.wav-d9e4871b014e517cb3f09e18ea62324a.sample
+Completed load for: 'res://assets/audio/ui_2.wav' remapped 'res://assets/audio/ui_2.wav' at thread -1
+Loading resource: res://assets/audio/ui_3.wav remapped: res://assets/audio/ui_3.wav
+Loading resource: res://.godot/imported/ui_3.wav-3eb1df8d58433d7b563995ffe9dc0e2d.sample remapped: res://.godot/imported/ui_3.wav-3eb1df8d58433d7b563995ffe9dc0e2d.sample
+Completed load for: 'res://assets/audio/ui_3.wav' remapped 'res://assets/audio/ui_3.wav' at thread -1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 8
+Loading cache for shader SceneForwardClusteredShaderRD, variant 9
+Loading cache for shader SceneForwardClusteredShaderRD, variant 10
+Loading cache for shader SceneForwardClusteredShaderRD, variant 11
+Loading cache for shader SceneForwardClusteredShaderRD, variant 12
+Loading cache for shader SceneForwardClusteredShaderRD, variant 13
+Loading cache for shader SceneForwardClusteredShaderRD, variant 14
+Loading cache for shader SceneForwardClusteredShaderRD, variant 15
+Loading cache for shader SceneForwardClusteredShaderRD, variant 16
+Loading cache for shader SceneForwardClusteredShaderRD, variant 17
+Loading cache for shader SceneForwardClusteredShaderRD, variant 18
+Loading cache for shader SceneForwardClusteredShaderRD, variant 19
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 8
+Loading cache for shader SceneForwardClusteredShaderRD, variant 9
+Loading cache for shader SceneForwardClusteredShaderRD, variant 10
+Loading cache for shader SceneForwardClusteredShaderRD, variant 11
+Loading cache for shader SceneForwardClusteredShaderRD, variant 12
+Loading cache for shader SceneForwardClusteredShaderRD, variant 13
+Loading cache for shader SceneForwardClusteredShaderRD, variant 14
+Loading cache for shader SceneForwardClusteredShaderRD, variant 15
+Loading cache for shader SceneForwardClusteredShaderRD, variant 16
+Loading cache for shader SceneForwardClusteredShaderRD, variant 17
+Loading cache for shader SceneForwardClusteredShaderRD, variant 18
+Loading cache for shader SceneForwardClusteredShaderRD, variant 19
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 8
+Loading cache for shader SceneForwardClusteredShaderRD, variant 9
+Loading cache for shader SceneForwardClusteredShaderRD, variant 10
+Loading cache for shader SceneForwardClusteredShaderRD, variant 11
+Loading cache for shader SceneForwardClusteredShaderRD, variant 12
+Loading cache for shader SceneForwardClusteredShaderRD, variant 13
+Loading cache for shader SceneForwardClusteredShaderRD, variant 14
+Loading cache for shader SceneForwardClusteredShaderRD, variant 15
+Loading cache for shader SceneForwardClusteredShaderRD, variant 16
+Loading cache for shader SceneForwardClusteredShaderRD, variant 17
+Loading cache for shader SceneForwardClusteredShaderRD, variant 18
+Loading cache for shader SceneForwardClusteredShaderRD, variant 19
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 8
+Loading cache for shader SceneForwardClusteredShaderRD, variant 9
+Loading cache for shader SceneForwardClusteredShaderRD, variant 10
+Loading cache for shader SceneForwardClusteredShaderRD, variant 11
+Loading cache for shader SceneForwardClusteredShaderRD, variant 12
+Loading cache for shader SceneForwardClusteredShaderRD, variant 13
+Loading cache for shader SceneForwardClusteredShaderRD, variant 14
+Loading cache for shader SceneForwardClusteredShaderRD, variant 15
+Loading cache for shader SceneForwardClusteredShaderRD, variant 16
+Loading cache for shader SceneForwardClusteredShaderRD, variant 17
+Loading cache for shader SceneForwardClusteredShaderRD, variant 18
+Loading cache for shader SceneForwardClusteredShaderRD, variant 19
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 8
+Loading cache for shader SceneForwardClusteredShaderRD, variant 9
+Loading cache for shader SceneForwardClusteredShaderRD, variant 10
+Loading cache for shader SceneForwardClusteredShaderRD, variant 11
+Loading cache for shader SceneForwardClusteredShaderRD, variant 12
+Loading cache for shader SceneForwardClusteredShaderRD, variant 13
+Loading cache for shader SceneForwardClusteredShaderRD, variant 14
+Loading cache for shader SceneForwardClusteredShaderRD, variant 15
+Loading cache for shader SceneForwardClusteredShaderRD, variant 16
+Loading cache for shader SceneForwardClusteredShaderRD, variant 17
+Loading cache for shader SceneForwardClusteredShaderRD, variant 18
+Loading cache for shader SceneForwardClusteredShaderRD, variant 19
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 8
+Loading cache for shader SceneForwardClusteredShaderRD, variant 9
+Loading cache for shader SceneForwardClusteredShaderRD, variant 10
+Loading cache for shader SceneForwardClusteredShaderRD, variant 11
+Loading cache for shader SceneForwardClusteredShaderRD, variant 12
+Loading cache for shader SceneForwardClusteredShaderRD, variant 13
+Loading cache for shader SceneForwardClusteredShaderRD, variant 14
+Loading cache for shader SceneForwardClusteredShaderRD, variant 15
+Loading cache for shader SceneForwardClusteredShaderRD, variant 16
+Loading cache for shader SceneForwardClusteredShaderRD, variant 17
+Loading cache for shader SceneForwardClusteredShaderRD, variant 18
+Loading cache for shader SceneForwardClusteredShaderRD, variant 19
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 8
+Loading cache for shader SceneForwardClusteredShaderRD, variant 9
+Loading cache for shader SceneForwardClusteredShaderRD, variant 10
+Loading cache for shader SceneForwardClusteredShaderRD, variant 11
+Loading cache for shader SceneForwardClusteredShaderRD, variant 12
+Loading cache for shader SceneForwardClusteredShaderRD, variant 13
+Loading cache for shader SceneForwardClusteredShaderRD, variant 14
+Loading cache for shader SceneForwardClusteredShaderRD, variant 15
+Loading cache for shader SceneForwardClusteredShaderRD, variant 16
+Loading cache for shader SceneForwardClusteredShaderRD, variant 17
+Loading cache for shader SceneForwardClusteredShaderRD, variant 18
+Loading cache for shader SceneForwardClusteredShaderRD, variant 19
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 8
+Loading cache for shader SceneForwardClusteredShaderRD, variant 9
+Loading cache for shader SceneForwardClusteredShaderRD, variant 10
+Loading cache for shader SceneForwardClusteredShaderRD, variant 11
+Loading cache for shader SceneForwardClusteredShaderRD, variant 12
+Loading cache for shader SceneForwardClusteredShaderRD, variant 13
+Loading cache for shader SceneForwardClusteredShaderRD, variant 14
+Loading cache for shader SceneForwardClusteredShaderRD, variant 15
+Loading cache for shader SceneForwardClusteredShaderRD, variant 16
+Loading cache for shader SceneForwardClusteredShaderRD, variant 17
+Loading cache for shader SceneForwardClusteredShaderRD, variant 18
+Loading cache for shader SceneForwardClusteredShaderRD, variant 19
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 8
+Loading cache for shader SceneForwardClusteredShaderRD, variant 9
+Loading cache for shader SceneForwardClusteredShaderRD, variant 10
+Loading cache for shader SceneForwardClusteredShaderRD, variant 11
+Loading cache for shader SceneForwardClusteredShaderRD, variant 12
+Loading cache for shader SceneForwardClusteredShaderRD, variant 13
+Loading cache for shader SceneForwardClusteredShaderRD, variant 14
+Loading cache for shader SceneForwardClusteredShaderRD, variant 15
+Loading cache for shader SceneForwardClusteredShaderRD, variant 16
+Loading cache for shader SceneForwardClusteredShaderRD, variant 17
+Loading cache for shader SceneForwardClusteredShaderRD, variant 18
+Loading cache for shader SceneForwardClusteredShaderRD, variant 19
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 8
+Loading cache for shader SceneForwardClusteredShaderRD, variant 9
+Loading cache for shader SceneForwardClusteredShaderRD, variant 10
+Loading cache for shader SceneForwardClusteredShaderRD, variant 11
+Loading cache for shader SceneForwardClusteredShaderRD, variant 12
+Loading cache for shader SceneForwardClusteredShaderRD, variant 13
+Loading cache for shader SceneForwardClusteredShaderRD, variant 14
+Loading cache for shader SceneForwardClusteredShaderRD, variant 15
+Loading cache for shader SceneForwardClusteredShaderRD, variant 16
+Loading cache for shader SceneForwardClusteredShaderRD, variant 17
+Loading cache for shader SceneForwardClusteredShaderRD, variant 18
+Loading cache for shader SceneForwardClusteredShaderRD, variant 19
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 8
+Loading cache for shader SceneForwardClusteredShaderRD, variant 9
+Loading cache for shader SceneForwardClusteredShaderRD, variant 10
+Loading cache for shader SceneForwardClusteredShaderRD, variant 11
+Loading cache for shader SceneForwardClusteredShaderRD, variant 12
+Loading cache for shader SceneForwardClusteredShaderRD, variant 13
+Loading cache for shader SceneForwardClusteredShaderRD, variant 14
+Loading cache for shader SceneForwardClusteredShaderRD, variant 15
+Loading cache for shader SceneForwardClusteredShaderRD, variant 16
+Loading cache for shader SceneForwardClusteredShaderRD, variant 17
+Loading cache for shader SceneForwardClusteredShaderRD, variant 18
+Loading cache for shader SceneForwardClusteredShaderRD, variant 19
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 8
+Loading cache for shader SceneForwardClusteredShaderRD, variant 9
+Loading cache for shader SceneForwardClusteredShaderRD, variant 10
+Loading cache for shader SceneForwardClusteredShaderRD, variant 11
+Loading cache for shader SceneForwardClusteredShaderRD, variant 12
+Loading cache for shader SceneForwardClusteredShaderRD, variant 13
+Loading cache for shader SceneForwardClusteredShaderRD, variant 14
+Loading cache for shader SceneForwardClusteredShaderRD, variant 15
+Loading cache for shader SceneForwardClusteredShaderRD, variant 16
+Loading cache for shader SceneForwardClusteredShaderRD, variant 17
+Loading cache for shader SceneForwardClusteredShaderRD, variant 18
+Loading cache for shader SceneForwardClusteredShaderRD, variant 19
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 8
+Loading cache for shader SceneForwardClusteredShaderRD, variant 9
+Loading cache for shader SceneForwardClusteredShaderRD, variant 10
+Loading cache for shader SceneForwardClusteredShaderRD, variant 11
+Loading cache for shader SceneForwardClusteredShaderRD, variant 12
+Loading cache for shader SceneForwardClusteredShaderRD, variant 13
+Loading cache for shader SceneForwardClusteredShaderRD, variant 14
+Loading cache for shader SceneForwardClusteredShaderRD, variant 15
+Loading cache for shader SceneForwardClusteredShaderRD, variant 16
+Loading cache for shader SceneForwardClusteredShaderRD, variant 17
+Loading cache for shader SceneForwardClusteredShaderRD, variant 18
+Loading cache for shader SceneForwardClusteredShaderRD, variant 19
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 8
+Loading cache for shader SceneForwardClusteredShaderRD, variant 9
+Loading cache for shader SceneForwardClusteredShaderRD, variant 10
+Loading cache for shader SceneForwardClusteredShaderRD, variant 11
+Loading cache for shader SceneForwardClusteredShaderRD, variant 12
+Loading cache for shader SceneForwardClusteredShaderRD, variant 13
+Loading cache for shader SceneForwardClusteredShaderRD, variant 14
+Loading cache for shader SceneForwardClusteredShaderRD, variant 15
+Loading cache for shader SceneForwardClusteredShaderRD, variant 16
+Loading cache for shader SceneForwardClusteredShaderRD, variant 17
+Loading cache for shader SceneForwardClusteredShaderRD, variant 18
+Loading cache for shader SceneForwardClusteredShaderRD, variant 19
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 8
+Loading cache for shader SceneForwardClusteredShaderRD, variant 9
+Loading cache for shader SceneForwardClusteredShaderRD, variant 10
+Loading cache for shader SceneForwardClusteredShaderRD, variant 11
+Loading cache for shader SceneForwardClusteredShaderRD, variant 12
+Loading cache for shader SceneForwardClusteredShaderRD, variant 13
+Loading cache for shader SceneForwardClusteredShaderRD, variant 14
+Loading cache for shader SceneForwardClusteredShaderRD, variant 15
+Loading cache for shader SceneForwardClusteredShaderRD, variant 16
+Loading cache for shader SceneForwardClusteredShaderRD, variant 17
+Loading cache for shader SceneForwardClusteredShaderRD, variant 18
+Loading cache for shader SceneForwardClusteredShaderRD, variant 19
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 8
+Loading cache for shader SceneForwardClusteredShaderRD, variant 9
+Loading cache for shader SceneForwardClusteredShaderRD, variant 10
+Loading cache for shader SceneForwardClusteredShaderRD, variant 11
+Loading cache for shader SceneForwardClusteredShaderRD, variant 12
+Loading cache for shader SceneForwardClusteredShaderRD, variant 13
+Loading cache for shader SceneForwardClusteredShaderRD, variant 14
+Loading cache for shader SceneForwardClusteredShaderRD, variant 15
+Loading cache for shader SceneForwardClusteredShaderRD, variant 16
+Loading cache for shader SceneForwardClusteredShaderRD, variant 17
+Loading cache for shader SceneForwardClusteredShaderRD, variant 18
+Loading cache for shader SceneForwardClusteredShaderRD, variant 19
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 8
+Loading cache for shader SceneForwardClusteredShaderRD, variant 9
+Loading cache for shader SceneForwardClusteredShaderRD, variant 10
+Loading cache for shader SceneForwardClusteredShaderRD, variant 11
+Loading cache for shader SceneForwardClusteredShaderRD, variant 12
+Loading cache for shader SceneForwardClusteredShaderRD, variant 13
+Loading cache for shader SceneForwardClusteredShaderRD, variant 14
+Loading cache for shader SceneForwardClusteredShaderRD, variant 15
+Loading cache for shader SceneForwardClusteredShaderRD, variant 16
+Loading cache for shader SceneForwardClusteredShaderRD, variant 17
+Loading cache for shader SceneForwardClusteredShaderRD, variant 18
+Loading cache for shader SceneForwardClusteredShaderRD, variant 19
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 8
+Loading cache for shader SceneForwardClusteredShaderRD, variant 9
+Loading cache for shader SceneForwardClusteredShaderRD, variant 10
+Loading cache for shader SceneForwardClusteredShaderRD, variant 11
+Loading cache for shader SceneForwardClusteredShaderRD, variant 12
+Loading cache for shader SceneForwardClusteredShaderRD, variant 13
+Loading cache for shader SceneForwardClusteredShaderRD, variant 14
+Loading cache for shader SceneForwardClusteredShaderRD, variant 15
+Loading cache for shader SceneForwardClusteredShaderRD, variant 16
+Loading cache for shader SceneForwardClusteredShaderRD, variant 17
+Loading cache for shader SceneForwardClusteredShaderRD, variant 18
+Loading cache for shader SceneForwardClusteredShaderRD, variant 19
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 8
+Loading cache for shader SceneForwardClusteredShaderRD, variant 9
+Loading cache for shader SceneForwardClusteredShaderRD, variant 10
+Loading cache for shader SceneForwardClusteredShaderRD, variant 11
+Loading cache for shader SceneForwardClusteredShaderRD, variant 12
+Loading cache for shader SceneForwardClusteredShaderRD, variant 13
+Loading cache for shader SceneForwardClusteredShaderRD, variant 14
+Loading cache for shader SceneForwardClusteredShaderRD, variant 15
+Loading cache for shader SceneForwardClusteredShaderRD, variant 16
+Loading cache for shader SceneForwardClusteredShaderRD, variant 17
+Loading cache for shader SceneForwardClusteredShaderRD, variant 18
+Loading cache for shader SceneForwardClusteredShaderRD, variant 19
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 8
+Loading cache for shader SceneForwardClusteredShaderRD, variant 9
+Loading cache for shader SceneForwardClusteredShaderRD, variant 10
+Loading cache for shader SceneForwardClusteredShaderRD, variant 11
+Loading cache for shader SceneForwardClusteredShaderRD, variant 12
+Loading cache for shader SceneForwardClusteredShaderRD, variant 13
+Loading cache for shader SceneForwardClusteredShaderRD, variant 14
+Loading cache for shader SceneForwardClusteredShaderRD, variant 15
+Loading cache for shader SceneForwardClusteredShaderRD, variant 16
+Loading cache for shader SceneForwardClusteredShaderRD, variant 17
+Loading cache for shader SceneForwardClusteredShaderRD, variant 18
+Loading cache for shader SceneForwardClusteredShaderRD, variant 19
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 8
+Loading cache for shader SceneForwardClusteredShaderRD, variant 9
+Loading cache for shader SceneForwardClusteredShaderRD, variant 10
+Loading cache for shader SceneForwardClusteredShaderRD, variant 11
+Loading cache for shader SceneForwardClusteredShaderRD, variant 12
+Loading cache for shader SceneForwardClusteredShaderRD, variant 13
+Loading cache for shader SceneForwardClusteredShaderRD, variant 14
+Loading cache for shader SceneForwardClusteredShaderRD, variant 15
+Loading cache for shader SceneForwardClusteredShaderRD, variant 16
+Loading cache for shader SceneForwardClusteredShaderRD, variant 17
+Loading cache for shader SceneForwardClusteredShaderRD, variant 18
+Loading cache for shader SceneForwardClusteredShaderRD, variant 19
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 8
+Loading cache for shader SceneForwardClusteredShaderRD, variant 9
+Loading cache for shader SceneForwardClusteredShaderRD, variant 10
+Loading cache for shader SceneForwardClusteredShaderRD, variant 11
+Loading cache for shader SceneForwardClusteredShaderRD, variant 12
+Loading cache for shader SceneForwardClusteredShaderRD, variant 13
+Loading cache for shader SceneForwardClusteredShaderRD, variant 14
+Loading cache for shader SceneForwardClusteredShaderRD, variant 15
+Loading cache for shader SceneForwardClusteredShaderRD, variant 16
+Loading cache for shader SceneForwardClusteredShaderRD, variant 17
+Loading cache for shader SceneForwardClusteredShaderRD, variant 18
+Loading cache for shader SceneForwardClusteredShaderRD, variant 19
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 8
+Loading cache for shader SceneForwardClusteredShaderRD, variant 9
+Loading cache for shader SceneForwardClusteredShaderRD, variant 10
+Loading cache for shader SceneForwardClusteredShaderRD, variant 11
+Loading cache for shader SceneForwardClusteredShaderRD, variant 12
+Loading cache for shader SceneForwardClusteredShaderRD, variant 13
+Loading cache for shader SceneForwardClusteredShaderRD, variant 14
+Loading cache for shader SceneForwardClusteredShaderRD, variant 15
+Loading cache for shader SceneForwardClusteredShaderRD, variant 16
+Loading cache for shader SceneForwardClusteredShaderRD, variant 17
+Loading cache for shader SceneForwardClusteredShaderRD, variant 18
+Loading cache for shader SceneForwardClusteredShaderRD, variant 19
+MultiUmaBuffer 'RENDER_LIST_OPAQUE' used a total of 0 buffers. A large number may indicate a waste of VRAM and can be brought down by tweaking MAX_EXTRA_BUFFERS for this buffer.
+MultiUmaBuffer 'RENDER_LIST_ALPHA' used a total of 0 buffers. A large number may indicate a waste of VRAM and can be brought down by tweaking MAX_EXTRA_BUFFERS for this buffer.
+MultiUmaBuffer 'RENDER_LIST_SECONDARY' used a total of 0 buffers. A large number may indicate a waste of VRAM and can be brought down by tweaking MAX_EXTRA_BUFFERS for this buffer.
+W09_FIRST_DRAW
+2026-10-23 07:25:36.233 Godot[15893:16068005] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"
+Freeing Default Tex_Blit Shader
+MultiUmaBuffer 'RENDER_LIST_OPAQUE' used a total of 1 buffers. A large number may indicate a waste of VRAM and can be brought down by tweaking MAX_EXTRA_BUFFERS for this buffer.
+MultiUmaBuffer 'RENDER_LIST_MOTION' used a total of 0 buffers. A large number may indicate a waste of VRAM and can be brought down by tweaking MAX_EXTRA_BUFFERS for this buffer.
+MultiUmaBuffer 'RENDER_LIST_ALPHA' used a total of 1 buffers. A large number may indicate a waste of VRAM and can be brought down by tweaking MAX_EXTRA_BUFFERS for this buffer.
+MultiUmaBuffer 'RENDER_LIST_SECONDARY' used a total of 1 buffers. A large number may indicate a waste of VRAM and can be brought down by tweaking MAX_EXTRA_BUFFERS for this buffer.
+MultiUmaBuffer 'CANVAS_INSTANCE_DATA' used a total of 1 buffers. A large number may indicate a waste of VRAM and can be brought down by tweaking MAX_EXTRA_BUFFERS for this buffer.
+Accessibility: window 0 adapter destroyed.

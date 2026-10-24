@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="45" >
+  <testsuite name="tests/art_pass_01/test_architecture_art.gd" tests="14" failures="0" skipped="0" time="1.730168" >
+      <testcase name="test_authoritative_wall_reveals_gables_uv_and_normals_are_preserved" assertions="6" status="pass" classname="tests/art_pass_01/test_architecture_art.gd" time="0.203545" >
+      </testcase>
+      <testcase name="test_real_door_and_window_holes_remain_open_after_all_detail_meshes" assertions="7" status="pass" classname="tests/art_pass_01/test_architecture_art.gd" time="0.027586" >
+      </testcase>
+      <testcase name="test_round_cottage_keeps_radial_door_hole_and_closed_roof" assertions="10" status="pass" classname="tests/art_pass_01/test_architecture_art.gd" time="0.016267" >
+      </testcase>
+      <testcase name="test_details_are_deterministic_and_do_not_modify_player_source" assertions="6" status="pass" classname="tests/art_pass_01/test_architecture_art.gd" time="0.936236" >
+      </testcase>
+      <testcase name="test_object_id_changes_tile_variation_without_moving_apertures" assertions="2" status="pass" classname="tests/art_pass_01/test_architecture_art.gd" time="0.268505" >
+      </testcase>
+      <testcase name="test_rectangular_size_extremes_have_bounded_overhang_and_triangle_cost" assertions="18" status="pass" classname="tests/art_pass_01/test_architecture_art.gd" time="0.082462" >
+      </testcase>
+      <testcase name="test_round_size_extremes_have_bounded_geometry_and_four_draws" assertions="8" status="pass" classname="tests/art_pass_01/test_architecture_art.gd" time="0.055458" >
+      </testcase>
+      <testcase name="test_attached_building_roof_is_clipped_at_the_contact_side" assertions="2" status="pass" classname="tests/art_pass_01/test_architecture_art.gd" time="0.015601" >
+      </testcase>
+      <testcase name="test_tall_cottage_keeps_its_eaves_above_a_lower_offset_wing" assertions="4" status="pass" classname="tests/art_pass_01/test_architecture_art.gd" time="0.028612" >
+      </testcase>
+      <testcase name="test_lower_front_neighbor_keeps_clear_high_gable_overhang" assertions="4" status="pass" classname="tests/art_pass_01/test_architecture_art.gd" time="0.024155" >
+      </testcase>
+      <testcase name="test_partially_offset_equal_roofs_clip_only_the_touching_gable_end" assertions="3" status="pass" classname="tests/art_pass_01/test_architecture_art.gd" time="0.017025" >
+      </testcase>
+      <testcase name="test_roof_has_no_large_downward_prism_intersecting_the_gable" assertions="1" status="pass" classname="tests/art_pass_01/test_architecture_art.gd" time="0.020122" >
+      </testcase>
+      <testcase name="test_close_legal_openings_reduce_frame_width_to_preserve_clearance" assertions="5" status="pass" classname="tests/art_pass_01/test_architecture_art.gd" time="0.016095" >
+      </testcase>
+      <testcase name="test_gable_meets_the_roof_bed_without_a_visible_open_wedge" assertions="4" status="pass" classname="tests/art_pass_01/test_architecture_art.gd" time="0.018499" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/art_pass_01/test_art_catalog.gd" tests="11" failures="0" skipped="0" time="7.122664" >
+      <testcase name="test_p0_nature_ids_are_supported_and_unknown_assets_are_not" assertions="19" status="pass" classname="tests/art_pass_01/test_art_catalog.gd" time="0.045224" >
+      </testcase>
+      <testcase name="test_hedge_reuses_three_shrubs_with_independent_source_identity" assertions="12" status="pass" classname="tests/art_pass_01/test_art_catalog.gd" time="0.042091" >
+      </testcase>
+      <testcase name="test_all_imported_models_have_complete_finite_mesh_uv_and_wind_arrays" assertions="318" status="pass" classname="tests/art_pass_01/test_art_catalog.gd" time="0.049308" >
+      </testcase>
+      <testcase name="test_tree_roots_are_fixed_and_both_lods_have_moving_canopies" assertions="27" status="pass" classname="tests/art_pass_01/test_art_catalog.gd" time="0.045437" >
+      </testcase>
+      <testcase name="test_tree_lods_cover_the_37_meter_boundary_without_a_gap" assertions="66" status="pass" classname="tests/art_pass_01/test_art_catalog.gd" time="0.043537" >
+      </testcase>
+      <testcase name="test_configured_models_share_one_atlas_and_one_material_per_instance" assertions="102" status="pass" classname="tests/art_pass_01/test_art_catalog.gd" time="0.045724" >
+      </testcase>
+      <testcase name="test_descriptors_keep_complete_meshes_and_convert_wind_to_batched_materials" assertions="104" status="pass" classname="tests/art_pass_01/test_art_catalog.gd" time="0.044185" >
+      </testcase>
+      <testcase name="test_batches_keep_source_poses_ids_phase_and_enclose_transformed_meshes" assertions="76" status="pass" classname="tests/art_pass_01/test_art_catalog.gd" time="0.044253" >
+      </testcase>
+      <testcase name="test_catalog_and_material_factory_are_deterministic_and_keep_source_files" assertions="7" status="pass" classname="tests/art_pass_01/test_art_catalog.gd" time="0.168059" >
+      </testcase>
+      <testcase name="test_forest_curtain_is_derived_deterministic_geometry_without_source_edits" assertions="711" status="pass" classname="tests/art_pass_01/test_art_catalog.gd" time="6.48921" >
+      </testcase>
+      <testcase name="test_pond_bank_is_deterministic_and_empty_pool_has_no_derived_objects" assertions="5" status="pass" classname="tests/art_pass_01/test_art_catalog.gd" time="0.105636" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/art_pass_01/test_art_layout.gd" tests="3" failures="0" skipped="0" time="0.391288" >
+      <testcase name="test_demo_and_empty_are_deterministic_legal_source_documents" assertions="27" status="pass" classname="tests/art_pass_01/test_art_layout.gd" time="0.122987" >
+      </testcase>
+      <testcase name="test_new_presentation_roundtrips_with_the_existing_save_format" assertions="5" status="pass" classname="tests/art_pass_01/test_art_layout.gd" time="0.104384" >
+      </testcase>
+      <testcase name="test_flagstones_follow_the_authoritative_path_and_do_not_fill_pond_or_house" assertions="5" status="pass" classname="tests/art_pass_01/test_art_layout.gd" time="0.163917" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/art_pass_01/test_art_lod.gd" tests="2" failures="0" skipped="0" time="0.082024" >
+      <testcase name="test_leaf_trunk_and_crown_share_one_lod_reference_center" assertions="43" status="pass" classname="tests/art_pass_01/test_art_lod.gd" time="0.040797" >
+      </testcase>
+      <testcase name="test_spatial_batch_uses_one_envelope_for_both_lods_and_preserves_source" assertions="19" status="pass" classname="tests/art_pass_01/test_art_lod.gd" time="0.041227" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/art_pass_01/test_art_scene.gd" tests="11" failures="0" skipped="0" time="10.979819" >
+      <testcase name="test_scene_source_is_valid_and_every_cottage_uses_the_art_renderer" assertions="18" status="pass" classname="tests/art_pass_01/test_art_scene.gd" time="0.955219" >
+      </testcase>
+      <testcase name="test_async_path_edit_is_atomic_and_undo_restores_the_actual_flagstones" assertions="12" status="pass" classname="tests/art_pass_01/test_art_scene.gd" time="0.83911" >
+      </testcase>
+      <testcase name="test_distant_edit_reuses_cottages_and_water_and_refreshes_bank_only_when_needed" assertions="18" status="pass" classname="tests/art_pass_01/test_art_scene.gd" time="0.393068" >
+      </testcase>
+      <testcase name="test_invalid_cottage_resize_rejects_source_and_decorated_view_together" assertions="9" status="pass" classname="tests/art_pass_01/test_art_scene.gd" time="0.373225" >
+      </testcase>
+      <testcase name="test_photo_freezes_derived_forest_and_returns_all_wind_materials_to_preferences" assertions="285" status="pass" classname="tests/art_pass_01/test_art_scene.gd" time="0.359164" >
+      </testcase>
+      <testcase name="test_fifty_mixed_edits_and_history_keep_source_and_live_art_cache_consistent" assertions="157" status="pass" classname="tests/art_pass_01/test_art_scene.gd" time="5.344581" >
+      </testcase>
+      <testcase name="test_empty_entry_keeps_the_same_terrain_and_curtain_and_can_return_to_demo" assertions="9" status="pass" classname="tests/art_pass_01/test_art_scene.gd" time="0.499952" >
+      </testcase>
+      <testcase name="test_actual_async_save_load_keeps_painted_paths_in_art_and_historical_documents" assertions="29" status="pass" classname="tests/art_pass_01/test_art_scene.gd" time="1.095291" >
+      </testcase>
+      <testcase name="test_world_seed_replacement_rebuilds_derived_pond_bank" assertions="6" status="pass" classname="tests/art_pass_01/test_art_scene.gd" time="0.457876" >
+      </testcase>
+      <testcase name="test_selection_proxy_encloses_the_replacement_nature_meshes" assertions="52" status="pass" classname="tests/art_pass_01/test_art_scene.gd" time="0.315247" >
+      </testcase>
+      <testcase name="test_player_hedges_reuse_the_same_painted_shrub_and_survive_undo" assertions="11" status="pass" classname="tests/art_pass_01/test_art_scene.gd" time="0.347086" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/art_pass_01/test_forest_bounds.gd" tests="4" failures="0" skipped="0" time="0.070405" >
+      <testcase name="test_derived_forest_crowns_stay_outside_the_editable_core" assertions="4" status="pass" classname="tests/art_pass_01/test_forest_bounds.gd" time="0.00242" >
+      </testcase>
+      <testcase name="test_forest_placement_is_seeded_stable_and_does_not_change_player_source" assertions="6" status="pass" classname="tests/art_pass_01/test_forest_bounds.gd" time="0.06302" >
+      </testcase>
+      <testcase name="test_tree_feet_follow_the_actual_apron_or_terrain_surface" assertions="2" status="pass" classname="tests/art_pass_01/test_forest_bounds.gd" time="0.002539" >
+      </testcase>
+      <testcase name="test_forest_preserves_natural_groves_and_both_existing_tree_families" assertions="4" status="pass" classname="tests/art_pass_01/test_forest_bounds.gd" time="0.002426" >
+      </testcase>
+  </testsuite>
+</testsuites>

@@ -1,0 +1,10 @@
+test_complete_twenty_drag_fixture_is_accepted (__main__.VisibleInputProtocolTests.test_complete_twenty_drag_fixture_is_accepted) ... ok
+test_empty_partial_or_missing_first_sample_is_rejected (__main__.VisibleInputProtocolTests.test_empty_partial_or_missing_first_sample_is_rejected) ... ok
+test_forged_duration_or_summary_cannot_agree_to_bypass_raw_timestamps (__main__.VisibleInputProtocolTests.test_forged_duration_or_summary_cannot_agree_to_bypass_raw_timestamps) ... ok
+test_missing_or_duplicate_successful_commits_and_hidden_warmup_are_rejected (__main__.VisibleInputProtocolTests.test_missing_or_duplicate_successful_commits_and_hidden_warmup_are_rejected) ... ok
+test_predraw_input_reordered_timestamps_and_revision_gap_are_rejected (__main__.VisibleInputProtocolTests.test_predraw_input_reordered_timestamps_and_revision_gap_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK

@@ -1,0 +1,19 @@
+{
+  "focus_background": {
+    "changed_fraction": 0.444947552447552,
+    "mean_abs_rgb": 10.3131773700232
+  },
+  "focus_house_front": {
+    "changed_fraction": 0.0,
+    "mean_abs_rgb": 0.0
+  },
+  "grass_wind": {
+    "changed_fraction": 0.515756302521008,
+    "mean_abs_rgb": 15.7150702692302
+  },
+  "passed": true,
+  "reduced_motion": {
+    "changed_fraction": 0.0,
+    "mean_abs_rgb": 0.000238095223903656
+  }
+}

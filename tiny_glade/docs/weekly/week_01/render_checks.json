@@ -1,0 +1,74 @@
+{
+  "steps": [
+    {
+      "name": "wind_pixels",
+      "exit_code": 0,
+      "seconds": 0.362
+    },
+    {
+      "name": "render_dusk",
+      "exit_code": 0,
+      "seconds": 1.966
+    },
+    {
+      "name": "benchmark_forward_plus",
+      "exit_code": 0,
+      "seconds": 62.58
+    },
+    {
+      "name": "benchmark_mobile",
+      "exit_code": 0,
+      "seconds": 62.843
+    }
+  ],
+  "wind": {
+    "on_different_bytes": 146851,
+    "passed": true,
+    "still_different_bytes": 0,
+    "zero_different_bytes": 0
+  },
+  "benchmarks": {
+    "forward_plus": {
+      "buildings": 2,
+      "engine": "4.7.2-stable (official)",
+      "frames": 7200,
+      "mean_frame_ms": 8.33340370370454,
+      "p95_frame_ms": 8.33333333333333,
+      "renderer": "forward_plus",
+      "sample_duration_seconds": 60.0,
+      "test_framework_in_pack": true,
+      "test_sources_in_pack": true,
+      "viewport_size": [
+        1920,
+        1080
+      ],
+      "wind_materials": 62
+    },
+    "mobile": {
+      "buildings": 2,
+      "engine": "4.7.2-stable (official)",
+      "frames": 7116,
+      "mean_frame_ms": 8.36647390856367,
+      "p95_frame_ms": 8.33333333333333,
+      "renderer": "mobile",
+      "sample_duration_seconds": 60.0,
+      "test_framework_in_pack": true,
+      "test_sources_in_pack": true,
+      "viewport_size": [
+        1920,
+        1080
+      ],
+      "wind_materials": 62
+    }
+  },
+  "benchmark_resolution": [
+    1920,
+    1080
+  ],
+  "wind_capture_resolution": [
+    1280,
+    800
+  ],
+  "device": "Apple M4 Pro, 20-core GPU, 48 GB RAM, macOS arm64",
+  "scope": "Week 1 two-building sample only; not the MVP stress scene"
+}

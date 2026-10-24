@@ -1,0 +1,11 @@
+{
+  "first_draw_seconds": 1.609546184539795,
+  "step": {
+    "name": "garden_release_warm",
+    "exit_code": 0,
+    "seconds": 3.275
+  },
+  "production_unchanged": true,
+  "meadow_visible": 16885,
+  "same_export_artifact": true
+}

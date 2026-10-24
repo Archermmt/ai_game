@@ -1,0 +1,9 @@
+{
+  "family": "Noto Sans SC",
+  "version_commit": "f8d157532fbfaeda587e826d4cd5b21a49186f7c",
+  "repository": "https://github.com/notofonts/noto-cjk",
+  "source": "https://raw.githubusercontent.com/notofonts/noto-cjk/f8d157532fbfaeda587e826d4cd5b21a49186f7c/Sans/SubsetOTF/SC/NotoSansSC-Regular.otf",
+  "license": "SIL Open Font License 1.1",
+  "license_file": "assets/fonts/OFL.txt",
+  "sha256": "faa6c9df652116dde789d351359f3d7e5d2285a2b2a1f04a2d7244df706d5ea9"
+}

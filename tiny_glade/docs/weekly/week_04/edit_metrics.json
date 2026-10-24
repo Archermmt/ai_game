@@ -1,0 +1,31 @@
+{
+  "buildings": 2,
+  "edit_metrics": {
+    "gpu_mean_ms": null,
+    "gpu_p95_ms": null,
+    "gpu_samples": 0,
+    "last_worker_terrain_chunks": 2,
+    "local_lights": 0,
+    "main_apply_max_ms": 5.861,
+    "main_apply_p95_ms": 5.861,
+    "main_apply_samples": 20,
+    "probe_edits": 20
+  },
+  "engine": "4.7.2-stable (official)",
+  "frames": 1200,
+  "instances": 19,
+  "mean_frame_ms": 8.34648861111112,
+  "p95_frame_ms": 8.33333333333333,
+  "paths": 1,
+  "pond_present": true,
+  "renderer": "forward_plus",
+  "sample_duration_seconds": 10.0,
+  "terrain_samples": 305,
+  "test_framework_in_pack": true,
+  "test_sources_in_pack": true,
+  "viewport_size": [
+    1920,
+    1080
+  ],
+  "wind_materials": 479
+}

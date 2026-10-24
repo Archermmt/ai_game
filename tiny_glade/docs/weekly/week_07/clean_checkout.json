@@ -1,0 +1,208 @@
+{
+  "revision": "06e91f937656a3bcd5d782283547d3ba93bc76a5",
+  "cache_reused": false,
+  "host_tools_reused": [
+    "locked Godot",
+    "gdtoolkit venv"
+  ],
+  "gate": {
+    "week": 7,
+    "groups": [
+      {
+        "week": 1,
+        "tests": 42,
+        "failures": 0,
+        "skipped": 0
+      },
+      {
+        "week": 2,
+        "tests": 52,
+        "failures": 0,
+        "skipped": 0
+      },
+      {
+        "week": 3,
+        "tests": 42,
+        "failures": 0,
+        "skipped": 0
+      },
+      {
+        "week": 4,
+        "tests": 50,
+        "failures": 0,
+        "skipped": 0
+      },
+      {
+        "week": 5,
+        "tests": 45,
+        "failures": 0,
+        "skipped": 0
+      },
+      {
+        "week": 6,
+        "tests": 68,
+        "failures": 0,
+        "skipped": 0
+      },
+      {
+        "week": 7,
+        "tests": 51,
+        "failures": 0,
+        "skipped": 0
+      }
+    ],
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "tests": 350,
+    "failures": 0,
+    "skipped": 0,
+    "negative_control": true,
+    "steps": [
+      {
+        "name": "engine_import",
+        "exit_code": 0,
+        "seconds": 3.693
+      },
+      {
+        "name": "format",
+        "exit_code": 0,
+        "seconds": 1.948
+      },
+      {
+        "name": "lint",
+        "exit_code": 0,
+        "seconds": 1.913
+      },
+      {
+        "name": "asset_contract",
+        "exit_code": 0,
+        "seconds": 0.04
+      },
+      {
+        "name": "week_06_media",
+        "exit_code": 0,
+        "seconds": 0.035
+      },
+      {
+        "name": "week_07_assets",
+        "exit_code": 0,
+        "seconds": 0.028
+      },
+      {
+        "name": "week_01_tests",
+        "exit_code": 0,
+        "seconds": 1.469
+      },
+      {
+        "name": "week_01_restart_write",
+        "exit_code": 0,
+        "seconds": 0.27
+      },
+      {
+        "name": "week_01_restart_read",
+        "exit_code": 0,
+        "seconds": 0.269
+      },
+      {
+        "name": "week_02_tests",
+        "exit_code": 0,
+        "seconds": 6.757
+      },
+      {
+        "name": "week_02_restart_write",
+        "exit_code": 0,
+        "seconds": 0.261
+      },
+      {
+        "name": "week_02_restart_read",
+        "exit_code": 0,
+        "seconds": 0.257
+      },
+      {
+        "name": "week_03_tests",
+        "exit_code": 0,
+        "seconds": 8.549
+      },
+      {
+        "name": "week_03_restart_write",
+        "exit_code": 0,
+        "seconds": 0.27
+      },
+      {
+        "name": "week_03_restart_read",
+        "exit_code": 0,
+        "seconds": 0.261
+      },
+      {
+        "name": "week_04_tests",
+        "exit_code": 0,
+        "seconds": 7.471
+      },
+      {
+        "name": "week_04_restart_write",
+        "exit_code": 0,
+        "seconds": 0.27
+      },
+      {
+        "name": "week_04_restart_read",
+        "exit_code": 0,
+        "seconds": 0.27
+      },
+      {
+        "name": "week_05_tests",
+        "exit_code": 0,
+        "seconds": 7.912
+      },
+      {
+        "name": "week_05_restart_write",
+        "exit_code": 0,
+        "seconds": 0.259
+      },
+      {
+        "name": "week_05_restart_read",
+        "exit_code": 0,
+        "seconds": 0.263
+      },
+      {
+        "name": "week_06_tests",
+        "exit_code": 0,
+        "seconds": 12.818
+      },
+      {
+        "name": "week_06_restart_write",
+        "exit_code": 0,
+        "seconds": 0.265
+      },
+      {
+        "name": "week_06_restart_read",
+        "exit_code": 0,
+        "seconds": 0.266
+      },
+      {
+        "name": "week_07_tests",
+        "exit_code": 0,
+        "seconds": 6.972
+      },
+      {
+        "name": "week_07_restart_write",
+        "exit_code": 0,
+        "seconds": 0.26
+      },
+      {
+        "name": "week_07_restart_read",
+        "exit_code": 0,
+        "seconds": 0.258
+      },
+      {
+        "name": "week_02_risk_metrics",
+        "exit_code": 0,
+        "seconds": 0.661
+      },
+      {
+        "name": "negative_control",
+        "exit_code": 1,
+        "seconds": 1.089
+      }
+    ]
+  },
+  "passed": true
+}

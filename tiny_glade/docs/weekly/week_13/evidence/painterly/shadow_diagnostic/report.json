@@ -1,0 +1,12 @@
+{
+	"passed": true,
+	"shadow_difference": 0.0311004012183827,
+	"wall_high_frequency_residuals": {
+		"default_stable": 0.0200151264768639,
+		"increased_shadow_bias": 0.013079726553729,
+		"no_sun_shadows": 0.0112161670750327,
+		"no_taa": 0.0396798202751505,
+		"no_taa_no_ssao": 0.0394583125391768,
+		"taa_no_ssao": 0.0195233123092395
+	}
+}

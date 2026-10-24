@@ -1,0 +1,34 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/perf_01/test_performance_samples.gd
+* test_nearest_rank_p95_does_not_mislabel_the_maximum_of_twenty_edits
+* test_percentile_empty_singleton_and_small_samples_are_defined
+* test_percentile_unsorted_hundred_samples_preserves_input_order
+3/3 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               1
+Tests                 3
+Passing Tests         3
+Asserts               8
+Time              0.461s
+
+
+Ran Scripts matching "test_performance_samples.gd"
+---- All tests passed! ----
+
+Results saved to reports/perf_stats.xml

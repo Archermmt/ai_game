@@ -1,0 +1,383 @@
+{
+  "blender": "5.1.2",
+  "passed": true,
+  "new_model_families": 0,
+  "models": [
+    {
+      "asset_id": "BLD-05",
+      "source": "art_source/week_01/door_plank.blend",
+      "triangles": 768,
+      "budget": 2000,
+      "negative_scales": 0,
+      "invalid_normals": 0,
+      "invalid_uv": 0,
+      "lowest_local_m": 0.0,
+      "authoring_origin": "scene world origin (meter units)",
+      "material_slots": [
+        "metal",
+        "wood"
+      ],
+      "export_hash_matches_ledger": true
+    },
+    {
+      "asset_id": "BLD-06",
+      "source": "art_source/week_01/door_arch.blend",
+      "triangles": 2352,
+      "budget": 2500,
+      "negative_scales": 0,
+      "invalid_normals": 0,
+      "invalid_uv": 0,
+      "lowest_local_m": 0.0,
+      "authoring_origin": "scene world origin (meter units)",
+      "material_slots": [
+        "metal",
+        "wood"
+      ],
+      "export_hash_matches_ledger": true
+    },
+    {
+      "asset_id": "BLD-07",
+      "source": "art_source/week_01/door_glass.blend",
+      "triangles": 996,
+      "budget": 2500,
+      "negative_scales": 0,
+      "invalid_normals": 0,
+      "invalid_uv": 0,
+      "lowest_local_m": 0.0,
+      "authoring_origin": "scene world origin (meter units)",
+      "material_slots": [
+        "glass",
+        "metal",
+        "wood"
+      ],
+      "export_hash_matches_ledger": true
+    },
+    {
+      "asset_id": "BLD-08",
+      "source": "art_source/week_02/window_rect.blend",
+      "triangles": 672,
+      "budget": 1800,
+      "negative_scales": 0,
+      "invalid_normals": 0,
+      "invalid_uv": 0,
+      "lowest_local_m": -0.07,
+      "authoring_origin": "scene world origin (meter units)",
+      "material_slots": [
+        "glass",
+        "metal",
+        "wood"
+      ],
+      "export_hash_matches_ledger": true
+    },
+    {
+      "asset_id": "BLD-09",
+      "source": "art_source/week_07/window_round.blend",
+      "triangles": 1360,
+      "budget": 1600,
+      "negative_scales": 0,
+      "invalid_normals": 0,
+      "invalid_uv": 0,
+      "lowest_local_m": -0.06,
+      "authoring_origin": "scene world origin (meter units)",
+      "material_slots": [
+        "glass",
+        "metal",
+        "wood"
+      ],
+      "export_hash_matches_ledger": true
+    },
+    {
+      "asset_id": "NAT-01",
+      "source": "art_source/week_03/tree_broadleaf.blend",
+      "triangles": 1484,
+      "budget": 4000,
+      "negative_scales": 0,
+      "invalid_normals": 0,
+      "invalid_uv": 0,
+      "lowest_local_m": 0.0,
+      "authoring_origin": "scene world origin (meter units)",
+      "material_slots": [
+        "shared_vegetation_atlas"
+      ],
+      "export_hash_matches_ledger": true
+    },
+    {
+      "asset_id": "NAT-01-LOD1",
+      "source": "art_source/week_03/tree_broadleaf_lod1.blend",
+      "triangles": 404,
+      "budget": 4000,
+      "negative_scales": 0,
+      "invalid_normals": 0,
+      "invalid_uv": 0,
+      "lowest_local_m": 0.0,
+      "authoring_origin": "scene world origin (meter units)",
+      "material_slots": [
+        "shared_vegetation_atlas"
+      ],
+      "export_hash_matches_ledger": true
+    },
+    {
+      "asset_id": "NAT-02",
+      "source": "art_source/week_03/tree_conifer.blend",
+      "triangles": 384,
+      "budget": 3500,
+      "negative_scales": 0,
+      "invalid_normals": 0,
+      "invalid_uv": 0,
+      "lowest_local_m": 0.0,
+      "authoring_origin": "scene world origin (meter units)",
+      "material_slots": [
+        "shared_vegetation_atlas"
+      ],
+      "export_hash_matches_ledger": true
+    },
+    {
+      "asset_id": "NAT-02-LOD1",
+      "source": "art_source/week_03/tree_conifer_lod1.blend",
+      "triangles": 224,
+      "budget": 3500,
+      "negative_scales": 0,
+      "invalid_normals": 0,
+      "invalid_uv": 0,
+      "lowest_local_m": 0.0,
+      "authoring_origin": "scene world origin (meter units)",
+      "material_slots": [
+        "shared_vegetation_atlas"
+      ],
+      "export_hash_matches_ledger": true
+    },
+    {
+      "asset_id": "NAT-03",
+      "source": "art_source/week_03/tree_fruit.blend",
+      "triangles": 1724,
+      "budget": 4000,
+      "negative_scales": 0,
+      "invalid_normals": 0,
+      "invalid_uv": 0,
+      "lowest_local_m": 0.0,
+      "authoring_origin": "scene world origin (meter units)",
+      "material_slots": [
+        "shared_vegetation_atlas"
+      ],
+      "export_hash_matches_ledger": true
+    },
+    {
+      "asset_id": "NAT-03-LOD1",
+      "source": "art_source/week_03/tree_fruit_lod1.blend",
+      "triangles": 644,
+      "budget": 4000,
+      "negative_scales": 0,
+      "invalid_normals": 0,
+      "invalid_uv": 0,
+      "lowest_local_m": 0.0,
+      "authoring_origin": "scene world origin (meter units)",
+      "material_slots": [
+        "shared_vegetation_atlas"
+      ],
+      "export_hash_matches_ledger": true
+    },
+    {
+      "asset_id": "NAT-04",
+      "source": "art_source/week_04/fern.blend",
+      "triangles": 224,
+      "budget": 500,
+      "negative_scales": 0,
+      "invalid_normals": 0,
+      "invalid_uv": 0,
+      "lowest_local_m": 0.0,
+      "authoring_origin": "scene world origin (meter units)",
+      "material_slots": [
+        "foliage"
+      ],
+      "export_hash_matches_ledger": true
+    },
+    {
+      "asset_id": "NAT-05",
+      "source": "art_source/week_04/wildflower.blend",
+      "triangles": 448,
+      "budget": 450,
+      "negative_scales": 0,
+      "invalid_normals": 0,
+      "invalid_uv": 0,
+      "lowest_local_m": 0.0,
+      "authoring_origin": "scene world origin (meter units)",
+      "material_slots": [
+        "foliage"
+      ],
+      "export_hash_matches_ledger": true
+    },
+    {
+      "asset_id": "NAT-06",
+      "source": "art_source/week_04/shrub.blend",
+      "triangles": 400,
+      "budget": 500,
+      "negative_scales": 0,
+      "invalid_normals": 0,
+      "invalid_uv": 0,
+      "lowest_local_m": -0.07,
+      "authoring_origin": "scene world origin (meter units)",
+      "material_slots": [],
+      "export_hash_matches_ledger": true
+    },
+    {
+      "asset_id": "NAT-08",
+      "source": "art_source/week_04/moss_rock.blend",
+      "triangles": 100,
+      "budget": 1000,
+      "negative_scales": 0,
+      "invalid_normals": 0,
+      "invalid_uv": 0,
+      "lowest_local_m": 0.0,
+      "authoring_origin": "scene world origin (meter units)",
+      "material_slots": [],
+      "export_hash_matches_ledger": true
+    },
+    {
+      "asset_id": "NAT-09",
+      "source": "art_source/week_04/flat_rock.blend",
+      "triangles": 100,
+      "budget": 800,
+      "negative_scales": 0,
+      "invalid_normals": 0,
+      "invalid_uv": 0,
+      "lowest_local_m": 0.0,
+      "authoring_origin": "scene world origin (meter units)",
+      "material_slots": [],
+      "export_hash_matches_ledger": true
+    },
+    {
+      "asset_id": "PROP-01",
+      "source": "art_source/week_04/bench.blend",
+      "triangles": 1188,
+      "budget": 1800,
+      "negative_scales": 0,
+      "invalid_normals": 0,
+      "invalid_uv": 0,
+      "lowest_local_m": 0.0,
+      "authoring_origin": "scene world origin (meter units)",
+      "material_slots": [
+        "wood"
+      ],
+      "export_hash_matches_ledger": true
+    },
+    {
+      "asset_id": "PROP-02",
+      "source": "art_source/week_04/mailbox.blend",
+      "triangles": 648,
+      "budget": 1500,
+      "negative_scales": 0,
+      "invalid_normals": 0,
+      "invalid_uv": 0,
+      "lowest_local_m": 0.0,
+      "authoring_origin": "scene world origin (meter units)",
+      "material_slots": [
+        "metal",
+        "tile",
+        "wood"
+      ],
+      "export_hash_matches_ledger": true
+    },
+    {
+      "asset_id": "PROP-03",
+      "source": "art_source/week_05/pot.blend",
+      "triangles": 506,
+      "budget": 1800,
+      "negative_scales": 0,
+      "invalid_normals": 0,
+      "invalid_uv": 0,
+      "lowest_local_m": 0.0,
+      "authoring_origin": "scene world origin (meter units)",
+      "material_slots": [
+        "foliage",
+        "metal",
+        "tile"
+      ],
+      "export_hash_matches_ledger": true
+    },
+    {
+      "asset_id": "PROP-04",
+      "source": "art_source/week_05/clothesline.blend",
+      "triangles": 1388,
+      "budget": 2500,
+      "negative_scales": 0,
+      "invalid_normals": 0,
+      "invalid_uv": 0,
+      "lowest_local_m": 0.0,
+      "authoring_origin": "scene world origin (meter units)",
+      "material_slots": [
+        "cloth",
+        "wood"
+      ],
+      "export_hash_matches_ledger": true
+    },
+    {
+      "asset_id": "PROP-05",
+      "source": "art_source/week_05/crate.blend",
+      "triangles": 336,
+      "budget": 1200,
+      "negative_scales": 0,
+      "invalid_normals": 0,
+      "invalid_uv": 0,
+      "lowest_local_m": 0.0,
+      "authoring_origin": "scene world origin (meter units)",
+      "material_slots": [
+        "wood"
+      ],
+      "export_hash_matches_ledger": true
+    },
+    {
+      "asset_id": "PROP-06",
+      "source": "art_source/week_05/watering_can.blend",
+      "triangles": 696,
+      "budget": 1800,
+      "negative_scales": 0,
+      "invalid_normals": 0,
+      "invalid_uv": 0,
+      "lowest_local_m": -0.0397,
+      "authoring_origin": "scene world origin (meter units)",
+      "material_slots": [
+        "metal"
+      ],
+      "export_hash_matches_ledger": true
+    },
+    {
+      "asset_id": "PROP-07",
+      "source": "art_source/week_06/tea_set.blend",
+      "triangles": 1908,
+      "budget": 2600,
+      "negative_scales": 0,
+      "invalid_normals": 0,
+      "invalid_uv": 0,
+      "lowest_local_m": 0.0,
+      "authoring_origin": "scene world origin (meter units)",
+      "material_slots": [
+        "tile",
+        "wood"
+      ],
+      "export_hash_matches_ledger": true
+    },
+    {
+      "asset_id": "PROP-08",
+      "source": "art_source/week_06/lantern.blend",
+      "triangles": 1028,
+      "budget": 2000,
+      "negative_scales": 0,
+      "invalid_normals": 0,
+      "invalid_uv": 0,
+      "lowest_local_m": 0.0,
+      "authoring_origin": "scene world origin (meter units)",
+      "material_slots": [
+        "glass",
+        "metal"
+      ],
+      "export_hash_matches_ledger": true
+    }
+  ],
+  "scope": "Active W07 ledger reused in W08, including three tree LOD1s; origins and sockets remain source contracts.",
+  "atlas": {
+    "transparent_pixels": 1805283,
+    "rgb_padded_pixels": 1805283,
+    "white_transparent_pixels": 0
+  },
+  "lod_review": "LOD0/LOD1 keep the same atlas and palette; runtime near/far captures accompany this audit."
+}

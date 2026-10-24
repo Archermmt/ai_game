@@ -1,0 +1,45 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M4 Pro (Apple9)
+
+2026-10-21 07:54:49.554 Godot[77387:13854225] +[IMKClient subclass]: chose IMKClient_Modern
+---  GUT  ---
+[1m[INFO]:  [0musing [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+[4m
+
+res://tests/art_pass_01/test_art_catalog.gd
+[0m* test_p0_nature_ids_are_supported_and_unknown_assets_are_not
+* test_hedge_reuses_three_shrubs_with_independent_source_identity
+* test_all_imported_models_have_complete_finite_mesh_uv_and_wind_arrays
+* test_tree_roots_are_fixed_and_both_lods_have_moving_canopies
+* test_tree_lods_cover_the_37_meter_boundary_without_a_gap
+* test_configured_models_share_one_atlas_and_one_material_per_instance
+* test_descriptors_keep_complete_meshes_and_convert_wind_to_batched_materials
+* test_batches_keep_source_poses_ids_phase_and_enclose_transformed_meshes
+ART_BATCHES_RENDERER macOS GPU_READBACK true
+* test_catalog_and_material_factory_are_deterministic_and_keep_source_files
+* test_forest_curtain_is_derived_deterministic_geometry_without_source_edits
+* test_pond_bank_is_deterministic_and_empty_pool_has_no_derived_objects
+[1m11/11 passed.
+[0m2026-10-21 07:54:57.813 Godot[77387:13854225] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+
+
+
+
+[33m==============================================
+[0m[33m= Run Summary
+[0m[33m==============================================
+[0m
+Totals
+------
+Scripts               1
+Tests                11
+Passing Tests        11
+Asserts            1520
+Time              8.349s
+
+
+[32m---- All tests passed! ----
+[0m
+Results saved to reports/art_pass_01/native/catalog_native.xml

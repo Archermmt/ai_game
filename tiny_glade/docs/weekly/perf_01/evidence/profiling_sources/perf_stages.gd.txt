@@ -1,0 +1,34 @@
+extends SceneTree
+
+func _initialize() -> void:
+	var source: Dictionary = StressLayout.create()
+	var cache: Dictionary = {}
+	LocalRebuild.evaluate(source, cache)
+	var rows: Array = []
+	for index: int in range(20):
+		var start: int = Time.get_ticks_usec()
+		var next: Dictionary = TerrainField.brush(source, Vector2(12, 8), 0.02, 2.0)
+		var row: Dictionary = {"edit": index, "brush": elapsed(start)}
+		start = Time.get_ticks_usec()
+		next = VegetationBrush.reconcile(next)
+		row["vegetation"] = elapsed(start)
+		start = Time.get_ticks_usec()
+		next = DoorRules.reconcile(next)["snapshot"]
+		row["doors"] = elapsed(start)
+		start = Time.get_ticks_usec()
+		var error: String = WorldDocument.validate(next)
+		row["validate"] = elapsed(start)
+		start = Time.get_ticks_usec()
+		GardenStructures.transition_error(source, next)
+		row["transition"] = elapsed(start)
+		start = Time.get_ticks_usec()
+		LocalRebuild.evaluate(next, cache)
+		row["worker"] = elapsed(start)
+		row["error"] = error
+		rows.append(row)
+		source = next
+	print(JSON.stringify(rows))
+	quit()
+
+func elapsed(start: int) -> float:
+	return (Time.get_ticks_usec() - start) / 1000.0

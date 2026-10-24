@@ -1,0 +1,15 @@
+{
+  "asset_id": "UI-06",
+  "source": "SCN-01 recommended_day native Godot render",
+  "export": "assets/ui/template_forest.png",
+  "resolution": [
+    512,
+    288
+  ],
+  "sha256": "1b0ba5ab2b88e8ae6dadd67753b68081b916890da2d3a1395c8f62d9be903f9e",
+  "renderer": "Godot 4.7.2 Forward+ Metal",
+  "scene": "app/week_nine_root.tscn",
+  "capture_command": "--qa-settings --w09-photo-probe",
+  "generated_bitmap": false,
+  "user_thumbnail_overrides": true
+}

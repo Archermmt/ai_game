@@ -1,0 +1,21 @@
+{
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 800,
+        "nb_frames": "420"
+      }
+    ],
+    "format": {
+      "duration": "14.000000"
+    }
+  },
+  "sha256": "e1c1195e6a2c871bde2c25ad297242a0e0b352e6ac0de4d2e72c0e90a18e90df",
+  "bytes": 12505228,
+  "rotation_degrees": 360.96,
+  "production_unchanged": true
+}

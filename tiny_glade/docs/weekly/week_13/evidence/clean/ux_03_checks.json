@@ -1,0 +1,25 @@
+{
+  "godot_tests": 609,
+  "new_godot_tests": 30,
+  "new_assertions": 380,
+  "python_tests": 6,
+  "failures": 0,
+  "skipped": 0,
+  "negative_control": true,
+  "steps": [
+    {
+      "name": "ux03_cumulative",
+      "exit_code": 0,
+      "seconds": 171.488
+    },
+    {
+      "name": "ux03_tests",
+      "exit_code": 0,
+      "seconds": 21.724
+    }
+  ],
+  "actual_first_players": 0,
+  "functional_gate_passed": true,
+  "m4_approved": false,
+  "m5_approved": false
+}

@@ -1,0 +1,43 @@
+{
+  "asset_id": "NAT-02",
+  "source": "art_source/art_pass_01/nature/tree_conifer.blend",
+  "export": "assets/nature/art_pass_01/tree_conifer.glb",
+  "blender": "5.1.2",
+  "generator_version": "art_foliage_01.4",
+  "units": "meters",
+  "up_axis": "gltf_y_up",
+  "triangles": 3412,
+  "budget": 3500,
+  "mesh_objects": 3,
+  "sockets": [
+    "socket_ground"
+  ],
+  "bounds_source_z_up": {
+    "min": [
+      -1.529828,
+      -1.640077,
+      -0.009285
+    ],
+    "max": [
+      1.69434,
+      1.670921,
+      5.70022
+    ]
+  },
+  "roles": [
+    "bark_pine_trunk",
+    "foliage_full_pine_branch_pads",
+    "foliage_drooping_pine_sprays"
+  ],
+  "source_license": "Project original; reproducible geometry and painted atlas recipe, no downloaded content",
+  "wind_channels": {
+    "R": "root-pinned bend weight",
+    "G": "stable local flutter phase",
+    "B": "fruit marker (1 only fruit)",
+    "A": "1; texture supplies coverage"
+  },
+  "texture": "assets/nature/art_pass_01/painted_forest_atlas.png",
+  "lod": 0,
+  "lod1": "assets/nature/art_pass_01/tree_conifer_lod1.glb",
+  "lod1_triangles": 1576
+}

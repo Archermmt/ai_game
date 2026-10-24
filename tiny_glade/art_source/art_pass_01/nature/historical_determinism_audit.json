@@ -1,0 +1,20 @@
+{
+  "same_glb_exports": true,
+  "count": 11,
+  "sha256": {
+    "fern.glb": "5088697fe242bb4c5e8eb377bdf9701c7ec3bb7753154275122069812c8c4775",
+    "flat_rock.glb": "bad1a0406abf711de94cca1f3b7dbc851bd0db5fb986d89dcae09db71434a929",
+    "moss_rock.glb": "4c76be9ffb2213035c1fab15b637c55236ce507abd55ba9de6169bcd3a8501c2",
+    "shrub.glb": "7888907ed3eacef642ebbc993839cc49e48872d7db28df3d3759358c1234987e",
+    "tree_broadleaf.glb": "2b21c458612ce3dcc61b5a88d82a142dbb32b30cac4993f2e5c67b28b7790f71",
+    "tree_broadleaf_lod1.glb": "5a02ff4227c6c84c72c8e060e8ba3d20900fe176cba23184f0aa0ca28dc57426",
+    "tree_conifer.glb": "604f0a518bcbcc08e52eceb5f73e6aadb0c9189f659ef45b731595ac9a0a51b1",
+    "tree_conifer_lod1.glb": "563799ccff31ca755598d3214b1e96fc83f51a1db73e46bbc9c62caa8b8028e3",
+    "tree_fruit.glb": "5bca837ea87738bbd60e2f3c522c00bbcbf48df274ed28f493e282637426c298",
+    "tree_fruit_lod1.glb": "c4be7bf12fa3b954af6a4347c8c2aa2f4c22771328f3fdca88ccdeb24c8205b3",
+    "wildflower.glb": "41dd1b25a21f34791c207be6de9ea06be1155797b86db30d44f87cc1937a8b06"
+  },
+  "status": "historical_pre_painterly_refresh",
+  "generator_version": "art_foliage_01.3",
+  "claim_scope": "Historical evidence for art_foliage_01.3 only; not verification of art_foliage_01.4."
+}

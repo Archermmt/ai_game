@@ -1,0 +1,471 @@
+{
+  "format_version": 1,
+  "godot": {
+    "version": "4.7.2",
+    "channel": "stable",
+    "edition": "Standard",
+    "source": "https://github.com/godotengine/godot/releases/tag/4.7.2-stable",
+    "export_template_version": "4.7.2.stable",
+    "selected_runtime_files": [
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/Assets.car",
+        "sha256": "1b1680d78cb89a54b4e8bbfe72f6778d0ed6c9303dbaeae6d6fcfa7459ccff99",
+        "bytes": 399448
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/GDScript.icns",
+        "sha256": "117f1c15a41c2c67dbbdcf19b71795580efcf3bcca67491e299779fd65989e7c",
+        "bytes": 221530
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/Project.icns",
+        "sha256": "7af28a6f1769defe9404994af5962f9063215585f1c31e0e03332552812884f0",
+        "bytes": 239833
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/Resource.icns",
+        "sha256": "653f73eb9436a2fa7334b8a53356b3e8fd0f6c8fec151ed1969647b10b7c879a",
+        "bytes": 209020
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/GodotLG.icns",
+        "sha256": "d77068bc7cd23397883412b6083092889b207ea1cf403697853a1c5d0ea96fd5",
+        "bytes": 879269
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/Scene.icns",
+        "sha256": "c64560ceed0010692ccf262b5a092a290386447abdf7bef82af02935f4af75e8",
+        "bytes": 186863
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/Shader.icns",
+        "sha256": "2a6963d8f8259779610d459dd4d335a1f6b8a339e13dcb74a028811b60ac01ef",
+        "bytes": 198068
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/ar.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/ms.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/is.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/eu.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/fr.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/ur_PK.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/sl.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/mr.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/or.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/et.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/bg.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/th.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/uk.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/lt.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/gl.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/el.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/tzm.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/es_AR.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/zh_CN.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/mk.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/hr.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/es.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/fa.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/ta.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/pl.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/km.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/mi.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/da.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/zh_TW.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/sv.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/tr.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/ka.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/fil.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/cs.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/en.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/sk.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/ml.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/hu.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/ja.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/az.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/sr-Cyrl.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/nb.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/it.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/ko.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/br.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/tt.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/ru.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/sq.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/hi.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/eo.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/af.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/bn.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/ro.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/lv.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/he.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/id.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/zh_HK.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/sr-Latn.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/nl.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/pt_BR.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/fi.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/ca.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/te.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/pt.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/si.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/ga.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/de.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Resources/vi.lproj/InfoPlist.strings",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/PkgInfo",
+        "sha256": "7e50a30efad50208a173203ced60818d693bb61266b75aa10927d1a2adce80cb",
+        "bytes": 9
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/Info.plist",
+        "sha256": "1e345d4fcac1d46a1d04339d03a44e42a6644e9c8b9807ee5524f5d55b28942d",
+        "bytes": 5463
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/MacOS/Godot",
+        "sha256": "c7cccbf8fb143e34e02fd6521e09be2c2b974f0d5db080b19071c9c570718ccf",
+        "bytes": 351312912
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/_CodeSignature/CodeResources",
+        "sha256": "5549b72ce8612b978550b5f764641c3db3a58167289a5731695f4b6a7a78ee79",
+        "bytes": 28836
+      },
+      {
+        "path": ".tools/godot/Godot.app/Contents/CodeResources",
+        "sha256": "9c6ef64180730e1fe0ac8305778c3af0e634b2d82a26b6392f0ffc11ff1bb1bd",
+        "bytes": 1674
+      },
+      {
+        "path": ".tools/export_templates/macos.zip",
+        "sha256": "88df5e2e6fee99088699be66e6d42e4da4fb0c5619d054297d755a49558a4792",
+        "bytes": 123597580
+      },
+      {
+        "path": ".tools/export_templates/version.txt",
+        "sha256": "38885c88f75abbc797a1db7559719800279a00cfb9fa8b2e2868a7f6f84bad2e",
+        "bytes": 13
+      },
+      {
+        "path": ".tools/export_templates/windows_debug_x86_64.exe",
+        "sha256": "51498b72b3a237f882ebd7d1787f06a4bc1eaf0572daab93837adcfd3cfdc107",
+        "bytes": 103176704
+      },
+      {
+        "path": ".tools/export_templates/windows_release_x86_64.exe",
+        "sha256": "d34d36f3be1a6c49c56525ae86469b92e4f417ddf0b43cf00dd80c385c4b0562",
+        "bytes": 109268480
+      }
+    ]
+  },
+  "blender": {
+    "version": "5.1.2",
+    "exporter": "bundled io_scene_gltf2",
+    "authoring_script": "tools/art/build_week_one_assets.py",
+    "additional_authoring_script": "tools/art/build_week_two_assets.py",
+    "week_three_authoring_script": "tools/art/build_week_three_assets.py",
+    "week_four_authoring_script": "tools/art/build_week_four_assets.py",
+    "week_five_authoring_script": "tools/art/build_week_five_assets.py",
+    "week_six_authoring_script": "tools/art/build_week_six_assets.py",
+    "week_seven_authoring_script": "tools/art/build_week_seven_assets.py"
+  },
+  "gut": {
+    "version": "9.7.1",
+    "tag": "v9.7.1",
+    "commit": "aeb5d4f3f7f0a6c9b5e178876d6c99b791fda605",
+    "license": "MIT",
+    "source": "https://github.com/bitwes/Gut",
+    "vendored_path": "addons/gut"
+  },
+  "gdtoolkit": {
+    "version": "4.5.0",
+    "license": "MIT",
+    "note": "4.5.1 unavailable on PyPI; validated with locked engine"
+  },
+  "three_js": {
+    "enabled": false,
+    "reason": "Blender primary source pipeline is sufficient for Week 1"
+  },
+  "plugins": {
+    "terrain3d": "not adopted",
+    "proton_scatter": "not adopted",
+    "blender_mcp": "not required"
+  },
+  "asset_contract": "w07.1",
+  "save_schema_version": 1,
+  "media_authoring_script": "tools/art/build_week_six_media.py",
+  "save_payload_codec": "exact-floats-v1 + optional integer_paths; legacy WGLADE01 supported",
+  "week_seven_ui_authoring_script": "tools/art/build_week_seven_ui.py",
+  "save_container_version": 2
+}

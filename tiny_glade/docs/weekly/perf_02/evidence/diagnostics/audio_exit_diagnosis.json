@@ -1,0 +1,36 @@
+{
+  "conclusion": "Short and 60-second diagnostic samples did not reproduce the historical 8-object leak; neither stop order nor production audio code was changed. Previous native failures remain unresolved and must be retained.",
+  "diagnostic_only": true,
+  "performance_evidence": false,
+  "runs": [
+    {
+      "name": "audio_exit_short_1",
+      "probe_edits": 20,
+      "before_living_pairs": 4,
+      "after_living_resources": 0,
+      "mix_stamp_advanced_seconds": 0.28950099999999956,
+      "shutdown_snapshot_interval_seconds": 0.3077099999999997
+    },
+    {
+      "name": "audio_exit_short_2",
+      "probe_edits": 20,
+      "before_living_pairs": 4,
+      "after_living_resources": 0,
+      "mix_stamp_advanced_seconds": 0.2891149999999998,
+      "shutdown_snapshot_interval_seconds": 0.310225
+    },
+    {
+      "name": "audio_exit_demo60",
+      "probe_edits": 20,
+      "before_living_pairs": 4,
+      "after_living_resources": 0,
+      "mix_stamp_advanced_seconds": 0.2939529999999948,
+      "shutdown_snapshot_interval_seconds": 0.2873270000000048
+    }
+  ],
+  "official_sources": [
+    "https://raw.githubusercontent.com/godotengine/godot/4.7.2-stable/scene/audio/audio_stream_player_internal.cpp",
+    "https://raw.githubusercontent.com/godotengine/godot/4.7.2-stable/servers/audio/audio_server.cpp"
+  ],
+  "source_review": "stop_basic requests mixer deletion and clears player playback references; set_stream also stops. Actual AudioServer mix is required to release the list references. Retaining the stream or unpausing first did not change the short comparison results."
+}

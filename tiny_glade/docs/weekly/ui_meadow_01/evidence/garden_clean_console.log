@@ -1,0 +1,6 @@
+PASS garden_cumulative (121.91s)
+PASS garden_tests (22.02s)
+PASS garden_restart_write (0.37s)
+PASS garden_restart_read (0.37s)
+GARDEN PASS: 544 tests; visual/performance results recorded separately
+CLEAN CHECKOUT PASS e7142fd

@@ -1,0 +1,44 @@
+{
+  "asset_id": "NAT-03",
+  "source": "art_source/art_pass_01/nature/tree_fruit.blend",
+  "export": "assets/nature/art_pass_01/tree_fruit.glb",
+  "blender": "5.1.2",
+  "generator_version": "art_foliage_01.4",
+  "units": "meters",
+  "up_axis": "gltf_y_up",
+  "triangles": 2902,
+  "budget": 4000,
+  "mesh_objects": 4,
+  "sockets": [
+    "socket_ground"
+  ],
+  "bounds_source_z_up": {
+    "min": [
+      -1.493578,
+      -1.436529,
+      -0.043749
+    ],
+    "max": [
+      1.771365,
+      1.679345,
+      4.192764
+    ]
+  },
+  "roles": [
+    "bark_branching_trunk",
+    "foliage_painted_crown",
+    "foliage_leaf_sprays",
+    "fruit_warm_accents"
+  ],
+  "source_license": "Project original; reproducible geometry and painted atlas recipe, no downloaded content",
+  "wind_channels": {
+    "R": "root-pinned bend weight",
+    "G": "stable local flutter phase",
+    "B": "fruit marker (1 only fruit)",
+    "A": "1; texture supplies coverage"
+  },
+  "texture": "assets/nature/art_pass_01/painted_forest_atlas.png",
+  "lod": 0,
+  "lod1": "assets/nature/art_pass_01/tree_fruit_lod1.glb",
+  "lod1_triangles": 1472
+}

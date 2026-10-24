@@ -1,0 +1,262 @@
+{
+  "device": "Apple M4 Pro, 20-core GPU, 48GB RAM, macOS arm64",
+  "renderer": "Forward+ / Metal 3.2",
+  "benchmark_resolution": [
+    1920,
+    1080
+  ],
+  "scope": "W03 two houses, nine trees, single circular pond; not minimum-spec or MVP stress gate",
+  "gpu_api_note": "RenderingServer GPU queries returned no positive values on this Metal run; null is unavailable, not zero GPU cost. V-sync remains enabled; frame time is not isolated GPU timing.",
+  "water_ab_limitation": "Transparent water versus hidden water. GPU times include whole viewport and visibility changes, so this is incremental pond rendering cost, not isolated transparency-pass time.",
+  "steps": [
+    {
+      "name": "w03_render_day",
+      "exit_code": 0,
+      "seconds": 2.448
+    },
+    {
+      "name": "w03_render_dusk",
+      "exit_code": 0,
+      "seconds": 2.419
+    },
+    {
+      "name": "w03_render_angle_45",
+      "exit_code": 0,
+      "seconds": 2.53
+    },
+    {
+      "name": "w03_render_angle_135",
+      "exit_code": 0,
+      "seconds": 2.511
+    },
+    {
+      "name": "w03_render_angle_225",
+      "exit_code": 0,
+      "seconds": 2.522
+    },
+    {
+      "name": "w03_render_angle_315",
+      "exit_code": 0,
+      "seconds": 2.482
+    },
+    {
+      "name": "w03_render_lod1",
+      "exit_code": 0,
+      "seconds": 2.516
+    },
+    {
+      "name": "w03_render_parameters",
+      "exit_code": 0,
+      "seconds": 2.344
+    },
+    {
+      "name": "w03_water_highlights",
+      "exit_code": 0,
+      "seconds": 0.164
+    },
+    {
+      "name": "w03_wind_on0",
+      "exit_code": 0,
+      "seconds": 2.54
+    },
+    {
+      "name": "w03_wind_on1",
+      "exit_code": 0,
+      "seconds": 2.521
+    },
+    {
+      "name": "w03_wind_zero0",
+      "exit_code": 0,
+      "seconds": 2.512
+    },
+    {
+      "name": "w03_wind_zero1",
+      "exit_code": 0,
+      "seconds": 2.508
+    },
+    {
+      "name": "w03_wind_still0",
+      "exit_code": 0,
+      "seconds": 2.502
+    },
+    {
+      "name": "w03_wind_still1",
+      "exit_code": 0,
+      "seconds": 2.519
+    },
+    {
+      "name": "w03_wind_pixels",
+      "exit_code": 0,
+      "seconds": 0.368
+    },
+    {
+      "name": "w03_water_0",
+      "exit_code": 0,
+      "seconds": 12.922
+    },
+    {
+      "name": "w03_water_1",
+      "exit_code": 0,
+      "seconds": 12.937
+    },
+    {
+      "name": "w03_water_2",
+      "exit_code": 0,
+      "seconds": 12.974
+    },
+    {
+      "name": "w03_water_3",
+      "exit_code": 0,
+      "seconds": 12.968
+    }
+  ],
+  "water_benchmarks": [
+    {
+      "mode": "transparent",
+      "report": "water_0_transparent.json",
+      "result": {
+        "buildings": 2,
+        "edit_metrics": {
+          "gpu_mean_ms": null,
+          "gpu_p95_ms": null,
+          "gpu_samples": 0,
+          "main_apply_max_ms": 0.0,
+          "main_apply_p95_ms": 0.0,
+          "main_apply_samples": 0,
+          "probe_edits": 0
+        },
+        "engine": "4.7.2-stable (official)",
+        "frames": 1200,
+        "instances": 11,
+        "mean_frame_ms": 8.33650131313132,
+        "p95_frame_ms": 8.33333333333333,
+        "paths": 1,
+        "pond_present": true,
+        "renderer": "forward_plus",
+        "sample_duration_seconds": 10.0,
+        "terrain_samples": 305,
+        "test_framework_in_pack": true,
+        "test_sources_in_pack": true,
+        "viewport_size": [
+          1920,
+          1080
+        ],
+        "wind_materials": 338,
+        "gpu_timing_available": false
+      }
+    },
+    {
+      "mode": "hidden",
+      "report": "water_1_hidden.json",
+      "result": {
+        "buildings": 2,
+        "edit_metrics": {
+          "gpu_mean_ms": null,
+          "gpu_p95_ms": null,
+          "gpu_samples": 0,
+          "main_apply_max_ms": 0.0,
+          "main_apply_p95_ms": 0.0,
+          "main_apply_samples": 0,
+          "probe_edits": 0
+        },
+        "engine": "4.7.2-stable (official)",
+        "frames": 1201,
+        "instances": 11,
+        "mean_frame_ms": 8.33369941715238,
+        "p95_frame_ms": 8.33333333333333,
+        "paths": 1,
+        "pond_present": true,
+        "renderer": "forward_plus",
+        "sample_duration_seconds": 10.0,
+        "terrain_samples": 305,
+        "test_framework_in_pack": true,
+        "test_sources_in_pack": true,
+        "viewport_size": [
+          1920,
+          1080
+        ],
+        "wind_materials": 338,
+        "gpu_timing_available": false
+      }
+    },
+    {
+      "mode": "hidden",
+      "report": "water_2_hidden.json",
+      "result": {
+        "buildings": 2,
+        "edit_metrics": {
+          "gpu_mean_ms": null,
+          "gpu_p95_ms": null,
+          "gpu_samples": 0,
+          "main_apply_max_ms": 0.0,
+          "main_apply_p95_ms": 0.0,
+          "main_apply_samples": 0,
+          "probe_edits": 0
+        },
+        "engine": "4.7.2-stable (official)",
+        "frames": 1200,
+        "instances": 11,
+        "mean_frame_ms": 8.33323444444446,
+        "p95_frame_ms": 8.33333333333333,
+        "paths": 1,
+        "pond_present": true,
+        "renderer": "forward_plus",
+        "sample_duration_seconds": 10.0,
+        "terrain_samples": 305,
+        "test_framework_in_pack": true,
+        "test_sources_in_pack": true,
+        "viewport_size": [
+          1920,
+          1080
+        ],
+        "wind_materials": 338,
+        "gpu_timing_available": false
+      }
+    },
+    {
+      "mode": "transparent",
+      "report": "water_3_transparent.json",
+      "result": {
+        "buildings": 2,
+        "edit_metrics": {
+          "gpu_mean_ms": null,
+          "gpu_p95_ms": null,
+          "gpu_samples": 0,
+          "main_apply_max_ms": 0.0,
+          "main_apply_p95_ms": 0.0,
+          "main_apply_samples": 0,
+          "probe_edits": 0
+        },
+        "engine": "4.7.2-stable (official)",
+        "frames": 1201,
+        "instances": 11,
+        "mean_frame_ms": 8.33333333333334,
+        "p95_frame_ms": 8.33333333333333,
+        "paths": 1,
+        "pond_present": true,
+        "renderer": "forward_plus",
+        "sample_duration_seconds": 10.0,
+        "terrain_samples": 305,
+        "test_framework_in_pack": true,
+        "test_sources_in_pack": true,
+        "viewport_size": [
+          1920,
+          1080
+        ],
+        "wind_materials": 338,
+        "gpu_timing_available": false
+      }
+    }
+  ],
+  "water_highlights": {
+    "blown_highlight_samples": 0,
+    "passed": true,
+    "samples": 170
+  },
+  "wind": {
+    "on_different_bytes": 226971,
+    "passed": true,
+    "still_different_bytes": 0,
+    "zero_different_bytes": 0
+  }
+}

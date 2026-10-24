@@ -1,0 +1,155 @@
+[
+  {
+    "asset_id": "PROP-07",
+    "part": "tea_set",
+    "component": false,
+    "source": "art_source/week_06/tea_set.blend",
+    "export": "assets/week_06/tea_set.glb",
+    "units": "meters",
+    "blender": "5.1.2",
+    "up_axis": "gltf_y_up",
+    "triangles": 1908,
+    "budget": 2600,
+    "sockets": [
+      "socket_ground",
+      "socket_support_surface"
+    ],
+    "stage": "w06_source",
+    "source_license": "Project original; authored by Blender script",
+    "supersedes": "week_05"
+  },
+  {
+    "asset_id": "PROP-08",
+    "part": "lantern",
+    "component": false,
+    "source": "art_source/week_06/lantern.blend",
+    "export": "assets/week_06/lantern.glb",
+    "units": "meters",
+    "blender": "5.1.2",
+    "up_axis": "gltf_y_up",
+    "triangles": 1028,
+    "budget": 2000,
+    "sockets": [
+      "socket_ground",
+      "socket_light",
+      "socket_hang"
+    ],
+    "stage": "w06_source",
+    "source_license": "Project original; authored by Blender script",
+    "supersedes": "week_05"
+  },
+  {
+    "asset_id": "BLD-11",
+    "part": "wood_post",
+    "component": true,
+    "source": "art_source/week_06/wood_post.blend",
+    "export": "assets/week_06/wood_post.glb",
+    "units": "meters",
+    "blender": "5.1.2",
+    "up_axis": "gltf_y_up",
+    "triangles": 108,
+    "budget": 1200,
+    "sockets": [
+      "socket_start",
+      "socket_end",
+      "socket_ground"
+    ],
+    "stage": "w06_source",
+    "source_license": "Project original; authored by Blender script"
+  },
+  {
+    "asset_id": "BLD-11",
+    "part": "wood_rail",
+    "component": true,
+    "source": "art_source/week_06/wood_rail.blend",
+    "export": "assets/week_06/wood_rail.glb",
+    "units": "meters",
+    "blender": "5.1.2",
+    "up_axis": "gltf_y_up",
+    "triangles": 108,
+    "budget": 1200,
+    "sockets": [
+      "socket_start",
+      "socket_end",
+      "socket_ground"
+    ],
+    "stage": "w06_source",
+    "source_license": "Project original; authored by Blender script"
+  },
+  {
+    "asset_id": "BLD-11",
+    "part": "corner_post",
+    "component": true,
+    "source": "art_source/week_06/corner_post.blend",
+    "export": "assets/week_06/corner_post.glb",
+    "units": "meters",
+    "blender": "5.1.2",
+    "up_axis": "gltf_y_up",
+    "triangles": 108,
+    "budget": 1200,
+    "sockets": [
+      "socket_start",
+      "socket_end",
+      "socket_ground"
+    ],
+    "stage": "w06_source",
+    "source_license": "Project original; authored by Blender script"
+  },
+  {
+    "asset_id": "BLD-03",
+    "part": "foundation_piece",
+    "component": true,
+    "source": "art_source/week_06/foundation_piece.blend",
+    "export": "assets/week_06/foundation_piece.glb",
+    "units": "meters",
+    "blender": "5.1.2",
+    "up_axis": "gltf_y_up",
+    "triangles": 108,
+    "budget": 1200,
+    "sockets": [
+      "socket_start",
+      "socket_end",
+      "socket_ground"
+    ],
+    "stage": "w06_source",
+    "source_license": "Project original; authored by Blender script"
+  },
+  {
+    "asset_id": "BLD-19",
+    "part": "timber_trim",
+    "component": true,
+    "source": "art_source/week_06/timber_trim.blend",
+    "export": "assets/week_06/timber_trim.glb",
+    "units": "meters",
+    "blender": "5.1.2",
+    "up_axis": "gltf_y_up",
+    "triangles": 108,
+    "budget": 1200,
+    "sockets": [
+      "socket_start",
+      "socket_end",
+      "socket_ground"
+    ],
+    "stage": "w06_source",
+    "source_license": "Project original; authored by Blender script"
+  },
+  {
+    "asset_id": "BLD-10",
+    "part": "stone_tread",
+    "component": true,
+    "source": "art_source/week_06/stone_tread.blend",
+    "export": "assets/week_06/stone_tread.glb",
+    "units": "meters",
+    "blender": "5.1.2",
+    "up_axis": "gltf_y_up",
+    "triangles": 108,
+    "budget": 1200,
+    "sockets": [
+      "socket_start",
+      "socket_end",
+      "socket_ground"
+    ],
+    "stage": "w06_source",
+    "source_license": "Project original; authored by Blender script"
+  }
+]

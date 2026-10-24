@@ -1,0 +1,24 @@
+{
+	"checks": {
+		"escape_restores_editor": true,
+		"export_resumes_walk": false,
+		"first_person_photo_png": false,
+		"focus_loss_clears_movement": true,
+		"mouse_release_restores_cursor": true,
+		"natural_world_unfrozen": false,
+		"photo_button_real_click": true,
+		"real_w_key_moves_player": false,
+		"right_drag_looks_around": false,
+		"safe_eye_level_spawn": false,
+		"source_and_history_unchanged": true,
+		"toggle_restores_overview": true,
+		"trackpad_gesture_looks_around": false,
+		"typing_directory_does_not_walk": true,
+		"ui_marker_visible_in_game": true,
+		"walk_button_real_click": false
+	},
+	"observations": {
+		"walk_distance": 0.0
+	},
+	"passed": false
+}

@@ -1,0 +1,38 @@
+{
+  "godot_tests": 611,
+  "new_godot_tests": 2,
+  "python_tests": 23,
+  "new_python_tests": 17,
+  "failures": 0,
+  "skipped": 0,
+  "negative_control": true,
+  "asset_families": 47,
+  "asset_base_units": 79,
+  "ac_automated": 14,
+  "functional_gate_passed": true,
+  "m4_approved": false,
+  "m5_approved": false,
+  "actual_first_players": 0,
+  "steps": [
+    {
+      "name": "w12_cumulative",
+      "exit_code": 0,
+      "seconds": 190.246
+    },
+    {
+      "name": "w12_asset_inventory",
+      "exit_code": 0,
+      "seconds": 0.066
+    },
+    {
+      "name": "w12_delivery_tests",
+      "exit_code": 0,
+      "seconds": 0.088
+    },
+    {
+      "name": "w12_audio_shutdown",
+      "exit_code": 0,
+      "seconds": 1.152
+    }
+  ]
+}

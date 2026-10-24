@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="26" >
+  <testsuite name="tests/ux_02/test_direct_data.gd" tests="5" failures="0" skipped="0" time="0.001502" >
+      <testcase name="test_round_resize_keeps_diameter_linked_and_source_immutable" assertions="3" status="pass" classname="tests/ux_02/test_direct_data.gd" time="0.000786" >
+      </testcase>
+      <testcase name="test_dimension_limits_and_object_seed_are_preserved" assertions="3" status="pass" classname="tests/ux_02/test_direct_data.gd" time="0.000134" >
+      </testcase>
+      <testcase name="test_copy_uses_fresh_ids_seeds_and_removes_attachment_identity_collisions" assertions="5" status="pass" classname="tests/ux_02/test_direct_data.gd" time="0.000388" >
+      </testcase>
+      <testcase name="test_moving_support_rejects_instead_of_discarding_attached_content" assertions="3" status="pass" classname="tests/ux_02/test_direct_data.gd" time="0.000127" >
+      </testcase>
+      <testcase name="test_round_wall_target_uses_the_cylinder_instead_of_empty_box_corners" assertions="4" status="pass" classname="tests/ux_02/test_direct_data.gd" time="0.000067" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/ux_02/test_simple_scene.gd" tests="20" failures="0" skipped="0" time="22.415594" >
+      <testcase name="test_default_has_eleven_cards_without_modify_and_does_not_open_large_inspector" assertions="13" status="pass" classname="tests/ux_02/test_simple_scene.gd" time="1.704863" >
+      </testcase>
+      <testcase name="test_all_compact_groups_route_and_fit_at_150_percent" assertions="27" status="pass" classname="tests/ux_02/test_simple_scene.gd" time="0.982664" >
+      </testcase>
+      <testcase name="test_building_height_drag_commits_once_and_undo_redo_restore_source" assertions="24" status="pass" classname="tests/ux_02/test_simple_scene.gd" time="1.574213" >
+      </testcase>
+      <testcase name="test_direct_cancel_rejects_late_preview_and_leaves_history_empty" assertions="16" status="pass" classname="tests/ux_02/test_simple_scene.gd" time="0.975648" >
+      </testcase>
+      <testcase name="test_right_short_click_enters_edit_from_any_creation_tool" assertions="14" status="pass" classname="tests/ux_02/test_simple_scene.gd" time="0.902014" >
+      </testcase>
+      <testcase name="test_right_drag_away_and_back_never_selects_on_release" assertions="13" status="pass" classname="tests/ux_02/test_simple_scene.gd" time="0.903628" >
+      </testcase>
+      <testcase name="test_exact_inspector_is_explicit_and_photo_restores_selection_and_chrome" assertions="14" status="pass" classname="tests/ux_02/test_simple_scene.gd" time="0.647173" >
+      </testcase>
+      <testcase name="test_copy_house_is_preview_until_drop_and_can_be_cancelled" assertions="18" status="pass" classname="tests/ux_02/test_simple_scene.gd" time="0.977361" >
+      </testcase>
+      <testcase name="test_delete_building_is_targeted_reversible_and_cannot_bypass_pending_commit" assertions="17" status="pass" classname="tests/ux_02/test_simple_scene.gd" time="1.363169" >
+      </testcase>
+      <testcase name="test_opening_click_finds_target_without_selecting_a_house_first" assertions="16" status="pass" classname="tests/ux_02/test_simple_scene.gd" time="1.166963" >
+      </testcase>
+      <testcase name="test_failed_bridge_release_does_not_wait_for_a_second_confirmation" assertions="17" status="pass" classname="tests/ux_02/test_simple_scene.gd" time="0.974154" >
+      </testcase>
+      <testcase name="test_focus_loss_cancels_direct_drag_without_source_changes" assertions="15" status="pass" classname="tests/ux_02/test_simple_scene.gd" time="0.983675" >
+      </testcase>
+      <testcase name="test_valid_bridge_release_commits_and_undo_without_confirm_button" assertions="19" status="pass" classname="tests/ux_02/test_simple_scene.gd" time="1.535448" >
+      </testcase>
+      <testcase name="test_copy_house_drop_allocates_a_new_id_and_one_history_item" assertions="17" status="pass" classname="tests/ux_02/test_simple_scene.gd" time="1.16707" >
+      </testcase>
+      <testcase name="test_object_drag_rotation_and_copy_preserve_original_seed" assertions="21" status="pass" classname="tests/ux_02/test_simple_scene.gd" time="1.351172" >
+      </testcase>
+      <testcase name="test_locked_window_conflict_rejects_resize_without_touching_source_or_history" assertions="19" status="pass" classname="tests/ux_02/test_simple_scene.gd" time="1.183581" >
+      </testcase>
+      <testcase name="test_path_width_and_grass_density_are_distinct_live_controls" assertions="10" status="pass" classname="tests/ux_02/test_simple_scene.gd" time="0.68783" >
+      </testcase>
+      <testcase name="test_new_scene_save_reload_preserves_direct_edits_and_local_preferences" assertions="24" status="pass" classname="tests/ux_02/test_simple_scene.gd" time="1.675257" >
+      </testcase>
+      <testcase name="test_release_over_toolbar_cancels_direct_drag_without_publishing" assertions="16" status="pass" classname="tests/ux_02/test_simple_scene.gd" time="0.97815" >
+      </testcase>
+      <testcase name="test_mac_camera_gestures_preserve_selection_and_source_in_the_new_scene" assertions="11" status="pass" classname="tests/ux_02/test_simple_scene.gd" time="0.681561" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/ux_02/test_tool_routing.gd" tests="1" failures="0" skipped="0" time="1.14086" >
+      <testcase name="test_eraser_and_prop_choice_keep_visible_category_consistent_with_active_tool" assertions="18" status="pass" classname="tests/ux_02/test_tool_routing.gd" time="1.14086" >
+      </testcase>
+  </testsuite>
+</testsuites>

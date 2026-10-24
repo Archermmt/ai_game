@@ -1,0 +1,96 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/art_pass_01/test_architecture_art.gd
+* test_authoritative_wall_reveals_gables_uv_and_normals_are_preserved
+* test_real_door_and_window_holes_remain_open_after_all_detail_meshes
+* test_round_cottage_keeps_radial_door_hole_and_closed_roof
+* test_details_are_deterministic_and_do_not_modify_player_source
+* test_object_id_changes_tile_variation_without_moving_apertures
+* test_rectangular_size_extremes_have_bounded_overhang_and_triangle_cost
+* test_round_size_extremes_have_bounded_geometry_and_four_draws
+* test_attached_building_roof_is_clipped_at_the_contact_side
+* test_tall_cottage_keeps_its_eaves_above_a_lower_offset_wing
+* test_lower_front_neighbor_keeps_clear_high_gable_overhang
+* test_partially_offset_equal_roofs_clip_only_the_touching_gable_end
+* test_roof_has_no_large_downward_prism_intersecting_the_gable
+* test_close_legal_openings_reduce_frame_width_to_preserve_clearance
+* test_gable_meets_the_roof_bed_without_a_visible_open_wedge
+14/14 passed.
+
+
+res://tests/art_pass_01/test_art_catalog.gd
+* test_p0_nature_ids_are_supported_and_unknown_assets_are_not
+* test_hedge_reuses_three_shrubs_with_independent_source_identity
+* test_all_imported_models_have_complete_finite_mesh_uv_and_wind_arrays
+* test_tree_roots_are_fixed_and_both_lods_have_moving_canopies
+* test_tree_lods_cover_the_37_meter_boundary_without_a_gap
+* test_configured_models_share_one_atlas_and_one_material_per_instance
+* test_descriptors_keep_complete_meshes_and_convert_wind_to_batched_materials
+* test_batches_keep_source_poses_ids_phase_and_enclose_transformed_meshes
+ART_BATCHES_RENDERER headless GPU_READBACK false
+* test_catalog_and_material_factory_are_deterministic_and_keep_source_files
+* test_forest_curtain_is_derived_deterministic_geometry_without_source_edits
+* test_pond_bank_is_deterministic_and_empty_pool_has_no_derived_objects
+11/11 passed.
+
+
+res://tests/art_pass_01/test_art_layout.gd
+* test_demo_and_empty_are_deterministic_legal_source_documents
+* test_new_presentation_roundtrips_with_the_existing_save_format
+* test_flagstones_follow_the_authoritative_path_and_do_not_fill_pond_or_house
+3/3 passed.
+
+
+res://tests/art_pass_01/test_art_lod.gd
+* test_leaf_trunk_and_crown_share_one_lod_reference_center
+* test_spatial_batch_uses_one_envelope_for_both_lods_and_preserves_source
+2/2 passed.
+
+
+res://tests/art_pass_01/test_art_scene.gd
+* test_scene_source_is_valid_and_every_cottage_uses_the_art_renderer
+* test_async_path_edit_is_atomic_and_undo_restores_the_actual_flagstones
+* test_distant_edit_reuses_cottages_and_water_and_refreshes_bank_only_when_needed
+* test_invalid_cottage_resize_rejects_source_and_decorated_view_together
+* test_photo_freezes_derived_forest_and_returns_all_wind_materials_to_preferences
+* test_fifty_mixed_edits_and_history_keep_source_and_live_art_cache_consistent
+* test_empty_entry_keeps_the_same_terrain_and_curtain_and_can_return_to_demo
+* test_actual_async_save_load_keeps_painted_paths_in_art_and_historical_documents
+* test_world_seed_replacement_rebuilds_derived_pond_bank
+* test_selection_proxy_encloses_the_replacement_nature_meshes
+* test_player_hedges_reuse_the_same_painted_shrub_and_survive_undo
+11/11 passed.
+
+
+res://tests/art_pass_01/test_forest_bounds.gd
+* test_derived_forest_crowns_stay_outside_the_editable_core
+* test_forest_placement_is_seeded_stable_and_does_not_change_player_source
+* test_tree_feet_follow_the_actual_apron_or_terrain_surface
+* test_forest_preserves_natural_groves_and_both_existing_tree_families
+4/4 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               6
+Tests                45
+Passing Tests        45
+Asserts            2248
+Time              26.396s
+
+
+---- All tests passed! ----
+
+Results saved to reports/art_pass_01.xml

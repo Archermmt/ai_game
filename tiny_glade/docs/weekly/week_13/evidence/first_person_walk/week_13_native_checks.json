@@ -1,0 +1,168 @@
+{
+  "checks": {
+    "all_build_options_illustrated": true,
+    "bottom_weather_controls": true,
+    "calendar_150_inside": true,
+    "date_not_a_source_edit": true,
+    "effect_blizzard": true,
+    "effect_duststorm": true,
+    "effect_fog": true,
+    "effect_storm": true,
+    "month_dropdown_input": true,
+    "moving_cloud_shadow_pixels": true,
+    "next_morning_real_click": true,
+    "night_darker": true,
+    "no_legacy_modify_button": true,
+    "probability_real_drag": true,
+    "rain_and_lightning_visible": true,
+    "real_build_button": true,
+    "snow_visible": true,
+    "speed_slider_real_drag": true,
+    "summer_sun_stronger": true,
+    "weather_controls_150_inside": true,
+    "weather_settings_not_geometry": true,
+    "winter_forbids_rain": true
+  },
+  "observations": [
+    {
+      "actual_month": 1,
+      "case": "dropdown",
+      "popup_visible": false
+    },
+    {
+      "calendar": {
+        "day": 15,
+        "hour": 12,
+        "minute": 0,
+        "minute_of_day": 720.0,
+        "month": 4,
+        "season": "spring",
+        "speed": 37.0,
+        "weather": "clear",
+        "year": 1
+      },
+      "case": "spring",
+      "grass": 37556,
+      "lightning": false,
+      "rain": false,
+      "snow": false,
+      "sun_energy": 1.29999995231628,
+      "sun_rotation": "(-48.0, 3.0, 0.0)"
+    },
+    {
+      "calendar": {
+        "day": 15,
+        "hour": 12,
+        "minute": 0,
+        "minute_of_day": 720.0,
+        "month": 7,
+        "season": "summer",
+        "speed": 37.0,
+        "weather": "clear",
+        "year": 1
+      },
+      "case": "summer",
+      "grass": 37556,
+      "lightning": false,
+      "rain": false,
+      "snow": false,
+      "sun_energy": 1.64999997615814,
+      "sun_rotation": "(-66.0, 3.0, 0.0)"
+    },
+    {
+      "calendar": {
+        "day": 15,
+        "hour": 15,
+        "minute": 0,
+        "minute_of_day": 900.0,
+        "month": 10,
+        "season": "autumn",
+        "speed": 37.0,
+        "weather": "cloudy",
+        "year": 1
+      },
+      "case": "autumn_cloud",
+      "grass": 37556,
+      "lightning": false,
+      "rain": false,
+      "snow": false,
+      "sun_energy": 0.441234618425369,
+      "sun_rotation": "(-33.94112, 30.0, 0.0)"
+    },
+    {
+      "calendar": {
+        "day": 15,
+        "hour": 10,
+        "minute": 30,
+        "minute_of_day": 630.0,
+        "month": 1,
+        "season": "winter",
+        "speed": 37.0,
+        "weather": "snow",
+        "year": 1
+      },
+      "case": "winter_snow",
+      "grass": 37556,
+      "lightning": false,
+      "rain": false,
+      "snow": true,
+      "sun_energy": 0.576500833034515,
+      "sun_rotation": "(-44.34622, -10.5, 0.0)"
+    },
+    {
+      "calendar": {
+        "day": 15,
+        "hour": 14,
+        "minute": 0,
+        "minute_of_day": 840.0,
+        "month": 7,
+        "season": "summer",
+        "speed": 37.0,
+        "weather": "rain",
+        "year": 1
+      },
+      "case": "rain_lightning",
+      "grass": 37556,
+      "lightning": true,
+      "rain": true,
+      "snow": false,
+      "sun_energy": 0.685892105102539,
+      "sun_rotation": "(-57.15767, 21.0, 0.0)"
+    },
+    {
+      "calendar": {
+        "day": 15,
+        "hour": 0,
+        "minute": 0,
+        "minute_of_day": 0.0,
+        "month": 7,
+        "season": "summer",
+        "speed": 37.0,
+        "weather": "clear",
+        "year": 1
+      },
+      "case": "night",
+      "grass": 37556,
+      "lightning": false,
+      "rain": false,
+      "snow": false,
+      "sun_energy": 0.0350000001490116,
+      "sun_rotation": "(-9.0, -105.0, 0.0)"
+    },
+    {
+      "case": "cloud_motion",
+      "mean_rgb_difference": 0.00887658121467475,
+      "pixels": 1232
+    }
+  ],
+  "passed": true,
+  "step": {
+    "name": "week_13_native",
+    "exit_code": 0,
+    "seconds": 10.183
+  },
+  "production_unchanged": true,
+  "qa_audio": "Dummy",
+  "real_audio_verified": false,
+  "windows_real_device": false
+}

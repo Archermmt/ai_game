@@ -1,0 +1,276 @@
+{
+  "revision": "0e184a7fc9e8ede61c1f57a0341a66fab8a8659d",
+  "zip_sha256": "887bcb21e00324867ee028a4bdb7edc6ac95f0bc472de5d61a249fa15e39e64f",
+  "gates": {
+    "package_identity": true,
+    "asset_47_79_technical": true,
+    "asset_visual_signoff": false,
+    "native_audio_output": false,
+    "cumulative_regression": true,
+    "ac_01_to_14_automated": true,
+    "frame_p95_20ms": false,
+    "local_edit_p95_150ms": false,
+    "main_callback_100ms": false,
+    "rss_2gib": true,
+    "windows_real_device": false,
+    "minimum_spec_pc": false,
+    "fresh_machine_startup_5s": false,
+    "t067_ten_first_players": false,
+    "explicit_m4_approval": false
+  },
+  "blockers": [
+    "asset_visual_signoff",
+    "native_audio_output",
+    "frame_p95_20ms",
+    "local_edit_p95_150ms",
+    "main_callback_100ms",
+    "windows_real_device",
+    "minimum_spec_pc",
+    "fresh_machine_startup_5s",
+    "t067_ten_first_players",
+    "explicit_m4_approval"
+  ],
+  "m5_approved": false,
+  "status": "internal_qa_only",
+  "actual_first_players": 0,
+  "facts": {
+    "revision": "0e184a7fc9e8ede61c1f57a0341a66fab8a8659d",
+    "zip_sha256": "887bcb21e00324867ee028a4bdb7edc6ac95f0bc472de5d61a249fa15e39e64f",
+    "assets_passed": true,
+    "regression_passed": true,
+    "ac": {
+      "AC-01": true,
+      "AC-02": true,
+      "AC-03": true,
+      "AC-04": true,
+      "AC-05": true,
+      "AC-06": true,
+      "AC-07": true,
+      "AC-08": true,
+      "AC-09": true,
+      "AC-10": true,
+      "AC-11": true,
+      "AC-12": true,
+      "AC-13": true,
+      "AC-14": true
+    },
+    "performance": {
+      "frame_p95_ms": 23.2183333333333,
+      "commit_p95_ms": 363.913,
+      "main_callback_ms": 128.981,
+      "rss_bytes": 993132544
+    },
+    "native_audio_output_verified": false,
+    "playtest_passed": false,
+    "actual_first_players": 0
+  },
+  "ac": {
+    "AC-01": {
+      "automated_passed": true,
+      "evidence": [
+        {
+          "suite": "week_03.xml",
+          "test": "test_repeated_resize_keeps_identity_seed_and_door_dimensions"
+        },
+        {
+          "suite": "ux_02.xml",
+          "test": "test_round_resize_keeps_diameter_linked_and_source_immutable"
+        }
+      ],
+      "windows_real_device": "pending"
+    },
+    "AC-02": {
+      "automated_passed": true,
+      "evidence": [
+        {
+          "suite": "week_03.xml",
+          "test": "test_delete_auto_door_omits_it_but_retains_locked_auto_door"
+        },
+        {
+          "suite": "week_04.xml",
+          "test": "test_lock_converts_auto_door_to_manual_and_survives_road_deletion"
+        }
+      ],
+      "windows_real_device": "pending"
+    },
+    "AC-03": {
+      "automated_passed": true,
+      "evidence": [
+        {
+          "suite": "week_04.xml",
+          "test": "test_manual_window_conflict_never_swallows_window"
+        },
+        {
+          "suite": "week_09.xml",
+          "test": "test_manual_window_blocks_auto_door_in_full_template"
+        }
+      ],
+      "windows_real_device": "pending"
+    },
+    "AC-04": {
+      "automated_passed": true,
+      "evidence": [
+        {
+          "suite": "week_02.xml",
+          "test": "test_foundation_exact_three_meters_accepts_but_next_edit_is_atomic_rejection"
+        }
+      ],
+      "windows_real_device": "pending"
+    },
+    "AC-05": {
+      "automated_passed": true,
+      "evidence": [
+        {
+          "suite": "week_05.xml",
+          "test": "test_new_invalid_bridge_rejected_at_transaction_boundary"
+        },
+        {
+          "suite": "week_05.xml",
+          "test": "test_shore_invalidates_bridge_retains_id_and_undo_restores_together"
+        }
+      ],
+      "windows_real_device": "pending"
+    },
+    "AC-06": {
+      "automated_passed": true,
+      "evidence": [
+        {
+          "suite": "week_03.xml",
+          "test": "test_resize_into_manual_prop_is_rejected_as_one_transaction"
+        },
+        {
+          "suite": "week_05.xml",
+          "test": "test_invalid_shore_preserves_twenty_manual_objects_ids_and_transforms"
+        }
+      ],
+      "windows_real_device": "pending"
+    },
+    "AC-07": {
+      "automated_passed": true,
+      "evidence": [
+        {
+          "suite": "week_03.xml",
+          "test": "test_far_tree_identity_seed_and_transform_survive_nearby_edit"
+        }
+      ],
+      "windows_real_device": "pending"
+    },
+    "AC-08": {
+      "automated_passed": true,
+      "evidence": [
+        {
+          "suite": "week_03.xml",
+          "test": "test_fifty_mixed_commands_batch_delete_and_branch_redo_cleanup"
+        },
+        {
+          "suite": "week_03.xml",
+          "test": "test_batch_delete_two_parents_keeps_all_manual_attachments_in_one_history_entry"
+        }
+      ],
+      "windows_real_device": "pending"
+    },
+    "AC-09": {
+      "automated_passed": true,
+      "evidence": [
+        {
+          "suite": "week_10.xml",
+          "test": "test_interruption_then_corrupt_primary_restores_latest_valid_backup"
+        },
+        {
+          "suite": "week_08.xml",
+          "test": "test_three_backups_are_previous_three_generations"
+        }
+      ],
+      "windows_real_device": "pending"
+    },
+    "AC-10": {
+      "automated_passed": true,
+      "evidence": [
+        {
+          "suite": "ui_meadow_01.xml",
+          "test": "test_reduced_motion_stops_grass_and_photo_freeze_restores_it"
+        },
+        {
+          "suite": "week_10.xml",
+          "test": "test_save_load_rebuilds_art_and_updates_wind_audio"
+        }
+      ],
+      "windows_real_device": "pending"
+    },
+    "AC-11": {
+      "automated_passed": true,
+      "evidence": [
+        {
+          "suite": "week_10.xml",
+          "test": "test_settings_150_reduced_motion_rebind_and_audio_coexist"
+        },
+        {
+          "suite": "ux_03.xml",
+          "test": "test_150_percent_surface_handles_stay_inside_viewport"
+        }
+      ],
+      "windows_real_device": "pending"
+    },
+    "AC-12": {
+      "automated_passed": true,
+      "evidence": [
+        {
+          "suite": "week_09.xml",
+          "test": "test_photo_hides_tools_and_returns_exact_camera_source_selection"
+        },
+        {
+          "suite": "ux_03.xml",
+          "test": "test_roof_save_reload_and_photo_hide_hover_handles"
+        }
+      ],
+      "windows_real_device": "pending"
+    },
+    "AC-13": {
+      "automated_passed": true,
+      "evidence": [
+        {
+          "suite": "week_05.xml",
+          "test": "test_polygon_rejects_excessive_original_slope"
+        },
+        {
+          "suite": "week_05.xml",
+          "test": "test_all_terrain_brushes_preserve_polygon_and_bank"
+        },
+        {
+          "suite": "week_05.xml",
+          "test": "test_delete_pond_restores_player_heights"
+        }
+      ],
+      "windows_real_device": "pending"
+    },
+    "AC-14": {
+      "automated_passed": true,
+      "evidence": [
+        {
+          "suite": "week_05.xml",
+          "test": "test_building_and_shore_use_same_safety_boundary_both_directions"
+        },
+        {
+          "suite": "ux_02.xml",
+          "test": "test_locked_window_conflict_rejects_resize_without_touching_source_or_history"
+        }
+      ],
+      "windows_real_device": "pending"
+    }
+  },
+  "playtest": {
+    "actual_records": 0,
+    "eligible_first_players": 0,
+    "required": 10,
+    "house_3min": 0,
+    "screenshot_15min": 0,
+    "no_management_understood": 0,
+    "targets": {
+      "house_8_of_10": false,
+      "photo_7_of_10": false,
+      "understanding_8_of_10": false
+    },
+    "t067_passed": false,
+    "status": "awaiting_m4_freeze"
+  }
+}

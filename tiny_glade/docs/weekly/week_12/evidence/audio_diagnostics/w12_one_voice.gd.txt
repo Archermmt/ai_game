@@ -1,0 +1,23 @@
+extends SceneTree
+
+func _initialize() -> void:
+	call_deferred("probe")
+
+func probe() -> void:
+	var voice = AudioStreamPlayer.new()
+	voice.stream = load("res://assets/audio/forest_stereo.wav").duplicate()
+	voice.stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+	root.add_child(voice)
+	voice.play()
+	await create_timer(1).timeout
+	print("DRIVER ", AudioServer.get_driver_name(), " MIX ", AudioServer.get_time_since_last_mix(), " NEXT ", AudioServer.get_time_to_next_mix())
+	var playback = voice.get_stream_playback()
+	print("PLAYBACK ", playback)
+	voice.stop()
+	voice.stream = null
+	voice.free()
+	await create_timer(1).timeout
+	print("MIX AFTER ", AudioServer.get_time_since_last_mix(), " PLAYING ", playback.is_playing())
+	playback = null
+	await create_timer(1).timeout
+	quit()

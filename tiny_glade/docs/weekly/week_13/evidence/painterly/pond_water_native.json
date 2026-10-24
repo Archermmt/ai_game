@@ -1,0 +1,30 @@
+{
+  "checks": {
+    "actual_geometry_reflects": true,
+    "bounded_capture": true,
+    "capture_has_geometry": true,
+    "no_reflection_probe": true,
+    "rain_strengthens_ripples": true,
+    "reduced_motion_stable": true,
+    "reflection_changes_water_pixels": true,
+    "source_unchanged": true,
+    "visible_ripple_motion": true
+  },
+  "measurements": {
+    "geometry_reflection_difference": 0.02667048673368,
+    "reduced_motion_difference": 0.0,
+    "reflection_difference": 0.0647455689955458,
+    "ripple_difference": 0.00549413944571076,
+    "water_samples": 12861
+  },
+  "passed": true,
+  "step": {
+    "name": "water_pixels",
+    "exit_code": 0,
+    "seconds": 9.529
+  },
+  "production_unchanged": true,
+  "audio": "Dummy",
+  "foreground_window": true,
+  "physical_audio_verified": false
+}

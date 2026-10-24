@@ -1,0 +1,31 @@
+{
+  "version": "0.9.1-art01",
+  "tag": "v0.9.1-art01",
+  "validated_implementation": "6656ba3f788006dc2a817ee7082b14080360c571",
+  "unique_tests": 491,
+  "assertions": 12757,
+  "art_tests": 45,
+  "historical_tests": 446,
+  "native_additional_catalog_tests": 11,
+  "negative_control": true,
+  "clean_cache_reused": false,
+  "visual_approval": "pending_user_review",
+  "windows_device": "not_run_on_macos",
+  "artifacts": [
+    {
+      "path": "builds/art_pass_01/windows/windhaven_art_pass_01.exe",
+      "bytes": 131282960,
+      "sha256": "385f35489b9c85b7c29f24c8eb43b1aa6f811da0edeca12d717d722b9700a98c"
+    },
+    {
+      "path": "builds/art_pass_01/macos/windhaven_art_pass_01.zip",
+      "bytes": 79563408,
+      "sha256": "36afdbd3f61d09febca65d86c563183870026aea04823b9cfb919cceb18bc404"
+    }
+  ],
+  "open_defects": [
+    "local edit latency >150ms",
+    "minimum-spec/Windows/physical-touchpad/human playtest gates",
+    "concept-detail simplification and user visual review"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "asset_id": "PROP-03",
+  "source": "art_source/week_05/pot.blend",
+  "export": "assets/week_05/pot.glb",
+  "units": "meters",
+  "blender": "5.1.2",
+  "up_axis": "gltf_y_up",
+  "triangles": 506,
+  "budget": 1800,
+  "sockets": [
+    "socket_ground"
+  ],
+  "stage": "w05_source",
+  "source_license": "Project original; authored by Blender script",
+  "supersedes": "week_04"
+}

@@ -1,0 +1,95 @@
+[
+  {
+    "asset_id": "BLD-08",
+    "source": "art_source/week_02/window_rect.blend",
+    "export": "assets/buildings/window_rect.glb",
+    "blender": "5.1.2",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 672,
+    "material_slots": [
+      "glass",
+      "metal",
+      "wood"
+    ],
+    "sockets": [
+      "socket_wall_mount"
+    ],
+    "stage": "source_model_pending_integration",
+    "source_license": "Project original; authored by project Blender script"
+  },
+  {
+    "asset_id": "BLD-09",
+    "source": "art_source/week_02/window_round.blend",
+    "export": "assets/buildings/window_round.glb",
+    "blender": "5.1.2",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 4048,
+    "material_slots": [
+      "glass",
+      "metal",
+      "wood"
+    ],
+    "sockets": [
+      "socket_wall_mount"
+    ],
+    "stage": "source_model_pending_integration",
+    "source_license": "Project original; authored by project Blender script"
+  },
+  {
+    "asset_id": "NAT-01",
+    "source": "art_source/week_02/tree_broadleaf.blend",
+    "export": "assets/nature/tree_broadleaf.glb",
+    "blender": "5.1.2",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 516,
+    "material_slots": [
+      "foliage",
+      "wood"
+    ],
+    "sockets": [
+      "socket_ground"
+    ],
+    "stage": "w02_blockout_pending_w03_lod_atlas",
+    "source_license": "Project original; authored by project Blender script"
+  },
+  {
+    "asset_id": "NAT-02",
+    "source": "art_source/week_02/tree_conifer.blend",
+    "export": "assets/nature/tree_conifer.glb",
+    "blender": "5.1.2",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 212,
+    "material_slots": [
+      "foliage",
+      "wood"
+    ],
+    "sockets": [
+      "socket_ground"
+    ],
+    "stage": "w02_blockout_pending_w03_lod_atlas",
+    "source_license": "Project original; authored by project Blender script"
+  },
+  {
+    "asset_id": "NAT-03",
+    "source": "art_source/week_02/tree_fruit.blend",
+    "export": "assets/nature/tree_fruit.glb",
+    "blender": "5.1.2",
+    "units": "meters",
+    "up_axis": "gltf_y_up",
+    "triangles": 696,
+    "material_slots": [
+      "foliage",
+      "tile",
+      "wood"
+    ],
+    "sockets": [
+      "socket_ground"
+    ],
+    "stage": "w02_blockout_pending_w03_lod_atlas",
+    "source_license": "Project original; authored by project Blender script"
+  }
+]

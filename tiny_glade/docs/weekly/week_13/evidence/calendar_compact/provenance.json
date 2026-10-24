@@ -1,0 +1,13 @@
+{
+  "source_sha256": {
+    "features/living_world/calendar_panel.gd": "bac2eef20709073007d56de487c99157b9d5a8cbf4935def3c3e05f803759099",
+    "features/living_world/living_hud.gd": "1429544ed585cce8222f51d8a4898698a6ef98acbc009a8d244b0045745b6acd",
+    "tests/week_13/test_living_scene.gd": "ee54d6d2b9aba82931538e80e9b05193f2e483df01b98f407ae87e09969415ae"
+  },
+  "cumulative_tests": 676,
+  "python_tests": 28,
+  "w13_final_tests": 20,
+  "w13_final_assertions": 972,
+  "native_checks": 10,
+  "note": "Final spacing-only change received targeted20-test rerun and native10-check rerun after cumulative pass. No new performance or release verification."
+}

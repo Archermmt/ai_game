@@ -1,0 +1,60 @@
+{
+  "week": 2,
+  "windows_pe_x86_64": true,
+  "windows_real_device": "not_run_on_macos",
+  "steps": [
+    {
+      "name": "export_windows",
+      "exit_code": 0,
+      "seconds": 2.035
+    },
+    {
+      "name": "export_macos",
+      "exit_code": 0,
+      "seconds": 5.928
+    },
+    {
+      "name": "exported_macos_boot",
+      "exit_code": 0,
+      "seconds": 3.115
+    }
+  ],
+  "macos_clean_room_visible_boot": {
+    "buildings": 2,
+    "edit_metrics": {
+      "main_apply_max_ms": 0.0,
+      "main_apply_p95_ms": 0.0,
+      "main_apply_samples": 0,
+      "probe_edits": 0
+    },
+    "engine": "4.7.2-stable (official)",
+    "frames": 119,
+    "instances": 2,
+    "mean_frame_ms": 8.35557703081234,
+    "p95_frame_ms": 8.345,
+    "paths": 0,
+    "pond_present": true,
+    "renderer": "forward_plus",
+    "sample_duration_seconds": 0.0,
+    "terrain_samples": 305,
+    "test_framework_in_pack": false,
+    "test_sources_in_pack": false,
+    "viewport_size": [
+      1280,
+      800
+    ],
+    "wind_materials": 62
+  },
+  "artifacts": [
+    {
+      "path": "builds/week_02/windows/windhaven_week_02.exe",
+      "bytes": 110884512,
+      "sha256": "68aad810b5e287b29338499ae659262ecffa489cbfcf0e9a5604a432c6275496"
+    },
+    {
+      "path": "builds/week_02/macos/windhaven_week_02.zip",
+      "bytes": 61597276,
+      "sha256": "dcb46d8aac9057183b24061edd834eead9666a8ab1bc188cf59f1998b670027c"
+    }
+  ]
+}

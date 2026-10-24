@@ -1,0 +1,16 @@
+{
+  "revision": "86b2bdba80bfbdb9edd6bc8061a51cc1cb65e573",
+  "godot_tests": 682,
+  "godot_assertions": 20544,
+  "python_tests": 28,
+  "extra_direction_assertions": 30,
+  "source_sha256": {
+    "features/camera/orbit_camera.gd": "3371fa3c49a64e2c80270b536fd4f7a44ae7944f1a2574dd70d333ff8a63aaee",
+    "tests/week_02/test_mac_camera_input.gd": "85bb2947a1301c39d6582a212c5a71c5da38b0bdf549c8fa1a2642d2d550ac4e",
+    "tests/week_09/test_mac_input.gd": "b8811e76b3bc6985865e4f081b8a545a6accacd1bcdcf7c1c864cf580efb5dbc"
+  },
+  "physical_trackpad_verified": false,
+  "performance_rerun": false,
+  "packages_updated": false,
+  "note": "Cumulative run on source worktree committed as revision above; current engine input events routed through test viewports."
+}

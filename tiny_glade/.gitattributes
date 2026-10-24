@@ -1,0 +1,10 @@
+* text=auto eol=lf
+*.gd text eol=lf
+*.tscn text eol=lf
+*.tres text eol=lf
+*.csv text eol=crlf
+*.png binary
+*.blend binary
+*.glb binary
+# Preserve vendored upstream formatting without applying project whitespace rules.
+addons/gut/** -whitespace

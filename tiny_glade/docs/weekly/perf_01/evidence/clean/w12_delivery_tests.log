@@ -1,0 +1,22 @@
+test_bool_or_missing_metric_is_not_a_valid_measurement (test_delivery.DeliveryTests.test_bool_or_missing_metric_is_not_a_valid_measurement) ... ok
+test_changed_or_unreviewed_device_evidence_does_not_pass (test_delivery.DeliveryTests.test_changed_or_unreviewed_device_evidence_does_not_pass) ... ok
+test_inventory_cannot_count_instances_as_new_model_families (test_delivery.DeliveryTests.test_inventory_cannot_count_instances_as_new_model_families) ... ok
+test_inventory_has_exact_47_families_79_units_and_21_model_sources (test_delivery.DeliveryTests.test_inventory_has_exact_47_families_79_units_and_21_model_sources) ... ok
+test_inventory_rejects_duplicate_or_missing_family (test_delivery.DeliveryTests.test_inventory_rejects_duplicate_or_missing_family) ... ok
+test_inventory_rejects_inflated_base_unit_count (test_delivery.DeliveryTests.test_inventory_rejects_inflated_base_unit_count) ... ok
+test_inventory_rejects_missing_resource_and_path_escape (test_delivery.DeliveryTests.test_inventory_rejects_missing_resource_and_path_escape) ... ok
+test_mac_export_and_no_real_records_cannot_approve_release (test_delivery.DeliveryTests.test_mac_export_and_no_real_records_cannot_approve_release) ... ok
+test_manual_model_without_glb_export_cannot_pass_inventory (test_delivery.DeliveryTests.test_manual_model_without_glb_export_cannot_pass_inventory) ... ok
+test_old_revision_or_missing_windows_flow_is_rejected (test_delivery.DeliveryTests.test_old_revision_or_missing_windows_flow_is_rejected) ... ok
+test_package_cannot_self_declare_m5_approval (test_delivery.DeliveryTests.test_package_cannot_self_declare_m5_approval) ... ok
+test_package_detects_changed_payload (test_delivery.DeliveryTests.test_package_detects_changed_payload) ... ok
+test_package_is_deterministic_exact_and_remains_internal (test_delivery.DeliveryTests.test_package_is_deterministic_exact_and_remains_internal) ... ok
+test_package_rejects_cache_secret_and_traversal (test_delivery.DeliveryTests.test_package_rejects_cache_secret_and_traversal) ... ok
+test_performance_and_ten_player_gates_remain_independent (test_delivery.DeliveryTests.test_performance_and_ten_player_gates_remain_independent) ... ok
+test_synthetic_complete_evidence_passes_only_with_matching_revision_and_zip (test_delivery.DeliveryTests.test_synthetic_complete_evidence_passes_only_with_matching_revision_and_zip) ... ok
+test_unknown_or_missing_ac_evidence_cannot_pass (test_delivery.DeliveryTests.test_unknown_or_missing_ac_evidence_cannot_pass) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.043s
+
+OK

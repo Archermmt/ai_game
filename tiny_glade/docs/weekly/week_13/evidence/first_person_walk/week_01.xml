@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="42" >
+  <testsuite name="tests/week_01/test_building_geometry.gd" tests="5" failures="0" skipped="0" time="0.023944" >
+      <testcase name="test_real_holes_in_flat_and_curved_walls_for_all_profiles" assertions="6" status="pass" classname="tests/week_01/test_building_geometry.gd" time="0.01025" >
+      </testcase>
+      <testcase name="test_solid_wall_next_to_hole_still_exists" assertions="1" status="pass" classname="tests/week_01/test_building_geometry.gd" time="0.001698" >
+      </testcase>
+      <testcase name="test_opening_profiles_keep_standard_dimensions_and_sills" assertions="4" status="pass" classname="tests/week_01/test_building_geometry.gd" time="0.000099" >
+      </testcase>
+      <testcase name="test_mesh_has_finite_normals_and_clockwise_triangles" assertions="4" status="pass" classname="tests/week_01/test_building_geometry.gd" time="0.001714" >
+      </testcase>
+      <testcase name="test_minimum_and_maximum_size_profiles_generate_bounded_meshes" assertions="8" status="pass" classname="tests/week_01/test_building_geometry.gd" time="0.010183" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_01/test_edit_session.gd" tests="9" failures="0" skipped="0" time="0.021455" >
+      <testcase name="test_initial_publication_does_not_execute_do_twice" assertions="4" status="pass" classname="tests/week_01/test_edit_session.gd" time="0.000402" >
+      </testcase>
+      <testcase name="test_preview_and_cancel_do_not_touch_live_state_or_identity" assertions="5" status="pass" classname="tests/week_01/test_edit_session.gd" time="0.000087" >
+      </testcase>
+      <testcase name="test_one_gesture_is_one_history_entry" assertions="2" status="pass" classname="tests/week_01/test_edit_session.gd" time="0.000523" >
+      </testcase>
+      <testcase name="test_failed_preparation_does_not_publish_or_advance_history" assertions="4" status="pass" classname="tests/week_01/test_edit_session.gd" time="0.000678" >
+      </testcase>
+      <testcase name="test_failed_undo_keeps_cursor_then_successful_undo_redo_restores_identity" assertions="6" status="pass" classname="tests/week_01/test_edit_session.gd" time="0.00057" >
+      </testcase>
+      <testcase name="test_stale_candidates_are_not_rebased_silently" assertions="2" status="pass" classname="tests/week_01/test_edit_session.gd" time="0.000449" >
+      </testcase>
+      <testcase name="test_pending_commit_refuses_reentrant_second_gesture" assertions="4" status="pass" classname="tests/week_01/test_edit_session.gd" time="0.000325" >
+      </testcase>
+      <testcase name="test_fifty_actions_undo_redo_and_branch_truncation" assertions="153" status="pass" classname="tests/week_01/test_edit_session.gd" time="0.017548" >
+      </testcase>
+      <testcase name="test_invalid_load_preserves_world_and_history" assertions="3" status="pass" classname="tests/week_01/test_edit_session.gd" time="0.000873" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_01/test_imported_assets.gd" tests="3" failures="0" skipped="0" time="0.007086" >
+      <testcase name="test_three_doors_have_meshes_correct_scale_and_mount_sockets" assertions="12" status="pass" classname="tests/week_01/test_imported_assets.gd" time="0.00254" >
+      </testcase>
+      <testcase name="test_wind_weights_survive_actual_godot_gltf_import" assertions="20" status="pass" classname="tests/week_01/test_imported_assets.gd" time="0.003774" >
+      </testcase>
+      <testcase name="test_bench_source_export_has_surface_socket" assertions="2" status="pass" classname="tests/week_01/test_imported_assets.gd" time="0.000772" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_01/test_playground.gd" tests="9" failures="0" skipped="0" time="0.181106" >
+      <testcase name="test_scene_boots_with_editable_source_and_camera" assertions="4" status="pass" classname="tests/week_01/test_playground.gd" time="0.047585" >
+      </testcase>
+      <testcase name="test_camera_pan_is_bounded_and_reset_restores_view" assertions="4" status="pass" classname="tests/week_01/test_playground.gd" time="0.013389" >
+      </testcase>
+      <testcase name="test_ground_projection_matches_horizontal_plane" assertions="2" status="pass" classname="tests/week_01/test_playground.gd" time="0.011736" >
+      </testcase>
+      <testcase name="test_hud_buttons_use_same_transaction_and_undo_path" assertions="3" status="pass" classname="tests/week_01/test_playground.gd" time="0.021811" >
+      </testcase>
+      <testcase name="test_reduce_motion_reaches_all_imported_wind_materials" assertions="62" status="pass" classname="tests/week_01/test_playground.gd" time="0.016605" >
+      </testcase>
+      <testcase name="test_source_environment_restore_reaches_shader_and_can_undo" assertions="65" status="pass" classname="tests/week_01/test_playground.gd" time="0.021752" >
+      </testcase>
+      <testcase name="test_tool_switch_cancels_preview_instead_of_committing" assertions="3" status="pass" classname="tests/week_01/test_playground.gd" time="0.0114" >
+      </testcase>
+      <testcase name="test_viewport_mouse_drag_creates_one_building_and_can_undo" assertions="3" status="pass" classname="tests/week_01/test_playground.gd" time="0.025319" >
+      </testcase>
+      <testcase name="test_actual_toolbar_click_does_not_start_world_gesture" assertions="3" status="pass" classname="tests/week_01/test_playground.gd" time="0.011509" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_01/test_save_codec.gd" tests="6" failures="0" skipped="0" time="0.003421" >
+      <testcase name="test_source_state_roundtrip_preserves_seed_transform_and_heights" assertions="5" status="pass" classname="tests/week_01/test_save_codec.gd" time="0.000792" >
+      </testcase>
+      <testcase name="test_checksum_detects_corruption_and_truncation" assertions="2" status="pass" classname="tests/week_01/test_save_codec.gd" time="0.00015" >
+      </testcase>
+      <testcase name="test_malicious_declared_size_is_rejected_before_decompression" assertions="1" status="pass" classname="tests/week_01/test_save_codec.gd" time="0.000145" >
+      </testcase>
+      <testcase name="test_unknown_schema_cannot_overwrite_good_save" assertions="3" status="pass" classname="tests/week_01/test_save_codec.gd" time="0.001132" >
+      </testcase>
+      <testcase name="test_interrupted_temp_and_corrupt_primary_recover_complete_backup" assertions="3" status="pass" classname="tests/week_01/test_save_codec.gd" time="0.001133" >
+      </testcase>
+      <testcase name="test_missing_save_reports_failure_instead_of_new_world" assertions="1" status="pass" classname="tests/week_01/test_save_codec.gd" time="0.000069" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_01/test_world_document.gd" tests="10" failures="0" skipped="0" time="0.001445" >
+      <testcase name="test_new_document_has_all_required_source_collections" assertions="7" status="pass" classname="tests/week_01/test_world_document.gd" time="0.000092" >
+      </testcase>
+      <testcase name="test_snapshot_is_detached_from_live_source" assertions="1" status="pass" classname="tests/week_01/test_world_document.gd" time="0.000058" >
+      </testcase>
+      <testcase name="test_identity_is_reproducible_without_consuming_cancelled_sequence" assertions="3" status="pass" classname="tests/week_01/test_world_document.gd" time="0.00009" >
+      </testcase>
+      <testcase name="test_duplicate_ids_and_out_of_plot_are_rejected" assertions="2" status="pass" classname="tests/week_01/test_world_document.gd" time="0.000108" >
+      </testcase>
+      <testcase name="test_corrupt_state_never_accepts_objects_or_nonfinite_numbers" assertions="2" status="pass" classname="tests/week_01/test_world_document.gd" time="0.000079" >
+      </testcase>
+      <testcase name="test_bad_schema_seed_environment_and_dimensions_are_rejected" assertions="3" status="pass" classname="tests/week_01/test_world_document.gd" time="0.000118" >
+      </testcase>
+      <testcase name="test_axis_aligned_side_contact_is_legal_but_intersection_is_not" assertions="2" status="pass" classname="tests/week_01/test_world_document.gd" time="0.000344" >
+      </testcase>
+      <testcase name="test_circle_tangency_and_circle_rectangle_overlap" assertions="3" status="pass" classname="tests/week_01/test_world_document.gd" time="0.00029" >
+      </testcase>
+      <testcase name="test_malformed_openings_are_rejected_before_mesh_preparation" assertions="5" status="pass" classname="tests/week_01/test_world_document.gd" time="0.000174" >
+      </testcase>
+      <testcase name="test_malformed_revision_wind_and_height_deltas_are_rejected" assertions="3" status="pass" classname="tests/week_01/test_world_document.gd" time="0.000092" >
+      </testcase>
+  </testsuite>
+</testsuites>

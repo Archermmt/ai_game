@@ -1,0 +1,3 @@
+PASS perf01_cumulative (191.59s)
+PASS perf01_tests (31.56s)
+PERF-01 FUNCTIONAL PASS: 623 Godot + 23 Python; performance separate

@@ -1,0 +1,123 @@
+{
+  "date": "2026-10-23",
+  "source_revision": "ea94bd7afbb2c3e8e7fbf24b38270f572fdb5737",
+  "applied": true,
+  "groups": {
+    "superseded_exports_and_unpacked": {
+      "files": 206,
+      "bytes": 5908593013
+    },
+    "regenerable_test_output": {
+      "files": 1902,
+      "bytes": 475644200
+    },
+    "download_cache": {
+      "files": 5,
+      "bytes": 92093426
+    },
+    "old_validation_checkout": {
+      "files": 1094,
+      "bytes": 47437232
+    },
+    "python_os_blender_backups": {
+      "files": 78,
+      "bytes": 4526291
+    }
+  },
+  "files": 3285,
+  "bytes": 6528294162,
+  "verified_archives": [
+    {
+      "manifest": "docs/weekly/art_pass_01/checksums.json",
+      "verified_files": 100
+    },
+    {
+      "manifest": "docs/weekly/perf_01/checksums.json",
+      "verified_files": 150
+    },
+    {
+      "manifest": "docs/weekly/ui_meadow_01/checksums.json",
+      "verified_files": 141
+    },
+    {
+      "manifest": "docs/weekly/ux_02/checksums.json",
+      "verified_files": 94
+    },
+    {
+      "manifest": "docs/weekly/ux_03/checksums.json",
+      "verified_files": 99
+    },
+    {
+      "manifest": "docs/weekly/week_09/checksums.json",
+      "verified_files": 122
+    },
+    {
+      "manifest": "docs/weekly/week_10/checksums.json",
+      "verified_files": 100
+    },
+    {
+      "manifest": "docs/weekly/week_11/checksums.json",
+      "verified_files": 107
+    },
+    {
+      "manifest": "docs/weekly/week_12/checksums.json",
+      "verified_files": 142
+    }
+  ],
+  "retained_packages": [
+    {
+      "path": "builds/week_12/windows/windhaven_week_12.exe",
+      "bytes": 131726472,
+      "sha256": "bc8fdda33695688f2268f84c2755fde2f77fcef03288e6f73c1705d418b427d6"
+    },
+    {
+      "path": "builds/week_12/macos/windhaven_week_12.zip",
+      "bytes": 79991100,
+      "sha256": "1808d1b34d835436d6dc34c407913f5bd273be187058a2b7309c7618071283e4"
+    },
+    {
+      "path": "builds/week_12/windows/Windhaven_0.12.0-w12_Windows_Internal.zip",
+      "bytes": 58155485,
+      "sha256": "887bcb21e00324867ee028a4bdb7edc6ac95f0bc472de5d61a249fa15e39e64f",
+      "revision": "0e184a7fc9e8ede61c1f57a0341a66fab8a8659d",
+      "version": "0.12.0-w12",
+      "status": "internal_qa_only",
+      "m5_approved": false
+    }
+  ],
+  "scene_inheritance_chain": [
+    "app/hover_root.tscn",
+    "app/simple_root.tscn",
+    "app/garden_root.tscn",
+    "app/week_ten_root.tscn",
+    "app/art_root.tscn",
+    "app/week_nine_root.tscn",
+    "app/week_eight_root.tscn",
+    "app/week_seven_root.tscn",
+    "app/week_six_root.tscn",
+    "app/week_five_root.tscn",
+    "app/week_four_root.tscn",
+    "app/week_three_root.tscn",
+    "app/week_two_root.tscn",
+    "app/app_root.tscn"
+  ],
+  "retained_qa_scene": "app/building_parameter_gallery.tscn",
+  "protected": [
+    "tracked files",
+    "approved PRD and plan",
+    "weekly evidence",
+    "Blender sources and import settings",
+    "installed locked tools",
+    "user data outside project",
+    ".godot (live editor PID 78300)"
+  ],
+  "tracked_files_removed": 0,
+  "removed_symlinks_without_following": [
+    ".tools/validation_checkout/b0b556d/.venv",
+    ".tools/validation_checkout/db4451f/.venv"
+  ],
+  "post_validation_generated_output_removed": {
+    "files": 125,
+    "bytes": 548780
+  }
+}

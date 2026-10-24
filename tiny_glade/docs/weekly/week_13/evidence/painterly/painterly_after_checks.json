@@ -1,0 +1,47 @@
+{
+  "checks": {
+    "history_unchanged": true,
+    "source_unchanged": true,
+    "viewport_fhd": true
+  },
+  "passed": true,
+  "step": {
+    "name": "painterly_after",
+    "exit_code": 0,
+    "seconds": 7.006
+  },
+  "views": [
+    "overview_default_focus",
+    "overview_sharp",
+    "cottage_detail",
+    "pond_walk",
+    "forest_walk",
+    "grass_detail",
+    "summer_sky",
+    "autumn_overview",
+    "winter_overview",
+    "sunset_walk",
+    "night_walk"
+  ],
+  "production_unchanged": true,
+  "physical_audio_verified": false,
+  "audio": "Dummy",
+  "foreground_window": true,
+  "shadow_diagnostic": {
+    "passed": true,
+    "shadow_difference": 0.0311004012183827,
+    "wall_high_frequency_residuals": {
+      "default_stable": 0.0200151264768639,
+      "increased_shadow_bias": 0.013079726553729,
+      "no_sun_shadows": 0.0112161670750327,
+      "no_taa": 0.0396798202751505,
+      "no_taa_no_ssao": 0.0394583125391768,
+      "taa_no_ssao": 0.0195233123092395
+    }
+  },
+  "diagnostic_step": {
+    "name": "painterly_diagnostic",
+    "exit_code": 0,
+    "seconds": 6.902
+  }
+}

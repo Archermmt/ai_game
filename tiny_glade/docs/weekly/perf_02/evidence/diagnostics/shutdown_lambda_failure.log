@@ -1,0 +1,75 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/perf_02/test_shutdown.gd
+* test_exit_continuation_runs_after_two_frames_and_scene_children_are_released
+    [Failed]:  Unexpected Errors:
+    [1] <engine-0>Lambda capture at index 1 was freed. Passed "null" instead.
+    [2] <engine-0>Lambda capture at index 2 was freed. Passed "null" instead.
+      at line 44
+* test_active_workers_close_before_continuation_and_cannot_publish_after_release
+    [Failed]:  Unexpected Errors:
+    [1] <engine-0>Lambda capture at index 1 was freed. Passed "null" instead.
+    [2] <engine-0>Lambda capture at index 2 was freed. Passed "null" instead.
+    [3] <engine-0>Lambda capture at index 3 was freed. Passed "null" instead.
+      at line 85
+0/2 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+res://tests/perf_02/test_shutdown.gd
+- test_exit_continuation_runs_after_two_frames_and_scene_children_are_released
+    [Failed]:  Unexpected Errors:
+    [1] <engine-0>Lambda capture at index 1 was freed. Passed "null" instead.
+    [2] <engine-0>Lambda capture at index 2 was freed. Passed "null" instead.
+          at line 44
+- test_active_workers_close_before_continuation_and_cannot_publish_after_release
+    [Failed]:  Unexpected Errors:
+    [1] <engine-0>Lambda capture at index 1 was freed. Passed "null" instead.
+    [2] <engine-0>Lambda capture at index 2 was freed. Passed "null" instead.
+    [3] <engine-0>Lambda capture at index 3 was freed. Passed "null" instead.
+          at line 85
+
+Totals
+------
+Scripts               1
+Tests                 2
+Passing Tests      none
+Failing Tests         2
+Asserts           19/21
+Time              0.707s
+
+
+---- 2 failing tests ----
+
+Results saved to reports/perf_02/shutdown_targeted.xml
+ERROR: Lambda capture at index 1 was freed. Passed "null" instead.
+   at: call (modules/gdscript/gdscript_lambda_callable.cpp:242)
+   GDScript backtrace (most recent call first):
+       [0] release_scene (res://app/scene_shutdown.gd:14)
+ERROR: Lambda capture at index 2 was freed. Passed "null" instead.
+   at: call (modules/gdscript/gdscript_lambda_callable.cpp:242)
+   GDScript backtrace (most recent call first):
+       [0] release_scene (res://app/scene_shutdown.gd:14)
+ERROR: Lambda capture at index 1 was freed. Passed "null" instead.
+   at: call (modules/gdscript/gdscript_lambda_callable.cpp:242)
+   GDScript backtrace (most recent call first):
+       [0] release_scene (res://app/scene_shutdown.gd:14)
+ERROR: Lambda capture at index 2 was freed. Passed "null" instead.
+   at: call (modules/gdscript/gdscript_lambda_callable.cpp:242)
+   GDScript backtrace (most recent call first):
+       [0] release_scene (res://app/scene_shutdown.gd:14)
+ERROR: Lambda capture at index 3 was freed. Passed "null" instead.
+   at: call (modules/gdscript/gdscript_lambda_callable.cpp:242)
+   GDScript backtrace (most recent call first):
+       [0] release_scene (res://app/scene_shutdown.gd:14)

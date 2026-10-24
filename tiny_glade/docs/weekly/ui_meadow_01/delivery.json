@@ -1,0 +1,115 @@
+{
+  "revision": "e7142fdf5804a3fd4205af9329b3e9bdfc13e111",
+  "version": "0.10.1-garden01",
+  "date": "2026-10-21",
+  "scope": "User-authorized contextual bottom ribbon, adaptive far focus, adjustable dynamic grass",
+  "tests": 544,
+  "new_tests": 23,
+  "assertions": 15794,
+  "new_assertions": 282,
+  "failures": 0,
+  "skipped": 0,
+  "negative_control": true,
+  "empty_import_cache": true,
+  "native_device": "Apple M4 Pro / macOS / Metal",
+  "native_metrics": {
+    "grass_off": {
+      "p95_frame_ms": 8.33333333333333,
+      "rss_peak_bytes": 808730624,
+      "grass_visible": 0,
+      "grass_total": 0,
+      "grass_worker_ms": 0.0,
+      "grass_main_slice_max_ms": 0.0
+    },
+    "grass_default": {
+      "p95_frame_ms": 9.25925925925926,
+      "rss_peak_bytes": 854802432,
+      "grass_visible": 16885,
+      "grass_total": 37556,
+      "grass_worker_ms": 237.755,
+      "grass_main_slice_max_ms": 2.344
+    },
+    "grass_full": {
+      "p95_frame_ms": 10.0,
+      "rss_peak_bytes": 853704704,
+      "grass_visible": 37556,
+      "grass_total": 37556,
+      "grass_worker_ms": 240.895,
+      "grass_main_slice_max_ms": 2.342
+    },
+    "capacity_default": {
+      "p95_frame_ms": 11.6666666666667,
+      "rss_peak_bytes": 915308544,
+      "grass_visible": 15285,
+      "grass_total": 34006,
+      "grass_worker_ms": 216.076,
+      "grass_main_slice_max_ms": 2.33
+    }
+  },
+  "native_targets": {
+    "p95_20ms": true,
+    "rss_2gib": true,
+    "main_grass_slice_10ms": true
+  },
+  "image_checks": {
+    "focus_background": {
+      "changed_fraction": 0.444947552447552,
+      "mean_abs_rgb": 10.3131773700232
+    },
+    "focus_house_front": {
+      "changed_fraction": 0.0,
+      "mean_abs_rgb": 0.0
+    },
+    "grass_wind": {
+      "changed_fraction": 0.515756302521008,
+      "mean_abs_rgb": 15.7150702692302
+    },
+    "passed": true,
+    "reduced_motion": {
+      "changed_fraction": 0.0,
+      "mean_abs_rgb": 0.000238095223903656
+    }
+  },
+  "measurement_note": "Density probes were followed by the zero-density edit/re-enable fix and tool selection refinements. Grass geometry/shader were unchanged; the full-capacity probe and final UI were rechecked after these fixes. The exact committed runtime passed the clean gate and exported package checks.",
+  "density_range": [
+    0,
+    1
+  ],
+  "default_density": 0.45,
+  "world_save_format_changed": false,
+  "manual_planting_preserved": true,
+  "production_saves_preferences_unchanged": true,
+  "macos_visible_export_save_thumbnail": true,
+  "macos_first_export_draw_seconds": 36.656,
+  "macos_repeat_draw_seconds": 1.609546184539795,
+  "exported_meadow_visible": 16885,
+  "windows_pe_x86_64": true,
+  "release_artifacts": [
+    {
+      "path": "builds/ui_meadow_01/windows/windhaven_ui_meadow_01.exe",
+      "bytes": 131658352,
+      "sha256": "0cd2cee5516f766326d82f458d8c106df499a791c41ddab15ae69b0399e43c54"
+    },
+    {
+      "path": "builds/ui_meadow_01/macos/windhaven_ui_meadow_01.zip",
+      "bytes": 79929877,
+      "sha256": "e5d6a0bdc98fd604d44f87b8a413ed85d1ace719584cb991b7b58d8af59fe1db"
+    }
+  ],
+  "external": {
+    "windows_device": "not_run_on_macos",
+    "minimum_spec_pc": "not_run",
+    "physical_touchpad": "manual_required",
+    "remote_ci": "not_triggered",
+    "first_time_players": 0
+  },
+  "prior_open_gates": [
+    "local_edit_150ms",
+    "first_export_startup_5s",
+    "minimum_spec_pc",
+    "windows_device",
+    "first_time_players"
+  ],
+  "m4_complete": false,
+  "m5_complete": false
+}

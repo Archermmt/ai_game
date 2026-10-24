@@ -1,0 +1,26 @@
+{
+  "ambient_rms": 0.00871427921301455,
+  "driver": "CoreAudio",
+  "frames": [
+    199680,
+    199680
+  ],
+  "mix_age": 0.00696,
+  "music_rms": 0.0061377060827177,
+  "music_volume_db": -15.9176006317139,
+  "peaks": [
+    0.0325227007269859,
+    0.0539781674742699
+  ],
+  "physical_listening_verified": false,
+  "position": 10.2320003509521,
+  "track": "all_seasons",
+  "passed": true,
+  "production_unchanged": true,
+  "step": {
+    "name": "seasonal_music_mix",
+    "exit_code": 0,
+    "seconds": 14.966
+  },
+  "music_to_ambient_db": -3.0445076705096246
+}

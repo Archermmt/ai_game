@@ -1,0 +1,39 @@
+{
+  "revision": "e7142fdf5804a3fd4205af9329b3e9bdfc13e111",
+  "cache_reused": false,
+  "host_tools_reused": [
+    "locked Godot",
+    "gdtoolkit venv"
+  ],
+  "gate": {
+    "tests": 544,
+    "new_tests": 23,
+    "failures": 0,
+    "skipped": 0,
+    "negative_control": true,
+    "icon_sources": 8,
+    "steps": [
+      {
+        "name": "garden_cumulative",
+        "exit_code": 0,
+        "seconds": 121.91
+      },
+      {
+        "name": "garden_tests",
+        "exit_code": 0,
+        "seconds": 22.016
+      },
+      {
+        "name": "garden_restart_write",
+        "exit_code": 0,
+        "seconds": 0.369
+      },
+      {
+        "name": "garden_restart_read",
+        "exit_code": 0,
+        "seconds": 0.368
+      }
+    ]
+  },
+  "passed": true
+}

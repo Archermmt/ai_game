@@ -1,0 +1,46 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/perf_01/test_meadow_cache.gd
+* test_cached_generation_matches_full_generation
+* test_local_terrain_updates_preserve_distribution_and_previous_result
+* test_undo_and_spacing_profile_changes_match_fresh_generation
+* test_obstacle_and_seed_changes_invalidate_cached_distribution
+* test_unchanged_source_reuses_all_chunks_without_mutating_source
+* test_cached_pond_broad_phase_matches_exact_for_near_far_and_edges
+* test_pond_circle_fallback_preserves_exact_conflicts
+* test_building_index_matches_exhaustive_queries_across_cell_boundaries
+* test_indexed_vegetation_clearance_and_reconcile_match_exhaustive_source
+9/9 passed.
+
+
+res://tests/perf_01/test_performance_samples.gd
+* test_nearest_rank_p95_does_not_mislabel_the_maximum_of_twenty_edits
+* test_percentile_empty_singleton_and_small_samples_are_defined
+* test_percentile_unsorted_hundred_samples_preserves_input_order
+3/3 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               2
+Tests                12
+Passing Tests        12
+Asserts            1350
+Time              31.187s
+
+
+---- All tests passed! ----
+
+Results saved to reports/perf_01.xml

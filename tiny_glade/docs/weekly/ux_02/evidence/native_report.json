@@ -1,0 +1,13 @@
+{
+	"gui_handle_began": true,
+	"handle_one_history": true,
+	"height_changed": true,
+	"photo_restore": true,
+	"photo_sizes_decoded": true,
+	"quick_150_inside": true,
+	"right_click_selected": true,
+	"right_drag_no_selection": true,
+	"right_drag_rotated": true,
+	"selected_photo_entered": true,
+	"undo_exact_source": true
+}

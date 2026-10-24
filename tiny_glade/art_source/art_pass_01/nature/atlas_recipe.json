@@ -1,0 +1,89 @@
+{
+  "seed": 251019,
+  "size": 2048,
+  "tiles": [
+    [
+      111,
+      139,
+      91
+    ],
+    [
+      87,
+      118,
+      80
+    ],
+    [
+      63,
+      96,
+      74
+    ],
+    [
+      103,
+      134,
+      86
+    ],
+    [
+      59,
+      94,
+      79
+    ],
+    [
+      104,
+      130,
+      79
+    ],
+    [
+      235,
+      225,
+      195
+    ],
+    [
+      147,
+      137,
+      174
+    ],
+    [
+      107,
+      96,
+      76
+    ],
+    [
+      151,
+      152,
+      135
+    ],
+    [
+      88,
+      115,
+      69
+    ],
+    [
+      65,
+      99,
+      77
+    ],
+    [
+      100,
+      131,
+      82
+    ],
+    [
+      190,
+      113,
+      49
+    ],
+    [
+      81,
+      113,
+      80
+    ],
+    [
+      108,
+      136,
+      91
+    ]
+  ],
+  "author": "Project original procedural brush painting",
+  "generator": "tools/art/build_art_foliage.py",
+  "rgba": "RGB is extended through transparent texels; COLOR_0 is wind data, not tint"
+}

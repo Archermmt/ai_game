@@ -1,0 +1,8 @@
+PASS week_10_native_audio (6.11s)
+settings_150 p95= 9.09090909090909 commit= 0
+PASS week_10_photography (4.59s)
+PASS week_10_png_decode (0.27s)
+demo_edit p95= 6.94444444444444 commit= 157.051
+capacity_edit p95= 10.0 commit= 213.983
+capacity_large_brush p95= 6.94444444444444 commit= 366.234
+W10 native functional checks PASS; performance targets: {'local_150ms': False, 'large_brush_500ms': True, 'p95_20ms': True, 'callback_100ms': True, 'rss_2gib': True}

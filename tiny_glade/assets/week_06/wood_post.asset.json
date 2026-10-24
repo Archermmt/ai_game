@@ -1,0 +1,19 @@
+{
+  "asset_id": "BLD-11",
+  "part": "wood_post",
+  "component": true,
+  "source": "art_source/week_06/wood_post.blend",
+  "export": "assets/week_06/wood_post.glb",
+  "units": "meters",
+  "blender": "5.1.2",
+  "up_axis": "gltf_y_up",
+  "triangles": 108,
+  "budget": 1200,
+  "sockets": [
+    "socket_start",
+    "socket_end",
+    "socket_ground"
+  ],
+  "stage": "w06_source",
+  "source_license": "Project original; authored by Blender script"
+}

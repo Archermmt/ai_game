@@ -1,0 +1,127 @@
+{
+  "generator": "tools/art/build_art_materials.py",
+  "blender": "5.1.2",
+  "numpy": "2.3.4",
+  "seed_scheme": "1103–1802 plus 1403/1504, fixed numpy PCG64; no external image inputs",
+  "intent": "Brush-layered lime plaster, smoked terracotta, quiet lengthwise honey timber, cool moss stone and warm curtain glass; broad sage meadow washes",
+  "calibration": "Painterly architecture 2026-10-24: broad pigment swathes and quiet wood grain; meadow, meadow_macro, warm_soil and wet_bank bytes retained",
+  "textures": [
+    {
+      "name": "meadow",
+      "source": "art_source/art_pass_01/materials/meadow.png",
+      "export": "assets/materials/art_pass_01/meadow.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "sha256": "6c8254dc1376faa1bd3d1feff75fcd663685af5e90dcdd7e713a0897334b37ce",
+      "color_space": "sRGB; bytes authored directly, no view transform",
+      "seamless": true,
+      "license": "Project original; CC0-1.0"
+    },
+    {
+      "name": "meadow_macro",
+      "source": "art_source/art_pass_01/materials/meadow_macro.png",
+      "export": "assets/materials/art_pass_01/meadow_macro.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "sha256": "9f83a6080ce6d84513b8cbb5120836cb62cf87e732db44bfd87776714fb6da1c",
+      "color_space": "sRGB; bytes authored directly, no view transform",
+      "seamless": true,
+      "license": "Project original; CC0-1.0"
+    },
+    {
+      "name": "plaster",
+      "source": "art_source/art_pass_01/materials/plaster.png",
+      "export": "assets/materials/art_pass_01/plaster.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "sha256": "0da0220d9a09a158aa33efb8e5ea1f1991fb11551b7323444f6e0764536cb3cb",
+      "color_space": "sRGB; bytes authored directly, no view transform",
+      "seamless": true,
+      "license": "Project original; CC0-1.0"
+    },
+    {
+      "name": "terracotta",
+      "source": "art_source/art_pass_01/materials/terracotta.png",
+      "export": "assets/materials/art_pass_01/terracotta.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "sha256": "99cad3959aa5a20eaf566ea4611aec507b09325c6624f12448352dd56812b712",
+      "color_space": "sRGB; bytes authored directly, no view transform",
+      "seamless": true,
+      "license": "Project original; CC0-1.0"
+    },
+    {
+      "name": "honey_timber",
+      "source": "art_source/art_pass_01/materials/honey_timber.png",
+      "export": "assets/materials/art_pass_01/honey_timber.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "sha256": "36325390a48bd3e4d1dd406d2d8ab4afb2885e3d5f2bc4130bf75de447601322",
+      "color_space": "sRGB; bytes authored directly, no view transform",
+      "seamless": true,
+      "license": "Project original; CC0-1.0"
+    },
+    {
+      "name": "moss_stone",
+      "source": "art_source/art_pass_01/materials/moss_stone.png",
+      "export": "assets/materials/art_pass_01/moss_stone.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "sha256": "adbcfe7dfc5e4bfb68a32d1e300d3d29827cc006aef4b2850543b5a287c4e8a8",
+      "color_space": "sRGB; bytes authored directly, no view transform",
+      "seamless": true,
+      "license": "Project original; CC0-1.0"
+    },
+    {
+      "name": "warm_soil",
+      "source": "art_source/art_pass_01/materials/warm_soil.png",
+      "export": "assets/materials/art_pass_01/warm_soil.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "sha256": "2ff013788c3e2f8761a34a4fbb83ea4603be4c64b37aa063f3bf538ca3ed8822",
+      "color_space": "sRGB; bytes authored directly, no view transform",
+      "seamless": true,
+      "license": "Project original; CC0-1.0"
+    },
+    {
+      "name": "wet_bank",
+      "source": "art_source/art_pass_01/materials/wet_bank.png",
+      "export": "assets/materials/art_pass_01/wet_bank.png",
+      "resolution": [
+        1024,
+        1024
+      ],
+      "sha256": "42577a3c461b8feed552a5845f272ce5eea95dc7eb23c0dd82a996182342ad30",
+      "color_space": "sRGB; bytes authored directly, no view transform",
+      "seamless": true,
+      "license": "Project original; CC0-1.0"
+    },
+    {
+      "name": "window_glow",
+      "source": "art_source/art_pass_01/materials/window_glow.png",
+      "export": "assets/materials/art_pass_01/window_glow.png",
+      "resolution": [
+        256,
+        256
+      ],
+      "sha256": "f3199b73aa51c276eb445070f544f9e0cc6246cb28553d381148dd7d7e9cd80b",
+      "color_space": "sRGB; bytes authored directly, no view transform",
+      "seamless": false,
+      "license": "Project original; CC0-1.0"
+    }
+  ]
+}

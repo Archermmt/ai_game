@@ -1,0 +1,124 @@
+{
+  "steps": [
+    {
+      "name": "render_on_0",
+      "exit_code": 0,
+      "seconds": 3.266
+    },
+    {
+      "name": "render_on_1",
+      "exit_code": 0,
+      "seconds": 2.289
+    },
+    {
+      "name": "render_zero_0",
+      "exit_code": 0,
+      "seconds": 2.29
+    },
+    {
+      "name": "render_zero_1",
+      "exit_code": 0,
+      "seconds": 2.265
+    },
+    {
+      "name": "render_still_0",
+      "exit_code": 0,
+      "seconds": 2.271
+    },
+    {
+      "name": "render_still_1",
+      "exit_code": 0,
+      "seconds": 2.283
+    },
+    {
+      "name": "wind_pixels",
+      "exit_code": 0,
+      "seconds": 0.378
+    },
+    {
+      "name": "render_dusk",
+      "exit_code": 0,
+      "seconds": 2.269
+    },
+    {
+      "name": "benchmark_forward_plus",
+      "exit_code": 0,
+      "seconds": 62.758
+    },
+    {
+      "name": "benchmark_mobile",
+      "exit_code": 0,
+      "seconds": 63.386
+    }
+  ],
+  "wind": {
+    "on_different_bytes": 143624,
+    "passed": true,
+    "still_different_bytes": 0,
+    "zero_different_bytes": 0
+  },
+  "benchmarks": {
+    "forward_plus": {
+      "buildings": 2,
+      "edit_metrics": {
+        "main_apply_max_ms": 0.0,
+        "main_apply_p95_ms": 0.0,
+        "main_apply_samples": 0,
+        "probe_edits": 0
+      },
+      "engine": "4.7.2-stable (official)",
+      "frames": 7198,
+      "instances": 2,
+      "mean_frame_ms": 8.33540705751681,
+      "p95_frame_ms": 8.33333333333333,
+      "paths": 0,
+      "pond_present": true,
+      "renderer": "forward_plus",
+      "sample_duration_seconds": 60.0,
+      "terrain_samples": 305,
+      "test_framework_in_pack": true,
+      "test_sources_in_pack": true,
+      "viewport_size": [
+        1920,
+        1080
+      ],
+      "wind_materials": 65
+    },
+    "mobile": {
+      "buildings": 2,
+      "edit_metrics": {
+        "main_apply_max_ms": 0.0,
+        "main_apply_p95_ms": 0.0,
+        "main_apply_samples": 0,
+        "probe_edits": 0
+      },
+      "engine": "4.7.2-stable (official)",
+      "frames": 6930,
+      "instances": 2,
+      "mean_frame_ms": 8.37126988937065,
+      "p95_frame_ms": 8.33333333333333,
+      "paths": 0,
+      "pond_present": true,
+      "renderer": "mobile",
+      "sample_duration_seconds": 60.0,
+      "terrain_samples": 305,
+      "test_framework_in_pack": true,
+      "test_sources_in_pack": true,
+      "viewport_size": [
+        1920,
+        1080
+      ],
+      "wind_materials": 65
+    }
+  },
+  "benchmark_resolution": [
+    1920,
+    1080
+  ],
+  "wind_capture_resolution": [
+    1280,
+    800
+  ],
+  "device": "Apple M4 Pro, 20-core GPU, 48 GB RAM, macOS arm64",
+  "scope": "Current two-building risk sample with water and alpha-scissor leaves; not the MVP stress scene"
+}

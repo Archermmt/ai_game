@@ -1,0 +1,23 @@
+{
+	"engine": "4.7.2-stable (official)",
+	"note": "CPU/headless full-field sample; not GPU frame time",
+	"samples": [
+		{
+			"chunks": 64,
+			"evaluate_ms": 291.378,
+			"headless_materialize_ms": 1.17,
+			"spacing_m": 0.25,
+			"triangles": 131072,
+			"vertices": 69696
+		},
+		{
+			"chunks": 64,
+			"evaluate_ms": 77.175,
+			"headless_materialize_ms": 0.568,
+			"spacing_m": 0.5,
+			"triangles": 32768,
+			"vertices": 18496
+		}
+	],
+	"selected_spacing_m": 0.5
+}

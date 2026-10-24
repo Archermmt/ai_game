@@ -1,0 +1,148 @@
+{
+  "date": "2026-10-20",
+  "reviewer": "Codex visual inspection of native captured images",
+  "scope": "SCN-01 technical visual slice; not external artistic sign-off or all 47-family M4 acceptance.",
+  "captures": [
+    {
+      "file": "day.png",
+      "sha256": "d937ba6afcd93a756c544a67465fa0f102faf42f926bbddafe9372e7e072b946",
+      "result": "pass_for_sampled_technical_checks"
+    },
+    {
+      "file": "dusk.png",
+      "sha256": "ed6ef8244fcbb8c85193488159709dfda34043d4959f81cd3afbb7bfcf03a90d",
+      "result": "pass_for_sampled_technical_checks"
+    },
+    {
+      "file": "garden_day.png",
+      "sha256": "e2bcf703e5a074fed024f11f2027171c25ecb26c7e2e36b106496c84186ef18a",
+      "result": "pass_for_sampled_technical_checks"
+    },
+    {
+      "file": "garden_dusk.png",
+      "sha256": "597a8ef0f83672b43f5f318d75a6640f9dc116320edc008ae53b27eb58562b2b",
+      "result": "pass_for_sampled_technical_checks"
+    },
+    {
+      "file": "gameplay.png",
+      "sha256": "fa0df01d75389826dba330b023577d656ec91577026834376b1136b81a74d110",
+      "result": "pass_for_sampled_technical_checks"
+    },
+    {
+      "file": "settings.png",
+      "sha256": "567705d70cbc6cd804767d0af25f3019e4ab2740628c500a56a9740f60ecfebe",
+      "result": "pass_for_sampled_technical_checks"
+    },
+    {
+      "file": "settings_150.png",
+      "sha256": "c9f6ecff2e151e817d1a12b0b7f0cef046b91b3c4a3869994babe9b1175b299c",
+      "result": "pass_for_sampled_technical_checks"
+    },
+    {
+      "file": "library.png",
+      "sha256": "7012ffcd450b843e4a5473d5adfdcd9756d5c989d6e26013e36056c3c334d8cb",
+      "result": "pass_for_sampled_technical_checks"
+    },
+    {
+      "file": "library_150.png",
+      "sha256": "4e3c99d76033aa707af82f27cca56381407c2004de2c9bea70b49b77147af466",
+      "result": "pass_for_sampled_technical_checks"
+    },
+    {
+      "file": "ui_150.png",
+      "sha256": "9b6313175d118d1c7dd86f9bf238e98ceae964c7c52049eabbb48f2433fdc070",
+      "result": "pass_for_sampled_technical_checks"
+    },
+    {
+      "file": "aged.png",
+      "sha256": "ae4f36a6ce7d1c1b7a76a9a636ab708c33f76bcf0626b55da1c11cf4459b6680",
+      "result": "pass_for_sampled_technical_checks"
+    },
+    {
+      "file": "lantern.png",
+      "sha256": "597a8ef0f83672b43f5f318d75a6640f9dc116320edc008ae53b27eb58562b2b",
+      "result": "pass_for_sampled_technical_checks"
+    },
+    {
+      "file": "dof_on.png",
+      "sha256": "2ee1e80a087d1b6a421853621730ada7a563cd3ed21e1144e5f0cd3e2d0278df",
+      "result": "pass_for_sampled_technical_checks"
+    },
+    {
+      "file": "near_45.png",
+      "sha256": "c98d67ef072b72f5c40381c9faceab3db5303453e4197f7944ad6b3c6dc49a6a",
+      "result": "pass_for_sampled_technical_checks"
+    },
+    {
+      "file": "near_135.png",
+      "sha256": "c7f7bbbc74f94f18de979b5925f1d0be561ee8df7c0a16822620bac30933f30b",
+      "result": "pass_for_sampled_technical_checks"
+    },
+    {
+      "file": "near_225.png",
+      "sha256": "f970f201dbbef9a08b56f02f54044b11503c4cee1e841522541cf7d2d0d9893a",
+      "result": "pass_for_sampled_technical_checks"
+    },
+    {
+      "file": "near_315.png",
+      "sha256": "b2d5349bf3724f049cf1b28b95d44331f94f339dc34ebe2cb94d8cf908a3617d",
+      "result": "pass_for_sampled_technical_checks"
+    },
+    {
+      "file": "far_45.png",
+      "sha256": "f4120a0b0ddd539ba8ac9d9a1f31380f4723dbfe297061f2d4a9b4cf7c68f1a7",
+      "result": "pass_for_sampled_technical_checks"
+    },
+    {
+      "file": "far_135.png",
+      "sha256": "9e95733058747db7ffae1cf17df0a1f5422651e325198d2a0bf8b4d9a6d3d02c",
+      "result": "pass_for_sampled_technical_checks"
+    },
+    {
+      "file": "far_225.png",
+      "sha256": "cacc13d56c1f57e070d6e1812f6413c73785ccfc3ce77968e138c63404cef743",
+      "result": "pass_for_sampled_technical_checks"
+    },
+    {
+      "file": "far_315.png",
+      "sha256": "4bbd44ef03c32b0a16a496f3fa4364f7ad35e60bdff64da7d4714c9717e8ba6f",
+      "result": "pass_for_sampled_technical_checks"
+    }
+  ],
+  "wind": {
+    "on_different_bytes": 120030,
+    "passed": true,
+    "still_different_bytes": 0,
+    "zero_different_bytes": 0
+  },
+  "movie": {
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 800,
+          "nb_frames": "180"
+        }
+      ],
+      "format": {
+        "duration": "6.000000"
+      }
+    },
+    "sha256": "85fc8e0c356ed0e7cbb12726336bb38ad4e54cffffb33efee3be026d5f7eaf93",
+    "bytes": 2882412
+  },
+  "checks": [
+    "Day/dusk recommended views, roof/wall closure and fixed-size openings, support and bridge landing.",
+    "Near/far four directions: no blocking holes, LOD discoloration or atlas white edges observed in sampled views.",
+    "UI 100/150%, settings and populated slot thumbnail readable; tools/dialogs scroll and status remains visible.",
+    "Age/lantern/DOF captures and default DOF-off scene readability."
+  ],
+  "remaining": [
+    "Windows real device and physical Mac trackpad feel",
+    "W09 full stress, photography and UI-06",
+    "M4 all-family art acceptance; GPU hardware timers unavailable"
+  ]
+}

@@ -1,0 +1,88 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/week_05/test_garden_rules.gd
+* test_polygon_signed_distance_agrees_with_edges_and_inside
+* test_legacy_circle_keeps_exact_distance
+* test_water_level_fixed_after_redrawing_existing_pond
+* test_crossed_polygon_rejected_without_mutating_source
+* test_polygon_minimum_width_two_metres
+* test_degenerate_and_malformed_outlines_fail_safely
+* test_polygon_boundary_two_metres
+* test_all_terrain_brushes_preserve_polygon_and_bank
+* test_delete_pond_restores_player_heights
+    [GUT WARNING]:  Warn:  Float/Int comparison.  Got FLOAT but expected INT
+* test_polygon_rejects_excessive_original_slope
+* test_building_and_shore_use_same_safety_boundary_both_directions
+* test_manual_objects_not_swallowed_by_shore
+* test_polygon_water_is_triangulated_at_fixed_height
+* test_chunk_cache_changes_with_outline_and_matches_fresh
+* test_failed_pond_transaction_preserves_history_and_view_payload
+* test_concave_simple_wide_outline_supported
+    [GUT WARNING]:  Warn:  Float/Int comparison.  Got FLOAT but expected INT
+    [GUT WARNING]:  Warn:  Float/Int comparison.  Got FLOAT but expected INT
+* test_crate_support_height_and_cycle_guard
+* test_missing_support_rejects_delete_without_losing_child
+* test_bad_fence_points_fail_without_engine_error
+* test_closed_fence_has_capped_rails_and_shared_corner_posts
+20/20 passed.
+
+
+res://tests/week_05/test_structures.gd
+* test_bridge_valid_two_banks_and_geometry_above_water
+* test_bridge_range_limits
+* test_bridge_head_inside_water_and_missing_crossing_rejected
+* test_new_invalid_bridge_rejected_at_transaction_boundary
+* test_shore_invalidates_bridge_retains_id_and_undo_restores_together
+* test_delete_pond_keeps_invalid_bridge_visible
+* test_bridge_excessive_height_difference_rejected
+* test_stair_height_limits_and_continuous_treads
+* test_flat_or_tall_stairs_rejected_preserving_existing
+* test_fifty_mixed_transactions_undo_redo_reproduce_all_sources
+* test_stairs_snap_to_manual_door_floor_and_keep_body_outside_house
+* test_bridge_deck_ramps_join_uneven_heads
+* test_serialized_pool_bounds_and_collapsed_closed_fence_fail_safely
+13/13 passed.
+
+
+res://tests/week_05/test_week_five_playground.gd
+* test_scene_uses_polygon_water_real_props_and_bridge
+* test_bridge_drag_is_preview_until_explicit_confirmation
+* test_invalid_bridge_confirmation_keeps_original_geometry
+* test_cancel_pending_pond_keeps_source_and_history
+* test_invalid_bridge_remains_listed_after_pond_delete_and_undo
+* test_fence_freehand_records_turns_and_closed_flag_one_transaction
+* test_mac_option_left_does_not_start_garden_gesture
+* test_w05_save_roundtrip_includes_polygon_bridge_and_props
+* test_invalid_shore_preserves_twenty_manual_objects_ids_and_transforms
+* test_new_assets_have_source_models_and_triangle_budgets
+* test_actual_bridge_mouse_release_waits_for_confirmation_and_escape_cancels
+* test_save_preserves_computed_float_heights_exactly
+12/12 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Warnings              3
+
+Scripts               3
+Tests                45
+Passing Tests        45
+Asserts             315
+Time              7.316s
+
+
+---- All tests passed! ----
+
+Results saved to reports/week_05.xml

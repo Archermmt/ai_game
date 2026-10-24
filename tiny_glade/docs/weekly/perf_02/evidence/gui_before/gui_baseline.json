@@ -1,0 +1,273 @@
+{
+  "runtime_revision": "fd2bccb67e47ecafc35b6055a9e76ab3f8a4d362",
+  "probe_revision": "77b6adfb0b8ecdc1e37729a8e5a2a83735917f66",
+  "probe_sha256": "39efd89c48885dadee270a017b1a21c50350ee747b9f7a960d46fd2d144df72f",
+  "layout": "capacity",
+  "runs": 3,
+  "warmup_edits": 0,
+  "audio": "Dummy",
+  "production_unchanged": true,
+  "probes": [
+    {
+      "report": "reports/perf_02/before/input_capacity_01.json",
+      "first_sample": {
+        "change_to_draw_ms": 138.202,
+        "change_to_grass_settle_draw_ms": 458.908,
+        "change_to_publish_ms": 130.452,
+        "change_usec": 2616549,
+        "draw_usec": 2754751,
+        "grass_busy_at_input": true,
+        "grass_settle_draw_usec": 3075457,
+        "grass_total": 34006,
+        "grass_visible": 15285,
+        "history_before": 0,
+        "index": 0,
+        "meadow_token_at_input": 1,
+        "meadow_token_at_publish": 2,
+        "motion_to_draw_ms": 217.8,
+        "motion_to_grass_settle_draw_ms": 538.506,
+        "motion_to_publish_ms": 210.05,
+        "motion_usec": 2536951,
+        "press_to_draw_ms": 182.263,
+        "press_to_grass_settle_draw_ms": 502.969,
+        "press_to_publish_ms": 174.513,
+        "press_usec": 2572488,
+        "publication_count": 1,
+        "publish_usec": 2747001,
+        "release_to_draw_ms": 115.291,
+        "release_to_grass_settle_draw_ms": 435.997,
+        "release_to_publish_ms": 107.541,
+        "release_usec": 2639460,
+        "revision_after": 2,
+        "revision_before": 1,
+        "roof_after": 1.68724133312702,
+        "roof_before": 1.44,
+        "target_id": "2f0c2d8c993b06836b069ed4"
+      },
+      "summary": {
+        "change_to_draw_ms": {
+          "max": 154.367,
+          "p95": 149.727
+        },
+        "change_to_grass_settle_draw_ms": {
+          "max": 475.536,
+          "p95": 469.051
+        },
+        "change_to_publish_ms": {
+          "max": 147.095,
+          "p95": 142.641
+        },
+        "motion_to_draw_ms": {
+          "max": 217.8,
+          "p95": 210.457
+        },
+        "motion_to_grass_settle_draw_ms": {
+          "max": 538.506,
+          "p95": 531.133
+        },
+        "motion_to_publish_ms": {
+          "max": 210.05,
+          "p95": 203.371
+        },
+        "press_to_draw_ms": {
+          "max": 182.263,
+          "p95": 176.21
+        },
+        "press_to_grass_settle_draw_ms": {
+          "max": 502.969,
+          "p95": 497.379
+        },
+        "press_to_publish_ms": {
+          "max": 174.513,
+          "p95": 168.938
+        },
+        "release_to_draw_ms": {
+          "max": 133.176,
+          "p95": 125.778
+        },
+        "release_to_grass_settle_draw_ms": {
+          "max": 454.345,
+          "p95": 448.591
+        },
+        "release_to_publish_ms": {
+          "max": 125.904,
+          "p95": 118.75
+        }
+      }
+    },
+    {
+      "report": "reports/perf_02/before/input_capacity_02.json",
+      "first_sample": {
+        "change_to_draw_ms": 141.046,
+        "change_to_grass_settle_draw_ms": 460.378,
+        "change_to_publish_ms": 133.335,
+        "change_usec": 2459676,
+        "draw_usec": 2600722,
+        "grass_busy_at_input": true,
+        "grass_settle_draw_usec": 2920054,
+        "grass_total": 34006,
+        "grass_visible": 15285,
+        "history_before": 0,
+        "index": 0,
+        "meadow_token_at_input": 1,
+        "meadow_token_at_publish": 2,
+        "motion_to_draw_ms": 218.176,
+        "motion_to_grass_settle_draw_ms": 537.508,
+        "motion_to_publish_ms": 210.465,
+        "motion_usec": 2382546,
+        "press_to_draw_ms": 182.219,
+        "press_to_grass_settle_draw_ms": 501.551,
+        "press_to_publish_ms": 174.508,
+        "press_usec": 2418503,
+        "publication_count": 1,
+        "publish_usec": 2593011,
+        "release_to_draw_ms": 119.29,
+        "release_to_grass_settle_draw_ms": 438.622,
+        "release_to_publish_ms": 111.579,
+        "release_usec": 2481432,
+        "revision_after": 2,
+        "revision_before": 1,
+        "roof_after": 1.68724133312702,
+        "roof_before": 1.44,
+        "target_id": "2f0c2d8c993b06836b069ed4"
+      },
+      "summary": {
+        "change_to_draw_ms": {
+          "max": 157.488,
+          "p95": 146.517
+        },
+        "change_to_grass_settle_draw_ms": {
+          "max": 497.615,
+          "p95": 472.799
+        },
+        "change_to_publish_ms": {
+          "max": 149.475,
+          "p95": 139.136
+        },
+        "motion_to_draw_ms": {
+          "max": 218.176,
+          "p95": 217.293
+        },
+        "motion_to_grass_settle_draw_ms": {
+          "max": 557.42,
+          "p95": 537.508
+        },
+        "motion_to_publish_ms": {
+          "max": 210.465,
+          "p95": 209.28
+        },
+        "press_to_draw_ms": {
+          "max": 182.219,
+          "p95": 180.4
+        },
+        "press_to_grass_settle_draw_ms": {
+          "max": 520.527,
+          "p95": 501.551
+        },
+        "press_to_publish_ms": {
+          "max": 174.508,
+          "p95": 172.387
+        },
+        "release_to_draw_ms": {
+          "max": 130.697,
+          "p95": 126.698
+        },
+        "release_to_grass_settle_draw_ms": {
+          "max": 470.824,
+          "p95": 452.087
+        },
+        "release_to_publish_ms": {
+          "max": 122.684,
+          "p95": 119.294
+        }
+      }
+    },
+    {
+      "report": "reports/perf_02/before/input_capacity_03.json",
+      "first_sample": {
+        "change_to_draw_ms": 145.705,
+        "change_to_grass_settle_draw_ms": 469.92,
+        "change_to_publish_ms": 137.953,
+        "change_usec": 2508351,
+        "draw_usec": 2654056,
+        "grass_busy_at_input": true,
+        "grass_settle_draw_usec": 2978271,
+        "grass_total": 34006,
+        "grass_visible": 15285,
+        "history_before": 0,
+        "index": 0,
+        "meadow_token_at_input": 1,
+        "meadow_token_at_publish": 2,
+        "motion_to_draw_ms": 221.959,
+        "motion_to_grass_settle_draw_ms": 546.174,
+        "motion_to_publish_ms": 214.207,
+        "motion_usec": 2432097,
+        "press_to_draw_ms": 186.331,
+        "press_to_grass_settle_draw_ms": 510.546,
+        "press_to_publish_ms": 178.579,
+        "press_usec": 2467725,
+        "publication_count": 1,
+        "publish_usec": 2646304,
+        "release_to_draw_ms": 122.435,
+        "release_to_grass_settle_draw_ms": 446.65,
+        "release_to_publish_ms": 114.683,
+        "release_usec": 2531621,
+        "revision_after": 2,
+        "revision_before": 1,
+        "roof_after": 1.68724133312702,
+        "roof_before": 1.44,
+        "target_id": "2f0c2d8c993b06836b069ed4"
+      },
+      "summary": {
+        "change_to_draw_ms": {
+          "max": 150.545,
+          "p95": 149.673
+        },
+        "change_to_grass_settle_draw_ms": {
+          "max": 481.448,
+          "p95": 476.07
+        },
+        "change_to_publish_ms": {
+          "max": 142.926,
+          "p95": 142.295
+        },
+        "motion_to_draw_ms": {
+          "max": 221.959,
+          "p95": 211.33
+        },
+        "motion_to_grass_settle_draw_ms": {
+          "max": 546.174,
+          "p95": 539.093
+        },
+        "motion_to_publish_ms": {
+          "max": 214.207,
+          "p95": 203.952
+        },
+        "press_to_draw_ms": {
+          "max": 186.331,
+          "p95": 174.771
+        },
+        "press_to_grass_settle_draw_ms": {
+          "max": 510.546,
+          "p95": 504.772
+        },
+        "press_to_publish_ms": {
+          "max": 178.579,
+          "p95": 167.393
+        },
+        "release_to_draw_ms": {
+          "max": 127.945,
+          "p95": 127.415
+        },
+        "release_to_grass_settle_draw_ms": {
+          "max": 461.027,
+          "p95": 455.385
+        },
+        "release_to_publish_ms": {
+          "max": 120.839,
+          "p95": 119.796
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "godot_tests": 676,
+  "python_tests": 28,
+  "new_tests": 20,
+  "new_assertions": 972,
+  "negative_control": true,
+  "failures": 0,
+  "skipped": 0,
+  "functional_gate_passed": true,
+  "m4_approved": false,
+  "m5_approved": false,
+  "steps": [
+    {
+      "name": "w13_cumulative",
+      "exit_code": 0,
+      "seconds": 267.571
+    },
+    {
+      "name": "week_13_tests",
+      "exit_code": 0,
+      "seconds": 4.192
+    }
+  ]
+}

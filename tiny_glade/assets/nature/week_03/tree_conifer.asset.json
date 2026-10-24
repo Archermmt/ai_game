@@ -1,0 +1,14 @@
+{
+  "asset_id": "NAT-02",
+  "source": "art_source/week_03/tree_conifer.blend",
+  "export": "assets/nature/week_03/tree_conifer.glb",
+  "blender": "5.1.2",
+  "units": "meters",
+  "up_axis": "gltf_y_up",
+  "triangles": 384,
+  "sockets": [
+    "socket_ground"
+  ],
+  "stage": "w03_source",
+  "source_license": "Project original; authored by project Blender script"
+}

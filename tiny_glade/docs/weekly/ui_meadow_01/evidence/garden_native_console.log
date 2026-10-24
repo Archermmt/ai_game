@@ -1,0 +1,15 @@
+ribbon p95 10.322 grass 16885
+plants p95 9.72222222222222 grass 16885
+build p95 9.73 grass 16885
+plants_150 p95 9.72222222222222 grass 16885
+focus_off p95 9.04366666666683 grass 16885
+wind_t0 p95 10.4166666666667 grass 16885
+wind_t2 p95 9.634 grass 16885
+reduced_t0 p95 9.52380952380952 grass 16885
+reduced_t2 p95 10.0 grass 16885
+PASS garden_photography (4.87s)
+PASS garden_png_decode (0.26s)
+grass_off p95 8.33333333333333 grass 0
+grass_default p95 9.25925925925926 grass 16885
+grass_full p95 10.0 grass 37556
+GARDEN NATIVE functional PASS; targets {'p95_20ms': True, 'rss_2gib': True, 'main_grass_slice_10ms': True}

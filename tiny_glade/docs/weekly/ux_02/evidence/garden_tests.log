@@ -1,0 +1,57 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/garden_presentation/test_garden_scene.gd
+* test_default_ribbon_replaces_large_panels_and_is_within_viewport
+* test_every_category_opens_and_closes_without_source_or_history_edits
+* test_density_drag_changes_draw_count_without_regeneration_or_source_edits
+* test_reduced_motion_stops_grass_and_photo_freeze_restores_it
+* test_focus_tracks_camera_zoom_and_can_be_disabled
+* test_ribbon_and_context_remain_visible_at_150_percent
+* test_real_category_tool_button_routes_into_transactional_creation
+* test_edit_click_selects_building_and_opens_its_properties
+* test_save_load_keeps_manual_objects_and_density_stays_local
+* test_latest_meadow_wins_after_two_source_replacements
+* test_zero_density_does_not_lose_manual_plants_or_visible_sources
+* test_modification_entry_does_not_cancel_a_pending_released_commit
+* test_zero_density_initial_renderer_allocates_no_batches_until_enabled
+* test_enable_after_editing_while_disabled_rebuilds_latest_clearances
+* test_scene_modification_uses_visible_prop_proxy_and_opens_object_fields
+15/15 passed.
+
+
+res://tests/garden_presentation/test_meadow.gd
+* test_seeded_meadow_is_repeatable_and_does_not_modify_source
+* test_meadow_has_bounded_chunks_and_simple_shared_geometry
+* test_all_blades_clear_homes_entrances_and_water
+* test_meadow_grounds_follow_the_same_source_height_field
+* test_environment_changes_do_not_trigger_geometry_reseeding
+* test_grass_density_and_focus_preferences_validate_and_roundtrip
+* test_changed_seed_changes_grass_but_leaves_manual_content_identical
+* test_paths_are_clear_even_between_their_control_points
+8/8 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               2
+Tests                23
+Passing Tests        23
+Asserts             282
+Time              21.418s
+
+
+---- All tests passed! ----
+
+Results saved to reports/ui_meadow_01.xml

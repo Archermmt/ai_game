@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-22",
+  "version": "0.11.1-ux02",
+  "runtime_revision": "7b0b68ad3585b52116590307fb428c2f0c407f71",
+  "prd_first_revision": "f8c1e82",
+  "default_scene": "app/simple_root.tscn",
+  "scope": "UX-02-A direct manipulation of existing MVP tools; UX-02-B excluded",
+  "godot_tests": 579,
+  "godot_assertions": 16299,
+  "new_godot_tests": 26,
+  "new_godot_assertions": 377,
+  "python_tests": 6,
+  "failures": 0,
+  "skipped": 0,
+  "negative_control": true,
+  "empty_import_cache": true,
+  "native_input_dispatch": {
+    "gui_handle_began": true,
+    "handle_one_history": true,
+    "height_changed": true,
+    "photo_restore": true,
+    "photo_sizes_decoded": true,
+    "quick_150_inside": true,
+    "right_click_selected": true,
+    "right_drag_no_selection": true,
+    "right_drag_rotated": true,
+    "selected_photo_entered": true,
+    "undo_exact_source": true
+  },
+  "native_device": "Apple M4 Pro / macOS / Metal",
+  "native_metrics": {
+    "frame_p95_ms": 11.494,
+    "commit_p95_ms": 277.353,
+    "commit_max_ms": 277.353,
+    "main_callback_max_ms": 45.751,
+    "rss_peak_mib": 948.734375
+  },
+  "native_targets": {
+    "frame_p95_20ms": true,
+    "main_callback_100ms": true,
+    "rss_2gib": true,
+    "local_edit_p95_150ms": false
+  },
+  "production_files_unchanged": true,
+  "photo_export_sizes": [
+    [
+      1920,
+      1080
+    ],
+    [
+      2560,
+      1440
+    ]
+  ],
+  "macos_export_visible_boot": true,
+  "macos_serial_first_draw_seconds": 2.71,
+  "macos_concurrent_first_draw_seconds": 35.955,
+  "startup_caveat": "Serial rerun used existing host/driver caches; concurrent run included clean-regression CPU load. Neither establishes fresh-device cold startup.",
+  "windows_pe_x86_64": true,
+  "windows_real_device": "not_run",
+  "physical_trackpad": "not_run",
+  "minimum_spec_PC": "not_run",
+  "actual_first_players": 0,
+  "m4_approved": false,
+  "m5_approved": false,
+  "video_evidence": "Bilibili page metadata verified; captured video frames black; no frame-by-frame control claims",
+  "artifacts": [
+    {
+      "path": "builds/ux_02/windows/windhaven_ux_02.exe",
+      "bytes": 131694424,
+      "sha256": "0f4f8d2f3ea8d079d8b360627183c0549446c2fd90a0747117a33e197d1f799d"
+    },
+    {
+      "path": "builds/ux_02/macos/windhaven_ux_02.zip",
+      "bytes": 79962014,
+      "sha256": "be0dbef4db00767e660f597efb54e7aa70f47c32a8a759788055bdec4642e7e5"
+    }
+  ],
+  "remaining": [
+    "local_edit_p95_150ms",
+    "fresh_device_startup",
+    "Windows_real_device",
+    "minimum_spec_PC",
+    "physical_trackpad_and_listening",
+    "remote_CI",
+    "T067_ten_real_first_players"
+  ]
+}

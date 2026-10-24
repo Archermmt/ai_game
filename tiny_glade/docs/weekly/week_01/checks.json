@@ -1,0 +1,50 @@
+{
+  "week": 1,
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "tests": 42,
+  "failures": 0,
+  "skipped": 0,
+  "negative_control": true,
+  "steps": [
+    {
+      "name": "engine_import",
+      "exit_code": 0,
+      "seconds": 1.534
+    },
+    {
+      "name": "format",
+      "exit_code": 0,
+      "seconds": 0.339
+    },
+    {
+      "name": "lint",
+      "exit_code": 0,
+      "seconds": 0.351
+    },
+    {
+      "name": "asset_contract",
+      "exit_code": 0,
+      "seconds": 0.024
+    },
+    {
+      "name": "week_01_tests",
+      "exit_code": 0,
+      "seconds": 1.321
+    },
+    {
+      "name": "restart_write",
+      "exit_code": 0,
+      "seconds": 0.15
+    },
+    {
+      "name": "restart_read",
+      "exit_code": 0,
+      "seconds": 0.144
+    },
+    {
+      "name": "negative_control",
+      "exit_code": 1,
+      "seconds": 1.024
+    }
+  ]
+}

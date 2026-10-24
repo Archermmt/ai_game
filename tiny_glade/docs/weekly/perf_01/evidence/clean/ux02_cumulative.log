@@ -1,0 +1,5 @@
+PASS w11_cumulative (145.19s)
+PASS w11_playtest_validator (0.04s)
+PASS w11_scene_tests (8.27s)
+PASS w11_actual_playtest_report (0.03s)
+W11 FUNCTIONAL PASS: 553 Godot tests + 6 validator tests; M5 separate

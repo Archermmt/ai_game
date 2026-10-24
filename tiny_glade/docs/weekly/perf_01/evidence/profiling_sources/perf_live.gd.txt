@@ -1,0 +1,10 @@
+extends SceneTree
+func _initialize() -> void:
+	call_deferred("probe")
+func probe() -> void:
+	var p = load("res://app/hover_root.tscn").instantiate()
+	root.add_child(p)
+	while p._probe_edits < 20:
+		await process_frame
+	print("PHASES ", JSON.stringify({"commit":p._commit_latencies,"apply":p._apply_samples,"prepare":p._latencies,"metrics":p._delivery_metrics()}))
+	p._request_quit()

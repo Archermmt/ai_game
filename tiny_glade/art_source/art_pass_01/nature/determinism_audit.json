@@ -1,0 +1,9 @@
+{
+  "status": "not_retested",
+  "generator_version": "art_foliage_01.4",
+  "same_glb_exports": null,
+  "passed": null,
+  "independent_generation_count": 0,
+  "historical_report": "historical_determinism_audit.json",
+  "note": "The current revision has not been generated twice in isolated directories. The old same_glb_exports claim and old hashes are retained only in the explicitly historical report. Current source reopening and GLB contract audits are separate checks."
+}

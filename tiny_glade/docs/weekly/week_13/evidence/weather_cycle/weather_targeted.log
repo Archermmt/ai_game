@@ -1,0 +1,82 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/week_13/test_living_data.gd
+* test_calendar_rolls_minute_day_month_and_year
+* test_pause_and_speed_are_independent_from_wall_clock
+* test_large_delta_rolls_multiple_years
+* test_seasons_follow_months
+* test_invalid_clock_data_is_rejected_without_mutation
+* test_clock_roundtrip_in_save_presentation_and_legacy
+* test_relief_new_demo_is_valid_and_preserves_source_identity
+* test_relief_has_hills_hollows_and_seed_repeatability
+* test_old_flat_world_still_flat
+* test_new_ground_contacts_and_cache_keys
+* test_illustration_cache_and_different_tool_silhouettes
+* test_calendar_upper_bound_remains_savable
+* test_custom_slider_rate_roundtrips_and_rejects_out_of_range_values
+13/13 passed.
+
+
+res://tests/week_13/test_living_scene.gd
+* test_new_entry_has_real_relief_and_calendar
+* test_every_quick_tool_and_asset_uses_picture_with_accessible_description
+* test_calendar_controls_change_date_weather_speed_without_source_or_history_edits
+* test_daynight_seasons_and_weather_render_state
+* test_reduced_motion_and_photo_freeze_weather_and_clock
+* test_async_save_and_load_restore_calendar_presentation
+* test_legacy_dusk_maps_to_evening_and_can_return_to_daylight
+* test_compact_calendar_groups_date_time_and_keeps_weather_in_heading
+* test_speed_slider_covers_every_rate_and_pause_preserves_the_rate
+* test_current_hud_omits_legacy_modification_entries
+* test_next_morning_and_seasonal_probability_controls_do_not_edit_world
+* test_severe_weather_uses_bounded_distinct_effects_and_reduced_motion
+12/12 passed.
+
+
+res://tests/week_13/test_seasonal_music.gd
+* test_every_season_and_time_has_three_distinct_valid_candidates
+* test_shuffle_bag_plays_all_candidates_without_immediate_repeats
+* test_fade_in_crossfade_and_mute_have_bounded_continuous_gain
+* test_context_debounce_and_weather_ducking
+* test_all_streams_are_full_length_non_looping_music
+* test_quit_fades_then_shutdown_releases_both_voices_idempotently
+6/6 passed.
+
+
+res://tests/week_13/test_weather_cycle.gd
+* test_default_probabilities_sum_to_100_and_never_pick_forbidden_seasons
+* test_reweighting_zero_and_full_preserve_total_and_recover_other_weights
+* test_weighted_sampling_tracks_the_configured_ratio_and_seed
+* test_skip_morning_rolls_month_season_and_year_even_while_paused
+* test_skip_at_maximum_date_is_atomic
+* test_weather_changes_within_day_and_pause_does_not_draw
+* test_coarse_fine_and_resumed_time_choose_the_same_final_weather
+* test_manual_mode_and_legacy_saves_still_obey_season_compatibility
+* test_invalid_cycle_is_rejected_without_replacing_the_clock
+9/9 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               4
+Tests                40
+Passing Tests        40
+Asserts            2533
+Time              6.342s
+
+
+---- All tests passed! ----
+
+Results saved to reports/weather_targeted.xml

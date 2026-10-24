@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-23",
+  "command": "python3 tools/quality/perf_checks.py",
+  "exit_code": 0,
+  "godot_tests": 623,
+  "godot_assertions": 18055,
+  "python_tests": 23,
+  "failures": 0,
+  "skipped": 0,
+  "negative_control": true,
+  "runtime_sources_and_assets_unchanged": true,
+  "retained_package_hashes_verified": 3,
+  "archived_hashes_verified": 1055,
+  "evidence_files": 33,
+  "empty_cache_test_this_cleanup": false,
+  "native_gpu_retested": false,
+  "m4_approved": false,
+  "m5_approved": false
+}

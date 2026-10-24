@@ -1,0 +1,18 @@
+{
+	"ambient_rms": 0.0174248596504133,
+	"driver": "CoreAudio",
+	"frames": [
+		199680,
+		199680
+	],
+	"mix_age": 0.000635,
+	"music_rms": 0.00227678425462559,
+	"music_volume_db": -24.436975479126,
+	"peaks": [
+		0.0121960118412971,
+		0.107956349849701
+	],
+	"physical_listening_verified": false,
+	"position": 10.2106666564941,
+	"track": "all_seasons"
+}

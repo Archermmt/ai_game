@@ -1,0 +1,32 @@
+{
+  "tools": [
+    "house",
+    "round_house",
+    "path",
+    "door",
+    "window",
+    "raise",
+    "lower",
+    "smooth",
+    "pond",
+    "bridge",
+    "stair",
+    "fence",
+    "tree",
+    "plant",
+    "props",
+    "light"
+  ],
+  "feedback": [
+    "selected",
+    "snap",
+    "dimensions",
+    "invalid"
+  ],
+  "sizes": [
+    64,
+    128
+  ],
+  "license": "Project original SVG paths",
+  "source": "art_source/week_06/ui"
+}

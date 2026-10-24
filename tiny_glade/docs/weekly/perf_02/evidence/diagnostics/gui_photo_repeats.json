@@ -1,0 +1,341 @@
+{
+  "protocol": "UX03 native GUI photo precondition with real dispatched motion; return checked without further input",
+  "production_unchanged": true,
+  "repeats": [
+    {
+      "repeat": 1,
+      "process_gate_passed": false,
+      "error": "perf_02/experiments/gui_photo_repeat_1 failed; exit=1",
+      "functional_checks": 25,
+      "failed_checks": [
+        "hover_unselected_roof",
+        "hover_window",
+        "photo_restores_hover",
+        "roof_source_changed_once",
+        "width_gui_capture",
+        "window_changed"
+      ],
+      "functional_checks_passed": false,
+      "photo_trace": [
+        {
+          "camera": {
+            "distance": 27.0,
+            "pitch": 0.48,
+            "target": [
+              -0.300000011920929,
+              1.70000004768372,
+              2.0
+            ],
+            "yaw": 0.48
+          },
+          "can_hover": true,
+          "context_visible": false,
+          "display_target": {
+            "distance": 27.2617893218994,
+            "family": "house",
+            "id": "7b708be93b273ee1f6e20f4c",
+            "point": "(3.306483, 5.568004, -1.530518)",
+            "zone": "roof"
+          },
+          "hovered": {
+            "distance": 27.2617893218994,
+            "family": "house",
+            "id": "7b708be93b273ee1f6e20f4c",
+            "point": "(3.306483, 5.568004, -1.530518)",
+            "zone": "roof"
+          },
+          "phase": 0,
+          "photo_active": false,
+          "pointer": "(1209.687, 327.6071)",
+          "roof_visible": true,
+          "stage": "precondition_attempt_0",
+          "viewport_pointer": "(982.0, 898.0)"
+        },
+        {
+          "camera": {
+            "distance": 27.0,
+            "pitch": 0.48,
+            "target": [
+              -0.300000011920929,
+              1.70000004768372,
+              2.0
+            ],
+            "yaw": 0.48
+          },
+          "can_hover": true,
+          "context_visible": false,
+          "display_target": {
+            "distance": 27.2617893218994,
+            "family": "house",
+            "id": "7b708be93b273ee1f6e20f4c",
+            "point": "(3.306483, 5.568004, -1.530518)",
+            "zone": "roof"
+          },
+          "hovered": {
+            "distance": 27.2617893218994,
+            "family": "house",
+            "id": "7b708be93b273ee1f6e20f4c",
+            "point": "(3.306483, 5.568004, -1.530518)",
+            "zone": "roof"
+          },
+          "phase": 0,
+          "photo_active": false,
+          "pointer": "(1209.687, 327.6071)",
+          "roof_visible": true,
+          "stage": "before_photo",
+          "viewport_pointer": "(982.0, 898.0)"
+        },
+        {
+          "camera": {
+            "distance": 27.0,
+            "pitch": 0.48,
+            "target": [
+              -0.300000011920929,
+              1.70000004768372,
+              2.0
+            ],
+            "yaw": 0.48
+          },
+          "can_hover": true,
+          "context_visible": false,
+          "display_target": {},
+          "hovered": {},
+          "phase": 0,
+          "photo_active": false,
+          "pointer": "(886.0, 734.0)",
+          "roof_visible": false,
+          "stage": "after_photo_without_new_input",
+          "viewport_pointer": "(886.0, 736.0)"
+        }
+      ]
+    },
+    {
+      "repeat": 2,
+      "process_gate_passed": false,
+      "error": "perf_02/experiments/gui_photo_repeat_2 failed; exit=0",
+      "functional_checks": 25,
+      "failed_checks": [],
+      "functional_checks_passed": true,
+      "photo_trace": [
+        {
+          "camera": {
+            "distance": 27.0,
+            "pitch": 0.48,
+            "target": [
+              -0.300000011920929,
+              1.70000004768372,
+              2.0
+            ],
+            "yaw": 0.48
+          },
+          "can_hover": true,
+          "context_visible": false,
+          "display_target": {
+            "distance": 27.2617893218994,
+            "family": "house",
+            "id": "7b708be93b273ee1f6e20f4c",
+            "point": "(3.306483, 5.568004, -1.530518)",
+            "zone": "roof"
+          },
+          "hovered": {
+            "distance": 27.2617893218994,
+            "family": "house",
+            "id": "7b708be93b273ee1f6e20f4c",
+            "point": "(3.306483, 5.568004, -1.530518)",
+            "zone": "roof"
+          },
+          "phase": 0,
+          "photo_active": false,
+          "pointer": "(1209.687, 327.6071)",
+          "roof_visible": true,
+          "stage": "precondition_attempt_0",
+          "viewport_pointer": "(886.0, 736.0)"
+        },
+        {
+          "camera": {
+            "distance": 27.0,
+            "pitch": 0.48,
+            "target": [
+              -0.300000011920929,
+              1.70000004768372,
+              2.0
+            ],
+            "yaw": 0.48
+          },
+          "can_hover": true,
+          "context_visible": false,
+          "display_target": {
+            "distance": 27.2617893218994,
+            "family": "house",
+            "id": "7b708be93b273ee1f6e20f4c",
+            "point": "(3.306483, 5.568004, -1.530518)",
+            "zone": "roof"
+          },
+          "hovered": {
+            "distance": 27.2617893218994,
+            "family": "house",
+            "id": "7b708be93b273ee1f6e20f4c",
+            "point": "(3.306483, 5.568004, -1.530518)",
+            "zone": "roof"
+          },
+          "phase": 0,
+          "photo_active": false,
+          "pointer": "(1209.687, 327.6071)",
+          "roof_visible": true,
+          "stage": "before_photo",
+          "viewport_pointer": "(886.0, 736.0)"
+        },
+        {
+          "camera": {
+            "distance": 27.0,
+            "pitch": 0.48,
+            "target": [
+              -0.300000011920929,
+              1.70000004768372,
+              2.0
+            ],
+            "yaw": 0.48
+          },
+          "can_hover": true,
+          "context_visible": false,
+          "display_target": {
+            "distance": 27.2617893218994,
+            "family": "house",
+            "id": "7b708be93b273ee1f6e20f4c",
+            "point": "(3.306483, 5.568004, -1.530518)",
+            "zone": "roof"
+          },
+          "hovered": {
+            "distance": 27.2617893218994,
+            "family": "house",
+            "id": "7b708be93b273ee1f6e20f4c",
+            "point": "(3.306483, 5.568004, -1.530518)",
+            "zone": "roof"
+          },
+          "phase": 0,
+          "photo_active": false,
+          "pointer": "(1209.687, 327.6071)",
+          "roof_visible": true,
+          "stage": "after_photo_without_new_input",
+          "viewport_pointer": "(886.0, 736.0)"
+        }
+      ]
+    },
+    {
+      "repeat": 3,
+      "step": {
+        "name": "perf_02/experiments/gui_photo_repeat_3",
+        "exit_code": 0,
+        "seconds": 9.699
+      },
+      "process_gate_passed": true,
+      "functional_checks": 25,
+      "failed_checks": [],
+      "functional_checks_passed": true,
+      "photo_trace": [
+        {
+          "camera": {
+            "distance": 27.0,
+            "pitch": 0.48,
+            "target": [
+              -0.300000011920929,
+              1.70000004768372,
+              2.0
+            ],
+            "yaw": 0.48
+          },
+          "can_hover": true,
+          "context_visible": false,
+          "display_target": {
+            "distance": 27.2617893218994,
+            "family": "house",
+            "id": "7b708be93b273ee1f6e20f4c",
+            "point": "(3.306483, 5.568004, -1.530518)",
+            "zone": "roof"
+          },
+          "hovered": {
+            "distance": 27.2617893218994,
+            "family": "house",
+            "id": "7b708be93b273ee1f6e20f4c",
+            "point": "(3.306483, 5.568004, -1.530518)",
+            "zone": "roof"
+          },
+          "phase": 0,
+          "photo_active": false,
+          "pointer": "(1209.687, 327.6071)",
+          "roof_visible": true,
+          "stage": "precondition_attempt_0",
+          "viewport_pointer": "(886.0, 736.0)"
+        },
+        {
+          "camera": {
+            "distance": 27.0,
+            "pitch": 0.48,
+            "target": [
+              -0.300000011920929,
+              1.70000004768372,
+              2.0
+            ],
+            "yaw": 0.48
+          },
+          "can_hover": true,
+          "context_visible": false,
+          "display_target": {
+            "distance": 27.2617893218994,
+            "family": "house",
+            "id": "7b708be93b273ee1f6e20f4c",
+            "point": "(3.306483, 5.568004, -1.530518)",
+            "zone": "roof"
+          },
+          "hovered": {
+            "distance": 27.2617893218994,
+            "family": "house",
+            "id": "7b708be93b273ee1f6e20f4c",
+            "point": "(3.306483, 5.568004, -1.530518)",
+            "zone": "roof"
+          },
+          "phase": 0,
+          "photo_active": false,
+          "pointer": "(1209.687, 327.6071)",
+          "roof_visible": true,
+          "stage": "before_photo",
+          "viewport_pointer": "(886.0, 736.0)"
+        },
+        {
+          "camera": {
+            "distance": 27.0,
+            "pitch": 0.48,
+            "target": [
+              -0.300000011920929,
+              1.70000004768372,
+              2.0
+            ],
+            "yaw": 0.48
+          },
+          "can_hover": true,
+          "context_visible": false,
+          "display_target": {
+            "distance": 27.2617893218994,
+            "family": "house",
+            "id": "7b708be93b273ee1f6e20f4c",
+            "point": "(3.306483, 5.568004, -1.530518)",
+            "zone": "roof"
+          },
+          "hovered": {
+            "distance": 27.2617893218994,
+            "family": "house",
+            "id": "7b708be93b273ee1f6e20f4c",
+            "point": "(3.306483, 5.568004, -1.530518)",
+            "zone": "roof"
+          },
+          "phase": 0,
+          "photo_active": false,
+          "pointer": "(1209.687, 327.6071)",
+          "roof_visible": true,
+          "stage": "after_photo_without_new_input",
+          "viewport_pointer": "(886.0, 736.0)"
+        }
+      ]
+    }
+  ]
+}

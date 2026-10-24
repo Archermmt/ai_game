@@ -1,0 +1,123 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+{
+	"driver": "Dummy",
+	"results": [
+		{
+			"live_playback_and_streams": 0,
+			"mix_clock_advanced_seconds": 0.478663,
+			"mode": "current_playing",
+			"states": [
+				{
+					"paused": false,
+					"playing": true,
+					"volume_db": -64.0608367919922
+				},
+				{
+					"paused": false,
+					"playing": true,
+					"volume_db": -64.5884094238281
+				},
+				{
+					"paused": false,
+					"playing": true,
+					"volume_db": -64.8302459716797
+				},
+				{
+					"paused": false,
+					"playing": true,
+					"volume_db": -20.9343223571777
+				}
+			],
+			"time_since_last_mix_after": 0.087637,
+			"time_since_last_mix_before": 0.05439
+		},
+		{
+			"live_playback_and_streams": 0,
+			"mix_clock_advanced_seconds": 0.480927,
+			"mode": "current_paused",
+			"states": [
+				{
+					"paused": true,
+					"playing": false,
+					"volume_db": -80.0
+				},
+				{
+					"paused": true,
+					"playing": false,
+					"volume_db": -80.0
+				},
+				{
+					"paused": true,
+					"playing": false,
+					"volume_db": -80.0
+				},
+				{
+					"paused": true,
+					"playing": false,
+					"volume_db": -80.0
+				}
+			],
+			"time_since_last_mix_after": 0.030535,
+			"time_since_last_mix_before": 0.00092
+		},
+		{
+			"live_playback_and_streams": 0,
+			"mix_clock_advanced_seconds": 0.867445,
+			"mode": "retain_stream",
+			"states": [
+				{
+					"paused": false,
+					"playing": true,
+					"volume_db": -28.2980499267578
+				},
+				{
+					"paused": false,
+					"playing": true,
+					"volume_db": -30.0971908569336
+				},
+				{
+					"paused": false,
+					"playing": true,
+					"volume_db": -30.9219379425049
+				},
+				{
+					"paused": false,
+					"playing": true,
+					"volume_db": -20.6997718811035
+				}
+			],
+			"time_since_last_mix_after": 0.096894,
+			"time_since_last_mix_before": 0.060523
+		},
+		{
+			"live_playback_and_streams": 0,
+			"mix_clock_advanced_seconds": 0.483232,
+			"mode": "unpause_stop",
+			"states": [
+				{
+					"paused": true,
+					"playing": false,
+					"volume_db": -80.0
+				},
+				{
+					"paused": true,
+					"playing": false,
+					"volume_db": -80.0
+				},
+				{
+					"paused": true,
+					"playing": false,
+					"volume_db": -80.0
+				},
+				{
+					"paused": true,
+					"playing": false,
+					"volume_db": -80.0
+				}
+			],
+			"time_since_last_mix_after": 0.046534,
+			"time_since_last_mix_before": 0.018457
+		}
+	]
+}

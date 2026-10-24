@@ -1,0 +1,106 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/week_02/test_building_contacts.gd
+* test_partial_contact_ranges_and_no_surface_inside_hidden_rectangle
+* test_contact_endpoint_jambs_close_wall_thickness
+* test_contact_on_any_facade_is_symmetric
+* test_contact_cannot_hide_manual_opening_and_margin_conflicts_reject
+* test_minimum_circle_radius_accepts_all_three_profiles_without_frame_scaling
+5/5 passed.
+
+
+res://tests/week_02/test_mac_camera_input.gd
+* test_option_left_orbits_without_editing_in_every_tool
+* test_option_has_priority_over_shift_pan
+* test_pinch_zoom_direction_bounds_and_invalid_factors
+* test_two_finger_scroll_zoom_and_precise_wheel_factor
+* test_gestures_over_toolbar_do_not_zoom_or_start_edits
+* test_option_release_over_ui_stops_orbit_after_modifier_was_released
+6/6 passed.
+
+
+res://tests/week_02/test_rebuild_queue.gd
+* test_old_worker_cannot_overwrite_newest_commit_and_dirty_bounds_are_merged
+* test_epoch_invalidates_in_flight_result_without_dropping_dirty_region
+* test_failed_core_preparation_unlocks_commit_and_retains_unpublished_dirty_area
+* test_signal_consumer_can_enqueue_next_request_without_losing_its_dirty_bounds
+4/4 passed.
+
+
+res://tests/week_02/test_terrain_layers.gd
+* test_pond_is_derived_and_delete_restores_exact_player_heights
+* test_ordinary_brush_cannot_change_pool_or_shore_source_samples
+* test_pool_water_stays_fixed_after_resize_and_move
+* test_slope_width_boundary_and_flooding_reject_before_publication
+* test_foundation_exact_three_meters_accepts_but_next_edit_is_atomic_rejection
+* test_pool_building_safety_is_symmetric_and_tangent_is_legal
+* test_pool_cannot_swallow_hand_placed_instance
+* test_adjacent_chunks_share_exact_border_positions_and_normals_at_both_spacings
+* test_pond_edits_save_and_undo_restore_layer_source_exactly
+9/9 passed.
+
+
+res://tests/week_02/test_tool_edits.gd
+* test_preview_cancel_does_not_consume_id_or_write_source
+* test_brush_many_stamps_is_one_transaction_with_stable_seed_and_unique_cells
+* test_erasing_brush_protects_hand_placed_and_manually_adjusted_instances
+* test_multi_selection_move_rotate_scale_copy_delete_and_undo
+* test_rejected_batch_move_leaves_all_items_and_history_unchanged
+* test_pending_commit_blocks_new_gesture_and_failure_keeps_source_and_history
+* test_cancelled_pending_candidate_cannot_publish_late_result
+* test_reserving_preview_does_not_clear_queued_source_snapshot
+* test_simplified_x_handle_constrains_drag_to_x_axis
+* test_road_door_probe_is_one_prepared_transaction_and_rejects_manual_conflict
+* test_fifty_mixed_edits_undo_redo_restore_all_source_layers_and_ids
+* test_bad_path_shape_and_dangling_door_reference_are_rejected_by_codec
+12/12 passed.
+
+
+res://tests/week_02/test_week_two_assets.gd
+* test_window_sources_import_uv_color_and_complete_frames_with_sockets
+* test_painted_texture_resolutions_and_emission_mask_dark_edge
+* test_three_tree_blockouts_have_distinct_shapes_and_zero_weight_roots
+3/3 passed.
+
+
+res://tests/week_02/test_week_two_playground.gd
+* test_week_two_scene_has_layered_terrain_window_frames_and_visible_tool_buttons
+* test_actual_mouse_prop_gesture_is_async_once_and_undo_redo_restores_instances
+* test_actual_mouse_building_release_uses_same_pending_barrier
+* test_terrain_preview_cancel_restores_source_visuals_and_ignores_late_worker
+* test_pending_escape_does_not_publish_or_consume_history
+* test_rejected_core_build_keeps_visible_meshes_source_and_history
+* test_delete_pond_and_undo_restore_visual_water_and_source_height_layer
+* test_material_age_and_window_emission_follow_source_and_undo
+* test_all_frames_keep_fixed_scale_and_match_curved_or_flat_wall_normal
+* test_failed_release_after_visible_preview_restores_previous_meshes_and_instances
+* test_minimal_week_one_source_loads_and_rebuilds_without_optional_week_two_fields
+* test_terrain_edit_reuses_unchanged_buildings_and_chunks
+* test_low_orbit_stays_above_raised_ground_and_picks_actual_surface
+13/13 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               7
+Tests                52
+Passing Tests        52
+Asserts             756
+Time              6.182s
+
+
+---- All tests passed! ----
+
+Results saved to reports/week_02.xml

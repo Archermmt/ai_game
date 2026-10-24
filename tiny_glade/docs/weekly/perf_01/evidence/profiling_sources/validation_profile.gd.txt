@@ -1,0 +1,14 @@
+extends SceneTree
+func _initialize() -> void:
+	var s: Dictionary = StressLayout.create()
+	for kind: String in ["data", "instances", "terrain", "vegetation", "worker"]:
+		var t: int = Time.get_ticks_usec()
+		for i: int in range(10):
+			match kind:
+				"data": WorldDocument._is_data(s, 0)
+				"instances": InstanceEdits.validate(s, {})
+				"terrain": TerrainField.validate(s)
+				"vegetation": VegetationBrush.reconcile(s)
+				"worker": LocalRebuild.evaluate(s, {})
+		print(kind, " ", (Time.get_ticks_usec() - t)/10000.0)
+	quit()

@@ -1,0 +1,40 @@
+{
+  "asset_id": "NAT-09",
+  "source": "art_source/art_pass_01/nature/flat_rock.blend",
+  "export": "assets/nature/art_pass_01/flat_rock.glb",
+  "blender": "5.1.2",
+  "generator_version": "art_foliage_01.4",
+  "units": "meters",
+  "up_axis": "gltf_y_up",
+  "triangles": 450,
+  "budget": 800,
+  "mesh_objects": 2,
+  "sockets": [
+    "socket_ground"
+  ],
+  "bounds_source_z_up": {
+    "min": [
+      -0.827883,
+      -0.599298,
+      0.0
+    ],
+    "max": [
+      0.840313,
+      0.528842,
+      0.427115
+    ]
+  },
+  "roles": [
+    "stone_closed_worn_body",
+    "moss_upper_surface"
+  ],
+  "source_license": "Project original; reproducible geometry and painted atlas recipe, no downloaded content",
+  "wind_channels": {
+    "R": "root-pinned bend weight",
+    "G": "stable local flutter phase",
+    "B": "fruit marker (1 only fruit)",
+    "A": "1; texture supplies coverage"
+  },
+  "texture": "assets/nature/art_pass_01/painted_forest_atlas.png",
+  "lod": 0
+}

@@ -1,0 +1,92 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/week_01/test_building_geometry.gd
+* test_real_holes_in_flat_and_curved_walls_for_all_profiles
+* test_solid_wall_next_to_hole_still_exists
+* test_opening_profiles_keep_standard_dimensions_and_sills
+* test_mesh_has_finite_normals_and_clockwise_triangles
+* test_minimum_and_maximum_size_profiles_generate_bounded_meshes
+5/5 passed.
+
+
+res://tests/week_01/test_edit_session.gd
+* test_initial_publication_does_not_execute_do_twice
+* test_preview_and_cancel_do_not_touch_live_state_or_identity
+* test_one_gesture_is_one_history_entry
+* test_failed_preparation_does_not_publish_or_advance_history
+* test_failed_undo_keeps_cursor_then_successful_undo_redo_restores_identity
+* test_stale_candidates_are_not_rebased_silently
+* test_pending_commit_refuses_reentrant_second_gesture
+* test_fifty_actions_undo_redo_and_branch_truncation
+* test_invalid_load_preserves_world_and_history
+9/9 passed.
+
+
+res://tests/week_01/test_imported_assets.gd
+* test_three_doors_have_meshes_correct_scale_and_mount_sockets
+* test_wind_weights_survive_actual_godot_gltf_import
+* test_bench_source_export_has_surface_socket
+3/3 passed.
+
+
+res://tests/week_01/test_playground.gd
+* test_scene_boots_with_editable_source_and_camera
+* test_camera_pan_is_bounded_and_reset_restores_view
+* test_ground_projection_matches_horizontal_plane
+* test_hud_buttons_use_same_transaction_and_undo_path
+* test_reduce_motion_reaches_all_imported_wind_materials
+* test_source_environment_restore_reaches_shader_and_can_undo
+* test_tool_switch_cancels_preview_instead_of_committing
+* test_viewport_mouse_drag_creates_one_building_and_can_undo
+* test_actual_toolbar_click_does_not_start_world_gesture
+9/9 passed.
+
+
+res://tests/week_01/test_save_codec.gd
+* test_source_state_roundtrip_preserves_seed_transform_and_heights
+* test_checksum_detects_corruption_and_truncation
+* test_malicious_declared_size_is_rejected_before_decompression
+* test_unknown_schema_cannot_overwrite_good_save
+* test_interrupted_temp_and_corrupt_primary_recover_complete_backup
+* test_missing_save_reports_failure_instead_of_new_world
+6/6 passed.
+
+
+res://tests/week_01/test_world_document.gd
+* test_new_document_has_all_required_source_collections
+* test_snapshot_is_detached_from_live_source
+* test_identity_is_reproducible_without_consuming_cancelled_sequence
+* test_duplicate_ids_and_out_of_plot_are_rejected
+* test_corrupt_state_never_accepts_objects_or_nonfinite_numbers
+* test_bad_schema_seed_environment_and_dimensions_are_rejected
+* test_axis_aligned_side_contact_is_legal_but_intersection_is_not
+* test_circle_tangency_and_circle_rectangle_overlap
+* test_malformed_openings_are_rejected_before_mesh_preparation
+* test_malformed_revision_wind_and_height_deltas_are_rejected
+10/10 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               6
+Tests                42
+Passing Tests        42
+Asserts             435
+Time              1.033s
+
+
+---- All tests passed! ----
+
+Results saved to reports/week_01.xml

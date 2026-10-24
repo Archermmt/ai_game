@@ -1,0 +1,13 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M4 Pro (Apple9)
+
+W09_FIRST_DRAW
+2026-10-24 17:18:14.514 Godot[46140:16632693] +[IMKClient subclass]: chose IMKClient_Modern
+WARNING: Realtime Skies can only use a radiance size of 256. Radiance size will be set to 256 internally.
+     at: set_mode (servers/rendering/renderer_rd/environment/sky.cpp:619)
+     GDScript backtrace (most recent call first):
+         [0] configure (res://features/living_world/painted_sky.gd:10)
+         [1] configure (res://features/living_world/living_atmosphere.gd:25)
+         [2] _ready (res://features/living_world/living_playground.gd:43)
+         [3] _run (res://tests/week_13/sky_weather_native_probe.gd:44)
+2026-10-24 17:18:17.573 Godot[46140:16632693] +[IMKInputSession subclass]: chose IMKInputSession_Modern

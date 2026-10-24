@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M4 Pro (Apple9)
+
+W09_FIRST_DRAW
+2026-10-23 20:35:33.406 Godot[24725:16228143] +[IMKClient subclass]: chose IMKClient_Modern
+2026-10-23 20:35:35.520 Godot[24725:16228143] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+ERROR: UX03 native check failed: photo_restores_hover
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/ux_03/native_probe.gd:7)
+       [1] _run (res://tests/ux_03/native_probe.gd:144)
+       [2] _frame (res://tests/ux_02/native_probe.gd:33)

@@ -1,0 +1,12 @@
+{
+  "family": "AUD-01",
+  "source": "art_source/week_10/audio/forest_stereo.wav",
+  "export": "assets/audio/forest_stereo.wav",
+  "channels": 2,
+  "rate": 48000,
+  "seconds": 8.0,
+  "peak_dbfs": -18.322256039344577,
+  "license": "Project original DSP synthesis; no external recordings or samples",
+  "generator": "tools/art/build_week_ten_audio.py",
+  "sha256": "12d76b0fa73094b6a67caf6dc2f5f550b1dff2650a1b8fff8d1403d1bf29edc0"
+}

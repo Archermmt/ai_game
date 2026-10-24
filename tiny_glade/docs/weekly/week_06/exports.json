@@ -1,0 +1,78 @@
+{
+  "week": 6,
+  "windows_pe_x86_64": true,
+  "windows_real_device": "not_run_on_macos",
+  "steps": [
+    {
+      "name": "export_windows",
+      "exit_code": 0,
+      "seconds": 2.6
+    },
+    {
+      "name": "export_macos",
+      "exit_code": 0,
+      "seconds": 6.4
+    },
+    {
+      "name": "exported_macos_boot",
+      "exit_code": 0,
+      "seconds": 12.188
+    }
+  ],
+  "macos_clean_room_visible_boot": {
+    "audio_resource_in_pack": true,
+    "buildings": 2,
+    "edit_metrics": {
+      "commit_latency_max_ms": 0,
+      "commit_latency_p95_ms": 0,
+      "foliage_batches": 0,
+      "generated_units": [
+        "instance:c9fef0113257aa0c8de32e6d",
+        "instance:3e5b207ecd413b4c1d3ce027",
+        "instance:91761057ce2f2152b48ce838"
+      ],
+      "gpu_mean_ms": null,
+      "gpu_p95_ms": null,
+      "gpu_samples": 0,
+      "last_worker_terrain_chunks": 0,
+      "local_lights": 0,
+      "main_apply_max_ms": 0.0,
+      "main_apply_p95_ms": 0.0,
+      "main_apply_samples": 0,
+      "preparation_slice_max_ms": 0,
+      "preparation_slices": 0,
+      "probe_edits": 0,
+      "worker_compute_ms": 6.654
+    },
+    "engine": "4.7.2-stable (official)",
+    "font_license_in_pack": true,
+    "frames": 119,
+    "instances": 25,
+    "mean_frame_ms": 8.40635854341737,
+    "p95_frame_ms": 8.423,
+    "paths": 1,
+    "pond_present": true,
+    "renderer": "forward_plus",
+    "sample_duration_seconds": 0.0,
+    "terrain_samples": 305,
+    "test_framework_in_pack": false,
+    "test_sources_in_pack": false,
+    "viewport_size": [
+      1280,
+      800
+    ],
+    "wind_materials": 493
+  },
+  "artifacts": [
+    {
+      "path": "builds/week_06/windows/windhaven_week_06.exe",
+      "bytes": 126266792,
+      "sha256": "4a5bf5dba20c5c959a61a6ddb27c459cae138ab2c30598085146c31f58c39a0d"
+    },
+    {
+      "path": "builds/week_06/macos/windhaven_week_06.zip",
+      "bytes": 74693493,
+      "sha256": "924e62ae91ee83e565a57c3cd2f9742169f215ead9b700809adac807c25f1bff"
+    }
+  ]
+}

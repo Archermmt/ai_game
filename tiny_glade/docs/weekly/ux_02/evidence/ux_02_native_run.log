@@ -1,0 +1,3 @@
+PASS ux02_native_dispatch (8.30s)
+selected_capacity p95= 11.494 commit= 277.353
+UX-02 native functional PASS; targets {'frame_p95_20ms': True, 'main_callback_100ms': True, 'rss_2gib': True, 'local_edit_p95_150ms': False}

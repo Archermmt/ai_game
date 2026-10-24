@@ -1,0 +1,39 @@
+Traceback (most recent call last):
+  File "/private/var/folders/d8/yztht2gs5c52mvn26gqc9_mr0000gn/T/windhaven-clean-i487upbk/tools/quality/export_smoke.py", line 123, in <module>
+    main()
+    ~~~~^^
+  File "/private/var/folders/d8/yztht2gs5c52mvn26gqc9_mr0000gn/T/windhaven-clean-i487upbk/tools/quality/export_smoke.py", line 85, in main
+    steps.append(run_step("exported_macos_boot", [
+                 ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+        str(executable), "--", "--smoke-output=" + str(smoke_file),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        "--capture=" + str(ROOT / f"reports/{label}_exported_macos.png"), "--wind-time=0",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        *(["--qa-settings", "--w10-save-probe" if args.week >= 10 else ("--art-save-probe" if args.art_pass else "--w08-save-probe")] if args.week >= 8 else []),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ], working_directory=clean_room))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/var/folders/d8/yztht2gs5c52mvn26gqc9_mr0000gn/T/windhaven-clean-i487upbk/tools/quality/run_checks.py", line 32, in run_step
+    raise RuntimeError(f"{name} failed; exit={process.returncode}")
+RuntimeError: exported_macos_boot failed; exit=0
+
+PASS w12_cumulative (201.23s)
+PASS w12_asset_inventory (0.06s)
+PASS w12_delivery_tests (0.08s)
+W12 FUNCTIONAL PASS: 609 Godot + 23 Python; M5 not approved
+PASS export_windows (3.05s)
+PASS export_macos (6.47s)
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M4 Pro (Apple9)
+
+W09_FIRST_DRAW
+WARNING: 10 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+
+Traceback (most recent call last):
+  File "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/tools/quality/clean_checkout.py", line 98, in <module>
+    main()
+    ~~~~^^
+  File "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/tools/quality/clean_checkout.py", line 73, in main
+    raise RuntimeError('Clean archive export/smoke failed')
+RuntimeError: Clean archive export/smoke failed

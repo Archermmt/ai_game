@@ -1,0 +1,15 @@
+{
+  "runtime_revision": "0340993c1c0d0eb476e167bebe3e67dc907ce89c",
+  "application_version": "0.13.0-w13",
+  "source_frozen_during_native_and_performance": true,
+  "native_command": "python3 tools/quality/week_thirteen_native_checks.py",
+  "performance_command": "python3 tools/quality/week_thirteen_performance.py",
+  "clean_command": "python3 tools/quality/clean_checkout.py --week 13",
+  "native_probe_sha256": "d5f46af1033f4b660ac0449f07c76567bcbba0a6b33c9ce60133f954176c2b5a",
+  "followup_test": {
+    "source": "tests/week_13/test_living_scene.gd",
+    "sha256": "5d388c4d7ced4b6bfdc415f932ad0e71c9f262df16efe8ecd22ca3f8d52e7864",
+    "change": "Use running speed20 before photo freeze; runtime identical to validated revision",
+    "report": "followup/photo_freeze.json"
+  }
+}

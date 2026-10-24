@@ -1,0 +1,127 @@
+00:00.059  translation      | WARNING Falling back to standard locale ("C")
+/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/tools/art/build_art_foliage.py:657: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  result.use_nodes = True
+Info: Saved as "tree_broadleaf.blend"
+INFO Draco mesh compression is available, use library at /Applications/Blender.app/Contents/Resources/5.1/scripts/addons_core/io_scene_gltf2/libextern_draco.dylib
+06:56:28 | INFO: Starting glTF 2.0 export
+06:56:28 | INFO: Extracting primitive: bark_branching_trunkMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Extracting primitive: foliage_painted_crownMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Extracting primitive: foliage_leaf_spraysMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Finished glTF 2.0 export in 0.0062711238861083984 s
+
+Info: Saved as "tree_broadleaf_lod1.blend"
+06:56:28 | INFO: Starting glTF 2.0 export
+06:56:28 | INFO: Extracting primitive: bark_branching_trunkMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Extracting primitive: foliage_painted_crownMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Extracting primitive: foliage_leaf_spraysMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Finished glTF 2.0 export in 0.0033757686614990234 s
+
+Info: Saved as "tree_conifer.blend"
+06:56:28 | INFO: Starting glTF 2.0 export
+06:56:28 | INFO: Extracting primitive: bark_pine_trunkMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Extracting primitive: foliage_full_pine_branch_padsMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Extracting primitive: foliage_drooping_pine_spraysMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Finished glTF 2.0 export in 0.004914760589599609 s
+
+Info: Saved as "tree_conifer_lod1.blend"
+06:56:28 | INFO: Starting glTF 2.0 export
+06:56:28 | INFO: Extracting primitive: bark_pine_trunkMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Extracting primitive: foliage_full_pine_branch_padsMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Extracting primitive: foliage_drooping_pine_spraysMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Finished glTF 2.0 export in 0.002778291702270508 s
+
+Info: Saved as "tree_fruit.blend"
+06:56:28 | INFO: Starting glTF 2.0 export
+06:56:28 | INFO: Extracting primitive: bark_branching_trunkMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Extracting primitive: foliage_painted_crownMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Extracting primitive: foliage_leaf_spraysMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Extracting primitive: fruit_warm_accentsMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Finished glTF 2.0 export in 0.005105733871459961 s
+
+Info: Saved as "tree_fruit_lod1.blend"
+06:56:28 | INFO: Starting glTF 2.0 export
+06:56:28 | INFO: Extracting primitive: bark_branching_trunkMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Extracting primitive: foliage_painted_crownMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Extracting primitive: foliage_leaf_spraysMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Extracting primitive: fruit_warm_accentsMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Finished glTF 2.0 export in 0.004085063934326172 s
+
+Info: Saved as "fern.blend"
+06:56:28 | INFO: Starting glTF 2.0 export
+06:56:28 | INFO: Extracting primitive: foliage_arching_fernMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Extracting primitive: bark_fern_stemsMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Finished glTF 2.0 export in 0.0018696784973144531 s
+
+Info: Saved as "wildflower.blend"
+06:56:28 | INFO: Starting glTF 2.0 export
+06:56:28 | INFO: Extracting primitive: foliage_meadow_bladesMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Extracting primitive: flower_ivory_daisiesMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Extracting primitive: flower_lavender_accentsMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Finished glTF 2.0 export in 0.0022449493408203125 s
+
+Info: Saved as "shrub.blend"
+06:56:28 | INFO: Starting glTF 2.0 export
+06:56:28 | INFO: Extracting primitive: foliage_compact_shrub_bodyMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Extracting primitive: foliage_shrub_edge_leavesMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Finished glTF 2.0 export in 0.0025658607482910156 s
+
+Info: Saved as "moss_rock.blend"
+06:56:28 | INFO: Starting glTF 2.0 export
+06:56:28 | INFO: Extracting primitive: stone_closed_worn_bodyMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Extracting primitive: moss_upper_surfaceMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Finished glTF 2.0 export in 0.0020258426666259766 s
+
+Info: Saved as "flat_rock.blend"
+06:56:28 | INFO: Starting glTF 2.0 export
+06:56:28 | INFO: Extracting primitive: stone_closed_worn_bodyMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Extracting primitive: moss_upper_surfaceMesh
+06:56:28 | INFO: Primitives created: 1
+06:56:28 | INFO: Finished glTF 2.0 export in 0.0017080307006835938 s
+00:05.702  blend            | Read blend: "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/art_source/art_pass_01/nature/tree_broadleaf.blend"
+00:05.746  blend            | Read blend: "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/art_source/art_pass_01/nature/tree_broadleaf_lod1.blend"
+00:05.785  blend            | Read blend: "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/art_source/art_pass_01/nature/tree_conifer.blend"
+00:05.827  blend            | Read blend: "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/art_source/art_pass_01/nature/tree_conifer_lod1.blend"
+00:05.877  blend            | Read blend: "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/art_source/art_pass_01/nature/tree_fruit.blend"
+00:05.920  blend            | Read blend: "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/art_source/art_pass_01/nature/tree_fruit_lod1.blend"
+00:05.960  blend            | Read blend: "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/art_source/art_pass_01/nature/fern.blend"
+00:05.998  blend            | Read blend: "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/art_source/art_pass_01/nature/wildflower.blend"
+00:06.033  blend            | Read blend: "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/art_source/art_pass_01/nature/shrub.blend"
+00:06.068  blend            | Read blend: "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/art_source/art_pass_01/nature/moss_rock.blend"
+00:06.105  blend            | Read blend: "/Users/tongmeng/Desktop/enjoy/ai_games/tiny_glade/art_source/art_pass_01/nature/flat_rock.blend"
+
+ART_FOLIAGE_GLB_CONTRACT_PASS 11
+ART_FOLIAGE_SOURCE_REOPEN_PASS 11
+ART_FOLIAGE_BUILD_OK 11 17160
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:30:33)
+
+Blender quit
