@@ -1,6 +1,6 @@
-# AI Game Tutorials
+# ai_game
 
-A collection of self-contained Godot game projects and their development notes. Each game lives in its own directory and keeps its own `project.godot`; open the game directory in Godot to edit or run it.
+A Godot game project collection, expanded from the original “ai_game test for godot” into a monorepo of self-contained games and tutorials. Each game lives in its own directory and keeps its own `project.godot`; open the game directory in Godot to edit or run it.
 
 ## Projects
 
