@@ -53,10 +53,12 @@ func test_option_left_orbits_without_editing_in_every_tool() -> void:
 	]:
 		playground._on_action(StringName(mode))
 		var yaw: float = playground.camera_rig.yaw
+		var pitch: float = playground.camera_rig.pitch
 		_motion(point)
 		_button(point, true, true)
 		_motion(point + Vector2(30, 10), Vector2(30, 10))
-		assert_lt(playground.camera_rig.yaw, yaw, mode)
+		assert_gt(playground.camera_rig.yaw, yaw, mode)
+		assert_lt(playground.camera_rig.pitch, pitch, mode)
 		# Option may be released before the mouse button.
 		_button(point, false)
 		assert_eq(playground.session.phase, EditSession.Phase.IDLE, mode)

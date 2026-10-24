@@ -50,8 +50,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			# macOS sends precise two-finger scrolling as PanGesture, not wheel ticks.
 			if is_finite(event.delta.x) and is_finite(event.delta.y):
 				if touchpad_orbit:
-					yaw -= clampf(event.delta.x, -100, 100) * 0.025
-					pitch = clampf(pitch + event.delta.y * 0.02, 0.3, 1.3)
+					yaw += clampf(event.delta.x, -100, 100) * 0.025
+					pitch = clampf(pitch - event.delta.y * 0.02, 0.3, 1.3)
 					refresh()
 				else:
 					_zoom(exp(clampf(event.delta.y, -20.0, 20.0) * 0.08))
@@ -86,8 +86,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		refresh()
 	elif event is InputEventMouseMotion and (_orbiting or _panning):
 		if _orbiting:
-			yaw -= event.relative.x * 0.006
-			pitch = clampf(pitch + event.relative.y * 0.004, 0.3, 1.3)
+			yaw += event.relative.x * 0.006
+			pitch = clampf(pitch - event.relative.y * 0.004, 0.3, 1.3)
 		else:
 			pan_by(event.relative)
 		refresh()
@@ -107,7 +107,7 @@ func _zoom(multiplier: float) -> void:
 func pan_by(relative: Vector2) -> void:
 	var right: Vector3 = Vector3(cos(yaw), 0.0, -sin(yaw))
 	var forward: Vector3 = Vector3(sin(yaw), 0.0, cos(yaw))
-	target += (-right * relative.x + forward * relative.y) * distance * 0.0016
+	target += (-right * relative.x - forward * relative.y) * distance * 0.0016
 	target.x = clampf(target.x, -20.0, 20.0)
 	target.z = clampf(target.z, -20.0, 20.0)
 

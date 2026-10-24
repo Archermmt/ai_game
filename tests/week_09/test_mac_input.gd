@@ -44,6 +44,10 @@ func test_option_left_pans_without_editing_in_every_tool() -> void:
 		_button(point, true, true)
 		_motion(point + Vector2(30, 10), Vector2(30, 10))
 		assert_ne(playground.camera_rig.target, target, mode)
+		var offset: Vector3 = playground.camera_rig.target - target
+		var yaw: float = playground.camera_rig.yaw
+		assert_lt(offset.dot(Vector3(sin(yaw), 0, cos(yaw))), 0.0, mode)
+		assert_lt(offset.dot(Vector3(cos(yaw), 0, -sin(yaw))), 0.0, mode)
 		# Option may be released before the mouse button.
 		_button(point, false)
 		assert_eq(playground.session.phase, EditSession.Phase.IDLE, mode)
@@ -90,8 +94,8 @@ func test_two_finger_scroll_rotates_both_axes_without_zoom() -> void:
 	var yaw: float = playground.camera_rig.yaw
 	var pitch: float = playground.camera_rig.pitch
 	_scroll(point, Vector2(2, 3))
-	assert_lt(playground.camera_rig.yaw, yaw)
-	assert_gt(playground.camera_rig.pitch, pitch)
+	assert_gt(playground.camera_rig.yaw, yaw)
+	assert_lt(playground.camera_rig.pitch, pitch)
 	assert_eq(playground.camera_rig.distance, original)
 	_scroll(point, Vector2(-2, -3))
 	assert_almost_eq(playground.camera_rig.yaw, yaw, 0.0001)
@@ -101,9 +105,9 @@ func test_two_finger_scroll_rotates_both_axes_without_zoom() -> void:
 	assert_eq(playground.camera_rig.distance, original)
 	assert_almost_eq(playground.camera_rig.yaw, yaw, 0.0001)
 	_scroll(point, Vector2(0, 1000))
-	assert_eq(playground.camera_rig.pitch, 1.3)
-	_scroll(point, Vector2(0, -1000))
 	assert_eq(playground.camera_rig.pitch, 0.3)
+	_scroll(point, Vector2(0, -1000))
+	assert_eq(playground.camera_rig.pitch, 1.3)
 	assert_eq(playground.session.history_count(), 0)
 
 
