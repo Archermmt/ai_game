@@ -1,10 +1,12 @@
 class_name LivingAtmosphere
 extends Node3D
-## A fixed two-draw weather budget. Seasonal shader uniforms never rebuild world geometry.
+## Fixed rain/snow/dust budgets; only the active weather draws.
+## Seasonal uniforms never rebuild world geometry.
 
 var host: Node3D
 var rain: MultiMeshInstance3D
 var snow: MultiMeshInstance3D
+var dust: MultiMeshInstance3D
 var bolt: MeshInstance3D
 var flash: DirectionalLight3D
 var elapsed: float = 0.0
@@ -20,6 +22,11 @@ func configure(root: Node3D) -> void:
 	name = "LivingAtmosphere"
 	rain = _precipitation(false, 1400)
 	snow = _precipitation(true, 900)
+	dust = _precipitation(false, 700)
+	dust.name = "Duststorm"
+	var dust_quad: QuadMesh = dust.multimesh.mesh
+	dust_quad.size = Vector2(0.10, 0.10)
+	dust.material_override.set_shader_parameter("dust", true)
 	flash = DirectionalLight3D.new()
 	flash.name = "LightningGlow"
 	flash.light_color = Color("b7cced")
@@ -105,16 +112,35 @@ func update(delta: float, state: Dictionary) -> void:
 			"living_cloud", 0.0 if _weather == "clear" else 1.0
 		)
 		RenderingServer.global_shader_parameter_set(
-			"living_snow", 0.65 if _weather == "snow" else (0.28 if _season == "winter" else 0.0)
+			"living_snow",
+			(
+				0.8
+				if _weather == "blizzard"
+				else (0.65 if _weather == "snow" else (0.28 if _season == "winter" else 0.0))
+			)
 		)
-		rain.visible = _weather == "rain"
-		snow.visible = _weather == "snow"
+		rain.visible = _weather in ["rain", "storm"]
+		snow.visible = _weather in ["snow", "blizzard"]
+		dust.visible = _weather == "duststorm"
+		rain.material_override.set_shader_parameter("severity", 2.4 if _weather == "storm" else 1.0)
+		snow.material_override.set_shader_parameter(
+			"severity", 3.0 if _weather == "blizzard" else 1.0
+		)
 	var hour: float = float(state["minute_of_day"]) / 60.0
 	var altitude: float = sin((hour - 6.0) * PI / 12.0)
 	var daylight: float = smoothstep(-0.12, 0.35, altitude)
 	var summer: bool = _season == "summer"
 	var energy: float = (1.65 if summer else 1.30) * maxf(0.0, altitude)
-	energy *= 1.0 if _weather == "clear" else 0.48
+	energy *= {
+		"clear": 1.0,
+		"cloudy": 0.48,
+		"rain": 0.48,
+		"snow": 0.48,
+		"storm": 0.18,
+		"blizzard": 0.23,
+		"duststorm": 0.28,
+		"fog": 0.35
+	}[_weather]
 	host.sun.light_energy = maxf(0.035, energy)
 	host.sun.rotation_degrees = Vector3(
 		-maxf(9.0, altitude * (66 if summer else 48)), -105 + hour * 9, 0
@@ -126,7 +152,22 @@ func update(delta: float, state: Dictionary) -> void:
 	environment.ambient_light_color = Color("8298bc").lerp(Color("c7d5ce"), daylight)
 	environment.ambient_light_energy = lerpf(0.20, 0.46 if _weather != "clear" else 0.36, daylight)
 	environment.fog_light_color = Color("536783").lerp(Color("c8d0c6"), daylight)
-	environment.fog_density = 0.0018 if _weather in ["rain", "snow"] else 0.0008
+	environment.fog_density = {
+		"clear": 0.0008,
+		"cloudy": 0.0008,
+		"rain": 0.0018,
+		"snow": 0.0018,
+		"storm": 0.004,
+		"blizzard": 0.009,
+		"duststorm": 0.012,
+		"fog": 0.012
+	}[_weather]
+	if _weather == "duststorm":
+		environment.fog_light_color = Color("bda277")
+		environment.ambient_light_color = Color("b4a480")
+		host.sun.light_color = Color("d7b57c")
+	elif _weather in ["blizzard", "fog"]:
+		environment.fog_light_color = Color("c6d3d4").lerp(Color("62748a"), 1.0 - daylight)
 	var sky: ProceduralSkyMaterial = environment.sky.sky_material as ProceduralSkyMaterial
 	if sky != null:
 		sky.sky_top_color = Color("101d39").lerp(
@@ -138,10 +179,13 @@ func update(delta: float, state: Dictionary) -> void:
 		host.window_material.set_shader_parameter("dusk", false)
 		host.window_material.set_shader_parameter("dusk_mix", 1.0 - daylight)
 	var pulse: bool = (
-		_weather == "rain"
+		_weather in ["rain", "storm"]
 		and not reduced_motion
 		and lightning_enabled
-		and fposmod(elapsed, 18.0) > 17.7
+		and (
+			fposmod(elapsed, 6.0 if _weather == "storm" else 18.0)
+			> (5.7 if _weather == "storm" else 17.7)
+		)
 	)
 	bolt.visible = pulse
 	flash.light_energy = 0.65 if pulse else 0.0

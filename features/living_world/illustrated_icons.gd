@@ -24,6 +24,17 @@ static func texture(key: String) -> Texture2D:
 
 
 static func drawing(key: String) -> String:
+	if key == "next_morning":
+		return '<path d="M8 49h56M16 49a20 20 0 0 1 40 0M36 8v10M13 22l7 7M59 22l-7 7" fill="#d8bb73"/><path d="M26 41l14 7-14 7M43 40v16" fill="none" stroke-width="4"/>'
+	if key in ["storm", "blizzard", "duststorm", "fog"]:
+		if key == "storm":
+			return '<path d="M12 37q-8-16 10-19 8-19 24-5 21-2 17 20z" fill="#9ba6a9"/><path d="M35 35l-9 15h11l-7 16 21-24H39l6-7" fill="#e0bd73"/><path d="M16 44l-6 12M60 44l-6 12"/>'
+		if key == "blizzard":
+			return '<path d="M8 23h43q14 0 9-12M5 35h50q18 0 10 12M12 47h22" fill="none" stroke-width="3"/><path d="M42 46v18m-8-14l16 10m-16 0l16-10" stroke="#9ab2bd" stroke-width="3"/>'
+		if key == "duststorm":
+			return '<path d="M7 25h43q16 0 9-12M10 38h45q13 0 8 10M7 53h35" fill="none" stroke-width="4"/><circle cx="16" cy="15" r="3" fill="#bc9566"/><circle cx="49" cy="57" r="4" fill="#bc9566"/><circle cx="26" cy="63" r="2" fill="#bc9566"/>'
+		return '<path d="M8 25h47M16 36h48M6 47h43M19 58h42" fill="none" stroke="#a1b0a6" stroke-width="5"/>'
+
 	if key == "pause":
 		return '<path d="M22 15h9v42h-9zM41 15h9v42h-9z" fill="#655b43"/>'
 	if key == "play":

@@ -143,6 +143,75 @@ func _run() -> void:
 	playground.camera_rig.refresh()
 	await _frame("relief_overview")
 	playground._restore_camera(camera_record)
+	await _motion(Vector2(700, 80), Vector2.ZERO)
+	playground.calendar.automatic_weather = false
+	for entry: Array in [["storm", 7], ["blizzard", 1], ["duststorm", 7], ["fog", 4]]:
+		playground.calendar.month = entry[1]
+		playground.calendar.weather = entry[0]
+		playground.calendar.minute_of_day = 720
+		playground.calendar.align_weather()
+		playground.atmosphere.elapsed = 5.8
+		playground.atmosphere.update(0, playground.calendar.sample())
+		playground.hud.calendar.sync()
+		await _frame("weather_" + entry[0])
+		evidence["effect_" + entry[0]] = (
+			playground.atmosphere.rain.visible
+			if entry[0] == "storm"
+			else (
+				playground.atmosphere.snow.visible
+				if entry[0] == "blizzard"
+				else (
+					playground.atmosphere.dust.visible
+					if entry[0] == "duststorm"
+					else playground.world_environment.environment.fog_density > 0.01
+				)
+			)
+		)
+	playground.calendar.automatic_weather = true
+	playground.calendar.month = 2
+	playground.calendar.day = 30
+	playground.hud.calendar.sync()
+	position = playground.hud.calendar.next_day_button.get_global_rect().get_center()
+	await _motion(position, Vector2.ZERO)
+	await _mouse(position, true)
+	await _mouse(position, false)
+	evidence["next_morning_real_click"] = (
+		playground.calendar.month == 3
+		and playground.calendar.day == 1
+		and playground.calendar.minute_of_day == 360
+	)
+	position = playground.hud.ribbon_buttons["light"].get_global_rect().get_center()
+	await _motion(position, Vector2.ZERO)
+	await _mouse(position, true)
+	await _mouse(position, false)
+	var controls: WeatherControls = playground.hud.weather_controls
+	evidence["bottom_weather_controls"] = controls.visible and playground.tools.mode == "inspect"
+	var weight: HSlider = controls.sliders["storm"]
+	rect = weight.get_global_rect()
+	start = Vector2(rect.position.x + 6, rect.get_center().y)
+	end = Vector2(rect.end.x - 6, rect.get_center().y)
+	await _motion(start, Vector2.ZERO)
+	await _mouse(start, true)
+	await _motion(end, end - start)
+	await _mouse(end, false)
+	evidence["probability_real_drag"] = (
+		playground.calendar.weather_weights["spring"]["storm"] >= 95
+		and WeatherCycle.valid(playground.calendar.weather_weights)
+	)
+	playground._preference_changed("ui_scale", 1.5)
+	await _frame("weather_weights_150")
+	evidence["weather_controls_150_inside"] = Rect2(Vector2.ZERO, Vector2(root.size)).encloses(
+		controls.get_global_rect()
+	)
+	controls.season_choice.select(3)
+	controls.sync()
+	evidence["winter_forbids_rain"] = (
+		not controls.sliders["rain"].editable
+		and not controls.sliders["storm"].editable
+		and controls.sliders["blizzard"].editable
+	)
+	await _frame("winter_weights_150")
+	evidence["weather_settings_not_geometry"] = playground.document.state == source
 	var passed: bool = true
 	for value: bool in evidence.values():
 		passed = passed and value

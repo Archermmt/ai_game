@@ -9,6 +9,7 @@ const MONTHS: Array[String] = [
 var clock: CalendarState
 var fields: Dictionary = {}
 var season_label: Label
+var next_day_button: Button
 var speed_label: Label
 var pause_button: Button
 var resume_speed: float = 1.0
@@ -61,6 +62,7 @@ func configure(value: CalendarState) -> void:
 				func(v: float) -> void:
 					if not _syncing:
 						clock.year = int(v)
+						clock.align_weather()
 						changed.emit()
 			)
 			fields[field] = year
@@ -78,6 +80,15 @@ func configure(value: CalendarState) -> void:
 				colon.text = ":"
 				row.add_child(colon)
 			row.add_child(_choice("Day" if field == "Date" else "Min"))
+	next_day_button = Button.new()
+	next_day_button.text = "明早 6:00"
+	next_day_button.icon = IllustratedIcons.texture("next_morning")
+	next_day_button.expand_icon = true
+	next_day_button.add_theme_constant_override("icon_max_width", 22)
+	next_day_button.tooltip_text = "跳过今天，进入第二天早晨6:00"
+	next_day_button.accessibility_name = "跳到明早6点"
+	next_day_button.pressed.connect(_skip_day)
+	stack.add_child(next_day_button)
 	var note: Label = Label.new()
 	note.text = "林间历 · 每月30日\n1×：每秒一游戏分钟"
 	note.add_theme_font_size_override("font_size", 11)
@@ -172,9 +183,9 @@ func _choice(field: String) -> OptionButton:
 			for minute: int in range(60):
 				choice.add_item("%02d" % minute)
 		"Weather":
-			for i: int in range(4):
+			for i: int in range(CalendarState.WEATHER.size()):
 				choice.add_icon_item(
-					IllustratedIcons.texture(CalendarState.WEATHER[i]), ["晴", "阴", "雨 / 雷", "雪"][i]
+					IllustratedIcons.texture(CalendarState.WEATHER[i]), WeatherCycle.LABELS[i]
 				)
 	choice.item_selected.connect(func(index: int) -> void: _selected(field, index))
 	return choice
@@ -199,9 +210,18 @@ func _selected(key: String, index: int) -> void:
 		"Min":
 			clock.minute_of_day = floori(clock.minute_of_day / 60) * 60 + index
 		"Weather":
+			if not WeatherCycle.allowed(clock.season(), CalendarState.WEATHER[index]):
+				return
 			clock.weather = CalendarState.WEATHER[index]
+	clock.align_weather()
 	sync()
 	changed.emit()
+
+
+func _skip_day() -> void:
+	if clock.next_morning():
+		sync()
+		changed.emit()
 
 
 func sync() -> void:
@@ -222,8 +242,13 @@ func sync() -> void:
 	pause_button.tooltip_text = "继续时间" if clock.speed == 0 else "暂停时间"
 	weather_icon.text = ""
 	weather_icon.tooltip_text = (
-		"天气：%s，点击更改" % ["晴", "阴", "雨 / 雷", "雪"][CalendarState.WEATHER.find(clock.weather)]
+		"天气：%s，点击更改" % WeatherCycle.LABELS[CalendarState.WEATHER.find(clock.weather)]
 	)
+	for i: int in range(CalendarState.WEATHER.size()):
+		weather_icon.set_item_disabled(
+			i, not WeatherCycle.allowed(clock.season(), CalendarState.WEATHER[i])
+		)
+	next_day_button.disabled = clock.year == 99999 and clock.month == 12 and clock.day == 30
 	season_label.text = (
 		"Season\n"
 		+ {"spring": "春 · 萌芽", "summer": "夏 · 盛光", "autumn": "秋 · 金叶", "winter": "冬 · 静林"}[

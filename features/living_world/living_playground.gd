@@ -51,6 +51,7 @@ func _ready() -> void:
 				clampf(argument.trim_prefix("--hour=").to_float(), 0, 23.99) * 60
 			)
 	atmosphere.update(0, calendar.sample())
+	calendar.align_weather()
 	hud.calendar.sync()
 	hud.set_status("点示意图建造 · 右侧林间历可选择日期、天气与时间流速")
 
@@ -71,6 +72,11 @@ func _process(delta: float) -> void:
 	atmosphere.update(delta, calendar.sample())
 	if seasonal_music != null:
 		seasonal_music.sync_calendar(calendar.sample())
+	if soundscape != null:
+		var wind: float = float(document.state["environment"]["wind_strength"])
+		soundscape.wind = (
+			maxf(wind, 0.95) if calendar.weather in ["storm", "blizzard", "duststorm"] else wind
+		)
 	_calendar_refresh += delta
 	if _calendar_refresh > 0.2:
 		_calendar_refresh = 0
@@ -103,6 +109,7 @@ func _restore_extra_presentation(value: Dictionary) -> void:
 	calendar.restore(value.get("calendar", fallback))
 	if hud.calendar != null:
 		hud.calendar.sync()
+		hud.weather_controls.sync()
 
 
 func _apply_layout() -> void:
@@ -134,7 +141,9 @@ func _delivery_metrics() -> Dictionary:
 	result["terrain_profile"] = document.state.get("terrain", {}).get("base_profile", "flat")
 	if atmosphere != null:
 		result["weather_particles"] = (
-			(1400 if atmosphere.rain.visible else 0) + (900 if atmosphere.snow.visible else 0)
+			(1400 if atmosphere.rain.visible else 0)
+			+ (900 if atmosphere.snow.visible else 0)
+			+ (700 if atmosphere.dust.visible else 0)
 		)
 		result["living_sun_energy"] = sun.light_energy
 	return result

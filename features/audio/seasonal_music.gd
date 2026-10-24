@@ -71,7 +71,16 @@ func sync_calendar(sample: Dictionary) -> void:
 		pool = next
 		bag.clear()
 		stable_seconds = 0
-	target_duck = {"clear": 1.0, "cloudy": 0.85, "rain": 0.5, "snow": 0.65}[sample["weather"]]
+	target_duck = {
+		"clear": 1.0,
+		"cloudy": 0.85,
+		"rain": 0.5,
+		"snow": 0.65,
+		"storm": 0.35,
+		"blizzard": 0.4,
+		"duststorm": 0.4,
+		"fog": 0.7
+	}[sample["weather"]]
 	if float(sample["minute_of_day"]) < 360 or float(sample["minute_of_day"]) >= 1260:
 		target_duck *= 0.7
 

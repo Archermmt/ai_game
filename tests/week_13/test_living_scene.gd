@@ -183,8 +183,8 @@ func test_compact_calendar_groups_date_time_and_keeps_weather_in_heading() -> vo
 	assert_not_null(panel.weather_icon.icon)
 	assert_eq(CalendarPanel._ordinal(11), "11th")
 	assert_eq(CalendarPanel._ordinal(22), "22nd")
-	panel._selected("Weather", 2)
-	assert_eq(clock.weather, "rain")
+	panel._selected("Weather", 3)
+	assert_eq(clock.weather, "snow")
 	assert_eq(panel.weather_icon.text, "")
 	panel._selected("Day", 29)
 	panel._selected("Hour", 23)
@@ -232,3 +232,55 @@ func test_current_hud_omits_legacy_modification_entries() -> void:
 	assert_eq(playground.soundscape.ambient_gain, 0.5)
 	playground.hud.quick.hide()
 	playground.tools.mode = "inspect"
+
+
+func test_next_morning_and_seasonal_probability_controls_do_not_edit_world() -> void:
+	var previous: Dictionary = playground.calendar.record()
+	var source: Dictionary = playground.document.snapshot()
+	var history: int = playground.session.history_count()
+	playground.calendar.month = 2
+	playground.calendar.day = 30
+	playground.hud.calendar.next_day_button.pressed.emit()
+	assert_eq([playground.calendar.month, playground.calendar.day], [3, 1])
+	assert_eq(playground.calendar.minute_of_day, 360.0)
+	var minute: float = playground.calendar.minute_of_day
+	playground.hud.open_group("light")
+	assert_true(playground.hud.weather_controls.visible)
+	assert_eq(playground.calendar.minute_of_day, minute)
+	var controls: WeatherControls = playground.hud.weather_controls
+	controls.season_choice.select(3)
+	controls.sync()
+	assert_false(controls.sliders["rain"].editable)
+	assert_false(controls.sliders["storm"].editable)
+	assert_true(controls.sliders["blizzard"].editable)
+	controls._weight_changed("blizzard", 100)
+	assert_eq(playground.calendar.weather_weights["winter"]["blizzard"], 100.0)
+	assert_true(WeatherCycle.valid(playground.calendar.weather_weights))
+	assert_eq(playground.document.state, source)
+	assert_eq(playground.session.history_count(), history)
+	playground.hud.weather_controls.hide()
+	assert_true(playground.calendar.restore(previous))
+	playground.hud.calendar.sync()
+
+
+func test_severe_weather_uses_bounded_distinct_effects_and_reduced_motion() -> void:
+	var previous: Dictionary = playground.calendar.record()
+	for row: Array in [[7, "storm"], [1, "blizzard"], [7, "duststorm"], [4, "fog"]]:
+		playground.calendar.month = row[0]
+		playground.calendar.weather = row[1]
+		playground.atmosphere.elapsed = 5.8
+		playground.atmosphere.reduced_motion = false
+		playground.atmosphere.update(0, playground.calendar.sample())
+		assert_eq(playground.atmosphere.rain.visible, row[1] == "storm")
+		assert_eq(playground.atmosphere.snow.visible, row[1] == "blizzard")
+		assert_eq(playground.atmosphere.dust.visible, row[1] == "duststorm")
+		assert_gt(playground.world_environment.environment.fog_density, 0.0018)
+		playground.atmosphere.reduced_motion = true
+		playground.atmosphere.update(0, playground.calendar.sample())
+		assert_false(playground.atmosphere.bolt.visible)
+	assert_eq(playground.atmosphere.rain.multimesh.instance_count, 1400)
+	assert_eq(playground.atmosphere.snow.multimesh.instance_count, 900)
+	assert_eq(playground.atmosphere.dust.multimesh.instance_count, 700)
+	assert_true(playground.calendar.restore(previous))
+	playground.atmosphere.reduced_motion = false
+	playground.atmosphere.update(0, playground.calendar.sample())
