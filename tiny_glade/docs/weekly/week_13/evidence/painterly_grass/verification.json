@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-25",
+  "file_count": 16,
+  "unchanged_source_hashes": 16,
+  "python_syntax": "passed",
+  "runtime_changes": false,
+  "new_asset_gpu_benchmark": "not_run",
+  "game_regressions": "not_run_analysis_only",
+  "hardware": {
+    "model": "MacBook Pro",
+    "chip": "Apple M4 Pro",
+    "cpu_cores": 14,
+    "gpu_cores": 20,
+    "unified_memory_gb": 48
+  },
+  "evidence_scope": "Pre-modifier mesh counts; no evaluated scatter; no claim of visual compatibility in Blender5 or Godot.",
+  "repeat_inventory": "passed_identical",
+  "report_local_links_checked": 7
+}

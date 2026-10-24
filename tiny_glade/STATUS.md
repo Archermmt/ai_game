@@ -1,6 +1,14 @@
 # 风栖小筑 · 开发状态
 
-更新日期：2026-10-24（Asia/Shanghai）
+更新日期：2026-10-25（Asia/Shanghai）
+
+## Painterly Grass 外部资产可行性研究
+
+2026-10-25：完成桌面PainterlyGrass全部16份Blender源文件只读检查，16份前后SHA-256一致、检查工具Python语法通过。主库基础草卡8–12三角，详细草存在数千基础三角及细分；四张4K图集已打包。风格与手绘林间目标匹配度高，建议挑选Basic草卡、重建Godot共享材质并复用现有分块散布，先做局部样板。
+
+本机M4 Pro/20核GPU/48GB，历史Metal性能仅作旧草基线；新资产尚未导出/导入、未做新GPU测试或累计回归，不计性能门槛通过。原授权条款、GLB材质/UV与修改器后成本、俯视/漫步视觉、容量性能及编辑回归均待验证。未改批准PRD、运行场景或下载源件，未扩展玩法范围。
+
+[风格与Mac渲染分析报告](docs/art/PAINTERLY_GRASS_ASSESSMENT.md) · [源文件统计与核对](docs/weekly/week_13/evidence/painterly_grass/verification.json)。复验命令见报告，检查工具为`tools/art/inspect_painterly_grass.py`。
 
 ## 整体美术重制 · 参考到实机
 
