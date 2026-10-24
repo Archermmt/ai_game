@@ -15,6 +15,7 @@ var last_effect: float = -1.0
 var sequence: int = 0
 var played: Array[String] = []
 var streams: Dictionary = {}
+var ambient_gain: float = 1.0
 var music_override: bool = false
 var _fade: float = 0.0
 
@@ -104,13 +105,15 @@ func _process(delta: float) -> void:
 func _apply_ambient() -> void:
 	var gains: Dictionary = wind_gains(wind)
 	for key: String in loops:
-		var target: float = float(gains.get(key, 0.6)) * levels["ambient_volume"] * _fade
+		var target: float = (
+			float(gains.get(key, 0.6)) * levels["ambient_volume"] * _fade * ambient_gain
+		)
 		var voice: AudioStreamPlayer = loops[key]
 		voice.stream_paused = levels["ambient_volume"] == 0
 		voice.volume_db = lerpf(voice.volume_db, _db(target), 0.15) if target > 0 else -80
 	if water != null:
 		water.stream_paused = levels["ambient_volume"] == 0
-		water.volume_db = _db(levels["ambient_volume"] * 0.7 * _fade)
+		water.volume_db = _db(levels["ambient_volume"] * 0.7 * _fade * ambient_gain)
 
 
 static func wind_gains(strength: float) -> Dictionary:

@@ -24,6 +24,11 @@ static func texture(key: String) -> Texture2D:
 
 
 static func drawing(key: String) -> String:
+	if key == "pause":
+		return '<path d="M22 15h9v42h-9zM41 15h9v42h-9z" fill="#655b43"/>'
+	if key == "play":
+		return '<path d="M23 13l33 23-33 23z" fill="#655b43"/>'
+
 	if key.contains("玻璃门"):
 		return '<path d="M18 11h36v51H18z" fill="#b99568"/><path d="M24 17h24v37H24z" fill="#aac7c2"/><path d="M36 17v37M24 34h24"/><circle cx="47" cy="43" r="2" fill="#665b43"/>'
 	if key.contains("浇水"):

@@ -17,7 +17,8 @@ const SEASONS: Array[String] = [
 	"winter"
 ]
 const WEATHER: Array[String] = ["clear", "cloudy", "rain", "snow"]
-const SPEEDS: Array[float] = [0.0, 1.0, 5.0, 20.0, 60.0]
+const MIN_SPEED: float = 1.0
+const MAX_SPEED: float = 60.0
 var year: int = 1
 var month: int = 5
 var day: int = 15
@@ -99,6 +100,6 @@ static func valid(value: Dictionary) -> bool:
 		and value["day"] <= 30
 		and value["minute_of_day"] >= 0
 		and value["minute_of_day"] < 1440
-		and value["speed"] in SPEEDS
+		and (value["speed"] == 0 or (value["speed"] >= MIN_SPEED and value["speed"] <= MAX_SPEED))
 		and value.get("weather") in WEATHER
 	)

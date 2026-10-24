@@ -14,6 +14,8 @@ const SIMPLE_GROUPS: Array = [
 	["photo", "photo", "摄影", "9ba8aa"],
 	["light", "sun", "光线", "c8c17c"]
 ]
+@export var legacy_parameter_entry: bool = true
+
 var quick: PanelContainer
 var quick_choices: HFlowContainer
 var quick_assets: HFlowContainer
@@ -95,6 +97,7 @@ func _ready() -> void:
 		["direct_copy", "复制"], ["direct_delete", "删除"], ["exact", "精确参数"], ["finish_edit", "结束修改"]
 	]:
 		var button: Button = Button.new()
+		button.visible = pair[0] != "exact" or legacy_parameter_entry
 		button.icon = IllustratedIcons.texture(pair[1])
 		button.tooltip_text = pair[1]
 		button.accessibility_name = pair[1]
@@ -215,7 +218,8 @@ func open_group(key: String, activate: bool = true) -> void:
 	quick_path_width.visible = key == "path"
 	radius_caption.visible = quick_radius.visible
 	width_caption.visible = quick_path_width.visible
-	_choice(quick_choices, "更多参数…", func() -> void: show_exact(key))
+	if legacy_parameter_entry:
+		_choice(quick_choices, "更多参数…", func() -> void: show_exact(key))
 	_choice(quick_choices, "取消本笔", func() -> void: action_requested.emit(&"cancel"))
 	_choice(quick_choices, "收起 ×", func() -> void: quick.hide())
 	quick.show()

@@ -61,7 +61,7 @@ func test_calendar_controls_change_date_weather_speed_without_source_or_history_
 	panel._selected("Month", 0)
 	panel._selected("Day", 29)
 	panel._selected("Weather", 3)
-	panel._selected("Speed", 0)
+	panel._toggle_pause()
 	assert_eq(playground.calendar.season(), "winter")
 	assert_eq(playground.calendar.day, 30)
 	assert_eq(playground.calendar.weather, "snow")
@@ -193,3 +193,42 @@ func test_compact_calendar_groups_date_time_and_keeps_weather_in_heading() -> vo
 	assert_eq(clock.minute_of_day, 1439.0)
 	clock.restore(previous)
 	panel.sync()
+
+
+func test_speed_slider_covers_every_rate_and_pause_preserves_the_rate() -> void:
+	var panel: CalendarPanel = playground.hud.calendar
+	var previous: Dictionary = playground.calendar.record()
+	var source: Dictionary = playground.document.snapshot()
+	var history: int = playground.session.history_count()
+	var slider: HSlider = panel.fields["Speed"]
+	assert_eq(slider.min_value, 1.0)
+	assert_eq(slider.max_value, 60.0)
+	slider.value = 2
+	for rate: float in [1.0, 17.0, 37.0, 60.0]:
+		slider.value = rate
+		assert_eq(playground.calendar.speed, rate)
+		assert_eq(panel.speed_label.text, "%d×" % rate)
+	panel._toggle_pause()
+	assert_eq(playground.calendar.speed, 0.0)
+	assert_eq(panel.speed_label.text, "暂停")
+	panel._toggle_pause()
+	assert_eq(playground.calendar.speed, 60.0)
+	assert_eq(playground.document.state, source)
+	assert_eq(playground.session.history_count(), history)
+	assert_true(playground.calendar.restore(previous))
+	panel.sync()
+
+
+func test_current_hud_omits_legacy_modification_entries() -> void:
+	for group: String in [
+		"build", "path", "openings", "palette", "terrain", "plants", "trees", "water"
+	]:
+		playground.hud.open_group(group)
+		await get_tree().process_frame
+		for child: Button in playground.hud.quick_choices.get_children():
+			assert_ne(child.accessibility_name, "更多参数…")
+	assert_false(playground.hud.object_bar.get_child(0).get_child(2).visible)
+	assert_true(playground.soundscape.music_override)
+	assert_eq(playground.soundscape.ambient_gain, 0.5)
+	playground.hud.quick.hide()
+	playground.tools.mode = "inspect"

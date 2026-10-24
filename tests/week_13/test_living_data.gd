@@ -160,3 +160,17 @@ func test_calendar_upper_bound_remains_savable() -> void:
 	clock.advance(100)
 	assert_true(CalendarState.valid(clock.record()))
 	assert_eq(clock.speed, 0.0)
+
+
+func test_custom_slider_rate_roundtrips_and_rejects_out_of_range_values() -> void:
+	var clock: CalendarState = CalendarState.new()
+	var value: Dictionary = clock.record()
+	for rate: float in [1.0, 17.0, 37.0, 60.0]:
+		value["speed"] = rate
+		assert_true(clock.restore(value))
+		clock.advance(2)
+		assert_almost_eq(clock.minute_of_day, 630.0 + rate * 2, 0.001)
+		assert_eq(clock.record()["speed"], rate)
+	for rate: float in [-1.0, 0.5, 60.01, INF, NAN]:
+		value["speed"] = rate
+		assert_false(clock.restore(value))

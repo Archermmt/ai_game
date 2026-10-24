@@ -23,6 +23,7 @@ func _ready() -> void:
 	super._ready()
 	if qa_mode:
 		saves.directory = "user://qa_week13_native"
+	soundscape.ambient_gain = 0.5
 	soundscape.music_override = true
 	soundscape.music.stop()
 	seasonal_music = SeasonalMusic.new()

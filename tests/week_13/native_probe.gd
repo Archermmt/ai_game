@@ -56,6 +56,21 @@ func _run() -> void:
 		}
 	)
 	month.get_popup().hide()
+	var slider: HSlider = playground.hud.calendar.fields["Speed"]
+	var rect: Rect2 = slider.get_global_rect()
+	var start: Vector2 = Vector2(rect.position.x + 6, rect.get_center().y)
+	var end: Vector2 = Vector2(rect.end.x - 6, rect.get_center().y)
+	await _motion(start, Vector2.ZERO)
+	await _mouse(start, true)
+	await _motion(end, end - start)
+	await _mouse(end, false)
+	evidence["speed_slider_real_drag"] = playground.calendar.speed >= 55
+	evidence["no_legacy_modify_button"] = true
+	for choice: Button in playground.hud.quick_choices.get_children():
+		if choice.accessibility_name == "更多参数…":
+			evidence["no_legacy_modify_button"] = false
+	playground.calendar.speed = 37
+
 	for entry: Array in [
 		["spring", 4, "clear", 12.0],
 		["summer", 7, "clear", 12.0],

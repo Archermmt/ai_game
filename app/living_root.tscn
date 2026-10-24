@@ -9,3 +9,4 @@ script = ExtResource("2_script")
 
 [node name="Hud" parent="." index="2"]
 script = ExtResource("3_hud")
+legacy_parameter_entry = false

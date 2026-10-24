@@ -14,7 +14,7 @@ const TRACKS: Array[String] = [
 	"sunny_pasture"
 ]
 const FADE_SECONDS: float = 6.0
-const MAX_GAIN: float = 0.12
+const MAX_GAIN: float = 0.32
 var voices: Array[AudioStreamPlayer] = []
 var streams: Dictionary = {}
 var pool: Array[String] = []

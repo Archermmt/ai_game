@@ -9,6 +9,9 @@ const MONTHS: Array[String] = [
 var clock: CalendarState
 var fields: Dictionary = {}
 var season_label: Label
+var speed_label: Label
+var pause_button: Button
+var resume_speed: float = 1.0
 var weather_icon: OptionButton
 var _syncing: bool = false
 
@@ -63,7 +66,7 @@ func configure(value: CalendarState) -> void:
 			fields[field] = year
 			grid.add_child(year)
 		elif field == "Speed":
-			grid.add_child(_choice(field))
+			grid.add_child(_speed_control())
 		else:
 			var row: HBoxContainer = HBoxContainer.new()
 			row.name = "DateRow" if field == "Date" else "TimeRow"
@@ -80,6 +83,54 @@ func configure(value: CalendarState) -> void:
 	note.add_theme_font_size_override("font_size", 11)
 	stack.add_child(note)
 	sync()
+
+
+func _speed_control() -> HBoxContainer:
+	var row: HBoxContainer = HBoxContainer.new()
+	row.add_theme_constant_override("separation", 5)
+	pause_button = Button.new()
+	pause_button.custom_minimum_size = Vector2(24, 26)
+	pause_button.expand_icon = true
+	pause_button.add_theme_constant_override("icon_max_width", 20)
+	pause_button.accessibility_name = "暂停或继续时间"
+	pause_button.pressed.connect(_toggle_pause)
+	row.add_child(pause_button)
+	var slider: HSlider = HSlider.new()
+	slider.min_value = CalendarState.MIN_SPEED
+	slider.max_value = CalendarState.MAX_SPEED
+	slider.step = 1
+	slider.custom_minimum_size = Vector2(82, 26)
+	slider.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	slider.tooltip_text = "拖动调整时间：1–60倍"
+	slider.accessibility_name = "时间流速，1至60倍"
+	for state: String in ["slider", "grabber_area", "grabber_area_highlight"]:
+		var rail: StyleBoxFlat = StyleBoxFlat.new()
+		rail.bg_color = Color("b8bda0") if state == "slider" else Color("809474")
+		rail.set_corner_radius_all(3)
+		rail.content_margin_top = 3
+		rail.content_margin_bottom = 3
+		slider.add_theme_stylebox_override(state, rail)
+	slider.value_changed.connect(_speed_changed)
+	fields["Speed"] = slider
+	row.add_child(slider)
+	speed_label = Label.new()
+	speed_label.custom_minimum_size.x = 32
+	row.add_child(speed_label)
+	return row
+
+
+func _speed_changed(value: float) -> void:
+	if _syncing:
+		return
+	clock.speed = clampf(value, CalendarState.MIN_SPEED, CalendarState.MAX_SPEED)
+	sync()
+	changed.emit()
+
+
+func _toggle_pause() -> void:
+	clock.speed = resume_speed if clock.speed == 0 else 0.0
+	sync()
+	changed.emit()
 
 
 func _choice(field: String) -> OptionButton:
@@ -125,9 +176,6 @@ func _choice(field: String) -> OptionButton:
 				choice.add_icon_item(
 					IllustratedIcons.texture(CalendarState.WEATHER[i]), ["晴", "阴", "雨 / 雷", "雪"][i]
 				)
-		"Speed":
-			for title: String in ["暂停", "1×", "5×", "20×", "60×"]:
-				choice.add_item(title)
 	choice.item_selected.connect(func(index: int) -> void: _selected(field, index))
 	return choice
 
@@ -152,8 +200,6 @@ func _selected(key: String, index: int) -> void:
 			clock.minute_of_day = floori(clock.minute_of_day / 60) * 60 + index
 		"Weather":
 			clock.weather = CalendarState.WEATHER[index]
-		"Speed":
-			clock.speed = CalendarState.SPEEDS[index]
 	sync()
 	changed.emit()
 
@@ -168,7 +214,12 @@ func sync() -> void:
 	fields["Hour"].select(floori(clock.minute_of_day / 60))
 	fields["Min"].select(floori(clock.minute_of_day) % 60)
 	fields["Weather"].select(CalendarState.WEATHER.find(clock.weather))
-	fields["Speed"].select(CalendarState.SPEEDS.find(clock.speed))
+	if clock.speed > 0:
+		resume_speed = clock.speed
+	fields["Speed"].value = resume_speed
+	speed_label.text = "暂停" if clock.speed == 0 else "%d×" % clock.speed
+	pause_button.icon = IllustratedIcons.texture("play" if clock.speed == 0 else "pause")
+	pause_button.tooltip_text = "继续时间" if clock.speed == 0 else "暂停时间"
 	weather_icon.text = ""
 	weather_icon.tooltip_text = (
 		"天气：%s，点击更改" % ["晴", "阴", "雨 / 雷", "雪"][CalendarState.WEATHER.find(clock.weather)]
