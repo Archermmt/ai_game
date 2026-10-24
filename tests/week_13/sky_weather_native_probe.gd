@@ -5,12 +5,24 @@ var measures: Dictionary = {}
 
 
 func _click(button: Button) -> void:
+	# Settle layout, then deliver a complete GUI click in one input batch. OS
+	# motion between synthetic press/release frames must not cancel the click.
 	for i: int in range(5):
 		await process_frame
 	var point: Vector2 = button.get_global_rect().get_center()
-	await _motion(point, Vector2.ZERO)
-	await _mouse(point, true)
-	await _mouse(point, false)
+	var motion: InputEventMouseMotion = InputEventMouseMotion.new()
+	motion.position = point
+	motion.global_position = point
+	Input.parse_input_event(motion)
+	for down: bool in [true, false]:
+		var event: InputEventMouseButton = InputEventMouseButton.new()
+		event.position = point
+		event.global_position = point
+		event.button_index = MOUSE_BUTTON_LEFT
+		event.button_mask = MOUSE_BUTTON_MASK_LEFT if down else 0
+		event.pressed = down
+		Input.parse_input_event(event)
+	await process_frame
 
 
 func _render_sky(name_value: String, hour: float, direction: Vector3) -> Image:
@@ -51,8 +63,28 @@ func _run() -> void:
 	await _click(playground.hud.ribbon_buttons["build"])
 	await _frame("selected_build")
 	checks["active_card_enlarged"] = playground.hud.ribbon_buttons["build"].scale.x > 1.0
+	await _settle()
+	checks["ready_before_camera_click"] = (
+		not playground.queue.is_busy()
+		and not playground.stage.is_busy()
+		and not playground.meadow.is_busy()
+	)
 	await _click(playground.hud.ribbon_buttons["photo"])
 	checks["camera_real_click"] = playground.photo_active
+	if not playground.photo_active:
+		push_error(
+			(
+				"Photo UI click failed: busy=%s phase=%s mouse=%s hovered=%s"
+				% [
+					playground._busy(),
+					playground.session.phase,
+					root.get_mouse_position(),
+					root.gui_get_hovered_control()
+				]
+			)
+		)
+		quit(1)
+		return
 	checks["photo_actions_all_icons"] = true
 	for button: Button in playground.hud.photo_icons.get_children():
 		checks["photo_actions_all_icons"] = (
@@ -141,6 +173,10 @@ func _run() -> void:
 	checks["storm_reached_target"] = playground.atmosphere.blend.age == WeatherBlend.DURATION
 	await _frame("rain_full")
 	playground._freeze_photo(true)
+	# Compare two frozen frames after the newly pinned state has rendered and TAA settles.
+	for i: int in range(12):
+		await process_frame
+	await RenderingServer.frame_post_draw
 	var image_a: Image = root.get_texture().get_image()
 	await SceneShutdown.wait_wallclock(self, 0.3)
 	await _frame("frozen")

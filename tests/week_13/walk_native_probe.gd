@@ -14,13 +14,24 @@ func _key(code: Key, down: bool) -> void:
 
 
 func _click(button: Button) -> void:
-	# Container sorting follows panel visibility; click its settled visible rectangle.
+	# Settle layout, then deliver a complete GUI click in one input batch. OS
+	# motion between synthetic press/release frames must not cancel the click.
 	for i: int in range(5):
 		await process_frame
 	var point: Vector2 = button.get_global_rect().get_center()
-	await _motion(point, Vector2.ZERO)
-	await _mouse(point, true)
-	await _mouse(point, false)
+	var motion: InputEventMouseMotion = InputEventMouseMotion.new()
+	motion.position = point
+	motion.global_position = point
+	Input.parse_input_event(motion)
+	for down: bool in [true, false]:
+		var event: InputEventMouseButton = InputEventMouseButton.new()
+		event.position = point
+		event.global_position = point
+		event.button_index = MOUSE_BUTTON_LEFT
+		event.button_mask = MOUSE_BUTTON_MASK_LEFT if down else 0
+		event.pressed = down
+		Input.parse_input_event(event)
+	await process_frame
 
 
 func _during_export() -> void:

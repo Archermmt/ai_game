@@ -3,10 +3,10 @@
   "source": "art_source/art_pass_01/nature/tree_fruit_lod1.blend",
   "export": "assets/nature/art_pass_01/tree_fruit_lod1.glb",
   "blender": "5.1.2",
-  "generator_version": "art_foliage_01.3",
+  "generator_version": "art_foliage_01.4",
   "units": "meters",
   "up_axis": "gltf_y_up",
-  "triangles": 1500,
+  "triangles": 1472,
   "budget": 1700,
   "mesh_objects": 4,
   "sockets": [
@@ -14,14 +14,14 @@
   ],
   "bounds_source_z_up": {
     "min": [
-      -1.726662,
-      -1.574524,
+      -1.594784,
+      -1.406157,
       -0.040992
     ],
     "max": [
-      1.833212,
-      1.732104,
-      4.241628
+      1.676626,
+      1.580515,
+      4.183382
     ]
   },
   "roles": [

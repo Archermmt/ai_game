@@ -15,7 +15,7 @@ def main():
     before = production_files()
     path = ROOT / ('reports/' + label + '.json')
     path.unlink(missing_ok=True)
-    step = run_step(label, [engine_binary(), '--audio-driver', 'Dummy', '--path', '.',
+    step = run_step(label, [engine_binary(), '--always-on-top', '--audio-driver', 'Dummy', '--path', '.',
         '--resolution', '1920x1080', '-s', 'tests/week_13/walk_performance_probe.gd', '--', '--qa-settings',
         '--art-fhd', '--w09-stress', *(['--climate-cycle'] if args.transitions else []), str(path)], timeout=65)
     result = json.loads(path.read_text())
@@ -26,7 +26,7 @@ def main():
     if args.transitions:
         assert result['climate_transitions'] and result['max_visible_weather_types'] >= 2
     result.update(step=step, frame_budget_passed=result['p95_frame_ms'] <= 20,
-                  production_unchanged=True, audio='Dummy', physical_audio_verified=False,
+                  production_unchanged=True, audio='Dummy', foreground_window=True, physical_audio_verified=False,
                   note='24-house/1000-instance layout, walking/turning30s after mode entry; optional6s weather retargets; no cold-start or edit-latency claim')
     path.write_text(json.dumps(result, indent=2) + '\n')
     print('Walk performance data PASS, p95:', result['p95_frame_ms'], 'budget:', result['frame_budget_passed'])

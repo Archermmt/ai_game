@@ -325,12 +325,12 @@ func test_photo_actions_are_icons_with_optional_settings_and_accessibility() -> 
 
 func test_active_bottom_mode_enlarges_only_the_selected_card() -> void:
 	playground.hud.open_group("build")
-	await get_tree().process_frame
-	await get_tree().process_frame
+	for i: int in range(10):
+		await get_tree().process_frame
 	assert_gt(playground.hud.ribbon_buttons["build"].scale.x, 1.0)
 	playground.hud.open_group("trees")
-	await get_tree().process_frame
-	await get_tree().process_frame
+	for i: int in range(10):
+		await get_tree().process_frame
 	assert_eq(playground.hud.ribbon_buttons["build"].scale, Vector2.ONE)
 	assert_gt(playground.hud.ribbon_buttons["trees"].scale.x, 1.0)
 

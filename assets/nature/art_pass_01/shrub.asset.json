@@ -3,10 +3,10 @@
   "source": "art_source/art_pass_01/nature/shrub.blend",
   "export": "assets/nature/art_pass_01/shrub.glb",
   "blender": "5.1.2",
-  "generator_version": "art_foliage_01.3",
+  "generator_version": "art_foliage_01.4",
   "units": "meters",
   "up_axis": "gltf_y_up",
-  "triangles": 342,
+  "triangles": 312,
   "budget": 500,
   "mesh_objects": 2,
   "sockets": [
@@ -14,14 +14,14 @@
   ],
   "bounds_source_z_up": {
     "min": [
-      -0.909327,
-      -0.867445,
-      -0.251018
+      -0.787967,
+      -0.726181,
+      -0.150193
     ],
     "max": [
-      1.044217,
-      0.845444,
-      0.904762
+      0.742568,
+      0.678166,
+      0.831299
     ]
   },
   "roles": [

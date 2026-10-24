@@ -1,0 +1,63 @@
+{
+  "passed": true,
+  "max_allowed_relative_dimension_delta": 0.12,
+  "records": [
+    {
+      "asset_id": "NAT-01",
+      "high_dimensions": [
+        4.502515000000001,
+        4.103318,
+        5.273938
+      ],
+      "lod_dimensions": [
+        4.234840999999999,
+        4.053043000000001,
+        5.252038000000001
+      ],
+      "relative_error": [
+        0.05944988523081017,
+        0.012252279740443997,
+        0.004152494777147472
+      ]
+    },
+    {
+      "asset_id": "NAT-02",
+      "high_dimensions": [
+        3.566376,
+        3.18484,
+        5.709505
+      ],
+      "lod_dimensions": [
+        3.3408,
+        3.3408,
+        5.7096480000000005
+      ],
+      "relative_error": [
+        0.06325076211818377,
+        0.048969492972959494,
+        2.5045954071403446e-05
+      ]
+    },
+    {
+      "asset_id": "NAT-03",
+      "high_dimensions": [
+        3.7687910000000002,
+        3.382857,
+        4.345682
+      ],
+      "lod_dimensions": [
+        3.5598739999999998,
+        3.306628,
+        4.2826200000000005
+      ],
+      "relative_error": [
+        0.055433426793897685,
+        0.02253391142457399,
+        0.014511416159764912
+      ]
+    }
+  ],
+  "status": "historical_pre_painterly_refresh",
+  "generator_version": "art_foliage_01.3",
+  "claim_scope": "Historical evidence for art_foliage_01.3 only; not verification of art_foliage_01.4."
+}

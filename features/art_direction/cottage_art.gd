@@ -7,8 +7,8 @@ const MeshBuilder = preload("res://features/art_direction/architecture/cottage_m
 const CLAY: Color = Color("bc7851")
 const HONEY: Color = Color("a77c49")
 const LIMESTONE: Color = Color("bdb69c")
-const TILE_WIDTH: float = 0.43
-const TILE_COURSE: float = 0.37
+const TILE_WIDTH: float = 0.49
+const TILE_COURSE: float = 0.42
 
 
 static func decorate(
@@ -33,6 +33,7 @@ static func decorate(
 		_round_roof(home, roof, timber, seed_value)
 	else:
 		_rect_roof(home, neighbors, roof, timber, seed_value)
+	_eave_soffits(home, neighbors, timber)
 	_wall_details(home, neighbors, timber, stonework, seed_value)
 	_opening_details(home, timber, stonework, seed_value)
 	for entry: Array in [
@@ -188,7 +189,7 @@ static func _rect_roof(
 				if b - a < 0.06:
 					continue
 				var key: float = seed_value + row * 19.17 + column * 7.31 + side * 3.1
-				_tile(roof, mapper, a + 0.004, b - 0.004, low, high, _tile_color(key), key)
+				_tile(roof, mapper, a + 0.002, b - 0.002, low, high, _tile_color(key), key)
 		var contacts: Array[Rect2] = BuildingContact.intervals(home, neighbors, facade)
 		var eave_count: int = ceili(span_depth / 0.9)
 		for index: int in range(eave_count):
@@ -203,11 +204,37 @@ static func _rect_roof(
 			timber.beam(
 				first + Vector3.DOWN * 0.065,
 				last + Vector3.DOWN * 0.065,
-				0.15,
-				0.14,
+				0.18,
+				0.17,
 				HONEY.darkened(0.10),
 				seed_value
 			)
+		if not trim:
+			# A few visible rafter ends explain the width and weight of the eaves.
+			# They stay beneath the roof and outside the authoritative wall plane.
+			var tail_count: int = maxi(2, ceili(span_depth / 1.18))
+			for index: int in range(tail_count):
+				var z: float = lerpf(-back + 0.16, front - 0.16, (index + 0.5) / tail_count)
+				var inner: Vector3 = _roof_point(
+					side,
+					(width * 0.5 - 0.015) / half_width,
+					z,
+					half_width,
+					height,
+					ridge,
+					seed_value
+				)
+				var outer: Vector3 = _roof_point(
+					side, 1.0 - 0.07 / half_width, z, half_width, height, ridge, seed_value
+				)
+				timber.beam(
+					inner + Vector3.DOWN * 0.12,
+					outer + Vector3.DOWN * 0.12,
+					0.085,
+					0.11,
+					HONEY.darkened(0.08),
+					seed_value + index * 1.3
+				)
 		for end: float in [-1.0, 1.0]:
 			var margin: float = margins[0 if end > 0 else 2]
 			if margin < 0.001:
@@ -227,13 +254,13 @@ static func _rect_roof(
 				timber.beam(
 					previous + Vector3.DOWN * 0.09,
 					point + Vector3.DOWN * 0.09,
-					0.15,
-					0.16,
+					0.18,
+					0.20,
 					HONEY,
 					seed_value + end
 				)
 				previous = point
-	var caps: int = ceili(span_depth / 0.40)
+	var caps: int = ceili(span_depth / 0.49)
 	for index: int in range(caps):
 		var a: float = lerpf(
 			-back - (0.045 if margins[2] > 0 else 0.0),
@@ -325,8 +352,8 @@ static func _roof_point(
 	ridge: float,
 	seed_value: float
 ) -> Vector3:
-	var sag: float = sin(clampf(down, 0, 1) * PI) * 0.045
-	var wave: float = sin(across * 1.17 + seed_value) * 0.018 * down * down
+	var sag: float = sin(clampf(down, 0, 1) * PI) * 0.065
+	var wave: float = sin(across * 0.93 + seed_value) * 0.036 * down * down
 	return Vector3(
 		side * half_width * down, lerpf(ridge, height, down) + sag + wave + 0.035, across
 	)
@@ -342,16 +369,17 @@ static func _tile(
 	tint: Color,
 	seed_value: float
 ) -> void:
-	# Clipped, rounded corners and real thickness give each lip its own sunlit edge.
+	# A fired-clay edge has real thickness, but a quiet lip. Repeated deep ridges
+	# read as plastic scales at the garden camera and overwhelm the roof colour.
 	var outline: Array[Vector2] = [
-		Vector2(0.06, 0),
-		Vector2(0.94, 0),
-		Vector2(1, 0.055),
-		Vector2(1, 0.94),
-		Vector2(0.92, 1),
-		Vector2(0.08, 1),
-		Vector2(0, 0.94),
-		Vector2(0, 0.055)
+		Vector2(0.025, 0),
+		Vector2(0.975, 0),
+		Vector2(1, 0.035),
+		Vector2(1, 0.97),
+		Vector2(0.96, 1),
+		Vector2(0.04, 1),
+		Vector2(0, 0.97),
+		Vector2(0, 0.035)
 	]
 	var top: Array[Vector3] = []
 	var underside: Array[Vector3] = []
@@ -359,11 +387,11 @@ static func _tile(
 	var tile_high: float = high - (0.5 + sin(seed_value * 1.37) * 0.5) * (high - low) * 0.045
 	for p: Vector2 in outline:
 		var point: Vector3 = mapper.call(lerpf(a, b, p.x), lerpf(low, tile_high, p.y))
-		point.y += 0.025 + p.y * p.y * 0.05 + sin(p.x * PI) * 0.027 + lift
+		point.y += 0.025 + p.y * p.y * 0.022 + sin(p.x * PI) * 0.011 + lift
 		top.append(point)
-		underside.append(point + Vector3.DOWN * 0.062)
+		underside.append(point + Vector3.DOWN * 0.044)
 	var center: Vector3 = mapper.call((a + b) * 0.5, (low + tile_high) * 0.5)
-	center.y += 0.072 + lift
+	center.y += 0.045 + lift
 	for index: int in range(8):
 		var next: int = (index + 1) % 8
 		mesh.triangle_uv(
@@ -441,7 +469,7 @@ static func _round_roof(
 			var a: float = float(column) * TAU / columns + stagger
 			var b: float = float(column + 1) * TAU / columns + stagger
 			var key: float = seed_value + row * 17.13 + column * 4.27
-			_tile(roof, mapper, a + 0.0015, b - 0.0015, low, high, _tile_color(key), key)
+			_tile(roof, mapper, a + 0.0008, b - 0.0008, low, high, _tile_color(key), key)
 	# A small fired-clay apex closes the only area without individually laid tiles.
 	var tip: Vector3 = Vector3(0, height + rise + 0.17, 0)
 	for index: int in range(16):
@@ -465,6 +493,65 @@ static func _round_roof(
 			HONEY.darkened(0.08),
 			seed_value + index
 		)
+
+
+static func _eave_soffits(home: Dictionary, neighbors: Array, timber: CottageMesh) -> void:
+	# Only the exposed overhang gets wooden boarding. A complete downward roof
+	# prism would cut through the plaster gable and into the editable openings.
+	var half: float = float(home["size"][0]) * 0.5
+	var depth: float = float(home["size"][2]) * 0.5
+	var height: float = float(home["size"][1])
+	var rise: float = RoofProfile.rise(home)
+	var flat: bool = rise <= 0.02
+	var clearance: float = 0.032 if flat else 0.012
+	if home["shape"] == "round":
+		var radius: float = half + (0.35 if flat else 0.39)
+		for index: int in range(48):
+			var a: float = float(index) * TAU / 48.0
+			var b: float = float(index + 1) * TAU / 48.0
+			var points: Array[Vector3] = []
+			for corner: Vector2 in [
+				Vector2(half, a), Vector2(radius, a), Vector2(radius, b), Vector2(half, b)
+			]:
+				var y: float = height + clearance
+				if not flat:
+					y += rise * (1.0 - corner.x / radius)
+				points.append(Vector3(sin(corner.y) * corner.x, y, cos(corner.y) * corner.x))
+			timber.solid_panel(points, 0.07, HONEY.darkened(0.09))
+		return
+	var margins: Array[float] = [0.35, 0.35, 0.35, 0.35]
+	if not flat:
+		margins = _roof_margins(home, neighbors)
+	for side: float in [-1.0, 1.0]:
+		var roof_half: float = half + margins[1 if side > 0.0 else 3]
+		# Rectangles partition the overhang ring; corners are only covered once.
+		var strips: Array[Rect2] = []
+		if roof_half > half + 0.001:
+			strips.append(
+				Rect2(
+					half,
+					-depth - margins[2],
+					roof_half - half,
+					depth * 2.0 + margins[0] + margins[2]
+				)
+			)
+		if margins[0] > 0.001:
+			strips.append(Rect2(0.0, depth, half, margins[0]))
+		if margins[2] > 0.001:
+			strips.append(Rect2(0.0, -depth - margins[2], half, margins[2]))
+		for strip: Rect2 in strips:
+			var points: Array[Vector3] = []
+			for corner: Vector2 in [
+				strip.position,
+				Vector2(strip.end.x, strip.position.y),
+				strip.end,
+				Vector2(strip.position.x, strip.end.y)
+			]:
+				var y: float = height + clearance
+				if not flat:
+					y += rise * (1.0 - corner.x / roof_half)
+				points.append(Vector3(side * corner.x, y, corner.y))
+			timber.solid_panel(points, 0.07, HONEY.darkened(0.09))
 
 
 static func _wall_details(
@@ -506,8 +593,21 @@ static func _wall_details(
 			var count_value: int = ceili(length / 0.51)
 			var stagger: float = 0.5 if row % 2 else 0.0
 			for index: int in range(-1 if stagger > 0 else 0, count_value):
-				var a: float = maxf(0, (float(index) + stagger) * length / count_value)
-				var b: float = minf(length, (float(index + 1) + stagger) * length / count_value)
+				var course_seed: float = seed_value + row * 4.73 + facade * 1.9
+				var a: float = maxf(
+					0,
+					(
+						(float(index) + stagger) * length / count_value
+						+ sin(index * 2.31 + course_seed) * 0.055
+					)
+				)
+				var b: float = minf(
+					length,
+					(
+						(float(index + 1) + stagger) * length / count_value
+						+ sin((index + 1) * 2.31 + course_seed) * 0.055
+					)
+				)
 				var u: float = (a + b) * 0.5
 				var y: float = 0.115 + row * 0.218
 				if (
@@ -717,7 +817,9 @@ static func _opening_details(
 
 
 static func _tile_color(seed_value: float) -> Color:
-	var shade: float = sin(seed_value * 3.17) * 0.052 + cos(seed_value * 0.89) * 0.025
+	# Individual tiles remain legible near the eaves; broad painted clay washes
+	# carry the roof from the normal camera instead of a checkerboard of colours.
+	var shade: float = sin(seed_value * 3.17) * 0.016 + cos(seed_value * 0.89) * 0.010
 	return CLAY.lightened(shade) if shade >= 0 else CLAY.darkened(-shade)
 
 

@@ -8,7 +8,7 @@ var rain: MultiMeshInstance3D
 var snow: MultiMeshInstance3D
 var dust: MultiMeshInstance3D
 var bolt: MeshInstance3D
-var flash: DirectionalLight3D
+var flash: OmniLight3D
 var elapsed: float = 0.0
 var frozen: bool = false
 var reduced_motion: bool = false
@@ -31,7 +31,10 @@ func configure(root: Node3D) -> void:
 	var dust_quad: QuadMesh = dust.multimesh.mesh
 	dust_quad.size = Vector2(0.10, 0.10)
 	dust.material_override.set_shader_parameter("dust", true)
-	flash = DirectionalLight3D.new()
+	flash = OmniLight3D.new()
+	flash.position = Vector3(0, 18, 0)
+	flash.omni_range = 90
+	flash.omni_attenuation = 0.08
 	flash.name = "LightningGlow"
 	flash.light_color = Color("b7cced")
 	flash.light_energy = 0
@@ -121,27 +124,27 @@ func update(delta: float, state: Dictionary) -> void:
 	var altitude: float = sin((hour - 6.0) * PI / 12.0)
 	var daylight: float = smoothstep(-0.12, 0.35, altitude)
 	var summer: bool = _season == "summer"
-	var energy: float = (1.65 if summer else 1.30) * maxf(0.0, altitude)
+	var energy: float = (1.48 if summer else 1.22) * maxf(0.0, altitude)
 	energy *= float(visual["energy"])
 	host.sun.light_energy = maxf(0.035, energy)
 	host.sun.rotation_degrees = Vector3(
 		-maxf(9.0, altitude * (66 if summer else 48)), -105 + hour * 9, 0
 	)
-	host.sun.light_color = Color("a5b9d9").lerp(Color("fff1cc"), daylight)
+	host.sun.light_color = Color("a5b9d9").lerp(Color("fff2da"), daylight)
 	host.sun.light_color = host.sun.light_color.lerp(
 		Color("edb18c"), (1.0 - smoothstep(0.0, 0.35, absf(altitude))) * daylight
 	)
 	var environment: Environment = host.world_environment.environment
-	environment.ambient_light_color = Color("8298bc").lerp(Color("c7d5ce"), daylight)
-	environment.ambient_light_energy = lerpf(0.20, 0.36 + 0.10 * float(visual["cloud"]), daylight)
-	environment.fog_light_color = Color("536783").lerp(Color("c8d0c6"), daylight)
+	environment.ambient_light_color = Color("8298bc").lerp(Color("a8bfca"), daylight)
+	environment.ambient_light_energy = lerpf(0.20, 0.32 + 0.10 * float(visual["cloud"]), daylight)
+	environment.fog_light_color = Color("536783").lerp(Color("c2cdd0"), daylight)
 	environment.fog_density = visual["fog"]
 	environment.fog_light_color = environment.fog_light_color.lerp(Color("bda277"), visual["dust"])
 	environment.ambient_light_color = environment.ambient_light_color.lerp(
 		Color("b4a480"), visual["dust"]
 	)
 	host.sun.light_color = host.sun.light_color.lerp(Color("d7b57c"), visual["dust"])
-	sky.sync(elapsed, daylight, hour, summer, visual)
+	sky.sync(elapsed, daylight, hour, summer, visual, _season)
 	if host.window_material != null:
 		# The calendar owns continuous window light, including legacy dusk saves.
 		host.window_material.set_shader_parameter("dusk", false)

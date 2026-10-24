@@ -65,7 +65,7 @@ func test_focus_tracks_camera_zoom_and_can_be_disabled() -> void:
 	playground._update_focus()
 	assert_almost_eq(
 		playground.camera_rig.camera.attributes.dof_blur_far_distance,
-		playground.camera_rig.distance + 4,
+		playground.camera_rig.distance + 6,
 		0.001
 	)
 	playground.hud.dof_control.toggled.emit(false)

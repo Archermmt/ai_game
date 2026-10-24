@@ -274,29 +274,34 @@ static func _segment(index: Dictionary, a: Vector2, b: Vector2, radius: float) -
 
 
 static func blade_mesh() -> ArrayMesh:
+	# Three curved blades share the existing nine-triangle presentation budget.
+	# Distribution, density ranks and worker buffers are intentionally independent.
 	var vertices: PackedVector3Array = PackedVector3Array()
 	var normals: PackedVector3Array = PackedVector3Array()
 	var colors: PackedColorArray = PackedColorArray()
+	var heights: Array[float] = [0.252, 0.408, 0.324]
+	var widths: Array[float] = [0.019, 0.025, 0.016]
 	for i: int in range(3):
-		var angle: float = i * PI / 3
-		var side: Vector3 = Vector3(cos(angle), 0, sin(angle)) * 0.035
-		var bend: Vector3 = Vector3(sin(angle), 0, -cos(angle)) * 0.11
-		var tip: Vector3 = Vector3(0, 0.38 + i * 0.035, 0) + bend
-		var mid: Vector3 = tip * 0.55
+		var angle: float = i * 2.399963 + 0.31
+		var side: Vector3 = Vector3(cos(angle), 0, sin(angle)) * widths[i]
+		var forward: Vector3 = Vector3(sin(angle), 0, -cos(angle))
+		var base: Vector3 = forward * (0.012 + i * 0.009)
+		var tip: Vector3 = base + Vector3.UP * heights[i] + forward * (0.10 + i * 0.021)
+		var mid: Vector3 = base + Vector3.UP * heights[i] * 0.57 + forward * 0.026
 		for point: Vector3 in [
-			-side,
-			mid - side * 0.55,
-			mid + side * 0.55,
-			-side,
-			mid + side * 0.55,
-			side,
-			mid - side * 0.55,
+			base - side * 0.42,
+			mid - side,
+			mid + side,
+			base - side * 0.42,
+			mid + side,
+			base + side * 0.42,
+			mid - side,
 			tip,
-			mid + side * 0.55
+			mid + side
 		]:
 			vertices.append(point)
 			normals.append(Vector3.UP)
-			colors.append(Color(point.y / 0.46, 0, 0, 1))
+			colors.append(Color(point.y / 0.408, float(i) * 0.5, 0, 1))
 	var arrays: Array = []
 	arrays.resize(Mesh.ARRAY_MAX)
 	arrays[Mesh.ARRAY_VERTEX] = vertices

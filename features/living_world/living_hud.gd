@@ -129,8 +129,16 @@ func _ready() -> void:
 			walk_bookmark = child
 	_make_photo_icons(stack)
 	set_walk_mode(false)
+	var hooked: Array[Container] = []
 	for button: Button in ribbon_buttons.values():
 		button.resized.connect(_refresh_mode_icons.call_deferred)
+		var parent: Container = button.get_parent()
+		if parent not in hooked:
+			parent.sort_children.connect(_refresh_mode_icons.call_deferred)
+			hooked.append(parent)
+	for box: Container in [quick_choices, quick_assets]:
+		box.sort_children.connect(_refresh_choice_icons.call_deferred)
+	photo_icons.sort_children.connect(_refresh_photo_icons.call_deferred)
 	_refresh_mode_icons.call_deferred()
 
 
@@ -243,3 +251,16 @@ func _choice(parent: Node, title: String, callback: Callable) -> Button:
 						)
 	)
 	return button
+
+
+func _refresh_choice_icons() -> void:
+	for box: Container in [quick_choices, quick_assets]:
+		for item: Node in box.get_children():
+			if item is Button and item.toggle_mode:
+				ModeIconFeedback.apply(item, item.button_pressed)
+
+
+func _refresh_photo_icons() -> void:
+	ModeIconFeedback.apply(walk_toggle, walk_hint.visible)
+	ModeIconFeedback.apply(freeze, freeze.button_pressed)
+	ModeIconFeedback.apply(photo_settings, photo_settings.button_pressed)

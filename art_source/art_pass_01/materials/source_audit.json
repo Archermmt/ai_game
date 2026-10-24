@@ -16,22 +16,22 @@
     },
     {
       "source": "art_source/art_pass_01/materials/plaster.png",
-      "sha256": "ae92cc65a1db5d0bfc2db5440048f8ff4e315c6ad6f25f8cc416133108a2121f",
+      "sha256": "0da0220d9a09a158aa33efb8e5ea1f1991fb11551b7323444f6e0764536cb3cb",
       "passed": true
     },
     {
       "source": "art_source/art_pass_01/materials/terracotta.png",
-      "sha256": "e76a77bf1ea4079d8dd8743f451d77c4d5d5f3ed619fcd80b9f2634003806123",
+      "sha256": "99cad3959aa5a20eaf566ea4611aec507b09325c6624f12448352dd56812b712",
       "passed": true
     },
     {
       "source": "art_source/art_pass_01/materials/honey_timber.png",
-      "sha256": "70df502528dc07b84a09652f567aafdfb82c95b44c4ed0354aaa6ad17779f7f7",
+      "sha256": "36325390a48bd3e4d1dd406d2d8ab4afb2885e3d5f2bc4130bf75de447601322",
       "passed": true
     },
     {
       "source": "art_source/art_pass_01/materials/moss_stone.png",
-      "sha256": "dbc2cf01b39b96204b9addf1dcc6c253d241769f3cd6c6d0bd696f0c757f266a",
+      "sha256": "adbcfe7dfc5e4bfb68a32d1e300d3d29827cc006aef4b2850543b5a287c4e8a8",
       "passed": true
     },
     {
@@ -46,7 +46,7 @@
     },
     {
       "source": "art_source/art_pass_01/materials/window_glow.png",
-      "sha256": "bcc04f9905b3930898ce96e48138891d5b76ddd9da90f0c8ce18800d242eb431",
+      "sha256": "f3199b73aa51c276eb445070f544f9e0cc6246cb28553d381148dd7d7e9cd80b",
       "passed": true
     }
   ],

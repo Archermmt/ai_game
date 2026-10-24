@@ -2,8 +2,8 @@
 
 Blender 5.1.2, no add-ons. Run with ``--background --python ... -- --root ROOT``.
 Only writes art_source/art_pass_01/nature and assets/nature/art_pass_01.
-The actual leaf silhouette is shaped geometry backed by alpha-cut painted leaves;
-opaque irregular inner foliage avoids see-through crowns and alpha overdraw stacks.
+Joined opaque crown volumes carry the large values; a restrained layer of painted
+leaf clusters breaks their edges without turning the canopy into floating scraps.
 """
 
 import argparse
@@ -68,10 +68,10 @@ def paint_atlas():
     x, y = (xx + 0.5) / size, 1 - (yy + 0.5) / size
     tiles = []
     colors = [
-        (143, 158, 66), (111, 137, 63), (76, 110, 66), (120, 145, 63),
-        (67, 106, 76), (131, 148, 65), (235, 225, 187), (147, 137, 174),
-        (117, 100, 72), (151, 152, 126), (110, 127, 55), (78, 110, 64),
-        (113, 139, 67), (190, 113, 49), (86, 110, 56), (124, 145, 65),
+        (111, 139, 91), (87, 118, 80), (63, 96, 74), (103, 134, 86),
+        (59, 94, 79), (104, 130, 79), (235, 225, 195), (147, 137, 174),
+        (107, 96, 76), (151, 152, 135), (88, 115, 69), (65, 99, 77),
+        (100, 131, 82), (190, 113, 49), (81, 113, 80), (108, 136, 91),
     ]
     for index, base in enumerate(colors):
         rr = np.random.default_rng(SEED + index * 31)
@@ -83,32 +83,42 @@ def paint_atlas():
         )
         rgb = np.zeros((size, size, 3), dtype=np.float32) + np.array(base)
         alpha = np.ones(x.shape, dtype=np.float32)
-        rgb += noise[..., None] * np.array([5, 5, 3])
+        rgb += noise[..., None] * np.array([2.4, 2.7, 2.0])
+        if index in [0, 1, 2, 3, 4, 11, 14, 15]:
+            # Value masses come first. Their size is deliberately larger than an
+            # individual leaf so distant mipmaps retain cool shade and lit planes.
+            broad = np.sin(x * 7.2 + np.sin(y * 4.7)) + np.cos(y * 8.0 - x * 2.2)
+            broad = np.tanh(broad * 1.3)
+            rgb += broad[..., None] * np.array([8, 11, 7])
+            rgb += (y - 0.46)[..., None] * np.array([15, 20, 10])
+            for _ in range(16):
+                cx, cy = rr.uniform(-0.12, 1.12, 2)
+                sx, sy = rr.uniform(0.09, 0.24), rr.uniform(0.05, 0.15)
+                wash = np.clip((1 - ((x - cx) / sx) ** 2 - ((y - cy) / sy) ** 2) * 2, 0, 1)
+                tint = np.array([8, 12, 11]) if cy < 0.48 else np.array([16, 18, 9])
+                rgb += wash[..., None] * tint * rr.uniform(-0.7, 0.8)
         if index in [0, 1, 2, 3, 4, 15]:
-            # Hand-painted compound twigs buy leafy silhouettes within 4K triangles.
+            # Interlocking paint shapes give an airy edge around a joined centre.
+            # No dark central twig or repeated bright veins cut across the value.
             alpha = np.zeros(x.shape, dtype=np.float32)
-            rgb += 5 * y[..., None]
-            sprigs = [(-0.21, -0.20, -0.72), (0.20, -0.14, 0.78), (-0.19, 0.05, -0.88), (0.18, 0.12, 0.73), (-0.09, 0.29, -0.36), (0.105, 0.31, 0.43), (0.0, 0.36, 0.03)]
+            sprigs = []
+            centres = [(-0.19, -0.22), (0.17, -0.21), (-0.21, 0.04), (0.20, 0.06), (-0.10, 0.27), (0.12, 0.29)]
+            for group, (cx, cy) in enumerate(centres):
+                for j in range(8):
+                    angle = j * 2.399963 + group * 0.27
+                    reach = math.sqrt((j + 0.5) / 8) * 0.115
+                    sprigs.append((cx + math.cos(angle) * reach, cy + math.sin(angle) * reach * 0.75, angle + 0.4))
             if index == 4:
-                sprigs = [(sign * (0.28 - j * 0.041), -0.28 + j * 0.092, sign * 0.79) for j in range(7) for sign in [-1, 1]]
+                sprigs = [(sign * (0.23 - j * 0.033), -0.25 + j * 0.087, sign * 0.79) for j in range(7) for sign in [-1, 1]]
             elif index == 15:
-                sprigs = []
-                centres = [(-0.20, -0.18), (0.19, -0.16), (-0.17, 0.19), (0.20, 0.20)]
-                for j in range(56):
-                    angle = (j % 14) * 2.399963 + j // 14 * 0.31
-                    radius = math.sqrt(((j % 14) + 0.5) / 14) * 0.18
-                    cx, cy = centres[j // 14]
-                    sprigs.append((cx + math.cos(angle) * radius, cy + math.sin(angle) * radius * 0.94, rr.uniform(-math.pi, math.pi)))
-            twig = np.exp(-((x - (0.50 + np.sin(y * 5) * 0.012)) / 0.007) ** 2)
-            twig *= (y > 0.05) & (y < 0.91)
-            rgb = rgb * (1 - twig[..., None]) + np.array(base) * 0.70 * twig[..., None]
-            alpha = np.maximum(alpha, twig)
+                # The same silhouette/value family avoids a distant colour pop.
+                sprigs += [(-0.08, -0.03, -0.70), (0.07, 0.10, 0.64)]
             for number, (cx, cy, angle) in enumerate(sprigs):
                 dx, dy = x - (0.50 + cx), y - (0.49 + cy)
                 lx = dx * math.cos(angle) - dy * math.sin(angle)
                 ly = dx * math.sin(angle) + dy * math.cos(angle)
-                length = 0.17 if index == 15 else (0.29 if index != 4 else 0.23)
-                width = 0.085 if index == 15 else (0.125 if index != 4 else 0.075)
+                length = 0.23 if index != 4 else 0.27
+                width = 0.105 if index != 4 else 0.095
                 t = np.clip(ly / length + 0.5, 0, 1)
                 w = np.sin(t * math.pi).clip(0, 1) ** 0.69 * width
                 if index in [0, 1]:
@@ -118,18 +128,13 @@ def paint_atlas():
                 coverage = np.clip((w - abs(lx)) * 900, 0, 1) * (abs(ly) < length * 0.49)
                 edge = abs(lx) / np.maximum(w, 0.001)
                 colour = np.zeros_like(rgb) + np.array(base)
-                light = 8 * t + (1 - edge.clip(0, 1)) * 8 + (number % 3 - 1) * 7
-                if index == 15:
-                    light += (number % 5 - 2) * 6
-                colour += light[..., None] * np.array([1, 1, 0.67])
-                colour += noise[..., None] * 2.2
-                vein = np.exp(-(lx / 0.0026) ** 2) * (t > 0.09) * (t < 0.89)
-                colour += vein[..., None] * np.array([14, 16, 4])
-                for v in [0.25, 0.43, 0.61, 0.78]:
-                    for sign in [-1, 1]:
-                        vein = np.exp(-((ly - ((v - 0.5) * length + sign * lx * 0.62)) / 0.0018) ** 2)
-                        vein *= (sign * lx > 0.003) & (edge < 0.80)
-                        colour += vein[..., None] * np.array([8, 9, 3])
+                light = 4 * t + (1 - edge.clip(0, 1)) * 3 + cy * 15 + (number % 5 - 2) * 2.5
+                colour += light[..., None] * np.array([0.85, 1, 0.65])
+                colour += broad[..., None] * np.array([5, 7, 6])
+                colour += noise[..., None] * 1.2
+                for dab in range(3):
+                    paint_mark = np.exp(-(((lx - (dab - 1) * 0.045) / 0.036) ** 2 + ((ly - (dab % 2 - 0.5) * 0.09) / 0.065) ** 2))
+                    colour += paint_mark[..., None] * np.array([6, 9, 5]) * (1 if (number + dab) % 3 else -1)
                 rgb = rgb * (1 - coverage[..., None]) + colour * coverage[..., None]
                 alpha = np.maximum(alpha, coverage)
         elif index in [5, 12]:
@@ -177,22 +182,22 @@ def paint_atlas():
                 drift = line + 0.014 * np.sin(y * 15 + line * 73)
                 crease = np.exp(-((x - drift) / 0.008) ** 2)
                 shoulder = np.exp(-((x - drift - 0.015) / 0.015) ** 2)
-                rgb -= crease[..., None] * np.array([19, 18, 14])
-                rgb += shoulder[..., None] * np.array([13, 11, 7])
+                rgb -= crease[..., None] * np.array([9, 9, 7])
+                rgb += shoulder[..., None] * np.array([7, 7, 5])
             rgb += (np.sin(y * 8) * 2)[..., None]
             # Pale, slightly mossy root-side wash.
             rgb = rgb * (0.96 + y[..., None] * 0.04)
         elif index == 11:
             # Opaque, directional pine-bough brush marks survive distant mipmaps.
-            for _ in range(150):
+            for _ in range(72):
                 cx, cy = rr.uniform(-0.1, 1.1, 2)
                 angle = rr.uniform(-0.88, 0.88)
                 dx = (x - cx) * math.cos(angle) - (y - cy) * math.sin(angle)
                 dy = (x - cx) * math.sin(angle) + (y - cy) * math.cos(angle)
-                width, length = rr.uniform(0.012, 0.027), rr.uniform(0.04, 0.10)
+                width, length = rr.uniform(0.025, 0.050), rr.uniform(0.06, 0.15)
                 stroke = np.clip((1 - (dx / width) ** 2 - (dy / length) ** 2) * 4, 0, 1)
-                value = rr.uniform(-15, 23)
-                rgb += stroke[..., None] * np.array([value * 0.88, value, value * 0.56])
+                value = rr.uniform(-9, 13)
+                rgb += stroke[..., None] * np.array([value * 0.72, value, value * 0.76])
         elif index == 9:
             for _ in range(48):
                 cx, cy = rr.uniform(-0.15, 1.15, 2)
@@ -228,15 +233,15 @@ def paint_atlas():
         else:
             # Opaque watercolor leaf masses with overlapping brush-shaped leaves.
             # A twig's numerous leaves read as one painterly value from far away.
-            for _ in range(82):
+            for _ in range(112):
                 cx, cy = rr.uniform(-0.08, 1.08, 2)
                 angle = rr.uniform(0, TAU)
                 dx = (x - cx) * math.cos(angle) + (y - cy) * math.sin(angle)
                 dy = -(x - cx) * math.sin(angle) + (y - cy) * math.cos(angle)
-                width, length = rr.uniform(0.023, 0.06), rr.uniform(0.042, 0.09)
-                stroke = np.clip((1 - (dx / width) ** 2 - (dy / length) ** 2) * 3.0, 0, 1)
-                value = rr.uniform(-24, 26)
-                rgb += stroke[..., None] * np.array([value, value, value * 0.53])
+                width, length = rr.uniform(0.025, 0.058), rr.uniform(0.045, 0.095)
+                stroke = np.clip((1 - (dx / width) ** 2 - (dy / length) ** 2) * 6.0, 0, 1)
+                value = rr.uniform(-23, 28)
+                rgb += stroke[..., None] * np.array([value * 0.83, value, value * 0.73])
         rgba = np.empty((size, size, 4), dtype=np.uint8)
         rgba[:, :, :3] = np.clip(rgb, 0, 255).astype(np.uint8)
         rgba[:, :, 3] = np.clip(alpha * 255, 0, 255).astype(np.uint8)
@@ -348,7 +353,7 @@ def leaf(builder, centre, length, width, direction, normal, tile, height, phase=
     indices = []
     for p, uv_value in zip(points, uv):
         # Broad leaf illumination remains soft; radial normal on folded faces is small.
-        illumination = (up * 0.55 + Vector((0, 0, 1)) * 0.45).normalized()
+        illumination = (up * 0.88 + Vector((0, 0, 1)) * 0.12).normalized()
         indices.append(builder.vert(p, uv_value, wind_at(p, height), phase, int(fruit), illumination, tile))
     for i in range(4):
         if tile <= 4 or tile == 15:
@@ -362,17 +367,22 @@ def crown_lobe(builder, centre, radius, tile, height, seed, segments=10, rings=4
     c = Vector(centre)
     poles = []
     phase = rr.random()
-    # The lobed volume is irregular in all three axes, not scaled ico spheres.
+    # Flattened and offset rings join as a broken canopy plane. The large form
+    # stays closed, while changing ring centres avoids a row of visible balls.
     top = builder.vert(c + Vector((0, 0, radius[2] * 0.98)), (0.5, 0.94), wind_at(c, height), phase, normal=(0, 0, 1), tile=tile)
     for i in range(1, rings + 1):
         angle = i * math.pi / (rings + 1)
         ring = []
         for j in range(segments + 1):
             azimuth = (j % segments) * TAU / segments
-            ripple = 1 + 0.10 * math.sin(azimuth * 3 + seed) + 0.06 * math.cos(azimuth * 5 + angle * 3)
+            ripple = 1 + 0.13 * math.sin(azimuth * 3 + seed) + 0.07 * math.cos(azimuth * 5 + angle * 3)
             normal = Vector((math.sin(angle) * math.cos(azimuth), math.sin(angle) * math.sin(azimuth), math.cos(angle)))
-            p = c + Vector((normal.x * radius[0] * ripple, normal.y * radius[1] * ripple, normal.z * radius[2] * (1 + 0.09 * math.sin(azimuth * 3))))
-            soft = (normal * 0.60 + Vector((0, 0, 0.55))).normalized()
+            spread = math.sin(angle) ** 0.80
+            offset = Vector((math.sin(angle * 1.8 + seed) * 0.075, math.cos(angle * 1.6 + seed) * 0.06, 0))
+            p = c + offset + Vector((math.cos(azimuth) * spread * radius[0] * ripple, math.sin(azimuth) * spread * radius[1] * ripple, normal.z * radius[2] * (1 + 0.11 * math.sin(azimuth * 3 + seed))))
+            # Keep the normal near the actual shell. Strong artificial upward
+            # normals on side walls produce striped self-shadow bias artifacts.
+            soft = (Vector((normal.x / radius[0], normal.y / radius[1], normal.z / radius[2])) + Vector((0, 0, 0.10))).normalized()
             ring.append(builder.vert(p, (j / segments, 1 - i / (rings + 1)), wind_at(p, height), phase, normal=soft, tile=tile))
         poles.append(ring)
     bottom = builder.vert(c - Vector((0, 0, radius[2] * 0.90)), (0.5, 0.05), wind_at(c, height), phase, normal=(0, 0, -1), tile=tile)
@@ -399,13 +409,13 @@ def leafy_spray(builder, centre, radius, count, tile, height, seed):
     rr = random.Random(seed)
     c = Vector(centre)
     for n in sphere_points(count, seed):
-        radius_scale = rr.uniform(0.84, 1.06)
+        radius_scale = rr.uniform(0.88, 1.01)
         p = c + Vector((n.x * radius[0], n.y * radius[1], n.z * radius[2])) * radius_scale
         a = math.atan2(n.y, n.x) + rr.uniform(-1.25, 1.25)
         axis = Vector((math.cos(a), math.sin(a), rr.uniform(-0.15, 0.6)))
         normal = Vector((n.x * 0.65, n.y * 0.65, max(0.32, n.z))).normalized()
-        length = rr.uniform(0.64, 0.83) * (0.90 if tile == 15 else 1.0)
-        leaf(builder, p, length, length * rr.uniform(0.59, 0.77), axis, normal, tile + (1 if rr.random() < 0.27 and tile < 2 else 0), height, rr.random())
+        length = rr.uniform(0.41, 0.58)
+        leaf(builder, p, length, length * rr.uniform(0.69, 0.86), axis, normal, tile + (1 if rr.random() < 0.27 and tile < 2 else 0), height, rr.random())
 
 
 def broadleaf(lod=False, fruit=False):
@@ -432,8 +442,8 @@ def broadleaf(lod=False, fruit=False):
         start = Vector((0.02, 0.04, 1.35 + (i % 3) * 0.20))
         middle = start.lerp(centre, 0.54) + Vector((0.10 * math.sin(i), 0, -0.12))
         tube(bark, [start, middle, centre + Vector((0, 0, -0.12))], [0.10 if i < 3 else 0.07, 0.055, 0.012], 4 if lod else 5)
-        crown_lobe(mass, centre, tuple(v * 0.77 for v in radius), 14, height, SEED + i * 43 + int(fruit), 8 if lod else 12, 3 if lod else 4)
-        leafy_spray(leaves, centre, tuple(v * 1.03 for v in radius), (26 if lod else 65), 15 if lod else (3 if fruit else (0 if centre.z > 3.8 else 1)), height, SEED + i * 74)
+        crown_lobe(mass, centre, tuple(v * (0.92 if axis < 2 else 0.83) for axis, v in enumerate(radius)), 14, height, SEED + i * 43 + int(fruit), 8 if lod else 12, 4 if lod else 5)
+        leafy_spray(leaves, centre, tuple(v * 0.98 for v in radius), (21 if lod else 50), 15 if lod else (3 if fruit else (0 if centre.z > 3.8 else 1)), height, SEED + i * 74)
         lobes.append((centre, radius))
     if fruit:
         for i in range(7 if lod else 12):
@@ -502,9 +512,11 @@ def conifer(lod=False):
         for j in range(count):
             a = j * TAU / count + tier * 0.73
             phase = (j * 0.17 + tier * 0.31) % 1
-            centre = Vector((math.cos(a) * radius * 0.08, math.sin(a) * radius * 0.08, z + math.sin(j * 2.3 + tier) * 0.045))
-            pine_pad(mass, centre, a, radius, height, phase, lod)
-            pine_bough(leaves, (math.cos(a) * radius * 0.21, math.sin(a) * radius * 0.21, z + 0.04 + math.sin(j * 2.3 + tier) * 0.06), a, radius * 0.99, radius * 0.46, 4, height, phase, lod)
+            reach = radius * (0.94 + math.sin(tier * 2.1 + j * 1.7) * 0.12)
+            branch_z = z + math.sin(j * 2.3 + tier) * 0.13
+            centre = Vector((math.cos(a) * radius * 0.08, math.sin(a) * radius * 0.08, branch_z))
+            pine_pad(mass, centre, a, reach, height, phase, lod)
+            pine_bough(leaves, (math.cos(a) * radius * 0.21, math.sin(a) * radius * 0.21, branch_z + 0.04), a, reach * 0.99, reach * 0.46, 4, height, phase, lod)
             if not lod and tier < 4 and j % 3 == 0:
                 tube(bark, [(0, 0, z + 0.14), (math.cos(a) * radius * 0.8, math.sin(a) * radius * 0.8, z - 0.18)], [0.034, 0.008], 4)
     return [bark, mass, leaves]
@@ -591,8 +603,8 @@ def shrub():
         a = i * 2.399963
         centre = (math.cos(a) * 0.22, math.sin(a) * 0.20, 0.34 + i % 2 * 0.09)
         radius = (0.40, 0.34, 0.33)
-        crown_lobe(mass, centre, radius, 14, 0.88, SEED + i, 7, 3)
-        leafy_spray(leaves, centre, radius, 18, 0 if i > 0 else 1, 0.88, SEED + i * 29)
+        crown_lobe(mass, centre, radius, 14, 0.88, SEED + i, 8, 4)
+        leafy_spray(leaves, centre, radius, 10, 0 if i > 0 else 1, 0.88, SEED + i * 29)
     return [mass, leaves]
 
 
@@ -693,7 +705,7 @@ def finish_asset(name, asset_id, builder, budget, material, lod=False):
     minimum = [round(min(point[i] for point in points), 6) for i in range(3)]
     maximum = [round(max(point[i] for point in points), 6) for i in range(3)]
     source, target = SOURCE / (name + ".blend"), EXPORT / (name + ".glb")
-    bpy.context.scene["art_direction"] = "Concept 01/04: layered broad leaves, painterly value masses, handworked natural silhouettes"
+    bpy.context.scene["art_direction"] = "Joined canopy planes, cool forest shadows, restrained leaf edges and broad brush values"
     bpy.context.scene["source_generator"] = "tools/art/build_art_foliage.py"
     bpy.context.scene["source_seed"] = SEED
     bpy.ops.wm.save_as_mainfile(filepath=str(source))
@@ -705,7 +717,7 @@ def finish_asset(name, asset_id, builder, budget, material, lod=False):
     )
     result = {
         "asset_id": asset_id, "source": str(source.relative_to(ROOT)), "export": str(target.relative_to(ROOT)),
-        "blender": bpy.app.version_string, "generator_version": "art_foliage_01.3", "units": "meters", "up_axis": "gltf_y_up",
+        "blender": bpy.app.version_string, "generator_version": "art_foliage_01.4", "units": "meters", "up_axis": "gltf_y_up",
         "triangles": triangles, "budget": budget, "mesh_objects": len(meshes), "sockets": ["socket_ground"],
         "bounds_source_z_up": {"min": minimum, "max": maximum}, "roles": [obj.name for obj in meshes],
         "source_license": "Project original; reproducible geometry and painted atlas recipe, no downloaded content",

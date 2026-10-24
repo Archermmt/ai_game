@@ -4,14 +4,14 @@
   "sources": [
     {
       "source": "art_source/art_pass_01/nature/tree_broadleaf.blend",
-      "triangles": 3630,
+      "triangles": 3306,
       "mesh_objects": 3,
       "image_reopened": true,
       "passed": true
     },
     {
       "source": "art_source/art_pass_01/nature/tree_broadleaf_lod1.blend",
-      "triangles": 1676,
+      "triangles": 1640,
       "mesh_objects": 3,
       "image_reopened": true,
       "passed": true
@@ -32,14 +32,14 @@
     },
     {
       "source": "art_source/art_pass_01/nature/tree_fruit.blend",
-      "triangles": 3154,
+      "triangles": 2902,
       "mesh_objects": 4,
       "image_reopened": true,
       "passed": true
     },
     {
       "source": "art_source/art_pass_01/nature/tree_fruit_lod1.blend",
-      "triangles": 1500,
+      "triangles": 1472,
       "mesh_objects": 4,
       "image_reopened": true,
       "passed": true
@@ -60,7 +60,7 @@
     },
     {
       "source": "art_source/art_pass_01/nature/shrub.blend",
-      "triangles": 342,
+      "triangles": 312,
       "mesh_objects": 2,
       "image_reopened": true,
       "passed": true

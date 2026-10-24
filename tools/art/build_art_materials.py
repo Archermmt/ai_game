@@ -71,7 +71,8 @@ def washes(size, seed, base, strength=8.0):
     return rgb
 
 
-def dabs(rgb, seed, count, colors, radius=(0.025, 0.08), aspect=0.45, opacity=0.25):
+def dabs(rgb, seed, count, colors, radius=(0.025, 0.08), aspect=0.45, opacity=0.25,
+         angle_range=(-0.8, 0.8)):
     """Sparse, layered dry-brush marks with feathered irregular margins."""
     size = rgb.shape[0]
     rng = np.random.default_rng(seed)
@@ -81,7 +82,7 @@ def dabs(rgb, seed, count, colors, radius=(0.025, 0.08), aspect=0.45, opacity=0.
         half = max(3, int(rad * 1.5))
         axis = np.arange(-half, half + 1, dtype=np.float32)
         x, y = np.meshgrid(axis, axis)
-        angle = rng.uniform(-0.8, 0.8)
+        angle = rng.uniform(*angle_range)
         u = x * math.cos(angle) + y * math.sin(angle)
         v = -x * math.sin(angle) + y * math.cos(angle)
         edge = (u / rad) ** 2 + (v / (rad * aspect)) ** 2
@@ -103,20 +104,33 @@ def generate():
     dabs(meadow, 1104, 180, [(140, 154, 111), (91, 119, 91), (125, 143, 103)], opacity=0.23)
     macro = washes(size, 1201, (117, 138, 98), 10.0)
     dabs(macro, 1202, 65, [(143, 157, 112), (93, 124, 97), (130, 146, 105)], radius=(0.035, 0.15), aspect=0.8, opacity=0.29)
-    plaster = washes(size, 1301, (207, 196, 164), 5.5)
-    dabs(plaster, 1302, 100, [(230, 216, 180), (185, 179, 155), (217, 201, 164)], radius=(0.02, 0.09), aspect=0.7, opacity=0.24)
-    # Large trowel swathes, sparse darker pits; no photographic concrete grain.
-    dabs(plaster, 1303, 90, [(182, 175, 148), (226, 213, 180)], radius=(0.002, 0.006), aspect=0.55, opacity=0.20)
-    terracotta = washes(size, 1401, (174, 103, 64), 8.0)
-    dabs(terracotta, 1402, 90, [(204, 132, 78), (143, 84, 58), (185, 112, 75)], radius=(0.02, 0.1), aspect=0.48, opacity=0.32)
-    wood = washes(size, 1501, (142, 103, 62), 7.0)
+    # Warm lime body, cool old washes and broad overlapping brush swathes.
+    # Pigments vary by hue as well as value; distant walls retain their form.
+    plaster = washes(size, 1301, (218, 207, 179), 7.8)
+    dabs(plaster, 1302, 135, [(237, 225, 196), (174, 183, 165), (213, 192, 151)],
+         radius=(0.035, 0.16), aspect=0.58, opacity=0.40)
+    dabs(plaster, 1303, 100, [(180, 178, 155), (238, 226, 199)],
+         radius=(0.003, 0.011), aspect=0.28, opacity=0.18)
+    terracotta = washes(size, 1401, (166, 104, 78), 9.5)
+    dabs(terracotta, 1402, 115, [(198, 137, 94), (124, 88, 78), (176, 115, 85)],
+         radius=(0.045, 0.18), aspect=0.62, opacity=0.43)
+    dabs(terracotta, 1403, 60, [(207, 150, 108), (143, 99, 79)],
+         radius=(0.012, 0.045), aspect=0.16, opacity=0.18)
+    wood = washes(size, 1501, (143, 108, 72), 6.4)
     axis = np.arange(size, dtype=np.float32) / size
     x, y = np.meshgrid(axis, axis)
-    flow = x * 27.0 + np.sin(y * math.tau * 2.0) * 0.25 + np.sin(y * math.tau * 7.0) * 0.05
-    wood += (np.sin(flow * math.tau) * 3.8 + np.sin(flow * math.tau * 1.93) * 1.8)[:, :, None]
-    dabs(wood, 1502, 40, [(172, 128, 74), (117, 84, 57)], radius=(0.02, 0.09), aspect=0.18, opacity=0.20)
-    stone = washes(size, 1601, (148, 149, 127), 8.0)
-    dabs(stone, 1602, 125, [(171, 166, 143), (128, 139, 119), (157, 155, 127)], radius=(0.02, 0.13), aspect=0.7, opacity=0.32)
+    flow = (x * 8.0 + np.sin(y * math.tau * 2.0) * 0.20
+            + np.sin(y * math.tau * 5.0 + x * math.tau * 2.0) * 0.055
+            + periodic_field(size, 1504, high=4) * 0.085)
+    grain = np.sin(flow * math.tau) * 2.0 + np.sin(flow * math.tau * 2.0 + 0.7) * 0.85
+    grain *= 0.60 + 0.40 * np.cos(y * math.tau + x * 3.0) ** 2
+    wood += grain[:, :, None]
+    dabs(wood, 1502, 75, [(179, 140, 90), (106, 85, 65), (155, 122, 83)],
+         radius=(0.045, 0.21), aspect=0.075, opacity=0.28,
+         angle_range=(1.48, 1.66))
+    stone = washes(size, 1601, (150, 151, 135), 7.8)
+    dabs(stone, 1602, 125, [(181, 174, 150), (119, 139, 126), (157, 158, 133)],
+         radius=(0.025, 0.17), aspect=0.7, opacity=0.38)
     soil = washes(size, 1701, (150, 137, 104), 6.5)
     dabs(soil, 1702, 100, [(175, 160, 122), (130, 126, 98)], radius=(0.01, 0.04), aspect=0.5, opacity=0.2)
     wet = washes(size, 1801, (91, 111, 84), 5.0)
@@ -124,7 +138,10 @@ def generate():
     window = np.empty((256, 256, 3), dtype=np.float32)
     gy, gx = np.mgrid[0:256, 0:256] / 255.0
     edge = np.clip(np.minimum.reduce([gx, 1.0 - gx, gy, 1.0 - gy]) * 8.0, 0.0, 1.0)
-    window[:, :, :] = np.asarray([242, 189, 100]) * edge[:, :, None]
+    # A small curtain shadow and off-centre amber pool feel inhabited at dusk.
+    curtain = 0.84 + 0.16 * np.cos(gx * math.tau * 2.0 + gy * 0.4)
+    pool = 0.82 + 0.18 * np.exp(-((gx - 0.43) ** 2 + (gy - 0.65) ** 2) * 12.0)
+    window[:, :, :] = np.asarray([239, 190, 113]) * (edge * curtain * pool)[:, :, None]
     return {
         "meadow": meadow,
         "meadow_macro": macro,
@@ -214,9 +231,9 @@ def main():
         "generator": "tools/art/build_art_materials.py",
         "blender": bpy.app.version_string,
         "numpy": np.__version__,
-        "seed_scheme": "1103–1802, fixed numpy PCG64; no external image inputs",
-        "intent": "Warm ivory/ochre plaster, muted terracotta, honey timber, moss stone, broad sage meadow washes",
-        "calibration": "Native iteration_02: cool sage meadow body, restrained yellow strokes; wall, timber and clay retained",
+        "seed_scheme": "1103–1802 plus 1403/1504, fixed numpy PCG64; no external image inputs",
+        "intent": "Brush-layered lime plaster, smoked terracotta, quiet lengthwise honey timber, cool moss stone and warm curtain glass; broad sage meadow washes",
+        "calibration": "Painterly architecture 2026-10-24: broad pigment swathes and quiet wood grain; meadow, meadow_macro, warm_soil and wet_bank bytes retained",
         "textures": manifest,
     }, ensure_ascii=False, indent=2) + "\n")
     (source / "LICENSE.txt").write_text(

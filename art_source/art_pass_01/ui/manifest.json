@@ -1,6 +1,6 @@
 {
   "source": "art_source/art_pass_01/ui/scene_day.png",
-  "source_kind": "Godot 4.7.2 native Metal PhotoExport; actual ArtLayout editable source, no offline render",
+  "source_kind": "Godot 4.7.2 native Metal current LivingRoot at fixed ArtLayout camera; painterly remake, actual editable scene, no offline render",
   "source_size": [
     1920,
     1080
@@ -10,7 +10,7 @@
     512,
     288
   ],
-  "sha256": "a3ef38ca7df2e90d3db7487c7dd151fd5bba9ff5fe830d3b2e1336fe6fd68b59",
+  "sha256": "a638947f190267119ee710b41ccdc56ebacbf3f3e066f6520ff301f9df2be3e5",
   "recipe": "Godot --headless --path . -s tools/art/build_art_thumbnail.gd -- art_source/art_pass_01/ui/scene_day.png assets/ui/art_pass_01/template_forest.png",
   "license": "Project original"
 }

@@ -1,30 +1,36 @@
 {
+  "generator_version": "art_foliage_01.4",
+  "status": "current_measured_inputs",
+  "method": "CPU read-only: tools/art/audit_foliage_evidence.py",
+  "manifest_sha256": "ff67a14ae10a89c000074f3db7b3b8f1614bebb040c550b900611d55290915cc",
+  "generator_sha256": "3d12df69f25a4d9f18aafb08139d77c411a4eca159fc0bbd712bb163bc006853",
   "passed": true,
+  "atlas_sha256": "e01c4641f51326e5f86a8ae666cb4c73b1b65c81d15374ae7c61a7878e281e27",
   "tiles": [
     {
       "tile": 0,
-      "alpha_scissor_043_coverage": 0.29294586181640625,
-      "alpha_mean": 0.2924989438524433
+      "alpha_scissor_043_coverage": 0.48458099365234375,
+      "alpha_mean": 0.48430418126723346
     },
     {
       "tile": 1,
-      "alpha_scissor_043_coverage": 0.29294586181640625,
-      "alpha_mean": 0.2924989438524433
+      "alpha_scissor_043_coverage": 0.48458099365234375,
+      "alpha_mean": 0.48430418126723346
     },
     {
       "tile": 2,
-      "alpha_scissor_043_coverage": 0.3170928955078125,
-      "alpha_mean": 0.31672047633750766
+      "alpha_scissor_043_coverage": 0.5053329467773438,
+      "alpha_mean": 0.5050927106071921
     },
     {
       "tile": 3,
-      "alpha_scissor_043_coverage": 0.3170928955078125,
-      "alpha_mean": 0.31672047633750766
+      "alpha_scissor_043_coverage": 0.5053329467773438,
+      "alpha_mean": 0.5050927106071921
     },
     {
       "tile": 4,
-      "alpha_scissor_043_coverage": 0.262176513671875,
-      "alpha_mean": 0.26177073459999234
+      "alpha_scissor_043_coverage": 0.2948150634765625,
+      "alpha_mean": 0.29467920041551776
     },
     {
       "tile": 5,
@@ -78,8 +84,8 @@
     },
     {
       "tile": 15,
-      "alpha_scissor_043_coverage": 0.5467147827148438,
-      "alpha_mean": 0.5463758580824908
+      "alpha_scissor_043_coverage": 0.5185394287109375,
+      "alpha_mean": 0.5183281543208104
     }
   ]
 }

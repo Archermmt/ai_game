@@ -41,7 +41,7 @@ static func create() -> Dictionary:
 		"terrain": terrain,
 		"foliage": foliage,
 		"water": water,
-		"wood": _opaque("honey_timber", 0.9, 0.4),
+		"wood": _opaque("honey_timber", 0.94, 0.65, false),
 		"stone": _opaque("moss_stone", 0.97, 0.5),
 		"window": window
 	}
@@ -54,14 +54,14 @@ static func _shader(shader: Shader) -> ShaderMaterial:
 
 
 static func _opaque(
-	texture_name: String, roughness: float, scale_value: float
+	texture_name: String, roughness: float, scale_value: float, triplanar: bool = true
 ) -> StandardMaterial3D:
 	var material: StandardMaterial3D = StandardMaterial3D.new()
 	material.albedo_texture = load(TEXTURE_ROOT + texture_name + ".png") as Texture2D
 	material.roughness = roughness
 	material.metallic_specular = 0.18
-	material.uv1_triplanar = true
-	material.uv1_world_triplanar = true
+	material.uv1_triplanar = triplanar
+	material.uv1_world_triplanar = triplanar
 	material.uv1_scale = Vector3.ONE * scale_value
 	material.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
 	return material

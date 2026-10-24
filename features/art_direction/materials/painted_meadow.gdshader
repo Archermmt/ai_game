@@ -28,6 +28,11 @@ void fragment() {
     vec3 broad = texture(meadow_macro, p / 24.0).rgb;
     vec3 brush = texture(grass_map, p / 3.8 + vec2(0.17, 0.39)).rgb;
     vec3 grass = broad * 0.72 + brush * 0.28;
+    // Broad cool/warm painted fields keep the short meadow rooted in the ground.
+    float field = 0.5 + 0.23*sin(p.x*0.32 + sin(p.y*0.27)) + 0.19*cos(p.y*0.41-p.x*0.13);
+    vec3 shaded_grass = grass * vec3(0.78,0.91,1.12);
+    vec3 sunny_grass = grass * vec3(1.00,1.01,0.93);
+    grass = mix(shaded_grass,sunny_grass,smoothstep(0.15,0.87,field));
     vec3 soil = texture(soil_map, p / 4.6).rgb;
     vec3 bank = texture(wet_map, p / 5.2).rgb;
     float earth = smoothstep(0.03, 0.91, blend_weights.r) * soil_strength;

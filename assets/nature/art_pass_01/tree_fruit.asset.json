@@ -3,10 +3,10 @@
   "source": "art_source/art_pass_01/nature/tree_fruit.blend",
   "export": "assets/nature/art_pass_01/tree_fruit.glb",
   "blender": "5.1.2",
-  "generator_version": "art_foliage_01.3",
+  "generator_version": "art_foliage_01.4",
   "units": "meters",
   "up_axis": "gltf_y_up",
-  "triangles": 3154,
+  "triangles": 2902,
   "budget": 4000,
   "mesh_objects": 4,
   "sockets": [
@@ -14,14 +14,14 @@
   ],
   "bounds_source_z_up": {
     "min": [
-      -1.78522,
-      -1.560285,
+      -1.493578,
+      -1.436529,
       -0.043749
     ],
     "max": [
-      1.983571,
-      1.822572,
-      4.301933
+      1.771365,
+      1.679345,
+      4.192764
     ]
   },
   "roles": [
@@ -40,5 +40,5 @@
   "texture": "assets/nature/art_pass_01/painted_forest_atlas.png",
   "lod": 0,
   "lod1": "assets/nature/art_pass_01/tree_fruit_lod1.glb",
-  "lod1_triangles": 1500
+  "lod1_triangles": 1472
 }

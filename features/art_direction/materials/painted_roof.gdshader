@@ -21,12 +21,16 @@ void vertex() {
 }
 
 void fragment() {
-    vec3 clay = texture(tile_map, UV).rgb;
-    float wash = sin(local_position.x * 0.77 + local_position.z * 0.51) * 0.022;
-    vec3 tile_wash = clamp(tile_color.rgb / vec3(0.73725, 0.47059, 0.31765), vec3(0.76), vec3(1.19));
-    ALBEDO = clay * roof_tint.rgb * tile_wash * (1.0 + wash);
+    // Continuous paint coordinates cross tile boundaries. The same little
+    // orange square must not be stamped onto every individually modelled tile.
+    vec2 paint_position = vec2(local_position.z, local_position.x + local_position.y * 0.48);
+    vec3 clay = texture(tile_map, paint_position * 0.24).rgb;
+    vec3 broad = texture(tile_map, paint_position * 0.069 + vec2(0.37, 0.13)).rgb;
+    clay = mix(clay, broad, 0.32);
+    vec3 tile_wash = clamp(tile_color.rgb / vec3(0.73725, 0.47059, 0.31765), vec3(0.92), vec3(1.08));
+    ALBEDO = clay * roof_tint.rgb * mix(vec3(1.0), tile_wash, 0.46);
     ROUGHNESS = aged ? 0.98 : 0.91;
-    SPECULAR = 0.16;
+    SPECULAR = 0.10;
     vec2 cp = living_position.xz * 0.13 + vec2(living_time * 0.025, living_time * 0.011);
     float cloud_mask = smoothstep(0.40, 0.72, 0.5 + sin(cp.x + sin(cp.y)) * 0.22 + cos(cp.y * 0.8 - cp.x * 0.5) * 0.20);
     ALBEDO *= 1.0 - cloud_mask * living_cloud * 0.30;

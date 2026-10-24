@@ -98,6 +98,16 @@ func beam(
 		Vector2(-width * 0.5, -depth * 0.5 + bevel)
 	]
 	var previous: Array[Vector3] = []
+	# Metres along each timber are a stable grain axis, including diagonal braces.
+	# A world triplanar projection turns horizontal and vertical beams into the
+	# same striped wallpaper. The small cross-section unwrap keeps grain lengthwise.
+	var length: float = a.distance_to(b)
+	var grain_origin: Vector2 = Vector2(sin(seed_value) * 0.73, cos(seed_value * 0.61) * 1.31)
+	var perimeter: float = 0.0
+	var section_u: Array[float] = [0.0]
+	for index: int in range(8):
+		perimeter += section[index].distance_to(section[(index + 1) % 8])
+		section_u.append(perimeter)
 	for span: int in range(4):
 		var t: float = float(span) / 3.0
 		var center: Vector3 = a.lerp(b, t)
@@ -108,25 +118,32 @@ func beam(
 			current.append(center + across * p.x + up * p.y)
 		if span == 0 or span == 3:
 			for index: int in range(8):
-				triangle(
+				triangle_uv(
 					center,
 					current[index],
 					current[(index + 1) % 8],
 					-axis if span == 0 else axis,
-					color.lightened(0.035)
+					color.lightened(0.025),
+					Vector2(0.5, 0.5),
+					section[index] * 2.0 + Vector2.ONE * 0.5,
+					section[(index + 1) % 8] * 2.0 + Vector2.ONE * 0.5
 				)
 		if not previous.is_empty():
 			for index: int in range(8):
 				var next: int = (index + 1) % 8
 				var radial: Vector2 = (section[index] + section[next]).normalized()
 				var outward: Vector3 = across * radial.x + up * radial.y
-				quad(
+				quad_uv(
 					previous[index],
 					previous[next],
 					current[next],
 					current[index],
 					outward,
-					color.lightened(0.018 * sin(float(index) + seed_value))
+					color.lightened(0.012 * sin(float(index) + seed_value)),
+					Vector2(section_u[index], float(span - 1) * length / 3.0) + grain_origin,
+					Vector2(section_u[index + 1], float(span - 1) * length / 3.0) + grain_origin,
+					Vector2(section_u[index + 1], t * length) + grain_origin,
+					Vector2(section_u[index], t * length) + grain_origin
 				)
 		previous = current
 
@@ -166,6 +183,48 @@ func stone(
 			outward + radial,
 			color.darkened(0.035)
 		)
+
+
+func solid_panel(top: Array[Vector3], thickness: float, color: Color) -> void:
+	# Closed thin boards, with a front-facing underside for low garden cameras.
+	# The upper face is buried below the clay bed, avoiding coplanar paint layers.
+	if top.size() != 4 or thickness <= 0.0:
+		return
+	var bottom: Array[Vector3] = []
+	var center: Vector3 = Vector3.ZERO
+	var coordinates: Array[Vector2] = []
+	for point: Vector3 in top:
+		bottom.append(point + Vector3.DOWN * thickness)
+		center += point * 0.25
+		coordinates.append(Vector2(point.x, point.z))
+	quad_uv(
+		top[0],
+		top[1],
+		top[2],
+		top[3],
+		Vector3.UP,
+		color,
+		coordinates[0],
+		coordinates[1],
+		coordinates[2],
+		coordinates[3]
+	)
+	quad_uv(
+		bottom[0],
+		bottom[1],
+		bottom[2],
+		bottom[3],
+		Vector3.DOWN,
+		color,
+		coordinates[0],
+		coordinates[1],
+		coordinates[2],
+		coordinates[3]
+	)
+	for index: int in range(4):
+		var next: int = (index + 1) % 4
+		var outward: Vector3 = (top[index] + top[next]) * 0.5 - center
+		quad(top[index], bottom[index], bottom[next], top[next], outward, color)
 
 
 func mesh() -> ArrayMesh:

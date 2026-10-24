@@ -41,15 +41,15 @@ void fragment() {
     vec3 foliage = paint.rgb * mix(vec3(1.0), foliage_tint.rgb, green);
     // Cool gray-green body keeps sunlit leaves and moss from becoming lime.
     // It is part of this painted material, so flowers/bark/stone keep their hue.
-    vec3 sage = foliage * vec3(0.80, 0.92, 1.12) + vec3(0.0, 0.0, 0.012);
-    foliage = mix(foliage, sage, green * 0.75);
+    vec3 sage = foliage * vec3(0.88, 0.97, 1.06) + vec3(0.0, 0.0, 0.003);
+    foliage = mix(foliage, sage, green * 0.45);
     // Petal, bark, moss and fruit have their own painted atlas colors.
     ALBEDO = foliage;
     ALPHA = paint.a;
     ALPHA_SCISSOR_THRESHOLD = 0.43;
     ROUGHNESS = 0.95;
-    SPECULAR = 0.12;
-    BACKLIGHT = foliage * green * leaf_tip * 0.06;
+    SPECULAR = 0.06;
+    BACKLIGHT = foliage * green * leaf_tip * 0.025;
     vec2 cp = living_position.xz * 0.13 + vec2(living_time * 0.025, living_time * 0.011);
     float cloud_mask = smoothstep(0.40, 0.72, 0.5 + sin(cp.x + sin(cp.y)) * 0.22 + cos(cp.y * 0.8 - cp.x * 0.5) * 0.20);
     ALBEDO *= 1.0 - cloud_mask * living_cloud * 0.30;

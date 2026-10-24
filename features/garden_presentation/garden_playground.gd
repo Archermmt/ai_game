@@ -73,9 +73,9 @@ func _update_focus() -> void:
 	_focus_distance = focus
 	attributes.dof_blur_far_enabled = preferences.values.get("garden_focus", true)
 	attributes.dof_blur_near_enabled = false
-	attributes.dof_blur_far_distance = focus + 4.0
-	attributes.dof_blur_far_transition = clampf(focus * 0.45, 8, 18)
-	attributes.dof_blur_amount = 0.12
+	attributes.dof_blur_far_distance = focus + 6.0
+	attributes.dof_blur_far_transition = clampf(focus * 0.55, 10, 22)
+	attributes.dof_blur_amount = 0.045
 
 
 func _on_published(snapshot: Dictionary, prepared: Dictionary) -> void:

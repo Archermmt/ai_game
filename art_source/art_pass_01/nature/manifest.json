@@ -4,10 +4,10 @@
     "source": "art_source/art_pass_01/nature/tree_broadleaf.blend",
     "export": "assets/nature/art_pass_01/tree_broadleaf.glb",
     "blender": "5.1.2",
-    "generator_version": "art_foliage_01.3",
+    "generator_version": "art_foliage_01.4",
     "units": "meters",
     "up_axis": "gltf_y_up",
-    "triangles": 3630,
+    "triangles": 3306,
     "budget": 4000,
     "mesh_objects": 3,
     "sockets": [
@@ -15,14 +15,14 @@
     ],
     "bounds_source_z_up": {
       "min": [
-        -2.08834,
-        -2.061412,
+        -1.749964,
+        -1.922603,
         -0.054248
       ],
       "max": [
-        2.414175,
-        2.041906,
-        5.21969
+        2.253239,
+        1.89677,
+        5.139624
       ]
     },
     "roles": [
@@ -40,17 +40,17 @@
     "texture": "assets/nature/art_pass_01/painted_forest_atlas.png",
     "lod": 0,
     "lod1": "assets/nature/art_pass_01/tree_broadleaf_lod1.glb",
-    "lod1_triangles": 1676
+    "lod1_triangles": 1640
   },
   {
     "asset_id": "NAT-01-LOD1",
     "source": "art_source/art_pass_01/nature/tree_broadleaf_lod1.blend",
     "export": "assets/nature/art_pass_01/tree_broadleaf_lod1.glb",
     "blender": "5.1.2",
-    "generator_version": "art_foliage_01.3",
+    "generator_version": "art_foliage_01.4",
     "units": "meters",
     "up_axis": "gltf_y_up",
-    "triangles": 1676,
+    "triangles": 1640,
     "budget": 1700,
     "mesh_objects": 3,
     "sockets": [
@@ -58,14 +58,14 @@
     ],
     "bounds_source_z_up": {
       "min": [
-        -2.018633,
-        -2.108048,
+        -1.875714,
+        -1.880645,
         -0.05083
       ],
       "max": [
-        2.216208,
-        1.944995,
-        5.201208
+        2.083712,
+        1.793236,
+        5.123002
       ]
     },
     "roles": [
@@ -88,7 +88,7 @@
     "source": "art_source/art_pass_01/nature/tree_conifer.blend",
     "export": "assets/nature/art_pass_01/tree_conifer.glb",
     "blender": "5.1.2",
-    "generator_version": "art_foliage_01.3",
+    "generator_version": "art_foliage_01.4",
     "units": "meters",
     "up_axis": "gltf_y_up",
     "triangles": 3412,
@@ -99,13 +99,13 @@
     ],
     "bounds_source_z_up": {
       "min": [
-        -1.783188,
-        -1.59242,
+        -1.529828,
+        -1.640077,
         -0.009285
       ],
       "max": [
-        1.783188,
-        1.59242,
+        1.69434,
+        1.670921,
         5.70022
       ]
     },
@@ -131,7 +131,7 @@
     "source": "art_source/art_pass_01/nature/tree_conifer_lod1.blend",
     "export": "assets/nature/art_pass_01/tree_conifer_lod1.glb",
     "blender": "5.1.2",
-    "generator_version": "art_foliage_01.3",
+    "generator_version": "art_foliage_01.4",
     "units": "meters",
     "up_axis": "gltf_y_up",
     "triangles": 1576,
@@ -142,13 +142,13 @@
     ],
     "bounds_source_z_up": {
       "min": [
-        -1.6704,
-        -1.6704,
+        -1.529398,
+        -1.419814,
         -0.009432
       ],
       "max": [
-        1.6704,
-        1.6704,
+        1.577088,
+        1.762156,
         5.700216
       ]
     },
@@ -172,10 +172,10 @@
     "source": "art_source/art_pass_01/nature/tree_fruit.blend",
     "export": "assets/nature/art_pass_01/tree_fruit.glb",
     "blender": "5.1.2",
-    "generator_version": "art_foliage_01.3",
+    "generator_version": "art_foliage_01.4",
     "units": "meters",
     "up_axis": "gltf_y_up",
-    "triangles": 3154,
+    "triangles": 2902,
     "budget": 4000,
     "mesh_objects": 4,
     "sockets": [
@@ -183,14 +183,14 @@
     ],
     "bounds_source_z_up": {
       "min": [
-        -1.78522,
-        -1.560285,
+        -1.493578,
+        -1.436529,
         -0.043749
       ],
       "max": [
-        1.983571,
-        1.822572,
-        4.301933
+        1.771365,
+        1.679345,
+        4.192764
       ]
     },
     "roles": [
@@ -209,17 +209,17 @@
     "texture": "assets/nature/art_pass_01/painted_forest_atlas.png",
     "lod": 0,
     "lod1": "assets/nature/art_pass_01/tree_fruit_lod1.glb",
-    "lod1_triangles": 1500
+    "lod1_triangles": 1472
   },
   {
     "asset_id": "NAT-03-LOD1",
     "source": "art_source/art_pass_01/nature/tree_fruit_lod1.blend",
     "export": "assets/nature/art_pass_01/tree_fruit_lod1.glb",
     "blender": "5.1.2",
-    "generator_version": "art_foliage_01.3",
+    "generator_version": "art_foliage_01.4",
     "units": "meters",
     "up_axis": "gltf_y_up",
-    "triangles": 1500,
+    "triangles": 1472,
     "budget": 1700,
     "mesh_objects": 4,
     "sockets": [
@@ -227,14 +227,14 @@
     ],
     "bounds_source_z_up": {
       "min": [
-        -1.726662,
-        -1.574524,
+        -1.594784,
+        -1.406157,
         -0.040992
       ],
       "max": [
-        1.833212,
-        1.732104,
-        4.241628
+        1.676626,
+        1.580515,
+        4.183382
       ]
     },
     "roles": [
@@ -258,7 +258,7 @@
     "source": "art_source/art_pass_01/nature/fern.blend",
     "export": "assets/nature/art_pass_01/fern.glb",
     "blender": "5.1.2",
-    "generator_version": "art_foliage_01.3",
+    "generator_version": "art_foliage_01.4",
     "units": "meters",
     "up_axis": "gltf_y_up",
     "triangles": 448,
@@ -298,7 +298,7 @@
     "source": "art_source/art_pass_01/nature/wildflower.blend",
     "export": "assets/nature/art_pass_01/wildflower.glb",
     "blender": "5.1.2",
-    "generator_version": "art_foliage_01.3",
+    "generator_version": "art_foliage_01.4",
     "units": "meters",
     "up_axis": "gltf_y_up",
     "triangles": 290,
@@ -339,10 +339,10 @@
     "source": "art_source/art_pass_01/nature/shrub.blend",
     "export": "assets/nature/art_pass_01/shrub.glb",
     "blender": "5.1.2",
-    "generator_version": "art_foliage_01.3",
+    "generator_version": "art_foliage_01.4",
     "units": "meters",
     "up_axis": "gltf_y_up",
-    "triangles": 342,
+    "triangles": 312,
     "budget": 500,
     "mesh_objects": 2,
     "sockets": [
@@ -350,14 +350,14 @@
     ],
     "bounds_source_z_up": {
       "min": [
-        -0.909327,
-        -0.867445,
-        -0.251018
+        -0.787967,
+        -0.726181,
+        -0.150193
       ],
       "max": [
-        1.044217,
-        0.845444,
-        0.904762
+        0.742568,
+        0.678166,
+        0.831299
       ]
     },
     "roles": [
@@ -379,7 +379,7 @@
     "source": "art_source/art_pass_01/nature/moss_rock.blend",
     "export": "assets/nature/art_pass_01/moss_rock.glb",
     "blender": "5.1.2",
-    "generator_version": "art_foliage_01.3",
+    "generator_version": "art_foliage_01.4",
     "units": "meters",
     "up_axis": "gltf_y_up",
     "triangles": 682,
@@ -419,7 +419,7 @@
     "source": "art_source/art_pass_01/nature/flat_rock.blend",
     "export": "assets/nature/art_pass_01/flat_rock.glb",
     "blender": "5.1.2",
-    "generator_version": "art_foliage_01.3",
+    "generator_version": "art_foliage_01.4",
     "units": "meters",
     "up_axis": "gltf_y_up",
     "triangles": 450,
