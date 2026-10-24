@@ -142,6 +142,11 @@ func test_look_clamps_pitch_releases_cursor_and_does_not_orbit() -> void:
 	assert_false(controller.looking)
 	controller.handle(_button(true))
 	assert_true(controller.looking)
+	controller.yaw = 0
+	controller.pitch = 0
+	controller.look(Vector2(0.1, 0.1))
+	assert_gt(controller.yaw, 0.0)
+	assert_gt(controller.pitch, 0.0)
 	var motion: InputEventMouseMotion = InputEventMouseMotion.new()
 	motion.relative = Vector2(300, 999999)
 	controller.handle(motion)

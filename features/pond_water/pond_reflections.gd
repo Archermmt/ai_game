@@ -76,14 +76,13 @@ func tick(delta: float, state: Dictionary) -> void:
 		viewport.render_target_update_mode = SubViewport.UPDATE_DISABLED
 		return
 	host.water_material.set_shader_parameter(
-		"rain_amount",
-		1.0 if state["weather"] == "storm" else (0.45 if state["weather"] == "rain" else 0.0)
+		"rain_amount", float(host.atmosphere.blend.current.get("rain", 0.0))
 	)
 	var source: Camera3D = host.camera_rig.camera
 	var key: String = (
 		"%s:%s:%d" % [state["season"], state["weather"], floori(state["minute_of_day"] / 10)]
 	)
-	if key != climate_key or source.global_transform != last_camera:
+	if key != climate_key or source.global_transform != last_camera or not host.atmosphere.frozen:
 		pending = true
 	if not pending or age < 0.125:
 		return
@@ -102,6 +101,7 @@ func tick(delta: float, state: Dictionary) -> void:
 	camera.near = source.near
 	var environment: Environment = host.world_environment.environment
 	camera.environment.sky = environment.sky
+	camera.environment.background_mode = environment.background_mode
 	for property: String in [
 		"ambient_light_color", "ambient_light_energy", "fog_density", "fog_light_color"
 	]:

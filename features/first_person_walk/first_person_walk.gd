@@ -113,8 +113,8 @@ func _handle_button(event: InputEventMouseButton, over_ui: bool) -> bool:
 func look(delta: Vector2) -> void:
 	if not delta.is_finite():
 		return
-	yaw = wrapf(yaw - delta.x, -PI, PI)
-	pitch = clampf(pitch - delta.y, -1.25, 1.25)
+	yaw = wrapf(yaw + delta.x, -PI, PI)
+	pitch = clampf(pitch + delta.y, -1.25, 1.25)
 	_apply_view()
 
 

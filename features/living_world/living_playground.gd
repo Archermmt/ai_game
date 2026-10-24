@@ -92,9 +92,9 @@ func _process(delta: float) -> void:
 		seasonal_music.sync_calendar(calendar.sample())
 	if soundscape != null:
 		var wind: float = float(document.state["environment"]["wind_strength"])
-		soundscape.wind = (
-			maxf(wind, 0.95) if calendar.weather in ["storm", "blizzard", "duststorm"] else wind
-		)
+		var visual: Dictionary = atmosphere.blend.current
+		var severity: float = maxf(visual["rain"], maxf(visual["snow"], visual["dust"]))
+		soundscape.wind = lerpf(wind, maxf(wind, 0.95), smoothstep(0.55, 1.0, severity))
 	_calendar_refresh += delta
 	if _calendar_refresh > 0.2:
 		_calendar_refresh = 0

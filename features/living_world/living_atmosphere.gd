@@ -13,12 +13,16 @@ var elapsed: float = 0.0
 var frozen: bool = false
 var reduced_motion: bool = false
 var lightning_enabled: bool = true
+var sky: PaintedSky = PaintedSky.new()
+var blend: WeatherBlend = WeatherBlend.new()
+var phase: Vector3 = Vector3.ZERO
 var _season: String = ""
 var _weather: String = ""
 
 
 func configure(root: Node3D) -> void:
 	host = root
+	sky.configure(host.world_environment.environment)
 	name = "LivingAtmosphere"
 	rain = _precipitation(false, 1400)
 	snow = _precipitation(true, 900)
@@ -102,84 +106,49 @@ func update(delta: float, state: Dictionary) -> void:
 	RenderingServer.global_shader_parameter_set("living_time", elapsed)
 	var season_value: String = state["season"]
 	var weather_value: String = state["weather"]
-	if season_value != _season or weather_value != _weather:
-		_season = season_value
-		_weather = weather_value
-		RenderingServer.global_shader_parameter_set(
-			"living_season", ["spring", "summer", "autumn", "winter"].find(_season)
-		)
-		RenderingServer.global_shader_parameter_set(
-			"living_cloud", 0.0 if _weather == "clear" else 1.0
-		)
-		RenderingServer.global_shader_parameter_set(
-			"living_snow",
-			(
-				0.8
-				if _weather == "blizzard"
-				else (0.65 if _weather == "snow" else (0.28 if _season == "winter" else 0.0))
-			)
-		)
-		rain.visible = _weather in ["rain", "storm"]
-		snow.visible = _weather in ["snow", "blizzard"]
-		dust.visible = _weather == "duststorm"
-		rain.material_override.set_shader_parameter("severity", 2.4 if _weather == "storm" else 1.0)
-		snow.material_override.set_shader_parameter(
-			"severity", 3.0 if _weather == "blizzard" else 1.0
-		)
+	_season = season_value
+	_weather = weather_value
+	var visual: Dictionary = blend.advance(delta, state, frozen)
+	RenderingServer.global_shader_parameter_set(
+		"living_season", ["spring", "summer", "autumn", "winter"].find(_season)
+	)
+	RenderingServer.global_shader_parameter_set(
+		"living_cloud", clampf((visual["cloud"] - 0.18) / 0.82, 0, 1)
+	)
+	RenderingServer.global_shader_parameter_set("living_snow", visual["cover"])
+	_precipitation_blend(delta, visual)
 	var hour: float = float(state["minute_of_day"]) / 60.0
 	var altitude: float = sin((hour - 6.0) * PI / 12.0)
 	var daylight: float = smoothstep(-0.12, 0.35, altitude)
 	var summer: bool = _season == "summer"
 	var energy: float = (1.65 if summer else 1.30) * maxf(0.0, altitude)
-	energy *= {
-		"clear": 1.0,
-		"cloudy": 0.48,
-		"rain": 0.48,
-		"snow": 0.48,
-		"storm": 0.18,
-		"blizzard": 0.23,
-		"duststorm": 0.28,
-		"fog": 0.35
-	}[_weather]
+	energy *= float(visual["energy"])
 	host.sun.light_energy = maxf(0.035, energy)
 	host.sun.rotation_degrees = Vector3(
 		-maxf(9.0, altitude * (66 if summer else 48)), -105 + hour * 9, 0
 	)
 	host.sun.light_color = Color("a5b9d9").lerp(Color("fff1cc"), daylight)
-	if altitude > 0 and altitude < 0.35:
-		host.sun.light_color = Color("edb18c")
+	host.sun.light_color = host.sun.light_color.lerp(
+		Color("edb18c"), (1.0 - smoothstep(0.0, 0.35, absf(altitude))) * daylight
+	)
 	var environment: Environment = host.world_environment.environment
 	environment.ambient_light_color = Color("8298bc").lerp(Color("c7d5ce"), daylight)
-	environment.ambient_light_energy = lerpf(0.20, 0.46 if _weather != "clear" else 0.36, daylight)
+	environment.ambient_light_energy = lerpf(0.20, 0.36 + 0.10 * float(visual["cloud"]), daylight)
 	environment.fog_light_color = Color("536783").lerp(Color("c8d0c6"), daylight)
-	environment.fog_density = {
-		"clear": 0.0008,
-		"cloudy": 0.0008,
-		"rain": 0.0018,
-		"snow": 0.0018,
-		"storm": 0.004,
-		"blizzard": 0.009,
-		"duststorm": 0.012,
-		"fog": 0.012
-	}[_weather]
-	if _weather == "duststorm":
-		environment.fog_light_color = Color("bda277")
-		environment.ambient_light_color = Color("b4a480")
-		host.sun.light_color = Color("d7b57c")
-	elif _weather in ["blizzard", "fog"]:
-		environment.fog_light_color = Color("c6d3d4").lerp(Color("62748a"), 1.0 - daylight)
-	var sky: ProceduralSkyMaterial = environment.sky.sky_material as ProceduralSkyMaterial
-	if sky != null:
-		sky.sky_top_color = Color("101d39").lerp(
-			Color("a0bdc8") if _weather == "clear" else Color("8e9da7"), daylight
-		)
-		sky.sky_horizon_color = Color("53627d").lerp(Color("e4dfc1"), daylight)
+	environment.fog_density = visual["fog"]
+	environment.fog_light_color = environment.fog_light_color.lerp(Color("bda277"), visual["dust"])
+	environment.ambient_light_color = environment.ambient_light_color.lerp(
+		Color("b4a480"), visual["dust"]
+	)
+	host.sun.light_color = host.sun.light_color.lerp(Color("d7b57c"), visual["dust"])
+	sky.sync(elapsed, daylight, hour, summer, visual)
 	if host.window_material != null:
 		# The calendar owns continuous window light, including legacy dusk saves.
 		host.window_material.set_shader_parameter("dusk", false)
 		host.window_material.set_shader_parameter("dusk_mix", 1.0 - daylight)
 	var pulse: bool = (
-		_weather in ["rain", "storm"]
+		float(visual["rain"]) > 0.45
+		and _weather in ["rain", "storm"]
 		and not reduced_motion
 		and lightning_enabled
 		and (
@@ -195,6 +164,23 @@ func update(delta: float, state: Dictionary) -> void:
 			host.camera_rig.camera.global_position,
 			1.0 - daylight
 		)
+
+
+func _precipitation_blend(delta: float, visual: Dictionary) -> void:
+	var amounts: Vector3 = Vector3(visual["rain"], visual["snow"], visual["dust"])
+	var severities: Vector3 = Vector3(
+		lerpf(1, 2.4, smoothstep(0.55, 1, amounts.x)),
+		lerpf(1, 3, smoothstep(0.55, 1, amounts.y)),
+		1
+	)
+	if not frozen:
+		phase += severities * maxf(0, delta) * (0.25 if reduced_motion else 1.0)
+	var nodes: Array[MultiMeshInstance3D] = [rain, snow, dust]
+	for i: int in range(nodes.size()):
+		nodes[i].visible = amounts[i] > 0.001
+		nodes[i].material_override.set_shader_parameter("amount", amounts[i])
+		nodes[i].material_override.set_shader_parameter("severity", severities[i])
+		nodes[i].material_override.set_shader_parameter("phase", phase[i])
 
 
 func _exit_tree() -> void:

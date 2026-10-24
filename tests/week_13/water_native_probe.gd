@@ -39,6 +39,8 @@ func _run() -> void:
 		material.set_shader_parameter("sample_time", 0.0)
 	var water: ShaderMaterial = playground.water_material
 	water.set_shader_parameter("sample_time", 0.0)
+	playground.atmosphere.blend.advance(0, playground.calendar.sample())
+	playground.atmosphere.blend.advance(WeatherBlend.DURATION, playground.calendar.sample())
 	playground.atmosphere.update(0, playground.calendar.sample())
 	playground.hud.hide()
 	var pool: Dictionary = playground.document.state["pool"]
@@ -109,6 +111,9 @@ func _run() -> void:
 	sentinel.queue_free()
 	fx.request_update()
 	playground.calendar.weather = "storm"
+	playground.atmosphere.blend.advance(0, playground.calendar.sample())
+	playground.atmosphere.blend.advance(18, playground.calendar.sample())
+	playground.atmosphere.update(0, playground.calendar.sample())
 	await SceneShutdown.wait_wallclock(self, 0.3)
 	await _frame("rain_water")
 	checks["rain_strengthens_ripples"] = water.get_shader_parameter("rain_amount") == 1.0

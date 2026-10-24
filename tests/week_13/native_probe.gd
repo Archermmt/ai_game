@@ -85,6 +85,8 @@ func _run() -> void:
 		playground.atmosphere.elapsed = 17.82 if entry[0] == "rain_lightning" else 6.0
 		playground._freeze_photo(true)
 		playground.hud.calendar.sync()
+		playground.atmosphere.blend.advance(0, playground.calendar.sample())
+		playground.atmosphere.blend.advance(WeatherBlend.DURATION, playground.calendar.sample())
 		playground.atmosphere.update(0, playground.calendar.sample())
 		await _frame(entry[0])
 		observations.append(
@@ -117,9 +119,13 @@ func _run() -> void:
 	playground.calendar.minute_of_day = 720
 	playground.atmosphere.elapsed = 0
 	playground._freeze_photo(true)
+	playground.atmosphere.blend.advance(0, playground.calendar.sample())
+	playground.atmosphere.blend.advance(WeatherBlend.DURATION, playground.calendar.sample())
 	playground.atmosphere.update(0, playground.calendar.sample())
 	await _frame("cloud_shadow_a")
 	playground.atmosphere.elapsed = 20
+	playground.atmosphere.blend.advance(0, playground.calendar.sample())
+	playground.atmosphere.blend.advance(WeatherBlend.DURATION, playground.calendar.sample())
 	playground.atmosphere.update(0, playground.calendar.sample())
 	await _frame("cloud_shadow_b")
 	var image_a: Image = Image.load_from_file(folder.path_join("cloud_shadow_a.png"))
@@ -151,6 +157,8 @@ func _run() -> void:
 		playground.calendar.minute_of_day = 720
 		playground.calendar.align_weather()
 		playground.atmosphere.elapsed = 5.8
+		playground.atmosphere.blend.advance(0, playground.calendar.sample())
+		playground.atmosphere.blend.advance(WeatherBlend.DURATION, playground.calendar.sample())
 		playground.atmosphere.update(0, playground.calendar.sample())
 		playground.hud.calendar.sync()
 		await _frame("weather_" + entry[0])

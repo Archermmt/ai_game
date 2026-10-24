@@ -81,8 +81,12 @@ func test_reflection_updates_are_throttled_and_weather_controls_ripples() -> voi
 	assert_eq(fx.captures, count + 1)
 	var rain: Dictionary = world.calendar.sample()
 	rain["weather"] = "storm"
+	world.atmosphere.blend.advance(0, rain)
+	world.atmosphere.blend.advance(WeatherBlend.DURATION, rain)
 	fx.tick(0.03, rain)
 	assert_eq(world.water_material.get_shader_parameter("rain_amount"), 1.0)
+	world.atmosphere.blend.advance(0, world.calendar.sample())
+	world.atmosphere.blend.advance(WeatherBlend.DURATION, world.calendar.sample())
 	fx.tick(0.01, world.calendar.sample())
 	assert_eq(world.water_material.get_shader_parameter("rain_amount"), 0.0)
 

@@ -46,6 +46,8 @@ func _run() -> void:
 	playground.calendar.month = 7
 	playground.calendar.weather = "clear"
 	playground.calendar.minute_of_day = 720
+	playground.atmosphere.blend.advance(0, playground.calendar.sample())
+	playground.atmosphere.blend.advance(WeatherBlend.DURATION, playground.calendar.sample())
 	playground.atmosphere.update(0, playground.calendar.sample())
 	var source: Dictionary = playground.document.snapshot()
 	var history: int = playground.session.history_count()
@@ -95,6 +97,7 @@ func _run() -> void:
 	Input.parse_input_event(pan)
 	await process_frame
 	checks["trackpad_gesture_looks_around"] = walk.yaw != old_yaw
+	await _click(playground.hud.photo_settings)
 	var directory: String = playground.hud.photo_directory.text
 	playground.hud.photo_directory.grab_focus()
 	await process_frame

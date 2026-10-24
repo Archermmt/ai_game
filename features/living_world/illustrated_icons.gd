@@ -24,6 +24,21 @@ static func texture(key: String) -> Texture2D:
 
 
 static func drawing(key: String) -> String:
+	if key in ["folder", "bookmark", "overview", "hide", "back", "freeze"]:
+		var drawings: Dictionary = {
+			"folder":
+			'<path d="M8 22h22l6 7h28v31H8z" fill="#c7ac78"/><path d="M8 31h56l-6 29H8z" fill="#e2cc99"/>',
+			"bookmark":
+			'<path d="M18 10h36v53L36 49 18 63z" fill="#b5b98b"/><path d="M28 25h16m-8-8v16" stroke-width="3"/>',
+			"overview":
+			'<path d="M8 46l28-29 28 29-28 18z" fill="#b5bd9b"/><path d="M25 42V30l11-9 11 9v12z" fill="#e5d7b7"/><path d="M10 17h16m-8-8v16"/>',
+			"hide":
+			'<path d="M7 36q29-35 58 0-29 35-58 0z" fill="#d2d5b8"/><circle cx="36" cy="36" r="11" fill="#8faba1"/><path d="M12 60l48-48" stroke-width="4"/>',
+			"back": '<path d="M36 13L13 36l23 23M14 36h46" fill="none" stroke-width="5"/>',
+			"freeze":
+			'<path d="M36 8v56M12 22l48 28M12 50l48-28M28 14l8 8 8-8m-16 44l8-8 8 8" fill="none" stroke="#8baab4" stroke-width="4"/>'
+		}
+		return drawings[key]
 	if key == "walk":
 		return '<path d="M14 57q17-27 40-44M18 59q4-14 13-18M39 31q7-14 17-17" fill="none" stroke-width="4"/><ellipse cx="22" cy="29" rx="7" ry="12" transform="rotate(-25 22 29)" fill="#aab68d"/><ellipse cx="51" cy="48" rx="7" ry="12" transform="rotate(-25 51 48)" fill="#bba175"/>'
 

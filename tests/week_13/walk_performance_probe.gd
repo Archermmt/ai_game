@@ -27,12 +27,26 @@ func _run() -> void:
 	key.keycode = KEY_W
 	key.pressed = true
 	world.walk_controller.handle(key)
+	var transition: bool = "--climate-cycle" in OS.get_cmdline_user_args()
+	var visible_types: int = 0
 	var start: int = Time.get_ticks_usec()
 	var previous: int = start
 	var intervals: Array[float] = []
 	var start_foot: Vector3 = world.walk_controller.feet
 	while Time.get_ticks_usec() - start < 30000000:
 		await process_frame
+		if transition:
+			var index: int = int((Time.get_ticks_usec() - start) / 6000000) % 3
+			world.calendar.weather = ["storm", "blizzard", "duststorm"][index]
+			world.calendar.month = 1 if index == 1 else 7
+		visible_types = maxi(
+			visible_types,
+			(
+				int(world.atmosphere.rain.visible)
+				+ int(world.atmosphere.snow.visible)
+				+ int(world.atmosphere.dust.visible)
+			)
+		)
 		var now: int = Time.get_ticks_usec()
 		var delta: float = float(now - previous) / 1000000
 		intervals.append(delta * 1000)
@@ -41,6 +55,8 @@ func _run() -> void:
 	var sorted: Array[float] = intervals.duplicate()
 	sorted.sort()
 	var report: Dictionary = {
+		"climate_transitions": transition,
+		"max_visible_weather_types": visible_types,
 		"frames": intervals.size(),
 		"p95_frame_ms": sorted[ceili(sorted.size() * 0.95) - 1],
 		"max_frame_ms": sorted[-1],

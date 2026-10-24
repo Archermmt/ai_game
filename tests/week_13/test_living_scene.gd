@@ -76,18 +76,26 @@ func test_daynight_seasons_and_weather_render_state() -> void:
 	clock.month = 7
 	clock.minute_of_day = 720
 	playground.window_material.set_shader_parameter("dusk", true)
+	atmosphere.blend.advance(0, clock.sample())
+	atmosphere.blend.advance(WeatherBlend.DURATION, clock.sample())
 	atmosphere.update(0, clock.sample())
 	assert_false(playground.window_material.get_shader_parameter("dusk"))
 	var noon: float = playground.sun.light_energy
 	clock.minute_of_day = 0
+	atmosphere.blend.advance(0, clock.sample())
+	atmosphere.blend.advance(WeatherBlend.DURATION, clock.sample())
 	atmosphere.update(0, clock.sample())
 	assert_lt(playground.sun.light_energy, noon * 0.1)
 	clock.weather = "rain"
+	atmosphere.blend.advance(0, clock.sample())
+	atmosphere.blend.advance(WeatherBlend.DURATION, clock.sample())
 	atmosphere.update(0, clock.sample())
 	assert_true(atmosphere.rain.visible)
 	assert_false(atmosphere.snow.visible)
 	clock.weather = "snow"
 	clock.month = 1
+	atmosphere.blend.advance(0, clock.sample())
+	atmosphere.blend.advance(WeatherBlend.DURATION, clock.sample())
 	atmosphere.update(0, clock.sample())
 	assert_true(atmosphere.snow.visible)
 	assert_false(atmosphere.rain.visible)
@@ -100,9 +108,13 @@ func test_reduced_motion_and_photo_freeze_weather_and_clock() -> void:
 	playground.calendar.weather = "rain"
 	playground.atmosphere.elapsed = 17.8
 	playground.atmosphere.reduced_motion = true
+	playground.atmosphere.blend.advance(0, playground.calendar.sample())
+	playground.atmosphere.blend.advance(WeatherBlend.DURATION, playground.calendar.sample())
 	playground.atmosphere.update(0, playground.calendar.sample())
 	assert_false(playground.atmosphere.bolt.visible)
 	playground.atmosphere.reduced_motion = false
+	playground.atmosphere.blend.advance(0, playground.calendar.sample())
+	playground.atmosphere.blend.advance(WeatherBlend.DURATION, playground.calendar.sample())
 	playground.atmosphere.update(0, playground.calendar.sample())
 	assert_true(playground.atmosphere.bolt.visible)
 	playground.calendar.speed = 20
@@ -155,10 +167,14 @@ func test_legacy_dusk_maps_to_evening_and_can_return_to_daylight() -> void:
 	playground.document.state["environment"]["dusk"] = true
 	playground._restore_extra_presentation({})
 	playground.calendar.speed = 0
+	playground.atmosphere.blend.advance(0, playground.calendar.sample())
+	playground.atmosphere.blend.advance(WeatherBlend.DURATION, playground.calendar.sample())
 	playground.atmosphere.update(0, playground.calendar.sample())
 	assert_gt(playground.sun.light_energy, 0.06)
 	assert_lt(playground.sun.light_energy, 0.5)
 	playground.calendar.minute_of_day = 720
+	playground.atmosphere.blend.advance(0, playground.calendar.sample())
+	playground.atmosphere.blend.advance(WeatherBlend.DURATION, playground.calendar.sample())
 	playground.atmosphere.update(0, playground.calendar.sample())
 	assert_gt(playground.sun.light_energy, 1.0)
 	assert_false(playground.window_material.get_shader_parameter("dusk"))
@@ -270,12 +286,16 @@ func test_severe_weather_uses_bounded_distinct_effects_and_reduced_motion() -> v
 		playground.calendar.weather = row[1]
 		playground.atmosphere.elapsed = 5.8
 		playground.atmosphere.reduced_motion = false
+		playground.atmosphere.blend.advance(0, playground.calendar.sample())
+		playground.atmosphere.blend.advance(WeatherBlend.DURATION, playground.calendar.sample())
 		playground.atmosphere.update(0, playground.calendar.sample())
 		assert_eq(playground.atmosphere.rain.visible, row[1] == "storm")
 		assert_eq(playground.atmosphere.snow.visible, row[1] == "blizzard")
 		assert_eq(playground.atmosphere.dust.visible, row[1] == "duststorm")
 		assert_gt(playground.world_environment.environment.fog_density, 0.0018)
 		playground.atmosphere.reduced_motion = true
+		playground.atmosphere.blend.advance(0, playground.calendar.sample())
+		playground.atmosphere.blend.advance(WeatherBlend.DURATION, playground.calendar.sample())
 		playground.atmosphere.update(0, playground.calendar.sample())
 		assert_false(playground.atmosphere.bolt.visible)
 	assert_eq(playground.atmosphere.rain.multimesh.instance_count, 1400)
@@ -283,4 +303,92 @@ func test_severe_weather_uses_bounded_distinct_effects_and_reduced_motion() -> v
 	assert_eq(playground.atmosphere.dust.multimesh.instance_count, 700)
 	assert_true(playground.calendar.restore(previous))
 	playground.atmosphere.reduced_motion = false
+	playground.atmosphere.blend.advance(0, playground.calendar.sample())
+	playground.atmosphere.blend.advance(WeatherBlend.DURATION, playground.calendar.sample())
 	playground.atmosphere.update(0, playground.calendar.sample())
+
+
+func test_photo_actions_are_icons_with_optional_settings_and_accessibility() -> void:
+	var hud: CanvasLayer = playground.hud
+	assert_not_null(hud.photo_icons)
+	assert_false(hud.photo_details.visible)
+	for button: Button in hud.photo_icons.get_children():
+		assert_eq(button.text, "")
+		assert_not_null(button.icon)
+		assert_false(button.accessibility_name.is_empty())
+		assert_false(button.tooltip_text.is_empty())
+	hud.photo_settings.button_pressed = true
+	assert_true(hud.photo_details.visible)
+	hud.photo_settings.button_pressed = false
+	assert_false(hud.photo_details.visible)
+
+
+func test_active_bottom_mode_enlarges_only_the_selected_card() -> void:
+	playground.hud.open_group("build")
+	await get_tree().process_frame
+	await get_tree().process_frame
+	assert_gt(playground.hud.ribbon_buttons["build"].scale.x, 1.0)
+	playground.hud.open_group("trees")
+	await get_tree().process_frame
+	await get_tree().process_frame
+	assert_eq(playground.hud.ribbon_buttons["build"].scale, Vector2.ONE)
+	assert_gt(playground.hud.ribbon_buttons["trees"].scale.x, 1.0)
+
+
+func test_painted_sky_is_background_with_bounded_radiance_and_frozen_time() -> void:
+	var environment: Environment = playground.world_environment.environment
+	assert_eq(environment.background_mode, Environment.BG_SKY)
+	assert_eq(environment.sky.radiance_size, Sky.RADIANCE_SIZE_32)
+	assert_eq(environment.sky.sky_material, playground.atmosphere.sky.material)
+	var time: float = playground.atmosphere.elapsed
+	playground.atmosphere.frozen = true
+	playground.atmosphere.update(2, playground.calendar.sample())
+	assert_eq(playground.atmosphere.sky.material.get_shader_parameter("sky_time"), time)
+	playground.atmosphere.frozen = false
+
+
+func test_weather_retarget_does_not_instantly_change_lighting_or_particle_amount() -> void:
+	var state: Dictionary = playground.calendar.sample()
+	state["weather"] = "clear"
+	playground.atmosphere.blend.advance(0, state)
+	playground.atmosphere.blend.advance(18, state)
+	playground.atmosphere.update(0, state)
+	var energy: float = playground.sun.light_energy
+	state["weather"] = "storm"
+	playground.atmosphere.update(0, state)
+	assert_almost_eq(playground.sun.light_energy, energy, 0.00001)
+	assert_eq(playground.atmosphere.rain.material_override.get_shader_parameter("amount"), 0.0)
+	playground.atmosphere.update(9, state)
+	assert_gt(playground.atmosphere.rain.material_override.get_shader_parameter("amount"), 0.0)
+	assert_lt(playground.sun.light_energy, energy)
+
+
+func test_subtype_choice_enlarges_and_clears_the_previous_choice() -> void:
+	playground.hud.open_group("build")
+	await get_tree().process_frame
+	var first: Button = playground.hud.quick_choices.get_child(0)
+	var second: Button = playground.hud.quick_choices.get_child(1)
+	first.pressed.emit()
+	assert_gt(first.scale.x, 1.0)
+	second.pressed.emit()
+	assert_eq(first.scale, Vector2.ONE)
+	assert_gt(second.scale.x, 1.0)
+
+
+func test_severe_weather_wind_audio_follows_the_blend_instead_of_the_target() -> void:
+	playground.calendar.speed = 0
+	playground.calendar.month = 7
+	playground.calendar.weather = "clear"
+	playground._freeze_photo(false)
+	playground.atmosphere.blend.advance(0, playground.calendar.sample())
+	playground.atmosphere.blend.advance(18, playground.calendar.sample())
+	playground._process(0)
+	var calm: float = playground.soundscape.wind
+	playground.calendar.weather = "storm"
+	playground._process(0)
+	assert_almost_eq(playground.soundscape.wind, calm, 0.00001)
+	playground._process(14)
+	assert_gt(playground.soundscape.wind, calm)
+	assert_lt(playground.soundscape.wind, maxf(calm, 0.95))
+	playground._process(4)
+	assert_almost_eq(playground.soundscape.wind, maxf(calm, 0.95), 0.00001)
