@@ -2,6 +2,14 @@
 
 更新日期：2026-10-24（Asia/Shanghai）
 
+## 修改入口、时间滑块与音乐混音修复
+
+2026-10-24：源码`a072da7`。当前主场景隐藏旧“更多参数/精确参数”按钮，继续悬停拖动修改。Speed改为1–60整数倍拖动滑块，倍速实时显示并独立暂停/继续，支持中间倍速存档。旧档兼容。
+
+CoreAudio实测音乐有输出，但旧混音比环境底声低17.68dB。音乐增益0.12→0.32、当前场景环境底声系数0.5，既有音量偏好不改，保留渐进和天气/夜间压低；复测同曲音乐比环境低3.045dB，199,680帧有效采样、播放进度正常，无削波。实测内部PCM通过，不替代物理听感/其他平台放行。
+
+累计 **685项Godot / 20,591断言 + 28项Python**，0失败/0跳过、历史负控通过；新增3项/47断言。原生UI12项、音乐控制10项通过；真实CoreAudio混音门禁通过，旧混音数据会失败；正式文件哈希未变。复验`python3 tools/quality/week_thirteen_checks.py`、`week_thirteen_native_checks.py`、`seasonal_music_native_checks.py`、`seasonal_music_mix_checks.py --driver CoreAudio`（后三者位于同一tools/quality目录）。旧包/性能未重测，原外部门槛不变。[说明、实拍与证据](docs/weekly/week_13/HUD_AUDIO_FOLLOWUP.md)。
+
 ## 相机方向调整
 
 2026-10-24：源码`86b2bdb`。反转旋转上下/左右、平移上下；平移左右与捏合/滚轮缩放方向、灵敏度和移动限制保持。触控板双指旋转、鼠标旋转、Option/Shift+左键及中键平移统一生效。

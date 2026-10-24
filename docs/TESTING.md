@@ -254,3 +254,5 @@ UX-03悬停编辑为当前默认版本：`python3 tools/quality/hover_checks.py`
 空缓存 `python3 tools/quality/clean_checkout.py --week 13`；原生 `python3 tools/quality/week_thirteen_native_checks.py`，气候性能 `python3 tools/quality/week_thirteen_performance.py`，三者串行。
 原生明确使用Dummy，不冒充真实音频；四组60秒、首笔和全部20笔保留，目标未达单列。日期为虚构360日历，月/日选择与天气不依赖操作系统时间；自动流逝不写建造历史。
 当前CI指向W13，远端仍未执行。完整规范见[W13测试契约](weekly/week_13/TEST_PLAN.md)，结果见[W13交付](weekly/week_13/README.md)。
+
+W13后续界面/音频门禁扩展至至少29项；原生UI至少12项，音乐控制10项。`python3 tools/quality/seasonal_music_mix_checks.py --driver CoreAudio`在macOS实测独立音乐/环境PCM与播放时钟；不以Dummy或playing标记代替。详见[混音修复](weekly/week_13/HUD_AUDIO_FOLLOWUP.md)。

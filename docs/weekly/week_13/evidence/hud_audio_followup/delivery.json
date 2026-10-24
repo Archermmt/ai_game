@@ -1,0 +1,28 @@
+{
+  "revision": "a072da76dd784be933fba147b4e57d66655b3cca",
+  "godot_tests": 685,
+  "godot_assertions": 20591,
+  "python_tests": 28,
+  "new_tests": 3,
+  "new_assertions": 47,
+  "native_ui_checks": 12,
+  "native_music_checks": 10,
+  "coreaudio_pcm": true,
+  "physical_listening_verified": false,
+  "baseline_mix_rejected": true,
+  "before_music_relative_db": -17.676948187957887,
+  "after_music_relative_db": -3.0445076705096246,
+  "formal_files_unchanged": true,
+  "packages_updated": false,
+  "performance_rerun": false,
+  "fresh_checkout_this_followup": false,
+  "source_sha256": {
+    "app/living_root.tscn": "d5e3b822ed41f9beb924486538891019bafeb3536b2536ab29d0b28b248b6d44",
+    "features/living_world/calendar_panel.gd": "60e258cbe51e1b765d58c1fac02d0d9923e98817105a15f30560cd7567d99923",
+    "features/living_world/calendar_state.gd": "53ebe5d9fa89f199e9a3ed3e98f682d3ce44f8d310d70df934a7bff1f19423f3",
+    "features/audio/seasonal_music.gd": "5c467fde13381df7a5b6ad1cfb68dc8fc3b9c8719da305b2b5d5a2bc8ca77a6f",
+    "features/audio/world_audio.gd": "70d42f5744c4b14de0df5a04fd0d97d6fd933404c87082785af2614e035b5b57",
+    "features/direct_edit/simple_hud.gd": "87347d97dff7db34aad19537e0ce3be9da5b5dd4f9d0751a64ad3a740b28765b",
+    "tests/week_13/music_mix_probe.gd": "5204784828db1e91ac10fa9d6c2d76a338b95acb96f2d835bdc9d5bc6e149d0b"
+  }
+}

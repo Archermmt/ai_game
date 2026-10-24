@@ -1,0 +1,139 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/week_13/test_living_data.gd
+* test_calendar_rolls_minute_day_month_and_year
+* test_pause_and_speed_are_independent_from_wall_clock
+* test_large_delta_rolls_multiple_years
+* test_seasons_follow_months
+* test_invalid_clock_data_is_rejected_without_mutation
+* test_clock_roundtrip_in_save_presentation_and_legacy
+* test_relief_new_demo_is_valid_and_preserves_source_identity
+* test_relief_has_hills_hollows_and_seed_repeatability
+* test_old_flat_world_still_flat
+* test_new_ground_contacts_and_cache_keys
+* test_illustration_cache_and_different_tool_silhouettes
+* test_calendar_upper_bound_remains_savable
+* test_custom_slider_rate_roundtrips_and_rejects_out_of_range_values
+13/13 passed.
+
+
+res://tests/week_13/test_living_scene.gd
+* test_new_entry_has_real_relief_and_calendar
+* test_every_quick_tool_and_asset_uses_picture_with_accessible_description
+* test_calendar_controls_change_date_weather_speed_without_source_or_history_edits
+* test_daynight_seasons_and_weather_render_state
+* test_reduced_motion_and_photo_freeze_weather_and_clock
+* test_async_save_and_load_restore_calendar_presentation
+* test_legacy_dusk_maps_to_evening_and_can_return_to_daylight
+* test_compact_calendar_groups_date_time_and_keeps_weather_in_heading
+* test_speed_slider_covers_every_rate_and_pause_preserves_the_rate
+    [Failed]:  [0.0] expected to equal [1.0]:  
+      at line 208
+    [Failed]:  ["暂停"] expected to equal ["1×"]:  
+      at line 209
+* test_current_hud_omits_legacy_modification_entries
+    58 Orphans
+        * [@Button@1607:<Button#1631785591051>]
+        * [@Button@1608:<Button#1631869477136>]
+        * [@Button@1610:<Button#1632037249305>]
+        * [@Button@1609:<Button#1631953363227>]
+        * [@Button@1611:<Button#1632121135391>]
+        * [@Button@1613:<Button#1632288908816>]
+        * [@Button@1594:<Button#1300737566283>]
+        * [@Button@1616:<Button#1632658007633>]
+        * [@Button@1617:<Button#1632741893726>]
+        * [@Button@1618:<Button#1632892888679>]
+        * [@Button@1593:<Button#1300653680235>]
+        * [@Button@1592:<Button#1300502685294>]
+        * [@Button@1612:<Button#1632205022837>]
+        * [@Button@1615:<Button#1632574121610>]
+        * [@Button@1614:<Button#1632490235535>]
+        * [@Button@1591:<Button#1300418799249>]
+        * [@Button@1619:<Button#1632976774804>]
+        * [@Button@1620:<Button#1633060660889>]
+        * [@Button@1621:<Button#1633144546974>]
+        * [@Button@1622:<Button#1633228433059>]
+        * [@Button@1623:<Button#1633312319144>]
+        * [@Button@1624:<Button#1633396205229>]
+        * [@Button@1625:<Button#1633480091314>]
+        * [@Button@1626:<Button#1633597531831>]
+        * [@Button@1627:<Button#1633748526782>]
+        * [@Button@1628:<Button#1633899521733>]
+        * [@Button@1629:<Button#1634050516684>]
+        * [@Button@1630:<Button#1634201511635>]
+        * [@Button@1631:<Button#1634352506586>]
+        * [@Button@1632:<Button#1634503501537>]
+        * [@Button@1633:<Button#1634654496488>]
+        * [@Button@1634:<Button#1634805491439>]
+        * [@Button@1635:<Button#1634956486390>]
+        * [@Button@1636:<Button#1635107481341>]
+        * [@Button@1637:<Button#1635258476292>]
+        * [@Button@1638:<Button#1635409471243>]
+        * [@Button@1639:<Button#1635493357328>]
+        * [@Button@1640:<Button#1635610797845>]
+        * [@Button@1641:<Button#1635761792796>]
+        * [@Button@1642:<Button#1635912787747>]
+        * [@Button@1643:<Button#1636063782698>]
+        * [@Button@1644:<Button#1636214777649>]
+        * [@Button@1645:<Button#1636298663734>]
+        * [@Button@1646:<Button#1636483213115>]
+        * [@Button@1647:<Button#1636567099200>]
+        * [@Button@1648:<Button#1636650985285>]
+        * [@Button@1649:<Button#1636734871370>]
+        * [@Button@1650:<Button#1636818757455>]
+        * [@Button@1651:<Button#1636902643540>]
+        * [@Button@1652:<Button#1636986529625>]
+        * [@Button@1653:<Button#1637070415710>]
+        * [@Button@1654:<Button#1637154301795>]
+        * [@Button@1655:<Button#1637238187880>]
+        * [@Button@1656:<Button#1637405960045>]
+        * [@Button@1657:<Button#1637489846130>]
+        * [@Button@1658:<Button#1637573732215>]
+        * [@Button@1659:<Button#1637657618300>]
+        * [@Button@1660:<Button#1637741504385>]
+58 orphans
+9/10 passed.
+
+
+res://tests/week_13/test_seasonal_music.gd
+* test_every_season_and_time_has_three_distinct_valid_candidates
+* test_shuffle_bag_plays_all_candidates_without_immediate_repeats
+* test_fade_in_crossfade_and_mute_have_bounded_continuous_gain
+* test_context_debounce_and_weather_ducking
+* test_all_streams_are_full_length_non_looping_music
+* test_quit_fades_then_shutdown_releases_both_voices_idempotently
+6/6 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+res://tests/week_13/test_living_scene.gd
+- test_speed_slider_covers_every_rate_and_pause_preserves_the_rate
+    [Failed]:  [0.0] expected to equal [1.0]:  
+          at line 208
+    [Failed]:  ["暂停"] expected to equal ["1×"]:  
+          at line 209
+
+Totals
+------
+Scripts               3
+Tests                29
+Passing Tests        28
+Failing Tests         1
+Asserts           1345/1347
+Time              6.087s
+
+
+---- 1 failing tests ----
+
+Results saved to reports/hud_audio_targeted.xml
