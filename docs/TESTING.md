@@ -260,3 +260,5 @@ W13后续界面/音频门禁扩展至至少29项；原生UI至少12项，音乐�
 W13天气扩展累计至少40项，原生至少22项；`python3 tools/quality/weather_budget_checks.py`串行测试暴风雨/暴风雪/沙尘暴满容量各30秒，帧p95/RSS与编辑延迟分开。范围和结果见[四季随机天气](weekly/week_13/WEATHER_CYCLE.md)。
 
 W13水面扩展至至少44项；`python3 tools/quality/pond_water_native_checks.py`验证水面遮罩内的9项效果与无RID泄漏，`pond_water_performance_checks.py`串行测满容量编辑60秒和绕转30秒。见[水面研究与验证](weekly/week_13/POND_WATER.md)。
+
+W13漫步扩展至至少62项，新增18项控制器/支撑/障碍回归；`python3 tools/quality/walk_native_checks.py`验证至少18项实际输入、导出时环顾隔离、无界面PNG与相机恢复，`python3 tools/quality/walk_performance_checks.py`测24屋/1000源进入漫步后的30秒前进/环顾。全部原生串行，保留原始帧间隔；20ms帧p95与冷启动/编辑延迟分开，不把合成PanGesture当作物理触控板验收。见[漫步说明与证据](weekly/week_13/FIRST_PERSON_WALK.md)。

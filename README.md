@@ -35,6 +35,7 @@ python3 tools/quality/run_game.py
 | 存档 / 读档 | Ctrl/Cmd+S / Ctrl/Cmd+O；或按钮 |
 | 日期 / 天气 / 流速 | 右侧林间历：Month/Day/Hour/Min下拉；Weather选晴/阴/雨/雪；Speed暂停或1/5/20/60倍 |
 | 四季 / 减少动态 | 月份决定季节；顶部「设置」减少动态会禁止闪电 |
+| 第一人称漫步 | 相机卡片 → 林间漫步；WASD/方向键行走，Shift稍快；右键拖动或Mac双指环顾；Esc返回编辑 |
 
 建筑宽深 3–12m、高 2.4–7.2m；拖建时默认高 3m，选中后拖动就地手柄调整，精确尺寸与檐高仍可从“精确参数”设置；建筑旋转仅支持 0°。
 重叠放置被拒绝，相切 / 同朝向侧贴可通过数据检查；接触墙消隐与端部封边已有风险实现；当前美术层已接厚屋檐、木石收边与局部贴靠裁剪。
@@ -57,6 +58,9 @@ python3 tools/quality/run_game.py
 python3 tools/quality/week_thirteen_checks.py
 # 有桌面GPU：图标/日期真实输入、四季天气与150%界面实拍
 python3 tools/quality/week_thirteen_native_checks.py
+# 第一人称输入、无界面PNG与相机恢复；24屋/1000源漫步30秒
+python3 tools/quality/walk_native_checks.py
+python3 tools/quality/walk_performance_checks.py
 # 起伏示范与晴/雨/雪满容量，各60秒及20笔编辑
 python3 tools/quality/week_thirteen_performance.py
 # ART 多角度与环绕录像保留历史入口：art_pass_render_checks.py / art_pass_orbit.py
@@ -131,3 +135,5 @@ W10 加入环境/操作/音乐三路音量（设置面板；0 为关闭）。当
 日历“明早6:00”可跳过今天；底部太阳图标设置四季天气比例。自动天气每3游戏小时抽取，春夏秋禁雪、冬季禁雨，支持暴风雨/暴风雪/沙尘暴与雾。详见[天气说明](docs/weekly/week_13/WEATHER_CYCLE.md)。
 
 池塘新增实际场景倒影、流动波纹、深浅水色和岸边细纹，沿用减少动态/摄影冻结。前后效果与开销见[水面说明](docs/weekly/week_13/POND_WATER.md)。
+
+摄影加入[林间漫步](docs/weekly/week_13/FIRST_PERSON_WALK.md)：贴地行走、通过桥梯、避开屋体和池水，可隐藏面板并导出第一人称照片。返回俯瞰恢复原构图/景深；暂不提供房屋内部或游泳。
