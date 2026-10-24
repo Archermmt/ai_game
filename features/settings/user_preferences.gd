@@ -122,6 +122,11 @@ static func valid(candidate: Dictionary) -> bool:
 		return false
 	if candidate.has("garden_focus") and not candidate["garden_focus"] is bool:
 		return false
+	if (
+		candidate.has("seasonal_music_initialized")
+		and not candidate["seasonal_music_initialized"] is bool
+	):
+		return false
 	for key: String in ["ambient_volume", "effects_volume", "music_volume", "grass_density"]:
 		if candidate.has(key):
 			var volume: Variant = candidate[key]

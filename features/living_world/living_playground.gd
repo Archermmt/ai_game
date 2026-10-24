@@ -1,8 +1,10 @@
 extends "res://features/hover_edit/hover_playground.gd"
 ## Scene-owned clock/atmosphere. Source edits retain the existing transactions.
 
+var seasonal_music: SeasonalMusic
 var calendar: CalendarState = CalendarState.new()
 var atmosphere: LivingAtmosphere
+var _music_quitting: bool = false
 var _calendar_refresh: float = 0.0
 var _climate_frozen: bool = false
 var _calendar_revision: int = 0
@@ -21,6 +23,12 @@ func _ready() -> void:
 	super._ready()
 	if qa_mode:
 		saves.directory = "user://qa_week13_native"
+	soundscape.music_override = true
+	soundscape.music.stop()
+	seasonal_music = SeasonalMusic.new()
+	soundscape.add_child(seasonal_music)
+	seasonal_music.configure(preferences.values["music_volume"])
+	_persist_preferences()
 	hud.attach_calendar(calendar)
 	atmosphere = LivingAtmosphere.new()
 	world_view.add_child(atmosphere)
@@ -60,6 +68,8 @@ func _process(delta: float) -> void:
 		calendar.advance(delta)
 	atmosphere.frozen = _climate_frozen
 	atmosphere.update(delta, calendar.sample())
+	if seasonal_music != null:
+		seasonal_music.sync_calendar(calendar.sample())
 	_calendar_refresh += delta
 	if _calendar_refresh > 0.2:
 		_calendar_refresh = 0
@@ -127,3 +137,23 @@ func _delivery_metrics() -> Dictionary:
 		)
 		result["living_sun_energy"] = sun.light_energy
 	return result
+
+
+func _apply_preferences() -> void:
+	if not preferences.values.get("seasonal_music_initialized", false):
+		preferences.values["seasonal_music_initialized"] = true
+		if preferences.values["music_volume"] == 0:
+			preferences.values["music_volume"] = 0.5
+	super._apply_preferences()
+	if seasonal_music != null:
+		seasonal_music.configure(preferences.values["music_volume"])
+
+
+func _request_quit() -> void:
+	if _music_quitting:
+		return
+	_music_quitting = true
+	if seasonal_music != null:
+		seasonal_music.fade_out()
+		await SceneShutdown.wait_wallclock(get_tree(), 1.6)
+	super._request_quit()

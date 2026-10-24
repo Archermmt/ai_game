@@ -124,6 +124,6 @@ ART-01 原创自然模型和材质的可重建命令：
 /Applications/Blender.app/Contents/MacOS/Blender --background --python-exit-code 1 --python tools/art/audit_sources.py -- --root "$PWD" --extra-manifest art_source/art_pass_01/nature/manifest.json --output "$PWD/reports/art_source_audit.json"
 ```
 
-W10 默认继承已接受的美术样板，加入环境/操作/音乐三路音量（设置面板；0 为静音，音乐默认关闭）。累计验证：`python3 tools/quality/week_thirteen_checks.py`。进度和未关闭门槛见 `STATUS.md`，当周证据见 `docs/weekly/week_10/`。
+W10 加入环境/操作/音乐三路音量（设置面板；0 为关闭）。当前主场景使用用户提供的8首音乐，按季节/时段从3首候选中随机播放，柔和混音与6秒交叉淡化；首次启用默认50%，后续记住音量和关闭选择。见[季节音乐说明](docs/weekly/week_13/SEASONAL_MUSIC.md)。累计验证：`python3 tools/quality/week_thirteen_checks.py`。进度和未关闭门槛见 `STATUS.md`，当周证据见 `docs/weekly/week_10/`。
 
 底部「花草」卡片内可拖动地表动态草密度，0关闭、默认45%、100%最高，手工种植不受影响。设置可关闭远景柔焦；摄影保留景深并冻结草。修订报告见 `docs/weekly/ui_meadow_01/README.md`。

@@ -15,6 +15,7 @@ var last_effect: float = -1.0
 var sequence: int = 0
 var played: Array[String] = []
 var streams: Dictionary = {}
+var music_override: bool = false
 var _fade: float = 0.0
 
 
@@ -66,7 +67,7 @@ func _stream(key: String, looped: bool = false) -> AudioStreamWAV:
 func configure(values: Dictionary) -> void:
 	for key: String in levels:
 		levels[key] = float(values.get(key, levels[key]))
-	if music != null:
+	if music != null and not music_override:
 		if levels["music_volume"] > 0 and not music.playing:
 			music.play()
 		elif levels["music_volume"] == 0:
@@ -96,7 +97,7 @@ func _process(delta: float) -> void:
 	elapsed += delta
 	_fade = minf(1.0, _fade + delta * 1.5)
 	_apply_ambient()
-	if music != null:
+	if music != null and not music_override:
 		music.volume_db = _db(levels["music_volume"] * 0.5 * _fade)
 
 
@@ -177,6 +178,8 @@ func shutdown() -> void:
 	set_process(false)
 	# Release active mixer playback references before the scene resources disappear.
 	for child: Node in get_children():
+		if child.has_method("shutdown"):
+			child.shutdown()
 		if child is AudioStreamPlayer or child is AudioStreamPlayer3D:
 			child.stop()
 			child.stream = null
