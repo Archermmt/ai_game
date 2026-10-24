@@ -1,0 +1,22 @@
+{
+  "revision": "df8b7114bd06c4b339ba38dfc6b777c46b7e8640",
+  "sources": {
+    "features/audio/seasonal_music.gd": "acd7ec58c2034f54934b3d55e641397fccfa3c8556423296e0d25e4af692d9b4",
+    "features/audio/world_audio.gd": "dcac49af4a5e0d20b583dfce3e8c54db92a02744a7f8b761f01f23616663c8c7",
+    "features/living_world/living_playground.gd": "11ec6e451c3da760edacc6f21fdb62c3a4ded0f2fc7049f2e28a278e32c4f7e5",
+    "features/settings/user_preferences.gd": "8b5c8b30b0cd3b0bbb0afddfb5a1ade74de10646afcd846035f8f5565daf00c0",
+    "tests/week_13/test_seasonal_music.gd": "0da869b9530a1b89ba2bbdaac784f32baa45b187c22f679eefdf0d4204029fb6",
+    "tests/week_13/music_native_probe.gd": "80dd7d83e506714a24544ef2b41fcf23ca71c0428a40dc1c4c16f510a5d9befb"
+  },
+  "godot_tests": 682,
+  "godot_assertions": 20514,
+  "python_tests": 28,
+  "new_tests": 6,
+  "new_assertions": 328,
+  "native_checks": 10,
+  "physical_listening_verified": false,
+  "fresh_checkout_this_followup": false,
+  "performance_rerun": false,
+  "packages_updated": false,
+  "note": "Cumulative worktree became source revision above; native probe integer0 corrected to float0.0 without runtime change; final repeatable native command run on committed revision."
+}

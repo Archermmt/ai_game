@@ -1,0 +1,94 @@
+{
+  "processing": "ffmpeg lowpass6500Hz; loudnorm I=-24 TP=-4 LRA=8; MP3 128k stereo48kHz",
+  "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+  "tracks": [
+    {
+      "id": "winter",
+      "source_file": "冬雪_暖洋洋的肉酱面_治愈.mp3",
+      "source_sha256": "95cd9d15a2c94cb2499f7ed8fde720105dc577ae811eb78cfbe71ac33ce3f02c",
+      "export": "assets/audio/seasonal_music/winter.mp3",
+      "sha256": "ac21938563edc25266976a576216cbc4e4381153258cc8d3027c3a70e2ab5810",
+      "seconds": 172.8,
+      "integrated_lufs": -23.37,
+      "true_peak_dbtp": -11.68,
+      "rights": "User-provided music, authorized for this project by user; no independent distribution license supplied"
+    },
+    {
+      "id": "all_seasons",
+      "source_file": "四季环_暖洋洋的肉酱面_放松_民谣.mp3",
+      "source_sha256": "c4cb30fd20f18276ff29059c891cccd3631bb932377b5c30340b1ba7393a6e53",
+      "export": "assets/audio/seasonal_music/all_seasons.mp3",
+      "sha256": "15f55e1da9c3095c22e74f19725f3681d992eaf65ef7b111cf796f309e3f0326",
+      "seconds": 182.648167,
+      "integrated_lufs": -24.13,
+      "true_peak_dbtp": -12.5,
+      "rights": "User-provided music, authorized for this project by user; no independent distribution license supplied"
+    },
+    {
+      "id": "summer_flowers",
+      "source_file": "夏花_暖洋洋的肉酱面_轻快.mp3",
+      "source_sha256": "0a687aff302d3db5b06f799b9da8db44fd0d53a90d8273758a4d8ff524bb98ed",
+      "export": "assets/audio/seasonal_music/summer_flowers.mp3",
+      "sha256": "708653d935b9693d4015568b9543b4b71dc9b7906fdbe5cad7e0a8faeb0f3024",
+      "seconds": 154.88,
+      "integrated_lufs": -24.75,
+      "true_peak_dbtp": -12.8,
+      "rights": "User-provided music, authorized for this project by user; no independent distribution license supplied"
+    },
+    {
+      "id": "summer_breeze",
+      "source_file": "夏风蝉鸣_暖洋洋的肉酱面_轻快.mp3",
+      "source_sha256": "e08c878fab0f81944c2374c137d88fb1078c56067981bbeb6fca52351015f8ad",
+      "export": "assets/audio/seasonal_music/summer_breeze.mp3",
+      "sha256": "054c13e8243a8e2525ee75503f72fb598afd786b3ec1ae2807cb279f7a51dbfd",
+      "seconds": 165.06775,
+      "integrated_lufs": -24.16,
+      "true_peak_dbtp": -12.11,
+      "rights": "User-provided music, authorized for this project by user; no independent distribution license supplied"
+    },
+    {
+      "id": "pastoral",
+      "source_file": "田园慢时光_暖洋洋的肉酱面_温暖_民谣.mp3",
+      "source_sha256": "aaa51a1396a706222311f90681a81f533d5ac8bf158aca910a33015fbcedb601",
+      "export": "assets/audio/seasonal_music/pastoral.mp3",
+      "sha256": "2f55e3d7daa02bfe8395ad532a7bea2f157c2f8b42f62e5e03dccd8b5730599b",
+      "seconds": 162.925729,
+      "integrated_lufs": -24.24,
+      "true_peak_dbtp": -12.26,
+      "rights": "User-provided music, authorized for this project by user; no independent distribution license supplied"
+    },
+    {
+      "id": "autumn",
+      "source_file": "秋叶_暖洋洋的肉酱面.mp3",
+      "source_sha256": "44d059b78235c2140094f9586f098524453fe5e7492add5aefbde9285cdebf22",
+      "export": "assets/audio/seasonal_music/autumn.mp3",
+      "sha256": "296eb4c39e0c31b869073cdbbce0bd5745b124222eeaabe94d7686a90324aa4d",
+      "seconds": 204.930625,
+      "integrated_lufs": -23.45,
+      "true_peak_dbtp": -10.73,
+      "rights": "User-provided music, authorized for this project by user; no independent distribution license supplied"
+    },
+    {
+      "id": "stars",
+      "source_file": "繁星_暖洋洋的肉酱面_治愈.mp3",
+      "source_sha256": "554e83408d3e4f35dff6d9106123490c31f56d28d94d4e5a8d410ce97968b98b",
+      "export": "assets/audio/seasonal_music/stars.mp3",
+      "sha256": "0b0de56762b76d936e9a48ebc9478280df9299f7d26027e4e7494fd5783abc77",
+      "seconds": 239.804083,
+      "integrated_lufs": -23.57,
+      "true_peak_dbtp": -10.7,
+      "rights": "User-provided music, authorized for this project by user; no independent distribution license supplied"
+    },
+    {
+      "id": "sunny_pasture",
+      "source_file": "阳光牧场的旷野之梦_暖洋洋的肉酱面.mp3",
+      "source_sha256": "92fb2e46d36b10c79ca754f47fad3b5a80a069d58444049070546797f0e700b1",
+      "export": "assets/audio/seasonal_music/sunny_pasture.mp3",
+      "sha256": "8299c4afbef05689279c86b9e664071548ff3b71a834e337af45c329b00e8337",
+      "seconds": 89.939604,
+      "integrated_lufs": -24.7,
+      "true_peak_dbtp": -9.55,
+      "rights": "User-provided music, authorized for this project by user; no independent distribution license supplied"
+    }
+  ]
+}
