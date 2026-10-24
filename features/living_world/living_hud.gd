@@ -1,5 +1,8 @@
 extends "res://features/hover_edit/hover_hud.gd"
 
+var walk_toggle: Button
+var walk_hint: Label
+var walk_bookmark: Button
 var weather_controls: WeatherControls
 var calendar: CalendarPanel
 var _weather_visible: bool = false
@@ -87,3 +90,36 @@ func close_context() -> void:
 	super.close_context()
 	if weather_controls != null:
 		weather_controls.hide()
+
+
+func _ready() -> void:
+	super._ready()
+	var stack: VBoxContainer = photo_note.get_parent()
+	walk_toggle = Button.new()
+	walk_toggle.name = "FirstPersonWalk"
+	walk_toggle.icon = IllustratedIcons.texture("walk")
+	walk_toggle.expand_icon = true
+	walk_toggle.add_theme_constant_override("icon_max_width", 24)
+	walk_toggle.pressed.connect(func() -> void: photo_requested.emit("walk"))
+	stack.add_child(walk_toggle)
+	stack.move_child(walk_toggle, 1)
+	walk_hint = Label.new()
+	walk_hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	walk_hint.text = "WASD/方向键行走 · Shift稍快\n右键拖动/双指环顾 · 松开右键操作面板\nEsc返回编辑；可隐藏面板沉浸漫步"
+	stack.add_child(walk_hint)
+	stack.move_child(walk_hint, 2)
+	for child: Node in stack.get_children():
+		if child is Button and child.text == "保存当前构图":
+			walk_bookmark = child
+	set_walk_mode(false)
+
+
+func set_walk_mode(enabled: bool) -> void:
+	var title: Label = photo_note.get_parent().get_child(0)
+	title.text = "摄影 · 林间漫步" if enabled else "摄影 · 双指移动旋转 / 捏合缩放"
+	walk_toggle.text = "返回俯瞰视角" if enabled else "林间漫步 · 第一人称"
+	walk_toggle.accessibility_name = walk_toggle.text
+	walk_hint.visible = enabled
+	if walk_bookmark != null:
+		walk_bookmark.disabled = enabled
+		walk_bookmark.tooltip_text = "漫步时可导出照片；返回俯瞰后可保存构图" if enabled else "保存当前构图"

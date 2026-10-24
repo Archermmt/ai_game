@@ -24,6 +24,9 @@ static func texture(key: String) -> Texture2D:
 
 
 static func drawing(key: String) -> String:
+	if key == "walk":
+		return '<path d="M14 57q17-27 40-44M18 59q4-14 13-18M39 31q7-14 17-17" fill="none" stroke-width="4"/><ellipse cx="22" cy="29" rx="7" ry="12" transform="rotate(-25 22 29)" fill="#aab68d"/><ellipse cx="51" cy="48" rx="7" ry="12" transform="rotate(-25 51 48)" fill="#bba175"/>'
+
 	if key == "next_morning":
 		return '<path d="M8 49h56M16 49a20 20 0 0 1 40 0M36 8v10M13 22l7 7M59 22l-7 7" fill="#d8bb73"/><path d="M26 41l14 7-14 7M43 40v16" fill="none" stroke-width="4"/>'
 	if key in ["storm", "blizzard", "duststorm", "fog"]:

@@ -1,10 +1,13 @@
 extends "res://features/hover_edit/hover_playground.gd"
 ## Scene-owned clock/atmosphere. Source edits retain the existing transactions.
 
+var walk_controller: FirstPersonWalk = FirstPersonWalk.new()
 var pond_reflections: PondReflections
 var seasonal_music: SeasonalMusic
 var calendar: CalendarState = CalendarState.new()
 var atmosphere: LivingAtmosphere
+var _walk_was_frozen: bool = false
+var _walk_orbit_recording: bool = false
 var _music_quitting: bool = false
 var _calendar_refresh: float = 0.0
 var _climate_frozen: bool = false
@@ -69,6 +72,15 @@ func _process(delta: float) -> void:
 	super._process(delta)
 	if atmosphere == null:
 		return
+	if walk_controller.active:
+		var focus: Control = get_viewport().gui_get_focus_owner()
+		walk_controller.step(
+			delta,
+			(
+				not photography.busy
+				and not (focus is LineEdit or focus is TextEdit or focus is ItemList)
+			)
+		)
 	atmosphere.reduced_motion = preferences.values.get("reduce_motion", false)
 	if not _climate_frozen:
 		calendar.advance(delta)
@@ -187,3 +199,94 @@ func _on_published(snapshot: Dictionary, prepared: Dictionary) -> void:
 	super._on_published(snapshot, prepared)
 	if pond_reflections != null:
 		pond_reflections.request_update()
+
+
+func start_walk() -> bool:
+	if not photo_active or photography.busy:
+		return false
+	if walk_controller.active:
+		return true
+	if not walk_controller.begin(camera_rig, document.snapshot()):
+		hud.photo_note.text = "附近没有安全的落脚点，请先换个俯瞰构图"
+		return false
+	_walk_was_frozen = hud.freeze.button_pressed
+	_walk_orbit_recording = _orbit_recording
+	_orbit_recording = false
+	hud.freeze.set_pressed_no_signal(false)
+	_freeze_photo(false)
+	hud.set_walk_mode(true)
+	hud.photo_note.text = "已进入林间漫步，可行走、环顾并导出照片"
+	return true
+
+
+func stop_walk() -> void:
+	if not walk_controller.active:
+		return
+	walk_controller.stop()
+	_orbit_recording = _walk_orbit_recording
+	hud.set_walk_mode(false)
+	hud.freeze.set_pressed_no_signal(_walk_was_frozen)
+	_freeze_photo(_walk_was_frozen)
+
+
+func exit_photo() -> void:
+	if photography != null and photography.busy:
+		return
+	stop_walk()
+	super.exit_photo()
+
+
+func _photo_action(action: String) -> void:
+	if photography.busy:
+		return
+	if action == "walk":
+		if walk_controller.active:
+			stop_walk()
+		else:
+			start_walk()
+		return
+	if walk_controller.active and action == "bookmark":
+		hud.photo_note.text = "漫步照片可直接导出，返回俯瞰后可保存构图"
+		return
+	if walk_controller.active and action == "restore":
+		stop_walk()
+	if walk_controller.active and action == "export":
+		walk_controller.reset_input()
+		var was_frozen: bool = _climate_frozen
+		_freeze_photo(true)
+		await super._photo_action(action)
+		if photo_active and walk_controller.active:
+			_freeze_photo(was_frozen)
+		return
+	super._photo_action(action)
+
+
+func _input(event: InputEvent) -> void:
+	if walk_controller.active:
+		if photography.busy:
+			walk_controller.reset_input()
+			get_viewport().set_input_as_handled()
+			return
+		if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
+			exit_photo()
+			get_viewport().set_input_as_handled()
+			return
+		var focus: Control = get_viewport().gui_get_focus_owner()
+		var typing: bool = focus is LineEdit or focus is TextEdit or focus is ItemList
+		var over_ui: bool = get_viewport().gui_get_hovered_control() != null
+		if walk_controller.handle(event, over_ui, typing):
+			get_viewport().set_input_as_handled()
+		return
+	super._input(event)
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_WINDOW_FOCUS_OUT and walk_controller != null:
+		walk_controller.reset_input()
+	super._notification(what)
+
+
+func _exit_tree() -> void:
+	if walk_controller != null:
+		walk_controller.stop()
+	super._exit_tree()
