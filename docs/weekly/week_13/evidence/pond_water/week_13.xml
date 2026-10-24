@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="44" >
+  <testsuite name="tests/week_13/test_living_data.gd" tests="13" failures="0" skipped="0" time="0.105089" >
+      <testcase name="test_calendar_rolls_minute_day_month_and_year" assertions="2" status="pass" classname="tests/week_13/test_living_data.gd" time="0.000195" >
+      </testcase>
+      <testcase name="test_pause_and_speed_are_independent_from_wall_clock" assertions="2" status="pass" classname="tests/week_13/test_living_data.gd" time="0.00073" >
+      </testcase>
+      <testcase name="test_large_delta_rolls_multiple_years" assertions="1" status="pass" classname="tests/week_13/test_living_data.gd" time="0.000103" >
+      </testcase>
+      <testcase name="test_seasons_follow_months" assertions="5" status="pass" classname="tests/week_13/test_living_data.gd" time="0.000101" >
+      </testcase>
+      <testcase name="test_invalid_clock_data_is_rejected_without_mutation" assertions="16" status="pass" classname="tests/week_13/test_living_data.gd" time="0.005102" >
+      </testcase>
+      <testcase name="test_clock_roundtrip_in_save_presentation_and_legacy" assertions="5" status="pass" classname="tests/week_13/test_living_data.gd" time="0.000839" >
+      </testcase>
+      <testcase name="test_relief_new_demo_is_valid_and_preserves_source_identity" assertions="6" status="pass" classname="tests/week_13/test_living_data.gd" time="0.082094" >
+      </testcase>
+      <testcase name="test_relief_has_hills_hollows_and_seed_repeatability" assertions="627" status="pass" classname="tests/week_13/test_living_data.gd" time="0.011091" >
+      </testcase>
+      <testcase name="test_old_flat_world_still_flat" assertions="1" status="pass" classname="tests/week_13/test_living_data.gd" time="0.000097" >
+      </testcase>
+      <testcase name="test_new_ground_contacts_and_cache_keys" assertions="21" status="pass" classname="tests/week_13/test_living_data.gd" time="0.002861" >
+      </testcase>
+      <testcase name="test_illustration_cache_and_different_tool_silhouettes" assertions="45" status="pass" classname="tests/week_13/test_living_data.gd" time="0.001487" >
+      </testcase>
+      <testcase name="test_calendar_upper_bound_remains_savable" assertions="2" status="pass" classname="tests/week_13/test_living_data.gd" time="0.000093" >
+      </testcase>
+      <testcase name="test_custom_slider_rate_roundtrips_and_rejects_out_of_range_values" assertions="17" status="pass" classname="tests/week_13/test_living_data.gd" time="0.000296" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_13/test_living_scene.gd" tests="12" failures="0" skipped="0" time="0.638878" >
+      <testcase name="test_new_entry_has_real_relief_and_calendar" assertions="4" status="pass" classname="tests/week_13/test_living_scene.gd" time="0.000197" >
+      </testcase>
+      <testcase name="test_every_quick_tool_and_asset_uses_picture_with_accessible_description" assertions="168" status="pass" classname="tests/week_13/test_living_scene.gd" time="0.11173" >
+      </testcase>
+      <testcase name="test_calendar_controls_change_date_weather_speed_without_source_or_history_edits" assertions="5" status="pass" classname="tests/week_13/test_living_scene.gd" time="0.07092" >
+      </testcase>
+      <testcase name="test_daynight_seasons_and_weather_render_state" assertions="6" status="pass" classname="tests/week_13/test_living_scene.gd" time="0.000133" >
+      </testcase>
+      <testcase name="test_reduced_motion_and_photo_freeze_weather_and_clock" assertions="7" status="pass" classname="tests/week_13/test_living_scene.gd" time="0.001376" >
+      </testcase>
+      <testcase name="test_async_save_and_load_restore_calendar_presentation" assertions="7" status="pass" classname="tests/week_13/test_living_scene.gd" time="0.285565" >
+      </testcase>
+      <testcase name="test_legacy_dusk_maps_to_evening_and_can_return_to_daylight" assertions="4" status="pass" classname="tests/week_13/test_living_scene.gd" time="0.000237" >
+      </testcase>
+      <testcase name="test_compact_calendar_groups_date_time_and_keeps_weather_in_heading" assertions="14" status="pass" classname="tests/week_13/test_living_scene.gd" time="0.000414" >
+      </testcase>
+      <testcase name="test_speed_slider_covers_every_rate_and_pause_preserves_the_rate" assertions="16" status="pass" classname="tests/week_13/test_living_scene.gd" time="0.06007" >
+      </testcase>
+      <testcase name="test_current_hud_omits_legacy_modification_entries" assertions="38" status="pass" classname="tests/week_13/test_living_scene.gd" time="0.045109" >
+      </testcase>
+      <testcase name="test_next_morning_and_seasonal_probability_controls_do_not_edit_world" assertions="12" status="pass" classname="tests/week_13/test_living_scene.gd" time="0.062743" >
+      </testcase>
+      <testcase name="test_severe_weather_uses_bounded_distinct_effects_and_reduced_motion" assertions="24" status="pass" classname="tests/week_13/test_living_scene.gd" time="0.000384" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_13/test_pond_water.gd" tests="4" failures="0" skipped="0" time="0.743634" >
+      <testcase name="test_planar_water_has_a_single_bounded_camera_and_no_feedback_or_probe" assertions="7" status="pass" classname="tests/week_13/test_pond_water.gd" time="0.00022" >
+      </testcase>
+      <testcase name="test_reflected_camera_preserves_source_and_has_a_valid_mirrored_pose" assertions="5" status="pass" classname="tests/week_13/test_pond_water.gd" time="0.064023" >
+      </testcase>
+      <testcase name="test_reflection_updates_are_throttled_and_weather_controls_ripples" assertions="5" status="pass" classname="tests/week_13/test_pond_water.gd" time="0.000787" >
+      </testcase>
+      <testcase name="test_empty_layout_disables_capture_and_a_new_pond_reuses_the_capture_node" assertions="6" status="pass" classname="tests/week_13/test_pond_water.gd" time="0.678604" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_13/test_seasonal_music.gd" tests="6" failures="0" skipped="0" time="2.616848" >
+      <testcase name="test_every_season_and_time_has_three_distinct_valid_candidates" assertions="143" status="pass" classname="tests/week_13/test_seasonal_music.gd" time="0.421502" >
+      </testcase>
+      <testcase name="test_shuffle_bag_plays_all_candidates_without_immediate_repeats" assertions="140" status="pass" classname="tests/week_13/test_seasonal_music.gd" time="0.43695" >
+      </testcase>
+      <testcase name="test_fade_in_crossfade_and_mute_have_bounded_continuous_gain" assertions="14" status="pass" classname="tests/week_13/test_seasonal_music.gd" time="0.438043" >
+      </testcase>
+      <testcase name="test_context_debounce_and_weather_ducking" assertions="5" status="pass" classname="tests/week_13/test_seasonal_music.gd" time="0.442674" >
+      </testcase>
+      <testcase name="test_all_streams_are_full_length_non_looping_music" assertions="17" status="pass" classname="tests/week_13/test_seasonal_music.gd" time="0.439277" >
+      </testcase>
+      <testcase name="test_quit_fades_then_shutdown_releases_both_voices_idempotently" assertions="9" status="pass" classname="tests/week_13/test_seasonal_music.gd" time="0.438402" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_13/test_weather_cycle.gd" tests="9" failures="0" skipped="0" time="0.036616" >
+      <testcase name="test_default_probabilities_sum_to_100_and_never_pick_forbidden_seasons" assertions="965" status="pass" classname="tests/week_13/test_weather_cycle.gd" time="0.008136" >
+      </testcase>
+      <testcase name="test_reweighting_zero_and_full_preserve_total_and_recover_other_weights" assertions="153" status="pass" classname="tests/week_13/test_weather_cycle.gd" time="0.00639" >
+      </testcase>
+      <testcase name="test_weighted_sampling_tracks_the_configured_ratio_and_seed" assertions="2" status="pass" classname="tests/week_13/test_weather_cycle.gd" time="0.012732" >
+      </testcase>
+      <testcase name="test_skip_morning_rolls_month_season_and_year_even_while_paused" assertions="8" status="pass" classname="tests/week_13/test_weather_cycle.gd" time="0.000378" >
+      </testcase>
+      <testcase name="test_skip_at_maximum_date_is_atomic" assertions="2" status="pass" classname="tests/week_13/test_weather_cycle.gd" time="0.001097" >
+      </testcase>
+      <testcase name="test_weather_changes_within_day_and_pause_does_not_draw" assertions="4" status="pass" classname="tests/week_13/test_weather_cycle.gd" time="0.001093" >
+      </testcase>
+      <testcase name="test_coarse_fine_and_resumed_time_choose_the_same_final_weather" assertions="3" status="pass" classname="tests/week_13/test_weather_cycle.gd" time="0.003004" >
+      </testcase>
+      <testcase name="test_manual_mode_and_legacy_saves_still_obey_season_compatibility" assertions="5" status="pass" classname="tests/week_13/test_weather_cycle.gd" time="0.000177" >
+      </testcase>
+      <testcase name="test_invalid_cycle_is_rejected_without_replacing_the_clock" assertions="8" status="pass" classname="tests/week_13/test_weather_cycle.gd" time="0.003609" >
+      </testcase>
+  </testsuite>
+</testsuites>

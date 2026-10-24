@@ -1,0 +1,17 @@
+extends SceneTree
+func _initialize() -> void:
+ run.call_deferred()
+func run() -> void:
+ var node=Node3D.new()
+ root.add_child(node)
+ var probe=ReflectionProbe.new()
+ node.add_child(probe)
+ var camera=Camera3D.new()
+ camera.position=Vector3(0,2,5)
+ node.add_child(camera)
+ await create_timer(1).timeout
+ probe.free()
+ await create_timer(1).timeout
+ node.free()
+ await create_timer(1).timeout
+ quit()

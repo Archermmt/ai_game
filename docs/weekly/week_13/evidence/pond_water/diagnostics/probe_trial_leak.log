@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M4 Pro (Apple9)
+
+W09_FIRST_DRAW
+REFLECT 1 (-5.3499, 1.710747, 5.7) { "center": [-8.5, 4.19999980926514], "radius": 7.41485023498535, "water_y": -0.28925284288226, "outline": [[-8.5, 4.2], [-3.2, 3.5], [-1.2, 5.5], [-2.8, 7.7], [-7.6, 7.9], [-9.5, 6.1]] }
+2026-10-24 12:48:34.600 Godot[40552:16510118] +[IMKClient subclass]: chose IMKClient_Modern
+2026-10-24 12:48:49.520 Godot[40552:16510118] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

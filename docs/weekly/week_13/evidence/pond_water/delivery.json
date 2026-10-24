@@ -1,0 +1,38 @@
+{
+  "revision": "06257691ff3108044a1a8ff770bae06db7322a9c",
+  "godot_tests": 700,
+  "godot_assertions": 21800,
+  "python_tests": 28,
+  "new_tests": 4,
+  "new_assertions": 23,
+  "water_native_checks": 9,
+  "existing_ui_checks": 22,
+  "water_measurements": {
+    "geometry_reflection_difference": 0.0242703645024123,
+    "reduced_motion_difference": 0.0,
+    "reflection_difference": 0.0551338997071785,
+    "ripple_difference": 0.00486976611877777,
+    "water_samples": 12861
+  },
+  "performance_targets": {
+    "capacity_frame_p95_20ms": true,
+    "orbit_frame_p95_20ms": true,
+    "rss_2gib": true,
+    "edit_p95_150ms": true,
+    "edit_max_150ms": false
+  },
+  "baseline": "Pre-edit3394ac6 runtime; fixed near camera/time, qualitative comparison only (new pixel checks disable TAA)",
+  "source_sha256": {
+    "features/pond_water/pond_reflections.gd": "cba4693e5937470665a46c8af12cf75ecf4e575ec21c3f22300549f57c44b175",
+    "features/pond_water/reflective_pond.gdshader": "18b7488733ad1c2a6d5bb96de6df43695eaac5001771ad62e4618cf438f0832e",
+    "features/living_world/living_playground.gd": "fa154686e40fb15c4297b8bddbd55e77bb780267ff939e9e36af5c8a19a6f119",
+    "tests/week_13/water_native_probe.gd": "a5d1362eaeb823e659427a93477f2922dfc37d09d7344027d380cdc505fd0f3d",
+    "tests/week_13/water_orbit_probe.gd": "903531c293c31f9763cb0fe3d639f076d4d8ca4fcabdc067f4fa99bb8ff50c24"
+  },
+  "formal_files_unchanged": true,
+  "reflection_probe_in_final": false,
+  "physical_audio_verified": false,
+  "packages_updated": false,
+  "fresh_checkout_this_followup": false,
+  "windows_real_device": false
+}
