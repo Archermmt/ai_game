@@ -9,6 +9,8 @@
 | [开发状态](../STATUS.md) | 每周任务状态、测试结果与未通过门槛 |
 | [运行说明](../README.md) | 启动、操作、测试和导出命令 |
 | [每周测试约定](TESTING.md) | W01–W13 测试范围与证据要求 |
+| [Painterly Grass 集成计划](DEV_PLAN_PAINTERLY_GRASS.md) | G0–G5技术/视觉/性能验收与可运行场景交付；当前为计划 |
+| [W14 集成台账](weekly/week_14/README.md) | 阶段状态、体验入口与证据；实现尚未开始 |
 | [W13 自然庭园扩展](weekly/week_13/README.md) | 自然起伏、图标工具、虚构日历、昼夜四季与天气 |
 | [CLEANUP-01 清理记录](weekly/cleanup_01/README.md) | 缓存与旧产物清理、依赖保护及验证 |
 | [PERF-02 性能优化](weekly/perf_02/README.md) | 高度查询索引、草块/风材质复用及真实鼠标响应验证 |
