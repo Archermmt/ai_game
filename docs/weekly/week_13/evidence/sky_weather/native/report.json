@@ -1,0 +1,30 @@
+{
+	"checks": {
+		"active_card_enlarged": true,
+		"camera_real_click": true,
+		"clouds_before_rain": true,
+		"clouds_move": true,
+		"moon_visible": true,
+		"night_visibly_distinct": true,
+		"no_switch_frame_jump": true,
+		"photo_actions_all_icons": true,
+		"photo_settings_real_click": true,
+		"rain_gradually_increases": true,
+		"sky_and_weather_freeze": true,
+		"source_unchanged": true,
+		"stars_visible": true,
+		"storm_reached_target": true,
+		"sun_visible": true,
+		"walk_direction_reversed": true,
+		"walk_icon_real_click": true
+	},
+	"measures": {
+		"cloud_pixel_difference": 0.00767407878017348,
+		"day_night_difference": 0.499344082245312,
+		"early_rain": 0.0,
+		"frozen_difference": 0.00020144729642511,
+		"middle_rain": 0.281291394304772,
+		"star_samples": 305
+	},
+	"passed": true
+}

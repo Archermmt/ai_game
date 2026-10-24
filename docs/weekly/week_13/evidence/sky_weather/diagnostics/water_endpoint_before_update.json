@@ -1,0 +1,21 @@
+{
+	"checks": {
+		"actual_geometry_reflects": true,
+		"bounded_capture": true,
+		"capture_has_geometry": true,
+		"no_reflection_probe": true,
+		"rain_strengthens_ripples": false,
+		"reduced_motion_stable": true,
+		"reflection_changes_water_pixels": true,
+		"source_unchanged": true,
+		"visible_ripple_motion": true
+	},
+	"measurements": {
+		"geometry_reflection_difference": 0.0238750873211893,
+		"reduced_motion_difference": 0.0,
+		"reflection_difference": 0.0540874163413237,
+		"ripple_difference": 0.00484222171528017,
+		"water_samples": 12861
+	},
+	"passed": false
+}

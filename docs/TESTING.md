@@ -262,3 +262,5 @@ W13天气扩展累计至少40项，原生至少22项；`python3 tools/quality/we
 W13水面扩展至至少44项；`python3 tools/quality/pond_water_native_checks.py`验证水面遮罩内的9项效果与无RID泄漏，`pond_water_performance_checks.py`串行测满容量编辑60秒和绕转30秒。见[水面研究与验证](weekly/week_13/POND_WATER.md)。
 
 W13漫步扩展至至少62项，新增18项控制器/支撑/障碍回归；`python3 tools/quality/walk_native_checks.py`验证至少18项实际输入、导出时环顾隔离、无界面PNG与相机恢复，`python3 tools/quality/walk_performance_checks.py`测24屋/1000源进入漫步后的30秒前进/环顾。全部原生串行，保留原始帧间隔；20ms帧p95与冷启动/编辑延迟分开，不把合成PanGesture当作物理触控板验收。见[漫步说明与证据](weekly/week_13/FIRST_PERSON_WALK.md)。
+
+W13天空/交互扩展至至少77项，新增15项天气连续性/图标/天空/风声表现回归；所有天气对检查中间范围、目标端点和快速切换。`python3 tools/quality/sky_weather_native_checks.py`实际投递界面/双指输入并等待天气转场，至少17项像素/状态检查；照片输入18项、水面9项、原UI22项保持。`python3 tools/quality/walk_performance_checks.py --transitions`测满容量每6秒切换天气的30秒漫步，必须实际出现至少两种粒子重叠，保留全部帧间隔并执行20ms p95门槛。详见[本轮说明](weekly/week_13/SKY_WEATHER_UI.md)。
