@@ -1,0 +1,18 @@
+{
+	"audio": "Dummy",
+	"checks": {
+		"calendar_selects_music": false,
+		"fade_in_progress": false,
+		"fade_in_retains_headroom": true,
+		"legacy_motif_stopped": true,
+		"music_playing_softly": false,
+		"mute_survives_preferences_apply": true,
+		"rain_preserves_audible_music": true,
+		"settings_mute_fades_to_stop": true,
+		"settings_unmute_resumes": true,
+		"shutdown_stops_and_releases": true
+	},
+	"passed": false,
+	"physical_listening_verified": false,
+	"track": "summer_breeze"
+}

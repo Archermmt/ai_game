@@ -1,0 +1,2 @@
+PASS seasonal_music_mix_storm (15.20s)
+PASS calibrated actual CoreAudio storm PCM; music/ambience -1.63dB; music/wind 1.89dB; device output muted; physical listening separate

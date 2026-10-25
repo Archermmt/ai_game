@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="6" >
+  <testsuite name="tests/week_13/test_seasonal_music.gd" tests="6" failures="0" skipped="0" time="2.614854" >
+      <testcase name="test_every_season_and_time_has_three_distinct_valid_candidates" assertions="143" status="pass" classname="tests/week_13/test_seasonal_music.gd" time="0.418328" >
+      </testcase>
+      <testcase name="test_shuffle_bag_plays_all_candidates_without_immediate_repeats" assertions="140" status="pass" classname="tests/week_13/test_seasonal_music.gd" time="0.442245" >
+      </testcase>
+      <testcase name="test_fade_in_crossfade_and_mute_have_bounded_continuous_gain" assertions="14" status="pass" classname="tests/week_13/test_seasonal_music.gd" time="0.440172" >
+      </testcase>
+      <testcase name="test_context_debounce_and_weather_ducking" assertions="5" status="pass" classname="tests/week_13/test_seasonal_music.gd" time="0.437338" >
+      </testcase>
+      <testcase name="test_all_streams_are_full_length_non_looping_music" assertions="17" status="pass" classname="tests/week_13/test_seasonal_music.gd" time="0.439154" >
+      </testcase>
+      <testcase name="test_quit_fades_then_shutdown_releases_both_voices_idempotently" assertions="9" status="pass" classname="tests/week_13/test_seasonal_music.gd" time="0.437617" >
+      </testcase>
+  </testsuite>
+</testsuites>

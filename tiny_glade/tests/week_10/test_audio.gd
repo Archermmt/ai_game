@@ -20,7 +20,7 @@ func test_scene_owns_bounded_voices_and_loads_all_families() -> void:
 func test_wind_blend_is_continuous_equal_power_at_extremes_and_middle() -> void:
 	for strength: float in [0.0, 0.25, 0.5, 0.75, 1.0]:
 		var gains: Dictionary = WorldAudio.wind_gains(strength)
-		assert_almost_eq(pow(gains["wind_low"], 2) + pow(gains["wind_high"], 2), 0.4225, 0.0001)
+		assert_almost_eq(pow(gains["wind_low"], 2) + pow(gains["wind_high"], 2), 0.16, 0.0001)
 	assert_eq(WorldAudio.wind_gains(0)["wind_high"], 0.0)
 	assert_eq(WorldAudio.wind_gains(1)["wind_low"], 0.0)
 

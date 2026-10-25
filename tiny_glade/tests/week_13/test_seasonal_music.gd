@@ -80,8 +80,8 @@ func test_context_debounce_and_weather_ducking() -> void:
 	assert_eq(music.active, -1)
 	music._process(2)
 	assert_true(music.current in SeasonalMusic.candidates("winter", 0))
-	assert_almost_eq(music.target_duck, 0.35, 0.0001)
-	assert_almost_eq(music.duck, 0.35, 0.0001)
+	assert_almost_eq(music.target_duck, 0.56, 0.0001)
+	assert_almost_eq(music.duck, 0.56, 0.0001)
 
 
 func test_all_streams_are_full_length_non_looping_music() -> void:

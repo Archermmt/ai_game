@@ -14,7 +14,7 @@ const TRACKS: Array[String] = [
 	"sunny_pasture"
 ]
 const FADE_SECONDS: float = 6.0
-const MAX_GAIN: float = 0.32
+const MAX_GAIN: float = 0.45
 var voices: Array[AudioStreamPlayer] = []
 var streams: Dictionary = {}
 var pool: Array[String] = []
@@ -74,11 +74,11 @@ func sync_calendar(sample: Dictionary) -> void:
 	target_duck = {
 		"clear": 1.0,
 		"cloudy": 0.85,
-		"rain": 0.5,
-		"snow": 0.65,
-		"storm": 0.35,
-		"blizzard": 0.4,
-		"duststorm": 0.4,
+		"rain": 0.8,
+		"snow": 0.8,
+		"storm": 0.65,
+		"blizzard": 0.65,
+		"duststorm": 0.65,
 		"fog": 0.7
 	}[sample["weather"]]
 	if float(sample["minute_of_day"]) < 360 or float(sample["minute_of_day"]) >= 1260:

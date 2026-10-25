@@ -4,6 +4,7 @@ extends Node
 
 const DIRECTORY: String = "res://assets/audio/"
 const INTERVAL: float = 0.12
+const WIND_GAIN: float = 0.4
 var levels: Dictionary = {"ambient_volume": 0.7, "effects_volume": 0.65, "music_volume": 0.0}
 var loops: Dictionary = {}
 var effects: Array[AudioStreamPlayer] = []
@@ -118,7 +119,7 @@ func _apply_ambient() -> void:
 
 static func wind_gains(strength: float) -> Dictionary:
 	var amount: float = clampf(strength, 0, 1)
-	return {"wind_low": sqrt(1.0 - amount) * 0.65, "wind_high": sqrt(amount) * 0.65}
+	return {"wind_low": sqrt(1.0 - amount) * WIND_GAIN, "wind_high": sqrt(amount) * WIND_GAIN}
 
 
 static func _db(value: float) -> float:

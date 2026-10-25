@@ -1,0 +1,40 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/week_10/test_audio.gd
+* test_scene_owns_bounded_voices_and_loads_all_families
+* test_wind_blend_is_continuous_equal_power_at_extremes_and_middle
+* test_zero_wind_keeps_forest_and_low_wind
+* test_brush_rate_limit_rejects_flood_and_cycles_three_variants
+* test_music_can_be_enabled_muted_and_reenabled_without_changing_world
+* test_mute_applies_to_all_voices_immediately
+* test_pond_is_localized_and_stops_when_deleted
+* test_material_families_and_no_sound_for_unchanged_world
+* test_ui_has_three_distinct_variants_and_rejects_unknown_families
+* test_startup_has_quiet_fade_and_bounded_event_history
+10/10 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               1
+Tests                10
+Passing Tests        10
+Asserts              89
+Time              0.492s
+
+
+---- All tests passed! ----
+
+Results saved to /Users/tongmeng/Desktop/codes/ai_game/tiny_glade/reports/week_14/audio_balance/world_audio.xml

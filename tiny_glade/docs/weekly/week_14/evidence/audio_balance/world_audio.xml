@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="10" >
+  <testsuite name="tests/week_10/test_audio.gd" tests="10" failures="0" skipped="0" time="0.175382" >
+      <testcase name="test_scene_owns_bounded_voices_and_loads_all_families" assertions="8" status="pass" classname="tests/week_10/test_audio.gd" time="0.008127" >
+      </testcase>
+      <testcase name="test_wind_blend_is_continuous_equal_power_at_extremes_and_middle" assertions="7" status="pass" classname="tests/week_10/test_audio.gd" time="0.007321" >
+      </testcase>
+      <testcase name="test_zero_wind_keeps_forest_and_low_wind" assertions="3" status="pass" classname="tests/week_10/test_audio.gd" time="0.00726" >
+      </testcase>
+      <testcase name="test_brush_rate_limit_rejects_flood_and_cycles_three_variants" assertions="34" status="pass" classname="tests/week_10/test_audio.gd" time="0.007356" >
+      </testcase>
+      <testcase name="test_music_can_be_enabled_muted_and_reenabled_without_changing_world" assertions="5" status="pass" classname="tests/week_10/test_audio.gd" time="0.072472" >
+      </testcase>
+      <testcase name="test_mute_applies_to_all_voices_immediately" assertions="16" status="pass" classname="tests/week_10/test_audio.gd" time="0.007976" >
+      </testcase>
+      <testcase name="test_pond_is_localized_and_stops_when_deleted" assertions="5" status="pass" classname="tests/week_10/test_audio.gd" time="0.024561" >
+      </testcase>
+      <testcase name="test_material_families_and_no_sound_for_unchanged_world" assertions="4" status="pass" classname="tests/week_10/test_audio.gd" time="0.02573" >
+      </testcase>
+      <testcase name="test_ui_has_three_distinct_variants_and_rejects_unknown_families" assertions="5" status="pass" classname="tests/week_10/test_audio.gd" time="0.007501" >
+      </testcase>
+      <testcase name="test_startup_has_quiet_fade_and_bounded_event_history" assertions="2" status="pass" classname="tests/week_10/test_audio.gd" time="0.007078" >
+      </testcase>
+  </testsuite>
+</testsuites>
