@@ -111,6 +111,7 @@ func test_root_heightmap_tracks_flat_rolling_and_brushed_slope_within_two_cm() -
 			maximum, 0.02, "Bilinear heightmap at every actual root, including wide floor cards"
 		)
 
+	DirAccess.make_dir_recursive_absolute("res://reports/week_14/g2")
 	var output: FileAccess = FileAccess.open(
 		"res://reports/week_14/g2/root_errors.json", FileAccess.WRITE
 	)

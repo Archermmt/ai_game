@@ -5,6 +5,7 @@ var original: Dictionary
 
 
 func before_all() -> void:
+	DirAccess.make_dir_recursive_absolute("res://reports/week_14/g3")
 	garden = preload("res://app/painterly_grass_garden.tscn").instantiate()
 	garden.preview_directory = "user://qa_painterly_grass/tests/g3_%d" % Time.get_ticks_usec()
 	assert_true(garden.qa_mode)
