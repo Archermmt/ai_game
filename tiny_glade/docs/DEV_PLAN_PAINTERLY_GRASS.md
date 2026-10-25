@@ -1,6 +1,6 @@
 # Painterly Grass 分阶段集成计划
 
-日期：2026-10-25（Asia/Shanghai）。状态：**G0已完成；G1本地展示交付，素材入库/视觉待验；G2–G5尚未执行**。[G0实际报告](weekly/week_14/G0_BASELINE.md)记录环境、测试与旧草基线；[G1报告](weekly/week_14/G1_GRASS_LAB.md)记录已创建的独立新草展示场景、派生件及验证，G0/G1质量入口已交付。
+日期：2026-10-25（Asia/Shanghai）。状态：**G0已完成；G1本地展示交付，素材入库/视觉待验；G2本地局部对照已交付，V2待体验；G3–G5尚未执行**。[G0实际报告](weekly/week_14/G0_BASELINE.md)记录环境、测试与旧草基线；[G1报告](weekly/week_14/G1_GRASS_LAB.md)记录已创建的独立新草展示场景、派生件及验证，[G2报告](weekly/week_14/G2_GRASS_PATCH.md)记录局部庭园及五组同源对照，G0/G1/G2质量入口已交付。
 
 依据：[初步分析](art/PAINTERLY_GRASS_ASSESSMENT.md)、[批准PRD](PRD_风栖小筑.md)、[Godot开发契约](DEV_PLAN_MVP_Godot.md)、[当前状态](../STATUS.md)。已有结论仅覆盖16份源文件读取、几何/材质统计和参考图分析；Mac帧时间来自旧草，不能记为新资产通过。
 
@@ -10,7 +10,7 @@
 
 集成限于现有地表草和灌草的渲染变体。复用确定性散布、8m分块、异步生成与事务，不增加新地图、植物玩法、GeoScatter运行依赖或完整Blender演示地形。树、房屋、石头继续作为同场风格参照；若需要整体再改，单列下一轮范围。批准PRD原文保持。
 
-所有阶段归档到[W14执行台账](weekly/week_14/README.md)。W14是本次集成批次的证据编号，当前交付G0与G1本地样板，不预先改游戏版本或宣称全批次交付。
+所有阶段归档到[W14执行台账](weekly/week_14/README.md)。W14是本次集成批次的证据编号，当前交付G0、G1与G2本地样板，不预先改游戏版本或宣称全批次交付。
 
 ## 阶段和可打开的交付物
 
@@ -20,7 +20,7 @@
 | --- | --- | --- | --- | --- |
 | G0 环境与基线 | 可重复启动和验证旧版本 | 现有 `app/living_root.tscn` | 锁定4.7.2、恢复依赖、修正迁移后的空检出验证 | 记录当前草地作为对照，无新草 |
 | G1 单体与材质 | 首批3种草在Godot正确显示 | 已交付 `app/painterly_grass_preview.tscn` | 实际导出成本、UV/遮罩/风权重、源件重开 | 笔触、尺度、背面、侧面和逆光 |
-| G2 局部风格 | 屋前8×8m新旧草对照 | 规划 `grass_patch.tscn` | 同源A/B、贴地与避让、密度和颜色 | 是否明显更柔软连贯，是否接受这个方向 |
+| G2 局部风格 | 屋前8×8m新旧草对照 | 已交付 `app/painterly_grass_patch.tscn` | 同源A/B、贴地与避让、密度和颜色 | 是否明显更柔软连贯，是否接受这个方向 |
 | G3 编辑联动 | 新草用于可编辑庭园副本 | 规划 `grass_garden.tscn` | 局部重建、取消、撤销重做、存档、四季/摄影 | 实际建造后仍自然，漫步不穿帮 |
 | G4 满容量与画质 | 同机新旧草性能报告 | 规划 `grass_capacity.tscn` | 1080p帧p95、内存、编辑时延、LOD及2K摄影 | 大场景无噪点海、闪烁、黑片和切换跳变 |
 | G5 候选收口 | 可体验的集成候选与回退点 | 规划 `grass_candidate.tscn` | 累计/空缓存/原生回归、资产记录完整 | 用户最终接受；决定默认采用或保留预览 |
@@ -150,7 +150,7 @@
 
 ## 预览场景的统一使用要求
 
-以下为各阶段预览交付约定：G1已实现独立展示与交互，G2起的漫步/作品预览仍待实现。G1不创建任何存档/偏好服务，比独立目录更直接地隔离正式文件：
+以下为各阶段预览交付约定：G1已实现独立展示，G2已实现只读庭园的局部对照、俯视与漫步及双向入口；G3起编辑作品预览仍待实现。G1不创建任何存档/偏好服务，比独立目录更直接地隔离正式文件：
 
 1. Godot文件系统双击 `app/painterly_grass_preview.tscn`，F6运行；F5继续启动正常游戏。每阶段报告给出完整本机路径、具体按钮和操作步骤。
 2. 无需先改命令行参数就能体验；进入时显示阶段/版本和“预览”标识，提供“现有草 / 新草”、固定视角、重置、暂停及返回入口。G1只有展示台，G2起开放俯视与第一人称漫步。
@@ -188,13 +188,15 @@ python3 tools/quality/clean_checkout.py --week 14
 
 当前`--week 14`仅覆盖G0及W13累计；G5收口时须扩展到届时已实现的全部W14用例。
 
-### G1已实现与后续阶段入口
+### G1/G2已实现与后续阶段入口
 
 ```bash
-# G1已实现，当前只接受--stage 1，包含W13/G0及历史负控
+# G1已实现，包含W13/G0及历史负控
 python3 tools/quality/painterly_grass_checks.py --stage 1
-# G2起新增；真实可见窗口，实际GUI输入与源/偏好哈希核对
-python3 tools/quality/painterly_grass_native_checks.py --stage 2
+# G2已实现，累计包含G1/G2；原生检查串行
+python3 tools/quality/painterly_grass_checks.py --stage 2
+python3 tools/quality/painterly_grass_checks.py --stage 2 --native-only
+python3 tools/quality/painterly_grass_portable_checks.py --stage 2
 # G4交付；自动串行跑对照矩阵，不让用户人工计时
 python3 tools/quality/painterly_grass_performance.py
 ```

@@ -296,3 +296,16 @@ python3 tools/quality/painterly_grass_portable_checks.py
 累计保留W13/G0及负控，新增8项Godot / 130断言，总753项Godot / 31,097断言 + 37项Python；任何脚本错误/退出泄漏也拒绝。原生12项检查包括真实新网格加载、GUI输入、风动像素差、减少动态零差和1080p截图。正常展示保留TAA，运动控制像素检查两侧一致关闭TAA抖动。
 
 导出验证读取真实GLB/PNG与哈希，不仅相信manifest面数；Blender重开审计覆盖46历史源+14植物源。新派生素材本地保存、未入Git，独立本地空缓存副本显式供应这些素材后验证运行；不是Git完整素材分发证明。`clean_checkout.py --week 14`目前仍是G0门禁，G1用上面的专用累计和本地副本命令，不混淆两者。详见[G1交付与证据](weekly/week_14/G1_GRASS_LAB.md)。
+
+
+## W14 G2 · 屋前8×8m只读对照
+
+```bash
+python3 tools/quality/painterly_grass_checks.py --stage 2
+python3 tools/quality/painterly_grass_checks.py --stage 2 --native-only
+python3 tools/quality/painterly_grass_portable_checks.py --stage 2
+```
+
+累计入口保留W13/G0和负控，再运行G1/G2两个套件；G2新增8项Godot回归。原生窗口采集五组1080p同机位A/B、GUI控件与G1/G2入口往返、新旧各60秒轨迹及RSS，并核对正式文件哈希。平地/起伏/刷坡的实际根顶点采样误差须≤2cm，完整草卡包络避让道路、门口、池岸和桥头。新旧帧p95须≤20ms，新增>50ms停顿拒绝；这里只签核局部样板，满容量与编辑仍待G3/G4。任何脚本错误、退出泄漏、断言失败、空套件或关键跳过均拒绝。
+
+本地副本从当前提交建立，无Godot缓存、不复制桌面原包，显式供应与manifest绑定的派生件。Git单独素材可用性/分发条款、用户视觉V2及Windows真机等门槛保持。直接F6打开`app/painterly_grass_patch.tscn`体验，G1统一入口也可进入。详见[G2报告](weekly/week_14/G2_GRASS_PATCH.md)。

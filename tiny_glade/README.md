@@ -4,6 +4,12 @@
 默认入口 `app/living_root.tscn`；F5运行当前主场景，若用F6请打开该文件。旧周场景用于历史回归。
 进度见 [STATUS.md](STATUS.md)，本轮说明、实拍与测试见 [W13报告](docs/weekly/week_13/README.md)，范围补充见 [SCOPE.md](docs/weekly/week_13/SCOPE.md)。旧W12安装包未自动替换。
 
+## Painterly Grass 局部美术试验
+
+打开 `app/painterly_grass_patch.tscn` 按F6，可在屋前8×8m区域切换新旧草，使用五个固定机位、日间/黄昏、暂停和第一人称漫步，Esc返回俯视。统一入口 `app/painterly_grass_preview.tscn` 提供G1单体展示与G2庭园对照的双向按钮；F5仍为正常游戏。
+
+预览只读，直接F6也隔离正式存档和偏好。派生素材目前本地供应，Git单独检出需按[G1提取说明](art_source/painterly_grass/README.md)准备；[G2报告与五组对照](docs/weekly/week_14/G2_GRASS_PATCH.md)记录技术结果。用户风格验收V2及G3–G5尚未完成。
+
 ## 运行
 
 固定 Godot **4.7.2 Standard**；版本与插件见 [toolchain.lock.json](toolchain.lock.json)。

@@ -1,0 +1,4 @@
+PASS g1_import (3.29s)
+PASS g2_cumulative (281.44s)
+PASS g2_tests (6.48s)
+G2 PASS: 16 new Godot tests; cumulative: True
