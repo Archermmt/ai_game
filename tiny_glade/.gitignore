@@ -12,3 +12,7 @@ export_credentials.cfg
 .env
 .env.*
 !.env.example
+
+# Painterly Grass: local derivatives until source-asset repository terms are recorded.
+/art_source/painterly_grass/local/
+/assets/painterly_grass/local/
