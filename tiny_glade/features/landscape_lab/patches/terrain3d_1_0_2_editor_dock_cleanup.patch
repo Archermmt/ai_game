@@ -1,0 +1,10 @@
+--- a/addons/terrain_3d/src/asset_dock.gd
++++ b/addons/terrain_3d/src/asset_dock.gd
+@@ -142,6 +142,7 @@
+ 
+ func remove_dock(p_force: bool = false) -> void:
+ 	plugin.remove_dock(_dock)
++	_dock.queue_free()
+ 
+ 
+ func update_dock() -> void:
