@@ -1,0 +1,160 @@
+{
+	"checks": [
+		{
+			"label": "Actual Terrain3D and four source layers prepared",
+			"passed": true
+		},
+		{
+			"label": "Distribution 0 is ready",
+			"passed": true
+		},
+		{
+			"label": "Mode 0 actual GPU origins",
+			"passed": true
+		},
+		{
+			"label": "mode0_view0 finite camera",
+			"passed": true
+		},
+		{
+			"label": "mode0_view0 renders",
+			"passed": true
+		},
+		{
+			"label": "mode0_view1 finite camera",
+			"passed": true
+		},
+		{
+			"label": "mode0_view1 renders",
+			"passed": true
+		},
+		{
+			"label": "mode0_view2 finite camera",
+			"passed": true
+		},
+		{
+			"label": "mode0_view2 renders",
+			"passed": true
+		},
+		{
+			"label": "Distribution 1 is ready",
+			"passed": true
+		},
+		{
+			"label": "Mode 1 actual GPU origins",
+			"passed": true
+		},
+		{
+			"label": "mode1_view0 finite camera",
+			"passed": true
+		},
+		{
+			"label": "mode1_view0 renders",
+			"passed": true
+		},
+		{
+			"label": "mode1_view1 finite camera",
+			"passed": true
+		},
+		{
+			"label": "mode1_view1 renders",
+			"passed": true
+		},
+		{
+			"label": "mode1_view2 finite camera",
+			"passed": true
+		},
+		{
+			"label": "mode1_view2 renders",
+			"passed": true
+		},
+		{
+			"label": "layer0_close finite camera",
+			"passed": true
+		},
+		{
+			"label": "layer0_close renders",
+			"passed": true
+		},
+		{
+			"label": "layer1_close finite camera",
+			"passed": true
+		},
+		{
+			"label": "layer1_close renders",
+			"passed": true
+		},
+		{
+			"label": "layer2_close finite camera",
+			"passed": true
+		},
+		{
+			"label": "layer2_close renders",
+			"passed": true
+		},
+		{
+			"label": "layer3_close finite camera",
+			"passed": true
+		},
+		{
+			"label": "layer3_close renders",
+			"passed": true
+		},
+		{
+			"label": "terrain_only finite camera",
+			"passed": true
+		},
+		{
+			"label": "terrain_only renders",
+			"passed": true
+		},
+		{
+			"label": "official_reference finite camera",
+			"passed": true
+		},
+		{
+			"label": "official_reference renders",
+			"passed": true
+		},
+		{
+			"label": "Reference closes",
+			"passed": true
+		},
+		{
+			"label": "Real native Terrain3D height data",
+			"passed": true
+		},
+		{
+			"label": "Return button reaches grass gallery",
+			"passed": true
+		},
+		{
+			"label": "Gallery button reaches landscape sample",
+			"passed": true
+		},
+		{
+			"label": "Roundtrip prepares real Terrain3D again",
+			"passed": true
+		}
+	],
+	"images": [
+		"res://reports/landscape_lab/native/mode0_view0.png",
+		"res://reports/landscape_lab/native/mode0_view1.png",
+		"res://reports/landscape_lab/native/mode0_view2.png",
+		"res://reports/landscape_lab/native/mode1_view0.png",
+		"res://reports/landscape_lab/native/mode1_view1.png",
+		"res://reports/landscape_lab/native/mode1_view2.png",
+		"res://reports/landscape_lab/native/layer0_close.png",
+		"res://reports/landscape_lab/native/layer1_close.png",
+		"res://reports/landscape_lab/native/layer2_close.png",
+		"res://reports/landscape_lab/native/layer3_close.png",
+		"res://reports/landscape_lab/native/terrain_only.png",
+		"res://reports/landscape_lab/native/official_reference.png"
+	],
+	"mode0_gpu_origin_error_m": 0.0,
+	"mode1_gpu_origin_error_m": 0.0,
+	"passed": true,
+	"performance_gate_run": false,
+	"rendering_driver": "metal",
+	"visual_acceptance": "requires user review"
+}

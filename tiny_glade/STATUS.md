@@ -2,6 +2,18 @@
 
 更新日期：2026-10-25（Asia/Shanghai）
 
+## Terrain3D × ProtonScatter · 山谷美术样板
+
+2026-10-25：按用户新授权采用成熟插件，优先对齐美术、性能后置。固定Terrain3D **1.0.2-stable / 0077405**、ProtonScatter **4.2.0 / 7198cc0**，保留MIT许可和逐文件哈希；补入一行可追溯的Terrain3D编辑器Dock释放修正，插件启用时完整导入退出已无泄漏。
+
+新增`app/landscape_lab.tscn`：Terrain3D显示原Valley源提取的64m真实高度场（约10m高差），自动草土混合；实际采用24/2,288/28/8三角的四种草和4K连续透明笔触。保留原3,277实例的尺度、朝向、四层重叠和埋根偏移；可切ProtonScatter生成、按每层原区域散布与原生地形贴地。提供三机位、四层开关、风暂停、官方参考图与G1往返入口。只读样板不接正式存储。
+
+累计 **781项Godot + 37项Python**，0失败/0跳过；规定W01–W09负控通过，新增8项/365项JUnit断言。Metal原生 **34项**检查和12张截图通过，真实GPU实例原点与发布数据误差0；无脚本错误或退出资源泄漏。正式存档/偏好哈希未变。Blender重开全部4份新派生源通过，原下载源哈希未改。
+
+当前草地已具备连续草团和地被，仍有透明抖动、局部裸地与地面笔触衔接可继续调整；树、岩壁与天空未复刻官方整幅场景。**用户美术接受、正式可编辑庭园迁移和性能门槛仍开放**；本轮未记录FPS/RSS通过，Windows真实设备未验。派生素材仍本地供应，资产分发条款待归档。
+
+复验：`python3 tools/quality/landscape_lab_checks.py`，累计加`--cumulative`；原生加`--native-only`。F6打开样板或从G1点“山谷地形与草地样板”。[报告与截图](docs/weekly/week_14/LANDSCAPE_PLUGIN_LAB.md) · [插件评估](docs/art/LANDSCAPE_PLUGIN_ASSESSMENT.md)。
+
 ## Painterly Grass · 用户视觉反馈需调整
 
 2026-10-25：用户认为G3新草不如原草，呈片状贴图感，与提供的Valley效果图差距大；随后提供对应Blender源。只读核实原场景为Blades Grass / Detail Puffs / Puffs2 / Floor Grass四层，绑定24/572（另含细分）/28/8基础三角的不同模型；当前三种8三角的互斥散布并未还原该结构，视角透明淡出与笔触受光也过度简化。源文件前后哈希相同，未改运行代码。

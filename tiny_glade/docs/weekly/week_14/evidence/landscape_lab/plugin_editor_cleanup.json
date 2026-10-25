@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-25",
+  "timezone": "Asia/Shanghai",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "command_pattern": [
+    "Godot",
+    "--headless",
+    "--editor",
+    "--import",
+    "--verbose",
+    "--path",
+    "temporary plugin-only project"
+  ],
+  "cases": [
+    {
+      "case": "Concurrent initial extension-only control; crashed during editor docs initialization and was rerun serially",
+      "exit_code": -6,
+      "diagnostics": [
+        "handle_crash: Program crashed with signal 11"
+      ]
+    },
+    {
+      "case": "Terrain3D extension installed; editor plugin disabled; sequential control also crashed and is not used to establish the cleanup fix",
+      "exit_code": -6,
+      "diagnostics": [
+        "handle_crash: Program crashed with signal 11",
+        "ERROR: Parameter \"singleton\" is null."
+      ]
+    },
+    {
+      "case": "Pinned ProtonScatter editor plugin only",
+      "exit_code": 0,
+      "diagnostics": []
+    },
+    {
+      "case": "Pinned Terrain3D editor plugin before cleanup patch",
+      "exit_code": 0,
+      "diagnostics": [
+        "ERROR: 1 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.",
+        "Leaked instance: CompressedTexture2D:9223373563950603885 - Reference count: 1",
+        "Leaked instance: EditorDock:1528287010414 - Node path: ",
+        "Leaked instance: Image:9223373564034489967 - Reference count: 1",
+        "Leaked instance: Object:1528303787633",
+        "Resource still in use: res://addons/terrain_3d/icons/terrain3d.svg (CompressedTexture2D)",
+        "WARNING: Canceling suspended execution of \"_notification\" due to a script reload.",
+        "WARNING: 1 RID of type \"CanvasItem\" was leaked.",
+        "WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: Cannot get path of node as it is not in a scene tree.",
+        "ERROR: 1 resources still in use at exit."
+      ]
+    },
+    {
+      "case": "Same Terrain3D project after one-line EditorDock cleanup patch",
+      "exit_code": 0,
+      "diagnostics": []
+    }
+  ],
+  "finding": "Terrain3D asset_dock.gd detaches its EditorDock from the editor but does not release that parent. The child is freed separately in editor_plugin.gd. Adding _dock.queue_free() removes the four ObjectDB/CanvasItem/texture leaks in the same isolated project. Both extension-only/editor-plugin-disabled controls crashed on this pinned local engine; the enabled Terrain3D before/after comparison is the evidence for the cleanup patch. The production project keeps both editor plugins enabled.",
+  "local_patch": "features/landscape_lab/patches/terrain3d_1_0_2_editor_dock_cleanup.patch",
+  "proton_scatter_source_modified": false,
+  "runtime_performance_measured": false
+}

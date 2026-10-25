@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M4 Pro (Apple9)
+
+LANDSCAPE_NATIVE_PASS
+2026-10-25 20:35:37.847 Godot[84014:18415572] +[IMKClient subclass]: chose IMKClient_Modern
+WARNING: instance_reset_physics_interpolation() is deprecated.
+     at: _instance_reset_physics_interpolation_bind_compat_104269 (servers/rendering/rendering_server.compat.inc:62)
+     GDScript backtrace (most recent call first):
+         [0] configure (res://features/landscape_lab/terrain_adapter.gd:52)
+         [1] _prepare (res://features/landscape_lab/landscape_lab.gd:58)
+2026-10-25 20:35:38.317 Godot[84014:18415572] +[IMKInputSession subclass]: chose IMKInputSession_Modern

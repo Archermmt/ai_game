@@ -211,6 +211,12 @@ func _setup_ui() -> void:
 	garden_button.pressed.connect(
 		func() -> void: loader.request_load("res://app/painterly_grass_garden.tscn")
 	)
+	var landscape_row: HBoxContainer = HBoxContainer.new()
+	column.add_child(landscape_row)
+	var landscape_button: Button = _button(landscape_row, "山谷地形与草地样板", "OpenLandscape")
+	landscape_button.pressed.connect(
+		func() -> void: loader.request_load("res://app/landscape_lab.tscn")
+	)
 	status = Label.new()
 	status.name = "LoadStatus"
 	status.text = "正在准备本地草样本……"

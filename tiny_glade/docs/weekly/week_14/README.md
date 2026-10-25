@@ -6,6 +6,8 @@
 - [初步分析及只读统计](../../art/PAINTERLY_GRASS_ASSESSMENT.md)
 - [项目当前状态](../../../STATUS.md)
 
+2026-10-25追加：用户要求采用Terrain3D与ProtonScatter，先对齐demo美术、性能后置。已交付[山谷美术样板](LANDSCAPE_PLUGIN_LAB.md)，F6打开`app/landscape_lab.tscn`或从G1进入；新增8项回归，累计781项Godot/37项Python通过。本机Metal实拍通过，正式可编辑庭园迁移、用户视觉接受和性能门槛仍开放。
+
 ## 阶段台账
 
 “技术通过”“用户视觉接受”“性能通过”分开填写。G0旧场景、G1统一预览入口与G2局部庭园已经存在，G3可编辑副本也已交付，G4/G5子场景仍为计划交付物。
