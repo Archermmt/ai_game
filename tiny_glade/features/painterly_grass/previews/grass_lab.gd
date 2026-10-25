@@ -190,6 +190,23 @@ func _setup_ui() -> void:
 	motion_toggle.add_theme_color_override("font_color", Color("253e31"))
 	motion_toggle.toggled.connect(set_reduced_motion)
 	row.add_child(motion_toggle)
+	var patch_button: Button = _button(row, "庭园对照 G2", "OpenPatch")
+	var loader: PainterlyPreviewLoader = PainterlyPreviewLoader.new()
+	loader.name = "PatchSceneLoader"
+	add_child(loader)
+	patch_button.pressed.connect(
+		func() -> void:
+			patch_button.disabled = true
+			loader.request_load("res://app/painterly_grass_patch.tscn")
+	)
+	loader.loading_failed.connect(
+		func(_path: String) -> void:
+			patch_button.disabled = false
+			status.text = "庭园场景读取失败，可继续体验单体。"
+	)
+	loader.loading_completed.connect(
+		func(resource: Resource) -> void: get_tree().change_scene_to_packed(resource as PackedScene)
+	)
 	status = Label.new()
 	status.name = "LoadStatus"
 	status.text = "正在准备本地草样本……"

@@ -7,6 +7,9 @@ varying vec3 living_position;
 varying float living_up;
 
 render_mode cull_disabled;
+// Opt-in derived preview mask. Defaults preserve the production meadow.
+uniform bool preview_patch_enabled = false;
+uniform vec4 preview_patch_rect = vec4(0.0);
 uniform float wind_strength = 0.45;
 uniform float wind_direction = 0.4;
 uniform bool reduce_motion = false;
@@ -40,6 +43,12 @@ void vertex() {
     blade_wash = COLOR.g;
 }
 void fragment() {
+    if (preview_patch_enabled && living_position.x >= preview_patch_rect.x && living_position.z >= preview_patch_rect.y
+        && living_position.x < preview_patch_rect.x + preview_patch_rect.z && living_position.z < preview_patch_rect.y + preview_patch_rect.w) {
+        float edge = min(min(living_position.x - preview_patch_rect.x, preview_patch_rect.x + preview_patch_rect.z - living_position.x),
+                         min(living_position.z - preview_patch_rect.y, preview_patch_rect.y + preview_patch_rect.w - living_position.z));
+        if (shade < smoothstep(0.25, 0.95, edge)) { discard; }
+    }
     // These are linear albedos, matched to the sRGB ground atlas after decoding.
     vec3 root = vec3(0.078, 0.1485, 0.0585);
     vec3 tip = mix(vec3(0.138, 0.2295, 0.0915), vec3(0.192, 0.2835, 0.1155), shade);

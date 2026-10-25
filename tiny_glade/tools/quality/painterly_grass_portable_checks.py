@@ -1,4 +1,5 @@
 """Fresh local-project validation with explicitly supplied local derivatives, no vendor bundle."""
+import argparse
 import io
 import json
 import os
@@ -13,9 +14,13 @@ from clean_checkout import committed_project_archive, run_verified
 
 
 def main():
-    out = ROOT/'reports/week_14/g1'
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--stage', type=int, choices=[1,2], default=1)
+    args = parser.parse_args()
+    prefix = f'g{args.stage}'
+    out = ROOT/f'reports/week_14/{prefix}'
     out.mkdir(parents=True,exist_ok=True)
-    revision, prefix, archive = committed_project_archive(ROOT)
+    revision, project_prefix, archive = committed_project_archive(ROOT)
     with tempfile.TemporaryDirectory(prefix='windhaven-g1-portable-') as name:
         checkout = Path(name)
         with tarfile.open(fileobj=io.BytesIO(archive)) as source:
@@ -26,17 +31,17 @@ def main():
         (checkout/'.venv').symlink_to(ROOT/'.venv',target_is_directory=True)
         environment=os.environ.copy()
         environment.update(GODOT_BIN=engine_binary(),WINDHAVEN_SOURCE_REVISION=revision)
-        process=run_verified([sys.executable,'tools/quality/painterly_grass_checks.py','--stage','1','--local-only'],checkout,environment,180)
+        process=run_verified([sys.executable,'tools/quality/painterly_grass_checks.py','--stage',str(args.stage),'--local-only'],checkout,environment,180)
         (out/'portable.log').write_text(process.stdout+process.stderr)
-        result=json.loads((checkout/'reports/week_14/g1/local_checks.json').read_text())
-        assert result['g1_tests']>=8 and result['production_unchanged']
-        shutil.copyfile(checkout/'reports/week_14/g1/tests.xml',out/'portable_tests.xml')
-        report={'revision':revision,'project_subdirectory':prefix,'cache_reused':False,
+        result=json.loads((checkout/f'reports/week_14/{prefix}/local_checks.json').read_text())
+        assert result['stage_tests']>=(16 if args.stage == 2 else 8) and result['production_unchanged']
+        shutil.copyfile(checkout/f'reports/week_14/{prefix}/tests.xml',out/'portable_tests.xml')
+        report={'revision':revision,'project_subdirectory':project_prefix,'cache_reused':False,
                 'local_derivatives_supplied':True,'vendor_bundle_copied':False,
                 'vendor_original_path_needed_at_runtime':False,'passed':True,'checks':result,
                 'git_only_asset_portability':'pending repository terms; not claimed'}
         (out/'portable_checks.json').write_text(json.dumps(report,indent=2)+'\n')
-    print('G1 FRESH LOCAL COPY PASS; Git-only asset portability remains pending')
+    print(prefix.upper(),'FRESH LOCAL COPY PASS; Git-only asset portability remains pending')
 
 
 if __name__=='__main__':
