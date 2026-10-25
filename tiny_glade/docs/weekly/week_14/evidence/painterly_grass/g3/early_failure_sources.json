@@ -1,0 +1,9 @@
+{
+  "first_native": {
+    "raw_path": "reports/week_14/g3/first_native.log",
+    "sha256": "e9991022856a082435b67702a57c9a529739a70071c272217d4744d9146f7716",
+    "bytes": 2695234,
+    "excerpt": "first_native_error_excerpt.log"
+  },
+  "reason": "Repeated consequence errors retained locally; first cause and trace archived."
+}

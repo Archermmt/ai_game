@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="28" >
+  <testsuite name="tests/week_14/test_grass_lab.gd" tests="8" failures="0" skipped="0" time="0.804447" >
+      <testcase name="test_imported_meshes_preserve_single_surface_budget_and_root_weights" assertions="77" status="pass" classname="tests/week_14/test_grass_lab.gd" time="0.094877" >
+      </testcase>
+      <testcase name="test_imported_y_up_scale_and_origin_match_manifest" assertions="16" status="pass" classname="tests/week_14/test_grass_lab.gd" time="0.089683" >
+      </testcase>
+      <testcase name="test_coverage_has_real_transparent_and_brush_edge_pixels" assertions="6" status="pass" classname="tests/week_14/test_grass_lab.gd" time="0.096896" >
+      </testcase>
+      <testcase name="test_batches_are_deterministic_and_share_only_per_lab_material" assertions="5" status="pass" classname="tests/week_14/test_grass_lab.gd" time="0.095226" >
+      </testcase>
+      <testcase name="test_pause_resume_and_reduce_motion_are_independent_local_controls" assertions="7" status="pass" classname="tests/week_14/test_grass_lab.gd" time="0.123592" >
+      </testcase>
+      <testcase name="test_light_modes_and_close_views_do_not_rebuild_geometry" assertions="6" status="pass" classname="tests/week_14/test_grass_lab.gd" time="0.096815" >
+      </testcase>
+      <testcase name="test_reset_restores_local_presentation_and_preview_has_no_save_service" assertions="9" status="pass" classname="tests/week_14/test_grass_lab.gd" time="0.096826" >
+      </testcase>
+      <testcase name="test_missing_derivatives_report_failure_without_substituting_old_grass" assertions="4" status="pass" classname="tests/week_14/test_grass_lab.gd" time="0.110532" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_14/g2/test_grass_patch.gd" tests="8" failures="0" skipped="0" time="1.392303" >
+      <testcase name="test_scattering_is_deterministic_and_default_density_is_recalibrated" assertions="10" status="pass" classname="tests/week_14/g2/test_grass_patch.gd" time="0.928724" >
+      </testcase>
+      <testcase name="test_full_mesh_footprints_and_wind_envelopes_stay_in_legal_region" assertions="2210" status="pass" classname="tests/week_14/g2/test_grass_patch.gd" time="0.013098" >
+      </testcase>
+      <testcase name="test_envelope_rejects_segment_circle_rect_and_pool_overlap_not_just_centers" assertions="9" status="pass" classname="tests/week_14/g2/test_grass_patch.gd" time="0.00036" >
+      </testcase>
+      <testcase name="test_root_heightmap_tracks_flat_rolling_and_brushed_slope_within_two_cm" assertions="3" status="pass" classname="tests/week_14/g2/test_grass_patch.gd" time="0.051021" >
+      </testcase>
+      <testcase name="test_ab_changes_only_derivatives_and_keeps_camera_light_history_and_source" assertions="40" status="pass" classname="tests/week_14/g2/test_grass_patch.gd" time="0.246193" >
+      </testcase>
+      <testcase name="test_f6_read_only_controls_cannot_edit_or_write_formal_files" assertions="7" status="pass" classname="tests/week_14/g2/test_grass_patch.gd" time="0.058026" >
+      </testcase>
+      <testcase name="test_walk_exit_retains_pause_and_all_five_views_keep_dof_disabled" assertions="11" status="pass" classname="tests/week_14/g2/test_grass_patch.gd" time="0.094635" >
+      </testcase>
+      <testcase name="test_shared_material_defaults_and_reflection_exclusion_preserve_baseline" assertions="15" status="pass" classname="tests/week_14/g2/test_grass_patch.gd" time="0.000246" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_14/g3/test_grass_garden.gd" tests="12" failures="0" skipped="0" time="58.163196" >
+      <testcase name="test_f6_is_editable_and_uses_exclusive_persistent_preview_storage" assertions="10" status="pass" classname="tests/week_14/g3/test_grass_garden.gd" time="0.049488" >
+      </testcase>
+      <testcase name="test_density_zero_latest_request_empty_blocks_and_one_are_supported" assertions="13" status="pass" classname="tests/week_14/g3/test_grass_garden.gd" time="0.290945" >
+      </testcase>
+      <testcase name="test_local_terrain_edit_reuses_far_chunk_nodes_and_keeps_distribution" assertions="10" status="pass" classname="tests/week_14/g3/test_grass_garden.gd" time="0.540669" >
+      </testcase>
+      <testcase name="test_building_path_tree_pool_and_bridge_changes_preserve_unaffected_chunks" assertions="28" status="pass" classname="tests/week_14/g3/test_grass_garden.gd" time="2.629438" >
+      </testcase>
+      <testcase name="test_brush_erase_preserves_manual_locked_ids_and_source_schema" assertions="50" status="pass" classname="tests/week_14/g3/test_grass_garden.gd" time="1.107163" >
+      </testcase>
+      <testcase name="test_latest_worker_variant_switch_and_cancel_never_publish_stale_data" assertions="121" status="pass" classname="tests/week_14/g3/test_grass_garden.gd" time="0.382897" >
+      </testcase>
+      <testcase name="test_fifty_mixed_edits_undo_redo_restore_source_and_derived_versions" assertions="358" status="pass" classname="tests/week_14/g3/test_grass_garden.gd" time="49.827868" >
+      </testcase>
+      <testcase name="test_isolated_save_load_regenerates_identical_grass_and_legacy_source" assertions="14" status="pass" classname="tests/week_14/g3/test_grass_garden.gd" time="1.56129" >
+      </testcase>
+      <testcase name="test_seasons_weather_freeze_reduce_motion_and_reflection_layers_share_interfaces" assertions="123" status="pass" classname="tests/week_14/g3/test_grass_garden.gd" time="0.202052" >
+      </testcase>
+      <testcase name="test_empty_chunk_publication_clears_old_views_and_can_recover" assertions="11" status="pass" classname="tests/week_14/g3/test_grass_garden.gd" time="0.181218" >
+      </testcase>
+      <testcase name="test_height_layers_match_mesh_roots_and_clearance_covers_full_wind" assertions="19792" status="pass" classname="tests/week_14/g3/test_grass_garden.gd" time="1.311558" >
+      </testcase>
+      <testcase name="test_height_cache_tracks_seed_quarter_spacing_halo_and_brushed_surface" assertions="11" status="pass" classname="tests/week_14/g3/test_grass_garden.gd" time="0.07861" >
+      </testcase>
+  </testsuite>
+</testsuites>

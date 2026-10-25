@@ -1,0 +1,98 @@
+{
+  "revision": "06e5bf9e4053114e06107c359431f7f33b08c5b1",
+  "project_subdirectory": "tiny_glade",
+  "cache_reused": false,
+  "local_derivatives_supplied": true,
+  "vendor_bundle_copied": false,
+  "vendor_original_path_needed_at_runtime": false,
+  "passed": true,
+  "checks": {
+    "environment": {
+      "engine": "4.7.2.stable.official.ed1daf0bf",
+      "engine_sha256": "c7cccbf8fb143e34e02fd6521e09be2c2b974f0d5db080b19071c9c570718ccf",
+      "python": "3.14.3 (main, Feb  3 2026, 15:32:20) [Clang 17.0.0 (clang-1700.6.3.2)]",
+      "locked_python_packages": {
+        "colorama": "0.4.6",
+        "docopt-ng": "0.9.0",
+        "gdtoolkit": "4.5.0",
+        "lark": "1.2.2",
+        "mando": "0.7.1",
+        "pip": "26.0",
+        "pyyaml": "6.0.3",
+        "radon": "6.0.1",
+        "regex": "2026.9.29",
+        "setuptools": "84.0.0",
+        "six": "1.17.0"
+      },
+      "revision": "06e5bf9e4053114e06107c359431f7f33b08c5b1"
+    },
+    "stage": 3,
+    "stage_tests": 28,
+    "g1_tests": 8,
+    "stage_assertions": 22976,
+    "godot_tests": null,
+    "python_tests": null,
+    "cumulative_run": false,
+    "negative_control": null,
+    "failures": 0,
+    "skipped": 0,
+    "production_unchanged": true,
+    "assets": {
+      "assets": [
+        {
+          "asset_id": "grass_card_a",
+          "triangles": 8,
+          "exported_vertices": 16,
+          "surfaces": 1,
+          "dimensions_y_up": [
+            0.35628196597099304,
+            0.4169085621833801,
+            0.09901387244462967
+          ],
+          "export_sha256": "6d13579a60ea99cfc1dff6bd884067e88a7ee1b0889b23271cec4eebb92e5201"
+        },
+        {
+          "asset_id": "grass_card_b",
+          "triangles": 8,
+          "exported_vertices": 16,
+          "surfaces": 1,
+          "dimensions_y_up": [
+            0.24834349751472473,
+            0.4254020154476166,
+            0.09901387244462967
+          ],
+          "export_sha256": "80010896561bb292a3ed0aaafe224d5dc1b0c592f12068899f4393a72370ca87"
+        },
+        {
+          "asset_id": "grass_floor",
+          "triangles": 8,
+          "exported_vertices": 16,
+          "surfaces": 1,
+          "dimensions_y_up": [
+            0.737437903881073,
+            0.04391323775053024,
+            0.797888457775116
+          ],
+          "export_sha256": "32b44ae6f79f02d8f188e00d7419854264aacf6738f677eed2a9b25db9472f54"
+        }
+      ],
+      "texture_size": [
+        2048,
+        2048
+      ],
+      "shared_textures": 1,
+      "source_hashes_match": true,
+      "passed": true,
+      "repository_asset_terms": "pending; local derivatives only"
+    },
+    "steps": [
+      {
+        "name": "g3_tests",
+        "exit_code": 0,
+        "seconds": 66.646
+      }
+    ],
+    "asset_repository_terms": "pending; local-only derivatives"
+  },
+  "git_only_asset_portability": "pending repository terms; not claimed"
+}

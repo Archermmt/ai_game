@@ -1,0 +1,425 @@
+{
+  "capacity_benchmark": false,
+  "checks": {
+    "ab_source_unchanged": true,
+    "editable_hud_visible": true,
+    "environment_did_not_change_source": true,
+    "f6_isolated": true,
+    "lab_to_garden_real_gui": true,
+    "latest_grass_matches_edit": true,
+    "library_real_gui": true,
+    "load_regenerates_same_grass": true,
+    "new_grass_excluded_from_reflection": true,
+    "new_grass_versions_restore": true,
+    "new_grass_wind_pixels": true,
+    "one_preview_world": true,
+    "photo_camera_preserved": true,
+    "photo_freezes_new_and_old": true,
+    "photo_real_gui": true,
+    "preview_toolbar_hidden_in_photo": true,
+    "rain_visible": true,
+    "redo_real_gui": true,
+    "reduced_motion_pixels_stable": true,
+    "return_to_lab_real_gui": true,
+    "save_real_gui": true,
+    "season_10_clear_no_rebuild": true,
+    "season_10_cloudy_no_rebuild": true,
+    "season_1_clear_no_rebuild": true,
+    "season_1_cloudy_no_rebuild": true,
+    "season_4_clear_no_rebuild": true,
+    "season_4_cloudy_no_rebuild": true,
+    "season_7_clear_no_rebuild": true,
+    "season_7_cloudy_no_rebuild": true,
+    "snow_visible": true,
+    "terrain_edit_actual_pointer": true,
+    "terrain_tool_gui": true,
+    "toolbar_inside_viewport": true,
+    "two_no_ui_exports": true,
+    "undo_real_gui": true,
+    "unsaved_return_requires_decision": true,
+    "variant_gui_rebuilds_real_old_grass": true,
+    "walk_exit_real_gui": true,
+    "walk_real_gui": true,
+    "weather_midblend_redirect": true
+  },
+  "edit_latency_verified": false,
+  "exports": [
+    {
+      "error": "OK",
+      "ok": true,
+      "path": "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/reports/week_14/g3/native/photo_1080.png",
+      "size": "(1920, 1080)"
+    },
+    {
+      "error": "OK",
+      "ok": true,
+      "path": "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/reports/week_14/g3/native/photo_2k.png",
+      "size": "(2560, 1440)"
+    }
+  ],
+  "new_grass_batches": 108,
+  "new_grass_instances": 8861,
+  "passed": true,
+  "pixel_controls_taa": false,
+  "reduced_pixel_difference": 0.0,
+  "representative_views_taa": true,
+  "ui_input": "actual viewport GUI press/release; own-viewport routing for library dialog",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "weather_trajectory": [
+    {
+      "blend": {
+        "cloud": 0.850136562420899,
+        "cover": 0.439407478165427,
+        "dust": 0.0,
+        "energy": 0.48,
+        "fog": 0.0018,
+        "rain": 0.000740652293216768,
+        "snow": 0.548497813370107
+      },
+      "elapsed_ms": 255.55,
+      "weather": "rain"
+    },
+    {
+      "blend": {
+        "cloud": 0.850377062273348,
+        "cover": 0.438356935411575,
+        "dust": 0.0,
+        "energy": 0.48,
+        "fog": 0.0018,
+        "rain": 0.00205383073553183,
+        "snow": 0.545852314993167
+      },
+      "elapsed_ms": 512.9,
+      "weather": "rain"
+    },
+    {
+      "blend": {
+        "cloud": 0.850738982922818,
+        "cover": 0.436765351913007,
+        "dust": 0.0,
+        "energy": 0.48,
+        "fog": 0.0018,
+        "rain": 0.00404331010874071,
+        "snow": 0.541871187848996
+      },
+      "elapsed_ms": 770.114,
+      "weather": "rain"
+    },
+    {
+      "blend": {
+        "cloud": 0.851227888540239,
+        "cover": 0.434599833627978,
+        "dust": 0.0,
+        "energy": 0.48,
+        "fog": 0.0018,
+        "rain": 0.00675020796502712,
+        "snow": 0.536493226057369
+      },
+      "elapsed_ms": 1032.038,
+      "weather": "rain"
+    },
+    {
+      "blend": {
+        "cloud": 0.851803165980659,
+        "cover": 0.432032776021248,
+        "dust": 0.0,
+        "energy": 0.48,
+        "fog": 0.0018,
+        "rain": 0.00995902997344058,
+        "snow": 0.530165174212749
+      },
+      "elapsed_ms": 1293.64,
+      "weather": "rain"
+    },
+    {
+      "blend": {
+        "cloud": 0.852446403248937,
+        "cover": 0.429141132886836,
+        "dust": 0.0,
+        "energy": 0.48,
+        "fog": 0.0018,
+        "rain": 0.0135735838914549,
+        "snow": 0.52308956426169
+      },
+      "elapsed_ms": 1551.887,
+      "weather": "rain"
+    },
+    {
+      "blend": {
+        "cloud": 0.853195959752002,
+        "cover": 0.425745672791359,
+        "dust": 0.0,
+        "energy": 0.48,
+        "fog": 0.0018,
+        "rain": 0.0178179090108017,
+        "snow": 0.51484444272798
+      },
+      "elapsed_ms": 1816.071,
+      "weather": "rain"
+    },
+    {
+      "blend": {
+        "cloud": 0.853846233115404,
+        "cover": 0.42277927849032,
+        "dust": 0.0,
+        "energy": 0.48,
+        "fog": 0.0018,
+        "rain": 0.021525313939082,
+        "snow": 0.50769254782911
+      },
+      "elapsed_ms": 2071.918,
+      "weather": "snow"
+    },
+    {
+      "blend": {
+        "cloud": 0.853846233115404,
+        "cover": 0.422795192183092,
+        "dust": 0.0,
+        "energy": 0.48,
+        "fog": 0.0018,
+        "rain": 0.0214849329793675,
+        "snow": 0.507731644204686
+      },
+      "elapsed_ms": 2336.691,
+      "weather": "snow"
+    },
+    {
+      "blend": {
+        "cloud": 0.853846233115404,
+        "cover": 0.422832917275539,
+        "dust": 0.0,
+        "energy": 0.48,
+        "fog": 0.0018,
+        "rain": 0.021389797921976,
+        "snow": 0.507824326299536
+      },
+      "elapsed_ms": 2594.717,
+      "weather": "snow"
+    },
+    {
+      "blend": {
+        "cloud": 0.853846233115404,
+        "cover": 0.422890405420353,
+        "dust": 0.0,
+        "energy": 0.48,
+        "fog": 0.0018,
+        "rain": 0.0212457911302922,
+        "snow": 0.507965561783529
+      },
+      "elapsed_ms": 2856.18,
+      "weather": "snow"
+    },
+    {
+      "blend": {
+        "cloud": 0.853846233115404,
+        "cover": 0.422965252004216,
+        "dust": 0.0,
+        "energy": 0.48,
+        "fog": 0.0018,
+        "rain": 0.0210595805913686,
+        "snow": 0.508149443060811
+      },
+      "elapsed_ms": 3112.837,
+      "weather": "snow"
+    },
+    {
+      "blend": {
+        "cloud": 0.853846233115404,
+        "cover": 0.423061460353805,
+        "dust": 0.0,
+        "energy": 0.48,
+        "fog": 0.0018,
+        "rain": 0.020821932356283,
+        "snow": 0.508385805407556
+      },
+      "elapsed_ms": 3373.777,
+      "weather": "snow"
+    },
+    {
+      "blend": {
+        "cloud": 0.853846233115404,
+        "cover": 0.423176303789262,
+        "dust": 0.0,
+        "energy": 0.48,
+        "fog": 0.0018,
+        "rain": 0.0205403902020341,
+        "snow": 0.508667949982625
+      },
+      "elapsed_ms": 3633.038,
+      "weather": "snow"
+    },
+    {
+      "blend": {
+        "cloud": 0.853846233115404,
+        "cover": 0.423301685271871,
+        "dust": 0.0,
+        "energy": 0.48,
+        "fog": 0.0018,
+        "rain": 0.0202353571749226,
+        "snow": 0.508975984177107
+      },
+      "elapsed_ms": 3888.834,
+      "weather": "snow"
+    },
+    {
+      "blend": {
+        "cloud": 0.853846233115404,
+        "cover": 0.423452041583112,
+        "dust": 0.0,
+        "energy": 0.48,
+        "fog": 0.0018,
+        "rain": 0.0198724845418379,
+        "snow": 0.509345375926623
+      },
+      "elapsed_ms": 4150.035,
+      "weather": "snow"
+    },
+    {
+      "blend": {
+        "cloud": 0.853846233115404,
+        "cover": 0.423619409972263,
+        "dust": 0.0,
+        "energy": 0.48,
+        "fog": 0.0018,
+        "rain": 0.0194720119266823,
+        "snow": 0.509756562537761
+      },
+      "elapsed_ms": 4415.138,
+      "weather": "snow"
+    },
+    {
+      "blend": {
+        "cloud": 0.853846233115404,
+        "cover": 0.423797687250806,
+        "dust": 0.0,
+        "energy": 0.48,
+        "fog": 0.0018,
+        "rain": 0.0190491902375658,
+        "snow": 0.510194549844559
+      },
+      "elapsed_ms": 4671.661,
+      "weather": "snow"
+    },
+    {
+      "blend": {
+        "cloud": 0.853846233115404,
+        "cover": 0.423996270608729,
+        "dust": 0.0,
+        "energy": 0.48,
+        "fog": 0.0018,
+        "rain": 0.0185825337865553,
+        "snow": 0.510682424636131
+      },
+      "elapsed_ms": 4934.548,
+      "weather": "snow"
+    },
+    {
+      "blend": {
+        "cloud": 0.853846233115404,
+        "cover": 0.424208766910539,
+        "dust": 0.0,
+        "energy": 0.48,
+        "fog": 0.0018,
+        "rain": 0.0180880245491451,
+        "snow": 0.511204480411801
+      },
+      "elapsed_ms": 5194.589,
+      "weather": "snow"
+    },
+    {
+      "blend": {
+        "cloud": 0.853846233115404,
+        "cover": 0.42443176143277,
+        "dust": 0.0,
+        "energy": 0.48,
+        "fog": 0.0018,
+        "rain": 0.0175742919319115,
+        "snow": 0.511752327961529
+      },
+      "elapsed_ms": 5456.175,
+      "weather": "snow"
+    },
+    {
+      "blend": {
+        "cloud": 0.853845527533845,
+        "cover": 0.424674733777436,
+        "dust": 0.0,
+        "energy": 0.48,
+        "fog": 0.0018,
+        "rain": 0.0170204532564482,
+        "snow": 0.51234925654231
+      },
+      "elapsed_ms": 5719.589,
+      "weather": "snow"
+    },
+    {
+      "blend": {
+        "cloud": 0.85383851389713,
+        "cover": 0.424928119725819,
+        "dust": 0.0,
+        "energy": 0.48,
+        "fog": 0.0018,
+        "rain": 0.0164493307539423,
+        "snow": 0.512971769012882
+      },
+      "elapsed_ms": 5983.417,
+      "weather": "snow"
+    }
+  ],
+  "wind_pixel_difference": 0.00051852874025497,
+  "rss_peak_bytes": 1228537856,
+  "rss_samples": 132,
+  "command": [
+    "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/.tools/godot/Godot.app/Contents/MacOS/Godot",
+    "--always-on-top",
+    "--audio-driver",
+    "Dummy",
+    "--path",
+    "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade",
+    "--resolution",
+    "1920x1080",
+    "-s",
+    "tests/week_14/grass_garden_native_probe.gd",
+    "--",
+    "--g3-fhd",
+    "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/reports/week_14/g3/native"
+  ],
+  "physical_touchpad_verified": false,
+  "physical_audio_verified": false,
+  "gpu_timing_ms": null,
+  "environment": {
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "engine_sha256": "c7cccbf8fb143e34e02fd6521e09be2c2b974f0d5db080b19071c9c570718ccf",
+    "python": "3.14.3 (main, Feb  3 2026, 15:32:20) [Clang 17.0.0 (clang-1700.6.3.2)]",
+    "locked_python_packages": {
+      "colorama": "0.4.6",
+      "docopt-ng": "0.9.0",
+      "gdtoolkit": "4.5.0",
+      "lark": "1.2.2",
+      "mando": "0.7.1",
+      "pip": "26.0",
+      "pyyaml": "6.0.3",
+      "radon": "6.0.1",
+      "regex": "2026.9.29",
+      "setuptools": "84.0.0",
+      "six": "1.17.0"
+    },
+    "revision": "5d0e24b838bf7aa792f644e6b4f21cacfa8f349c"
+  },
+  "step": {
+    "name": "g3_native",
+    "exit_code": 0,
+    "seconds": 34.205
+  },
+  "production_before": {
+    "preferences.cfg": "b6f5dede52ba7e8d41e6f281bf962dc878724a0880ac43519f9978f170591255"
+  },
+  "production_after": {
+    "preferences.cfg": "b6f5dede52ba7e8d41e6f281bf962dc878724a0880ac43519f9978f170591255"
+  },
+  "production_unchanged": true,
+  "new_asset_capacity_benchmark": false
+}

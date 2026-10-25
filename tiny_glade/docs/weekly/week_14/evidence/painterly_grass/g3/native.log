@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M4 Pro (Apple9)
+
+2026-10-25 15:55:06.407 Godot[75954:18291296] +[IMKClient subclass]: chose IMKClient_Modern
+W09_FIRST_DRAW
+2026-10-25 15:55:07.296 Godot[75954:18291296] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+G3_SAVE_GUI busy=false title=G3 native regression
+G3_GUI_CHECKS {"ab_source_unchanged":true,"editable_hud_visible":true,"f6_isolated":true,"latest_grass_matches_edit":true,"library_real_gui":true,"new_grass_versions_restore":true,"redo_real_gui":true,"save_real_gui":true,"terrain_edit_actual_pointer":true,"terrain_tool_gui":true,"toolbar_inside_viewport":true,"undo_real_gui":true,"variant_gui_rebuilds_real_old_grass":true}
+G3_PRE_NAV_CHECKS {"ab_source_unchanged":true,"editable_hud_visible":true,"environment_did_not_change_source":true,"f6_isolated":true,"latest_grass_matches_edit":true,"library_real_gui":true,"load_regenerates_same_grass":true,"new_grass_excluded_from_reflection":true,"new_grass_versions_restore":true,"new_grass_wind_pixels":true,"photo_camera_preserved":true,"photo_freezes_new_and_old":true,"photo_real_gui":true,"preview_toolbar_hidden_in_photo":true,"rain_visible":true,"redo_real_gui":true,"reduced_motion_pixels_stable":true,"return_to_lab_real_gui":true,"save_real_gui":true,"season_10_clear_no_rebuild":true,"season_10_cloudy_no_rebuild":true,"season_1_clear_no_rebuild":true,"season_1_cloudy_no_rebuild":true,"season_4_clear_no_rebuild":true,"season_4_cloudy_no_rebuild":true,"season_7_clear_no_rebuild":true,"season_7_cloudy_no_rebuild":true,"snow_visible":true,"terrain_edit_actual_pointer":true,"terrain_tool_gui":true,"toolbar_inside_viewport":true,"two_no_ui_exports":true,"undo_real_gui":true,"unsaved_return_requires_decision":true,"variant_gui_rebuilds_real_old_grass":true,"walk_exit_real_gui":true,"walk_real_gui":true,"weather_midblend_redirect":true}
+W09_FIRST_DRAW

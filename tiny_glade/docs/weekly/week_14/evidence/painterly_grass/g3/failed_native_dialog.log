@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M4 Pro (Apple9)
+
+2026-10-25 15:49:07.107 Godot[74386:18275046] +[IMKClient subclass]: chose IMKClient_Modern
+W09_FIRST_DRAW
+2026-10-25 15:49:08.123 Godot[74386:18275046] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+SCRIPT ERROR: Assertion failed.
+          at: _run (res://tests/week_14/grass_garden_native_probe.gd:314)
+          GDScript backtrace (most recent call first):
+              [0] _run (res://tests/week_14/grass_garden_native_probe.gd:314)

@@ -309,3 +309,16 @@ python3 tools/quality/painterly_grass_portable_checks.py --stage 2
 累计入口保留W13/G0和负控，再运行G1/G2两个套件；G2新增8项Godot回归。原生窗口采集五组1080p同机位A/B、GUI控件与G1/G2入口往返、新旧各60秒轨迹及RSS，并核对正式文件哈希。平地/起伏/刷坡的实际根顶点采样误差须≤2cm，完整草卡包络避让道路、门口、池岸和桥头。新旧帧p95须≤20ms，新增>50ms停顿拒绝；这里只签核局部样板，满容量与编辑仍待G3/G4。任何脚本错误、退出泄漏、断言失败、空套件或关键跳过均拒绝。
 
 本地副本从当前提交建立，无Godot缓存、不复制桌面原包，显式供应与manifest绑定的派生件。Git单独素材可用性/分发条款、用户视觉V2及Windows真机等门槛保持。直接F6打开`app/painterly_grass_patch.tscn`体验，G1统一入口也可进入。详见[G2报告](weekly/week_14/G2_GRASS_PATCH.md)。
+
+
+## W14 G3 · 可编辑新草庭园
+
+```bash
+python3 tools/quality/painterly_grass_checks.py --stage 3
+python3 tools/quality/painterly_grass_checks.py --stage 3 --native-only
+python3 tools/quality/painterly_grass_portable_checks.py --stage 3
+```
+
+累计保留W13/G0及历史负控，按明确的G1/G2/G3目录运行；新增12项G3测试。50笔合法混合编辑逐笔撤销重做，同时检查源状态和派生块版本；覆盖刷植/擦除、房屋/路径/池岸/桥头、0/100%密度、空块、任务淘汰/取消、存读档、地形贴合与种子/0.25m采样边缘失效，以及季节/摄影/减少动态/反射层。各套件自行创建报告目录，空缓存组合运行不能依赖历史reports残留。
+
+原生40项实际视口GUI检查、四季×晴阴8图、雨/雪及天气重定向轨迹、1080p/2K无UI导出和风动/减少动态像素验证；正式文件集合及哈希前后相同。继承旧草回退的材质也必须在编辑后继续参加风与冻结控制。所有脚本错误/退出泄漏、空套件、失败断言或关键跳过拒绝；新草容量/LOD与编辑时延留到G4，Windows/物理输入等不由本机替代。见[G3验收报告](weekly/week_14/G3_EDITABLE_GRASS_GARDEN.md)。

@@ -8,7 +8,9 @@
 
 打开 `app/painterly_grass_patch.tscn` 按F6，可在屋前8×8m区域切换新旧草，使用五个固定机位、日间/黄昏、暂停和第一人称漫步，Esc返回俯视。统一入口 `app/painterly_grass_preview.tscn` 提供G1单体展示与G2庭园对照的双向按钮；F5仍为正常游戏。
 
-预览只读，直接F6也隔离正式存档和偏好。派生素材目前本地供应，Git单独检出需按[G1提取说明](art_source/painterly_grass/README.md)准备；[G2报告与五组对照](docs/weekly/week_14/G2_GRASS_PATCH.md)记录技术结果。用户风格验收V2及G3–G5尚未完成。
+预览只读，直接F6也隔离正式存档和偏好。派生素材目前本地供应，Git单独检出需按[G1提取说明](art_source/painterly_grass/README.md)准备；[G2报告与五组对照](docs/weekly/week_14/G2_GRASS_PATCH.md)记录技术结果。G3可编辑庭园已交付，G4/G5和用户视觉验收尚待完成。
+
+打开 `app/painterly_grass_garden.tscn` 按F6，可直接用新草建造、刷坡、撤销重做，切换四季雨雪、漫步和导出照片；存档与偏好使用独立预览目录。统一入口和G2中都可点击“编辑庭园 G3”。详见[G3报告](docs/weekly/week_14/G3_EDITABLE_GRASS_GARDEN.md)。
 
 ## 运行
 
