@@ -266,3 +266,20 @@ W13漫步扩展至至少62项，新增18项控制器/支撑/障碍回归；`pyth
 W13天空/交互扩展至至少77项，新增15项天气连续性/图标/天空/风声表现回归；所有天气对检查中间范围、目标端点和快速切换。`python3 tools/quality/sky_weather_native_checks.py`实际投递界面/双指输入并等待天气转场，至少17项像素/状态检查；照片输入18项、水面9项、原UI22项保持。`python3 tools/quality/walk_performance_checks.py --transitions`测满容量每6秒切换天气的30秒漫步，必须实际出现至少两种粒子重叠，保留全部帧间隔并执行20ms p95门槛。详见[本轮说明](weekly/week_13/SKY_WEATHER_UI.md)。
 
 W13整体美术扩展至至少89项，新增12项模型/材质/光照/镜头回归，含檐底正面可见性和闭合、顺纹UV、9三角草根固定/非退化、树冠覆盖/预算与远焦清晰度。`python3 tools/quality/painterly_views_checks.py --diagnostic`检查11个固定镜头和阴影隔离；天空/天气原生扩展至18项并验证按钮前的就绪状态。Blender改动须重开源件；另用`python3 tools/art/audit_foliage_evidence.py --root "$PWD"`测量当前覆盖与LOD尺寸。默认远焦偏移改为6m，旧精确镜头测试同步新设计，关闭与源隔离检查保留。详见[整体美术说明](weekly/week_13/PAINTERLY_REWORK.md)。
+
+
+## W14 G0 · 迁移与旧草基线
+
+2026-10-25新增当前可执行入口：
+
+```bash
+python3 tools/quality/painterly_grass_g0_checks.py
+python3 tools/quality/painterly_grass_g0_checks.py --native-only
+python3 tools/quality/clean_checkout.py --week 14
+```
+
+前者保留W13全部745项Godot和28项Python、历史负控，再加G0的9项Python工具回归，共745项Godot / 30,967断言 + 37项Python。独立W01–W09指定命令仍须保留，本轮446项及负控通过，不重复累计。直接`run_checks.py --week 14`仍未注册，应使用W14专用入口。
+
+空检出支持monorepo子项目，只归档工程子树；真实运行时无导入缓存，仅复用固定宿主工具。空测试、断言失败、关键跳过、脚本错误和失败子进程均拒绝。当前游戏版本仍为0.13.0-w13；W14 gate目前仅覆盖G0，不代表G1–G5或产品M4/M5放行。
+
+原生检查串行采集11个1080p固定机位、示范/满容量各60秒的旧草漫步、RSS、1Hz轨迹与源/历史/正式文件哈希。首轮可见稳定等待超时保留，不计冷启动通过；音频为Dummy，新资产未进入场景。[G0完整报告](weekly/week_14/G0_BASELINE.md)。

@@ -1,0 +1,164 @@
+{
+  "environment": {
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "engine_sha256": "c7cccbf8fb143e34e02fd6521e09be2c2b974f0d5db080b19071c9c570718ccf",
+    "python": "3.14.3 (main, Feb  3 2026, 15:32:20) [Clang 17.0.0 (clang-1700.6.3.2)]",
+    "locked_python_packages": {
+      "colorama": "0.4.6",
+      "docopt-ng": "0.9.0",
+      "gdtoolkit": "4.5.0",
+      "lark": "1.2.2",
+      "mando": "0.7.1",
+      "pip": "26.0",
+      "pyyaml": "6.0.3",
+      "radon": "6.0.1",
+      "regex": "2026.9.29",
+      "setuptools": "84.0.0",
+      "six": "1.17.0"
+    },
+    "revision": "b710fb749bc58466370d1c619df54457cd2d3ea1"
+  },
+  "fixed_views": [
+    "overview_default_focus",
+    "overview_sharp",
+    "cottage_detail",
+    "pond_walk",
+    "forest_walk",
+    "grass_detail",
+    "summer_sky",
+    "autumn_overview",
+    "winter_overview",
+    "sunset_walk",
+    "night_walk"
+  ],
+  "fixed_view_checks": {
+    "checks": {
+      "history_unchanged": true,
+      "source_unchanged": true,
+      "viewport_fhd": true
+    },
+    "passed": true
+  },
+  "view_step": {
+    "name": "g0_fixed_views",
+    "exit_code": 0,
+    "seconds": 7.19
+  },
+  "walk_baselines": {
+    "demo": {
+      "buildings": 3,
+      "climate_transitions": false,
+      "distance_from_start": 15.5629024505615,
+      "duration_ms": 60006.641,
+      "frames": 7202,
+      "grass_density": 0.45,
+      "grass_total": 37556,
+      "history_unchanged": true,
+      "instances": 170,
+      "layout": "demo",
+      "max_frame_ms": 15.317,
+      "max_visible_weather_types": 0,
+      "p95_frame_ms": 9.57,
+      "position": "(10.07257, 1.762535, 19.01791)",
+      "reflections": 452,
+      "requested_seconds": 60,
+      "safe_support": true,
+      "source_sha256": "a3fc17bd2a6a1b9977256ba44a15dfd68585e164ae85cd8dfa5da7307e5d7fc1",
+      "source_unchanged": true,
+      "viewport_size": [
+        1920,
+        1080
+      ],
+      "world_seed": "forest-slope-scn-01",
+      "rss_peak_bytes": 895746048,
+      "frame_budget_passed": true,
+      "memory_budget_passed": true,
+      "command": [
+        "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/.tools/godot/Godot.app/Contents/MacOS/Godot",
+        "--always-on-top",
+        "--audio-driver",
+        "Dummy",
+        "--path",
+        "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade",
+        "--resolution",
+        "1920x1080",
+        "-s",
+        "tests/week_13/walk_performance_probe.gd",
+        "--",
+        "--qa-settings",
+        "--art-fhd",
+        "--walk-seconds=60",
+        "--baseline-capture",
+        "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/reports/week_14/g0/demo_walk.json"
+      ],
+      "audio": "Dummy; physical audio unverified",
+      "gpu_timing_ms": null,
+      "input_protocol": "held W, horizontal look 0.3 radians/second, recorded 1Hz feet positions",
+      "cold_start_verified": false,
+      "edit_latency_verified": false
+    },
+    "capacity": {
+      "buildings": 24,
+      "climate_transitions": false,
+      "distance_from_start": 8.80629062652588,
+      "duration_ms": 60005.475,
+      "frames": 7200,
+      "grass_density": 0.45,
+      "grass_total": 34006,
+      "history_unchanged": true,
+      "instances": 1000,
+      "layout": "capacity",
+      "max_frame_ms": 20.311,
+      "max_visible_weather_types": 0,
+      "p95_frame_ms": 9.149,
+      "position": "(6.011151, -0.135795, 12.44647)",
+      "reflections": 452,
+      "requested_seconds": 60,
+      "safe_support": true,
+      "source_sha256": "e0eb829a6d8235e5a129ec32896c4e64bd4acc74f62c01ddb64b9cc71c820767",
+      "source_unchanged": true,
+      "viewport_size": [
+        1920,
+        1080
+      ],
+      "world_seed": "forest-slope-scn-01",
+      "rss_peak_bytes": 974749696,
+      "frame_budget_passed": true,
+      "memory_budget_passed": true,
+      "command": [
+        "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/.tools/godot/Godot.app/Contents/MacOS/Godot",
+        "--always-on-top",
+        "--audio-driver",
+        "Dummy",
+        "--path",
+        "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade",
+        "--resolution",
+        "1920x1080",
+        "-s",
+        "tests/week_13/walk_performance_probe.gd",
+        "--",
+        "--qa-settings",
+        "--art-fhd",
+        "--walk-seconds=60",
+        "--baseline-capture",
+        "--w09-stress",
+        "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/reports/week_14/g0/capacity_walk.json"
+      ],
+      "audio": "Dummy; physical audio unverified",
+      "gpu_timing_ms": null,
+      "input_protocol": "held W, horizontal look 0.3 radians/second, recorded 1Hz feet positions",
+      "cold_start_verified": false,
+      "edit_latency_verified": false
+    }
+  },
+  "production_before": {
+    "preferences.cfg": "b6f5dede52ba7e8d41e6f281bf962dc878724a0880ac43519f9978f170591255"
+  },
+  "production_after": {
+    "preferences.cfg": "b6f5dede52ba7e8d41e6f281bf962dc878724a0880ac43519f9978f170591255"
+  },
+  "production_unchanged": true,
+  "old_grass_only": true,
+  "new_assets_imported": false,
+  "windows_verified": false
+}

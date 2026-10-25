@@ -2,13 +2,23 @@
 
 更新日期：2026-10-25（Asia/Shanghai）
 
+## Painterly Grass · G0已完成
+
+2026-10-25：工具实现`b710fb7`。恢复项目本地Godot4.7.2、gdtoolkit4.5.0及全部Python锁依赖；官方API限流后按官方SHA512清单恢复，二进制SHA256与锁一致，系统Godot4.7未替换。空检出按工程子树适配monorepo，注册W14 G0累计，新增9项迁移/失败传播/下载完整性Python回归。
+
+工作区W13及提交后的空缓存W14均通过：**745项Godot / 30,967断言 + 37项Python**（原28+新增9），0失败/0跳过，历史负控通过；另独立执行指定W01–W09命令，446项与负控通过，不重复累计。固定11机位及示范/满容量各60秒旧草漫步完成：帧p95 **9.570 / 9.149ms**、RSS峰值 **854.25 / 929.59MiB**；源、历史、正式文件哈希不变。16份下载源哈希不变，3个G1候选仅登记未导入。
+
+首次原生15秒稳定等待超时已保留，原门槛下重跑通过；不计冷启动通过，旧编辑尖峰/Windows/低配/物理音频与触控板/M4/M5保持开放。默认入口与美术源件未改；新草场景和G1–G5尚未实现。F6可运行现有`app/living_root.tscn`感受旧草基线。
+
+复验：`python3 tools/quality/painterly_grass_g0_checks.py`、`python3 tools/quality/painterly_grass_g0_checks.py --native-only`、`python3 tools/quality/clean_checkout.py --week 14`；指定底层负控仍为`python3 tools/quality/run_checks.py --week 9 --negative-control`。[G0报告/截图/全部证据](docs/weekly/week_14/G0_BASELINE.md)。
+
 ## Painterly Grass 分阶段集成计划
 
 2026-10-25：完成G0–G5集成计划与W14验收台账：环境/旧草基线、单体材质、8×8m对照、编辑联动、容量性能、候选收口。每阶段交付可F6运行的场景、自动验证和用户视觉记录；G1起规划统一预览入口，G2确认风格方向后再扩大。计划明确直接F6的存档/偏好隔离、同源A/B、源件重开审计与旧草回退。
 
-只读核对发现迁移后本地工具未恢复，系统Godot4.7与锁定4.7.2不同；空检出脚本需要适配monorepo子项目路径。这些列入G0，未在本轮修复或计为通过。当前仅计划文档验证，无游戏/美术实现、新增场景、累计回归或新资产GPU实测；G0–G5技术/视觉/性能均待实际执行，原PRD与默认场景保持。
+只读核对发现迁移后本地工具未恢复，系统Godot4.7与锁定4.7.2不同；空检出脚本需要适配monorepo子项目路径。该条记录计划制定时的发现；G0后续恢复与实际验证见上方G0记录。G1–G5、新增新草场景与新资产GPU实测仍待执行，原PRD与默认场景保持。
 
-[集成计划与逐阶段验收](docs/DEV_PLAN_PAINTERLY_GRASS.md) · [W14台账和本轮文档核对](docs/weekly/week_14/README.md)。后续累计入口需扩展W14，不能使用尚未支持的`run_checks.py --week 14`。
+[集成计划与逐阶段验收](docs/DEV_PLAN_PAINTERLY_GRASS.md) · [W14台账和本轮文档核对](docs/weekly/week_14/README.md)。后续G1–G5须继续扩展W14入口，不能使用尚未注册的`run_checks.py --week 14`。
 
 ## Painterly Grass 外部资产可行性研究
 

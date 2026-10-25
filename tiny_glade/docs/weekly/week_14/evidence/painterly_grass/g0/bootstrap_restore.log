@@ -1,0 +1,39 @@
+Release API limited; using official SHA512 manifest
+Downloading Godot_v4.7.2-stable_macos.universal.zip
+Collecting colorama==0.4.6 (from -r /Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/requirements-dev.lock.txt (line 1))
+  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting docopt-ng==0.9.0 (from -r /Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/requirements-dev.lock.txt (line 2))
+  Using cached docopt_ng-0.9.0-py3-none-any.whl.metadata (13 kB)
+Collecting gdtoolkit==4.5.0 (from -r /Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/requirements-dev.lock.txt (line 3))
+  Using cached gdtoolkit-4.5.0-py3-none-any.whl.metadata (6.7 kB)
+Collecting lark==1.2.2 (from -r /Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/requirements-dev.lock.txt (line 4))
+  Using cached lark-1.2.2-py3-none-any.whl.metadata (1.8 kB)
+Collecting mando==0.7.1 (from -r /Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/requirements-dev.lock.txt (line 5))
+  Using cached mando-0.7.1-py2.py3-none-any.whl.metadata (7.4 kB)
+Collecting PyYAML==6.0.3 (from -r /Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/requirements-dev.lock.txt (line 6))
+  Using cached pyyaml-6.0.3-cp314-cp314-macosx_11_0_arm64.whl.metadata (2.4 kB)
+Collecting radon==6.0.1 (from -r /Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/requirements-dev.lock.txt (line 7))
+  Using cached radon-6.0.1-py2.py3-none-any.whl.metadata (8.2 kB)
+Collecting regex==2026.9.29 (from -r /Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/requirements-dev.lock.txt (line 8))
+  Using cached regex-2026.9.29-cp314-cp314-macosx_11_0_arm64.whl.metadata (40 kB)
+Collecting setuptools==84.0.0 (from -r /Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/requirements-dev.lock.txt (line 9))
+  Using cached setuptools-84.0.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting six==1.17.0 (from -r /Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/requirements-dev.lock.txt (line 10))
+  Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Using cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Using cached docopt_ng-0.9.0-py3-none-any.whl (16 kB)
+Using cached gdtoolkit-4.5.0-py3-none-any.whl (62 kB)
+Using cached lark-1.2.2-py3-none-any.whl (111 kB)
+Using cached mando-0.7.1-py2.py3-none-any.whl (28 kB)
+Using cached pyyaml-6.0.3-cp314-cp314-macosx_11_0_arm64.whl (173 kB)
+Using cached radon-6.0.1-py2.py3-none-any.whl (52 kB)
+Using cached regex-2026.9.29-cp314-cp314-macosx_11_0_arm64.whl (293 kB)
+Using cached setuptools-84.0.0-py3-none-any.whl (818 kB)
+Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+Installing collected packages: six, setuptools, regex, PyYAML, lark, docopt-ng, colorama, mando, radon, gdtoolkit
+
+Successfully installed PyYAML-6.0.3 colorama-0.4.6 docopt-ng-0.9.0 gdtoolkit-4.5.0 lark-1.2.2 mando-0.7.1 radon-6.0.1 regex-2026.9.29 setuptools-84.0.0 six-1.17.0
+
+[notice] A new release of pip is available: 26.0 -> 26.2.2
+[notice] To update, run: /Users/tongmeng/Desktop/codes/ai_game/tiny_glade/.venv/bin/python -m pip install --upgrade pip
+Bootstrap complete. Export templates are installed separately with matching official version.

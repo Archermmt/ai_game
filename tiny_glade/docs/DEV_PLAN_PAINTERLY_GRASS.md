@@ -1,6 +1,6 @@
 # Painterly Grass 分阶段集成计划
 
-日期：2026-10-25（Asia/Shanghai）。状态：**计划已整理，G0–G5尚未执行**。本轮交付计划和验收清单；新草场景、导出件和新增测试入口尚未创建。
+日期：2026-10-25（Asia/Shanghai）。状态：**G0已完成，G1–G5尚未执行**。[G0实际报告](weekly/week_14/G0_BASELINE.md)记录环境、测试与旧草基线；新草场景和导出件尚未创建，G0质量入口已交付。
 
 依据：[初步分析](art/PAINTERLY_GRASS_ASSESSMENT.md)、[批准PRD](PRD_风栖小筑.md)、[Godot开发契约](DEV_PLAN_MVP_Godot.md)、[当前状态](../STATUS.md)。已有结论仅覆盖16份源文件读取、几何/材质统计和参考图分析；Mac帧时间来自旧草，不能记为新资产通过。
 
@@ -10,7 +10,7 @@
 
 集成限于现有地表草和灌草的渲染变体。复用确定性散布、8m分块、异步生成与事务，不增加新地图、植物玩法、GeoScatter运行依赖或完整Blender演示地形。树、房屋、石头继续作为同场风格参照；若需要整体再改，单列下一轮范围。批准PRD原文保持。
 
-所有阶段归档到[W14执行台账](weekly/week_14/README.md)。W14是本次集成批次的证据编号，不表示已经开始或完成第14周开发，也不预先改项目版本。
+所有阶段归档到[W14执行台账](weekly/week_14/README.md)。W14是本次集成批次的证据编号，当前仅G0完成，不预先改游戏版本或宣称全批次交付。
 
 ## 阶段和可打开的交付物
 
@@ -162,7 +162,7 @@
 
 运行代码规划放 `features/painterly_grass/`，展示子场景放其 `previews/`；派生源件放 `art_source/painterly_grass/`，运行网格/贴图放 `assets/painterly_grass/`，导出脚本放 `tools/art/`，测试放 `tests/week_14/`。保持typed GDScript、snake_case文件和PascalCase节点，导入GLB与行为包装分离。
 
-以下区分现有命令和待实现入口；**本计划没有运行这些游戏验证**。
+以下区分可用命令和待实现入口；G0已执行的命令与真实结果以G0报告为准，其余阶段没有计为通过。
 
 ### 已有入口，G0恢复环境后使用
 
@@ -172,13 +172,23 @@
 .tools/godot/Godot.app/Contents/MacOS/Godot --version
 python3 tools/quality/run_checks.py --week 9 --negative-control
 python3 tools/quality/week_thirteen_checks.py
-# clean_checkout.py完成子项目路径适配后才可作为正式证据
+# G0已完成子项目路径适配；本轮实际空检出执行--week 14，包含W13
 python3 tools/quality/clean_checkout.py --week 13
 ```
 
 旧原生工具包括 `painterly_views_checks.py`、`week_thirteen_native_checks.py`、`walk_native_checks.py`、`sky_weather_native_checks.py`、`pond_water_native_checks.py`。它们默认检查现有场景；现有漫步性能probe固定30秒，G4的3×60秒需新增/扩展probe，不能复用旧结果冒充。旧截图脚本的label和输出目录也需适配，避免覆盖W13历史证据。G3–G5必须注入/适配新渲染候选，并有断言证明实际加载新草，不能仅跑旧入口就写新草已通过。
 
-### 规划新增入口，阶段实现时同步交付
+### G0已交付的新增入口
+
+```bash
+python3 tools/quality/painterly_grass_g0_checks.py
+python3 tools/quality/painterly_grass_g0_checks.py --native-only
+python3 tools/quality/clean_checkout.py --week 14
+```
+
+当前`--week 14`仅覆盖G0及W13累计；G5收口时须扩展到届时已实现的全部W14用例。
+
+### 后续阶段规划入口，阶段实现时同步交付
 
 ```bash
 # 尚不存在；G1起新增并按阶段累计覆盖，包含W13及历史负控
@@ -187,8 +197,6 @@ python3 tools/quality/painterly_grass_checks.py --stage 1
 python3 tools/quality/painterly_grass_native_checks.py --stage 2
 # G4交付；自动串行跑对照矩阵，不让用户人工计时
 python3 tools/quality/painterly_grass_performance.py
-# G5交付；需先扩展支持14及独立版本/阶段元数据，当前脚本仅支持到13
-python3 tools/quality/clean_checkout.py --week 14
 ```
 
 新增累计检查必须扩展到W14，按阶段显式登记应存在的用例和最低数量；实际发现为空、用例意外消失、断言失败、跳过关键用例、Godot脚本错误或异常退出，命令均非零。负控必须确实触发指定失败，不能只写`negative_control: true`。测试验证可观测的契约和失败传播，不为每个颜色/文件写同构断言。

@@ -1,0 +1,81 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/perf_02/test_audio_shutdown.gd
+* test_playing_ambient_shutdown_releases_mixer_playback_and_stream_references
+* test_paused_ambient_shutdown_releases_mixer_playback_and_stream_references
+2/2 passed.
+
+
+res://tests/perf_02/test_height_index.gd
+* test_queries_preserve_unsorted_source_order_and_height_precision
+* test_queries_match_closed_edges_zero_area_negative_and_bucket_boundaries
+* test_empty_huge_and_distant_queries_do_not_iterate_unbounded_empty_space
+* test_signatures_match_for_both_spacings_halos_and_seed_profile_changes
+* test_circle_and_outline_pond_signatures_keep_exact_influence_boundary
+* test_seeded_random_regions_match_exhaustive_entries_and_signatures
+* test_support_chain_recursion_uses_identical_parent_height_signatures
+* test_full_capacity_large_brush_then_undo_matches_all_fresh_geometry_and_reference_keys
+* test_indexed_rebuild_still_rejects_malformed_and_duplicate_height_entries
+9/9 passed.
+
+
+res://tests/perf_02/test_meadow_publication.gd
+* test_packed_buffers_match_legacy_transform_and_custom_data
+* test_local_publication_reuses_unchanged_nodes_and_keeps_density
+* test_cancelling_staging_never_frees_retained_live_chunks
+* test_latest_generation_removes_old_chunks_and_rebuilds_same_terrain
+* test_empty_result_clears_previous_grass_instead_of_claiming_idle_early
+* test_density_zero_and_reenable_use_latest_pending_source
+* test_worker_versions_survive_cancelled_publication_and_undo
+* test_roof_wall_height_and_non_clearance_edits_reuse_grass_distribution
+* test_footprint_entrance_and_prop_clearance_changes_invalidate_distribution
+* test_entrance_height_and_sill_thresholds_keep_exact_clearance
+10/10 passed.
+
+
+res://tests/perf_02/test_shutdown.gd
+* test_wallclock_wait_yields_frames_for_at_least_the_requested_real_duration
+WALLCLOCK_REGULAR elapsed_usec=50578
+* test_wallclock_wait_excludes_a_long_frame_before_voices_would_stop
+WALLCLOCK_AFTER_LONG_FRAME elapsed_usec=50588
+* test_exit_continuation_runs_after_two_frames_and_scene_children_are_released
+* test_active_workers_close_before_continuation_and_cannot_publish_after_release
+4/4 passed.
+
+
+res://tests/perf_02/test_wind_cache.gd
+* test_initial_cache_contains_every_live_material_and_diagnostic_count
+* test_environment_and_distant_terrain_reuse_existing_root_materials
+* test_added_deleted_and_undone_manual_tree_never_leaves_orphan_materials
+* test_same_source_id_with_new_asset_invalidates_only_its_root
+* test_rebuilt_brush_batch_refreshes_membership_without_rescanning_other_roots
+* test_seed_replacement_refreshes_derived_curtain_and_bank_materials
+* test_near_bank_terrain_and_undo_refresh_only_the_bank_material_root
+* test_cached_resources_keep_reduce_motion_and_photo_freeze_restore_complete
+8/8 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               5
+Tests                33
+Passing Tests        33
+Asserts            1159
+Time              41.792s
+
+
+---- All tests passed! ----
+
+Results saved to reports/perf_02.xml

@@ -1,0 +1,3 @@
+PASS g0_fixed_views (7.19s)
+G0 demo p95 9.57 ms; RSS 895746048
+G0 capacity p95 9.149 ms; RSS 974749696

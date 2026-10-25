@@ -1,0 +1,24 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M4 Pro (Apple9)
+
+W09_FIRST_DRAW
+2026-10-25 08:01:37.801 Godot[65477:18093375] +[IMKClient subclass]: chose IMKClient_Modern
+ERROR: UX02 native settle timeout
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _settle (res://tests/ux_02/native_probe.gd:21)
+
+Traceback (most recent call last):
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/painterly_grass_g0_checks.py", line 143, in <module>
+    main()
+    ~~~~^^
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/painterly_grass_g0_checks.py", line 125, in main
+    native_baselines()
+    ~~~~~~~~~~~~~~~~^^
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/painterly_grass_g0_checks.py", line 97, in native_baselines
+    step = run_step('g0_fixed_views', [engine_binary(), '--always-on-top', '--audio-driver', 'Dummy',
+        '--path', str(ROOT), '--resolution', '1920x1080', '-s', 'tests/week_13/painterly_views_probe.gd',
+        '--', '--qa-settings', '--art-fhd', str(views)], timeout=120)
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/run_checks.py", line 32, in run_step
+    raise RuntimeError(f"{name} failed; exit={process.returncode}")
+RuntimeError: g0_fixed_views failed; exit=1

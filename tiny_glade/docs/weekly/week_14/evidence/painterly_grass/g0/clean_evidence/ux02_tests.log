@@ -1,0 +1,64 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/ux_02/test_direct_data.gd
+* test_round_resize_keeps_diameter_linked_and_source_immutable
+* test_dimension_limits_and_object_seed_are_preserved
+* test_copy_uses_fresh_ids_seeds_and_removes_attachment_identity_collisions
+* test_moving_support_rejects_instead_of_discarding_attached_content
+* test_round_wall_target_uses_the_cylinder_instead_of_empty_box_corners
+5/5 passed.
+
+
+res://tests/ux_02/test_simple_scene.gd
+* test_default_has_eleven_cards_without_modify_and_does_not_open_large_inspector
+* test_all_compact_groups_route_and_fit_at_150_percent
+* test_building_height_drag_commits_once_and_undo_redo_restore_source
+* test_direct_cancel_rejects_late_preview_and_leaves_history_empty
+* test_right_short_click_enters_edit_from_any_creation_tool
+* test_right_drag_away_and_back_never_selects_on_release
+* test_exact_inspector_is_explicit_and_photo_restores_selection_and_chrome
+* test_copy_house_is_preview_until_drop_and_can_be_cancelled
+* test_delete_building_is_targeted_reversible_and_cannot_bypass_pending_commit
+* test_opening_click_finds_target_without_selecting_a_house_first
+* test_failed_bridge_release_does_not_wait_for_a_second_confirmation
+* test_focus_loss_cancels_direct_drag_without_source_changes
+* test_valid_bridge_release_commits_and_undo_without_confirm_button
+* test_copy_house_drop_allocates_a_new_id_and_one_history_item
+* test_object_drag_rotation_and_copy_preserve_original_seed
+* test_locked_window_conflict_rejects_resize_without_touching_source_or_history
+* test_path_width_and_grass_density_are_distinct_live_controls
+* test_new_scene_save_reload_preserves_direct_edits_and_local_preferences
+* test_release_over_toolbar_cancels_direct_drag_without_publishing
+* test_mac_camera_gestures_preserve_selection_and_source_in_the_new_scene
+20/20 passed.
+
+
+res://tests/ux_02/test_tool_routing.gd
+* test_eraser_and_prop_choice_keep_visible_category_consistent_with_active_tool
+1/1 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               3
+Tests                26
+Passing Tests        26
+Asserts             377
+Time              22.135s
+
+
+---- All tests passed! ----
+
+Results saved to reports/ux_02.xml
