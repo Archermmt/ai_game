@@ -1,0 +1,43 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/week_14/production_landscape/test_production_landscape.gd
+* test_f5_uses_editable_production_scene_and_four_real_valley_models
+* test_native_terrain_matches_authoritative_heightfield_and_pond_after_brush
+* test_local_edit_reuses_distant_grass_and_undo_redo_restore_current_views
+* test_source_burial_offsets_and_protected_roots_survive_render_publication
+* test_fifty_mixed_commits_undo_and_redo_keep_latest_source_and_meshes
+* test_isolated_save_load_regenerates_the_same_terrain_and_grass
+* test_density_seasons_freeze_and_reduced_motion_do_not_edit_world_source
+* test_cancelled_brush_and_pending_zero_density_requests_never_publish_old_source
+8/8 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               1
+Tests                 8
+Passing Tests         8
+Asserts             525
+Time              26.923s
+
+
+---- All tests passed! ----
+
+Results saved to reports/week_14/production_landscape/tests.xml
+WARNING: instance_reset_physics_interpolation() is deprecated.
+     at: _instance_reset_physics_interpolation_bind_compat_104269 (servers/rendering/rendering_server.compat.inc:62)
+     GDScript backtrace (most recent call first):
+         [0] configure (res://features/landscape_lab/terrain_adapter.gd:52)
+         [1] _deliver (res://features/landscape/production_terrain.gd:131)

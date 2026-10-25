@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="8" >
+  <testsuite name="tests/week_14/production_landscape/test_production_landscape.gd" tests="8" failures="0" skipped="0" time="21.230051" >
+      <testcase name="test_f5_uses_editable_production_scene_and_four_real_valley_models" assertions="20" status="pass" classname="tests/week_14/production_landscape/test_production_landscape.gd" time="0.049937" >
+      </testcase>
+      <testcase name="test_native_terrain_matches_authoritative_heightfield_and_pond_after_brush" assertions="22" status="pass" classname="tests/week_14/production_landscape/test_production_landscape.gd" time="0.534858" >
+      </testcase>
+      <testcase name="test_local_edit_reuses_distant_grass_and_undo_redo_restore_current_views" assertions="17" status="pass" classname="tests/week_14/production_landscape/test_production_landscape.gd" time="2.012904" >
+      </testcase>
+      <testcase name="test_source_burial_offsets_and_protected_roots_survive_render_publication" assertions="46" status="pass" classname="tests/week_14/production_landscape/test_production_landscape.gd" time="0.485718" >
+      </testcase>
+      <testcase name="test_fifty_mixed_commits_undo_and_redo_keep_latest_source_and_meshes" assertions="217" status="pass" classname="tests/week_14/production_landscape/test_production_landscape.gd" time="13.5104" >
+      </testcase>
+      <testcase name="test_isolated_save_load_regenerates_the_same_terrain_and_grass" assertions="17" status="pass" classname="tests/week_14/production_landscape/test_production_landscape.gd" time="3.059448" >
+      </testcase>
+      <testcase name="test_density_seasons_freeze_and_reduced_motion_do_not_edit_world_source" assertions="157" status="pass" classname="tests/week_14/production_landscape/test_production_landscape.gd" time="0.450206" >
+      </testcase>
+      <testcase name="test_cancelled_brush_and_pending_zero_density_requests_never_publish_old_source" assertions="26" status="pass" classname="tests/week_14/production_landscape/test_production_landscape.gd" time="1.12658" >
+      </testcase>
+  </testsuite>
+</testsuites>

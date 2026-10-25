@@ -1,0 +1,42 @@
+{
+	"decoded_keys": [
+		"attachments",
+		"bridges",
+		"buildings",
+		"camera_bookmarks",
+		"environment",
+		"fences",
+		"generator_version",
+		"instances",
+		"next_id",
+		"paths",
+		"pool",
+		"revision",
+		"schema_version",
+		"stairs",
+		"terrain",
+		"world_seed"
+	],
+	"instances_equal": true,
+	"key_order_equal": false,
+	"key_set_equal": true,
+	"original_keys": [
+		"schema_version",
+		"generator_version",
+		"revision",
+		"world_seed",
+		"next_id",
+		"terrain",
+		"pool",
+		"buildings",
+		"paths",
+		"bridges",
+		"attachments",
+		"instances",
+		"camera_bookmarks",
+		"environment",
+		"stairs",
+		"fences"
+	],
+	"snapshot_semantically_equal": true
+}

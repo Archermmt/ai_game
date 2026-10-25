@@ -1,6 +1,14 @@
 # 风栖小筑 · 开发状态
 
-更新日期：2026-10-25（Asia/Shanghai）
+更新日期：2026-10-26（Asia/Shanghai）
+
+## 正式庭园 · Terrain3D与四层草已默认采用
+
+2026-10-26：用户认可山谷样板并要求应用正式场景。F5仍运行`app/living_root.tscn`，根脚本现为`ProductionLandscapePlayground`；无需进入预览。Terrain3D显示当前作品的TerrainField，保留原地貌、刷坡、池岸及建筑位置；四层真实草/4K笔触和ProtonScatter候选接入原分块、后台任务与最新版本发布。道路/屋体/池岸遮罩、风/四季/摄影/减少动态联动保留，开始缩略图同步本轮实机。
+
+累计 **789项Godot + 37项Python**，0失败/跳过、历史负控通过；新增8项，最终522项JUnit断言。真实刷坡预览和取消、50笔混合编辑及50次撤销/重做、隔离存读档重建、源埋根偏移/保护区/远块复用均通过。完整累计后补测最终8项。Metal原生 **50项**通过，9张场景图和1080p/2K无UI摄影正确，GPU实例原点误差0m；风像素差0.003541、减少动态零差。QA期间正式作品/偏好哈希不变，无脚本错误或退出泄漏。
+
+默认45%示范布局为10,376可见簇/144批次。已打开普通默认场景并确认新草及正式工具。**本轮完成正式采用，性能、Windows/低配真实设备等门槛继续后置**；用户可继续复核正式构图。源Blender及导入设置未改，素材分发条款仍待归档。复验：`python3 tools/quality/production_landscape_checks.py --cumulative`，原生加`--native-only`。[报告与实机](docs/weekly/week_14/PRODUCTION_LANDSCAPE.md)。
 
 ## Terrain3D × ProtonScatter · 山谷美术样板
 

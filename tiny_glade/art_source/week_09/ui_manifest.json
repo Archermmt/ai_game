@@ -1,15 +1,18 @@
 {
   "asset_id": "UI-06",
-  "source": "SCN-01 recommended_day native Godot render",
+  "source": "SCN-01 current production Terrain3D/four-layer grass native render",
   "export": "assets/ui/template_forest.png",
   "resolution": [
     512,
     288
   ],
-  "sha256": "1b0ba5ab2b88e8ae6dadd67753b68081b916890da2d3a1395c8f62d9be903f9e",
+  "sha256": "f8079e6e00a72246c85495c7a27efae8200995a0e7ab17b84f2f6ca7fde95f71",
   "renderer": "Godot 4.7.2 Forward+ Metal",
-  "scene": "app/week_nine_root.tscn",
-  "capture_command": "--qa-settings --w09-photo-probe",
+  "scene": "app/living_root.tscn",
+  "capture_command": "python3 tools/quality/production_landscape_checks.py --native-only",
   "generated_bitmap": false,
-  "user_thumbnail_overrides": true
+  "user_thumbnail_overrides": true,
+  "source_image": "reports/week_14/production_landscape/native/photo_1080.png",
+  "source_sha256": "c2f5bb122b1635f301287526cc2dbeaec62eba6b77485e744611ecb09c801636",
+  "recipe": "Godot --headless --path . --script tools/art/build_art_thumbnail.gd -- reports/week_14/production_landscape/native/photo_1080.png assets/ui/template_forest.png"
 }

@@ -462,13 +462,13 @@
       "version": "1.0.2-stable",
       "commit": "0077405b52e353c5e5dc3a094e7ede49833ba6fe",
       "lock": "features/landscape_lab/terrain3d.lock.json",
-      "status": "adopted for landscape art sample; editable garden migration pending"
+      "status": "adopted for production default scene; WorldDocument/TerrainField remain authoritative"
     },
     "proton_scatter": {
       "version": "4.2.0",
       "commit": "7198cc00078ebde61307578137c3f35223c6e438",
       "lock": "features/landscape_lab/proton_scatter.lock.json",
-      "status": "adopted for landscape art sample"
+      "status": "adopted for production four-layer grass candidates; lab retained"
     },
     "blender_mcp": "not required"
   },

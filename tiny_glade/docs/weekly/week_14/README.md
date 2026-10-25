@@ -1,5 +1,7 @@
 # W14 · Painterly Grass 集成台账
 
+2026-10-26：用户认可插件山谷样板并授权正式应用，F5默认入口现已采用Terrain3D和四层草。新增8项回归，累计789项Godot/37项Python、50项Metal原生检查通过；作品源、编辑和保存联动保留，性能后置。[正式庭园报告与实机](PRODUCTION_LANDSCAPE.md)。
+
 2026-10-25：G0环境恢复与旧草基线已完成，见[G0报告](G0_BASELINE.md)。G1本地单体与材质展示已交付，见[G1报告](G1_GRASS_LAB.md)；源素材入库条款和用户视觉评价待验。G2本地对照已交付，见[G2报告](G2_GRASS_PATCH.md)；用户随后授权继续G3，可编辑本地副本见[G3报告](G3_EDITABLE_GRASS_GARDEN.md)；用户随后反馈片状感且不如原草，V2/V3改为需调整，G4/G5未开始。[诊断](../../art/PAINTERLY_GRASS_VISUAL_DIAGNOSIS.md)。
 
 - [完整集成计划、场景体验与验收命令](../../DEV_PLAN_PAINTERLY_GRASS.md)

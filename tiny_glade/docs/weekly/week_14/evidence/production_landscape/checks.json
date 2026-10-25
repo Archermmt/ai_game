@@ -1,0 +1,127 @@
+{
+  "passed": true,
+  "environment": {
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "engine_sha256": "c7cccbf8fb143e34e02fd6521e09be2c2b974f0d5db080b19071c9c570718ccf",
+    "python": "3.14.3 (main, Feb  3 2026, 15:32:20) [Clang 17.0.0 (clang-1700.6.3.2)]",
+    "locked_python_packages": {
+      "colorama": "0.4.6",
+      "docopt-ng": "0.9.0",
+      "gdtoolkit": "4.5.0",
+      "lark": "1.2.2",
+      "mando": "0.7.1",
+      "pip": "26.0",
+      "pyyaml": "6.0.3",
+      "radon": "6.0.1",
+      "regex": "2026.9.29",
+      "setuptools": "84.0.0",
+      "six": "1.17.0"
+    },
+    "revision": "69594400bd772e6817bebc288299b5d9fa305464"
+  },
+  "assets": {
+    "passed": true,
+    "assets": [
+      {
+        "asset_id": "blades",
+        "vendor_object": "Basic_Grass_13",
+        "triangles": 24,
+        "vertices": 34,
+        "dimensions_y_up": [
+          1.5112702250480652,
+          1.0602200031280518,
+          1.5979921221733093
+        ],
+        "export_sha256": "bcbcd22ef2d2831be754deb036fe32b79f7185203716f69ffb6aaaffe4f2a727"
+      },
+      {
+        "asset_id": "detail",
+        "vendor_object": "Detailed_Wave_Grass_06",
+        "triangles": 2288,
+        "vertices": 1942,
+        "dimensions_y_up": [
+          1.4041316509246826,
+          0.9744814187288284,
+          1.5469148755073547
+        ],
+        "export_sha256": "0656a867dc8f89e73f4efda5aa4845671613ae708db630e41b37ee0e67453e84"
+      },
+      {
+        "asset_id": "puffs",
+        "vendor_object": "Basic_Grass_04",
+        "triangles": 28,
+        "vertices": 49,
+        "dimensions_y_up": [
+          1.2763972878456116,
+          0.6757481060922146,
+          1.30761057138443
+        ],
+        "export_sha256": "e97c612120949fd16c2a107138fa1f3da2d71cf17d6d1295153d4976cdab1481"
+      },
+      {
+        "asset_id": "floor",
+        "vendor_object": "Basic_Grass_Floor_10",
+        "triangles": 8,
+        "vertices": 16,
+        "dimensions_y_up": [
+          1.2719954252243042,
+          0.02522591222077608,
+          1.2778600454330444
+        ],
+        "export_sha256": "767b5d9d6b0dc4598dc7bed0b2d253006e26c7ea5fd2be0b8cefa2551436b2da"
+      }
+    ],
+    "texture_size": [
+      4096,
+      4096
+    ],
+    "coverage_textures": [
+      "assets/painterly_grass/local/valley/coverage4k.png"
+    ],
+    "source_hashes_match": true,
+    "performance_gate_run": false,
+    "visual_acceptance": "requires user review"
+  },
+  "plugins": {
+    "scatter": {
+      "version": "4.2.0",
+      "commit": "7198cc00078ebde61307578137c3f35223c6e438",
+      "verified_source_files": 265,
+      "license": "MIT"
+    },
+    "terrain3d": {
+      "version": "1.0.2-stable",
+      "source_commit": "0077405b52e353c5e5dc3a094e7ede49833ba6fe",
+      "verified_source_files": 143,
+      "local_patches": [
+        "addons/terrain_3d/src/asset_dock.gd"
+      ]
+    }
+  },
+  "focused": {
+    "tests": 8,
+    "assertions": 522,
+    "failures": 0,
+    "skipped": 0
+  },
+  "steps": [
+    {
+      "name": "production_landscape_tests",
+      "exit_code": 0,
+      "seconds": 27.693
+    }
+  ],
+  "production_before": {
+    "preferences.cfg": "b6f5dede52ba7e8d41e6f281bf962dc878724a0880ac43519f9978f170591255"
+  },
+  "production_after": {
+    "preferences.cfg": "b6f5dede52ba7e8d41e6f281bf962dc878724a0880ac43519f9978f170591255"
+  },
+  "production_unchanged": true,
+  "cumulative_run": false,
+  "godot_tests": null,
+  "python_tests": null,
+  "performance_gate_run": false,
+  "windows_real_device_verified": false,
+  "visual_acceptance": "User accepted the lab direction; formal garden review pending"
+}
