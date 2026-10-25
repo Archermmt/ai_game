@@ -207,6 +207,10 @@ func _setup_ui() -> void:
 	loader.loading_completed.connect(
 		func(resource: Resource) -> void: get_tree().change_scene_to_packed(resource as PackedScene)
 	)
+	var garden_button: Button = _button(row, "编辑庭园 G3", "OpenGarden")
+	garden_button.pressed.connect(
+		func() -> void: loader.request_load("res://app/painterly_grass_garden.tscn")
+	)
 	status = Label.new()
 	status.name = "LoadStatus"
 	status.text = "正在准备本地草样本……"

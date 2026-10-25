@@ -14,7 +14,7 @@ func _ready() -> void:
 			_preference_changed(
 				"grass_density", argument.trim_prefix("--grass-density=").to_float()
 			)
-	meadow = MeadowRenderer.new()
+	meadow = _create_meadow()
 	meadow.name = "DynamicMeadow"
 	world_view.add_child(meadow)
 	meadow.set_density(preferences.values.get("grass_density", 0.45))
@@ -37,6 +37,10 @@ func _ready() -> void:
 			_preference_changed("garden_focus", false)
 		if argument.begins_with("--garden-tool=") and qa_mode:
 			hud.open_group(argument.trim_prefix("--garden-tool="))
+
+
+func _create_meadow() -> MeadowRenderer:
+	return MeadowRenderer.new()
 
 
 func _apply_preferences() -> void:

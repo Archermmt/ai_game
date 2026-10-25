@@ -176,6 +176,10 @@ func _setup_patch_ui() -> void:
 	reset_button.pressed.connect(func() -> void: set_patch_view(0))
 	gallery_button = _patch_button(row, "单体展示 G1", "OpenGallery")
 	gallery_button.pressed.connect(_open_gallery)
+	var edit_button: Button = _patch_button(row, "编辑庭园 G3", "OpenGarden")
+	edit_button.pressed.connect(
+		func() -> void: preview_loader.request_load("res://app/painterly_grass_garden.tscn")
+	)
 	patch_status = Label.new()
 	patch_status.text = "正在准备同一庭园的局部对照……"
 	patch_status.add_theme_color_override("font_shadow_color", Color("23382c"))
