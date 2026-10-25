@@ -2,6 +2,12 @@
 
 更新日期：2026-10-25（Asia/Shanghai）
 
+## Painterly Grass · 用户视觉反馈需调整
+
+2026-10-25：用户认为G3新草不如原草，呈片状贴图感，与提供的Valley效果图差距大；随后提供对应Blender源。只读核实原场景为Blades Grass / Detail Puffs / Puffs2 / Floor Grass四层，绑定24/572（另含细分）/28/8基础三角的不同模型；当前三种8三角的互斥散布并未还原该结构，视角透明淡出与笔触受光也过度简化。源文件前后哈希相同，未改运行代码。
+
+**V2/V3视觉状态改为需调整，G4暂不推进。** G3的773项Godot/37项Python与40项原生功能验证不能替代美术验收。下一步回8×8m样板按原demo的几何/层次/覆盖和材质逐项修正，再做性能优化。详见[视觉差距诊断](docs/art/PAINTERLY_GRASS_VISUAL_DIAGNOSIS.md)。
+
 ## Painterly Grass · G3可编辑庭园已交付
 
 2026-10-25：实现`d1a7911`，空缓存测试目录修正`06e5bf9`。用户在G2后要求继续，本轮完成`app/painterly_grass_garden.tscn`：全庭园新草、建造/刷坡/撤销重做/独立存档、四季雨雪、减少动态、摄影与1080p/2K导出。G1/G2可进入G3，离开时沿用未保存决定；默认F5仍为正式游戏。直接F6从ready前隔离正式偏好，预览存档/偏好/照片在`user://qa_painterly_grass/g3/`。

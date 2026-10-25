@@ -1,6 +1,6 @@
 # W14 · Painterly Grass 集成台账
 
-2026-10-25：G0环境恢复与旧草基线已完成，见[G0报告](G0_BASELINE.md)。G1本地单体与材质展示已交付，见[G1报告](G1_GRASS_LAB.md)；源素材入库条款和用户视觉评价待验。G2本地对照已交付，见[G2报告](G2_GRASS_PATCH.md)；用户随后授权继续G3，可编辑本地副本见[G3报告](G3_EDITABLE_GRASS_GARDEN.md)；具体视觉评价待记录，G4/G5未开始。
+2026-10-25：G0环境恢复与旧草基线已完成，见[G0报告](G0_BASELINE.md)。G1本地单体与材质展示已交付，见[G1报告](G1_GRASS_LAB.md)；源素材入库条款和用户视觉评价待验。G2本地对照已交付，见[G2报告](G2_GRASS_PATCH.md)；用户随后授权继续G3，可编辑本地副本见[G3报告](G3_EDITABLE_GRASS_GARDEN.md)；用户随后反馈片状感且不如原草，V2/V3改为需调整，G4/G5未开始。[诊断](../../art/PAINTERLY_GRASS_VISUAL_DIAGNOSIS.md)。
 
 - [完整集成计划、场景体验与验收命令](../../DEV_PLAN_PAINTERLY_GRASS.md)
 - [初步分析及只读统计](../../art/PAINTERLY_GRASS_ASSESSMENT.md)
@@ -14,8 +14,8 @@
 | --- | --- | --- | --- | --- | --- |
 | G0 环境/旧草基线 | 通过 | 旧草参考已采集，待用户体验 | 不适用；旧草两场预算通过 | 现有 `app/living_root.tscn`，F6 | [报告](G0_BASELINE.md)，实现`b710fb7` |
 | G1 单体材质 | 本地技术通过；素材入库待验 | 待用户体验 | 未测容量 | `app/painterly_grass_preview.tscn`，F6 | [报告](G1_GRASS_LAB.md)，`304de9d` |
-| G2 局部新旧对照 | 本地技术通过；素材入库待验 | 未评，方向节点V2 | 局部新旧各60秒；容量待G4 | `app/painterly_grass_patch.tscn`，F6 | [报告](G2_GRASS_PATCH.md)，`04ae506` |
-| G3 可编辑庭园 | 本地技术通过；素材入库待验 | 用户授权推进，具体视觉待评 | 未签核容量/编辑时延 | `app/painterly_grass_garden.tscn`，F6 | [报告](G3_EDITABLE_GRASS_GARDEN.md)，`d1a7911` / `06e5bf9` |
+| G2 局部新旧对照 | 本地技术通过；素材入库待验 | 需调整：片状感，未接受 | 局部新旧各60秒；容量待G4 | `app/painterly_grass_patch.tscn`，F6 | [报告](G2_GRASS_PATCH.md)，`04ae506` |
+| G3 可编辑庭园 | 本地技术通过；素材入库待验 | 需调整：不如原草、与参考差距大 | 未签核容量/编辑时延 | `app/painterly_grass_garden.tscn`，F6 | [报告](G3_EDITABLE_GRASS_GARDEN.md)，`d1a7911` / `06e5bf9` |
 | G4 满容量预算 | 未开始 | 未评 | 未测 | 规划 `grass_capacity.tscn` | 待记录 |
 | G5 候选版本 | 未开始 | 未评，最终节点V5 | 未测 | 规划 `grass_candidate.tscn` | 待记录 |
 
