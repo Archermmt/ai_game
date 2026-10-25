@@ -1,0 +1,48 @@
+{
+  "assets": [
+    {
+      "asset_id": "grass_card_a",
+      "triangles": 8,
+      "exported_vertices": 16,
+      "surfaces": 1,
+      "dimensions_y_up": [
+        0.35628196597099304,
+        0.4169085621833801,
+        0.09901387244462967
+      ],
+      "export_sha256": "6d13579a60ea99cfc1dff6bd884067e88a7ee1b0889b23271cec4eebb92e5201"
+    },
+    {
+      "asset_id": "grass_card_b",
+      "triangles": 8,
+      "exported_vertices": 16,
+      "surfaces": 1,
+      "dimensions_y_up": [
+        0.24834349751472473,
+        0.4254020154476166,
+        0.09901387244462967
+      ],
+      "export_sha256": "80010896561bb292a3ed0aaafe224d5dc1b0c592f12068899f4393a72370ca87"
+    },
+    {
+      "asset_id": "grass_floor",
+      "triangles": 8,
+      "exported_vertices": 16,
+      "surfaces": 1,
+      "dimensions_y_up": [
+        0.737437903881073,
+        0.04391323775053024,
+        0.797888457775116
+      ],
+      "export_sha256": "32b44ae6f79f02d8f188e00d7419854264aacf6738f677eed2a9b25db9472f54"
+    }
+  ],
+  "texture_size": [
+    2048,
+    2048
+  ],
+  "shared_textures": 1,
+  "source_hashes_match": true,
+  "passed": true,
+  "repository_asset_terms": "pending; local derivatives only"
+}

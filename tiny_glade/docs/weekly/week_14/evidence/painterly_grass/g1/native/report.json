@@ -1,0 +1,27 @@
+{
+	"checks": {
+		"loaded_three_new_meshes": true,
+		"no_save_node": true,
+		"orbit_real_gui": true,
+		"pause_real_gui": true,
+		"reduced_motion_pixel_stable": true,
+		"reduced_motion_real_gui": true,
+		"reset_real_gui": true,
+		"resume_real_gui": true,
+		"seven_sample_batches": true,
+		"toolbar_inside_viewport": true,
+		"wind_is_visible": true,
+		"wind_slider_real_gui": true
+	},
+	"normal_views_taa": true,
+	"passed": true,
+	"pixel_checks_taa": false,
+	"reduced_pixel_difference": 0.0,
+	"save_service_instantiated": false,
+	"ui_input": "synthetic viewport press/release through GUI",
+	"viewport": [
+		1920,
+		1080
+	],
+	"wind_pixel_difference": 0.00658976318957767
+}

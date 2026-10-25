@@ -1,0 +1,27 @@
+00:00.056  translation      | WARNING Falling back to standard locale ("C")
+00:00.724  blend            | Read blend: "/Users/tongmeng/Desktop/assets/3d/PainterlyGrass/CGC_Painterly_Grass_1.0/CGC_Painterly_Grass_1.0.blend"
+/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/art/extract_painterly_grass.py:82: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  material.use_nodes = True
+Info: Saved as "grass_card_a.blend"
+INFO Draco mesh compression is available, use library at /Applications/Blender.app/Contents/Resources/5.1/scripts/addons_core/io_scene_gltf2/libextern_draco.dylib
+13:19:17 | INFO: Starting glTF 2.0 export
+13:19:17 | INFO: Extracting primitive: grass_card_a
+13:19:17 | INFO: Primitives created: 1
+13:19:17 | INFO: Finished glTF 2.0 export in 0.0013570785522460938 s
+
+Info: Saved as "grass_card_b.blend"
+13:19:17 | INFO: Starting glTF 2.0 export
+13:19:17 | INFO: Extracting primitive: grass_card_b
+13:19:17 | INFO: Primitives created: 1
+13:19:17 | INFO: Finished glTF 2.0 export in 0.0011792182922363281 s
+
+Info: Saved as "grass_floor.blend"
+13:19:17 | INFO: Starting glTF 2.0 export
+13:19:17 | INFO: Extracting primitive: grass_floor
+13:19:17 | INFO: Primitives created: 1
+13:19:17 | INFO: Finished glTF 2.0 export in 0.0011148452758789062 s
+
+PAINTERLY_GRASS_EXTRACTION_PASS 3 source unchanged 9d86f760b3ec2834d0726bb39ffe58607702a8789df46d1a7b6804e7fe5f920e
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:30:33)
+
+Blender quit

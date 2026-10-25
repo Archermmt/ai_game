@@ -2,6 +2,16 @@
 
 更新日期：2026-10-25（Asia/Shanghai）
 
+## Painterly Grass · G1本地展示已交付
+
+2026-10-25：实现`304de9d`。从只读原包提取3份草卡/地被，各GLB实际8三角/16顶点/1表面，共享2K刷痕遮罩。确认原JPG的RGB即透明轮廓；Godot重建根梢色、双面受光、风权重和裁切。新增`app/painterly_grass_preview.tscn`独立展示入口，可F6看新旧草、单株、背面/近景、日间/树荫/逆光，调风/暂停/自动绕转/减少动态/重置；不加载正式庭园或存档/偏好服务。
+
+累计 **753项Godot / 31,097断言 + 37项Python**，0失败/0跳过、历史负控通过；新增8项/130断言。原生12项通过，风动像素差可见、减少动态相位变化零差，正式文件哈希不变；无脚本错误/退出泄漏。Blender重开46旧源+11现有植物+3派生源通过；两次GLB/PNG哈希与尺寸一致。不复制原包的空缓存本地副本供应派生件后8项回归通过，运行不依赖桌面路径。
+
+派生`.blend`、GLB、PNG及导入设置保留本地，素材入库/分发条款仍待验，未把该项记为完成；用户视觉接受待体验。G2局部庭园替换、容量性能/LOD和正式默认切换尚未执行，旧冷启动/编辑尖峰/Windows等外部门槛保持。默认F5仍按原游戏配置，新草体验使用新预览入口。
+
+复验：`python3 tools/quality/painterly_grass_checks.py --stage 1`、同命令加`--native-only`、`python3 tools/quality/painterly_grass_portable_checks.py`；源审计/提取命令见[完整G1报告与截图](docs/weekly/week_14/G1_GRASS_LAB.md)。
+
 ## Painterly Grass · G0已完成
 
 2026-10-25：工具实现`b710fb7`。恢复项目本地Godot4.7.2、gdtoolkit4.5.0及全部Python锁依赖；官方API限流后按官方SHA512清单恢复，二进制SHA256与锁一致，系统Godot4.7未替换。空检出按工程子树适配monorepo，注册W14 G0累计，新增9项迁移/失败传播/下载完整性Python回归。

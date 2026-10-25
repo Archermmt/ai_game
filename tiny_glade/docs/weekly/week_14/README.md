@@ -1,6 +1,6 @@
 # W14 · Painterly Grass 集成台账
 
-2026-10-25：G0环境恢复与旧草基线已完成，见[G0报告](G0_BASELINE.md)。G1–G5未开始；新资产导出/导入、预览场景与新草性能仍待实现。W14作为本集成批次证据目录，当前交付仅覆盖G0。
+2026-10-25：G0环境恢复与旧草基线已完成，见[G0报告](G0_BASELINE.md)。G1本地单体与材质展示已交付，见[G1报告](G1_GRASS_LAB.md)；源素材入库条款和用户视觉评价待验。G2–G5未开始，W14当前交付G0及G1本地样板。
 
 - [完整集成计划、场景体验与验收命令](../../DEV_PLAN_PAINTERLY_GRASS.md)
 - [初步分析及只读统计](../../art/PAINTERLY_GRASS_ASSESSMENT.md)
@@ -8,18 +8,18 @@
 
 ## 阶段台账
 
-“技术通过”“用户视觉接受”“性能通过”分开填写。场景名均为计划中的交付物，当前仅G0的旧场景文件存在。
+“技术通过”“用户视觉接受”“性能通过”分开填写。G0旧场景与G1统一预览入口已经存在，G2–G5子场景仍为计划交付物。
 
 | 节点 | 技术状态 | 用户视觉状态 | 新草性能状态 | 体验入口 | 执行证据/提交 |
 | --- | --- | --- | --- | --- | --- |
 | G0 环境/旧草基线 | 通过 | 旧草参考已采集，待用户体验 | 不适用；旧草两场预算通过 | 现有 `app/living_root.tscn`，F6 | [报告](G0_BASELINE.md)，实现`b710fb7` |
-| G1 单体材质 | 未开始 | 未评 | 未测 | 规划 `grass_lab.tscn` | 待记录 |
+| G1 单体材质 | 本地技术通过；素材入库待验 | 待用户体验 | 未测容量 | `app/painterly_grass_preview.tscn`，F6 | [报告](G1_GRASS_LAB.md)，`304de9d` |
 | G2 局部新旧对照 | 未开始 | 未评，方向节点V2 | 未测 | 规划 `grass_patch.tscn` | 待记录 |
 | G3 可编辑庭园 | 未开始 | 未评 | 未测 | 规划 `grass_garden.tscn` | 待记录 |
 | G4 满容量预算 | 未开始 | 未评 | 未测 | 规划 `grass_capacity.tscn` | 待记录 |
 | G5 候选版本 | 未开始 | 未评，最终节点V5 | 未测 | 规划 `grass_candidate.tscn` | 待记录 |
 
-G1起统一预览入口规划为 `app/painterly_grass_preview.tscn`；子场景规划位于 `features/painterly_grass/previews/`。完成的阶段可用F6直接体验，未完成阶段禁用入口；主游戏F5入口仍按项目当前配置运行。不得将打开旧场景写成已经体验新资产。
+G1统一预览入口已交付为 `app/painterly_grass_preview.tscn`；G1子场景位于 `features/painterly_grass/previews/`。完成的阶段可用F6直接体验，未完成阶段禁用入口；主游戏F5入口仍按项目当前配置运行。不得将打开旧场景写成已经体验新资产。
 
 ## 每阶段收据
 

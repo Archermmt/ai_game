@@ -283,3 +283,16 @@ python3 tools/quality/clean_checkout.py --week 14
 空检出支持monorepo子项目，只归档工程子树；真实运行时无导入缓存，仅复用固定宿主工具。空测试、断言失败、关键跳过、脚本错误和失败子进程均拒绝。当前游戏版本仍为0.13.0-w13；W14 gate目前仅覆盖G0，不代表G1–G5或产品M4/M5放行。
 
 原生检查串行采集11个1080p固定机位、示范/满容量各60秒的旧草漫步、RSS、1Hz轨迹与源/历史/正式文件哈希。首轮可见稳定等待超时保留，不计冷启动通过；音频为Dummy，新资产未进入场景。[G0完整报告](weekly/week_14/G0_BASELINE.md)。
+
+
+## W14 G1 · 草样本与本地材质
+
+```bash
+python3 tools/quality/painterly_grass_checks.py --stage 1
+python3 tools/quality/painterly_grass_checks.py --stage 1 --native-only
+python3 tools/quality/painterly_grass_portable_checks.py
+```
+
+累计保留W13/G0及负控，新增8项Godot / 130断言，总753项Godot / 31,097断言 + 37项Python；任何脚本错误/退出泄漏也拒绝。原生12项检查包括真实新网格加载、GUI输入、风动像素差、减少动态零差和1080p截图。正常展示保留TAA，运动控制像素检查两侧一致关闭TAA抖动。
+
+导出验证读取真实GLB/PNG与哈希，不仅相信manifest面数；Blender重开审计覆盖46历史源+14植物源。新派生素材本地保存、未入Git，独立本地空缓存副本显式供应这些素材后验证运行；不是Git完整素材分发证明。`clean_checkout.py --week 14`目前仍是G0门禁，G1用上面的专用累计和本地副本命令，不混淆两者。详见[G1交付与证据](weekly/week_14/G1_GRASS_LAB.md)。

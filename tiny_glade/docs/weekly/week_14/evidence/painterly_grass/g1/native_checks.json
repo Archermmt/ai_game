@@ -1,0 +1,60 @@
+{
+  "checks": {
+    "loaded_three_new_meshes": true,
+    "no_save_node": true,
+    "orbit_real_gui": true,
+    "pause_real_gui": true,
+    "reduced_motion_pixel_stable": true,
+    "reduced_motion_real_gui": true,
+    "reset_real_gui": true,
+    "resume_real_gui": true,
+    "seven_sample_batches": true,
+    "toolbar_inside_viewport": true,
+    "wind_is_visible": true,
+    "wind_slider_real_gui": true
+  },
+  "normal_views_taa": true,
+  "passed": true,
+  "pixel_checks_taa": false,
+  "reduced_pixel_difference": 0.0,
+  "save_service_instantiated": false,
+  "ui_input": "synthetic viewport press/release through GUI",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "wind_pixel_difference": 0.00658976318957767,
+  "environment": {
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "engine_sha256": "c7cccbf8fb143e34e02fd6521e09be2c2b974f0d5db080b19071c9c570718ccf",
+    "python": "3.14.3 (main, Feb  3 2026, 15:32:20) [Clang 17.0.0 (clang-1700.6.3.2)]",
+    "locked_python_packages": {
+      "colorama": "0.4.6",
+      "docopt-ng": "0.9.0",
+      "gdtoolkit": "4.5.0",
+      "lark": "1.2.2",
+      "mando": "0.7.1",
+      "pip": "26.0",
+      "pyyaml": "6.0.3",
+      "radon": "6.0.1",
+      "regex": "2026.9.29",
+      "setuptools": "84.0.0",
+      "six": "1.17.0"
+    },
+    "revision": "304de9d547a7205628feb47c691acd03cd365fee"
+  },
+  "step": {
+    "name": "g1_native",
+    "exit_code": 0,
+    "seconds": 5.626
+  },
+  "production_before": {
+    "preferences.cfg": "b6f5dede52ba7e8d41e6f281bf962dc878724a0880ac43519f9978f170591255"
+  },
+  "production_after": {
+    "preferences.cfg": "b6f5dede52ba7e8d41e6f281bf962dc878724a0880ac43519f9978f170591255"
+  },
+  "production_unchanged": true,
+  "physical_touchpad_verified": false,
+  "new_asset_capacity_benchmark": false
+}

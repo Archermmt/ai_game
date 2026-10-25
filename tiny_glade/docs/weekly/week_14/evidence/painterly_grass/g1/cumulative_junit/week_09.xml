@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="34" >
+  <testsuite name="tests/week_09/test_capacity.gd" tests="5" failures="0" skipped="0" time="1.198667" >
+      <testcase name="test_full_capacity_exact_counts_and_valid_source" assertions="10" status="pass" classname="tests/week_09/test_capacity.gd" time="0.227568" >
+      </testcase>
+      <testcase name="test_fixture_is_deterministic_and_reduced_density_keeps_buildings_pond_bridges" assertions="5" status="pass" classname="tests/week_09/test_capacity.gd" time="0.405749" >
+      </testcase>
+      <testcase name="test_full_capacity_roundtrip_and_history_source_budget" assertions="3" status="pass" classname="tests/week_09/test_capacity.gd" time="0.232698" >
+      </testcase>
+      <testcase name="test_capacity_rejects_1001st_without_source_or_history_change" assertions="3" status="pass" classname="tests/week_09/test_capacity.gd" time="0.221563" >
+      </testcase>
+      <testcase name="test_vegetation_budget_excludes_manual_props_and_trees" assertions="5" status="pass" classname="tests/week_09/test_capacity.gd" time="0.111089" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_09/test_combinations.gd" tests="6" failures="0" skipped="0" time="3.183444" >
+      <testcase name="test_fifty_runtime_transactions_delete_parent_undo_redo_keep_twenty_props_and_far_trees" assertions="3511" status="pass" classname="tests/week_09/test_combinations.gd" time="2.152478" >
+      </testcase>
+      <testcase name="test_locked_path_door_survives_path_delete_and_undo_in_full_template" assertions="9" status="pass" classname="tests/week_09/test_combinations.gd" time="0.20338" >
+      </testcase>
+      <testcase name="test_manual_window_blocks_auto_door_in_full_template" assertions="6" status="pass" classname="tests/week_09/test_combinations.gd" time="0.188836" >
+      </testcase>
+      <testcase name="test_full_template_invalidated_bridge_stays_visible_and_undo_restores" assertions="8" status="pass" classname="tests/week_09/test_combinations.gd" time="0.223027" >
+      </testcase>
+      <testcase name="test_boundary_dimensions_reject_entire_transaction_with_no_view_change" assertions="9" status="pass" classname="tests/week_09/test_combinations.gd" time="0.187067" >
+      </testcase>
+      <testcase name="test_three_metre_foundation_accepts_then_rejects_without_view_or_source_change" assertions="7" status="pass" classname="tests/week_09/test_combinations.gd" time="0.228656" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_09/test_entries.gd" tests="7" failures="0" skipped="0" time="1.426026" >
+      <testcase name="test_empty_and_demo_share_terrain_and_peripheral_trees" assertions="17" status="pass" classname="tests/week_09/test_entries.gd" time="0.169061" >
+      </testcase>
+      <testcase name="test_dirty_layout_switch_requires_choice_and_cancel_preserves_source" assertions="6" status="pass" classname="tests/week_09/test_entries.gd" time="0.18389" >
+      </testcase>
+      <testcase name="test_discard_switch_uses_same_scene_clears_history_and_does_not_overwrite_slot" assertions="12" status="pass" classname="tests/week_09/test_entries.gd" time="0.177186" >
+      </testcase>
+      <testcase name="test_overwrite_dialog_requires_explicit_confirmation" assertions="9" status="pass" classname="tests/week_09/test_entries.gd" time="0.217492" >
+      </testcase>
+      <testcase name="test_invalid_entry_does_not_change_source" assertions="3" status="pass" classname="tests/week_09/test_entries.gd" time="0.174849" >
+      </testcase>
+      <testcase name="test_new_entry_and_photo_ui_respect_150_percent_and_viewport_bounds" assertions="6" status="pass" classname="tests/week_09/test_entries.gd" time="0.167004" >
+      </testcase>
+      <testcase name="test_qa_root_automatically_uses_independent_save_directory" assertions="4" status="pass" classname="tests/week_09/test_entries.gd" time="0.336544" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_09/test_mac_input.gd" tests="6" failures="0" skipped="0" time="1.018038" >
+      <testcase name="test_option_left_pans_without_editing_in_every_tool" assertions="64" status="pass" classname="tests/week_09/test_mac_input.gd" time="0.178344" >
+      </testcase>
+      <testcase name="test_option_shift_also_pans" assertions="4" status="pass" classname="tests/week_09/test_mac_input.gd" time="0.168264" >
+      </testcase>
+      <testcase name="test_pinch_zoom_direction_bounds_and_invalid_factors" assertions="8" status="pass" classname="tests/week_09/test_mac_input.gd" time="0.169534" >
+      </testcase>
+      <testcase name="test_two_finger_scroll_rotates_both_axes_without_zoom" assertions="12" status="pass" classname="tests/week_09/test_mac_input.gd" time="0.169182" >
+      </testcase>
+      <testcase name="test_gestures_over_toolbar_do_not_zoom_or_start_edits" assertions="4" status="pass" classname="tests/week_09/test_mac_input.gd" time="0.166813" >
+      </testcase>
+      <testcase name="test_option_release_over_ui_stops_pan_after_modifier_was_released" assertions="5" status="pass" classname="tests/week_09/test_mac_input.gd" time="0.165901" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_09/test_photography.gd" tests="10" failures="0" skipped="0" time="1.756777" >
+      <testcase name="test_photo_hides_tools_and_returns_exact_camera_source_selection" assertions="14" status="pass" classname="tests/week_09/test_photography.gd" time="0.177593" >
+      </testcase>
+      <testcase name="test_freeze_is_reversible_without_mutating_preferences_or_source" assertions="7" status="pass" classname="tests/week_09/test_photography.gd" time="0.179471" >
+      </testcase>
+      <testcase name="test_photo_entry_rejected_during_gesture" assertions="5" status="pass" classname="tests/week_09/test_photography.gd" time="0.167176" >
+      </testcase>
+      <testcase name="test_photo_blocks_building_undo_and_autosave" assertions="5" status="pass" classname="tests/week_09/test_photography.gd" time="0.175955" >
+      </testcase>
+      <testcase name="test_bookmark_is_explicit_source_transaction_and_roundtrips" assertions="9" status="pass" classname="tests/week_09/test_photography.gd" time="0.195031" >
+      </testcase>
+      <testcase name="test_apply_saved_composition_and_exit_restores_editor_view" assertions="4" status="pass" classname="tests/week_09/test_photography.gd" time="0.168559" >
+      </testcase>
+      <testcase name="test_filename_sanitizes_path_and_collisions" assertions="6" status="pass" classname="tests/week_09/test_photography.gd" time="0.167867" >
+      </testcase>
+      <testcase name="test_headless_export_failure_is_retryable" assertions="6" status="pass" classname="tests/week_09/test_photography.gd" time="0.166157" >
+      </testcase>
+      <testcase name="test_bookmark_limit_rejects_without_source_change" assertions="4" status="pass" classname="tests/week_09/test_photography.gd" time="0.187864" >
+      </testcase>
+      <testcase name="test_close_in_photo_restores_editor_before_unsaved_decision" assertions="7" status="pass" classname="tests/week_09/test_photography.gd" time="0.171104" >
+      </testcase>
+  </testsuite>
+</testsuites>
