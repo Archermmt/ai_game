@@ -172,7 +172,7 @@ func test_walk_exit_retains_pause_and_all_five_views_keep_dof_disabled() -> void
 	patch.set_patch_paused(true)
 	patch.toggle_patch_walk()
 	assert_true(patch.walk_controller.active)
-	patch.set_patch_view(0)
+	patch.toggle_patch_walk()
 	assert_false(patch.walk_controller.active)
 	assert_true(patch._climate_frozen)
 	for index: int in 5:

@@ -282,7 +282,6 @@ func set_patch_view(index: int) -> void:
 
 func toggle_patch_walk() -> void:
 	if walk_controller.active:
-		stop_walk()
 		set_patch_view(0)
 	else:
 		if start_walk():
