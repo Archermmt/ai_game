@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "weather_tests": 9,
+  "assertions": 8224,
+  "native_checks": 31,
+  "samples": {
+    "spring": {
+      "grass_pixel_fraction": 0.872513888888889,
+      "green_pixel_fraction": 0.657118055555556,
+      "snow_pixel_fraction": 0.0255347222222222
+    },
+    "summer": {
+      "grass_pixel_fraction": 0.876555555555556,
+      "green_pixel_fraction": 0.555111111111111,
+      "snow_pixel_fraction": 0.046375
+    },
+    "winter_clear": {
+      "grass_pixel_fraction": 0.161986111111111,
+      "green_pixel_fraction": 0.00127083333333333,
+      "snow_pixel_fraction": 0.866340277777778
+    },
+    "winter_snow": {
+      "grass_pixel_fraction": 0.156381944444444,
+      "green_pixel_fraction": 0.00127777777777778,
+      "snow_pixel_fraction": 0.883125
+    }
+  },
+  "production_unchanged": true,
+  "steps": [
+    {
+      "name": "winter_weather_tests",
+      "exit_code": 0,
+      "seconds": 1.065
+    },
+    {
+      "name": "winter_cover_native",
+      "exit_code": 0,
+      "seconds": 10.464
+    }
+  ],
+  "windows_verified": false,
+  "performance_gate_run": false
+}

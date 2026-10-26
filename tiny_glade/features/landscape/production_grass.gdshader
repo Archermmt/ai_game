@@ -25,6 +25,7 @@ varying float chunk_layer;
 varying float leaf_height;
 varying float color_variation;
 varying float low_cover;
+varying float snow_seed;
 
 vec2 map_uv(vec2 point) {
     return ((point - chunk_origin) / 12.0 * 128.0 + 0.5) / 129.0;
@@ -43,6 +44,7 @@ void vertex() {
     leaf_height = COLOR.r;
     color_variation = INSTANCE_CUSTOM.a;
     low_cover = 1.0 - step(0.5, INSTANCE_CUSTOM.g);
+    snow_seed = fract(sin(dot(MODEL_MATRIX[3].xz, vec2(127.1, 311.7)) + INSTANCE_CUSTOM.r * 74.7) * 43758.5453);
     float phase = INSTANCE_CUSTOM.r * 6.283185;
     float t = freeze_time ? sample_time : TIME;
     float wave = sin(t * 1.4 + phase + world_position.x * 0.18) + sin(t * 2.1 + phase) * 0.2;
@@ -57,7 +59,13 @@ void fragment() {
     float facing = abs(dot(normalize(NORMAL), normalize(VIEW)));
     float edge = mix(1.0, smoothstep(0.02, 0.32, facing), facing_fade);
     float allowed = texture(clearance_layers, vec3(map_uv(world_position.xz), chunk_layer)).r;
-    ALPHA = brush * edge * smoothstep(0.25, 0.75, allowed);
+    float snow_cover = clamp(living_snow, 0.0, 1.0);
+    // Stable per-clump survival: bury the low carpet and most tall clumps.
+    // No source edits or reseeding; thaw reveals the exact same summer plants.
+    float snow_survival = smoothstep(snow_cover * 0.97 - 0.015, snow_cover * 0.97 + 0.015, snow_seed);
+    snow_survival *= 1.0 - low_cover * smoothstep(0.20, 0.65, snow_cover);
+    snow_survival = mix(1.0, snow_survival, smoothstep(0.0, 0.08, snow_cover));
+    ALPHA = brush * edge * smoothstep(0.25, 0.75, allowed) * snow_survival;
     ALPHA_HASH_SCALE = 1.0;
     vec3 tip = mix(tip_color.rgb, floor_color.rgb, low_cover);
     vec3 green = mix(root_color.rgb, tip, smoothstep(0.04, 0.9, leaf_height));
@@ -71,8 +79,10 @@ void fragment() {
     float winter = step(2.5, living_season);
     ALBEDO = mix(ALBEDO, ALBEDO * vec3(1.55, 0.87, 0.42), autumn * 0.72);
     ALBEDO = mix(ALBEDO, ALBEDO * vec3(1.32, 1.06, 0.68), winter * 0.65);
-    // Snow follows a few upward leaf tips, retaining visible tufts instead of sheets.
-    ALBEDO = mix(ALBEDO, vec3(0.80, 0.86, 0.86), living_snow * 0.35 * (1.0 - low_cover) * smoothstep(0.72, 0.98, leaf_height));
+    vec3 dry_grass = mix(vec3(0.30, 0.22, 0.12), vec3(0.64, 0.49, 0.27), smoothstep(0.04, 0.9, leaf_height));
+    ALBEDO = mix(ALBEDO, dry_grass, smoothstep(0.20, 0.8, snow_cover));
+    // Remaining straw tips catch snow; the continuous blanket is on Terrain3D.
+    ALBEDO = mix(ALBEDO, vec3(0.80, 0.86, 0.86), snow_cover * 0.35 * (1.0 - low_cover) * smoothstep(0.72, 0.98, leaf_height));
     ROUGHNESS = 0.95;
     SPECULAR = 0.05;
     AO = mix(0.70, 1.0, smoothstep(0.0, 0.45, leaf_height));

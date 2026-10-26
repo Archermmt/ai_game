@@ -30,7 +30,9 @@ func advance(delta: float, state: Dictionary, frozen: bool = false) -> Dictionar
 		target = {}
 		for i: int in range(KEYS.size()):
 			target[KEYS[i]] = float(PROFILES[weather][i])
-		target["cover"] = maxf(0.28 if season == "winter" else 0, target["snow"] * 0.8)
+		# Winter is a snow-covered season even on clear days. Precipitation and
+		# accumulated cover remain separate and both retain the existing blend.
+		target["cover"] = maxf(0.98 if season == "winter" else 0, target["snow"] * 0.8)
 		if current.is_empty():
 			current = target.duplicate()
 			origin = current.duplicate()
