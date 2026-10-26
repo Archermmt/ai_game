@@ -147,7 +147,7 @@ func _setup_ui() -> void:
 	title.add_theme_color_override("font_color", Color("253e31"))
 	column.add_child(title)
 	var subtitle: Label = Label.new()
-	subtitle.text = "三种新草已导入本地展示台 · 正式庭园的局部替换从 G2 开始"
+	subtitle.text = "单体与历史对照 · 正式庭园已采用四层草 · 可进入 G4 满容量体验"
 	subtitle.add_theme_color_override("font_color", Color("476050"))
 	column.add_child(subtitle)
 	var row: HBoxContainer = HBoxContainer.new()
@@ -216,6 +216,10 @@ func _setup_ui() -> void:
 	var landscape_button: Button = _button(landscape_row, "山谷地形与草地样板", "OpenLandscape")
 	landscape_button.pressed.connect(
 		func() -> void: loader.request_load("res://app/landscape_lab.tscn")
+	)
+	var capacity_button: Button = _button(landscape_row, "满容量体验 G4", "OpenCapacity")
+	capacity_button.pressed.connect(
+		func() -> void: loader.request_load("res://app/grass_capacity.tscn")
 	)
 	status = Label.new()
 	status.name = "LoadStatus"

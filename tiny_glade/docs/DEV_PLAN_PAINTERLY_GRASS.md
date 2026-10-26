@@ -1,5 +1,7 @@
 # Painterly Grass 分阶段集成计划
 
+最新执行状态（2026-10-26）：G4容量体验已可从展示台或`app/grass_capacity.tscn`打开，首轮同源对照和真实UI通过；满容量45%晴天新草p95=29.366ms，未通过20ms门槛，G4继续进行，尚未进入G5收口。[报告与证据](weekly/week_14/G4_CAPACITY.md)。下方初始状态与旧阶段约束保留为历史，以后续日期的执行补充为准。
+
 日期：2026-10-25（Asia/Shanghai）。状态：**G0已完成；G1本地展示交付，素材入库/视觉待验；G2局部对照与G3可编辑本地副本已交付，视觉待体验；G4/G5尚未执行**。[G0实际报告](weekly/week_14/G0_BASELINE.md)记录环境、测试与旧草基线；[G1报告](weekly/week_14/G1_GRASS_LAB.md)记录已创建的独立新草展示场景、派生件及验证，[G2报告](weekly/week_14/G2_GRASS_PATCH.md)记录局部庭园及五组同源对照，[G3报告](weekly/week_14/G3_EDITABLE_GRASS_GARDEN.md)记录编辑/存档/环境与摄影联动，G0–G3质量入口已交付。
 
 依据：[初步分析](art/PAINTERLY_GRASS_ASSESSMENT.md)、[批准PRD](PRD_风栖小筑.md)、[Godot开发契约](DEV_PLAN_MVP_Godot.md)、[当前状态](../STATUS.md)。已有结论仅覆盖16份源文件读取、几何/材质统计和参考图分析；Mac帧时间来自旧草，不能记为新资产通过。
@@ -30,7 +32,7 @@
 | G1 单体与材质 | 首批3种草在Godot正确显示 | 已交付 `app/painterly_grass_preview.tscn` | 实际导出成本、UV/遮罩/风权重、源件重开 | 笔触、尺度、背面、侧面和逆光 |
 | G2 局部风格 | 屋前8×8m新旧草对照 | 已交付 `app/painterly_grass_patch.tscn` | 同源A/B、贴地与避让、密度和颜色 | 是否明显更柔软连贯，是否接受这个方向 |
 | G3 编辑联动 | 新草用于可编辑庭园副本 | 已交付 `app/painterly_grass_garden.tscn` | 局部重建、取消、撤销重做、存档、四季/摄影 | 实际建造后仍自然，漫步不穿帮 |
-| G4 满容量与画质 | 同机新旧草性能报告 | 规划 `grass_capacity.tscn` | 1080p帧p95、内存、编辑时延、LOD及2K摄影 | 大场景无噪点海、闪烁、黑片和切换跳变 |
+| G4 满容量与画质 | 容量入口/首轮诊断交付，帧预算未过 | 已交付 `app/grass_capacity.tscn` | 完整矩阵、编辑时延、长测、LOD及2K峰值仍待验 | 保留已接受外观，远景优化仍需复核 |
 | G5 候选收口 | 可体验的集成候选与回退点 | 规划 `grass_candidate.tscn` | 累计/空缓存/原生回归、资产记录完整 | 用户最终接受；决定默认采用或保留预览 |
 
 **新场景共同入口**已在G1交付为 `app/painterly_grass_preview.tscn`；以后保留同一入口，逐步启用已完成的“单体展示 / 局部对照 / 编辑庭园 / 满容量 / 候选”按钮。按钮只显示可进入的场景，不出现坏链接。各子场景放在 `features/painterly_grass/previews/`，用薄包装复用当前游戏系统，避免复制整套庭园逻辑。
@@ -211,7 +213,8 @@ python3 tools/quality/painterly_grass_portable_checks.py --stage 2
 python3 tools/quality/painterly_grass_checks.py --stage 3
 python3 tools/quality/painterly_grass_checks.py --stage 3 --native-only
 python3 tools/quality/painterly_grass_portable_checks.py --stage 3
-# G4待交付；自动串行跑对照矩阵，不让用户人工计时
+# G4容量入口/性能工具已交付，当前首轮帧预算失败；自动串行跑对照
+python3 tools/quality/grass_capacity_checks.py
 python3 tools/quality/painterly_grass_performance.py
 ```
 

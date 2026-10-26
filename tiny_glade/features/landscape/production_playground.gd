@@ -50,13 +50,16 @@ func _process(delta: float) -> void:
 			landscape_terrain.sync_environment(document.state["environment"], visual)
 			_landscape_environment_key = key
 	var grass: ProductionGrassRenderer = meadow as ProductionGrassRenderer
-	if not landscape_failed and (grass.failed or not landscape_terrain.last_error.is_empty()):
+	if (
+		not landscape_failed
+		and ((grass != null and grass.failed) or not landscape_terrain.last_error.is_empty())
+	):
 		landscape_failed = true
 		hud.set_status("林间素材未准备完成，请查看项目验证报告。")
 	if not landscape_ready and not landscape_failed:
 		if (
-			grass.ready_for_grass
-			and not grass.is_busy()
+			(grass == null or grass.ready_for_grass)
+			and not meadow.is_busy()
 			and landscape_terrain.data_ready
 			and not landscape_terrain.is_busy()
 			and not queue.is_busy()
@@ -84,7 +87,11 @@ func _delivery_metrics() -> Dictionary:
 	result["landscape_ready"] = landscape_ready
 	result["landscape_failed"] = landscape_failed
 	result["terrain_renderer"] = "Terrain3D"
-	result["grass_renderer"] = "Valley four layers / ProtonScatter"
+	result["grass_renderer"] = (
+		"Valley four layers / ProtonScatter"
+		if meadow is ProductionGrassRenderer
+		else "Legacy meadow comparison"
+	)
 	return result
 
 

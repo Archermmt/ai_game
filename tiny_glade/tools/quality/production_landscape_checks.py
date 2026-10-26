@@ -16,25 +16,31 @@ from validate_valley_fidelity import validate
 
 OUT = ROOT / 'reports/week_14/production_landscape'
 SUITE = 'tests/week_14/production_landscape/test_production_landscape.gd'
+CAPACITY_SUITE = 'tests/week_14/production_landscape/test_grass_capacity.gd'
 
 
 def inspect_junit(path):
     root = ET.parse(path).getroot()
     suites = {row.get('name'): row for row in root.findall('testsuite')}
     assert SUITE in suites, 'Production F5 suite was omitted'
+    assert CAPACITY_SUITE in suites, 'G4 capacity preview suite was omitted'
+    assert int(suites[CAPACITY_SUITE].get('tests', 0)) == 3, 'Incomplete G4 capacity suite'
+    capacity_cases = list(suites[CAPACITY_SUITE].iter('testcase'))
+    assert len(capacity_cases) == 3
+    assert sum(int(row.get('assertions', 0)) for row in capacity_cases) > 0
     count = int(root.get('tests', 0))
-    assert count >= 8, f'Empty/incomplete production run: {count}'
+    assert count >= 11, f'Empty/incomplete production run: {count}'
     for row in [root, *suites.values()]:
         assert all(int(row.get(field, 0)) == 0 for field in
                    ['failures', 'errors', 'skipped', 'disabled']), row.attrib
     suite = suites[SUITE]
     cases = list(suite.iter('testcase'))
     assert int(suite.get('tests', 0)) >= 8 and cases
-    assert not any(case.find(field) is not None for case in cases
+    assert not any(case.find(field) is not None for case in root.iter('testcase')
                    for field in ['failure', 'error', 'skipped'])
-    assertions = sum(int(row.get('assertions', 0)) for row in cases)
+    assertions = sum(int(row.get('assertions', 0)) for row in root.iter('testcase'))
     assert assertions > 0, 'Assertion-free production test run'
-    return {'tests': count, 'assertions': assertions, 'failures': 0, 'skipped': 0}
+    return {'tests': count, 'assertions': assertions, 'capacity_tests': 3, 'failures': 0, 'skipped': 0}
 
 
 def png_size(path):
