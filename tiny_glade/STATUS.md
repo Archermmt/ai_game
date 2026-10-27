@@ -2,6 +2,10 @@
 
 更新日期：2026-10-27（Asia/Shanghai）
 
+## 插件使用心得 · 文档归档
+
+2026-10-27：新增[PLUGIN_USAGE.md](docs/PLUGIN_USAGE.md)，汇总Terrain3D、ProtonScatter、SunshineClouds2、Blanket、puchik雪材质与GUT的固定版本、实际使用方式、接入边界、踩坑、许可与维护约定。核对本地源码、lock、验证入口和文档链接；本轮仅整理文档，未改运行时代码/插件，未重跑或新增运行时通过声明。[文档核对收据](docs/weekly/week_14/evidence/plugin_usage_doc_check.json)。
+
 ## 正式云与厚雪 · 主场景默认采用
 
 2026-10-27：用户认可云雪样板并要求直接应用主场景。F5仍为`app/living_root.tscn`，体积云现已默认采用；主相机、480×270倒影、1080p/2K摄影分别拥有缓存，同步相位，摄影结束后主画面稳定。Metal沿用已接受样板的TAA、关闭不兼容MSAA路径，不改变草模型/密度。
