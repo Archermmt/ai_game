@@ -1,8 +1,6 @@
 class_name SunshineCloudAdapter
 extends Node
-## Lab adapter for pinned SunshineClouds2; all cloud generation stays upstream.
-## One WorldEnvironment effect is shared by PhotoExport/reflection World3Ds. Its
-## temporal buffers are viewport-sized, so multi-viewport rendering requires native QA.
+## Camera-owned adapter for pinned SunshineClouds2. Each viewport owns its history.
 
 @export_group("Cloud layer")
 @export_range(100.0, 10000.0, 50.0) var cloud_base: float = 1500.0
@@ -49,10 +47,12 @@ func configure(environment: WorldEnvironment, camera: Camera3D, sun: Directional
 	_environment = environment
 	_camera = camera
 	_sun = sun
-	_previous_compositor = environment.compositor
+	_previous_compositor = camera.compositor
 	_previous_effects.clear()
 	if _previous_compositor != null:
 		_previous_effects.assign(_previous_compositor.compositor_effects)
+	elif environment.compositor != null:
+		_previous_effects.assign(environment.compositor.compositor_effects)
 	clouds = SunshineCloudsGD.new()
 	_apply_preset()
 	# Assign before entering the tree: bypass the driver's whole-scene environment
@@ -70,7 +70,7 @@ func configure(environment: WorldEnvironment, camera: Camera3D, sun: Directional
 	var effects: Array[CompositorEffect] = _previous_effects.duplicate()
 	effects.append(clouds)
 	_owned_compositor.compositor_effects = effects
-	environment.compositor = _owned_compositor
+	camera.compositor = _owned_compositor
 	_last_elapsed = -1.0
 	_enabled = true
 	ready_for_clouds = true
@@ -105,6 +105,17 @@ func sync(
 	# Use the upstream wind/light update with the existing scene clock. Calling it
 	# explicitly avoids a second free-running timer during photography and reduced motion.
 	driver._process(delta)
+
+
+func copy_animation_from(source: SunshineCloudAdapter) -> void:
+	if not ready_for_clouds or not source.ready_for_clouds:
+		return
+	for property: String in [
+		"extra_large_clouds_pos", "large_clouds_pos", "medium_clouds_pos", "small_clouds_pos"
+	]:
+		driver.set(property, source.driver.get(property))
+	clouds.current_time = source.clouds.current_time
+	driver._process(0.0)
 
 
 func set_enabled(value: bool) -> void:
@@ -165,15 +176,15 @@ static func _release_plugin_resources(effect: SunshineCloudsGD) -> void:
 
 
 func _detach_effect() -> void:
-	if not is_instance_valid(_environment) or _environment.compositor == null:
+	if not is_instance_valid(_camera) or _camera.compositor == null:
 		return
-	var current: Compositor = _environment.compositor
+	var current: Compositor = _camera.compositor
 	var effects: Array[CompositorEffect] = current.compositor_effects.duplicate()
 	if clouds not in effects:
 		return
 	effects.erase(clouds)
 	if current == _owned_compositor and effects == _previous_effects:
-		_environment.compositor = _previous_compositor
+		_camera.compositor = _previous_compositor
 	else:
 		# Preserve effects that another system added or removed while clouds ran.
 		current.compositor_effects = effects

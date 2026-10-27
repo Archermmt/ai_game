@@ -444,7 +444,7 @@ func _run() -> void:
 		garden.qa_mode and garden.saves.directory.begins_with("user://qa_immersion/native/")
 	)
 	_check("actual production grass renderer", garden.meadow is ProductionGrassRenderer)
-	_check("formal scene keeps baseline sky", garden.get("cloud_adapter") == null)
+	_check("formal scene uses accepted volume clouds", garden.cloud_adapter.ready_for_clouds)
 	root.use_taa = false
 	garden.preferences.values["reduce_motion"] = false
 	garden._apply_preferences()
@@ -497,6 +497,10 @@ func _run() -> void:
 			and float(garden.atmosphere.blend.current["snow"]) < 0.01
 		)
 	)
+	var snow_deadline: int = Time.get_ticks_msec() + 120000
+	while garden.snow_cover.is_busy() and Time.get_ticks_msec() < snow_deadline:
+		await _draw_frames(1)
+	_check("winter snow geometry ready before contact captures", not garden.snow_cover.is_busy())
 	await _walk_distance(2.6, "winter_walk")
 	await _snow_pixels(direction)
 	await _walk_distance(0.8, "exit_setup_walk")
@@ -560,7 +564,8 @@ func _finish() -> void:
 					"taa_during_pixel_checks": false,
 					"real_keyboard_walking": true,
 					"single_initial_spawn": true,
-					"baseline_sky_only": true,
+					"baseline_sky_only": false,
+					"production_clouds": true,
 					"performance_gate_run": false,
 					"windows_real_device_verified": false
 				},

@@ -1,0 +1,129 @@
+# SPDX-FileCopyrightText: © 2026 1hue
+# SPDX-License-Identifier: MIT
+
+extends BlanketPass
+class_name OutMeshPass
+
+const SIZE_PARAMS = 12
+
+
+func _pre() -> void:
+	version = &"out_u32" if params.out_index_stride == 4 else &"out_u16"
+
+	push_constant.resize(SIZE_PARAMS)
+
+
+func allocate() -> void:
+	params.out_vertex_count = 0
+	params.out_index_count = 0
+
+	var verts := read_counter(sets.selected_vertex_buffer)
+	var faces := read_counter(sets.selected_index_buffer)
+	var shared := mini(read_counter(sets.shared_edge_buffer), params.max_edges)
+	var boundary := mini(read_counter(sets.boundary_buffer), params.max_edges)
+	var boundary_verts := mini(read_counter(sets.boundary_buffer, 4), verts)
+
+	params.wall_rim_base = verts + faces * 3 + shared * BlanketParams.EDGE_VERTS
+	params.wall_grid_base = params.wall_rim_base + boundary_verts * BlanketParams.WALL_SIDE_VERTS_PER_VERT
+	params.wall_face_base = faces + shared * BlanketParams.EDGE_FACES
+	params.out_vertex_count = params.wall_grid_base + boundary * BlanketParams.WALL_VERTS_PER_EDGE
+	params.out_index_count = (params.wall_face_base + boundary * BlanketParams.WALL_FACES_PER_EDGE) * 3
+
+	# This 4.7/Metal bridge is validated for bounded object meshes, not large terrain.
+	if params.out_vertex_count > 65536:
+		push_warning("Blanket 4.7 bridge skipped an oversized object; native terrain owns ground snow")
+		params.out_vertex_count = 0
+		params.out_index_count = 0
+	version = &"out_u16"
+
+	if params.out_vertex_count == 0 or params.out_index_count == 0:
+		surface.remove()
+		return
+
+	if fits_existing_surface():
+		clear_buffers()
+		return
+
+	surface.allocate(
+		params.out_vertex_count,
+		params.out_index_count,
+		Mesh.ARRAY_FORMAT_NORMAL | Mesh.ARRAY_FORMAT_COLOR | Mesh.ARRAY_FORMAT_CUSTOM0
+	)
+
+	init_out_mesh_set()
+	set_out_params()
+
+
+func fits_existing_surface() -> bool:
+	return (
+		surface.idx >= 0
+		and surface.vertex_count == params.out_vertex_count
+		and surface.index_count == params.out_index_count
+	)
+
+
+func clear_buffers() -> void:
+	var vertex_buffer := surface.bridge_buffer(surface.idx, "vertex_data")
+	var index_buffer := surface.bridge_buffer(surface.idx, "index_data")
+	var vertex_size := params.out_vertex_count * params.out_vertex_stride
+	var index_size := params.out_index_count * params.out_index_stride
+
+	# Multiple of 4 only, round down - padding tail irrelevant
+	rd.buffer_clear(vertex_buffer, 0, vertex_size - vertex_size % 4)
+	rd.buffer_clear(index_buffer, 0, index_size - index_size % 4)
+
+
+func read_counter(buffer: RID, offset := 0) -> int:
+	return rd.buffer_get_data(buffer, offset, 4).decode_u32(0)
+
+
+func init_out_mesh_set() -> void:
+	var vertex_buffer := surface.bridge_buffer(surface.idx, "vertex_data")
+	var index_buffer := surface.bridge_buffer(surface.idx, "index_data")
+	var attribute_buffer := surface.bridge_buffer(surface.idx, "attribute_data")
+
+	sets.out_mesh = rd.uniform_set_create([
+		BlanketUtil.create_uniform([vertex_buffer], RenderingDevice.UNIFORM_TYPE_STORAGE_BUFFER, 0),
+		BlanketUtil.create_uniform([index_buffer], RenderingDevice.UNIFORM_TYPE_STORAGE_BUFFER, 1),
+		BlanketUtil.create_uniform([attribute_buffer], RenderingDevice.UNIFORM_TYPE_STORAGE_BUFFER, 2),
+	], BlanketShaders.out_mesh.shaders[version], 0)
+
+
+func set_out_params() -> void:
+	var format := surface.format
+	var verts := params.out_vertex_count
+
+	params.out_vertex_stride = RenderingServer.mesh_surface_get_format_vertex_stride(format, verts)
+	params.out_index_stride = RenderingServer.mesh_surface_get_format_index_stride(format, verts)
+	params.out_normal_offset = RenderingServer.mesh_surface_get_format_offset(format, verts, Mesh.ARRAY_NORMAL)
+	params.out_normal_stride = RenderingServer.mesh_surface_get_format_normal_tangent_stride(format, verts)
+	params.out_color_offset = RenderingServer.mesh_surface_get_format_offset(format, verts, Mesh.ARRAY_COLOR)
+	params.out_custom_offset = RenderingServer.mesh_surface_get_format_offset(format, verts, Mesh.ARRAY_CUSTOM0)
+	params.out_attribute_stride = RenderingServer.mesh_surface_get_format_attribute_stride(format, verts)
+
+	#assert(params.out_index_stride > 0, "Index stride should be non-zero")
+	assert(params.out_attribute_stride - params.out_custom_offset == 16, "Custom0 must be RGBA_FLOAT")
+
+
+func pack_params() -> PackedByteArray:
+	push_constant.encode_u32(0, params.out_color_offset)
+	push_constant.encode_u32(4, params.out_custom_offset)
+	push_constant.encode_u32(8, params.out_attribute_stride)
+
+	return push_constant
+
+
+func compute() -> void:
+	allocate()
+
+	if params.is_out_mesh_empty:
+		return
+
+	var compute_list := rd.compute_list_begin()
+	rd.compute_list_bind_compute_pipeline(compute_list, BlanketShaders.out_mesh.pipelines[version])
+	rd.compute_list_set_push_constant(compute_list, pack_params(), SIZE_PARAMS)
+	rd.compute_list_bind_uniform_set(compute_list, sets.out_mesh, 0)
+	rd.compute_list_bind_uniform_set(compute_list, sets.selected_faces, 1)
+	rd.compute_list_bind_uniform_set(compute_list, sets.vertex_flag, 2)
+	rd.compute_list_dispatch_indirect(compute_list, sets.dispatch_buffer, BlanketSets.Dispatch.OUT_MESH)
+	rd.compute_list_end()

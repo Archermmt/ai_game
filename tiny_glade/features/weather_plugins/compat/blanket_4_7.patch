@@ -1,0 +1,218 @@
+--- upstream/passes/faces/select.gd
++++ installed/passes/faces/select.gd
+@@ -23,8 +23,8 @@
+ 
+ 
+ func init_in_mesh_set() -> void:
+-	var vertex_buffer := RenderingServer.mesh_surface_get_vertex_buffer_rd_rid(surface.mesh_rid, surface.source_idx)
+-	var index_buffer := RenderingServer.mesh_surface_get_index_buffer_rd_rid(surface.mesh_rid, surface.source_idx)
++	var vertex_buffer := surface.bridge_buffer(surface.source_idx, "vertex_data")
++	var index_buffer := surface.bridge_buffer(surface.source_idx, "index_data")
+ 
+ 	sets.in_mesh = rd.uniform_set_create([
+ 		BlanketUtil.create_uniform([vertex_buffer], RenderingDevice.UNIFORM_TYPE_STORAGE_BUFFER, 0),
+--- upstream/passes/out_mesh.gd
++++ installed/passes/out_mesh.gd
+@@ -29,6 +29,13 @@
+ 	params.out_vertex_count = params.wall_grid_base + boundary * BlanketParams.WALL_VERTS_PER_EDGE
+ 	params.out_index_count = (params.wall_face_base + boundary * BlanketParams.WALL_FACES_PER_EDGE) * 3
+ 
++	# This 4.7/Metal bridge is validated for bounded object meshes, not large terrain.
++	if params.out_vertex_count > 65536:
++		push_warning("Blanket 4.7 bridge skipped an oversized object; native terrain owns ground snow")
++		params.out_vertex_count = 0
++		params.out_index_count = 0
++	version = &"out_u16"
++
+ 	if params.out_vertex_count == 0 or params.out_index_count == 0:
+ 		surface.remove()
+ 		return
+@@ -56,8 +63,8 @@
+ 
+ 
+ func clear_buffers() -> void:
+-	var vertex_buffer := RenderingServer.mesh_surface_get_vertex_buffer_rd_rid(surface.mesh_rid, surface.idx)
+-	var index_buffer := RenderingServer.mesh_surface_get_index_buffer_rd_rid(surface.mesh_rid, surface.idx)
++	var vertex_buffer := surface.bridge_buffer(surface.idx, "vertex_data")
++	var index_buffer := surface.bridge_buffer(surface.idx, "index_data")
+ 	var vertex_size := params.out_vertex_count * params.out_vertex_stride
+ 	var index_size := params.out_index_count * params.out_index_stride
+ 
+@@ -71,9 +78,9 @@
+ 
+ 
+ func init_out_mesh_set() -> void:
+-	var vertex_buffer := RenderingServer.mesh_surface_get_vertex_buffer_rd_rid(surface.mesh_rid, surface.idx)
+-	var index_buffer := RenderingServer.mesh_surface_get_index_buffer_rd_rid(surface.mesh_rid, surface.idx)
+-	var attribute_buffer := RenderingServer.mesh_surface_get_attribute_buffer_rd_rid(surface.mesh_rid, surface.idx)
++	var vertex_buffer := surface.bridge_buffer(surface.idx, "vertex_data")
++	var index_buffer := surface.bridge_buffer(surface.idx, "index_data")
++	var attribute_buffer := surface.bridge_buffer(surface.idx, "attribute_data")
+ 
+ 	sets.out_mesh = rd.uniform_set_create([
+ 		BlanketUtil.create_uniform([vertex_buffer], RenderingDevice.UNIFORM_TYPE_STORAGE_BUFFER, 0),
+--- upstream/pipeline.gd
++++ installed/pipeline.gd
+@@ -12,7 +12,6 @@
+ var params: BlanketParams
+ var sets: BlanketSets
+ var surface: BlanketSurface
+-var debug: BlanketDebug
+ var select_passes: Array[BlanketPass]
+ var build_passes: Array[BlanketPass]
+ var update_passes: Array[BlanketPass]
+@@ -21,7 +20,7 @@
+ func _init(p_mesh: ArrayMesh, surface_idx: int, global_transform: Transform3D) -> void:
+ 	rd = RenderingServer.get_rendering_device()
+ 	assert(rd != null, "No RenderingDevice - compute shaders require Forward+ or Mobile renderer")
+-	assert(BlanketShaders is Node, "BlanketShaders autoload missing - check Project Settings > Autoload")
++	assert(BlanketShaders.select != null, "Blanket shaders must be initialized")
+ 	assert(p_mesh != null, "Mesh is null")
+ 	assert(surface_idx >= 0 and surface_idx < p_mesh.get_surface_count(),
+ 		"Surface %d out of range on %s (%d surfaces)" % [surface_idx, p_mesh, p_mesh.get_surface_count()])
+@@ -30,7 +29,6 @@
+ 	surface = BlanketSurface.new(p_mesh, surface_idx)
+ 	sets = BlanketSets.new(surface)
+ 	params = BlanketParams.new(surface, global_transform)
+-	debug = BlanketDebug.new(p_mesh, surface, sets, params)
+ 
+ 	select_passes = [
+ 		SelectPass.new(mesh, surface, params, sets),
+--- upstream/shaders.gd
++++ installed/shaders.gd
+@@ -1,8 +1,8 @@
+ # SPDX-FileCopyrightText: © 2026 1hue
+ # SPDX-License-Identifier: MIT
+ 
+-@tool
+-extends Node
++extends RefCounted
++class_name BlanketShaders
+ 
+ const SHADER_PATH = "res://addons/blanket/passes/"
+ 
+@@ -41,39 +41,37 @@
+ 
+ 	func _notification(what) -> void:
+ 		if what == NOTIFICATION_PREDELETE:
++			for rid in pipelines.values():
++				if rid:
++					rd.free_rid(rid)
+ 			for rid in shaders.values():
+ 				if rid:
+ 					rd.free_rid(rid)
+ 
+ 
+-var rd: RenderingDevice
+-var shaders: Array[RID]
+-var pipelines: Array[RID]
++static var rd: RenderingDevice
++static var shaders: Array[RID]
++static var pipelines: Array[RID]
+ 
+-var select: BlanketShader
+-var dedupe: BlanketShader
+-var faces: BlanketShader
+-var edges: BlanketShader
+-var out_mesh: BlanketShader
+-var shrink: BlanketShader
+-var fill: BlanketShader
+-var boundary_resolve: BlanketShader
+-var boundary_write: BlanketShader
+-var offset: BlanketShader
+-var normals_sum: BlanketShader
+-var normals_write: BlanketShader
+-var smooth_sum: BlanketShader
+-var smooth_write: BlanketShader
++static var select: BlanketShader
++static var dedupe: BlanketShader
++static var faces: BlanketShader
++static var edges: BlanketShader
++static var out_mesh: BlanketShader
++static var shrink: BlanketShader
++static var fill: BlanketShader
++static var boundary_resolve: BlanketShader
++static var boundary_write: BlanketShader
++static var offset: BlanketShader
++static var normals_sum: BlanketShader
++static var normals_write: BlanketShader
++static var smooth_sum: BlanketShader
++static var smooth_write: BlanketShader
+ 
+ 
+-func _unhandled_input(event: InputEvent) -> void:
+-	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_F5:
+-		_notification(NOTIFICATION_PREDELETE)
+-		_init()
+-
+-
+-func _init() -> void:
+-
++static func initialize() -> void:
++	if select != null:
++		return
+ 	select = BlanketShader.new(SHADER_PATH + "faces/select.glsl")
+ 	dedupe = BlanketShader.new(SHADER_PATH + "faces/dedupe.glsl")
+ 	faces = BlanketShader.new(SHADER_PATH + "faces/faces.glsl")
+@@ -99,3 +97,20 @@
+ 		SHADER_PATH + "smooth/smooth_write.glsl",
+ 		[SmoothWritePass.SMOOTH_STRENGTH, SmoothWritePass.WALL_STRENGTH]
+ 	)
++
++
++static func shutdown() -> void:
++	select = null
++	dedupe = null
++	faces = null
++	edges = null
++	out_mesh = null
++	shrink = null
++	fill = null
++	boundary_resolve = null
++	boundary_write = null
++	offset = null
++	normals_sum = null
++	normals_write = null
++	smooth_sum = null
++	smooth_write = null
+--- upstream/surface.gd
++++ installed/surface.gd
+@@ -7,11 +7,12 @@
+ const SURFACE_NAME = "BlanketSurface"
+ ## CUSTOM0 stores original position + sticky flag in alpha
+ const SURFACE_FLAGS := (
+-	Mesh.ARRAY_FLAG_USE_STORAGE_BUFFER | (Mesh.ARRAY_CUSTOM_RGBA_FLOAT << Mesh.ARRAY_FORMAT_CUSTOM0_SHIFT)
++	Mesh.ARRAY_FLAG_USE_DYNAMIC_UPDATE | (Mesh.ARRAY_CUSTOM_RGBA_FLOAT << Mesh.ARRAY_FORMAT_CUSTOM0_SHIFT)
+ )
+ 
+ var surface_name: String:
+ 	get: return "%s_%d" % [SURFACE_NAME, source_idx]
++var bridge_buffers: Dictionary = {}
+ var mesh: ArrayMesh
+ var mesh_rid: RID:
+ 	get: return mesh.get_rid()
+@@ -106,3 +107,24 @@
+ 	for v in source_vertices:
+ 		aabb = aabb.expand(v)
+ 	return aabb
++
++
++## 4.7 compatibility: owned storage buffers instead of borrowing 4.8 mesh RIDs.
++func bridge_buffer(at: int, field: String) -> RID:
++	var key: String = str(at) + ":" + field
++	if bridge_buffers.has(key):
++		return bridge_buffers[key]
++	var raw: Dictionary = RenderingServer.mesh_get_surface(mesh_rid, at)
++	var bytes: PackedByteArray = raw[field]
++	bytes.resize(maxi(4, ceili(bytes.size() / 4.0) * 4))
++	var buffer: RID = RenderingServer.get_rendering_device().storage_buffer_create(bytes.size(), bytes)
++	bridge_buffers[key] = buffer
++	return buffer
++
++
++func release_bridge() -> void:
++	var device: RenderingDevice = RenderingServer.get_rendering_device()
++	for buffer: RID in bridge_buffers.values():
++		if buffer.is_valid():
++			device.free_rid(buffer)
++	bridge_buffers.clear()

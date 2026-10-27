@@ -2,7 +2,6 @@ class_name WeatherPluginLab
 extends ProductionLandscapePlayground
 ## A single isolated garden compares the pinned upstream cloud renderer.
 
-var cloud_adapter: SunshineCloudAdapter
 var weather_lab_ready: bool = false
 var plugin_clouds: bool = true
 var lab_panel: PanelContainer
@@ -33,10 +32,7 @@ func _ready() -> void:
 	)
 	calendar.speed = 0
 	calendar.automatic_weather = false
-	cloud_adapter = SunshineCloudAdapter.new()
-	cloud_adapter.name = "PluginClouds"
-	add_child(cloud_adapter)
-	weather_lab_ready = cloud_adapter.configure(world_environment, camera_rig.camera, sun)
+	weather_lab_ready = cloud_adapter.ready_for_clouds
 	snow_reference = SnowMaterialReference.new()
 	snow_reference.name = "UpstreamSnowMaterialReference"
 	var field: TerrainField = TerrainField.new(document.snapshot())
@@ -71,7 +67,7 @@ func _setup_controls() -> void:
 	var column: VBoxContainer = VBoxContainer.new()
 	lab_panel.add_child(column)
 	lab_note = Label.new()
-	lab_note.text = "云层插件预览 · 积雪仍为原基线，厚雪插件兼容性待解决"
+	lab_note.text = "云与积雪样板 · 与主场景共用体积云和厚雪"
 	column.add_child(lab_note)
 	var row: HBoxContainer = HBoxContainer.new()
 	column.add_child(row)
@@ -132,8 +128,7 @@ func begin_immersion_demo(winter: bool) -> void:
 
 func set_plugin_clouds(value: bool) -> void:
 	plugin_clouds = value and weather_lab_ready
-	cloud_adapter.set_enabled(plugin_clouds)
-	atmosphere.sky.material.set_shader_parameter("painted_clouds_enabled", not plugin_clouds)
+	super.set_plugin_clouds(plugin_clouds)
 
 
 func set_lab_climate(index: int, immediate: bool = false) -> void:
@@ -163,9 +158,7 @@ func set_lab_view(index: int) -> void:
 		camera_rig.pitch = 0.62
 		camera_rig.yaw = 0.6
 		camera_rig.refresh()
-	lab_note.text = (
-		"现成雪材质近看 · 纹理、法线与粗糙度 · 这个样板没有厚雪几何" if index == 2 else "云层插件预览 · 庭园积雪仍为原基线，厚雪插件兼容性待解决"
-	)
+	lab_note.text = ("现成雪材质近看 · 纹理、法线与粗糙度 · 这个样板没有厚雪几何" if index == 2 else "云与积雪样板 · 与主场景共用体积云和厚雪")
 	camera_rig.camera.attributes = null
 
 
@@ -179,9 +172,7 @@ func _process(delta: float) -> void:
 func _sync_plugin() -> void:
 	if cloud_adapter == null or atmosphere == null:
 		return
-	cloud_adapter.sync(
-		atmosphere.elapsed, atmosphere.blend.current, atmosphere.frozen, atmosphere.reduced_motion
-	)
+	_sync_cloud_views()
 
 
 func _exit_tree() -> void:

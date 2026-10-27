@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="9" >
+  <testsuite name="tests/week_14/weather_production/test_weather_adoption.gd" tests="9" failures="0" skipped="0" time="1.80882" >
+      <testcase name="test_headless_preserves_camera_and_uses_safe_sky_fallback" assertions="7" status="pass" classname="tests/week_14/weather_production/test_weather_adoption.gd" time="0.000163" >
+      </testcase>
+      <testcase name="test_terrain_snow_assets_preserve_authoritative_heightfield" assertions="4" status="pass" classname="tests/week_14/weather_production/test_weather_adoption.gd" time="0.031356" >
+      </testcase>
+      <testcase name="test_roof_envelopes_exist_for_rect_round_and_flat_without_changing_source_meshes" assertions="1470" status="pass" classname="tests/week_14/weather_production/test_weather_adoption.gd" time="1.692841" >
+      </testcase>
+      <testcase name="test_leaf_sprays_and_deciduous_crowns_are_not_solid_snow_sheets" assertions="6" status="pass" classname="tests/week_14/weather_production/test_weather_adoption.gd" time="0.000187" >
+      </testcase>
+      <testcase name="test_snow_season_changes_do_not_change_source_or_start_headless_compute" assertions="7" status="pass" classname="tests/week_14/weather_production/test_weather_adoption.gd" time="0.057853" >
+      </testcase>
+      <testcase name="test_source_mesh_adapter_handles_nonindexed_and_transformed_geometry" assertions="39" status="pass" classname="tests/week_14/weather_production/test_weather_adoption.gd" time="0.000288" >
+      </testcase>
+      <testcase name="test_winter_eye_height_follows_visible_snow_without_moving_source_feet" assertions="4" status="pass" classname="tests/week_14/weather_production/test_weather_adoption.gd" time="0.017442" >
+      </testcase>
+      <testcase name="test_footprint_projection_tracks_rendered_snow_surface" assertions="3" status="pass" classname="tests/week_14/weather_production/test_weather_adoption.gd" time="0.008489" >
+      </testcase>
+      <testcase name="test_only_buried_ground_paths_receive_prints_while_bridge_decks_stay_excluded" assertions="5" status="pass" classname="tests/week_14/weather_production/test_weather_adoption.gd" time="0.000201" >
+      </testcase>
+  </testsuite>
+</testsuites>

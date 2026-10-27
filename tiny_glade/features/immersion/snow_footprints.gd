@@ -15,6 +15,7 @@ const SOLE: Texture2D = preload("res://features/immersion/assets/snow_sole.svg")
 
 var total_emitted: int = 0
 var rejected_contacts: int = 0
+var surface_offset: float = 0.0
 var _surface: WalkSurface
 var _blocked_segments: Array[Dictionary] = []
 var _pool: Array[Decal] = []
@@ -39,7 +40,7 @@ func configure(snapshot: Dictionary) -> void:
 	for path: Dictionary in snapshot.get("paths", []):
 		var points: Array[Vector2] = PathCurve.sample(path)
 		for index: int in range(points.size() - 1):
-			_add_blocked_segment(points[index], points[index + 1], float(path["width"]))
+			_add_blocked_segment(points[index], points[index + 1], float(path["width"]), true)
 	for collection: String in ["bridges", "stairs"]:
 		for item: Dictionary in snapshot.get(collection, []):
 			_add_blocked_segment(
@@ -146,12 +147,16 @@ func shutdown() -> void:
 	_orm = null
 
 
-func _add_blocked_segment(a: Vector2, b: Vector2, width: float) -> void:
-	_blocked_segments.append({"a": a, "b": b, "radius": width * 0.5 + 0.18})
+func _add_blocked_segment(a: Vector2, b: Vector2, width: float, terrain_path: bool = false) -> void:
+	_blocked_segments.append(
+		{"a": a, "b": b, "radius": width * 0.5 + 0.18, "terrain_path": terrain_path}
+	)
 
 
 func _contact_height(point: Vector2, feet_height: float) -> Variant:
 	for segment: Dictionary in _blocked_segments:
+		if segment["terrain_path"] and surface_offset > 0.10:
+			continue
 		var closest: Vector2 = Geometry2D.get_closest_point_to_segment(
 			point, segment["a"], segment["b"]
 		)
@@ -180,7 +185,7 @@ func _stamp(feet: Vector3, yaw: float, left: bool) -> void:
 	decal.texture_albedo = _albedos[0 if left else 1]
 	decal.texture_normal = _normals[0 if left else 1]
 	decal.global_transform = Transform3D(
-		basis, Vector3(point.x, float(height), point.y) + up * 0.035
+		basis, Vector3(point.x, float(height) + surface_offset, point.y) + up * 0.035
 	)
 	decal.modulate = Color(0.52, 0.65, 0.77, 1.0)
 	decal.visible = true
@@ -188,7 +193,7 @@ func _stamp(feet: Vector3, yaw: float, left: bool) -> void:
 	_records.append(
 		{
 			"decal": decal,
-			"point": Vector3(point.x, float(height), point.y),
+			"point": Vector3(point.x, float(height) + surface_offset, point.y),
 			"normal": up,
 			"left": left,
 			"age": 0.0,

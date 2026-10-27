@@ -135,7 +135,7 @@ def main():
                                 ROOT / 'reports/immersion/native', 73)
         assert weather['measurements']['multiview']['full_multiview_approval'] is False
         assert weather['geometric_snow_thickness'] is False
-        assert immersion['real_keyboard_walking'] and immersion['baseline_sky_only']
+        assert immersion['real_keyboard_walking'] and immersion['production_clouds']
     assert before == production_files(), 'QA changed real saves/preferences'
     assert plugins == validate_plugins(), 'QA changed pinned upstream files/import settings'
     report = {'passed': True, 'environment': environment, 'plugins': plugins,
@@ -144,7 +144,7 @@ def main():
               'production_before': before, 'production_after': production_files(),
               'production_unchanged': True, 'performance_gate_run': False,
               'windows_real_device_verified': False, 'thick_snow_approved': False,
-              'clouds_formal_default': False}
+              'clouds_formal_default': True}
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
     print('WEATHER / IMMERSION PASS', regression, 'native:', weather is not None)
 

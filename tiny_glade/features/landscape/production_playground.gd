@@ -6,6 +6,9 @@ var landscape_ready: bool = false
 var landscape_failed: bool = false
 var landscape_terrain: ProductionTerrainRenderer
 var snow_footprints: SnowFootprints
+var cloud_adapter: SunshineCloudAdapter
+var snow_cover: BlanketSnowRenderer
+var _cloud_views: Dictionary = {}
 var _landscape_closing: bool = false
 var _landscape_environment_key: String = ""
 var _footprint_source_signature: int = 0
@@ -18,6 +21,10 @@ func _create_meadow() -> MeadowRenderer:
 func _ready() -> void:
 	super._ready()
 	get_viewport().msaa_3d = Viewport.MSAA_4X
+	_setup_plugin_clouds()
+	snow_cover = BlanketSnowRenderer.new()
+	world_view.add_child(snow_cover)
+	snow_cover.configure(self)
 	landscape_terrain = ProductionTerrainRenderer.new()
 	landscape_terrain.name = "ProductionTerrain"
 	terrain_root.add_child(landscape_terrain)
@@ -38,11 +45,71 @@ func _on_published(snapshot: Dictionary, prepared: Dictionary) -> void:
 		# Preview publications and cancellation must also move the visible ground.
 		landscape_terrain.request(snapshot)
 		_sync_surface_visibility()
+	if snow_cover != null:
+		snow_cover.request(snapshot)
 	if snow_footprints != null:
 		var footprint_signature: int = _snow_contact_signature(snapshot)
 		if footprint_signature != _footprint_source_signature:
 			snow_footprints.configure(snapshot)
 			_footprint_source_signature = footprint_signature
+
+
+func _setup_plugin_clouds() -> void:
+	cloud_adapter = SunshineCloudAdapter.new()
+	cloud_adapter.name = "MainCameraClouds"
+	add_child(cloud_adapter)
+	if DisplayServer.get_name() != "headless":
+		if RenderingServer.get_current_rendering_driver_name() == "metal":
+			get_viewport().msaa_3d = Viewport.MSAA_DISABLED
+	var ready: bool = cloud_adapter.configure(world_environment, camera_rig.camera, sun)
+	atmosphere.sky.material.set_shader_parameter("painted_clouds_enabled", not ready)
+	if ready:
+		photography.camera_created.connect(_cloud_camera_created)
+		photography.camera_releasing.connect(_cloud_camera_releasing)
+		_cloud_camera_created(pond_reflections.camera)
+	_sync_cloud_views()
+
+
+func _cloud_camera_created(camera: Camera3D) -> void:
+	var adapter: SunshineCloudAdapter = SunshineCloudAdapter.new()
+	adapter.name = "CloudView%d" % camera.get_instance_id()
+	add_child(adapter)
+	if adapter.configure(world_environment, camera, sun):
+		adapter.set_enabled(cloud_adapter.clouds.enabled)
+		_cloud_views[camera.get_instance_id()] = adapter
+		_sync_cloud_views()
+	else:
+		adapter.queue_free()
+
+
+func _cloud_camera_releasing(camera: Camera3D) -> void:
+	var adapter: SunshineCloudAdapter = _cloud_views.get(camera.get_instance_id())
+	if adapter != null:
+		_cloud_views.erase(camera.get_instance_id())
+		adapter.shutdown()
+		adapter.queue_free()
+
+
+func _sync_cloud_views() -> void:
+	if cloud_adapter == null or not cloud_adapter.ready_for_clouds:
+		return
+	cloud_adapter.sync(
+		atmosphere.elapsed, atmosphere.blend.current, atmosphere.frozen, atmosphere.reduced_motion
+	)
+	for adapter: SunshineCloudAdapter in _cloud_views.values():
+		adapter.sync(atmosphere.elapsed, atmosphere.blend.current, true, true)
+		adapter.copy_animation_from(cloud_adapter)
+
+
+func set_plugin_clouds(value: bool) -> void:
+	var enabled: bool = value and cloud_adapter != null and cloud_adapter.ready_for_clouds
+	if cloud_adapter != null:
+		cloud_adapter.set_enabled(enabled)
+	for adapter: SunshineCloudAdapter in _cloud_views.values():
+		adapter.set_enabled(enabled)
+	atmosphere.sky.material.set_shader_parameter("painted_clouds_enabled", not enabled)
+	if pond_reflections != null:
+		pond_reflections.request_update()
 
 
 func _snow_contact_signature(snapshot: Dictionary) -> int:
@@ -55,7 +122,29 @@ func _process(delta: float) -> void:
 	if landscape_terrain == null or _landscape_closing:
 		return
 	_sync_surface_visibility()
+	_sync_cloud_views()
+	if snow_cover != null and atmosphere != null:
+		snow_cover.sync(float(atmosphere.blend.current.get("cover", 0.0)))
+		if walk_controller.active:
+			var ground: float = walk_controller.surface.field.height_at(
+				Vector2(walk_controller.feet.x, walk_controller.feet.z)
+			)
+			var standing_on_ground: bool = absf(walk_controller.feet.y - ground) < 0.04
+			walk_controller.eye_height = (
+				1.65
+				+ (
+					(
+						ProductionTerrainRenderer.SNOW_DEPTH
+						* float(atmosphere.blend.current.get("cover", 0.0))
+					)
+					if standing_on_ground
+					else 0.0
+				)
+			)
 	if snow_footprints != null and atmosphere != null:
+		snow_footprints.surface_offset = (
+			ProductionTerrainRenderer.SNOW_DEPTH * float(atmosphere.blend.current.get("cover", 0.0))
+		)
 		snow_footprints.update_contact(
 			walk_controller.feet,
 			walk_controller.yaw,
@@ -133,6 +222,13 @@ func _delivery_metrics() -> Dictionary:
 
 func _exit_tree() -> void:
 	_landscape_closing = true
+	if snow_cover != null:
+		snow_cover.shutdown()
+	for adapter: SunshineCloudAdapter in _cloud_views.values():
+		adapter.shutdown()
+	_cloud_views.clear()
+	if cloud_adapter != null:
+		cloud_adapter.shutdown()
 	if snow_footprints != null:
 		snow_footprints.shutdown()
 	if landscape_terrain != null:

@@ -4,6 +4,11 @@ extends LandscapeTerrainAdapter
 
 signal published(snapshot: Dictionary)
 
+const SNOW_DEPTH: float = 0.14
+const SNOW_ALBEDO: Texture2D = preload("res://addons/puchik_snow/textures/snow/snow_02_diff_2k.jpg")
+const SNOW_NORMAL: Texture2D = preload(
+	"res://addons/puchik_snow/textures/snow/snow_02_nor_gl_1k.jpg"
+)
 const CLIMATE_DECLARATIONS: String = """
 global uniform float living_time;
 global uniform float living_cloud;
@@ -11,6 +16,9 @@ global uniform float living_snow;
 global uniform float living_season;
 uniform vec4 production_tint : source_color = vec4(1.0);
 uniform float production_wetness = 0.0;
+uniform sampler2D production_snow_albedo : source_color, filter_linear_mipmap_anisotropic;
+uniform sampler2D production_snow_normal : hint_normal, filter_linear_mipmap_anisotropic;
+uniform float production_snow_depth = 0.14;
 """
 const CLIMATE_FRAGMENT: String = """
     ALBEDO *= production_tint.rgb;
@@ -26,8 +34,15 @@ const CLIMATE_FRAGMENT: String = """
     float production_cover = clamp(living_snow, 0.0, 1.0) * smoothstep(0.45, 0.9, w_normal.y);
     ALBEDO *= 1.0 - production_wetness * (1.0 - production_cover) * 0.24;
     ROUGHNESS = mix(ROUGHNESS, 0.55, production_wetness * (1.0 - production_cover));
-    ALBEDO = mix(ALBEDO, vec3(0.80, 0.86, 0.86), production_cover);
-    ROUGHNESS = mix(ROUGHNESS, 0.96, production_cover);
+    // The pinned puchik material's albedo/normal/roughness inputs, in terrain UV space.
+    vec2 snow_uv = v_vertex.xz * 0.55;
+    vec3 snow_paint = mix(vec3(0.80, 0.86, 0.88),
+        texture(production_snow_albedo, snow_uv).rgb, 0.25);
+    ALBEDO = mix(ALBEDO, snow_paint, production_cover);
+    NORMAL_MAP = mix(NORMAL_MAP, texture(production_snow_normal, snow_uv).rgb, production_cover);
+    NORMAL_MAP_DEPTH = mix(NORMAL_MAP_DEPTH, 0.30, production_cover);
+    ROUGHNESS = mix(ROUGHNESS, 0.92, production_cover);
+    SPECULAR = mix(SPECULAR, 0.18, production_cover);
 """
 
 var initialized: bool = false
@@ -174,10 +189,25 @@ func _install_climate_shader() -> void:
 		push_error(last_error)
 		return
 	code = code.insert(end, CLIMATE_FRAGMENT)
+	var vertex_assignment: String = "VERTEX = (VIEW_MATRIX * vec4(v_vertex, 1.0)).xyz;"
+	if not code.contains(vertex_assignment):
+		last_error = "Pinned Terrain3D vertex interface changed; snow display displacement unavailable."
+		push_error(last_error)
+		return
+	code = code.replace(
+		vertex_assignment,
+		(
+			"v_vertex.y += production_snow_depth * clamp(living_snow, 0.0, 1.0);\n\t"
+			+ vertex_assignment
+		)
+	)
 	code = code.replace("shader_type spatial;", "shader_type spatial;\n" + CLIMATE_DECLARATIONS)
 	var decorated: Shader = Shader.new()
 	decorated.code = code
 	material.shader_override = decorated
+	material.set_shader_param("production_snow_albedo", SNOW_ALBEDO)
+	material.set_shader_param("production_snow_normal", SNOW_NORMAL)
+	material.set_shader_param("production_snow_depth", SNOW_DEPTH)
 	_climate_shader_installed = true
 
 

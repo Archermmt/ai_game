@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: © 2026 1hue
+# SPDX-License-Identifier: MIT
+
+extends BlanketPass
+class_name SmoothPass
+
+const ITERATIONS = 2
+
+var sum_pass: SmoothSumPass
+var write_pass: SmoothWritePass
+
+
+func _pre() -> void:
+	sum_pass = SmoothSumPass.new(mesh, surface, params, sets)
+	write_pass = SmoothWritePass.new(mesh, surface, params, sets)
+
+
+## Normals must be recalculated after
+func compute() -> void:
+	for i in ITERATIONS:
+		sum_pass.compute()
+		write_pass.compute()
