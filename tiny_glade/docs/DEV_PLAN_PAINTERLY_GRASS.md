@@ -1,5 +1,7 @@
 # Painterly Grass 分阶段集成计划
 
+2026-10-28进度补充：用户允许在确认优化上限基本达到后跳过G4；当前三轮冬景开销对照表明雪壳/草仍有未验证优化方向，故条件豁免尚未触发，不将G4或G5记为通过。[限度评估与下一步](weekly/week_14/WINTER_COST_ANALYSIS.md)。
+
 最新执行状态（2026-10-26）：G4容量体验已可从展示台或`app/grass_capacity.tscn`打开，首轮同源对照和真实UI通过；满容量45%晴天新草p95=29.366ms，未通过20ms门槛，G4继续进行，尚未进入G5收口。[报告与证据](weekly/week_14/G4_CAPACITY.md)。下方初始状态与旧阶段约束保留为历史，以后续日期的执行补充为准。
 
 日期：2026-10-25（Asia/Shanghai）。状态：**G0已完成；G1本地展示交付，素材入库/视觉待验；G2局部对照与G3可编辑本地副本已交付，视觉待体验；G4/G5尚未执行**。[G0实际报告](weekly/week_14/G0_BASELINE.md)记录环境、测试与旧草基线；[G1报告](weekly/week_14/G1_GRASS_LAB.md)记录已创建的独立新草展示场景、派生件及验证，[G2报告](weekly/week_14/G2_GRASS_PATCH.md)记录局部庭园及五组同源对照，[G3报告](weekly/week_14/G3_EDITABLE_GRASS_GARDEN.md)记录编辑/存档/环境与摄影联动，G0–G3质量入口已交付。

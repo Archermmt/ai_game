@@ -1,0 +1,29 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M4 Pro (Apple9)
+
+W09_FIRST_DRAW
+WINTER_COST full repeat 1 p95=28.15
+WINTER_COST no_caps repeat 1 p95=20.158
+WINTER_COST no_clouds repeat 1 p95=26.103
+WINTER_COST no_grass repeat 1 p95=22.603
+WINTER_COST no_snowfall repeat 1 p95=28.183
+WINTER_COST all_off repeat 1 p95=13.128
+WINTER_COST all_off repeat 2 p95=13.103
+WINTER_COST no_snowfall repeat 2 p95=28.223
+WINTER_COST no_grass repeat 2 p95=22.642
+WINTER_COST no_clouds repeat 2 p95=25.992
+WINTER_COST no_caps repeat 2 p95=20.248
+WINTER_COST full repeat 2 p95=28.268
+WINTER_COST full repeat 3 p95=28.312
+WINTER_COST no_caps repeat 3 p95=20.235
+WINTER_COST no_clouds repeat 3 p95=26.32
+WINTER_COST no_grass repeat 3 p95=22.557
+WINTER_COST no_snowfall repeat 3 p95=28.261
+WINTER_COST all_off repeat 3 p95=13.035
+2026-10-28 06:52:30.717 Godot[21054:19143923] +[IMKClient subclass]: chose IMKClient_Modern
+WARNING: instance_reset_physics_interpolation() is deprecated.
+     at: _instance_reset_physics_interpolation_bind_compat_104269 (servers/rendering/rendering_server.compat.inc:62)
+     GDScript backtrace (most recent call first):
+         [0] configure (res://features/landscape_lab/terrain_adapter.gd:52)
+         [1] _deliver (res://features/landscape/production_terrain.gd:146)
+2026-10-28 06:52:36.032 Godot[21054:19143923] +[IMKInputSession subclass]: chose IMKInputSession_Modern
