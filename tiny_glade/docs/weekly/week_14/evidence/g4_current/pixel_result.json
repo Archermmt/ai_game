@@ -1,0 +1,58 @@
+{
+	"clouds_disabled_for_pixel_proof": true,
+	"comparisons": [
+		{
+			"cover": 0.0,
+			"difference": 0.0,
+			"near": false,
+			"noise": 0.0
+		},
+		{
+			"cover": 0.4,
+			"difference": 0.0,
+			"near": false,
+			"noise": 0.0
+		},
+		{
+			"cover": 0.65,
+			"difference": 0.0,
+			"near": false,
+			"noise": 0.0
+		},
+		{
+			"cover": 0.98,
+			"difference": 0.0,
+			"near": false,
+			"noise": 0.0
+		},
+		{
+			"cover": 0.0,
+			"difference": 0.0,
+			"near": true,
+			"noise": 0.0
+		},
+		{
+			"cover": 0.4,
+			"difference": 0.0,
+			"near": true,
+			"noise": 0.0
+		},
+		{
+			"cover": 0.65,
+			"difference": 0.0,
+			"near": true,
+			"noise": 0.0
+		},
+		{
+			"cover": 0.98,
+			"difference": 0.0,
+			"near": true,
+			"noise": 0.0
+		}
+	],
+	"instance_count_unchanged": true,
+	"passed": true,
+	"rendering_driver": "metal",
+	"source_unchanged": true,
+	"taa": false
+}

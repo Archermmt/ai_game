@@ -1,0 +1,1 @@
+Initial diagnostic overlapped Git push packaging during startup. Retained for transparency; use the later serial clean repeat for the current baseline.

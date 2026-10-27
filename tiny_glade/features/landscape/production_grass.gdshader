@@ -19,6 +19,7 @@ uniform bool reduce_motion = false;
 uniform bool freeze_time = false;
 uniform float normal_softening = 0.55;
 uniform float facing_fade = 0.7;
+uniform bool winter_cull_enabled = true;
 uniform bool walker_interaction_active = false;
 uniform vec4 walker_contacts[4];
 uniform float walker_radius = 1.15;
@@ -40,48 +41,61 @@ float ground_at(vec2 point) {
     return texture(height_layers, vec3(map_uv(point), chunk_layer)).r;
 }
 
+// Shared visibility keeps the vertex fast path identical to fragment snow masking.
+float winter_visibility(float cover, float seed, float low) {
+    float survival = smoothstep(cover * 0.97 - 0.015, cover * 0.97 + 0.015, seed);
+    survival *= 1.0 - low * smoothstep(0.20, 0.65, cover);
+    return mix(1.0, survival, smoothstep(0.0, 0.08, cover));
+}
+
 void vertex() {
     world_position = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
     chunk_origin = floor(MODEL_MATRIX[3].xz / 8.0) * 8.0 - vec2(2.0);
     chunk_layer = INSTANCE_CUSTOM.b;
-    float tangent_height = (MODEL_MATRIX[0] * VERTEX.x + MODEL_MATRIX[2] * VERTEX.z).y;
-    float root_ground = ground_at(MODEL_MATRIX[3].xz);
-    float delta_height = ground_at(world_position.xz) - root_ground - tangent_height;
-    VERTEX += inverse(mat3(MODEL_MATRIX)) * vec3(0.0, delta_height, 0.0);
     leaf_height = COLOR.r;
     color_variation = INSTANCE_CUSTOM.a;
     low_cover = 1.0 - step(0.5, INSTANCE_CUSTOM.g);
     snow_seed = fract(sin(dot(MODEL_MATRIX[3].xz, vec2(127.1, 311.7)) + INSTANCE_CUSTOM.r * 74.7) * 43758.5453);
-    float phase = INSTANCE_CUSTOM.r * 6.283185;
-    float t = freeze_time ? sample_time : TIME;
-    float wave = sin(t * 1.4 + phase + world_position.x * 0.18) + sin(t * 2.1 + phase) * 0.2;
-    float amount = reduce_motion ? 0.0 : wind_strength * 0.12 * INSTANCE_CUSTOM.g;
-    VERTEX.xz += vec2(cos(wind_direction), sin(wind_direction)) * amount * wave * leaf_height * leaf_height;
-    // One shared, bounded contact field bends visible blades, never their roots.
-    // The uniform fast path keeps orbit views out of the four-contact loop.
-    if (walker_interaction_active && !reduce_motion && low_cover < 0.5 && leaf_height > 0.001) {
-        vec2 lead_delta = world_position.xz - walker_contacts[0].xz;
-        if (dot(lead_delta, lead_delta) < walker_contact_extent * walker_contact_extent) {
-            float contact_weight = 0.0;
-            vec2 away = vec2(0.0);
-            for (int i = 0; i < 4; i++) {
-                vec2 offset = world_position.xz - walker_contacts[i].xz;
-                float radius = length(offset);
-                float height_match = 1.0 - smoothstep(0.25, 0.85, abs(root_ground - walker_contacts[i].y));
-                float weight = (1.0 - smoothstep(walker_radius * 0.2, walker_radius, radius))
-                    * walker_contacts[i].w * height_match;
-                if (weight > contact_weight) {
-                    contact_weight = weight;
-                    away = radius > 0.001 ? offset / radius : vec2(cos(phase), sin(phase));
+    // Fully buried instances already had zero alpha, including their shadows.
+    // Collapse only those triangles before terrain sampling, inverse and wind work.
+    if (winter_cull_enabled && living_snow > 0.0 && winter_visibility(clamp(living_snow, 0.0, 1.0), snow_seed, low_cover) <= 0.0) {
+        VERTEX = vec3(0.0);
+    } else {
+        float tangent_height = (MODEL_MATRIX[0] * VERTEX.x + MODEL_MATRIX[2] * VERTEX.z).y;
+        float root_ground = ground_at(MODEL_MATRIX[3].xz);
+        float delta_height = ground_at(world_position.xz) - root_ground - tangent_height;
+        VERTEX += inverse(mat3(MODEL_MATRIX)) * vec3(0.0, delta_height, 0.0);
+        float phase = INSTANCE_CUSTOM.r * 6.283185;
+        float t = freeze_time ? sample_time : TIME;
+        float wave = sin(t * 1.4 + phase + world_position.x * 0.18) + sin(t * 2.1 + phase) * 0.2;
+        float amount = reduce_motion ? 0.0 : wind_strength * 0.12 * INSTANCE_CUSTOM.g;
+        VERTEX.xz += vec2(cos(wind_direction), sin(wind_direction)) * amount * wave * leaf_height * leaf_height;
+        // One shared, bounded contact field bends visible blades, never their roots.
+        // The uniform fast path keeps orbit views out of the four-contact loop.
+        if (walker_interaction_active && !reduce_motion && low_cover < 0.5 && leaf_height > 0.001) {
+            vec2 lead_delta = world_position.xz - walker_contacts[0].xz;
+            if (dot(lead_delta, lead_delta) < walker_contact_extent * walker_contact_extent) {
+                float contact_weight = 0.0;
+                vec2 away = vec2(0.0);
+                for (int i = 0; i < 4; i++) {
+                    vec2 offset = world_position.xz - walker_contacts[i].xz;
+                    float radius = length(offset);
+                    float height_match = 1.0 - smoothstep(0.25, 0.85, abs(root_ground - walker_contacts[i].y));
+                    float weight = (1.0 - smoothstep(walker_radius * 0.2, walker_radius, radius))
+                        * walker_contacts[i].w * height_match;
+                    if (weight > contact_weight) {
+                        contact_weight = weight;
+                        away = radius > 0.001 ? offset / radius : vec2(cos(phase), sin(phase));
+                    }
                 }
+                vec3 bend = vec3(away.x * walker_push, -walker_drop, away.y * walker_push)
+                    * contact_weight * leaf_height * leaf_height;
+                VERTEX += inverse(mat3(MODEL_MATRIX)) * bend;
             }
-            vec3 bend = vec3(away.x * walker_push, -walker_drop, away.y * walker_push)
-                * contact_weight * leaf_height * leaf_height;
-            VERTEX += inverse(mat3(MODEL_MATRIX)) * bend;
         }
+        vec3 local_up = normalize(inverse(mat3(MODEL_MATRIX)) * vec3(0.0, 1.0, 0.0));
+        NORMAL = normalize(mix(NORMAL, local_up, normal_softening));
     }
-    vec3 local_up = normalize(inverse(mat3(MODEL_MATRIX)) * vec3(0.0, 1.0, 0.0));
-    NORMAL = normalize(mix(NORMAL, local_up, normal_softening));
 }
 
 void fragment() {
@@ -92,9 +106,7 @@ void fragment() {
     float snow_cover = clamp(living_snow, 0.0, 1.0);
     // Stable per-clump survival: bury the low carpet and most tall clumps.
     // No source edits or reseeding; thaw reveals the exact same summer plants.
-    float snow_survival = smoothstep(snow_cover * 0.97 - 0.015, snow_cover * 0.97 + 0.015, snow_seed);
-    snow_survival *= 1.0 - low_cover * smoothstep(0.20, 0.65, snow_cover);
-    snow_survival = mix(1.0, snow_survival, smoothstep(0.0, 0.08, snow_cover));
+    float snow_survival = winter_visibility(snow_cover, snow_seed, low_cover);
     ALPHA = brush * edge * smoothstep(0.25, 0.75, allowed) * snow_survival;
     ALPHA_HASH_SCALE = 1.0;
     vec3 tip = mix(tip_color.rgb, floor_color.rgb, low_cover);

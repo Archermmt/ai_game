@@ -1,6 +1,14 @@
 # 风栖小筑 · 开发状态
 
-更新日期：2026-10-27（Asia/Shanghai）
+更新日期：2026-10-28（Asia/Shanghai）
+
+## G4 · 当前云雪基线与不可见冬草优化
+
+2026-10-28：已按用户要求把此前修改及文档推送GitHub `asset_test`（首轮`5540f6e`），随后继续容量性能。性能工具改为断言当前TAA/无MSAA和体积云实际启用，等待地形/草/厚雪全部完成后采样，补退出泄漏与运行源哈希检查，保留严格20ms失败返回值。新增完全埋雪草簇的顶点快速路径，只跳过原本alpha为零的工作；未降低草密度或改变可见模型/贴图。远近两视角×四档积雪，8组Metal像素差均为0，源/历史/实例数不变。
+
+满容量24屋/1000源物件、45%草、1080p Metal：优化后单组晴天新草p95 **7.288ms**，暴风雪 **28.415ms**，冬景预算仍失败，**G4未通过**。冬景优化前样本35.608ms，但晴天原草对照也存在14.132→7.509ms波动，故不把全部差值认作稳定优化收益。交流电充电，未控制GPU频率；尚待重复采样和进一步定位。正式草地美术与现有插件版本保持。
+
+最终W01–W09 **446项及负控**、定向 **36项/2,807断言**、309份GDScript静态检查通过；新增8组Metal画面对照通过，无退出泄漏，正式作品/偏好哈希不变。未重跑历史789项或此前74项原生漫步；Windows未验。复验`python3 tools/quality/winter_grass_cull_checks.py`、`python3 tools/quality/weather_adoption_checks.py --cumulative --headless-only`；性能`python3 tools/quality/painterly_grass_performance.py --pilot`及加`--weather blizzard`。冬景20ms、完整天气/密度矩阵、编辑时延、20分钟长测、2K峰值及素材/G5收口仍开放。[本轮报告与证据](docs/weekly/week_14/G4_CURRENT_PERFORMANCE.md)。
 
 ## 插件使用心得 · 文档归档
 

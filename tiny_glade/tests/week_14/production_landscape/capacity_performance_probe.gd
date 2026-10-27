@@ -57,6 +57,25 @@ func _run() -> void:
 	garden.camera_rig.target = Vector3.ZERO
 	garden.camera_rig.yaw = 0.4
 	garden.camera_rig.refresh()
+	deadline = Time.get_ticks_msec() + 180000
+	while (
+		(
+			garden.queue.is_busy()
+			or garden.stage.is_busy()
+			or garden.meadow.is_busy()
+			or garden.landscape_terrain.is_busy()
+			or garden.snow_cover.is_busy()
+		)
+		and Time.get_ticks_msec() < deadline
+	):
+		await process_frame
+	assert(not garden.queue.is_busy() and not garden.stage.is_busy())
+	assert(not garden.meadow.is_busy() and not garden.landscape_terrain.is_busy())
+	assert(not garden.snow_cover.is_busy())
+	assert(garden.cloud_adapter.ready_for_clouds and garden.cloud_adapter.clouds.enabled)
+	assert(root.msaa_3d == Viewport.MSAA_DISABLED and root.use_taa)
+	if weather == "blizzard":
+		assert(garden.snow_cover.visible and garden.snow_cover.baked_count > 0)
 	await SceneShutdown.wait_wallclock(self, 5)
 	var source: Dictionary = garden.document.snapshot()
 	var history: int = garden.session.history_count()
@@ -98,6 +117,11 @@ func _run() -> void:
 		"grass_visible": garden.meadow.visible_count(),
 		"grass_total": garden.meadow.total,
 		"grass_batches": garden.meadow.batches.size(),
+		"volume_clouds": garden.cloud_adapter.clouds.enabled,
+		"snow_views": garden.snow_cover._views.size(),
+		"snow_bakes": garden.snow_cover.baked_count,
+		"snow_visible": garden.snow_cover.visible,
+		"snow_settled": not garden.snow_cover.is_busy(),
 		"msaa": root.msaa_3d,
 		"taa": root.use_taa,
 		"vsync_mode": DisplayServer.window_get_vsync_mode(),
