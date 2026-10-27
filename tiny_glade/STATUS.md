@@ -1,6 +1,16 @@
 # 风栖小筑 · 开发状态
 
-更新日期：2026-10-26（Asia/Shanghai）
+更新日期：2026-10-27（Asia/Shanghai）
+
+## 沉浸交互 · 正式拨草/雪脚印，云雪插件样板
+
+2026-10-27：按用户新增范围，正式F5漫步已加入近身草弯曲、离开约1秒回弹；冬季左右脚印按步距生成，10秒后淡化、24秒消失，摄影冻结与退出清理联动。使用4点GPU接触场和内置Decal，不重建草/地形、不写源或存档。脚印为表面压痕，厚雪变形、雪唇质感仍待提高。
+
+固定SunshineClouds2 `a73a80b` 与puchik原版雪材质 `515900a`，交付 `app/weather_plugin_lab.tscn`，G1展示台可进入；同庭园切原云/体积云、天气、雪纹理与法线近景。Metal上游MSAA写入失败，样板关闭MSAA保留TAA，正式AA保持。云颗粒/暮色和多相机时序、水面云倒影待复核，**正式天空未切换**。Blanket需4.8/Vulkan、TerraBrush依附自有地形；**正式厚积雪/屋檐树冠挂雪未解决，用户雪质反馈仍为需调整**，未把材质染白或Decal写成银装素裹完成。
+
+规定W01–W09 **446项与负控**、定向 **27项/1,262断言**、Metal天气 **44项**及正式交互 **73项**通过，0失败/跳过，无脚本错误或退出泄漏，正式作品/偏好哈希不变。雪材质导入参数遗漏、展示板被山坡穿出和旧房屋检查表导致的首轮失败已修复并留证。未重跑历史789项全套；未新增性能或Windows通过声明，G4预算失败保持。
+
+复验：`python3 tools/quality/weather_immersion_checks.py --cumulative --headless-only`、同命令改 `--native-only`；也可只加 `--cumulative` 顺序全跑。[交付、体验、截图与开放节点](docs/weekly/week_14/WEATHER_IMMERSION.md) · [插件选型依据](docs/art/WINTER_SKY_PLUGIN_ASSESSMENT.md)。
 
 ## G4 · 满容量入口交付，帧预算未通过
 

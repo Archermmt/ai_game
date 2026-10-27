@@ -347,3 +347,53 @@ func test_cancelled_brush_and_pending_zero_density_requests_never_publish_old_so
 	assert_gt(garden.meadow.visible_count(), 0)
 	assert_eq(garden.meadow.published_signature, MeadowData.signature(garden.document.state))
 	assert_lt(_surface_error([Vector2(16, 16)]), 0.02)
+
+
+func test_fence_only_publication_and_cancel_refresh_actual_footprint_contact_surface() -> void:
+	if not _production_ready():
+		assert_true(false, "Production landscape is required")
+		return
+	var source: Dictionary = garden.document.snapshot()
+	var point: Vector2 = Vector2(12, 12)
+	var height: float = TerrainField.new(source).height_at(point)
+	var footprints: SnowFootprints = garden.snow_footprints
+	assert_not_null(
+		footprints._contact_height(point, height), "The fence fixture starts on printable ground"
+	)
+	var candidate: Dictionary = source.duplicate(true)
+	FenceGeometry.allocate(candidate, [[12, 0, 10], [12, 0, 14]])
+	assert_eq(
+		MeadowData.signature(candidate),
+		MeadowData.signature(source),
+		"Only fence support changes; the existing grass source signature cannot detect this edit"
+	)
+	await _commit(candidate, "Fence-only footprint support regression")
+	assert_null(
+		footprints._contact_height(point, height),
+		"Actual committed fence rails must block the footprint support query"
+	)
+	var committed: Dictionary = garden.document.snapshot()
+	var history: int = garden.session.history_count()
+	var preview: Dictionary = committed.duplicate(true)
+	preview["fences"].pop_back()
+	garden.tools.mode = "fence"
+	garden._last_point = Vector3(point.x, height, point.y)
+	assert_true(garden.session.begin_gesture())
+	assert_true(garden.session.update_gesture(preview))
+	garden._preview_tool()
+	await _settle()
+	assert_true(garden._preview_visible, "The real scene must publish the fence removal preview")
+	assert_eq(garden.document.snapshot(), committed, "Preview must retain authoritative fences")
+	assert_not_null(
+		footprints._contact_height(point, height),
+		"Removing the fence in the published preview must restore printable ground"
+	)
+	garden._cancel_edit()
+	await _settle()
+	assert_null(
+		footprints._contact_height(point, height),
+		"Cancelling must restore the committed fence obstacle in the footprint surface"
+	)
+	assert_eq(garden.document.snapshot(), committed)
+	assert_eq(garden.session.history_count(), history, "Preview cancellation adds no undo entry")
+	garden.tools.mode = "inspect"

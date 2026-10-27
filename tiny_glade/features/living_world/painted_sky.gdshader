@@ -3,6 +3,7 @@ shader_type sky;
 uniform float sky_time = 0.0;
 uniform float daylight = 1.0;
 uniform float cloud_cover = 0.18;
+uniform bool painted_clouds_enabled = true;
 uniform float dust_amount = 0.0;
 uniform vec3 ridge_tint = vec3(0.13, 0.23, 0.22);
 uniform vec3 sun_direction = vec3(0.0, 1.0, 0.0);
@@ -71,7 +72,7 @@ void sky() {
         color += vec3(0.76,0.82,0.75)*(0.85+moon_mark)*moon_disc*night;
         vec2 low_cloud = cumulus_bank(d,0.0);
         vec2 high_cloud = cumulus_bank(d,1.0);
-        float mask = max(low_cloud.x,high_cloud.x)*up;
+        float mask = max(low_cloud.x,high_cloud.x)*up*(painted_clouds_enabled ? 1.0 : 0.0);
         float lit = mix(low_cloud.y,high_cloud.y,high_cloud.x);
         vec3 bright = mix(vec3(0.13,0.18,0.29),vec3(0.94,0.91,0.78),daylight);
         vec3 belly = mix(vec3(0.035,0.060,0.12),vec3(0.16,0.29,0.44),daylight);

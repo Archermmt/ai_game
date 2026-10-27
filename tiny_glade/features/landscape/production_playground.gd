@@ -5,8 +5,10 @@ extends "res://features/living_world/living_playground.gd"
 var landscape_ready: bool = false
 var landscape_failed: bool = false
 var landscape_terrain: ProductionTerrainRenderer
+var snow_footprints: SnowFootprints
 var _landscape_closing: bool = false
 var _landscape_environment_key: String = ""
+var _footprint_source_signature: int = 0
 
 
 func _create_meadow() -> MeadowRenderer:
@@ -22,6 +24,11 @@ func _ready() -> void:
 	landscape_terrain.published.connect(_terrain_published)
 	landscape_terrain.initialize(camera_rig.camera)
 	landscape_terrain.request(document.snapshot())
+	snow_footprints = SnowFootprints.new()
+	snow_footprints.name = "WalkSnowFootprints"
+	add_child(snow_footprints)
+	snow_footprints.configure(document.snapshot())
+	_footprint_source_signature = _snow_contact_signature(document.state)
 	hud.set_status("正在铺设林间草地……")
 
 
@@ -31,6 +38,16 @@ func _on_published(snapshot: Dictionary, prepared: Dictionary) -> void:
 		# Preview publications and cancellation must also move the visible ground.
 		landscape_terrain.request(snapshot)
 		_sync_surface_visibility()
+	if snow_footprints != null:
+		var footprint_signature: int = _snow_contact_signature(snapshot)
+		if footprint_signature != _footprint_source_signature:
+			snow_footprints.configure(snapshot)
+			_footprint_source_signature = footprint_signature
+
+
+func _snow_contact_signature(snapshot: Dictionary) -> int:
+	# Fences affect walk support even though they do not affect meadow generation.
+	return hash([MeadowData.signature(snapshot), snapshot.get("fences", [])])
 
 
 func _process(delta: float) -> void:
@@ -38,6 +55,15 @@ func _process(delta: float) -> void:
 	if landscape_terrain == null or _landscape_closing:
 		return
 	_sync_surface_visibility()
+	if snow_footprints != null and atmosphere != null:
+		snow_footprints.update_contact(
+			walk_controller.feet,
+			walk_controller.yaw,
+			walk_controller.active,
+			float(atmosphere.blend.current.get("cover", 0.0)),
+			delta,
+			atmosphere.frozen
+		)
 	if atmosphere != null:
 		var visual: Dictionary = atmosphere.blend.current
 		var key: String = JSON.stringify(
@@ -50,6 +76,10 @@ func _process(delta: float) -> void:
 			landscape_terrain.sync_environment(document.state["environment"], visual)
 			_landscape_environment_key = key
 	var grass: ProductionGrassRenderer = meadow as ProductionGrassRenderer
+	if grass != null:
+		grass.set_walker_contact(
+			walk_controller.feet, walk_controller.active, atmosphere != null and atmosphere.frozen
+		)
 	if (
 		not landscape_failed
 		and ((grass != null and grass.failed) or not landscape_terrain.last_error.is_empty())
@@ -72,10 +102,16 @@ func _process(delta: float) -> void:
 func _sync_surface_visibility() -> void:
 	var native_current: bool = landscape_terrain.data_ready and not landscape_terrain.is_busy()
 	landscape_terrain.visible = native_current
+	if landscape_terrain.terrain != null:
+		var current_layers: int = landscape_terrain.terrain.render_layers
+		if (current_layers & SnowFootprints.RECEIVER_LAYER) == 0:
+			landscape_terrain.terrain.render_layers = current_layers | SnowFootprints.RECEIVER_LAYER
 	# Keep the transaction-prepared mesh visible until the latest native maps arrive.
 	# The parent remains visible and excluded from pond reflection as before.
 	for view: MeshInstance3D in _terrain_views:
 		view.visible = not native_current
+		if (view.layers & SnowFootprints.RECEIVER_LAYER) == 0:
+			view.layers |= SnowFootprints.RECEIVER_LAYER
 
 
 func _terrain_published(_snapshot: Dictionary) -> void:
@@ -97,6 +133,8 @@ func _delivery_metrics() -> Dictionary:
 
 func _exit_tree() -> void:
 	_landscape_closing = true
+	if snow_footprints != null:
+		snow_footprints.shutdown()
 	if landscape_terrain != null:
 		landscape_terrain.shutdown()
 	super._exit_tree()

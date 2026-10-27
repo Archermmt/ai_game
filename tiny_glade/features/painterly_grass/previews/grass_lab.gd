@@ -221,6 +221,10 @@ func _setup_ui() -> void:
 	capacity_button.pressed.connect(
 		func() -> void: loader.request_load("res://app/grass_capacity.tscn")
 	)
+	var weather_button: Button = _button(landscape_row, "云与雪材质样板", "OpenWeather")
+	weather_button.pressed.connect(
+		func() -> void: loader.request_load("res://app/weather_plugin_lab.tscn")
+	)
 	status = Label.new()
 	status.name = "LoadStatus"
 	status.text = "正在准备本地草样本……"

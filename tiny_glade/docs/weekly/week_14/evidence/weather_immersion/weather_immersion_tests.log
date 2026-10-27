@@ -1,0 +1,74 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/week_14/immersive/test_walker_grass.gd
+* test_idle_and_stationary_contact_do_not_build_a_trail
+* test_moving_contact_is_bounded_and_returns_after_exit
+* test_freeze_holds_shape_and_teleport_does_not_leave_a_stretched_trail
+* test_reduced_motion_clears_contact_and_resume_uses_current_feet
+* test_invalid_inputs_never_poison_contact_uniforms
+* test_renderer_updates_shared_uniforms_and_stops_work_when_contact_expires
+* test_exit_returns_grass_while_restored_photo_time_remains_frozen
+7/7 passed.
+
+
+res://tests/week_14/immersion/test_snow_footprints.gd
+* test_distance_drives_alternating_steps_and_only_ground_receives_decals
+* test_frame_partition_does_not_change_distance_or_foot_sequence
+* test_bare_ground_standing_turns_and_teleports_make_no_phantom_steps
+* test_house_pond_and_road_areas_reject_impressions
+* test_bridge_decks_do_not_receive_terrain_footprints
+* test_sloped_ground_controls_position_and_projector_orientation
+* test_freeze_pauses_fading_and_exit_releases_all_projectors
+* test_pool_is_bounded_when_a_long_trail_wraps_through_the_scene
+8/8 passed.
+
+
+res://tests/week_14/production_landscape/test_grass_capacity.gd
+* test_capacity_preview_is_isolated_before_ready_and_uses_real_stress_source
+* test_density_and_weather_controls_are_presentation_only
+* test_legacy_comparison_keeps_identical_source_and_native_terrain
+3/3 passed.
+
+
+res://tests/week_14/production_landscape/test_production_landscape.gd
+* test_f5_uses_editable_production_scene_and_four_real_valley_models
+* test_native_terrain_matches_authoritative_heightfield_and_pond_after_brush
+* test_local_edit_reuses_distant_grass_and_undo_redo_restore_current_views
+* test_source_burial_offsets_and_protected_roots_survive_render_publication
+* test_fifty_mixed_commits_undo_and_redo_keep_latest_source_and_meshes
+* test_isolated_save_load_regenerates_the_same_terrain_and_grass
+* test_density_seasons_freeze_and_reduced_motion_do_not_edit_world_source
+* test_cancelled_brush_and_pending_zero_density_requests_never_publish_old_source
+* test_fence_only_publication_and_cancel_refresh_actual_footprint_contact_surface
+9/9 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               4
+Tests                27
+Passing Tests        27
+Asserts            1266
+Time              34.044s
+
+
+---- All tests passed! ----
+
+Results saved to reports/week_14/weather_immersion/tests.xml
+WARNING: instance_reset_physics_interpolation() is deprecated.
+     at: _instance_reset_physics_interpolation_bind_compat_104269 (servers/rendering/rendering_server.compat.inc:62)
+     GDScript backtrace (most recent call first):
+         [0] configure (res://features/landscape_lab/terrain_adapter.gd:52)
+         [1] _deliver (res://features/landscape/production_terrain.gd:131)

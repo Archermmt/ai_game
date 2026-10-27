@@ -23,6 +23,8 @@ var _preparing_candidates: bool = false
 var _candidate_seed: String = ""
 var _production_cache: Dictionary = {}
 var _stage_groups: Dictionary = {}
+var _walker_contact: GrassWalkerContact = GrassWalkerContact.new()
+var _walker_samples: PackedVector4Array = PackedVector4Array()
 
 
 func _init() -> void:
@@ -33,6 +35,8 @@ func _init() -> void:
 	material.set_shader_parameter("reduce_motion", false)
 	material.set_shader_parameter("freeze_time", false)
 	material.set_shader_parameter("sample_time", 0.0)
+	material.set_shader_parameter("walker_radius", GrassWalkerContact.RADIUS)
+	_sync_walker_contact(0.0)
 
 
 func _ready() -> void:
@@ -177,7 +181,8 @@ func _prepare_candidates(seed_value: String) -> void:
 		_start()
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	_sync_walker_contact(delta)
 	if _data.is_empty() or not ready_for_grass:
 		return
 	var started: int = Time.get_ticks_usec()
@@ -240,6 +245,40 @@ func _process(_delta: float) -> void:
 	total = _data["count"]
 	worker_ms = _data["worker_ms"]
 	_data = {}
+
+
+func set_walker_contact(feet: Vector3, active: bool, frozen: bool = false) -> void:
+	_walker_contact.set_contact(feet, active, frozen)
+
+
+func get_walker_contacts() -> PackedVector4Array:
+	return _walker_samples.duplicate()
+
+
+func _sync_walker_contact(delta: float) -> void:
+	_walker_contact.advance(
+		delta,
+		bool(material.get_shader_parameter("reduce_motion")),
+		bool(material.get_shader_parameter("freeze_time"))
+	)
+	var contacts: PackedVector4Array = _walker_contact.samples()
+	if contacts == _walker_samples:
+		return
+	_walker_samples = contacts
+	var extent: float = 0.0
+	var lead: Vector4 = contacts[0]
+	for contact: Vector4 in contacts:
+		if contact.w > 0.0:
+			extent = maxf(
+				extent,
+				(
+					Vector2(contact.x, contact.z).distance_to(Vector2(lead.x, lead.z))
+					+ GrassWalkerContact.RADIUS
+				)
+			)
+	material.set_shader_parameter("walker_contacts", contacts)
+	material.set_shader_parameter("walker_interaction_active", extent > 0.0)
+	material.set_shader_parameter("walker_contact_extent", extent)
 
 
 func is_busy() -> bool:

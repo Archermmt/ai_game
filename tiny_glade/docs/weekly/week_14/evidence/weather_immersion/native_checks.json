@@ -1,0 +1,1007 @@
+{
+  "passed": true,
+  "environment": {
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "engine_sha256": "c7cccbf8fb143e34e02fd6521e09be2c2b974f0d5db080b19071c9c570718ccf",
+    "python": "3.14.3 (main, Feb  3 2026, 15:32:20) [Clang 17.0.0 (clang-1700.6.3.2)]",
+    "locked_python_packages": {
+      "colorama": "0.4.6",
+      "docopt-ng": "0.9.0",
+      "gdtoolkit": "4.5.0",
+      "lark": "1.2.2",
+      "mando": "0.7.1",
+      "pip": "26.0",
+      "pyyaml": "6.0.3",
+      "radon": "6.0.1",
+      "regex": "2026.9.29",
+      "setuptools": "84.0.0",
+      "six": "1.17.0"
+    },
+    "revision": "c512a0997ef8d686e2e5ce950a4c1966f1d3e3c3"
+  },
+  "weather_native": {
+    "checks": {
+      "2K photos decode at correct dimensions": true,
+      "GPU pipelines remain valid": true,
+      "QA IO isolated": true,
+      "all four GPU pipelines valid": true,
+      "cloud_clear saved": true,
+      "cloud_frozen_a saved": true,
+      "cloud_frozen_b saved": true,
+      "cloud_original saved": true,
+      "cloud_reduced_a saved": true,
+      "cloud_reduced_b saved": true,
+      "cloud_resumed saved": true,
+      "cloudy saved": true,
+      "day sky is neither blank black nor clipped white": true,
+      "dusk saved": true,
+      "freeze holds plugin time and all wind positions": true,
+      "frozen cloud pixels stay stable": true,
+      "garden and plugin configured": true,
+      "main cloud viewport recovers after photo": true,
+      "native renderer required": true,
+      "night saved": true,
+      "night sky follows calendar darkness": true,
+      "overcast increases plugin coverage": true,
+      "paired 2K photo exports succeed": true,
+      "photo restores source camera": true,
+      "planar reflection is exercised separately": true,
+      "plugin changes actual sky pixels": true,
+      "plugin changes pixels in the 2K export": true,
+      "presentation preserves undo history": true,
+      "presentation preserves world source": true,
+      "reduced motion cloud pixels stay stable": true,
+      "reduced motion holds plugin time and wind": true,
+      "reference does not claim geometric snow thickness": true,
+      "resume advances cloud wind positions": true,
+      "resume advances plugin time": true,
+      "resumed cloud motion changes pixels": true,
+      "snow normal control preserves geometric AABBs": true,
+      "snow reference fills a visible image region": true,
+      "snow saved": true,
+      "snow_normal_0 saved": true,
+      "snow_normal_08 saved": true,
+      "snowfall remains active": true,
+      "upstream snow normals change real pixels": true,
+      "upstream snow samples ready": true,
+      "upward plane actually receives snow material": true
+    },
+    "exit_leak_free_requires_external_log_check": true,
+    "geometric_snow_thickness": false,
+    "images": [
+      "res://reports/weather_plugins/native/cloud_original.png",
+      "res://reports/weather_plugins/native/cloud_clear.png",
+      "res://reports/weather_plugins/native/cloudy.png",
+      "res://reports/weather_plugins/native/dusk.png",
+      "res://reports/weather_plugins/native/night.png",
+      "res://reports/weather_plugins/native/snow.png",
+      "res://reports/weather_plugins/native/cloud_frozen_a.png",
+      "res://reports/weather_plugins/native/cloud_frozen_b.png",
+      "res://reports/weather_plugins/native/cloud_resumed.png",
+      "res://reports/weather_plugins/native/cloud_reduced_a.png",
+      "res://reports/weather_plugins/native/cloud_reduced_b.png",
+      "res://reports/weather_plugins/native/snow_normal_0.png",
+      "res://reports/weather_plugins/native/snow_normal_08.png"
+    ],
+    "measurements": {
+      "cloudy": {
+        "coverage": 0.885853658536585,
+        "density": 0.65,
+        "sky_luminance": 0.58803500981018
+      },
+      "dusk": {
+        "coverage": 0.82,
+        "density": 0.65,
+        "sky_luminance": 0.235533651720833
+      },
+      "final_pipeline_flags": {
+        "display": true,
+        "main": true,
+        "post": true,
+        "pre": true
+      },
+      "initial_pipeline_flags": {
+        "display": true,
+        "main": true,
+        "post": true,
+        "pre": true
+      },
+      "motion": {
+        "frozen_pixel_difference": 1.37351836011709e-05,
+        "frozen_state": {
+          "positions": [
+            [
+              1668.62683105469,
+              0.0,
+              1668.62683105469
+            ],
+            [
+              1191.84289550781,
+              0.0,
+              1191.84289550781
+            ],
+            [
+              476.750885009766,
+              0.0,
+              476.750885009766
+            ],
+            [
+              143.020370483398,
+              143.020370483398,
+              143.020370483398
+            ]
+          ],
+          "time": 180.102820889995
+        },
+        "reduced_pixel_difference": 0.0,
+        "reduced_state": {
+          "positions": [
+            [
+              1970.04919433594,
+              0.0,
+              1970.04919433594
+            ],
+            [
+              1407.13818359375,
+              0.0,
+              1407.13818359375
+            ],
+            [
+              562.867004394531,
+              0.0,
+              562.867004394531
+            ],
+            [
+              168.855697631836,
+              168.855697631836,
+              168.855697631836
+            ]
+          ],
+          "time": 212.636933478266
+        },
+        "resumed_pixel_difference": 0.0192214608453011
+      },
+      "multiview": {
+        "artifact_free_temporal_history_verified": false,
+        "full_multiview_approval": false,
+        "photo_export_exercised": true,
+        "reflection_capture_delta": 12,
+        "reflection_cloud_image_verified": false,
+        "reflection_exercised": true
+      },
+      "night": {
+        "coverage": 0.82,
+        "density": 0.65,
+        "sky_luminance": 0.145757969469405
+      },
+      "original_to_plugin_pixel_difference": 0.126159314496921,
+      "photo_cloud_pixel_difference": 0.122408469342968,
+      "snow": {
+        "geometric_aabbs": [
+          {
+            "position": [
+              -2.90000009536743,
+              0.0,
+              -2.40000009536743
+            ],
+            "size": [
+              5.80000019073486,
+              0.0,
+              4.80000019073486
+            ]
+          },
+          {
+            "position": [
+              -0.998026728630066,
+              -0.800000011920929,
+              -0.998026728630066
+            ],
+            "size": [
+              1.99605345726013,
+              1.59999990463257,
+              1.99605345726013
+            ]
+          },
+          {
+            "position": [
+              -1.25,
+              -0.0900000035762787,
+              -1.35000002384186
+            ],
+            "size": [
+              2.5,
+              0.180000007152557,
+              2.70000004768372
+            ]
+          }
+        ],
+        "geometric_snow_thickness": false,
+        "image_rect": [
+          101,
+          138,
+          1192,
+          762
+        ],
+        "meadow_hidden_for_material_comparison": true,
+        "normal_strengths": [
+          0.0,
+          0.8
+        ],
+        "pixel_difference": 0.00597197522664966,
+        "reference": {
+          "geometric_snow_thickness": false,
+          "normal_strength": 0.8,
+          "ready": true,
+          "samples": 3,
+          "shader_modified": false,
+          "shader_path": "res://addons/puchik_snow/shaders/basic_snow.gdshader",
+          "snow_cover": 0.9,
+          "upstream_commit": "515900a4aee952cdc4487bed98cc69758c899a32"
+        },
+        "upward_plane_snow_fraction": 1.0
+      }
+    },
+    "msaa_mode": 0,
+    "passed": true,
+    "performance_gate_run": false,
+    "photos": [
+      {
+        "error": "OK",
+        "ok": true,
+        "path": "res://reports/weather_plugins/native/photo_2k_plugin.png",
+        "size": "(2560, 1440)"
+      },
+      {
+        "error": "OK",
+        "ok": true,
+        "path": "res://reports/weather_plugins/native/photo_2k_original.png",
+        "size": "(2560, 1440)"
+      }
+    ],
+    "rendering_driver": "metal",
+    "single_view_baseline_reflections_disabled": true,
+    "taa_during_pixel_checks": false,
+    "teardown_requested": true,
+    "viewport_size": [
+      1440,
+      900
+    ],
+    "windows_real_device_verified": false,
+    "step": {
+      "name": "weather_plugin_native",
+      "exit_code": 0,
+      "seconds": 43.352
+    }
+  },
+  "immersion_native": {
+    "baseline_sky_only": true,
+    "checks": {
+      "QA saves isolated": true,
+      "Terrain3D is visible receiver": true,
+      "actual FirstPersonWalk entered": true,
+      "actual Terrain3D receives decals": true,
+      "actual photo mode entered": true,
+      "actual production grass renderer": true,
+      "actual production landscape ready": true,
+      "actual walk populates grass contacts": true,
+      "actual walk temporarily thaws prior frozen photo": true,
+      "all actual building and roof meshes exclude footprint receiver": true,
+      "all actual grass batches exclude footprint receiver": true,
+      "all cottage tile roof meshes inspected": true,
+      "all source cottages inspected as published nodes": true,
+      "continuous safe off road grass route found": true,
+      "decals change actual Terrain3D pixels": true,
+      "eighteen seconds fades every existing print alpha": true,
+      "exit Terrain3D signature unchanged": true,
+      "exit clears snow footprints": true,
+      "exit grass signature unchanged": true,
+      "exit grass versions unchanged": true,
+      "exit history unchanged": true,
+      "exit restores prior frozen photo": true,
+      "exit source unchanged": true,
+      "exit starts with live footprints": true,
+      "exit starts with live grass contact": true,
+      "exit stops actual FirstPersonWalk": true,
+      "exit_setup_walk ends on safe ground": true,
+      "exit_setup_walk real W input moves requested distance": true,
+      "expired pooled decals all hidden": true,
+      "expired print pixels return to unmarked snow": true,
+      "fade visibly weakens footprint pixels": true,
+      "footprint receiver bit is layer 18": true,
+      "footprint records available for camera diagnosis": true,
+      "formal scene keeps baseline sky": true,
+      "frozen contact samples remain exact": true,
+      "frozen footprints do not age during captures": true,
+      "frozen grass baseline stable": true,
+      "frozen snow baseline stable": true,
+      "grass contact returns within about one second": true,
+      "grass recovery preserves photo and wind freeze": true,
+      "grass walking Terrain3D signature unchanged": true,
+      "grass walking grass signature unchanged": true,
+      "grass walking grass versions unchanged": true,
+      "grass walking history unchanged": true,
+      "grass walking source unchanged": true,
+      "grass_contact_off saved": true,
+      "grass_contact_off_repeat saved": true,
+      "grass_contact_on saved": true,
+      "grass_first_person saved": true,
+      "inactive grass GPU contact fast path restored": true,
+      "legacy terrain fallback hidden": true,
+      "native renderer required": true,
+      "real grass bending changes pixels": true,
+      "real winter walk emits at least three footprints": true,
+      "snow walking and fading Terrain3D signature unchanged": true,
+      "snow walking and fading grass signature unchanged": true,
+      "snow walking and fading grass versions unchanged": true,
+      "snow walking and fading history unchanged": true,
+      "snow walking and fading source unchanged": true,
+      "source publications settled": true,
+      "summer footsteps not emitted": true,
+      "summer_walk ends on safe ground": true,
+      "summer_walk real W input moves requested distance": true,
+      "twenty five seconds expires all prints": true,
+      "winter clear cover stable": true,
+      "winter_first_person_look_back saved": true,
+      "winter_footprints_faded_18s saved": true,
+      "winter_footprints_fresh saved": true,
+      "winter_footprints_fresh_repeat saved": true,
+      "winter_footprints_gone_25s saved": true,
+      "winter_footprints_hidden saved": true,
+      "winter_walk ends on safe ground": true,
+      "winter_walk real W input moves requested distance": true
+    },
+    "images": {
+      "grass_contact_off": "res://reports/immersion/native/grass_contact_off.png",
+      "grass_contact_off_repeat": "res://reports/immersion/native/grass_contact_off_repeat.png",
+      "grass_contact_on": "res://reports/immersion/native/grass_contact_on.png",
+      "grass_first_person": "res://reports/immersion/native/grass_first_person.png",
+      "winter_first_person_look_back": "res://reports/immersion/native/winter_first_person_look_back.png",
+      "winter_footprints_faded_18s": "res://reports/immersion/native/winter_footprints_faded_18s.png",
+      "winter_footprints_fresh": "res://reports/immersion/native/winter_footprints_fresh.png",
+      "winter_footprints_fresh_repeat": "res://reports/immersion/native/winter_footprints_fresh_repeat.png",
+      "winter_footprints_gone_25s": "res://reports/immersion/native/winter_footprints_gone_25s.png",
+      "winter_footprints_hidden": "res://reports/immersion/native/winter_footprints_hidden.png"
+    },
+    "measurements": {
+      "building_receiver_inspection": {
+        "buildings": 3,
+        "geometry": [
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/HandLaidTiles",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/HoneyTimber",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/Limestone",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arched_door",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_00",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_01",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_02",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_03",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_04",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_05",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_06",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_07",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_08",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_09",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_10",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_11",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_12",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_13",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_14",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_15",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/frame_post",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/frame_post_001",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/iron_hinge",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/iron_hinge_001",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/handle",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/dark_inner_lining",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/window_rect/window_frame_post",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/window_rect/window_frame_post_001",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/window_rect/window_frame_rail",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/window_rect/window_frame_rail_001",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/window_rect/window_light_rect",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/window_rect/closed_dark_back",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/window_rect/window_mullion",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/window_rect/window_crossbar",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/window_round/window_round_continuous_frame",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/window_round/window_light_round",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/window_round/closed_dark_back",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/window_round/window_mullion",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/window_round/window_crossbar",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/@Node3D@579/window_frame_post",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/@Node3D@579/window_frame_post_001",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/@Node3D@579/window_frame_rail",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/@Node3D@579/window_frame_rail_001",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/@Node3D@579/window_light_rect",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/@Node3D@579/closed_dark_back",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/@Node3D@579/window_mullion",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/Cottage/@Node3D@579/window_crossbar",
+            "unit": "building:7b708be93b273ee1f6e20f4c"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729",
+            "unit": "building:2f0c2d8c993b06836b069ed4"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/HandLaidTiles",
+            "unit": "building:2f0c2d8c993b06836b069ed4"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/HoneyTimber",
+            "unit": "building:2f0c2d8c993b06836b069ed4"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/Limestone",
+            "unit": "building:2f0c2d8c993b06836b069ed4"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_rect/window_frame_post",
+            "unit": "building:2f0c2d8c993b06836b069ed4"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_rect/window_frame_post_001",
+            "unit": "building:2f0c2d8c993b06836b069ed4"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_rect/window_frame_rail",
+            "unit": "building:2f0c2d8c993b06836b069ed4"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_rect/window_frame_rail_001",
+            "unit": "building:2f0c2d8c993b06836b069ed4"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_rect/window_light_rect",
+            "unit": "building:2f0c2d8c993b06836b069ed4"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_rect/closed_dark_back",
+            "unit": "building:2f0c2d8c993b06836b069ed4"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_rect/window_mullion",
+            "unit": "building:2f0c2d8c993b06836b069ed4"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_rect/window_crossbar",
+            "unit": "building:2f0c2d8c993b06836b069ed4"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_round/window_round_continuous_frame",
+            "unit": "building:2f0c2d8c993b06836b069ed4"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_round/window_light_round",
+            "unit": "building:2f0c2d8c993b06836b069ed4"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_round/closed_dark_back",
+            "unit": "building:2f0c2d8c993b06836b069ed4"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_round/window_mullion",
+            "unit": "building:2f0c2d8c993b06836b069ed4"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_round/window_crossbar",
+            "unit": "building:2f0c2d8c993b06836b069ed4"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/HandLaidTiles",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/HoneyTimber",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/Limestone",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arched_door",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_00",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_01",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_02",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_03",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_04",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_05",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_06",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_07",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_08",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_09",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_10",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_11",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_12",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_13",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_14",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_15",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/frame_post",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/frame_post_001",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/iron_hinge",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/iron_hinge_001",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/handle",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/dark_inner_lining",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/window_round/window_round_continuous_frame",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/window_round/window_light_round",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/window_round/closed_dark_back",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/window_round/window_mullion",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          },
+          {
+            "layers": 262145,
+            "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/window_round/window_crossbar",
+            "unit": "building:246418e32b3c35d3523b0b70"
+          }
+        ],
+        "roof_meshes": 3
+      },
+      "exit_setup_walk_distance_m": 1.16126823425293,
+      "footprints_after_walk": [
+        {
+          "age": 1.9,
+          "left": true,
+          "normal": "(-0.387674, 0.920824, -0.042327)",
+          "opacity": 1.0,
+          "point": "(15.05604, 0.82607, 11.9)",
+          "sequence": 1
+        },
+        {
+          "age": 1.5,
+          "left": false,
+          "normal": "(-0.336594, 0.940544, -0.045628)",
+          "opacity": 1.0,
+          "point": "(15.66125, 1.072581, 12.1)",
+          "sequence": 2
+        },
+        {
+          "age": 1.21666666666667,
+          "left": true,
+          "normal": "(-0.285629, 0.958079, -0.022375)",
+          "opacity": 1.0,
+          "point": "(16.27885, 1.267892, 11.9)",
+          "sequence": 3
+        },
+        {
+          "age": 0.908994222222221,
+          "left": false,
+          "normal": "(-0.221626, 0.975096, -0.008349)",
+          "opacity": 1.0,
+          "point": "(16.90743, 1.436237, 12.1)",
+          "sequence": 4
+        }
+      ],
+      "footprints_expired_count": 0,
+      "footprints_faded_records": [
+        {
+          "age": 19.9,
+          "left": true,
+          "normal": "(-0.387674, 0.920824, -0.042327)",
+          "opacity": 0.207061953352769,
+          "point": "(15.05604, 0.82607, 11.9)",
+          "sequence": 1
+        },
+        {
+          "age": 19.5,
+          "left": false,
+          "normal": "(-0.336594, 0.940544, -0.045628)",
+          "opacity": 0.243531341107872,
+          "point": "(15.66125, 1.072581, 12.1)",
+          "sequence": 2
+        },
+        {
+          "age": 19.2166666666667,
+          "left": true,
+          "normal": "(-0.285629, 0.958079, -0.022375)",
+          "opacity": 0.270438657407407,
+          "point": "(16.27885, 1.267892, 11.9)",
+          "sequence": 3
+        },
+        {
+          "age": 18.9089942222222,
+          "left": false,
+          "normal": "(-0.221626, 0.975096, -0.008349)",
+          "opacity": 0.30053550918002,
+          "point": "(16.90743, 1.436237, 12.1)",
+          "sequence": 4
+        }
+      ],
+      "footprints_total_emitted": 4,
+      "grass_contacts_after_walk": 2,
+      "grass_pixels": {
+        "off_on": {
+          "changed_samples": 93412,
+          "mean": 0.051711094267584,
+          "samples": 276828
+        },
+        "off_repeat": {
+          "changed_samples": 0,
+          "mean": 0.0,
+          "samples": 276828
+        },
+        "region": "[P: (251, 298), S: (1416, 782)]"
+      },
+      "route": {
+        "direction": "(1.0, 0.0)",
+        "length": 6.4,
+        "start": "(12.0, -0.608641, 12.0)",
+        "yaw": -1.5707963267949
+      },
+      "snow_pixels": {
+        "faded_vs_hidden": {
+          "changed_samples": 740,
+          "mean": 0.000536613341977906,
+          "samples": 24645
+        },
+        "fresh_vs_hidden": {
+          "changed_samples": 903,
+          "mean": 0.00215117399531461,
+          "samples": 24645
+        },
+        "frozen_repeat": {
+          "changed_samples": 0,
+          "mean": 0.0,
+          "samples": 24645
+        },
+        "gone_vs_hidden": {
+          "changed_samples": 0,
+          "mean": 0.0,
+          "samples": 24645
+        },
+        "region": "[P: (785, 439), S: (310, 318)]"
+      },
+      "summer_walk_distance_m": 2.72832417488098,
+      "winter_walk_distance_m": 2.92353844642639
+    },
+    "passed": true,
+    "performance_gate_run": false,
+    "real_keyboard_walking": true,
+    "rendering_driver": "metal",
+    "single_initial_spawn": true,
+    "taa_during_pixel_checks": false,
+    "viewport_size": [
+      1920,
+      1080
+    ],
+    "windows_real_device_verified": false,
+    "step": {
+      "name": "immersion_native",
+      "exit_code": 0,
+      "seconds": 41.195
+    }
+  },
+  "production_before": {
+    "saves/slot_01.wgs.bak1": "107b237e9139b3d75cd93fe747a86b720828e3071a29da328dbe1b2288059c42",
+    "saves/slot_01.wgs": "9db01255e497c1019597cd62896faf01a9d947749916ecdb750289de1193ac87",
+    "preferences.cfg": "b6f5dede52ba7e8d41e6f281bf962dc878724a0880ac43519f9978f170591255"
+  },
+  "production_after": {
+    "saves/slot_01.wgs.bak1": "107b237e9139b3d75cd93fe747a86b720828e3071a29da328dbe1b2288059c42",
+    "saves/slot_01.wgs": "9db01255e497c1019597cd62896faf01a9d947749916ecdb750289de1193ac87",
+    "preferences.cfg": "b6f5dede52ba7e8d41e6f281bf962dc878724a0880ac43519f9978f170591255"
+  },
+  "production_unchanged": true,
+  "performance_gate_run": false,
+  "windows_real_device_verified": false,
+  "thick_snow_approved": false,
+  "clouds_formal_default": false,
+  "source_command": "python3 tools/quality/weather_immersion_checks.py --cumulative"
+}
