@@ -13,6 +13,7 @@ var actor_nodes:Dictionary={}
 var sea:MeshInstance3D
 var foam:Node3D
 var day:bool=true
+var batch_stats:Dictionary={}
 var data:IslandData
 func setup(d:IslandData) -> void:
 	data=d;add_child(ground);add_child(props);add_child(inhabitants)
@@ -67,7 +68,7 @@ func rebuild() -> void:
 					var n=kit.sphere(props,Vector3(p.x+dir.x*0.58,0.015,p.y+dir.y*0.58),Vector3(0.7,0.025,0.7),Color("c5dfcf"))
 					n.scale.x=0.6 if dir.x!=0 else 1.4;n.scale.z=1.4 if dir.x!=0 else 0.6
 	var geo=st.commit();var mesh=MeshInstance3D.new();mesh.mesh=geo
-	var mat=StandardMaterial3D.new();mat.vertex_color_use_as_albedo=true;mat.roughness=1;mat.cull_mode=BaseMaterial3D.CULL_DISABLED
+	var mat=StandardMaterial3D.new();mat.vertex_color_use_as_albedo=true;mat.vertex_color_is_srgb=true;mat.roughness=1;mat.cull_mode=BaseMaterial3D.CULL_DISABLED
 	mesh.material_override=mat;ground.add_child(mesh)
 	for o in data.objects:draw_object(o)
 	compact_props()
@@ -142,23 +143,6 @@ func update_actors(sim:ResidentSim,time:float) -> void:
 	for id in actor_nodes.keys():
 		if not active.has(id):actor_nodes[id].free();actor_nodes.erase(id)
 func compact_props() -> void:
-	# Merge static geometry by visual material, including imported GLB surfaces.
-	var groups:Dictionary={};var sources:Array=[];var queue:Array=[props]
-	while not queue.is_empty():
-		var node:Node=queue.pop_back()
-		for child in node.get_children():queue.append(child)
-		if not node is MeshInstance3D:continue
-		var geo:Mesh=node.mesh
-		if geo==null:continue
-		for surface in range(geo.get_surface_count()):
-			var mat=node.get_active_material(surface)
-			if not mat is StandardMaterial3D:continue
-			var signature=str([mat.albedo_color,mat.cull_mode,mat.shading_mode,mat.roughness])
-			if not groups.has(signature):
-				var st=SurfaceTool.new();st.begin(Mesh.PRIMITIVE_TRIANGLES)
-				groups[signature]={"st":st,"mat":mat}
-			groups[signature].st.append_from(geo,surface,props.global_transform.affine_inverse()*node.global_transform)
-		sources.append(node)
-	for entry in groups.values():
-		var mesh=MeshInstance3D.new();mesh.mesh=entry.st.commit();mesh.material_override=entry.mat;props.add_child(mesh)
-	for node in sources:node.free()
+	# Keep custom/transparent/animated surfaces intact; batch only proven static inputs.
+	batch_stats=StaticBatcher.compact(props,8.0)
+	if batch_stats.has("error"):push_error(String(batch_stats.error))

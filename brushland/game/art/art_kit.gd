@@ -9,7 +9,9 @@ var materials:Dictionary={}
 func material(color:Color) -> StandardMaterial3D:
 	var k=color.to_html()
 	if not materials.has(k):
-		var m=StandardMaterial3D.new();m.albedo_color=color.srgb_to_linear();m.roughness=0.95
+		# StandardMaterial3D accepts sRGB colors and performs its own conversion.
+		# See the native renderer/GLB color probe in game/art_lab.
+		var m=StandardMaterial3D.new();m.albedo_color=color;m.roughness=0.95
 		materials[k]=m
 	return materials[k]
 func mesh(parent:Node3D,geo:Mesh,pos:Vector3,color:Color) -> MeshInstance3D:

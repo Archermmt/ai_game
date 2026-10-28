@@ -40,6 +40,7 @@ godot --path .
 
 - [当前进度与已知限制](docs/STATUS.md)
 - [基础美术交付](docs/BASIC_ART.md)
+- [I1美术基础与渲染对照](docs/art_i1/I1_REPORT.md) · [下一周I2任务](docs/DEVELOPMENT_PLAN.md#116-i1执行交接与i2承诺)
 - [PRD](docs/PRD.md) · [开发计划](docs/DEVELOPMENT_PLAN.md)
 - [昼景](snapshots/playable_day.png) · [日落](snapshots/playable_sunset.png) · [纯场景](snapshots/playable_photo.png)
 

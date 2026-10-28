@@ -12,6 +12,7 @@
 
 | 文件 | 内容 |
 | --- | --- |
+| [art_i1/I1_REPORT.md](art_i1/I1_REPORT.md) | I1固定六机位、颜色/GLB校准、材质合批保真、原生渲染对照与I2交接 |
 | [ART_IMPROVEMENT_PLAN.md](ART_IMPROVEMENT_PLAN.md) | 2026-10-29美术改良：参考差距、9项资产/7项插件调研、连续地形/草树/水/光方案、11项任务与视觉门槛 |
 | [BASIC_ART.md](BASIC_ART.md) | 当前基础美术、可体验内容、十五个GLB及制作边界 |
 | [reports/playable_validation.md](reports/playable_validation.md) | 当前体验版测试、实际画面与性能采样记录 |

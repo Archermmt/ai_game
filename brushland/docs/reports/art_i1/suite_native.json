@@ -1,0 +1,154 @@
+{
+  "passed": true,
+  "host": "macOS-15.1-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "scope": "native",
+  "steps": [
+    {
+      "name": "colors_gl_compatibility",
+      "passed": true,
+      "exit_code": 0,
+      "expected_failure": false,
+      "seconds": 0.933,
+      "log": "logs/colors_gl_compatibility.log"
+    },
+    {
+      "name": "materials_gl_compatibility",
+      "passed": true,
+      "exit_code": 0,
+      "expected_failure": false,
+      "seconds": 1.771,
+      "log": "logs/materials_gl_compatibility.log"
+    },
+    {
+      "name": "materials_negative_gl_compatibility",
+      "passed": true,
+      "exit_code": 1,
+      "expected_failure": true,
+      "seconds": 1.442,
+      "log": "logs/materials_negative_gl_compatibility.log"
+    },
+    {
+      "name": "normal_negative_gl_compatibility",
+      "passed": true,
+      "exit_code": 1,
+      "expected_failure": true,
+      "seconds": 1.437,
+      "log": "logs/normal_negative_gl_compatibility.log"
+    },
+    {
+      "name": "bay_gl_compatibility",
+      "passed": true,
+      "exit_code": 0,
+      "expected_failure": false,
+      "seconds": 4.063,
+      "log": "logs/bay_gl_compatibility.log"
+    },
+    {
+      "name": "app_gl_compatibility",
+      "passed": true,
+      "exit_code": 0,
+      "expected_failure": false,
+      "seconds": 1.38,
+      "log": "logs/app_gl_compatibility.log"
+    },
+    {
+      "name": "colors_forward_plus",
+      "passed": true,
+      "exit_code": 0,
+      "expected_failure": false,
+      "seconds": 0.56,
+      "log": "logs/colors_forward_plus.log"
+    },
+    {
+      "name": "materials_forward_plus",
+      "passed": true,
+      "exit_code": 0,
+      "expected_failure": false,
+      "seconds": 1.127,
+      "log": "logs/materials_forward_plus.log"
+    },
+    {
+      "name": "materials_negative_forward_plus",
+      "passed": true,
+      "exit_code": 1,
+      "expected_failure": true,
+      "seconds": 1.012,
+      "log": "logs/materials_negative_forward_plus.log"
+    },
+    {
+      "name": "normal_negative_forward_plus",
+      "passed": true,
+      "exit_code": 1,
+      "expected_failure": true,
+      "seconds": 1.311,
+      "log": "logs/normal_negative_forward_plus.log"
+    },
+    {
+      "name": "bay_forward_plus",
+      "passed": true,
+      "exit_code": 0,
+      "expected_failure": false,
+      "seconds": 9.611,
+      "log": "logs/bay_forward_plus.log"
+    },
+    {
+      "name": "app_forward_plus",
+      "passed": true,
+      "exit_code": 0,
+      "expected_failure": false,
+      "seconds": 3.506,
+      "log": "logs/app_forward_plus.log"
+    }
+  ],
+  "source_sha256": {
+    "game/art/art_kit.gd": "add46902d3e3feabec091e2b543d9d3f9f72a665902125d47d4d3b0f29098ac7",
+    "game/art/export_models.gd": "c68d1d974eeaecb51f390b73f88336877233b4e8164f78ad8e7448404b335542",
+    "game/art/island_view.gd": "2a560bdc26ab2380b6a94bd3943081e10a96e8b2d151dc39e01d97a9ad46054d",
+    "game/art/models/bench.glb": "ec074c1959d4dcec4e30d4e735447f085794d9e88005aabfcf76f172318714d6",
+    "game/art/models/cat.glb": "afc4812221707585b46cda643b1ce917a382d2aa7b93b724b6a7315f283bee98",
+    "game/art/models/greenhouse.glb": "9a382c392fc8c1951720164c5a19e155024491dd5dbbcb53c00093f8aa3cd1bd",
+    "game/art/models/gull.glb": "3a6685c4917ffe3aac5d71ffc4495a5c05b9f4d0bd3afd5c558569bb0f0bae00",
+    "game/art/models/house_basic.glb": "b1162b12f12dee42fcf105c5d3bffd5fec1f60ecef11c6cf87f96f4266723bf5",
+    "game/art/models/house_coast.glb": "961a76d47c87d8f14b7e42baa4fa5b9f875bcf3dabace98a689138edbb7fd8e1",
+    "game/art/models/house_garden.glb": "93b161ecb3922a662eea308d953a432d6863c1a0140ddc058b4a7cb3c563bf5b",
+    "game/art/models/lighthouse.glb": "796ac448831864b9ee2fb52c7caf7077b960acb64bb1e30e68666fbfd20ceb82",
+    "game/art/models/pot.glb": "7a71599a9d4b2457fca17ce25f7fc9b9f2a9e078ad4776416b7653c2875e96aa",
+    "game/art/models/resident_0.glb": "32e7c956bb27e1e28f8dfbe40952b13628e0bcfa7847edc060c831c10a947dd1",
+    "game/art/models/resident_1.glb": "ec23411fb65aa986abce3041ffdda0f5a88073566c1fc66ba42f6f787b92fe1e",
+    "game/art/models/resident_2.glb": "8f76aac7d415886d7776732aa2ac0f9c6943e9c0d2afd4846f1308f65321e8ba",
+    "game/art/models/resident_3.glb": "d229d54b0c99d08d4f66ec9c06c30c1e3d050ef7e1d4f8e64b5d7ea2ddf9b934",
+    "game/art/models/tea.glb": "7ef1fb3653a46db4f47bda53cdf9dc27e4c7b021d9948118320abb0c6cf83fdf",
+    "game/art/models/tree.glb": "1ec0c4fec4775e7af0d641264fea927449e75f2be028d8bef0c3972eb698f7c6",
+    "game/art/static_batcher.gd": "c0f2c98787f4aac4d2a975154e4563a4a098d37a346efe642362646168dcb72c",
+    "game/art/verify_assets.gd": "2bfe2c5719f68ddce170d0aeee401aab9b6eb5e09bed822d79f883f26b1dcaf0",
+    "game/art/wildlife.gd": "e70f7b1543162f37e7d30aabb4d06ce10bb01c1ca972ae2980c57ab4461a8c72",
+    "game/art_lab/art_lab.gd": "17d4ba74102277e323d046b542e755ff00df77907bed868b150a238b176d1ce7",
+    "game/art_lab/art_lab.tscn": "48403deff19fe9ffe6f10fcff195c981ec98d00c80a156358d8f4bc4d8062359",
+    "game/art_lab/color_probe.gd": "44165ef4b82b1bcbd253d12c1921c20c65a75d53845b36ac533846f23447cc75",
+    "game/art_lab/color_probe.tscn": "d2db35f1f0f410ac0b7bd27132db5ca2f23725058c51a0d7a2a1a6ab2d196feb",
+    "game/art_lab/fixtures/bay_baseline.json": "fc74fe3b9d9f9ba86df093baea7e47fd1214b82ac566aa65372908b81706728c",
+    "game/art_lab/material_probe.gd": "dd436153ee4b704b5373d72dd6e4db38af9e9b1339f0888a10dbb0e01da87fda",
+    "game/art_lab/material_probe.tscn": "000b5296350c40cdac75eb22e5b6f74ec9380636bd3f01f25486b7ba6487603d",
+    "game/audio/island_audio.gd": "7d448f478f4f947b73d1407a0482fd0ad9258660301ee579c8d935b53a749620",
+    "game/building/building_rules.gd": "e233f201bab53eab107cfbed512fc0f87d39237ad7cfbcfe9e5a51346009fc83",
+    "game/island.gd": "13fd6364ed83c25d1cfe4981138a599c7c539859142b7555b1bee555da44fbef",
+    "game/island.tscn": "06636156cb938fc671ccf828269da80effb994fba6f4ccec05a6b57973e7e3b6",
+    "game/resident/resident_sim.gd": "1286d8a85e2010fcfa06554a59a440afc11712b6e5ab4f96c87b93e2705fafd5",
+    "game/ui/island_hud.gd": "e1c576594a9e0a3c62da32030b1b77e835b308305187702bb202c6e5784c76ee",
+    "game/world/demo_island.gd": "032862b8256946eabcfb4e5aeed2b8659bf01f57922ba2f1ce1031f6ab2030cc",
+    "game/world/island_data.gd": "0cb1f8d19ff8bf4690e85d224a322c208f232a7393ffd78e5c5a4f374a9cc75a",
+    "game/world/route_graph.gd": "3dbb909ed6b4beb835ae4fdad3d567126bb96c44a4b8e0cfd3399a16700831a4",
+    "game/world/save_store.gd": "caed1934d05f391b1f96e33e6e4be9702d58f4fc7dacbe717a4f2aa25407a87d",
+    "project.godot": "6c59a7be085fad2585105be8afc87346ad5971b725c60dbd1cc87d49e1882433",
+    "tests/profile_scene.gd": "77d9b53db70ac190ce82be03a3a44924c678c677ec45901ad5d3584851c12697",
+    "tests/test_app.gd": "a6704b558fe2de11b188a12ce64c122327136751a3f65b8b3b83486ac83888f4",
+    "tests/test_bridge_activity.gd": "4d07c560a21ccc958ab67169aa9036172fa57d013cc705023ea47400a8ceba8e",
+    "tests/test_building.gd": "f40749560695f22966c9aa71353895d08d7756a1c679135a9ffa54c954a75917",
+    "tests/test_playable.gd": "c95ce1993391580992ecf9d13b46fb412370c3d9b2dbfbc6517ce730b6f60491",
+    "tests/test_residents.gd": "9155adeb5ffda962fe78aaf7d515d630e4e5ac70e8df7aca854d31fb04209210",
+    "tests/test_static_batcher.gd": "be418d0d7fc76e88e26cca87b40cc0d1cbeec3c0e784daadce0401f948b9e048",
+    "tests/test_world.gd": "5999736372551c48538c01df521d0ca91c03e55c160ffddb1c181d40e6c5bd05"
+  },
+  "limits": "Local M4 Pro only; does not validate M1/Windows, full PRD stress or artistic acceptance"
+}
