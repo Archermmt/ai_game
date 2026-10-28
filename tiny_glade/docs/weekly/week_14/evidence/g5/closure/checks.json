@@ -1,0 +1,61 @@
+{
+  "passed": true,
+  "build_only": false,
+  "environment": {
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "engine_sha256": "c7cccbf8fb143e34e02fd6521e09be2c2b974f0d5db080b19071c9c570718ccf",
+    "python": "3.14.3 (main, Feb  3 2026, 15:32:20) [Clang 17.0.0 (clang-1700.6.3.2)]",
+    "locked_python_packages": {
+      "colorama": "0.4.6",
+      "docopt-ng": "0.9.0",
+      "gdtoolkit": "4.5.0",
+      "lark": "1.2.2",
+      "mando": "0.7.1",
+      "pip": "26.0",
+      "pyyaml": "6.0.3",
+      "radon": "6.0.1",
+      "regex": "2026.9.29",
+      "setuptools": "84.0.0",
+      "six": "1.17.0"
+    },
+    "revision": "40d786efce7cd5c1798f7dd9041a90759d73c6d4"
+  },
+  "source_revision": "9ebe3bf80db1263f7acad4569d3a2506ff840e9d",
+  "handoff_directory": "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/reports/week_14/g5/handoff_9ebe3bf8",
+  "candidate_directory": "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/reports/week_14/g5/candidate_9ebe3bf8_1x72b2ch",
+  "runtime_file_count": 1720,
+  "runtime_manifest_sha256": "834ef8c069e1a94f1924e984819495bb064407845445e23c2ff0ce1bb56475fa",
+  "qa_user_scope": "WindhavenDiorama_G5_9ebe3bf8_1x72b2ch",
+  "scope_override_sha256": "de87c3542c118ff4bbc3ba8aba9e38e90f40a3e7a86e2ab635d117de5e2c76d7",
+  "steps": [
+    {
+      "name": "g5_final_cumulative",
+      "exit_code": 0,
+      "seconds": 89.536
+    }
+  ],
+  "capacity_native": {
+    "functional_passed": true,
+    "headless_run": false,
+    "focused_tests": null,
+    "native_checks": 11,
+    "steps": [
+      {
+        "name": "capacity_ui_native",
+        "exit_code": 0,
+        "seconds": 27.309
+      }
+    ],
+    "production_unchanged": true,
+    "g4_performance_approved": false,
+    "windows_verified": false
+  },
+  "production_unchanged": true,
+  "reused_verified_candidate": true,
+  "new_cold_import_run": false,
+  "local_g5_complete": true,
+  "g4_frame_budget_passed": false,
+  "distribution_approved": false,
+  "standalone_export_verified": false,
+  "windows_verified": false
+}

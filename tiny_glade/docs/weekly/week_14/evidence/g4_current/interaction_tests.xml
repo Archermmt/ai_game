@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="27" >
+  <testsuite name="tests/week_14/immersive/test_walker_grass.gd" tests="7" failures="0" skipped="0" time="0.002209" >
+      <testcase name="test_idle_and_stationary_contact_do_not_build_a_trail" assertions="4" status="pass" classname="tests/week_14/immersive/test_walker_grass.gd" time="0.000168" >
+      </testcase>
+      <testcase name="test_moving_contact_is_bounded_and_returns_after_exit" assertions="7" status="pass" classname="tests/week_14/immersive/test_walker_grass.gd" time="0.000122" >
+      </testcase>
+      <testcase name="test_freeze_holds_shape_and_teleport_does_not_leave_a_stretched_trail" assertions="4" status="pass" classname="tests/week_14/immersive/test_walker_grass.gd" time="0.000135" >
+      </testcase>
+      <testcase name="test_reduced_motion_clears_contact_and_resume_uses_current_feet" assertions="4" status="pass" classname="tests/week_14/immersive/test_walker_grass.gd" time="0.000088" >
+      </testcase>
+      <testcase name="test_invalid_inputs_never_poison_contact_uniforms" assertions="6" status="pass" classname="tests/week_14/immersive/test_walker_grass.gd" time="0.000078" >
+      </testcase>
+      <testcase name="test_renderer_updates_shared_uniforms_and_stops_work_when_contact_expires" assertions="11" status="pass" classname="tests/week_14/immersive/test_walker_grass.gd" time="0.001538" >
+      </testcase>
+      <testcase name="test_exit_returns_grass_while_restored_photo_time_remains_frozen" assertions="8" status="pass" classname="tests/week_14/immersive/test_walker_grass.gd" time="0.00008" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_14/immersion/test_snow_footprints.gd" tests="8" failures="0" skipped="0" time="0.0523" >
+      <testcase name="test_distance_drives_alternating_steps_and_only_ground_receives_decals" assertions="34" status="pass" classname="tests/week_14/immersion/test_snow_footprints.gd" time="0.004048" >
+      </testcase>
+      <testcase name="test_frame_partition_does_not_change_distance_or_foot_sequence" assertions="32" status="pass" classname="tests/week_14/immersion/test_snow_footprints.gd" time="0.008112" >
+      </testcase>
+      <testcase name="test_bare_ground_standing_turns_and_teleports_make_no_phantom_steps" assertions="6" status="pass" classname="tests/week_14/immersion/test_snow_footprints.gd" time="0.003578" >
+      </testcase>
+      <testcase name="test_house_pond_and_road_areas_reject_impressions" assertions="9" status="pass" classname="tests/week_14/immersion/test_snow_footprints.gd" time="0.001521" >
+      </testcase>
+      <testcase name="test_bridge_decks_do_not_receive_terrain_footprints" assertions="33" status="pass" classname="tests/week_14/immersion/test_snow_footprints.gd" time="0.000549" >
+      </testcase>
+      <testcase name="test_sloped_ground_controls_position_and_projector_orientation" assertions="14" status="pass" classname="tests/week_14/immersion/test_snow_footprints.gd" time="0.003969" >
+      </testcase>
+      <testcase name="test_freeze_pauses_fading_and_exit_releases_all_projectors" assertions="7" status="pass" classname="tests/week_14/immersion/test_snow_footprints.gd" time="0.003656" >
+      </testcase>
+      <testcase name="test_pool_is_bounded_when_a_long_trail_wraps_through_the_scene" assertions="506" status="pass" classname="tests/week_14/immersion/test_snow_footprints.gd" time="0.026867" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_14/production_landscape/test_grass_capacity.gd" tests="3" failures="0" skipped="0" time="1.75301" >
+      <testcase name="test_capacity_preview_is_isolated_before_ready_and_uses_real_stress_source" assertions="9" status="pass" classname="tests/week_14/production_landscape/test_grass_capacity.gd" time="0.000265" >
+      </testcase>
+      <testcase name="test_density_and_weather_controls_are_presentation_only" assertions="17" status="pass" classname="tests/week_14/production_landscape/test_grass_capacity.gd" time="0.177675" >
+      </testcase>
+      <testcase name="test_legacy_comparison_keeps_identical_source_and_native_terrain" assertions="8" status="pass" classname="tests/week_14/production_landscape/test_grass_capacity.gd" time="1.57507" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_14/production_landscape/test_production_landscape.gd" tests="9" failures="0" skipped="0" time="23.122775" >
+      <testcase name="test_f5_uses_editable_production_scene_and_four_real_valley_models" assertions="20" status="pass" classname="tests/week_14/production_landscape/test_production_landscape.gd" time="0.052549" >
+      </testcase>
+      <testcase name="test_native_terrain_matches_authoritative_heightfield_and_pond_after_brush" assertions="22" status="pass" classname="tests/week_14/production_landscape/test_production_landscape.gd" time="0.543311" >
+      </testcase>
+      <testcase name="test_local_edit_reuses_distant_grass_and_undo_redo_restore_current_views" assertions="17" status="pass" classname="tests/week_14/production_landscape/test_production_landscape.gd" time="2.070498" >
+      </testcase>
+      <testcase name="test_source_burial_offsets_and_protected_roots_survive_render_publication" assertions="46" status="pass" classname="tests/week_14/production_landscape/test_production_landscape.gd" time="0.514937" >
+      </testcase>
+      <testcase name="test_fifty_mixed_commits_undo_and_redo_keep_latest_source_and_meshes" assertions="217" status="pass" classname="tests/week_14/production_landscape/test_production_landscape.gd" time="14.398457" >
+      </testcase>
+      <testcase name="test_isolated_save_load_regenerates_the_same_terrain_and_grass" assertions="17" status="pass" classname="tests/week_14/production_landscape/test_production_landscape.gd" time="3.167487" >
+      </testcase>
+      <testcase name="test_density_seasons_freeze_and_reduced_motion_do_not_edit_world_source" assertions="157" status="pass" classname="tests/week_14/production_landscape/test_production_landscape.gd" time="0.46588" >
+      </testcase>
+      <testcase name="test_cancelled_brush_and_pending_zero_density_requests_never_publish_old_source" assertions="26" status="pass" classname="tests/week_14/production_landscape/test_production_landscape.gd" time="1.165595" >
+      </testcase>
+      <testcase name="test_fence_only_publication_and_cancel_refresh_actual_footprint_contact_surface" assertions="21" status="pass" classname="tests/week_14/production_landscape/test_production_landscape.gd" time="0.744061" >
+      </testcase>
+  </testsuite>
+</testsuites>

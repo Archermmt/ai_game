@@ -1,0 +1,9 @@
+{
+  "two_generations": true,
+  "glb_texture_dimensions_identical": {
+    "grass_card_a": true,
+    "grass_card_b": true,
+    "grass_floor": true
+  },
+  "blend_bytes_deterministic_claim": false
+}

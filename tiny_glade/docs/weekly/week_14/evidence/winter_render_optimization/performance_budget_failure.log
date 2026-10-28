@@ -1,0 +1,11 @@
+PAIR 1 [('baseline', 28.101), ('optimized', 26.375)]
+PAIR 2 [('optimized', 26.496), ('baseline', 28.603)]
+PAIR 3 [('baseline', 28.2), ('optimized', 26.525)]
+WINTER RENDER PERFORMANCE {'baseline': 28.2, 'optimized': 26.496}
+Traceback (most recent call last):
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/winter_render_performance.py", line 100, in <module>
+    main()
+    ~~~~^^
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/winter_render_performance.py", line 96, in main
+    raise RuntimeError('Winter sample budget exceeded; evidence retained; G4 not passed')
+RuntimeError: Winter sample budget exceeded; evidence retained; G4 not passed

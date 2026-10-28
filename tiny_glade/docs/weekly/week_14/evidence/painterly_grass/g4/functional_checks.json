@@ -1,0 +1,16 @@
+{
+  "functional_passed": true,
+  "headless_run": false,
+  "focused_tests": null,
+  "native_checks": 11,
+  "steps": [
+    {
+      "name": "capacity_ui_native",
+      "exit_code": 0,
+      "seconds": 15.566
+    }
+  ],
+  "production_unchanged": true,
+  "g4_performance_approved": false,
+  "windows_verified": false
+}

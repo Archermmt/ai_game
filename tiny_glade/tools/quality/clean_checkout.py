@@ -11,11 +11,47 @@ import tarfile
 import tempfile
 
 from common import ROOT, engine_binary
+from run_checks import ERRORS
+
+
+def committed_project_archive(project_root, revision=None):
+    """Archive the committed project subtree, including in a monorepo."""
+    project_root = Path(project_root).resolve()
+    repository = Path(subprocess.check_output(
+        ['git', 'rev-parse', '--show-toplevel'], cwd=project_root, text=True).strip()).resolve()
+    relative = project_root.relative_to(repository).as_posix()
+    revision = revision or subprocess.check_output(
+        ['git', 'rev-parse', 'HEAD'], cwd=project_root, text=True).strip()
+    tree = revision if relative == '.' else revision + ':' + relative
+    archive = subprocess.check_output(['git', 'archive', tree], cwd=repository)
+    return revision, relative, archive
+
+
+def run_verified(command, checkout, environment, timeout):
+    process = subprocess.run(command, cwd=checkout, env=environment,
+                             text=True, capture_output=True, timeout=timeout)
+    print(process.stdout, end='')
+    if process.returncode or ERRORS.search(process.stdout + process.stderr):
+        print(process.stderr, file=sys.stderr)
+        raise RuntimeError(f'Clean checkout regression failed; exit={process.returncode}')
+    return process
+
+
+def validate_summary(summary):
+    count = summary.get('godot_tests', summary.get('tests', 0))
+    if not isinstance(count, int) or isinstance(count, bool) or count <= 0:
+        raise RuntimeError('Clean checkout ran no tests')
+    if summary.get('failures') != 0 or summary.get('skipped') != 0:
+        raise RuntimeError('Clean checkout has failures, missing counts or skipped tests')
+    if summary.get('negative_control') is not True:
+        raise RuntimeError('Clean checkout did not verify the negative control')
+    if summary.get('functional_gate_passed', True) is not True:
+        raise RuntimeError('Clean checkout functional gate failed')
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--week', type=int, default=7, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13])
+    parser.add_argument('--week', type=int, default=7, choices=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14])
     parser.add_argument("--art-pass", action="store_true")
     parser.add_argument("--garden", action="store_true")
     parser.add_argument("--simple", action="store_true", help="UX-02 direct manipulation revision")
@@ -38,15 +74,18 @@ def main():
     if args.art_pass and args.week != 9:
         raise RuntimeError("ART-01 requires week 9")
     label = "perf_02" if args.perf_followup else "perf_01" if args.perf else "ux_03" if args.hover else "ux_02" if args.simple else "ui_meadow_01" if args.garden else ("art_pass_01" if args.art_pass else f"week_{args.week:02d}")
-    revision = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
-    archive = subprocess.check_output(['git', 'archive', revision], cwd=ROOT)
+    (ROOT / 'reports').mkdir(exist_ok=True)
+    receipt = ROOT / f'reports/{label}_clean_checkout.json'
+    receipt.unlink(missing_ok=True)
+    revision, project_subdirectory, archive = committed_project_archive(ROOT)
     with tempfile.TemporaryDirectory(prefix='windhaven-clean-') as folder:
         checkout = Path(folder)
         with tarfile.open(fileobj=io.BytesIO(archive)) as source:
             source.extractall(checkout, filter='data')
         if '.godot' in os.listdir(checkout):
             raise RuntimeError('Archive unexpectedly contains an import cache')
-        expected_version = "0.11.2-ux03" if args.hover else "0.11.1-ux02" if args.simple else "0.10.1-garden01" if args.garden else ("0.9.1-art01" if args.art_pass else f"0.{args.week}.0-w{args.week:02d}")
+        # W14 G0 changes validation tools only; the running game remains W13.
+        expected_version = "0.13.0-w13" if args.week == 14 else "0.11.2-ux03" if args.hover else "0.11.1-ux02" if args.simple else "0.10.1-garden01" if args.garden else ("0.9.1-art01" if args.art_pass else f"0.{args.week}.0-w{args.week:02d}")
         version = f'config/version="{expected_version}"'
         if version not in (checkout / 'project.godot').read_text():
             raise RuntimeError('Committed version does not match week; commit implementation first')
@@ -54,7 +93,8 @@ def main():
         environment = os.environ.copy()
         environment['GODOT_BIN'] = engine_binary()
         environment['WINDHAVEN_SOURCE_REVISION'] = revision
-        command = ([sys.executable, "tools/quality/week_thirteen_checks.py"] if args.week == 13 else
+        command = ([sys.executable, "tools/quality/painterly_grass_g0_checks.py"] if args.week == 14 else
+                   [sys.executable, "tools/quality/week_thirteen_checks.py"] if args.week == 13 else
                    [sys.executable, "tools/quality/perf_followup_checks.py"] if args.perf_followup else
                    [sys.executable, "tools/quality/perf_checks.py"] if args.perf else
                    [sys.executable, "tools/quality/week_twelve_checks.py"] if args.week == 12 else
@@ -64,12 +104,8 @@ def main():
                    [sys.executable, 'tools/quality/ui_meadow_checks.py'] if args.garden else
                    [sys.executable, 'tools/quality/art_pass_checks.py'] if args.art_pass else
                    [sys.executable, 'tools/quality/run_checks.py', '--week', str(args.week), '--negative-control'])
-        process = subprocess.run(command, cwd=checkout, env=environment,
-                                 text=True, capture_output=True, timeout=800 if args.week == 13 else 700 if args.perf_followup else 600 if args.perf else 420)
-        print(process.stdout, end='')
-        if process.returncode:
-            print(process.stderr, file=sys.stderr)
-            raise RuntimeError('Clean checkout regression failed')
+        run_verified(command, checkout, environment,
+                     timeout=1000 if args.week == 14 else 800 if args.week == 13 else 700 if args.perf_followup else 600 if args.perf else 420)
         clean_exports = None
         if args.export:
             (checkout / '.tools').symlink_to(ROOT / '.tools', target_is_directory=True)
@@ -90,15 +126,20 @@ def main():
             for pattern in ['week_12_export*.json', 'week_12_export*.png']:
                 for report in (checkout / 'reports').glob(pattern):
                     shutil.copyfile(report, ROOT / 'reports' / report.name)
-        summary = json.loads((checkout / f'reports/{label}_checks.json').read_text())
+        summary_path = 'reports/week_14/g0/checks.json' if args.week == 14 else f'reports/{label}_checks.json'
+        summary = json.loads((checkout / summary_path).read_text())
+        validate_summary(summary)
         evidence = ROOT / f'reports/{label}_clean_evidence'
         evidence.mkdir(exist_ok=True)
         for pattern in ['*.xml', '*.log', '*_checks.json', '*_python.json']:
             for report in (checkout / 'reports').glob(pattern):
                 shutil.copyfile(report, evidence / report.name)
-        result = {'revision': revision, 'cache_reused': False, 'host_tools_reused': ['locked Godot', 'gdtoolkit venv'],
+        if args.week == 14:
+            shutil.copytree(checkout / 'reports/week_14/g0', evidence / 'g0', dirs_exist_ok=True)
+        result = {'revision': revision, 'project_subdirectory': project_subdirectory,
+                  'cache_reused': False, 'host_tools_reused': ['locked Godot', 'gdtoolkit venv'],
                   'gate': summary, 'passed': True, 'exported_from_clean_archive': args.export, 'exports': clean_exports}
-        (ROOT / f'reports/{label}_clean_checkout.json').write_text(json.dumps(result, indent=2) + '\n')
+        receipt.write_text(json.dumps(result, indent=2) + '\n')
         print('CLEAN CHECKOUT PASS', revision[:7])
 
 

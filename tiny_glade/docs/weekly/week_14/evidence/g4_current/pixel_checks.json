@@ -1,0 +1,88 @@
+{
+  "passed": true,
+  "environment": {
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "engine_sha256": "c7cccbf8fb143e34e02fd6521e09be2c2b974f0d5db080b19071c9c570718ccf",
+    "python": "3.14.3 (main, Feb  3 2026, 15:32:20) [Clang 17.0.0 (clang-1700.6.3.2)]",
+    "locked_python_packages": {
+      "colorama": "0.4.6",
+      "docopt-ng": "0.9.0",
+      "gdtoolkit": "4.5.0",
+      "lark": "1.2.2",
+      "mando": "0.7.1",
+      "pip": "26.0",
+      "pyyaml": "6.0.3",
+      "radon": "6.0.1",
+      "regex": "2026.9.29",
+      "setuptools": "84.0.0",
+      "six": "1.17.0"
+    },
+    "revision": "5540f6ed99600446245ad54fd321f65636679282"
+  },
+  "shader_sha256": "31f8a983d29754ea4dbf760d9fbc4add1b0044fc1f536cb8d389d08734e1c09b",
+  "step": {
+    "name": "winter_grass_cull_native",
+    "exit_code": 0,
+    "seconds": 38.123
+  },
+  "native": {
+    "clouds_disabled_for_pixel_proof": true,
+    "comparisons": [
+      {
+        "cover": 0.0,
+        "difference": 0.0,
+        "near": false,
+        "noise": 0.0
+      },
+      {
+        "cover": 0.4,
+        "difference": 0.0,
+        "near": false,
+        "noise": 0.0
+      },
+      {
+        "cover": 0.65,
+        "difference": 0.0,
+        "near": false,
+        "noise": 0.0
+      },
+      {
+        "cover": 0.98,
+        "difference": 0.0,
+        "near": false,
+        "noise": 0.0
+      },
+      {
+        "cover": 0.0,
+        "difference": 0.0,
+        "near": true,
+        "noise": 0.0
+      },
+      {
+        "cover": 0.4,
+        "difference": 0.0,
+        "near": true,
+        "noise": 0.0
+      },
+      {
+        "cover": 0.65,
+        "difference": 0.0,
+        "near": true,
+        "noise": 0.0
+      },
+      {
+        "cover": 0.98,
+        "difference": 0.0,
+        "near": true,
+        "noise": 0.0
+      }
+    ],
+    "instance_count_unchanged": true,
+    "passed": true,
+    "rendering_driver": "metal",
+    "source_unchanged": true,
+    "taa": false
+  },
+  "production_unchanged": true,
+  "performance_gate_run": false
+}

@@ -2,6 +2,9 @@ class_name PhotoExport
 extends Node
 ## A separate render target shares only the editor's World3D, never its UI.
 
+signal camera_created(camera: Camera3D)
+signal camera_releasing(camera: Camera3D)
+
 const SIZES: Array[Vector2i] = [Vector2i(1920, 1080), Vector2i(2560, 1440)]
 var busy: bool = false
 
@@ -45,10 +48,14 @@ func capture(source: Camera3D, dimensions: Vector2i, destination: String) -> Dic
 	camera.attributes = source.attributes
 	viewport.add_child(camera)
 	camera.current = true
-	for frame: int in range(8 if viewport.use_taa else 2):
+	camera_created.emit(camera)
+	var settle_frames: int = 32 if camera.compositor != null else (8 if viewport.use_taa else 2)
+	for frame: int in range(settle_frames):
 		await RenderingServer.frame_post_draw
 	var image: Image = viewport.get_texture().get_image()
 	var error: Error = image.save_png(destination)
+	camera_releasing.emit(camera)
+	await RenderingServer.frame_post_draw
 	viewport.free()
 	busy = false
 	return {

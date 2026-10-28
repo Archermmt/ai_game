@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-25",
+  "scope": "plan_documentation_only",
+  "local_markdown_links_verified": 102,
+  "existing_entry_paths_verified": 11,
+  "planned_entries_confirmed_not_implemented": [
+    "app/painterly_grass_preview.tscn",
+    "tools/quality/painterly_grass_checks.py",
+    "tools/quality/painterly_grass_native_checks.py",
+    "tools/quality/painterly_grass_performance.py"
+  ],
+  "stage_ids": [
+    "G0",
+    "G1",
+    "G2",
+    "G3",
+    "G4",
+    "G5"
+  ],
+  "stage_scenes_consistent": true,
+  "runtime_changes": false,
+  "game_tests_run": 0,
+  "new_asset_gpu_benchmark": "not_run",
+  "stage_implementation": "not_started",
+  "document_sha256": {
+    "docs/DEV_PLAN_PAINTERLY_GRASS.md": "19ea230f2a14f9e485ce87cde9ee1116d4af83fa0086adf3c9a9847edd5f93d7",
+    "docs/weekly/week_14/README.md": "194c4792ac2e8d4b10e5b527ff32b7ee046f9461dd5c223354cefad8d929f660"
+  },
+  "independent_review": "completed; stage1 local sample and stage5 asset repository reproducibility distinguished"
+}

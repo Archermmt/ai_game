@@ -1,0 +1,14 @@
+{
+	"limit_m": 0.02,
+	"max_error_m": [
+		0.0,
+		0.0000501893203891379,
+		0.00244610411120716
+	],
+	"method": "every actual mesh root; bilinear RF terrain map vs TerrainField",
+	"profiles": [
+		"flat",
+		"rolling",
+		"brush"
+	]
+}

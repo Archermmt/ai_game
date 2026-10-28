@@ -1,0 +1,94 @@
+PASS seasonal_music_assets (0.04s)
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] first_scan_filesystem | Started 项目初始化 (5 steps)
+[   0% ] first_scan_filesystem | 正在扫描文件结构……
+[  16% ] first_scan_filesystem | 正在加载全局类名……
+[  33% ] first_scan_filesystem | 正在校验 GDExtension……
+[  50% ] first_scan_filesystem | 正在创建自动加载脚本……
+[  66% ] first_scan_filesystem | 正在初始化插件……
+[  83% ] first_scan_filesystem | 正在启动文件扫描……
+[ DONE ] first_scan_filesystem
+
+[   0% ] loading_editor_layout | Started 正在加载编辑器 (5 steps)
+[   0% ] loading_editor_layout | 正在加载编辑器布局……
+[  16% ] loading_editor_layout | 正在加载停靠面板……
+[  33% ] loading_editor_layout | 正在重新打开场景……
+[  50% ] loading_editor_layout | 正在加载中央编辑器布局……
+[  66% ] loading_editor_layout | 正在加载插件窗口布局……
+[  83% ] loading_editor_layout | 编辑器布局就绪。
+[ DONE ] loading_editor_layout
+
+ERROR: Condition "ret != noErr" is true. Returning: ""
+   at: get_system_ca_certificates (platform/macos/os_macos.mm:1035)
+sysctlbyname for kern.hv_vmm_present failed with status -1ERROR: Cannot create file '/Users/tongmeng/Library/Caches/Godot/editor_doc_cache-4.7.res'.
+   at: save (core/io/resource_format_binary.cpp:2117)
+ERROR: Cannot save editor help cache (/Users/tongmeng/Library/Caches/Godot/editor_doc_cache-4.7.res).
+   at: _gen_doc_thread (editor/doc/editor_help.cpp:3071)
+ERROR: Cannot save file '/Users/tongmeng/Library/Application Support/Godot/editor_settings-4.7.tres'.
+   at: save (scene/resources/resource_format_text.cpp:1768)
+ERROR: Error saving editor settings to /Users/tongmeng/Library/Application Support/Godot/editor_settings-4.7.tres
+   at: save (editor/settings/editor_settings.cpp:1525)
+
+QUALITY GATE FAILED: engine_import failed; exit=0
+
+GARDEN GATE FAILED: garden_cumulative failed; exit=1
+
+W11 GATE FAILED: w11_cumulative failed; exit=1
+
+UX-02 GATE FAILED: ux02_cumulative failed; exit=1
+
+Traceback (most recent call last):
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/hover_checks.py", line 29, in <module>
+    main()
+    ~~~~^^
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/hover_checks.py", line 11, in main
+    steps = [run_step('ux03_cumulative', [sys.executable, 'tools/quality/simple_checks.py'], timeout=350)]
+             ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/run_checks.py", line 32, in run_step
+    raise RuntimeError(f"{name} failed; exit={process.returncode}")
+RuntimeError: ux03_cumulative failed; exit=1
+
+Traceback (most recent call last):
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/week_twelve_checks.py", line 34, in <module>
+    if __name__ == '__main__': main()
+                               ~~~~^^
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/week_twelve_checks.py", line 12, in main
+    steps = [run_step('w12_cumulative', [sys.executable, 'tools/quality/hover_checks.py'], timeout=350)]
+             ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/run_checks.py", line 32, in run_step
+    raise RuntimeError(f"{name} failed; exit={process.returncode}")
+RuntimeError: w12_cumulative failed; exit=1
+
+Traceback (most recent call last):
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/perf_checks.py", line 27, in <module>
+    if __name__ == '__main__': main()
+                               ~~~~^^
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/perf_checks.py", line 11, in main
+    steps = [run_step('perf01_cumulative', [sys.executable, 'tools/quality/week_twelve_checks.py'], timeout=400)]
+             ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/run_checks.py", line 32, in run_step
+    raise RuntimeError(f"{name} failed; exit={process.returncode}")
+RuntimeError: perf01_cumulative failed; exit=1
+
+Traceback (most recent call last):
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/perf_followup_checks.py", line 33, in <module>
+    main()
+    ~~~~^^
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/perf_followup_checks.py", line 11, in main
+    steps = [run_step('perf02_cumulative', [sys.executable, 'tools/quality/perf_checks.py'], timeout=500)]
+             ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/run_checks.py", line 32, in run_step
+    raise RuntimeError(f"{name} failed; exit={process.returncode}")
+RuntimeError: perf02_cumulative failed; exit=1
+
+Traceback (most recent call last):
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/week_thirteen_checks.py", line 29, in <module>
+    main()
+    ~~~~^^
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/week_thirteen_checks.py", line 12, in main
+    steps.append(run_step('w13_cumulative', [sys.executable, 'tools/quality/perf_followup_checks.py'], timeout=600))
+                 ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/run_checks.py", line 32, in run_step
+    raise RuntimeError(f"{name} failed; exit={process.returncode}")
+RuntimeError: w13_cumulative failed; exit=1

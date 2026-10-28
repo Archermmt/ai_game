@@ -1,0 +1,173 @@
+{
+  "environment": {
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "engine_sha256": "c7cccbf8fb143e34e02fd6521e09be2c2b974f0d5db080b19071c9c570718ccf",
+    "python": "3.14.3 (main, Feb  3 2026, 15:32:20) [Clang 17.0.0 (clang-1700.6.3.2)]",
+    "locked_python_packages": {
+      "colorama": "0.4.6",
+      "docopt-ng": "0.9.0",
+      "gdtoolkit": "4.5.0",
+      "lark": "1.2.2",
+      "mando": "0.7.1",
+      "pip": "26.0",
+      "pyyaml": "6.0.3",
+      "radon": "6.0.1",
+      "regex": "2026.9.29",
+      "setuptools": "84.0.0",
+      "six": "1.17.0"
+    },
+    "revision": "5540f6ed99600446245ad54fd321f65636679282",
+    "measured_file_sha256": {
+      "features/landscape/production_grass.gdshader": "a1ca5017d8a8450cca9a8cbdc90481bb0aa62e57e5f24d80601ff4b3d2d5e79a",
+      "features/landscape/production_grass_renderer.gd": "9e135a5605632223f4115c0575d2549b7fd45f0213439548617ba35f6f35b6fd",
+      "features/landscape/production_playground.gd": "4da846761a56223c4eef041d2af409692c28ad5ccbf155a40c2d14c46c1cb4c9",
+      "features/landscape/production_terrain.gd": "6b49db8e6419d77bc80bf768d9c9b63152d1f101f0fcca44aabe7cc120c66db3",
+      "features/weather_plugins/sunshine_cloud_adapter.gd": "2540282aad6c5c1ee198990f9fc0d329da5053e6741501ec059bf976106649b3",
+      "features/weather_plugins/blanket_snow_renderer.gd": "65ce7e78714c705f125df1f4bca9c83c2f96224036579af75bf6da5ff56147d9",
+      "features/weather_plugins/blanket_baker.gd": "c9f2dda19919142155131f7088c0a7167417a35a12a951d1169d54c422bd07d6",
+      "features/painterly_grass/previews/grass_capacity.gd": "2641280b496872722fb9257cfc69b8489078b121debe8a57eb325bd76f932d36",
+      "tests/week_14/production_landscape/capacity_performance_probe.gd": "c2b2bf9dd8a4cb1f23eebdd12a5303930b33f23884ed57187f7f8f8fad5b3c18"
+    },
+    "model": {
+      "exit_code": 0,
+      "output": "Mac16,7"
+    },
+    "memory": {
+      "exit_code": 0,
+      "output": "51539607552"
+    },
+    "cpu": {
+      "exit_code": 0,
+      "output": "Apple M4 Pro"
+    },
+    "power": {
+      "exit_code": 0,
+      "output": "Now drawing from 'AC Power'\n -InternalBattery-0\t9%; charging; 2:05 remaining present: true"
+    },
+    "power_settings": {
+      "exit_code": 0,
+      "output": "Battery Power:\n Sleep On Power Button 1\n powermode            0\n standby              1\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n hibernatefile        /var/vm/sleepimage\n displaysleep         60\n womp                 0\n networkoversleep     0\n sleep                1\n lessbright           1\n tcpkeepalive         1\n disksleep            10\nAC Power:\n Sleep On Power Button 1\n powermode            0\n standby              1\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n hibernatefile        /var/vm/sleepimage\n displaysleep         60\n womp                 1\n networkoversleep     0\n sleep                1\n tcpkeepalive         1\n disksleep            10"
+    },
+    "thermal": {
+      "exit_code": 0,
+      "output": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded"
+    }
+  },
+  "pilot": true,
+  "runs": [
+    {
+      "buildings": 24,
+      "draw_calls": 5730,
+      "duration_ms": 60017.688,
+      "frames": 3078,
+      "gpu_timing_ms": null,
+      "grass_batches": 36,
+      "grass_density": 0.45,
+      "grass_total": 34006,
+      "grass_visible": 15285,
+      "history_unchanged": true,
+      "instances": 1000,
+      "max_frame_ms": 26.395,
+      "msaa": 0,
+      "p50_frame_ms": 19.038,
+      "p95_frame_ms": 22.971,
+      "p99_frame_ms": 23.808,
+      "primitives": 9992174,
+      "renderer": "legacy",
+      "rendering_driver": "metal",
+      "season": "winter",
+      "snow_bakes": 384,
+      "snow_settled": true,
+      "snow_views": 1412,
+      "snow_visible": true,
+      "source_sha256": "e0eb829a6d8235e5a129ec32896c4e64bd4acc74f62c01ddb64b9cc71c820767",
+      "source_unchanged": true,
+      "taa": true,
+      "terrain_renderer": "Terrain3D",
+      "viewport_size": [
+        1920,
+        1080
+      ],
+      "volume_clouds": true,
+      "vsync_mode": 0,
+      "weather": "blizzard",
+      "weather_blend_age": 18.0,
+      "world_seed": "forest-slope-scn-01",
+      "rss_peak_bytes": 1179353088,
+      "frame_budget_passed": false,
+      "memory_budget_passed": true,
+      "warmup_seconds": 5,
+      "repeat": 1
+    },
+    {
+      "buildings": 24,
+      "draw_calls": 6080,
+      "duration_ms": 60024.745,
+      "frames": 1928,
+      "gpu_timing_ms": null,
+      "grass_batches": 144,
+      "grass_density": 0.45,
+      "grass_total": 19159,
+      "grass_visible": 8555,
+      "history_unchanged": true,
+      "instances": 1000,
+      "max_frame_ms": 37.864,
+      "msaa": 0,
+      "p50_frame_ms": 30.424,
+      "p95_frame_ms": 35.608,
+      "p99_frame_ms": 36.974,
+      "primitives": 10267645,
+      "renderer": "valley",
+      "rendering_driver": "metal",
+      "season": "winter",
+      "snow_bakes": 384,
+      "snow_settled": true,
+      "snow_views": 1412,
+      "snow_visible": true,
+      "source_sha256": "e0eb829a6d8235e5a129ec32896c4e64bd4acc74f62c01ddb64b9cc71c820767",
+      "source_unchanged": true,
+      "taa": true,
+      "terrain_renderer": "Terrain3D",
+      "viewport_size": [
+        1920,
+        1080
+      ],
+      "volume_clouds": true,
+      "vsync_mode": 0,
+      "weather": "blizzard",
+      "weather_blend_age": 18.0,
+      "world_seed": "forest-slope-scn-01",
+      "rss_peak_bytes": 1367752704,
+      "frame_budget_passed": false,
+      "memory_budget_passed": true,
+      "warmup_seconds": 5,
+      "repeat": 1
+    }
+  ],
+  "g4_passed": false,
+  "matrix_complete": false,
+  "performance_gate_run": true,
+  "windows_verified": false,
+  "gpu_timing_available": false,
+  "protocol": "1920x1080 Metal Forward+, no MSAA, TAA, volume clouds, settled object/terrain snow, VSync disabled, fixed analytic 60s orbit, 5s warmup; identical source and Terrain3D; one process at a time",
+  "remaining_gates": [
+    "edit latency",
+    "20-minute mixed soak",
+    "2K export memory",
+    "LOD visual review"
+  ],
+  "production_unchanged": true,
+  "sampled_frame_budget_passed": false,
+  "sampled_memory_budget_passed": true,
+  "stopped_on_budget_failure": true,
+  "functional_checks_passed": true,
+  "comparisons": [
+    {
+      "weather": "blizzard",
+      "density": 0.45,
+      "repeat": 1,
+      "p95_increase": 0.5501284227939576,
+      "diagnostic_15_percent_alarm": true
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="6" >
+  <testsuite name="tests/week_14/winter_optimization/test_winter_rendering.gd" tests="6" failures="0" skipped="0" time="0.004396" >
+      <testcase name="test_batch_preserves_instance_meshes_poses_layers_and_source" assertions="7" status="pass" classname="tests/week_14/winter_optimization/test_winter_rendering.gd" time="0.000723" >
+      </testcase>
+      <testcase name="test_roofs_and_distance_limited_caps_keep_individual_visibility_origins" assertions="13" status="pass" classname="tests/week_14/winter_optimization/test_winter_rendering.gd" time="0.000559" >
+      </testcase>
+      <testcase name="test_spatial_groups_do_not_join_distant_caps_or_different_meshes" assertions="1" status="pass" classname="tests/week_14/winter_optimization/test_winter_rendering.gd" time="0.000453" >
+      </testcase>
+      <testcase name="test_melt_restores_original_objects_and_hash_fade_without_rebaking" assertions="7" status="pass" classname="tests/week_14/winter_optimization/test_winter_rendering.gd" time="0.000879" >
+      </testcase>
+      <testcase name="test_refresh_drops_old_cap_records_and_generated_views" assertions="4" status="pass" classname="tests/week_14/winter_optimization/test_winter_rendering.gd" time="0.000341" >
+      </testcase>
+      <testcase name="test_buried_floor_culling_retains_density_and_thaw_restores_exact_buffer" assertions="8" status="pass" classname="tests/week_14/winter_optimization/test_winter_rendering.gd" time="0.001441" >
+      </testcase>
+  </testsuite>
+</testsuites>

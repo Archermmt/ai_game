@@ -1,0 +1,50 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/week_14/g2/test_grass_patch.gd
+* test_scattering_is_deterministic_and_default_density_is_recalibrated
+* test_full_mesh_footprints_and_wind_envelopes_stay_in_legal_region
+* test_envelope_rejects_segment_circle_rect_and_pool_overlap_not_just_centers
+* test_root_heightmap_tracks_flat_rolling_and_brushed_slope_within_two_cm
+* test_ab_changes_only_derivatives_and_keeps_camera_light_history_and_source
+* test_f6_read_only_controls_cannot_edit_or_write_formal_files
+* test_walk_exit_retains_pause_and_all_five_views_keep_dof_disabled
+* test_shared_material_defaults_and_reflection_exclusion_preserve_baseline
+8/8 passed.
+
+
+res://tests/week_14/test_grass_lab.gd
+* test_imported_meshes_preserve_single_surface_budget_and_root_weights
+* test_imported_y_up_scale_and_origin_match_manifest
+* test_coverage_has_real_transparent_and_brush_edge_pixels
+* test_batches_are_deterministic_and_share_only_per_lab_material
+* test_pause_resume_and_reduce_motion_are_independent_local_controls
+* test_light_modes_and_close_views_do_not_rebuild_geometry
+* test_reset_restores_local_presentation_and_preview_has_no_save_service
+* test_missing_derivatives_report_failure_without_substituting_old_grass
+8/8 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               2
+Tests                16
+Passing Tests        16
+Asserts            2437
+Time              4.318s
+
+
+---- All tests passed! ----
+
+Results saved to reports/week_14/g2/tests.xml

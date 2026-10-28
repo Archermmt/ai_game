@@ -1,0 +1,108 @@
+Traceback (most recent call last):
+  File "/private/var/folders/d8/yztht2gs5c52mvn26gqc9_mr0000gn/T/windhaven-g1-portable-wa0pb9ul/tools/quality/painterly_grass_checks.py", line 97, in <module>
+    main()
+    ~~~~^^
+  File "/private/var/folders/d8/yztht2gs5c52mvn26gqc9_mr0000gn/T/windhaven-g1-portable-wa0pb9ul/tools/quality/painterly_grass_checks.py", line 69, in main
+    steps.append(run_step(prefix+'_tests',[engine_binary(),'--headless','--path',str(ROOT),'-s',
+                 ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'addons/gut/gut_cmdln.gd','-gdir='+','.join(['res://tests/week_14']+[f'res://tests/week_14/g{s}' for s in range(2,args.stage+1)]),'-gexit',
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        f'-gjunit_xml_file=reports/week_14/{prefix}/tests.xml'],timeout=300))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/var/folders/d8/yztht2gs5c52mvn26gqc9_mr0000gn/T/windhaven-g1-portable-wa0pb9ul/tools/quality/run_checks.py", line 32, in run_step
+    raise RuntimeError(f"{name} failed; exit={process.returncode}")
+RuntimeError: g3_tests failed; exit=1
+
+PASS g1_import (5.25s)
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/week_14/test_grass_lab.gd
+* test_imported_meshes_preserve_single_surface_budget_and_root_weights
+* test_imported_y_up_scale_and_origin_match_manifest
+* test_coverage_has_real_transparent_and_brush_edge_pixels
+* test_batches_are_deterministic_and_share_only_per_lab_material
+* test_pause_resume_and_reduce_motion_are_independent_local_controls
+* test_light_modes_and_close_views_do_not_rebuild_geometry
+* test_reset_restores_local_presentation_and_preview_has_no_save_service
+* test_missing_derivatives_report_failure_without_substituting_old_grass
+8/8 passed.
+
+
+res://tests/week_14/g2/test_grass_patch.gd
+* test_scattering_is_deterministic_and_default_density_is_recalibrated
+* test_full_mesh_footprints_and_wind_envelopes_stay_in_legal_region
+* test_envelope_rejects_segment_circle_rect_and_pool_overlap_not_just_centers
+* test_root_heightmap_tracks_flat_rolling_and_brushed_slope_within_two_cm
+    [Failed]:  Unexpected Errors:
+    [1] <engine-2>Cannot call method 'store_string' on a null value.
+      at line -1
+* test_ab_changes_only_derivatives_and_keeps_camera_light_history_and_source
+* test_f6_read_only_controls_cannot_edit_or_write_formal_files
+* test_walk_exit_retains_pause_and_all_five_views_keep_dof_disabled
+* test_shared_material_defaults_and_reflection_exclusion_preserve_baseline
+7/8 passed.
+
+
+res://tests/week_14/g3/test_grass_garden.gd
+* test_f6_is_editable_and_uses_exclusive_persistent_preview_storage
+* test_density_zero_latest_request_empty_blocks_and_one_are_supported
+* test_local_terrain_edit_reuses_far_chunk_nodes_and_keeps_distribution
+* test_building_path_tree_pool_and_bridge_changes_preserve_unaffected_chunks
+* test_brush_erase_preserves_manual_locked_ids_and_source_schema
+* test_latest_worker_variant_switch_and_cancel_never_publish_stale_data
+* test_fifty_mixed_edits_undo_redo_restore_source_and_derived_versions
+* test_isolated_save_load_regenerates_identical_grass_and_legacy_source
+* test_seasons_weather_freeze_reduce_motion_and_reflection_layers_share_interfaces
+* test_empty_chunk_publication_clears_old_views_and_can_recover
+* test_height_layers_match_mesh_roots_and_clearance_covers_full_wind
+* test_height_cache_tracks_seed_quarter_spacing_halo_and_brushed_surface
+12/12 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+res://tests/week_14/g2/test_grass_patch.gd
+- test_root_heightmap_tracks_flat_rolling_and_brushed_slope_within_two_cm
+    [Failed]:  Unexpected Errors:
+    [1] <engine-2>Cannot call method 'store_string' on a null value.
+          at line -1
+
+Totals
+------
+Scripts               3
+Tests                28
+Passing Tests        27
+Failing Tests         1
+Asserts           22980/22981
+Time              65.704s
+
+
+---- 1 failing tests ----
+
+Results saved to reports/week_14/g3/tests.xml
+SCRIPT ERROR: Cannot call method 'store_string' on a null value.
+          at: test_root_heightmap_tracks_flat_rolling_and_brushed_slope_within_two_cm (res://tests/week_14/g2/test_grass_patch.gd:117)
+          GDScript backtrace (most recent call first):
+              [0] test_root_heightmap_tracks_flat_rolling_and_brushed_slope_within_two_cm (res://tests/week_14/g2/test_grass_patch.gd:117)
+              [1] _run_test (res://addons/gut/gut.gd:622)
+              [2] _test_the_scripts (res://addons/gut/gut.gd:835)
+
+Traceback (most recent call last):
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/painterly_grass_portable_checks.py", line 48, in <module>
+    main()
+    ~~~~^^
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/painterly_grass_portable_checks.py", line 34, in main
+    process=run_verified([sys.executable,'tools/quality/painterly_grass_checks.py','--stage',str(args.stage),'--local-only'],checkout,environment,300)
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/clean_checkout.py", line 36, in run_verified
+    raise RuntimeError(f'Clean checkout regression failed; exit={process.returncode}')
+RuntimeError: Clean checkout regression failed; exit=1

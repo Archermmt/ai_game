@@ -1,0 +1,17 @@
+{
+	"checks": {
+		"actual pointer restores default density": true,
+		"actual pointer restores new renderer": true,
+		"actual pointer selects full density": true,
+		"actual pointer switches to old renderer": true,
+		"density preserves source": true,
+		"gallery return and capacity entry": true,
+		"legacy_grass saved": true,
+		"new grass and full capacity": true,
+		"new_grass saved": true,
+		"old renderer retains source and terrain": true,
+		"toolbar fits viewport": true
+	},
+	"passed": true,
+	"rendering_driver": "metal"
+}

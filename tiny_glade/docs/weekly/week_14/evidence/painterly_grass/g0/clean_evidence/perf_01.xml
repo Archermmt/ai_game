@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="12" >
+  <testsuite name="tests/perf_01/test_meadow_cache.gd" tests="9" failures="0" skipped="0" time="30.346379" >
+      <testcase name="test_cached_generation_matches_full_generation" assertions="3" status="pass" classname="tests/perf_01/test_meadow_cache.gd" time="2.801781" >
+      </testcase>
+      <testcase name="test_local_terrain_updates_preserve_distribution_and_previous_result" assertions="5" status="pass" classname="tests/perf_01/test_meadow_cache.gd" time="5.047487" >
+      </testcase>
+      <testcase name="test_undo_and_spacing_profile_changes_match_fresh_generation" assertions="2" status="pass" classname="tests/perf_01/test_meadow_cache.gd" time="5.424119" >
+      </testcase>
+      <testcase name="test_obstacle_and_seed_changes_invalidate_cached_distribution" assertions="5" status="pass" classname="tests/perf_01/test_meadow_cache.gd" time="14.200564" >
+      </testcase>
+      <testcase name="test_unchanged_source_reuses_all_chunks_without_mutating_source" assertions="3" status="pass" classname="tests/perf_01/test_meadow_cache.gd" time="2.600567" >
+      </testcase>
+      <testcase name="test_cached_pond_broad_phase_matches_exact_for_near_far_and_edges" assertions="90" status="pass" classname="tests/perf_01/test_meadow_cache.gd" time="0.01924" >
+      </testcase>
+      <testcase name="test_pond_circle_fallback_preserves_exact_conflicts" assertions="4" status="pass" classname="tests/perf_01/test_meadow_cache.gd" time="0.018023" >
+      </testcase>
+      <testcase name="test_building_index_matches_exhaustive_queries_across_cell_boundaries" assertions="603" status="pass" classname="tests/perf_01/test_meadow_cache.gd" time="0.108501" >
+      </testcase>
+      <testcase name="test_indexed_vegetation_clearance_and_reconcile_match_exhaustive_source" assertions="627" status="pass" classname="tests/perf_01/test_meadow_cache.gd" time="0.126097" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/perf_01/test_performance_samples.gd" tests="3" failures="0" skipped="0" time="0.00081" >
+      <testcase name="test_nearest_rank_p95_does_not_mislabel_the_maximum_of_twenty_edits" assertions="3" status="pass" classname="tests/perf_01/test_performance_samples.gd" time="0.000081" >
+      </testcase>
+      <testcase name="test_percentile_empty_singleton_and_small_samples_are_defined" assertions="3" status="pass" classname="tests/perf_01/test_performance_samples.gd" time="0.000065" >
+      </testcase>
+      <testcase name="test_percentile_unsorted_hundred_samples_preserves_input_order" assertions="2" status="pass" classname="tests/perf_01/test_performance_samples.gd" time="0.000664" >
+      </testcase>
+  </testsuite>
+</testsuites>

@@ -1,0 +1,175 @@
+{
+  "repository": "https://github.com/puchik/godot-extras",
+  "commit": "515900a4aee952cdc4487bed98cc69758c899a32",
+  "source_directory": "tutorials/snow-shader/",
+  "destination": "res://addons/puchik_snow/",
+  "kind": "Unmodified upstream snow material reference; not an EditorPlugin or snow-volume generator",
+  "upstream_engine": "Godot 4.2 sample; local Godot 4.7.2 Metal Forward+ reference only",
+  "code_license": {
+    "declared": "MIT",
+    "declaration": "README.md",
+    "upstream_declaration": "https://github.com/puchik/godot-extras/blob/515900a4aee952cdc4487bed98cc69758c899a32/tutorials/snow-shader/README.md",
+    "standalone_license_file_supplied_by_upstream": false
+  },
+  "textures": {
+    "origin_declared_by_upstream": "ambientCG",
+    "license": "CC0-1.0",
+    "license_source": "https://docs.ambientcg.com/license/",
+    "note": "README explicitly identifies ambientCG as texture source; retain original texture file names and upstream source paths."
+  },
+  "capabilities": [
+    "upward-facing textured snow blend",
+    "normal-map detail",
+    "roughness control"
+  ],
+  "not_provided": [
+    "geometric snow thickness",
+    "snow caps",
+    "snow drift volumes",
+    "automatic Terrain3D integration"
+  ],
+  "files": {
+    "README.md": {
+      "source_path": "tutorials/snow-shader/README.md",
+      "source_url": "https://raw.githubusercontent.com/puchik/godot-extras/515900a4aee952cdc4487bed98cc69758c899a32/tutorials/snow-shader/README.md",
+      "sha256": "bd10a276281d2b8c4c63e4b60386bf15d9f32a04474daaebc4d4b11d669ff2e5",
+      "bytes": 497
+    },
+    "shaders/basic_snow.gdshader": {
+      "source_path": "tutorials/snow-shader/snow-shader-complete/shaders/basic_snow.gdshader",
+      "source_url": "https://raw.githubusercontent.com/puchik/godot-extras/515900a4aee952cdc4487bed98cc69758c899a32/tutorials/snow-shader/snow-shader-complete/shaders/basic_snow.gdshader",
+      "sha256": "9406342b6123b44b9c000aa8c4891d332cad84fdbcddd271e574ddf27eae62d8",
+      "bytes": 2558
+    },
+    "textures/snow/snow_02_diff_2k.jpg": {
+      "source_path": "tutorials/snow-shader/snow-shader-complete/textures/snow/snow_02_diff_2k.jpg",
+      "source_url": "https://raw.githubusercontent.com/puchik/godot-extras/515900a4aee952cdc4487bed98cc69758c899a32/tutorials/snow-shader/snow-shader-complete/textures/snow/snow_02_diff_2k.jpg",
+      "sha256": "d185c2853c7e674161789db4eed1c5708d85e4f6e3dcb5698209568adf02aa98",
+      "bytes": 1314409
+    },
+    "textures/snow/snow_02_nor_gl_1k.jpg": {
+      "source_path": "tutorials/snow-shader/snow-shader-complete/textures/snow/snow_02_nor_gl_1k.jpg",
+      "source_url": "https://raw.githubusercontent.com/puchik/godot-extras/515900a4aee952cdc4487bed98cc69758c899a32/tutorials/snow-shader/snow-shader-complete/textures/snow/snow_02_nor_gl_1k.jpg",
+      "sha256": "9495ec680616b8340e2cbecbd151bff84c690cfad4209e90cc98d2d0ba81f810",
+      "bytes": 1081858
+    },
+    "textures/rocks/rocks_ground_02_col_1k.jpg": {
+      "source_path": "tutorials/snow-shader/snow-shader-complete/textures/rocks/rocks_ground_02_col_1k.jpg",
+      "source_url": "https://raw.githubusercontent.com/puchik/godot-extras/515900a4aee952cdc4487bed98cc69758c899a32/tutorials/snow-shader/snow-shader-complete/textures/rocks/rocks_ground_02_col_1k.jpg",
+      "sha256": "729e26281b28b9c05a53e755658da184ccd673ac291e6ec0532229743c06bf66",
+      "bytes": 881510
+    },
+    "textures/rocks/rocks_ground_02_nor_gl_1k.jpg": {
+      "source_path": "tutorials/snow-shader/snow-shader-complete/textures/rocks/rocks_ground_02_nor_gl_1k.jpg",
+      "source_url": "https://raw.githubusercontent.com/puchik/godot-extras/515900a4aee952cdc4487bed98cc69758c899a32/tutorials/snow-shader/snow-shader-complete/textures/rocks/rocks_ground_02_nor_gl_1k.jpg",
+      "sha256": "28f6f35894cb60da7ecd639506c385e3c9e868f7e3ce24a6ceae1d08198b9e69",
+      "bytes": 1466816
+    }
+  },
+  "import_settings": {
+    "textures/rocks/rocks_ground_02_nor_gl_1k.jpg.import": {
+      "sha256": "34e2327ebc1b9341bc4dc5a33d78834185528eff4d5fea9b55a325809af513d3",
+      "bytes": 1279,
+      "upstream_source_path": "tutorials/snow-shader/snow-shader-complete/textures/rocks/rocks_ground_02_nor_gl_1k.jpg.import",
+      "upstream_sha256": "4ef849167c93c6322a60cf189f1aceaf508c43bc77f0632814ddd3b0006fea0b",
+      "upstream_parameters": {
+        "compress/mode": "2",
+        "compress/high_quality": "false",
+        "compress/lossy_quality": "0.7",
+        "compress/hdr_compression": "1",
+        "compress/normal_map": "1",
+        "compress/channel_pack": "0",
+        "mipmaps/generate": "true",
+        "mipmaps/limit": "-1",
+        "roughness/mode": "0",
+        "roughness/src_normal": "\"\"",
+        "process/fix_alpha_border": "true",
+        "process/premult_alpha": "false",
+        "process/normal_map_invert_y": "false",
+        "process/hdr_as_srgb": "false",
+        "process/hdr_clamp_exposure": "false",
+        "process/size_limit": "0",
+        "detect_3d/compress_to": "0"
+      },
+      "relocated_remap_and_godot_4_7_defaults": true
+    },
+    "textures/rocks/rocks_ground_02_col_1k.jpg.import": {
+      "sha256": "26ee72666ae7b2834f620ef024e6bf186ee690ef33f3100ffa70013b7461a93e",
+      "bytes": 1264,
+      "upstream_source_path": "tutorials/snow-shader/snow-shader-complete/textures/rocks/rocks_ground_02_col_1k.jpg.import",
+      "upstream_sha256": "0307a049da3830047a231eab8454a4a6f371b582e923f7b232d25740a6d10b15",
+      "upstream_parameters": {
+        "compress/mode": "2",
+        "compress/high_quality": "false",
+        "compress/lossy_quality": "0.7",
+        "compress/hdr_compression": "1",
+        "compress/normal_map": "0",
+        "compress/channel_pack": "0",
+        "mipmaps/generate": "true",
+        "mipmaps/limit": "-1",
+        "roughness/mode": "0",
+        "roughness/src_normal": "\"\"",
+        "process/fix_alpha_border": "true",
+        "process/premult_alpha": "false",
+        "process/normal_map_invert_y": "false",
+        "process/hdr_as_srgb": "false",
+        "process/hdr_clamp_exposure": "false",
+        "process/size_limit": "0",
+        "detect_3d/compress_to": "0"
+      },
+      "relocated_remap_and_godot_4_7_defaults": true
+    },
+    "textures/snow/snow_02_nor_gl_1k.jpg.import": {
+      "sha256": "b7e3a13fbb0c6fde7cb96732e4db3fc8c388b06be2c88722c094cadb342305bc",
+      "bytes": 1238,
+      "upstream_source_path": "tutorials/snow-shader/snow-shader-complete/textures/snow/snow_02_nor_gl_1k.jpg.import",
+      "upstream_sha256": "eeabe35d58ad84f2f4293d0dd7d66d519d633d97908b3203c425a162eb5aa117",
+      "upstream_parameters": {
+        "compress/mode": "2",
+        "compress/high_quality": "false",
+        "compress/lossy_quality": "0.7",
+        "compress/hdr_compression": "1",
+        "compress/normal_map": "1",
+        "compress/channel_pack": "0",
+        "mipmaps/generate": "true",
+        "mipmaps/limit": "-1",
+        "roughness/mode": "0",
+        "roughness/src_normal": "\"\"",
+        "process/fix_alpha_border": "true",
+        "process/premult_alpha": "false",
+        "process/normal_map_invert_y": "false",
+        "process/hdr_as_srgb": "false",
+        "process/hdr_clamp_exposure": "false",
+        "process/size_limit": "0",
+        "detect_3d/compress_to": "0"
+      },
+      "relocated_remap_and_godot_4_7_defaults": true
+    },
+    "textures/snow/snow_02_diff_2k.jpg.import": {
+      "sha256": "3a12b4b5489c1d5ea484843fc081d6f785e4ee2e3caef19c6828ff4daf5031a7",
+      "bytes": 1228,
+      "upstream_source_path": "tutorials/snow-shader/snow-shader-complete/textures/snow/snow_02_diff_2k.jpg.import",
+      "upstream_sha256": "f2a47a6ec2638aa912f97ac2439a1e61fdfb5ce695dc20369cba8c8d29c25801",
+      "upstream_parameters": {
+        "compress/mode": "2",
+        "compress/high_quality": "false",
+        "compress/lossy_quality": "0.7",
+        "compress/hdr_compression": "1",
+        "compress/normal_map": "0",
+        "compress/channel_pack": "0",
+        "mipmaps/generate": "true",
+        "mipmaps/limit": "-1",
+        "roughness/mode": "0",
+        "roughness/src_normal": "\"\"",
+        "process/fix_alpha_border": "true",
+        "process/premult_alpha": "false",
+        "process/normal_map_invert_y": "false",
+        "process/hdr_as_srgb": "false",
+        "process/hdr_clamp_exposure": "false",
+        "process/size_limit": "0",
+        "detect_3d/compress_to": "0"
+      },
+      "relocated_remap_and_godot_4_7_defaults": true
+    }
+  }
+}

@@ -1,0 +1,193 @@
+{
+  "audio": "Dummy",
+  "automatic_weather": false,
+  "checks": {
+    "calendar_selects_music": true,
+    "fade_in_progress": true,
+    "fade_in_retains_headroom": true,
+    "legacy_motif_stopped": true,
+    "music_playing_softly": true,
+    "mute_survives_preferences_apply": true,
+    "rain_preserves_audible_music": true,
+    "settings_mute_fades_to_stop": true,
+    "settings_unmute_resumes": true,
+    "shutdown_stops_and_releases": true
+  },
+  "diagnostics": {
+    "calendar": {
+      "day": 15,
+      "minute_of_day": 720.0,
+      "month": 7,
+      "speed": 0.0,
+      "weather": "rain",
+      "weather_cycle": {
+        "automatic": false,
+        "seed": 1973,
+        "slot": 1075,
+        "weights": {
+          "autumn": {
+            "blizzard": 0.0,
+            "clear": 45.0,
+            "cloudy": 25.0,
+            "duststorm": 3.0,
+            "fog": 12.0,
+            "rain": 12.0,
+            "snow": 0.0,
+            "storm": 3.0
+          },
+          "spring": {
+            "blizzard": 0.0,
+            "clear": 40.0,
+            "cloudy": 25.0,
+            "duststorm": 2.0,
+            "fog": 8.0,
+            "rain": 20.0,
+            "snow": 0.0,
+            "storm": 5.0
+          },
+          "summer": {
+            "blizzard": 0.0,
+            "clear": 45.0,
+            "cloudy": 20.0,
+            "duststorm": 2.0,
+            "fog": 3.0,
+            "rain": 18.0,
+            "snow": 0.0,
+            "storm": 12.0
+          },
+          "winter": {
+            "blizzard": 8.0,
+            "clear": 30.0,
+            "cloudy": 25.0,
+            "duststorm": 0.0,
+            "fog": 12.0,
+            "rain": 0.0,
+            "snow": 25.0,
+            "storm": 0.0
+          }
+        }
+      },
+      "year": 1
+    },
+    "fade_checkpoint": {
+      "active": 0,
+      "current": "summer_breeze",
+      "duck": 1.0,
+      "envelopes": [
+        0.330090396825396,
+        0.0
+      ],
+      "gain": 0.5,
+      "playing": true,
+      "pool": [
+        "summer_flowers",
+        "summer_breeze",
+        "all_seasons"
+      ],
+      "stable_seconds": 3.98095238095237,
+      "target_duck": 1.0,
+      "wallclock_ms": 6145
+    },
+    "initial": {
+      "active": -1,
+      "current": "",
+      "duck": 1.0,
+      "envelopes": [
+        0.0,
+        0.0
+      ],
+      "gain": 0.0,
+      "playing": false,
+      "pool": [],
+      "stable_seconds": 0.0,
+      "target_duck": 1.0,
+      "wallclock_ms": 2128
+    },
+    "mute_checkpoint": {
+      "active": -1,
+      "current": "summer_breeze",
+      "duck": 0.8,
+      "envelopes": [
+        0.0,
+        0.0
+      ],
+      "gain": 0.0,
+      "playing": false,
+      "pool": [
+        "summer_flowers",
+        "summer_breeze",
+        "all_seasons"
+      ],
+      "stable_seconds": 5.9222222222222,
+      "target_duck": 0.8,
+      "wallclock_ms": 8085
+    },
+    "original_four_second_checkpoint": {
+      "active": 0,
+      "current": "summer_breeze",
+      "duck": 1.0,
+      "envelopes": [
+        0.330090396825396,
+        0.0
+      ],
+      "gain": 0.5,
+      "playing": true,
+      "pool": [
+        "summer_flowers",
+        "summer_breeze",
+        "all_seasons"
+      ],
+      "stable_seconds": 3.98095238095237,
+      "target_duck": 1.0,
+      "wallclock_ms": 6145
+    },
+    "rain_checkpoint": {
+      "active": 0,
+      "current": "summer_breeze",
+      "duck": 0.8,
+      "envelopes": [
+        0.399931666666666,
+        0.0
+      ],
+      "gain": 0.5,
+      "playing": true,
+      "pool": [
+        "summer_flowers",
+        "summer_breeze",
+        "all_seasons"
+      ],
+      "stable_seconds": 4.39999999999999,
+      "target_duck": 0.8,
+      "wallclock_ms": 6566
+    },
+    "resume_checkpoint": {
+      "active": 0,
+      "current": "summer_flowers",
+      "duck": 0.8,
+      "envelopes": [
+        0.00439814814814815,
+        0.0
+      ],
+      "gain": 0.0175925925925926,
+      "playing": true,
+      "pool": [
+        "summer_flowers",
+        "summer_breeze",
+        "all_seasons"
+      ],
+      "stable_seconds": 5.97499999999998,
+      "target_duck": 0.8,
+      "wallclock_ms": 8138
+    }
+  },
+  "passed": true,
+  "physical_listening_verified": false,
+  "track": "summer_flowers",
+  "water_max_db": 3.0,
+  "step": {
+    "name": "seasonal_music_native",
+    "exit_code": 0,
+    "seconds": 8.872
+  },
+  "production_unchanged": true
+}

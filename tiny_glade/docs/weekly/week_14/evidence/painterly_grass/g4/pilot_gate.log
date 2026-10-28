@@ -1,0 +1,10 @@
+legacy_clear_45_1: p95 15.826ms, RSS 1006.8MiB, budget True
+valley_clear_45_1: p95 29.366ms, RSS 1210.6MiB, budget False
+G4 pilot complete
+Traceback (most recent call last):
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/painterly_grass_performance.py", line 154, in <module>
+    main()
+    ~~~~^^
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/painterly_grass_performance.py", line 150, in main
+    raise RuntimeError('Sampled budget exceeded; evidence retained; G4 not passed')
+RuntimeError: Sampled budget exceeded; evidence retained; G4 not passed

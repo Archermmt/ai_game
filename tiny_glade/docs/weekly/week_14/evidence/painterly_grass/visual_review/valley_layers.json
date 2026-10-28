@@ -1,0 +1,578 @@
+{
+  "Blades Grass": {
+    "group": "01_Natural_Scatter_Wind",
+    "values": {
+      "Input_4": "Basic_Grass_13",
+      "Input_7": "None",
+      "Input_8": "False",
+      "Input_8_use_attribute": "0",
+      "Input_8_attribute_name": "",
+      "Input_54": "False",
+      "Input_54_use_attribute": "0",
+      "Input_54_attribute_name": "",
+      "Input_11": "1.399999976158142",
+      "Input_11_use_attribute": "0",
+      "Input_11_attribute_name": "",
+      "Input_10": "0.0",
+      "Input_10_use_attribute": "0",
+      "Input_10_attribute_name": "",
+      "Input_12": "28",
+      "Input_12_use_attribute": "0",
+      "Input_12_attribute_name": "",
+      "Input_14": "0.800000011920929",
+      "Input_14_use_attribute": "0",
+      "Input_14_attribute_name": "",
+      "Input_15": "0.30000001192092896",
+      "Input_15_use_attribute": "0",
+      "Input_15_attribute_name": "",
+      "Input_59": "-0.298553466796875",
+      "Input_59_use_attribute": "0",
+      "Input_59_attribute_name": "",
+      "Input_21": "-4.508445739746094",
+      "Input_21_use_attribute": "0",
+      "Input_21_attribute_name": "",
+      "Input_27": "<bpy id property array [3]>",
+      "Input_27_use_attribute": "0",
+      "Input_27_attribute_name": "",
+      "Input_6": "0.0",
+      "Input_6_use_attribute": "0",
+      "Input_6_attribute_name": "",
+      "Input_9": "0.9124087691307068",
+      "Input_9_use_attribute": "0",
+      "Input_9_attribute_name": "",
+      "Input_2": "1.0",
+      "Input_2_use_attribute": "1",
+      "Input_2_attribute_name": "Basic",
+      "Input_5": "1.0",
+      "Input_5_use_attribute": "0",
+      "Input_5_attribute_name": "",
+      "Input_17": "1.0",
+      "Input_17_use_attribute": "0",
+      "Input_17_attribute_name": "",
+      "Input_35": "None",
+      "Input_34": "False",
+      "Input_34_use_attribute": "0",
+      "Input_34_attribute_name": "",
+      "Input_16": "1.0",
+      "Input_16_use_attribute": "0",
+      "Input_16_attribute_name": "",
+      "Input_38": "1.0",
+      "Input_38_use_attribute": "0",
+      "Input_38_attribute_name": "",
+      "Input_36": "30.0",
+      "Input_36_use_attribute": "0",
+      "Input_36_attribute_name": "",
+      "Input_37": "-1.0999999046325684",
+      "Input_37_use_attribute": "0",
+      "Input_37_attribute_name": "",
+      "Input_39": "1.0",
+      "Input_39_use_attribute": "0",
+      "Input_39_attribute_name": "",
+      "Input_13": "0.0",
+      "Input_13_use_attribute": "0",
+      "Input_13_attribute_name": "",
+      "Input_53": "0.0",
+      "Input_53_use_attribute": "0",
+      "Input_53_attribute_name": "",
+      "Input_60": "True",
+      "Input_60_use_attribute": "0",
+      "Input_60_attribute_name": "",
+      "Input_58": ""
+    },
+    "objects": [
+      {
+        "group": "Asset(s).001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Billboard.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Camera Geometry Separate.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Camera Culling Mask.001",
+        "node": "Object Info.002",
+        "object": null
+      },
+      {
+        "group": "Camera Culling Mask.001",
+        "node": "Object Info.001",
+        "object": null
+      },
+      {
+        "group": "Asset(s).001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Camera Geometry Separate.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Billboard.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Camera Geometry Separate.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Camera Mask.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Camera Geometry Separate.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Billboard.001",
+        "node": "Object Info",
+        "object": null
+      }
+    ],
+    "enabled_render": true
+  },
+  "Detail Puffs": {
+    "group": "01_Natural_Scatter_Wind",
+    "values": {
+      "Input_4": "Detailed_Wave_Grass_06",
+      "Input_7": "None",
+      "Input_8": "False",
+      "Input_8_use_attribute": "0",
+      "Input_8_attribute_name": "",
+      "Input_54": "False",
+      "Input_54_use_attribute": "0",
+      "Input_54_attribute_name": "",
+      "Input_11": "3.0",
+      "Input_11_use_attribute": "0",
+      "Input_11_attribute_name": "",
+      "Input_10": "0.0",
+      "Input_10_use_attribute": "0",
+      "Input_10_attribute_name": "",
+      "Input_12": "43",
+      "Input_12_use_attribute": "0",
+      "Input_12_attribute_name": "",
+      "Input_14": "1.0",
+      "Input_14_use_attribute": "0",
+      "Input_14_attribute_name": "",
+      "Input_15": "0.30000001192092896",
+      "Input_15_use_attribute": "0",
+      "Input_15_attribute_name": "",
+      "Input_59": "0.0",
+      "Input_59_use_attribute": "0",
+      "Input_59_attribute_name": "",
+      "Input_21": "0.20000000298023224",
+      "Input_21_use_attribute": "0",
+      "Input_21_attribute_name": "",
+      "Input_27": "<bpy id property array [3]>",
+      "Input_27_use_attribute": "0",
+      "Input_27_attribute_name": "",
+      "Input_6": "0.0",
+      "Input_6_use_attribute": "0",
+      "Input_6_attribute_name": "",
+      "Input_9": "0.949999988079071",
+      "Input_9_use_attribute": "0",
+      "Input_9_attribute_name": "",
+      "Input_2": "1.0",
+      "Input_2_use_attribute": "1",
+      "Input_2_attribute_name": "Detail",
+      "Input_5": "1.0",
+      "Input_5_use_attribute": "0",
+      "Input_5_attribute_name": "",
+      "Input_17": "1.0",
+      "Input_17_use_attribute": "0",
+      "Input_17_attribute_name": "",
+      "Input_35": "None",
+      "Input_34": "False",
+      "Input_34_use_attribute": "0",
+      "Input_34_attribute_name": "",
+      "Input_16": "1.0",
+      "Input_16_use_attribute": "0",
+      "Input_16_attribute_name": "",
+      "Input_38": "0.6000000238418579",
+      "Input_38_use_attribute": "0",
+      "Input_38_attribute_name": "",
+      "Input_36": "30.0",
+      "Input_36_use_attribute": "0",
+      "Input_36_attribute_name": "",
+      "Input_37": "-1.0999999046325684",
+      "Input_37_use_attribute": "0",
+      "Input_37_attribute_name": "",
+      "Input_39": "1.0",
+      "Input_39_use_attribute": "0",
+      "Input_39_attribute_name": "",
+      "Input_13": "0.0",
+      "Input_13_use_attribute": "0",
+      "Input_13_attribute_name": "",
+      "Input_53": "0.0",
+      "Input_53_use_attribute": "0",
+      "Input_53_attribute_name": "",
+      "Input_60": "True",
+      "Input_60_use_attribute": "0",
+      "Input_60_attribute_name": "",
+      "Input_58": ""
+    },
+    "objects": [
+      {
+        "group": "Asset(s).001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Billboard.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Camera Geometry Separate.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Camera Culling Mask.001",
+        "node": "Object Info.002",
+        "object": null
+      },
+      {
+        "group": "Camera Culling Mask.001",
+        "node": "Object Info.001",
+        "object": null
+      },
+      {
+        "group": "Asset(s).001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Camera Geometry Separate.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Billboard.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Camera Geometry Separate.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Camera Mask.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Camera Geometry Separate.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Billboard.001",
+        "node": "Object Info",
+        "object": null
+      }
+    ],
+    "enabled_render": true
+  },
+  "Puffs2": {
+    "group": "01_Natural_Scatter_Wind",
+    "values": {
+      "Input_4": "Basic_Grass_04",
+      "Input_7": "None",
+      "Input_8": "False",
+      "Input_8_use_attribute": "0",
+      "Input_8_attribute_name": "",
+      "Input_54": "False",
+      "Input_54_use_attribute": "0",
+      "Input_54_attribute_name": "",
+      "Input_11": "1.0",
+      "Input_11_use_attribute": "0",
+      "Input_11_attribute_name": "",
+      "Input_10": "0.0",
+      "Input_10_use_attribute": "0",
+      "Input_10_attribute_name": "",
+      "Input_12": "28",
+      "Input_12_use_attribute": "0",
+      "Input_12_attribute_name": "",
+      "Input_14": "1.5",
+      "Input_14_use_attribute": "0",
+      "Input_14_attribute_name": "",
+      "Input_15": "0.30000001192092896",
+      "Input_15_use_attribute": "0",
+      "Input_15_attribute_name": "",
+      "Input_59": "-0.298553466796875",
+      "Input_59_use_attribute": "0",
+      "Input_59_attribute_name": "",
+      "Input_21": "-4.508445739746094",
+      "Input_21_use_attribute": "0",
+      "Input_21_attribute_name": "",
+      "Input_27": "<bpy id property array [3]>",
+      "Input_27_use_attribute": "0",
+      "Input_27_attribute_name": "",
+      "Input_6": "0.0",
+      "Input_6_use_attribute": "0",
+      "Input_6_attribute_name": "",
+      "Input_9": "0.9124087691307068",
+      "Input_9_use_attribute": "0",
+      "Input_9_attribute_name": "",
+      "Input_2": "1.0",
+      "Input_2_use_attribute": "1",
+      "Input_2_attribute_name": "puffs2",
+      "Input_5": "1.0",
+      "Input_5_use_attribute": "0",
+      "Input_5_attribute_name": "",
+      "Input_17": "1.0",
+      "Input_17_use_attribute": "0",
+      "Input_17_attribute_name": "",
+      "Input_35": "None",
+      "Input_34": "False",
+      "Input_34_use_attribute": "0",
+      "Input_34_attribute_name": "",
+      "Input_16": "1.0",
+      "Input_16_use_attribute": "0",
+      "Input_16_attribute_name": "",
+      "Input_38": "1.0",
+      "Input_38_use_attribute": "0",
+      "Input_38_attribute_name": "",
+      "Input_36": "30.0",
+      "Input_36_use_attribute": "0",
+      "Input_36_attribute_name": "",
+      "Input_37": "-1.0999999046325684",
+      "Input_37_use_attribute": "0",
+      "Input_37_attribute_name": "",
+      "Input_39": "1.0",
+      "Input_39_use_attribute": "0",
+      "Input_39_attribute_name": "",
+      "Input_13": "0.0",
+      "Input_13_use_attribute": "0",
+      "Input_13_attribute_name": "",
+      "Input_53": "0.0",
+      "Input_53_use_attribute": "0",
+      "Input_53_attribute_name": "",
+      "Input_60": "True",
+      "Input_60_use_attribute": "0",
+      "Input_60_attribute_name": "",
+      "Input_58": ""
+    },
+    "objects": [
+      {
+        "group": "Asset(s).001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Billboard.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Camera Geometry Separate.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Camera Culling Mask.001",
+        "node": "Object Info.002",
+        "object": null
+      },
+      {
+        "group": "Camera Culling Mask.001",
+        "node": "Object Info.001",
+        "object": null
+      },
+      {
+        "group": "Asset(s).001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Camera Geometry Separate.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Billboard.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Camera Geometry Separate.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Camera Mask.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Camera Geometry Separate.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Billboard.001",
+        "node": "Object Info",
+        "object": null
+      }
+    ],
+    "enabled_render": true
+  },
+  "Floor Grass": {
+    "group": "01_Natural_Scatter_Wind",
+    "values": {
+      "Input_4": "Basic_Grass_Floor_10",
+      "Input_7": "None",
+      "Input_8": "False",
+      "Input_8_use_attribute": "0",
+      "Input_8_attribute_name": "",
+      "Input_54": "False",
+      "Input_54_use_attribute": "0",
+      "Input_54_attribute_name": "",
+      "Input_11": "3.0",
+      "Input_11_use_attribute": "0",
+      "Input_11_attribute_name": "",
+      "Input_10": "0.0",
+      "Input_10_use_attribute": "0",
+      "Input_10_attribute_name": "",
+      "Input_12": "28",
+      "Input_12_use_attribute": "0",
+      "Input_12_attribute_name": "",
+      "Input_14": "1.600000023841858",
+      "Input_14_use_attribute": "0",
+      "Input_14_attribute_name": "",
+      "Input_15": "0.30000001192092896",
+      "Input_15_use_attribute": "0",
+      "Input_15_attribute_name": "",
+      "Input_59": "0.0143585205078125",
+      "Input_59_use_attribute": "0",
+      "Input_59_attribute_name": "",
+      "Input_21": "0.0",
+      "Input_21_use_attribute": "0",
+      "Input_21_attribute_name": "",
+      "Input_27": "<bpy id property array [3]>",
+      "Input_27_use_attribute": "0",
+      "Input_27_attribute_name": "",
+      "Input_6": "0.7360000610351562",
+      "Input_6_use_attribute": "0",
+      "Input_6_attribute_name": "",
+      "Input_9": "0.9444444179534912",
+      "Input_9_use_attribute": "0",
+      "Input_9_attribute_name": "",
+      "Input_2": "1.0",
+      "Input_2_use_attribute": "1",
+      "Input_2_attribute_name": "floor",
+      "Input_5": "1.0",
+      "Input_5_use_attribute": "0",
+      "Input_5_attribute_name": "",
+      "Input_17": "1.0",
+      "Input_17_use_attribute": "0",
+      "Input_17_attribute_name": "",
+      "Input_35": "None",
+      "Input_34": "False",
+      "Input_34_use_attribute": "0",
+      "Input_34_attribute_name": "",
+      "Input_16": "1.0",
+      "Input_16_use_attribute": "0",
+      "Input_16_attribute_name": "",
+      "Input_38": "1.0",
+      "Input_38_use_attribute": "0",
+      "Input_38_attribute_name": "",
+      "Input_36": "30.0",
+      "Input_36_use_attribute": "0",
+      "Input_36_attribute_name": "",
+      "Input_37": "-1.0999999046325684",
+      "Input_37_use_attribute": "0",
+      "Input_37_attribute_name": "",
+      "Input_39": "1.0",
+      "Input_39_use_attribute": "0",
+      "Input_39_attribute_name": "",
+      "Input_13": "0.0",
+      "Input_13_use_attribute": "0",
+      "Input_13_attribute_name": "",
+      "Input_53": "0.0",
+      "Input_53_use_attribute": "0",
+      "Input_53_attribute_name": "",
+      "Input_60": "False",
+      "Input_60_use_attribute": "0",
+      "Input_60_attribute_name": "",
+      "Input_58": ""
+    },
+    "objects": [
+      {
+        "group": "Asset(s).001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Billboard.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Camera Geometry Separate.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Camera Culling Mask.001",
+        "node": "Object Info.002",
+        "object": null
+      },
+      {
+        "group": "Camera Culling Mask.001",
+        "node": "Object Info.001",
+        "object": null
+      },
+      {
+        "group": "Asset(s).001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Camera Geometry Separate.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Billboard.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Camera Geometry Separate.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Camera Mask.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Camera Geometry Separate.001",
+        "node": "Object Info",
+        "object": null
+      },
+      {
+        "group": "Billboard.001",
+        "node": "Object Info",
+        "object": null
+      }
+    ],
+    "enabled_render": true
+  }
+}

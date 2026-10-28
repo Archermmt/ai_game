@@ -1,0 +1,43 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/week_11/test_bank_cache.gd
+* test_bank_signature_tracks_pool_bridge_profile_and_bilinear_halo
+* test_distant_brush_keeps_fresh_bank_geometry_exactly_equal_for_polygon_and_circle
+2/2 passed.
+
+
+res://tests/week_11/test_usability.gd
+* test_rejected_pool_action_is_readable_with_context_open_at_150_percent
+* test_feedback_survives_close_reopen_and_photography_without_source_edits
+* test_mouse_cancel_drops_pending_commit_and_ignores_late_worker_result
+* test_mouse_cancel_discards_preview_and_can_start_next_stroke
+* test_bank_reuses_live_resources_for_distant_terrain_but_rebuilds_for_seed
+* test_near_bank_terrain_change_and_undo_refresh_grounding
+* test_feedback_and_cancel_remain_pinned_when_properties_scroll
+7/7 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               2
+Tests                 9
+Passing Tests         9
+Asserts             128
+Time              7.176s
+
+
+---- All tests passed! ----
+
+Results saved to reports/week_11.xml

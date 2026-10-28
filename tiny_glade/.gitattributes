@@ -8,3 +8,7 @@
 *.glb binary
 # Preserve vendored upstream formatting without applying project whitespace rules.
 addons/gut/** -whitespace
+addons/SunshineClouds2/** -whitespace
+addons/puchik_snow/** -whitespace
+addons/blanket/** -whitespace
+features/weather_plugins/compat/*.patch -whitespace

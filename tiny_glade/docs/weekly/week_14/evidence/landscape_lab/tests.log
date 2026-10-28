@@ -1,0 +1,47 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/week_14/landscape/test_landscape_lab.gd
+* test_four_evaluated_meshes_keep_the_3277_source_instances
+* test_visible_root_origins_match_native_terrain_and_source_burial
+* test_plugin_distribution_and_independent_layers_preserve_artist_sources
+* test_orbit_outside_the_source_keeps_finite_camera_without_expanding_plantable_area
+4/4 passed.
+
+
+res://tests/week_14/landscape/test_scatter_adapter.gd
+* test_upstream_seed_repeats_and_new_seed_changes_candidates
+* test_current_surface_and_root_offset_are_preserved
+* test_protected_roots_and_steep_slopes_are_rejected
+* test_world_space_output_is_independent_of_render_parent_pose
+4/4 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               2
+Tests                 8
+Passing Tests         8
+Asserts             367
+Time              1.111s
+
+
+---- All tests passed! ----
+
+Results saved to reports/week_14/landscape_lab/tests.xml
+WARNING: instance_reset_physics_interpolation() is deprecated.
+     at: _instance_reset_physics_interpolation_bind_compat_104269 (servers/rendering/rendering_server.compat.inc:62)
+     GDScript backtrace (most recent call first):
+         [0] configure (res://features/landscape_lab/terrain_adapter.gd:52)
+         [1] _prepare (res://features/landscape_lab/landscape_lab.gd:58)

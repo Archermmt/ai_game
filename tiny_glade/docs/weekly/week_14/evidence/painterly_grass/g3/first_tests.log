@@ -1,0 +1,880 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[1m[INFO]:  [0musing [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+[4m
+
+res://tests/week_14/g3/test_grass_garden.gd
+[0m* test_f6_is_editable_and_uses_exclusive_persistent_preview_storage
+* test_density_zero_latest_request_empty_blocks_and_one_are_supported
+* test_local_terrain_edit_reuses_far_chunk_nodes_and_keeps_distribution
+* test_building_path_tree_pool_and_bridge_changes_preserve_unaffected_chunks
+[31m    [Failed]:  [0m[7] expected to equal [8]:  clearance edit 0
+      at line 146
+[31m    [Failed]:  [0m[9] expected to equal [10]:  clearance edit 3
+      at line 146
+* test_brush_erase_preserves_manual_locked_ids_and_source_schema
+* test_latest_worker_variant_switch_and_cancel_never_publish_stale_data
+* test_fifty_mixed_edits_undo_redo_restore_source_and_derived_versions
+[31m    [Failed]:  [0m[17] expected to equal [18]:  mixed edit 2
+      at line 200
+[31m    [Failed]:  [0m[21] expected to equal [22]:  mixed edit 7
+      at line 200
+[31m    [Failed]:  [0m[25] expected to equal [26]:  mixed edit 12
+      at line 200
+[31m    [Failed]:  [0m[29] expected to equal [30]:  mixed edit 17
+      at line 200
+[31m    [Failed]:  [0m[33] expected to equal [34]:  mixed edit 22
+      at line 200
+[31m    [Failed]:  [0m[37] expected to equal [38]:  mixed edit 27
+      at line 200
+[31m    [Failed]:  [0m[41] expected to equal [42]:  mixed edit 32
+      at line 200
+[31m    [Failed]:  [0m[45] expected to equal [46]:  mixed edit 37
+      at line 200
+[31m    [Failed]:  [0m[49] expected to equal [50]:  mixed edit 42
+      at line 200
+[31m    [Failed]:  [0m[53] expected to equal [54]:  mixed edit 47
+      at line 200
+[31m    [Failed]:  [0m[40] expected to equal [50]:  
+      at line 201
+* test_isolated_save_load_regenerates_identical_grass_and_legacy_source
+* test_seasons_weather_freeze_reduce_motion_and_reflection_layers_share_interfaces
+SCRIPT ERROR: Invalid access to property or key 'overcast' on a base object of type 'Dictionary'.
+          at: WeatherBlend.advance (res://features/living_world/weather_blend.gd:32)
+          GDScript backtrace (most recent call first):
+              [0] advance (res://features/living_world/weather_blend.gd:32)
+              [1] test_seasons_weather_freeze_reduce_motion_and_reflection_layers_share_interfaces (res://tests/week_14/g3/test_grass_garden.gd:241)
+              [2] _run_test (res://addons/gut/gut.gd:622)
+              [3] before_each (res://tests/week_14/g3/test_grass_garden.gd:28)
+              [4] _settle (res://tests/week_14/g3/test_grass_garden.gd:62)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] test_seasons_weather_freeze_reduce_motion_and_reflection_layers_share_interfaces (res://tests/week_14/g3/test_grass_garden.gd:243)
+              [2] _run_test (res://addons/gut/gut.gd:622)
+              [3] before_each (res://tests/week_14/g3/test_grass_garden.gd:28)
+              [4] _settle (res://tests/week_14/g3/test_grass_garden.gd:62)
+SCRIPT ERROR: Invalid access to property or key 'overcast' on a base object of type 'Dictionary'.
+          at: WeatherBlend.advance (res://features/living_world/weather_blend.gd:32)
+          GDScript backtrace (most recent call first):
+              [0] advance (res://features/living_world/weather_blend.gd:32)
+              [1] test_seasons_weather_freeze_reduce_motion_and_reflection_layers_share_interfaces (res://tests/week_14/g3/test_grass_garden.gd:241)
+              [2] _run_test (res://addons/gut/gut.gd:622)
+              [3] before_each (res://tests/week_14/g3/test_grass_garden.gd:28)
+              [4] _settle (res://tests/week_14/g3/test_grass_garden.gd:62)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] test_seasons_weather_freeze_reduce_motion_and_reflection_layers_share_interfaces (res://tests/week_14/g3/test_grass_garden.gd:243)
+              [2] _run_test (res://addons/gut/gut.gd:622)
+              [3] before_each (res://tests/week_14/g3/test_grass_garden.gd:28)
+              [4] _settle (res://tests/week_14/g3/test_grass_garden.gd:62)
+SCRIPT ERROR: Invalid access to property or key 'overcast' on a base object of type 'Dictionary'.
+          at: WeatherBlend.advance (res://features/living_world/weather_blend.gd:32)
+          GDScript backtrace (most recent call first):
+              [0] advance (res://features/living_world/weather_blend.gd:32)
+              [1] test_seasons_weather_freeze_reduce_motion_and_reflection_layers_share_interfaces (res://tests/week_14/g3/test_grass_garden.gd:241)
+              [2] _run_test (res://addons/gut/gut.gd:622)
+              [3] before_each (res://tests/week_14/g3/test_grass_garden.gd:28)
+              [4] _settle (res://tests/week_14/g3/test_grass_garden.gd:62)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] test_seasons_weather_freeze_reduce_motion_and_reflection_layers_share_interfaces (res://tests/week_14/g3/test_grass_garden.gd:243)
+              [2] _run_test (res://addons/gut/gut.gd:622)
+              [3] before_each (res://tests/week_14/g3/test_grass_garden.gd:28)
+              [4] _settle (res://tests/week_14/g3/test_grass_garden.gd:62)
+SCRIPT ERROR: Invalid access to property or key 'overcast' on a base object of type 'Dictionary'.
+          at: WeatherBlend.advance (res://features/living_world/weather_blend.gd:32)
+          GDScript backtrace (most recent call first):
+              [0] advance (res://features/living_world/weather_blend.gd:32)
+              [1] test_seasons_weather_freeze_reduce_motion_and_reflection_layers_share_interfaces (res://tests/week_14/g3/test_grass_garden.gd:241)
+              [2] _run_test (res://addons/gut/gut.gd:622)
+              [3] before_each (res://tests/week_14/g3/test_grass_garden.gd:28)
+              [4] _settle (res://tests/week_14/g3/test_grass_garden.gd:62)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] test_seasons_weather_freeze_reduce_motion_and_reflection_layers_share_interfaces (res://tests/week_14/g3/test_grass_garden.gd:243)
+              [2] _run_test (res://addons/gut/gut.gd:622)
+              [3] before_each (res://tests/week_14/g3/test_grass_garden.gd:28)
+              [4] _settle (res://tests/week_14/g3/test_grass_garden.gd:62)
+[31m    [Failed] [0m
+      at line 247
+[31m    [Failed]:  [0mUnexpected Errors:
+    [1] <engine-2>Invalid access to property or key 'overcast' on a base object of type 'Dictionary'.
+    [2] <engine-2>Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+    [3] <engine-2>Invalid access to property or key 'overcast' on a base object of type 'Dictionary'.
+    [4] <engine-2>Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+    [5] <engine-2>Invalid access to property or key 'overcast' on a base object of type 'Dictionary'.
+    [6] <engine-2>Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+    [7] <engine-2>Invalid access to property or key 'overcast' on a base object of type 'Dictionary'.
+    [8] <engine-2>Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+      at line -1
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'overcast' on a base object of type 'Dictionary'.
+          at: SeasonalMusic.sync_calendar (res://features/audio/seasonal_music.gd:74)
+          GDScript backtrace (most recent call first):
+              [0] sync_calendar (res://features/audio/seasonal_music.gd:74)
+              [1] _process (res://features/living_world/living_playground.gd:92)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+* test_height_layers_match_mesh_roots_and_clearance_covers_full_wind
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'overcast' on a base object of type 'Dictionary'.
+          at: SeasonalMusic.sync_calendar (res://features/audio/seasonal_music.gd:74)
+          GDScript backtrace (most recent call first):
+              [0] sync_calendar (res://features/audio/seasonal_music.gd:74)
+              [1] _process (res://features/living_world/living_playground.gd:92)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at: LivingAtmosphere.update (res://features/living_world/living_atmosphere.gd:118)
+          GDScript backtrace (most recent call first):
+              [0] update (res://features/living_world/living_atmosphere.gd:118)
+              [1] _process (res://features/living_world/living_playground.gd:88)
+              [2] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+SCRIPT ERROR: Invalid access to property or key 'rain' on a base object of type 'Dictionary'.
+          at: PainterlyGrassGarden._process (res://features/living_world/living_playground.gd:96)
+          GDScript backtrace (most recent call first):
+              [0] _process (res://features/living_world/living_playground.gd:96)
+              [1] _process (res://features/painterly_grass/previews/grass_garden.gd:132)
+[1m7/10 passed.
+[0m
+
+
+
+[33m==============================================
+[0m[33m= Run Summary
+[0m[33m==============================================
+[0m[4m
+res://tests/week_14/g3/test_grass_garden.gd
+[0m- test_building_path_tree_pool_and_bridge_changes_preserve_unaffected_chunks
+[31m    [Failed]:  [0m[7] expected to equal [8]:  clearance edit 0
+          at line 146
+[31m    [Failed]:  [0m[9] expected to equal [10]:  clearance edit 3
+          at line 146
+- test_fifty_mixed_edits_undo_redo_restore_source_and_derived_versions
+[31m    [Failed]:  [0m[17] expected to equal [18]:  mixed edit 2
+          at line 200
+[31m    [Failed]:  [0m[21] expected to equal [22]:  mixed edit 7
+          at line 200
+[31m    [Failed]:  [0m[25] expected to equal [26]:  mixed edit 12
+          at line 200
+[31m    [Failed]:  [0m[29] expected to equal [30]:  mixed edit 17
+          at line 200
+[31m    [Failed]:  [0m[33] expected to equal [34]:  mixed edit 22
+          at line 200
+[31m    [Failed]:  [0m[37] expected to equal [38]:  mixed edit 27
+          at line 200
+[31m    [Failed]:  [0m[41] expected to equal [42]:  mixed edit 32
+          at line 200
+[31m    [Failed]:  [0m[45] expected to equal [46]:  mixed edit 37
+          at line 200
+[31m    [Failed]:  [0m[49] expected to equal [50]:  mixed edit 42
+          at line 200
+[31m    [Failed]:  [0m[53] expected to equal [54]:  mixed edit 47
+          at line 200
+[31m    [Failed]:  [0m[40] expected to equal [50]:  
+          at line 201
+- test_seasons_weather_freeze_reduce_motion_and_reflection_layers_share_interfaces
+[31m    [Failed]:  [0m
+          at line 247
+[31m    [Failed]:  [0mUnexpected Errors:
+    [1] <engine-2>Invalid access to property or key 'overcast' on a base object of type 'Dictionary'.
+    [2] <engine-2>Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+    [3] <engine-2>Invalid access to property or key 'overcast' on a base object of type 'Dictionary'.
+    [4] <engine-2>Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+    [5] <engine-2>Invalid access to property or key 'overcast' on a base object of type 'Dictionary'.
+    [6] <engine-2>Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+    [7] <engine-2>Invalid access to property or key 'overcast' on a base object of type 'Dictionary'.
+    [8] <engine-2>Invalid access to property or key 'cloud' on a base object of type 'Dictionary'.
+          at line -1
+
+Totals
+------
+Scripts               1
+Tests                10
+Passing Tests         7
+Failing Tests         3
+Asserts           20504/20519
+Time              45.363s
+
+
+[31m---- 3 failing tests ----
+[0m
+Results saved to reports/week_14/g3/tests.xml

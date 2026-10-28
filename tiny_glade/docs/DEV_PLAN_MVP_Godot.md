@@ -75,6 +75,10 @@ Godot 官方区分 Forward+、Mobile 与 Compatibility 的特性和性能范围�
 
 原型必须在导出的程序里运行。W2 评审输出录像、极限参数样例、帧时间和失败清单，不能只交一张静态截图。
 
+2026-10-25技术补充：用户明确要求采用Terrain3D与ProtonScatter改善地形和草地，并将性能测试后置。现以独立山谷美术样板验证，版本与许可固定在`toolchain.lock.json`及`features/landscape_lab/`。这是对上表早期“自研地形/散布”的用户授权调整；正式作品仍以WorldDocument和事务为权威，新插件视图的编辑迁移单独验收，不改批准PRD。[实际报告](weekly/week_14/LANDSCAPE_PLUGIN_LAB.md)。
+
+2026-10-26：用户接受样板并授权正式采用，已接入F5默认庭园；地形/池岸仍读WorldDocument与TerrainField，Terrain3D区域和四层草只作为可重建视图，旧档格式不变。编辑预览/取消/提交、撤销重做、存读档与摄影完成回归，性能及外部平台仍待验。[正式接入结果](weekly/week_14/PRODUCTION_LANDSCAPE.md)。
+
 ## 3. 模块架构与职责
 
 ### 3.1 数据流

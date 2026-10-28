@@ -1,0 +1,44 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/week_14/weather_production/test_weather_adoption.gd
+* test_headless_preserves_camera_and_uses_safe_sky_fallback
+* test_terrain_snow_assets_preserve_authoritative_heightfield
+* test_roof_envelopes_exist_for_rect_round_and_flat_without_changing_source_meshes
+* test_leaf_sprays_and_deciduous_crowns_are_not_solid_snow_sheets
+* test_snow_season_changes_do_not_change_source_or_start_headless_compute
+* test_source_mesh_adapter_handles_nonindexed_and_transformed_geometry
+* test_winter_eye_height_follows_visible_snow_without_moving_source_feet
+* test_footprint_projection_tracks_rendered_snow_surface
+* test_only_buried_ground_paths_receive_prints_while_bridge_decks_stay_excluded
+9/9 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               1
+Tests                 9
+Passing Tests         9
+Asserts            1546
+Time              6.357s
+
+
+---- All tests passed! ----
+
+Results saved to reports/week_14/weather_adoption/tests.xml
+WARNING: instance_reset_physics_interpolation() is deprecated.
+     at: _instance_reset_physics_interpolation_bind_compat_104269 (servers/rendering/rendering_server.compat.inc:62)
+     GDScript backtrace (most recent call first):
+         [0] configure (res://features/landscape_lab/terrain_adapter.gd:52)
+         [1] _deliver (res://features/landscape/production_terrain.gd:146)

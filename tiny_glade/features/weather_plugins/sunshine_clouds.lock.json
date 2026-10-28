@@ -1,0 +1,495 @@
+{
+  "repository": "https://github.com/Bonkahe/SunshineClouds2",
+  "commit": "a73a80b08fb37b255f8f10d49debd71e5541bd70",
+  "version": "2.7 + upstream Godot 4.7 camera fix",
+  "license": "MIT",
+  "license_file": "addons/SunshineClouds2/UPSTREAM_LICENSE",
+  "runtime_only_editor_dock_disabled": true,
+  "omitted": [
+    ".vs cache",
+    "repository root demo binaries",
+    "ExampleCloudsResource.tres",
+    "SunshineCloudsGDTestResource.tres",
+    "ExampleScene.tscn",
+    "compositor_test_scene.tscn"
+  ],
+  "local_renderer": "Metal Forward+; lab uses TAA without MSAA because upstream image2DMS write fails on Metal",
+  "files": {
+    "addons/SunshineClouds2/CloudsDriverIcon.svg": {
+      "sha256": "f0d4534aeae79f4b2a294347ba46f8fca57784cab325d43f9ca98eade64bad90",
+      "bytes": 4709,
+      "upstream_sha256": "f0d4534aeae79f4b2a294347ba46f8fca57784cab325d43f9ca98eade64bad90",
+      "upstream_git_blob": "d30e97ac8ec32c6a39e049a47b656f754cd15200",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/CloudsDriverIcon.svg.import": {
+      "sha256": "be4d962fdcc6420c2fbed74b71e0e34fb41bfebe9231df9084a14bd789ba469f",
+      "bytes": 1073,
+      "upstream_sha256": "ec140a2b2f7248ece1be37474f1e5731770e49d4bc3cdbe66c9efc66d58dd700",
+      "upstream_git_blob": "883c4841900eb85e374f549b30078df28bfebb55",
+      "godot_normalized_import": true
+    },
+    "addons/SunshineClouds2/CloudsInc.comp": {
+      "sha256": "8da0d86475ab114483e47c1ed9f419c3bbcc83d5dce1b6d531e5b440e8a54f58",
+      "bytes": 9022,
+      "upstream_sha256": "8da0d86475ab114483e47c1ed9f419c3bbcc83d5dce1b6d531e5b440e8a54f58",
+      "upstream_git_blob": "64ce50c2c85e400dedae1eb6e9730da8f6bb7a06",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/Dock/AccordionButton.gd": {
+      "sha256": "ba0f85007d500504227e39887ffc4ae4f96e6a842da1451bb95b6c1d17a7a899",
+      "bytes": 1112,
+      "upstream_sha256": "ba0f85007d500504227e39887ffc4ae4f96e6a842da1451bb95b6c1d17a7a899",
+      "upstream_git_blob": "bac3218bac74064f3c6722aee787fb3cac0b6f9f",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/Dock/AccordionButton.gd.uid": {
+      "sha256": "dbc2208d9838e2bb13b50bff1359d60edb174d0ea8d61c2d8992307a286d475c",
+      "bytes": 20,
+      "upstream_sha256": "dbc2208d9838e2bb13b50bff1359d60edb174d0ea8d61c2d8992307a286d475c",
+      "upstream_git_blob": "7e1b1f91ad975ffe81cac2461f1bf46c0351f96c",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/Dock/AdaptingGridContainer.gd": {
+      "sha256": "c4e37831dd0e5138a8516458f4e9aa62719b37ca5700948fb133a6d53146bc23",
+      "bytes": 457,
+      "upstream_sha256": "c4e37831dd0e5138a8516458f4e9aa62719b37ca5700948fb133a6d53146bc23",
+      "upstream_git_blob": "901bba1d65ad0b3d629d206d30d01432799df509",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/Dock/AdaptingGridContainer.gd.uid": {
+      "sha256": "42e060192b2dbda79b3e01e23237662f2ccc5d0a18da9464924e06af5821699b",
+      "bytes": 20,
+      "upstream_sha256": "42e060192b2dbda79b3e01e23237662f2ccc5d0a18da9464924e06af5821699b",
+      "upstream_git_blob": "8b5d83db799421c149075e8b6e7e44fcdb80ace2",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/Dock/CloudsDrawBrush.tscn": {
+      "sha256": "655e7a2a9fec5df2b1a2a6fc80175eacececd429b6baac9bbc6cdbefe4c21dee",
+      "bytes": 605,
+      "upstream_sha256": "655e7a2a9fec5df2b1a2a6fc80175eacececd429b6baac9bbc6cdbefe4c21dee",
+      "upstream_git_blob": "4b304d0e471d8f669049e4c0605b2f4b8c584cba",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/Dock/CloudsEditorController.gd": {
+      "sha256": "26f294fe3158a98a3892215676e1201e4b814ca4fe1af3c1eb61e649ee63eca3",
+      "bytes": 36703,
+      "upstream_sha256": "26f294fe3158a98a3892215676e1201e4b814ca4fe1af3c1eb61e649ee63eca3",
+      "upstream_git_blob": "1eabbe2ff6743f6237f932034ac41f25e0da0141",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/Dock/CloudsEditorController.gd.uid": {
+      "sha256": "473e97fd6a04f1979cc7bb7656bc1d2f5702d6b25a0bfb77a23c7b06fc2a0572",
+      "bytes": 20,
+      "upstream_sha256": "473e97fd6a04f1979cc7bb7656bc1d2f5702d6b25a0bfb77a23c7b06fc2a0572",
+      "upstream_git_blob": "b7f10e56a18db856d60a29bb90384af073fc4da7",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/Dock/CloudsEditorDock.tscn": {
+      "sha256": "4acaa64da7e1d99b0124a104a2bf5a8a54e9c95690c8762db6b34a33bfa8bd09",
+      "bytes": 17107,
+      "upstream_sha256": "4acaa64da7e1d99b0124a104a2bf5a8a54e9c95690c8762db6b34a33bfa8bd09",
+      "upstream_git_blob": "34216b695407edcc7aaf7d502fbf9ed41eb6f938",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/Dock/DockPanelStyle.tres": {
+      "sha256": "d857c8c5e26d1f947eff38a1307a42271561ecdbf9d86d82d0025cfcab92febe",
+      "bytes": 131,
+      "upstream_sha256": "d857c8c5e26d1f947eff38a1307a42271561ecdbf9d86d82d0025cfcab92febe",
+      "upstream_git_blob": "a11d03816b5e2b2bc02fc9c030896ffb38c034ed",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/Dock/Icons/caret-down-solid.svg": {
+      "sha256": "523d7e1d291e91fdcc7e86445340352d6fe38347e197ca889e78a9bff2616000",
+      "bytes": 1385,
+      "upstream_sha256": "523d7e1d291e91fdcc7e86445340352d6fe38347e197ca889e78a9bff2616000",
+      "upstream_git_blob": "b004732c50a35f8c8f5642729298a8d3117c53e2",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/Dock/Icons/caret-down-solid.svg.import": {
+      "sha256": "d421a4bdadd0b433d1d87160387be5acf49b779a14b7de00ee25922229343f86",
+      "bytes": 1082,
+      "upstream_sha256": "64958d91841d091516a2287cb74c41d105bdbd19b5c4dc0c0d0e1f5cf6111327",
+      "upstream_git_blob": "b3bc3bff78cb09e913c9e9d336c02d408304d55c",
+      "godot_normalized_import": true
+    },
+    "addons/SunshineClouds2/Dock/Icons/caret-up-solid.svg": {
+      "sha256": "19e8d9189f85a61660084ad0e0a3da141d5e7c96c1fab08ff0147c233a6ae23f",
+      "bytes": 1383,
+      "upstream_sha256": "19e8d9189f85a61660084ad0e0a3da141d5e7c96c1fab08ff0147c233a6ae23f",
+      "upstream_git_blob": "c8e6734f9ee74fd599433dcc5d12c6b8cb2661c5",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/Dock/Icons/caret-up-solid.svg.import": {
+      "sha256": "cf5183404b780f72bc91d7e7ff151429ecdd304c78ac3d758daa3efb502e7bd0",
+      "bytes": 1076,
+      "upstream_sha256": "f82fe947d6e5f634386b2cdb0bf9661edd163a5aeee2a91c6bbdc6c5727adaf4",
+      "upstream_git_blob": "7bb69cfb446a8fa28c9d5017d49e6ca93d82816e",
+      "godot_normalized_import": true
+    },
+    "addons/SunshineClouds2/Dock/Icons/cloud-solid-hovered.svg": {
+      "sha256": "9c807b8c1b025ac2c35c1c18d605fdfab6ef63d25ace4e74798c6d19107aa0e1",
+      "bytes": 1482,
+      "upstream_sha256": "9c807b8c1b025ac2c35c1c18d605fdfab6ef63d25ace4e74798c6d19107aa0e1",
+      "upstream_git_blob": "e6320fabd5732b95bf6a9edaa7d46f45c79db06a",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/Dock/Icons/cloud-solid-hovered.svg.import": {
+      "sha256": "aa9dea56e5f54931cc7f5c450f135c1a60e0578445636c6cd4ba7fe7b4398c65",
+      "bytes": 1091,
+      "upstream_sha256": "9bacd8464b6c49e2e5f6210a0c29083fa4308a4a53d53899173c760127bd204f",
+      "upstream_git_blob": "19e7a4fb91f9bfd2a7f688bbbb8f0c766ef3cc54",
+      "godot_normalized_import": true
+    },
+    "addons/SunshineClouds2/Dock/Icons/cloud-solid-toggled.svg": {
+      "sha256": "d815727001a9b4868e85c764d74f4ee58ec219f224bc4c88a096e39866a8c040",
+      "bytes": 2830,
+      "upstream_sha256": "d815727001a9b4868e85c764d74f4ee58ec219f224bc4c88a096e39866a8c040",
+      "upstream_git_blob": "2bf52ea22eb722f1d389ecb658189c002db1ba11",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/Dock/Icons/cloud-solid-toggled.svg.import": {
+      "sha256": "c81da02724d2b3da536488dd87d5fff582c08fab9c2fb94b284b8d9e890946ce",
+      "bytes": 1091,
+      "upstream_sha256": "69f8e6828d2969b4d280cab6fc3948e400bccea723725a2f18b884f0a672cdb3",
+      "upstream_git_blob": "90b6d96d2927b6aaa65d352ae008daffd7b4750e",
+      "godot_normalized_import": true
+    },
+    "addons/SunshineClouds2/Dock/Icons/cloud-solid.svg": {
+      "sha256": "b05b11727e72b92945f71fc3f6242a98dbd750c63fba5d45a1f715f14b7b9cd1",
+      "bytes": 1474,
+      "upstream_sha256": "b05b11727e72b92945f71fc3f6242a98dbd750c63fba5d45a1f715f14b7b9cd1",
+      "upstream_git_blob": "ccc8b22ada76ca9b4e27ef748b58d8a5cba4833d",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/Dock/Icons/cloud-solid.svg.import": {
+      "sha256": "cc1ff0eaf14cd49d048da1d91940ca904ec919a03c6471b3f4247d46b99ef20a",
+      "bytes": 1068,
+      "upstream_sha256": "a185663c00d0f8327e78b4fb567cb1a80299557b616fdf97da72c20042927ee2",
+      "upstream_git_blob": "cbc8f93c7898184f4f6d1cdfc3e22466badfce51",
+      "godot_normalized_import": true
+    },
+    "addons/SunshineClouds2/Dock/Icons/paintbrush-solid-hovered.svg": {
+      "sha256": "a45591f6f53fd756034cc0cce8c6ec0a78287bf967528fa94f526ae446ab65b3",
+      "bytes": 1578,
+      "upstream_sha256": "a45591f6f53fd756034cc0cce8c6ec0a78287bf967528fa94f526ae446ab65b3",
+      "upstream_git_blob": "73f15f1409e59f0d7b6dc1d0bbc6e3f012b77d58",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/Dock/Icons/paintbrush-solid-hovered.svg.import": {
+      "sha256": "3191fb44f7ab5909662cf85dd90d3e37f1a653c1b10618f63628993809e89342",
+      "bytes": 1107,
+      "upstream_sha256": "fc865201628a5de4fc72ae799c6fa8b04ae62768857d2ad655fad969e0b83c9b",
+      "upstream_git_blob": "67ebdea8c069a69008bd91d71abf498903de1dfc",
+      "godot_normalized_import": true
+    },
+    "addons/SunshineClouds2/Dock/Icons/paintbrush-solid-toggled.svg": {
+      "sha256": "1e29185a8645f143ea4bde8df5bf09f2ee9e8291df401efa152213afef18697b",
+      "bytes": 3406,
+      "upstream_sha256": "1e29185a8645f143ea4bde8df5bf09f2ee9e8291df401efa152213afef18697b",
+      "upstream_git_blob": "d9cfd4f8d9ea4e518a9fda05494e3d78b0273a5c",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/Dock/Icons/paintbrush-solid-toggled.svg.import": {
+      "sha256": "62854a6e19800e7d92737bf50b0b8014a84ecc459f5a35a6eb3b9fec10c1a7cc",
+      "bytes": 1107,
+      "upstream_sha256": "f0a39afe8ccaf13232b7de65dc05b827302a93fda21895557871a5944c83d16f",
+      "upstream_git_blob": "304b5c23d1762ff426aac8adaf4fb0b196fde7af",
+      "godot_normalized_import": true
+    },
+    "addons/SunshineClouds2/Dock/Icons/paintbrush-solid.svg": {
+      "sha256": "d5775d8e70708754682daf133d9e243ff4183576ae9752df22051ccb6b83717d",
+      "bytes": 1570,
+      "upstream_sha256": "d5775d8e70708754682daf133d9e243ff4183576ae9752df22051ccb6b83717d",
+      "upstream_git_blob": "d90e22de873cc15f14931821988dacb5e960d22d",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/Dock/Icons/paintbrush-solid.svg.import": {
+      "sha256": "563ab2360b1824cafa0252d204f1b7b038623a2b67893efeda1e65ec1fe05794",
+      "bytes": 1083,
+      "upstream_sha256": "9022b42f72d6a4a6ab1331f70822348875a9aeba446dd7dd43695ae1b4b6829d",
+      "upstream_git_blob": "aa2e09c8f21851f52ff9bb911ecb0f7c2821b911",
+      "godot_normalized_import": true
+    },
+    "addons/SunshineClouds2/Dock/MaskDrawingCompute.glsl": {
+      "sha256": "828ce32a85048ddea68daf31bfdcfbc6ef33fa6ad31ab5e87406e814a90e69d7",
+      "bytes": 1407,
+      "upstream_sha256": "828ce32a85048ddea68daf31bfdcfbc6ef33fa6ad31ab5e87406e814a90e69d7",
+      "upstream_git_blob": "f05d7f7306e587ab84d710261921de80e69f26b2",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/Dock/MaskDrawingCompute.glsl.import": {
+      "sha256": "7340a2076d1182ef32e808a2dbe01cc9d7984314ab1b436385520b9ad862a126",
+      "bytes": 351,
+      "upstream_sha256": "7340a2076d1182ef32e808a2dbe01cc9d7984314ab1b436385520b9ad862a126",
+      "upstream_git_blob": "1929ed502f7d76d833c9379d584a0f3362a497dc",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/Dock/Materials/DrawBrushToolsMaterial.tres": {
+      "sha256": "2d04a014c248e30ec4ec391d01be93f940d677ee4f0c0c4ad8387dc142605c3f",
+      "bytes": 697,
+      "upstream_sha256": "2d04a014c248e30ec4ec391d01be93f940d677ee4f0c0c4ad8387dc142605c3f",
+      "upstream_git_blob": "36ac99cb50c6813ac44bd5c2352f8f0fd6bf8c2a",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/NoiseTextures/ExtraLargeScaleNoise.tres": {
+      "sha256": "cda3fdf67cb0cd07079537225cc4c2ffa7ff4a191bea8cfe539d4120c16d293a",
+      "bytes": 422,
+      "upstream_sha256": "cda3fdf67cb0cd07079537225cc4c2ffa7ff4a191bea8cfe539d4120c16d293a",
+      "upstream_git_blob": "afa1306c351efdf4c7b463f9bf460f662a28e668",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/NoiseTextures/HeightGradient.tres": {
+      "sha256": "6215f8f6755d8f4462a99c9a2e94aaee768a4ed30879ed5584376f9151128728",
+      "bytes": 456,
+      "upstream_sha256": "6215f8f6755d8f4462a99c9a2e94aaee768a4ed30879ed5584376f9151128728",
+      "upstream_git_blob": "f5b41540b4148d5c5fd18c3615aac9efd3412341",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/NoiseTextures/HeightGradient2.tres": {
+      "sha256": "205fd3069a604074793e4c34f9b901853a7dc91de49ec70af03c1fbc89f4c5e4",
+      "bytes": 342,
+      "upstream_sha256": "205fd3069a604074793e4c34f9b901853a7dc91de49ec70af03c1fbc89f4c5e4",
+      "upstream_git_blob": "d924b7da46d6aff2a170874806633e4c1d99b62c",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/NoiseTextures/LargeScaleNoise.tres": {
+      "sha256": "9694fe98372abee9da65f850ea2ca6db14724ec8bf54fcaf0d0be3d228de3d05",
+      "bytes": 326,
+      "upstream_sha256": "9694fe98372abee9da65f850ea2ca6db14724ec8bf54fcaf0d0be3d228de3d05",
+      "upstream_git_blob": "5902f5f049353d555c9778ea8ae66bf52b1f54cf",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/NoiseTextures/MediumScaleNoise.tres": {
+      "sha256": "a8c78581676f671d15e61b3888d1e27d7047ba480f5c69f4eba59ca78b6f4ee0",
+      "bytes": 311,
+      "upstream_sha256": "a8c78581676f671d15e61b3888d1e27d7047ba480f5c69f4eba59ca78b6f4ee0",
+      "upstream_git_blob": "ba0ddddb700c6ad8aa2305953144e99bcd212f7d",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/NoiseTextures/SmallScaleNoise.tres": {
+      "sha256": "1eb99f4a6ed2872930b6d56b6b26f238e0be10126e6119bf676cb23b1f688a8a",
+      "bytes": 311,
+      "upstream_sha256": "1eb99f4a6ed2872930b6d56b6b26f238e0be10126e6119bf676cb23b1f688a8a",
+      "upstream_git_blob": "e70916fcd4a7702a0ccb11e8da3e173c018c8a57",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/NoiseTextures/bluenoise_Dither.png": {
+      "sha256": "3612096421e82e99f45f121d38e94284047d4d98d951e05d9f42e80c56fed698",
+      "bytes": 262616,
+      "upstream_sha256": "3612096421e82e99f45f121d38e94284047d4d98d951e05d9f42e80c56fed698",
+      "upstream_git_blob": "63cdf56ca9b0463a39e3265e1ab8d7be041fe43c",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/NoiseTextures/bluenoise_Dither.png.import": {
+      "sha256": "4890969c02e636356c2ef95660ed3300bf107c16663e987d7e33c7d3bbc64172",
+      "bytes": 659,
+      "upstream_sha256": "afa6d26a69f50cb9f53df561f9ea95a3f4104708eb5fb9963d30823cbcf040ab",
+      "upstream_git_blob": "f54f5d1385f72f9c402b298f9fe738da0bca280e",
+      "godot_normalized_import": true
+    },
+    "addons/SunshineClouds2/NoiseTextures/curl_noise_packed.png": {
+      "sha256": "9c18cd9279caba56a708ab23d00ebb7a19f23be4c117f29fc4273380149a9da8",
+      "bytes": 4566744,
+      "upstream_sha256": "9c18cd9279caba56a708ab23d00ebb7a19f23be4c117f29fc4273380149a9da8",
+      "upstream_git_blob": "825e585eae5add12ad0cc61c5aef4f635119e61a",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/NoiseTextures/curl_noise_packed.png.import": {
+      "sha256": "d94ef9d92687fe1f72b8af2dc9e2635d8acf2378c0c99b42465466378a3edcf9",
+      "bytes": 662,
+      "upstream_sha256": "19be0d53e2a99c30579653f6c84113a2916693f76c4ebf1845ff352eb68164f0",
+      "upstream_git_blob": "972313089f2b006fdf7e855ff8af663afae5e60c",
+      "godot_normalized_import": true
+    },
+    "addons/SunshineClouds2/NoiseTextures/curl_noise_varied.tga": {
+      "sha256": "acf7b11deb5d637a6bca039c572537bf562cb8e87e79c6081177954ac5057cd1",
+      "bytes": 8388652,
+      "upstream_sha256": "acf7b11deb5d637a6bca039c572537bf562cb8e87e79c6081177954ac5057cd1",
+      "upstream_git_blob": "90e9d166b8446a7214e8b32cdc753dc816b2a6b5",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/NoiseTextures/curl_noise_varied.tga.import": {
+      "sha256": "77a448540e40ee8c95df71ceab99315d0c68e04ba08f5346a4ffe276482f4040",
+      "bytes": 663,
+      "upstream_sha256": "c8fa303ee31a193baa552b14c11c1c065a98df25a7c692d8482fb2135270602a",
+      "upstream_git_blob": "86b33d46cb07873b7c30e4b72519111844f364ec",
+      "godot_normalized_import": true
+    },
+    "addons/SunshineClouds2/SunshineCloudEffector.gd": {
+      "sha256": "0a7cb1c6aa6c7b2ccc92ee9b0d3c311bf02f38ceae86bb6891b7a50de1aa1026",
+      "bytes": 167,
+      "upstream_sha256": "0a7cb1c6aa6c7b2ccc92ee9b0d3c311bf02f38ceae86bb6891b7a50de1aa1026",
+      "upstream_git_blob": "7ad0a5861c5c0ef438b33172bd78ac011ffd5239",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/SunshineCloudEffector.gd.uid": {
+      "sha256": "0435998240a524e1bbf101c40c082c1f14e2a73e7fe5522ef1063ebbd244a2f8",
+      "bytes": 20,
+      "upstream_sha256": "0435998240a524e1bbf101c40c082c1f14e2a73e7fe5522ef1063ebbd244a2f8",
+      "upstream_git_blob": "6683a3b8b1afa13cd6891362529126c01969ab21",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/SunshineClouds.gd": {
+      "sha256": "71fb1cd0e3891c218f22a52784e8c6406cf50bc2756533882d0885a2de16ec8a",
+      "bytes": 51989,
+      "upstream_sha256": "71fb1cd0e3891c218f22a52784e8c6406cf50bc2756533882d0885a2de16ec8a",
+      "upstream_git_blob": "4c74338d488d53de5567c79a838f92521fdb5b28",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/SunshineClouds.gd.uid": {
+      "sha256": "f7ba8a7fd5616ff41302c3583996979bec9b9fffc7fcfdbe9a41b28f11f4d86d",
+      "bytes": 20,
+      "upstream_sha256": "f7ba8a7fd5616ff41302c3583996979bec9b9fffc7fcfdbe9a41b28f11f4d86d",
+      "upstream_git_blob": "8fe63b727da0b743b165a055cec562c4ef488721",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/SunshineClouds2.gd": {
+      "sha256": "97001abae1f7795794210e719ffdd46442baf18d952e1f4dc4502e923ab13783",
+      "bytes": 1790,
+      "upstream_sha256": "97001abae1f7795794210e719ffdd46442baf18d952e1f4dc4502e923ab13783",
+      "upstream_git_blob": "aeca8bf13409651413aeb63787f5c93c1893c1a0",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/SunshineClouds2.gd.uid": {
+      "sha256": "d02d13b2b0646f8edc8ae3a8dd8b92093fa5c6b1506314840ac0f78d4b143086",
+      "bytes": 20,
+      "upstream_sha256": "d02d13b2b0646f8edc8ae3a8dd8b92093fa5c6b1506314840ac0f78d4b143086",
+      "upstream_git_blob": "e52fdb844fe820507859fff6f666d0581795dc0c",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/SunshineCloudsCompute.glsl": {
+      "sha256": "635048edee9eb1e92c4db0b2151975ce98675a9695469fd01eead5dd1e1c30bc",
+      "bytes": 42324,
+      "upstream_sha256": "635048edee9eb1e92c4db0b2151975ce98675a9695469fd01eead5dd1e1c30bc",
+      "upstream_git_blob": "9b72414ea2fffdb7aa8398bcc3a34c4266ed518b",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/SunshineCloudsCompute.glsl.import": {
+      "sha256": "87671df94441a823d1fcd2dd43bcde806d33884cc568f1159c22c420c1d779c7",
+      "bytes": 355,
+      "upstream_sha256": "87671df94441a823d1fcd2dd43bcde806d33884cc568f1159c22c420c1d779c7",
+      "upstream_git_blob": "d7c61e700ebd7aa02b0f93aca2bc66219476c1a2",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/SunshineCloudsDisplay.glsl": {
+      "sha256": "60e152ffb7ee5318109eccd810581127dde8ed51a219ae167516a749459aaddb",
+      "bytes": 229,
+      "upstream_sha256": "60e152ffb7ee5318109eccd810581127dde8ed51a219ae167516a749459aaddb",
+      "upstream_git_blob": "7570d8e09f50c32b6ed28a210082d6db0d4f063b",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/SunshineCloudsDisplay.glsl.import": {
+      "sha256": "bc80c4ddf3a212df99cebfe07dcaf6cb65449706f5cd34acb13c2dcb21b10f0e",
+      "bytes": 355,
+      "upstream_sha256": "bc80c4ddf3a212df99cebfe07dcaf6cb65449706f5cd34acb13c2dcb21b10f0e",
+      "upstream_git_blob": "4fefa183944283b5fe2546101f9c50583c9dfa39",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/SunshineCloudsDisplay.msaa.glsl": {
+      "sha256": "8060bfdc7c7b28c772fde5ef4bf7513cebd3007a9c12471ce3404d8c9c94a58b",
+      "bytes": 277,
+      "upstream_sha256": "8060bfdc7c7b28c772fde5ef4bf7513cebd3007a9c12471ce3404d8c9c94a58b",
+      "upstream_git_blob": "7577a53e8abb96d13e69e0c13e15339899a5f956",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/SunshineCloudsDisplay.msaa.glsl.import": {
+      "sha256": "cf63bd6ac197088ef5a5117a2c19565f19ebbdabd222d9a33208f2c262d1141d",
+      "bytes": 369,
+      "upstream_sha256": "cf63bd6ac197088ef5a5117a2c19565f19ebbdabd222d9a33208f2c262d1141d",
+      "upstream_git_blob": "5bea8e4d082acb4d0a10ca885a7bd884d190a3a7",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/SunshineCloudsDisplay.rast": {
+      "sha256": "dcd42134f1692b5620c08cf24f042d379c8377cd414fabea31af56b9c5c7d356",
+      "bytes": 456,
+      "upstream_sha256": "dcd42134f1692b5620c08cf24f042d379c8377cd414fabea31af56b9c5c7d356",
+      "upstream_git_blob": "363a3cffd35293a4603a77a1ad3ad9087f732cca",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/SunshineCloudsDriver.gd": {
+      "sha256": "fbc1bc1fcd006904409a9141feb6c60a1fc90ee1163fa25ad25229c5c53a8394",
+      "bytes": 13383,
+      "upstream_sha256": "fbc1bc1fcd006904409a9141feb6c60a1fc90ee1163fa25ad25229c5c53a8394",
+      "upstream_git_blob": "f6df46b9ef6ad850a2e2c687f79ddb022bab146a",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/SunshineCloudsDriver.gd.uid": {
+      "sha256": "f879c0747ce3ea1f9b76322344bc995cfe191c5064f6e60bdc28bd29582ed5b8",
+      "bytes": 20,
+      "upstream_sha256": "f879c0747ce3ea1f9b76322344bc995cfe191c5064f6e60bdc28bd29582ed5b8",
+      "upstream_git_blob": "c73499caede2d58628cec2d52970446aedf6542e",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/SunshineCloudsPostCompute.comp": {
+      "sha256": "55d7bcb5c5cff086ff88d3b88a4d8db309c46f545bf8e3bbfd0cf6fd94f96930",
+      "bytes": 14602,
+      "upstream_sha256": "55d7bcb5c5cff086ff88d3b88a4d8db309c46f545bf8e3bbfd0cf6fd94f96930",
+      "upstream_git_blob": "af2dae480b53336769ad329acda80581a2a3ae7b",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/SunshineCloudsPostCompute.glsl": {
+      "sha256": "ad18865f3eaeb84fd6388914f3ac1195163efb6e2896db770d17cb1e544358c8",
+      "bytes": 97,
+      "upstream_sha256": "ad18865f3eaeb84fd6388914f3ac1195163efb6e2896db770d17cb1e544358c8",
+      "upstream_git_blob": "b32a9091d1560ece20d30cfa77d2d63735aaba08",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/SunshineCloudsPostCompute.glsl.import": {
+      "sha256": "b26eb518f275c80aaf7e993dd7f4cbba357e43b605596d377d72af9226e159c1",
+      "bytes": 367,
+      "upstream_sha256": "b26eb518f275c80aaf7e993dd7f4cbba357e43b605596d377d72af9226e159c1",
+      "upstream_git_blob": "dbcbbf8d66d4108f57527ede876d3172b959af6f",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/SunshineCloudsPostCompute.msaa.glsl": {
+      "sha256": "91d962893e0472f161cb9d7ae9f027c7c45ba2175838ead4b497bc93f52c0c0b",
+      "bytes": 121,
+      "upstream_sha256": "91d962893e0472f161cb9d7ae9f027c7c45ba2175838ead4b497bc93f52c0c0b",
+      "upstream_git_blob": "94589988f7dd430ff7fd2317194437d4bcee5cf4",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/SunshineCloudsPostCompute.msaa.glsl.import": {
+      "sha256": "313b6e725a8448a58c59e499e80bdbce4f68fef7a3f391bd8552b4fca1b3c4a2",
+      "bytes": 382,
+      "upstream_sha256": "313b6e725a8448a58c59e499e80bdbce4f68fef7a3f391bd8552b4fca1b3c4a2",
+      "upstream_git_blob": "f606bf8c469ebf8d3c3791856c34798f4eedc57f",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/SunshineCloudsPreCompute.glsl": {
+      "sha256": "70476eca23a1540ad2de1fecb83076a44b6859f65fa32bec15d0154206440c14",
+      "bytes": 1513,
+      "upstream_sha256": "70476eca23a1540ad2de1fecb83076a44b6859f65fa32bec15d0154206440c14",
+      "upstream_git_blob": "2f0541941ad5e6407e9b1ca1ccfe67a297f89f6b",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/SunshineCloudsPreCompute.glsl.import": {
+      "sha256": "b75e4366e23cae903ebd7e065d6262b6f2a3f54f4a6d1f0ac103c097d8b3f3c4",
+      "bytes": 364,
+      "upstream_sha256": "b75e4366e23cae903ebd7e065d6262b6f2a3f54f4a6d1f0ac103c097d8b3f3c4",
+      "upstream_git_blob": "ed4ad3fbd0f6c6e59670fcd25e7d795e79371d5d",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/plugin.cfg": {
+      "sha256": "b5ae05f6a5213bcd624b0677c09b1108e8ec2e73257099b1cd1cf3ea98874e7c",
+      "bytes": 152,
+      "upstream_sha256": "b5ae05f6a5213bcd624b0677c09b1108e8ec2e73257099b1cd1cf3ea98874e7c",
+      "upstream_git_blob": "34229c97b9b1054d206b738123cc2d5f6416e85e",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/UPSTREAM_LICENSE": {
+      "sha256": "9a6c6a64821878a9523188d7bbcad84bc4a27d822316be7ca34f57b07a27f5ab",
+      "bytes": 1068,
+      "upstream_sha256": "9a6c6a64821878a9523188d7bbcad84bc4a27d822316be7ca34f57b07a27f5ab",
+      "upstream_git_blob": "d506b85252f941848d3bc18be9bb0523178ad1f8",
+      "godot_normalized_import": false
+    },
+    "addons/SunshineClouds2/UPSTREAM_README.md": {
+      "sha256": "e817b7147456be34325d873c1aead6e25b0d2f893f4b6dfc7c139e732f4f290c",
+      "bytes": 3349,
+      "upstream_sha256": "e817b7147456be34325d873c1aead6e25b0d2f893f4b6dfc7c139e732f4f290c",
+      "upstream_git_blob": "0057ebe1dd54b075379fcad16522d097265724d6",
+      "godot_normalized_import": false
+    }
+  }
+}

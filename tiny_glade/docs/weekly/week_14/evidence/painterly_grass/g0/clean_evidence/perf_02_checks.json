@@ -1,0 +1,30 @@
+{
+  "godot_tests": 656,
+  "python_tests": 28,
+  "new_godot_tests": 33,
+  "new_assertions": 1159,
+  "new_python_tests": 5,
+  "failures": 0,
+  "skipped": 0,
+  "negative_control": true,
+  "functional_gate_passed": true,
+  "m4_approved": false,
+  "m5_approved": false,
+  "steps": [
+    {
+      "name": "perf02_cumulative",
+      "exit_code": 0,
+      "seconds": 228.644
+    },
+    {
+      "name": "perf02_tests",
+      "exit_code": 0,
+      "seconds": 42.688
+    },
+    {
+      "name": "perf02_protocol_tests",
+      "exit_code": 0,
+      "seconds": 0.047
+    }
+  ]
+}

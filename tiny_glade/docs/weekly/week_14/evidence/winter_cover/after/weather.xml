@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="9" >
+  <testsuite name="tests/week_13/test_weather_blend.gd" tests="9" failures="0" skipped="0" time="0.051272" >
+      <testcase name="test_first_sample_is_ready_without_a_startup_fade" assertions="2" status="pass" classname="tests/week_13/test_weather_blend.gd" time="0.000093" >
+      </testcase>
+      <testcase name="test_clouds_and_dimming_precede_the_first_rain" assertions="7" status="pass" classname="tests/week_13/test_weather_blend.gd" time="0.000101" >
+      </testcase>
+      <testcase name="test_all_weather_pairs_are_continuous_and_reach_their_targets" assertions="8192" status="pass" classname="tests/week_13/test_weather_blend.gd" time="0.049916" >
+      </testcase>
+      <testcase name="test_rapid_retarget_starts_at_the_current_visual_without_a_jump" assertions="3" status="pass" classname="tests/week_13/test_weather_blend.gd" time="0.00022" >
+      </testcase>
+      <testcase name="test_freeze_holds_transition_and_unfreeze_resumes" assertions="2" status="pass" classname="tests/week_13/test_weather_blend.gd" time="0.000276" >
+      </testcase>
+      <testcase name="test_partitioned_time_matches_coarse_steps" assertions="7" status="pass" classname="tests/week_13/test_weather_blend.gd" time="0.000392" >
+      </testcase>
+      <testcase name="test_clearing_rain_ends_before_clouds_finish_clearing" assertions="2" status="pass" classname="tests/week_13/test_weather_blend.gd" time="0.000056" >
+      </testcase>
+      <testcase name="test_season_change_blends_snow_cover_without_mutating_source" assertions="7" status="pass" classname="tests/week_13/test_weather_blend.gd" time="0.000165" >
+      </testcase>
+      <testcase name="test_already_overcast_weather_can_start_precipitation_when_retargeted_quickly" assertions="2" status="pass" classname="tests/week_13/test_weather_blend.gd" time="0.000053" >
+      </testcase>
+  </testsuite>
+</testsuites>

@@ -1,0 +1,162 @@
+[
+  {
+    "asset_id": "blades",
+    "vendor_object": "Basic_Grass_13",
+    "modifier": "Blades Grass",
+    "uv_names": [
+      "UVMap",
+      "UVRandom",
+      "UVAniso"
+    ],
+    "triangles": 24,
+    "source_object_scale": [
+      1.3523330688476562,
+      1.3523330688476562,
+      1.3523330688476562
+    ],
+    "modifiers_applied": 0,
+    "source": "art_source/painterly_grass/local/valley/blades.blend",
+    "export": "assets/painterly_grass/local/valley/blades.glb",
+    "budget": 24,
+    "vertices": 34,
+    "sockets": [
+      "socket_ground"
+    ],
+    "source_sha256": "1282a02cc9b6d95e1addecd42afc7c8d3e131b437638ac6f4cce8188b79ba87e",
+    "export_sha256": "bcbcd22ef2d2831be754deb036fe32b79f7185203716f69ffb6aaaffe4f2a727",
+    "dimensions_y_up": [
+      1.51127028465271,
+      1.0602200031280518,
+      1.597992181777954
+    ],
+    "material_surfaces": 1,
+    "generator_version": "valley_grass_extract_1",
+    "library_sha256": "487631daaefc27eec0b02a2457c7eb4d93a78f48c14c0bf891ba1b50d99b3be3",
+    "texture": "assets/painterly_grass/local/valley/coverage4k.png",
+    "texture_sha256": "91db86dc6c885c9768de2596a32eeed0c2cc75f00f2be47f73328201f8954212",
+    "origin": "original raw mesh origin; pair with GN instance basis and burial offset",
+    "up_axis": "gltf Y-up",
+    "normals": "original evaluated corner normals preserved",
+    "license_status": "local-only; repository/distribution terms pending"
+  },
+  {
+    "asset_id": "detail",
+    "vendor_object": "Detailed_Wave_Grass_06",
+    "modifier": "Detail Puffs",
+    "uv_names": [
+      "UVMap",
+      "UVRandom",
+      "UVAniso"
+    ],
+    "triangles": 2288,
+    "source_object_scale": [
+      1.2197651863098145,
+      1.2301599979400635,
+      1.2197651863098145
+    ],
+    "modifiers_applied": 1,
+    "source": "art_source/painterly_grass/local/valley/detail.blend",
+    "export": "assets/painterly_grass/local/valley/detail.glb",
+    "budget": 2288,
+    "vertices": 1921,
+    "sockets": [
+      "socket_ground"
+    ],
+    "source_sha256": "2b4426430eb3b7046ca4ebfdcbd92ed82801ef89f59df033ad49318331e9b12c",
+    "export_sha256": "0656a867dc8f89e73f4efda5aa4845671613ae708db630e41b37ee0e67453e84",
+    "dimensions_y_up": [
+      1.4041316509246826,
+      0.9744814038276672,
+      1.54691481590271
+    ],
+    "material_surfaces": 1,
+    "generator_version": "valley_grass_extract_1",
+    "library_sha256": "487631daaefc27eec0b02a2457c7eb4d93a78f48c14c0bf891ba1b50d99b3be3",
+    "texture": "assets/painterly_grass/local/valley/coverage4k.png",
+    "texture_sha256": "91db86dc6c885c9768de2596a32eeed0c2cc75f00f2be47f73328201f8954212",
+    "origin": "original raw mesh origin; pair with GN instance basis and burial offset",
+    "up_axis": "gltf Y-up",
+    "normals": "original evaluated corner normals preserved",
+    "license_status": "local-only; repository/distribution terms pending"
+  },
+  {
+    "asset_id": "puffs",
+    "vendor_object": "Basic_Grass_04",
+    "modifier": "Puffs2",
+    "uv_names": [
+      "UVMap",
+      "UVRandom",
+      "UVAniso"
+    ],
+    "triangles": 28,
+    "source_object_scale": [
+      1.3523330688476562,
+      1.3523330688476562,
+      1.3523330688476562
+    ],
+    "modifiers_applied": 0,
+    "source": "art_source/painterly_grass/local/valley/puffs.blend",
+    "export": "assets/painterly_grass/local/valley/puffs.glb",
+    "budget": 28,
+    "vertices": 49,
+    "sockets": [
+      "socket_ground"
+    ],
+    "source_sha256": "46df33bc2f687d9dd62079d7eb426f6f5481c2bf024fc05334c1a90e4689bf32",
+    "export_sha256": "e97c612120949fd16c2a107138fa1f3da2d71cf17d6d1295153d4976cdab1481",
+    "dimensions_y_up": [
+      1.2763972282409668,
+      0.6757481098175049,
+      1.3076105117797852
+    ],
+    "material_surfaces": 1,
+    "generator_version": "valley_grass_extract_1",
+    "library_sha256": "487631daaefc27eec0b02a2457c7eb4d93a78f48c14c0bf891ba1b50d99b3be3",
+    "texture": "assets/painterly_grass/local/valley/coverage4k.png",
+    "texture_sha256": "91db86dc6c885c9768de2596a32eeed0c2cc75f00f2be47f73328201f8954212",
+    "origin": "original raw mesh origin; pair with GN instance basis and burial offset",
+    "up_axis": "gltf Y-up",
+    "normals": "original evaluated corner normals preserved",
+    "license_status": "local-only; repository/distribution terms pending"
+  },
+  {
+    "asset_id": "floor",
+    "vendor_object": "Basic_Grass_Floor_10",
+    "modifier": "Floor Grass",
+    "uv_names": [
+      "UVMap",
+      "UVRandom",
+      "UVAniso"
+    ],
+    "triangles": 8,
+    "source_object_scale": [
+      1.5121101140975952,
+      1.5121101140975952,
+      1.5121101140975952
+    ],
+    "modifiers_applied": 0,
+    "source": "art_source/painterly_grass/local/valley/floor.blend",
+    "export": "assets/painterly_grass/local/valley/floor.glb",
+    "budget": 8,
+    "vertices": 16,
+    "sockets": [
+      "socket_ground"
+    ],
+    "source_sha256": "845f1a1d37c6b9ef83fabbdc9562705c04d84f02e0766a7bc78d14576240ae6e",
+    "export_sha256": "767b5d9d6b0dc4598dc7bed0b2d253006e26c7ea5fd2be0b8cefa2551436b2da",
+    "dimensions_y_up": [
+      1.2719954252243042,
+      0.025225911289453506,
+      1.2778600454330444
+    ],
+    "material_surfaces": 1,
+    "generator_version": "valley_grass_extract_1",
+    "library_sha256": "487631daaefc27eec0b02a2457c7eb4d93a78f48c14c0bf891ba1b50d99b3be3",
+    "texture": "assets/painterly_grass/local/valley/coverage4k.png",
+    "texture_sha256": "91db86dc6c885c9768de2596a32eeed0c2cc75f00f2be47f73328201f8954212",
+    "origin": "original raw mesh origin; pair with GN instance basis and burial offset",
+    "up_axis": "gltf Y-up",
+    "normals": "original evaluated corner normals preserved",
+    "license_status": "local-only; repository/distribution terms pending"
+  }
+]

@@ -1,0 +1,137 @@
+[
+  {
+    "asset_id": "grass_card_a",
+    "vendor_object": "Basic_Grass_Card_01",
+    "scale_factor": 0.5,
+    "uv_names": [
+      "UVMap",
+      "UVRandom",
+      "UVAniso"
+    ],
+    "source": "art_source/painterly_grass/local/grass_card_a.blend",
+    "export": "assets/painterly_grass/local/grass_card_a.glb",
+    "triangles": 8,
+    "budget": 12,
+    "vertices": 9,
+    "sockets": [
+      "socket_ground"
+    ],
+    "source_sha256": "01ab79ed29d20772f24312f868fd23dd9f7449113cfd3b67be836684ac20f46e",
+    "export_sha256": "6d13579a60ea99cfc1dff6bd884067e88a7ee1b0889b23271cec4eebb92e5201",
+    "dimensions_y_up": [
+      0.35628196597099304,
+      0.4169085621833801,
+      0.09901387244462967
+    ],
+    "material_surfaces": 1,
+    "modifiers_applied": 0,
+    "generator_version": "painterly_grass_extract_1",
+    "library_sha256": "9d86f760b3ec2834d0726bb39ffe58607702a8789df46d1a7b6804e7fe5f920e",
+    "texture": "assets/painterly_grass/local/grass_coverage.png",
+    "texture_sha256": "e79bd3a4f229b7378a7c4b6410a4139c23ba98dfd94756c7c6fb491c14409b39",
+    "uv_mapping": {
+      "UVMap": "TEXCOORD_0 coverage",
+      "UVRandom": "same UV; replace randomness with INSTANCE_CUSTOM",
+      "UVAniso": "same UV; no anisotropic dependency"
+    },
+    "wind_channels": {
+      "R": "normalized local height; roots zero",
+      "G": "local flutter seed",
+      "B": "reserved",
+      "A": "1"
+    },
+    "origin": "ground centered",
+    "up_axis": "gltf Y-up",
+    "license_status": "local-only; repository/distribution terms pending"
+  },
+  {
+    "asset_id": "grass_card_b",
+    "vendor_object": "Basic_Grass_Card_03",
+    "scale_factor": 0.5,
+    "uv_names": [
+      "UVMap",
+      "UVRandom",
+      "UVAniso"
+    ],
+    "source": "art_source/painterly_grass/local/grass_card_b.blend",
+    "export": "assets/painterly_grass/local/grass_card_b.glb",
+    "triangles": 8,
+    "budget": 12,
+    "vertices": 9,
+    "sockets": [
+      "socket_ground"
+    ],
+    "source_sha256": "5b1f3064634e1f6e82df8eba418e36ecc58cb72134a5692d804dd75ac6a28dbc",
+    "export_sha256": "80010896561bb292a3ed0aaafe224d5dc1b0c592f12068899f4393a72370ca87",
+    "dimensions_y_up": [
+      0.24834349751472473,
+      0.4254020154476166,
+      0.09901387244462967
+    ],
+    "material_surfaces": 1,
+    "modifiers_applied": 0,
+    "generator_version": "painterly_grass_extract_1",
+    "library_sha256": "9d86f760b3ec2834d0726bb39ffe58607702a8789df46d1a7b6804e7fe5f920e",
+    "texture": "assets/painterly_grass/local/grass_coverage.png",
+    "texture_sha256": "e79bd3a4f229b7378a7c4b6410a4139c23ba98dfd94756c7c6fb491c14409b39",
+    "uv_mapping": {
+      "UVMap": "TEXCOORD_0 coverage",
+      "UVRandom": "same UV; replace randomness with INSTANCE_CUSTOM",
+      "UVAniso": "same UV; no anisotropic dependency"
+    },
+    "wind_channels": {
+      "R": "normalized local height; roots zero",
+      "G": "local flutter seed",
+      "B": "reserved",
+      "A": "1"
+    },
+    "origin": "ground centered",
+    "up_axis": "gltf Y-up",
+    "license_status": "local-only; repository/distribution terms pending"
+  },
+  {
+    "asset_id": "grass_floor",
+    "vendor_object": "Basic_Grass_Floor_04",
+    "scale_factor": 0.75,
+    "uv_names": [
+      "UVMap",
+      "UVRandom",
+      "UVAniso"
+    ],
+    "source": "art_source/painterly_grass/local/grass_floor.blend",
+    "export": "assets/painterly_grass/local/grass_floor.glb",
+    "triangles": 8,
+    "budget": 12,
+    "vertices": 16,
+    "sockets": [
+      "socket_ground"
+    ],
+    "source_sha256": "40a8a8e7fcb976ca148886287af2d31f1b46c185d9d25e36c9f54ae1c2fd9f04",
+    "export_sha256": "32b44ae6f79f02d8f188e00d7419854264aacf6738f677eed2a9b25db9472f54",
+    "dimensions_y_up": [
+      0.7374378964304924,
+      0.04391323775053024,
+      0.7978884726762772
+    ],
+    "material_surfaces": 1,
+    "modifiers_applied": 0,
+    "generator_version": "painterly_grass_extract_1",
+    "library_sha256": "9d86f760b3ec2834d0726bb39ffe58607702a8789df46d1a7b6804e7fe5f920e",
+    "texture": "assets/painterly_grass/local/grass_coverage.png",
+    "texture_sha256": "e79bd3a4f229b7378a7c4b6410a4139c23ba98dfd94756c7c6fb491c14409b39",
+    "uv_mapping": {
+      "UVMap": "TEXCOORD_0 coverage",
+      "UVRandom": "same UV; replace randomness with INSTANCE_CUSTOM",
+      "UVAniso": "same UV; no anisotropic dependency"
+    },
+    "wind_channels": {
+      "R": "normalized local height; roots zero",
+      "G": "local flutter seed",
+      "B": "reserved",
+      "A": "1"
+    },
+    "origin": "ground centered",
+    "up_axis": "gltf Y-up",
+    "license_status": "local-only; repository/distribution terms pending"
+  }
+]

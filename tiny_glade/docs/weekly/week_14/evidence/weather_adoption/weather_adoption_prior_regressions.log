@@ -1,0 +1,4 @@
+PASS weather_immersion_import (3.53s)
+PASS weather_immersion_cumulative (88.12s)
+PASS weather_immersion_tests (35.28s)
+WEATHER / IMMERSION PASS {'tests': 27, 'assertions': 1262, 'failures': 0, 'skipped': 0} native: False

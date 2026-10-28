@@ -1,0 +1,12 @@
+{
+  "godot_version": "4.7.2.stable.official.ed1daf0bf",
+  "gdtoolkit": "4.5.0",
+  "python_dependency_lock": "tools/requirements-dev.lock.txt",
+  "archive": "Godot_v4.7.2-stable_macos.universal.zip",
+  "archive_sha512": "38aa16e5bba2083941fc5b3e54be0089bd4cc35e32415f5b9fd9a8a6a7b9818255d44532ea8ef94b5aef56c4b407c2d634fa4f657e4ebe681ebbf59b7bac69ca",
+  "official_checksum_url": "https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/SHA512-SUMS.txt",
+  "api_rate_limited": true,
+  "official_checksum_fallback_used": true,
+  "system_godot_unchanged": "4.7.stable.official.5b4e0cb0f",
+  "downloaded_runtime_committed": false
+}

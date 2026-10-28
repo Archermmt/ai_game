@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="16" >
+  <testsuite name="tests/week_14/g2/test_grass_patch.gd" tests="8" failures="0" skipped="0" time="1.412324" >
+      <testcase name="test_scattering_is_deterministic_and_default_density_is_recalibrated" assertions="10" status="pass" classname="tests/week_14/g2/test_grass_patch.gd" time="0.944873" >
+      </testcase>
+      <testcase name="test_full_mesh_footprints_and_wind_envelopes_stay_in_legal_region" assertions="2210" status="pass" classname="tests/week_14/g2/test_grass_patch.gd" time="0.013474" >
+      </testcase>
+      <testcase name="test_envelope_rejects_segment_circle_rect_and_pool_overlap_not_just_centers" assertions="9" status="pass" classname="tests/week_14/g2/test_grass_patch.gd" time="0.000353" >
+      </testcase>
+      <testcase name="test_root_heightmap_tracks_flat_rolling_and_brushed_slope_within_two_cm" assertions="3" status="pass" classname="tests/week_14/g2/test_grass_patch.gd" time="0.051248" >
+      </testcase>
+      <testcase name="test_ab_changes_only_derivatives_and_keeps_camera_light_history_and_source" assertions="40" status="pass" classname="tests/week_14/g2/test_grass_patch.gd" time="0.246214" >
+      </testcase>
+      <testcase name="test_f6_read_only_controls_cannot_edit_or_write_formal_files" assertions="7" status="pass" classname="tests/week_14/g2/test_grass_patch.gd" time="0.059493" >
+      </testcase>
+      <testcase name="test_walk_exit_retains_pause_and_all_five_views_keep_dof_disabled" assertions="11" status="pass" classname="tests/week_14/g2/test_grass_patch.gd" time="0.096397" >
+      </testcase>
+      <testcase name="test_shared_material_defaults_and_reflection_exclusion_preserve_baseline" assertions="15" status="pass" classname="tests/week_14/g2/test_grass_patch.gd" time="0.000272" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_14/test_grass_lab.gd" tests="8" failures="0" skipped="0" time="0.803956" >
+      <testcase name="test_imported_meshes_preserve_single_surface_budget_and_root_weights" assertions="77" status="pass" classname="tests/week_14/test_grass_lab.gd" time="0.096261" >
+      </testcase>
+      <testcase name="test_imported_y_up_scale_and_origin_match_manifest" assertions="16" status="pass" classname="tests/week_14/test_grass_lab.gd" time="0.096704" >
+      </testcase>
+      <testcase name="test_coverage_has_real_transparent_and_brush_edge_pixels" assertions="6" status="pass" classname="tests/week_14/test_grass_lab.gd" time="0.096741" >
+      </testcase>
+      <testcase name="test_batches_are_deterministic_and_share_only_per_lab_material" assertions="5" status="pass" classname="tests/week_14/test_grass_lab.gd" time="0.095776" >
+      </testcase>
+      <testcase name="test_pause_resume_and_reduce_motion_are_independent_local_controls" assertions="7" status="pass" classname="tests/week_14/test_grass_lab.gd" time="0.117094" >
+      </testcase>
+      <testcase name="test_light_modes_and_close_views_do_not_rebuild_geometry" assertions="6" status="pass" classname="tests/week_14/test_grass_lab.gd" time="0.095408" >
+      </testcase>
+      <testcase name="test_reset_restores_local_presentation_and_preview_has_no_save_service" assertions="9" status="pass" classname="tests/week_14/test_grass_lab.gd" time="0.095621" >
+      </testcase>
+      <testcase name="test_missing_derivatives_report_failure_without_substituting_old_grass" assertions="4" status="pass" classname="tests/week_14/test_grass_lab.gd" time="0.110351" >
+      </testcase>
+  </testsuite>
+</testsuites>

@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-26 Asia/Shanghai",
+  "default_scene": "app/living_root.tscn",
+  "production_script": "features/landscape/production_playground.gd",
+  "godot_tests": 789,
+  "python_tests": 37,
+  "focused_tests": 8,
+  "focused_assertions": 522,
+  "native_checks": 50,
+  "native_driver": "metal",
+  "native_scene_images": 9,
+  "photo_exports": [
+    {
+      "name": "photo_1080.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "c2f5bb122b1635f301287526cc2dbeaec62eba6b77485e744611ecb09c801636"
+    },
+    {
+      "name": "photo_2k.png",
+      "size": [
+        2560,
+        1440
+      ],
+      "sha256": "0b380221525d227d3a2a91a447ad0f2e418ad58059a4a64ef6d9ccb8f0b0a5ad"
+    }
+  ],
+  "gpu_origin_error_m": 0.0,
+  "wind_pixel_difference": 0.00354112652578516,
+  "reduced_pixel_difference": 0.0,
+  "qa_production_files_unchanged": true,
+  "world_data_schema_changed": false,
+  "blender_sources_changed": false,
+  "lab_direction_accepted_by_user": true,
+  "formal_scene_enabled_by_user": true,
+  "performance_gate_run": false,
+  "windows_real_device_verified": false,
+  "default_density": 0.45,
+  "default_candidate_count_after_exclusions": 23207,
+  "default_visible_count": 10376,
+  "default_batches": 144
+}

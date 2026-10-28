@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-10-25T08:05:22.260587+08:00",
+  "chip": "Apple M4 Pro",
+  "gpu_cores": "20",
+  "metal_support": null,
+  "cpu_physical_cores": 14,
+  "memory_bytes": 51539607552,
+  "macos": "15.1",
+  "power_settings": "Battery Power:\n Sleep On Power Button 1\n powermode            0\n standby              1\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n hibernatefile        /var/vm/sleepimage\n displaysleep         60\n womp                 0\n networkoversleep     0\n sleep                1\n lessbright           1\n tcpkeepalive         1\n disksleep            10\nAC Power:\n Sleep On Power Button 1\n powermode            0\n standby              1\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n hibernatefile        /var/vm/sleepimage\n displaysleep         60\n womp                 1\n networkoversleep     0\n sleep                1\n tcpkeepalive         1\n disksleep            10\n",
+  "gpu_runs": "serial; headless cumulative finished before native; editor not launched during capture",
+  "render_resolution": [
+    1920,
+    1080
+  ],
+  "audio_driver": "Dummy",
+  "gpu_timing_ms": null,
+  "cold_start_acceptance": "not passed; first native settle timed out at existing 15s threshold",
+  "power_source": "Now drawing from 'AC Power'"
+}

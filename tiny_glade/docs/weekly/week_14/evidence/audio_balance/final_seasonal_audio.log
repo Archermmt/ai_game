@@ -1,0 +1,36 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/week_13/test_seasonal_music.gd
+* test_every_season_and_time_has_three_distinct_valid_candidates
+* test_shuffle_bag_plays_all_candidates_without_immediate_repeats
+* test_fade_in_crossfade_and_mute_have_bounded_continuous_gain
+* test_context_debounce_and_weather_ducking
+* test_all_streams_are_full_length_non_looping_music
+* test_quit_fades_then_shutdown_releases_both_voices_idempotently
+6/6 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               1
+Tests                 6
+Passing Tests         6
+Asserts             328
+Time              3.154s
+
+
+---- All tests passed! ----
+
+Results saved to /Users/tongmeng/Desktop/codes/ai_game/tiny_glade/reports/week_14/audio_balance/seasonal_audio.xml

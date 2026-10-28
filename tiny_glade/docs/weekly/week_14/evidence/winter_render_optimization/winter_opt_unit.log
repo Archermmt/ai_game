@@ -1,0 +1,36 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/week_14/winter_optimization/test_winter_rendering.gd
+* test_batch_preserves_instance_meshes_poses_layers_and_source
+* test_roofs_and_distance_limited_caps_keep_individual_visibility_origins
+* test_spatial_groups_do_not_join_distant_caps_or_different_meshes
+* test_melt_restores_original_objects_and_hash_fade_without_rebaking
+* test_refresh_drops_old_cap_records_and_generated_views
+* test_buried_floor_culling_retains_density_and_thaw_restores_exact_buffer
+6/6 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               1
+Tests                 6
+Passing Tests         6
+Asserts              40
+Time              0.422s
+
+
+---- All tests passed! ----
+
+Results saved to reports/week_14/winter_optimization/tests.xml

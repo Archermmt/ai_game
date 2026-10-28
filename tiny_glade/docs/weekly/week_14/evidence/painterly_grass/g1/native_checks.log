@@ -1,0 +1,3 @@
+PASS g1_import (3.10s)
+PASS g1_native (5.63s)
+G1 NATIVE PASS 12

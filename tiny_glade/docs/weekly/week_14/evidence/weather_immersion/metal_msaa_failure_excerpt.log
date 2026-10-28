@@ -1,0 +1,101 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M4 Pro (Apple9)
+
+2026-10-26 22:29:13.145 Godot[1374:18710708] +[IMKClient subclass]: chose IMKClient_Modern
+WARNING: instance_reset_physics_interpolation() is deprecated.
+     at: _instance_reset_physics_interpolation_bind_compat_104269 (servers/rendering/rendering_server.compat.inc:62)
+     GDScript backtrace (most recent call first):
+         [0] configure (res://features/landscape_lab/terrain_adapter.gd:52)
+         [1] _deliver (res://features/landscape/production_terrain.gd:131)
+ERROR: Error compiling shader : In module 'monolithic_metal' imported from <built-in>:1:
+/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/lib/clang/32023.368/include/metal/__bits/metal_texture2d_ms:654:3: error: static_assert failed due to requirement '_is_any_of((metal::access)2, access::read)' "invalid access value 'a' for 'texture2d_ms'"
+  static_assert(_is_valid_ms_query_access(a), "invalid access value 'a' for 'texture2d_ms'");
+  ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+program_source:124:40: note: in instantiation of template class 'metal::texture2d_ms<float, metal::access::write, metal::memory_coherence_threadgroup>' requested here
+    texture2d_ms<float, access::write> output_screen_image [[id(7)]];
+                                       ^
+program_source:124:5: error: type 'texture2d_ms<float, access::write>' is not valid for attribute 'id'
+    texture2d_ms<float, access::write> output_screen_image [[id(7)]];
+    ^                                                        ~~~~~
+program_source:221:11: warning: unused variable 'theoreticalMaxCount' [-Wunused-variable]
+    float theoreticalMaxCount = Directions * Quality;
+          ^
+program_source:264:11: warning: unused variable 'pRlh' [-Wunused-variable]
+    float pRlh = 0.0596831142902374267578125 * (1.0 + mumu);
+          ^
+program_source:324:19: error: type 'const constant spvDescriptorSetBuffer0 &' is not valid for attribute 'buffer'
+kernel void main0(constant spvDescriptorSetBuffer0& spvDescriptorSet0 [[buffer(0)]], uint3 gl_GlobalInvocationID [[thread_position_in_grid]])
+                  ^                                                     ~~~~~~~~~
+program_source:324:28: note: type 'spvDescriptorSetBuffer0' cannot be used in buffer pointee type
+kernel void main0(constant spvDescriptorSetBuffer0& spvDescriptorSet0 [[buffer(0)]], uint3 gl_GlobalInvocationID [[thread_position_in_grid]])
+                           ^
+program_source:340:11: warning: unused variable 'finalDensityDistance' [-Wunused-variable]
+    float finalDensityDistance = currentColorData.z;
+          ^
+
+   at: operator() (drivers/metal/metal_objects_shared.cpp:794)
+ERROR: Failed to compile Metal library
+   at: _create_function (drivers/metal/rendering_device_driver_metal.cpp:1760)
+   GDScript backtrace (most recent call first):
+       [0] initialize_compute (res://addons/SunshineClouds2/SunshineClouds.gd:372)
+       [1] _render_callback (res://addons/SunshineClouds2/SunshineClouds.gd:475)
+ERROR: Condition "std::holds_alternative<Error>(function_or_err)" is true. Returning: PipelineID()
+   at: compute_pipeline_create (drivers/metal/rendering_device_driver_metal.cpp:2225)
+   GDScript backtrace (most recent call first):
+       [0] initialize_compute (res://addons/SunshineClouds2/SunshineClouds.gd:372)
+       [1] _render_callback (res://addons/SunshineClouds2/SunshineClouds.gd:475)
+ERROR: Condition "!pipeline.driver_id" is true. Returning: RID()
+   at: compute_pipeline_create (servers/rendering/rendering_device.cpp:5048)
+   GDScript backtrace (most recent call first):
+       [0] initialize_compute (res://addons/SunshineClouds2/SunshineClouds.gd:372)
+       [1] _render_callback (res://addons/SunshineClouds2/SunshineClouds.gd:475)
+ERROR: Parameter "pipeline" is null.
+   at: compute_list_bind_compute_pipeline (servers/rendering/rendering_device.cpp:6674)
+   GDScript backtrace (most recent call first):
+       [0] _render_callback (res://addons/SunshineClouds2/SunshineClouds.gd:806)
+ERROR: No compute pipeline was set before attempting to draw.
+   at: compute_list_dispatch (servers/rendering/rendering_device.cpp:6826)
+   GDScript backtrace (most recent call first):
+       [0] _render_callback (res://addons/SunshineClouds2/SunshineClouds.gd:808)
+W09_FIRST_DRAW
+ERROR: Parameter "pipeline" is null.
+   at: compute_list_bind_compute_pipeline (servers/rendering/rendering_device.cpp:6674)
+   GDScript backtrace (most recent call first):
+       [0] _render_callback (res://addons/SunshineClouds2/SunshineClouds.gd:806)
+ERROR: No compute pipeline was set before attempting to draw.
+   at: compute_list_dispatch (servers/rendering/rendering_device.cpp:6826)
+   GDScript backtrace (most recent call first):
+       [0] _render_callback (res://addons/SunshineClouds2/SunshineClouds.gd:808)
+ERROR: Parameter "pipeline" is null.
+   at: compute_list_bind_compute_pipeline (servers/rendering/rendering_device.cpp:6674)
+   GDScript backtrace (most recent call first):
+       [0] _render_callback (res://addons/SunshineClouds2/SunshineClouds.gd:806)
+ERROR: No compute pipeline was set before attempting to draw.
+   at: compute_list_dispatch (servers/rendering/rendering_device.cpp:6826)
+   GDScript backtrace (most recent call first):
+       [0] _render_callback (res://addons/SunshineClouds2/SunshineClouds.gd:808)
+ERROR: Parameter "pipeline" is null.
+   at: compute_list_bind_compute_pipeline (servers/rendering/rendering_device.cpp:6674)
+   GDScript backtrace (most recent call first):
+       [0] _render_callback (res://addons/SunshineClouds2/SunshineClouds.gd:806)
+ERROR: No compute pipeline was set before attempting to draw.
+   at: compute_list_dispatch (servers/rendering/rendering_device.cpp:6826)
+   GDScript backtrace (most recent call first):
+       [0] _render_callback (res://addons/SunshineClouds2/SunshineClouds.gd:808)
+ERROR: Parameter "pipeline" is null.
+   at: compute_list_bind_compute_pipeline (servers/rendering/rendering_device.cpp:6674)
+   GDScript backtrace (most recent call first):
+       [0] _render_callback (res://addons/SunshineClouds2/SunshineClouds.gd:806)
+ERROR: No compute pipeline was set before attempting to draw.
+   at: compute_list_dispatch (servers/rendering/rendering_device.cpp:6826)
+   GDScript backtrace (most recent call first):
+       [0] _render_callback (res://addons/SunshineClouds2/SunshineClouds.gd:808)
+ERROR: Parameter "pipeline" is null.
+   at: compute_list_bind_compute_pipeline (servers/rendering/rendering_device.cpp:6674)
+   GDScript backtrace (most recent call first):
+       [0] _render_callback (res://addons/SunshineClouds2/SunshineClouds.gd:806)
+ERROR: No compute pipeline was set before attempting to draw.
+   at: compute_list_dispatch (servers/rendering/rendering_device.cpp:6826)
+   GDScript backtrace (most recent call first):
+       [0] _render_callback (res://addons/SunshineClouds2/SunshineClouds.gd:808)
+[Repeated downstream invalid-RID errors omitted; original GPU shader failure above.]

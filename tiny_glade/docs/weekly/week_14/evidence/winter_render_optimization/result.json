@@ -1,0 +1,335 @@
+{
+	"cap_count": 1412,
+	"clouds_disabled_for_pixel_proof": true,
+	"comparisons": [
+		{
+			"cover": 0.0,
+			"difference": 0.0,
+			"distance": 8.0,
+			"noise": 0.0,
+			"opaque": false,
+			"significant_fraction": 0.0,
+			"views": 1412
+		},
+		{
+			"cover": 0.0,
+			"difference": 0.0,
+			"distance": 8.0,
+			"noise": 0.0,
+			"opaque": true,
+			"significant_fraction": 0.0,
+			"views": 1412
+		},
+		{
+			"cover": 0.4,
+			"difference": 0.0,
+			"distance": 8.0,
+			"noise": 0.0,
+			"opaque": false,
+			"significant_fraction": 0.0,
+			"views": 1412
+		},
+		{
+			"cover": 0.4,
+			"difference": 0.0,
+			"distance": 8.0,
+			"noise": 0.0,
+			"opaque": true,
+			"significant_fraction": 0.0,
+			"views": 1412
+		},
+		{
+			"cover": 0.65,
+			"difference": 0.0,
+			"distance": 8.0,
+			"noise": 0.0,
+			"opaque": false,
+			"significant_fraction": 0.0,
+			"views": 1412
+		},
+		{
+			"cover": 0.65,
+			"difference": 0.0,
+			"distance": 8.0,
+			"noise": 0.0,
+			"opaque": true,
+			"significant_fraction": 0.0,
+			"views": 1412
+		},
+		{
+			"cover": 0.899,
+			"difference": 0.0,
+			"distance": 8.0,
+			"noise": 0.0,
+			"opaque": false,
+			"significant_fraction": 0.0,
+			"views": 1412
+		},
+		{
+			"cover": 0.899,
+			"difference": 0.0,
+			"distance": 8.0,
+			"noise": 0.0,
+			"opaque": true,
+			"significant_fraction": 0.0,
+			"views": 1412
+		},
+		{
+			"cover": 0.9,
+			"difference": 0.00000134274388767853,
+			"distance": 8.0,
+			"noise": 0.0,
+			"opaque": false,
+			"significant_fraction": 0.0,
+			"views": 1137
+		},
+		{
+			"cover": 0.9,
+			"difference": 0.00000393052025336884,
+			"distance": 8.0,
+			"noise": 0.0,
+			"opaque": true,
+			"significant_fraction": 0.0,
+			"views": 1137
+		},
+		{
+			"cover": 0.98,
+			"difference": 0.00000161223825950133,
+			"distance": 8.0,
+			"noise": 0.0,
+			"opaque": false,
+			"significant_fraction": 0.0,
+			"views": 1137
+		},
+		{
+			"cover": 0.98,
+			"difference": 0.00000422838245380457,
+			"distance": 8.0,
+			"noise": 0.0,
+			"opaque": true,
+			"significant_fraction": 0.0,
+			"views": 1137
+		},
+		{
+			"cover": 0.0,
+			"difference": 0.0,
+			"distance": 28.0,
+			"noise": 0.0,
+			"opaque": false,
+			"significant_fraction": 0.0,
+			"views": 1412
+		},
+		{
+			"cover": 0.0,
+			"difference": 0.0,
+			"distance": 28.0,
+			"noise": 0.0,
+			"opaque": true,
+			"significant_fraction": 0.0,
+			"views": 1412
+		},
+		{
+			"cover": 0.4,
+			"difference": 0.0,
+			"distance": 28.0,
+			"noise": 0.0,
+			"opaque": false,
+			"significant_fraction": 0.0,
+			"views": 1412
+		},
+		{
+			"cover": 0.4,
+			"difference": 0.0,
+			"distance": 28.0,
+			"noise": 0.0,
+			"opaque": true,
+			"significant_fraction": 0.0,
+			"views": 1412
+		},
+		{
+			"cover": 0.65,
+			"difference": 0.0,
+			"distance": 28.0,
+			"noise": 0.0,
+			"opaque": false,
+			"significant_fraction": 0.0,
+			"views": 1412
+		},
+		{
+			"cover": 0.65,
+			"difference": 0.0,
+			"distance": 28.0,
+			"noise": 0.0,
+			"opaque": true,
+			"significant_fraction": 0.0,
+			"views": 1412
+		},
+		{
+			"cover": 0.899,
+			"difference": 0.0,
+			"distance": 28.0,
+			"noise": 0.0,
+			"opaque": false,
+			"significant_fraction": 0.0,
+			"views": 1412
+		},
+		{
+			"cover": 0.899,
+			"difference": 0.0,
+			"distance": 28.0,
+			"noise": 0.0,
+			"opaque": true,
+			"significant_fraction": 0.0,
+			"views": 1412
+		},
+		{
+			"cover": 0.9,
+			"difference": 0.000104670983619785,
+			"distance": 28.0,
+			"noise": 0.0,
+			"opaque": false,
+			"significant_fraction": 0.000860821759259259,
+			"views": 1137
+		},
+		{
+			"cover": 0.9,
+			"difference": 0.000131852091402405,
+			"distance": 28.0,
+			"noise": 0.0,
+			"opaque": true,
+			"significant_fraction": 0.00085841049382716,
+			"views": 1137
+		},
+		{
+			"cover": 0.98,
+			"difference": 0.000104371545428871,
+			"distance": 28.0,
+			"noise": 0.0,
+			"opaque": false,
+			"significant_fraction": 0.000857204861111111,
+			"views": 1137
+		},
+		{
+			"cover": 0.98,
+			"difference": 0.000131462821754216,
+			"distance": 28.0,
+			"noise": 0.0,
+			"opaque": true,
+			"significant_fraction": 0.000855999228395062,
+			"views": 1137
+		},
+		{
+			"cover": 0.0,
+			"difference": 0.0,
+			"distance": 48.0,
+			"noise": 0.0,
+			"opaque": false,
+			"significant_fraction": 0.0,
+			"views": 1412
+		},
+		{
+			"cover": 0.0,
+			"difference": 0.0,
+			"distance": 48.0,
+			"noise": 0.0,
+			"opaque": true,
+			"significant_fraction": 0.0,
+			"views": 1412
+		},
+		{
+			"cover": 0.4,
+			"difference": 0.0,
+			"distance": 48.0,
+			"noise": 0.0,
+			"opaque": false,
+			"significant_fraction": 0.0,
+			"views": 1412
+		},
+		{
+			"cover": 0.4,
+			"difference": 0.0,
+			"distance": 48.0,
+			"noise": 0.0,
+			"opaque": true,
+			"significant_fraction": 0.0,
+			"views": 1412
+		},
+		{
+			"cover": 0.65,
+			"difference": 0.00000000157599047849593,
+			"distance": 48.0,
+			"noise": 0.0,
+			"opaque": false,
+			"significant_fraction": 0.0,
+			"views": 1412
+		},
+		{
+			"cover": 0.65,
+			"difference": 0.00000000157599047849593,
+			"distance": 48.0,
+			"noise": 0.0,
+			"opaque": true,
+			"significant_fraction": 0.0,
+			"views": 1412
+		},
+		{
+			"cover": 0.899,
+			"difference": 0.00000000945594287097555,
+			"distance": 48.0,
+			"noise": 0.0,
+			"opaque": false,
+			"significant_fraction": 0.0,
+			"views": 1412
+		},
+		{
+			"cover": 0.899,
+			"difference": 0.00000000945594287097555,
+			"distance": 48.0,
+			"noise": 0.0,
+			"opaque": true,
+			"significant_fraction": 0.0,
+			"views": 1412
+		},
+		{
+			"cover": 0.9,
+			"difference": 0.0000685051541192609,
+			"distance": 48.0,
+			"noise": 0.0,
+			"opaque": false,
+			"significant_fraction": 0.000343605324074074,
+			"views": 1137
+		},
+		{
+			"cover": 0.9,
+			"difference": 0.0000952906882917776,
+			"distance": 48.0,
+			"noise": 0.0,
+			"opaque": true,
+			"significant_fraction": 0.000341194058641975,
+			"views": 1137
+		},
+		{
+			"cover": 0.98,
+			"difference": 0.0000680181730614056,
+			"distance": 48.0,
+			"noise": 0.0,
+			"opaque": false,
+			"significant_fraction": 0.000333960262345679,
+			"views": 1137
+		},
+		{
+			"cover": 0.98,
+			"difference": 0.0000950668976438312,
+			"distance": 48.0,
+			"noise": 0.0,
+			"opaque": true,
+			"significant_fraction": 0.00033275462962963,
+			"views": 1137
+		}
+	],
+	"instance_count_unchanged": true,
+	"passed": true,
+	"rendering_driver": "metal",
+	"source_unchanged": true,
+	"taa": false
+}

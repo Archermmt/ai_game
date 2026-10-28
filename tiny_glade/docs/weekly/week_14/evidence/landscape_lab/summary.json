@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-25 Asia/Shanghai",
+  "godot_tests": 781,
+  "python_tests": 37,
+  "focused_tests": 8,
+  "focused_assertions": 365,
+  "native_checks": 34,
+  "native_images": 12,
+  "native_driver": "metal",
+  "native_gpu_origin_error_m": [
+    0.0,
+    0.0
+  ],
+  "production_unchanged": true,
+  "source_blend_preserved": true,
+  "visual_acceptance": "pending user review",
+  "performance_gate_run": false,
+  "formal_editable_garden_migrated": false,
+  "windows_real_device_verified": false,
+  "native_button_roundtrip_verified": true,
+  "native_probe_occlusion_fixed": true,
+  "native_strict_gate_passed": true
+}

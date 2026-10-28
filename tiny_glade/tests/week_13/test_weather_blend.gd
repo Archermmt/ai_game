@@ -95,9 +95,15 @@ func test_season_change_blends_snow_cover_without_mutating_source() -> void:
 	blend.advance(0, _state("clear", "winter"))
 	assert_eq(blend.current["cover"], 0.0)
 	blend.advance(9, _state("clear", "winter"))
-	assert_between(blend.current["cover"], 0.01, 0.27)
+	assert_between(blend.current["cover"], 0.01, 0.97)
 	blend.advance(9, _state("clear", "winter"))
-	assert_eq(blend.current["cover"], 0.28)
+	assert_eq(blend.current["cover"], 0.98)
+	# Cover is independent of snowfall, and thaws back to the original season.
+	assert_eq(blend.current["snow"], 0.0)
+	blend.advance(9, state)
+	assert_between(blend.current["cover"], 0.01, 0.97)
+	blend.advance(9, state)
+	assert_eq(blend.current["cover"], 0.0)
 	assert_eq(state, _state("clear"))
 
 

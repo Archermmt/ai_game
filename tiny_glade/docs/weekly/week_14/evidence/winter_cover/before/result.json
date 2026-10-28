@@ -1,0 +1,69 @@
+{
+	"checks": {
+		"actual production scene ready": true,
+		"spring melts snow": true,
+		"spring preserves grass geometry": true,
+		"spring preserves source": true,
+		"spring preserves terrain geometry": true,
+		"spring regrows grass": true,
+		"spring saved": true,
+		"spring_ground saved": true,
+		"summer preserves grass geometry": true,
+		"summer preserves source": true,
+		"summer preserves terrain geometry": true,
+		"summer saved": true,
+		"summer_ground saved": true,
+		"winter_clear continuous snow": false,
+		"winter_clear green buried": false,
+		"winter_clear preserves grass geometry": true,
+		"winter_clear preserves source": true,
+		"winter_clear preserves terrain geometry": true,
+		"winter_clear saved": true,
+		"winter_clear some remaining tufts": true,
+		"winter_clear sparse grass": false,
+		"winter_clear_ground saved": true,
+		"winter_snow continuous snow": false,
+		"winter_snow green buried": false,
+		"winter_snow preserves grass geometry": true,
+		"winter_snow preserves source": true,
+		"winter_snow preserves terrain geometry": true,
+		"winter_snow saved": true,
+		"winter_snow some remaining tufts": true,
+		"winter_snow sparse grass": false,
+		"winter_snow_ground saved": true
+	},
+	"images": {
+		"spring": "res://reports/week_14/winter_cover/spring.png",
+		"spring_ground": "res://reports/week_14/winter_cover/spring_ground.png",
+		"summer": "res://reports/week_14/winter_cover/summer.png",
+		"summer_ground": "res://reports/week_14/winter_cover/summer_ground.png",
+		"winter_clear": "res://reports/week_14/winter_cover/winter_clear.png",
+		"winter_clear_ground": "res://reports/week_14/winter_cover/winter_clear_ground.png",
+		"winter_snow": "res://reports/week_14/winter_cover/winter_snow.png",
+		"winter_snow_ground": "res://reports/week_14/winter_cover/winter_snow_ground.png"
+	},
+	"passed": false,
+	"rendering_driver": "metal",
+	"samples": {
+		"spring": {
+			"grass_pixel_fraction": 0.872569444444444,
+			"green_pixel_fraction": 0.656576388888889,
+			"snow_pixel_fraction": 0.0255347222222222
+		},
+		"summer": {
+			"grass_pixel_fraction": 0.876527777777778,
+			"green_pixel_fraction": 0.554319444444444,
+			"snow_pixel_fraction": 0.0463402777777778
+		},
+		"winter_clear": {
+			"grass_pixel_fraction": 0.978548611111111,
+			"green_pixel_fraction": 0.300090277777778,
+			"snow_pixel_fraction": 0.00273611111111111
+		},
+		"winter_snow": {
+			"grass_pixel_fraction": 0.977333333333333,
+			"green_pixel_fraction": 0.499201388888889,
+			"snow_pixel_fraction": 0.00552083333333333
+		}
+	}
+}

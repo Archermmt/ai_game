@@ -1,0 +1,97 @@
+"""Local G1/G2/G3 gates. Explicitly requires local derivatives; Git asset portability remains separate."""
+import argparse
+import json
+import shutil
+import struct
+import sys
+import xml.etree.ElementTree as ET
+from common import ROOT, engine_binary
+from run_checks import run_step
+from art_pass_render_checks import production_files
+from painterly_grass_g0_checks import preflight
+from validate_painterly_grass import validate
+
+OUT = ROOT/'reports/week_14/g1'
+
+
+def ensure_import_settings():
+    command = [engine_binary(), '--headless', '--path', str(ROOT), '--editor', '--import']
+    path = ROOT/'assets/painterly_grass/local/grass_coverage.png.import'
+    if not path.is_file():
+        run_step('g1_initial_import', command)
+    text = path.read_text()
+    updated = text.replace('mipmaps/generate=false', 'mipmaps/generate=true')
+    assert 'mipmaps/generate=true' in updated
+    if updated != text:
+        path.write_text(updated)
+    run_step('g1_import', command)
+
+
+def main():
+    global OUT
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--stage', type=int, choices=[1,2,3], default=1)
+    parser.add_argument('--native-only', action='store_true')
+    parser.add_argument('--local-only', action='store_true', help='Run stage-specific regressions; no cumulative claim')
+    args = parser.parse_args()
+    OUT = ROOT/f'reports/week_14/g{args.stage}'
+    prefix = f'g{args.stage}'
+    OUT.mkdir(parents=True,exist_ok=True)
+    environment = preflight()
+    before = production_files()
+    ensure_import_settings()
+    assets = validate()
+    (OUT/'asset_validation.json').write_text(json.dumps(assets,indent=2)+'\n')
+    if args.native_only:
+        if args.stage >= 2:
+            from painterly_grass_patch_checks import native_patch
+            report, step = native_patch(OUT, args.stage)
+        else:
+            step = run_step('g1_native', [engine_binary(),'--always-on-top','--audio-driver','Dummy',
+            '--path',str(ROOT),'--resolution','1920x1080','-s','tests/week_14/grass_lab_native_probe.gd',
+            '--','--g1-fhd',str(OUT/'native')],timeout=120)
+            report = json.loads((OUT/'native/report.json').read_text())
+        assert report['passed'] and len(report['checks']) >= 12 and all(report['checks'].values())
+        for path in (OUT/'native').glob('*.png'):
+            assert struct.unpack_from('>II',path.read_bytes(),16)==((2560,1440) if args.stage == 3 and path.name == 'photo_2k.png' else (1920,1080))
+        assert before==production_files()
+        report.update(environment=environment, step=step, production_before=before,
+                      production_after=production_files(),production_unchanged=True,
+                      physical_touchpad_verified=False,new_asset_capacity_benchmark=False)
+        (OUT/'native_checks.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+        if args.stage == 1:
+            shutil.copyfile(ROOT/'reports/g1_native.log',OUT/'native.log')
+        print(prefix.upper(),'NATIVE PASS',len(report['checks']))
+        return
+    steps=[]
+    if not args.local_only:
+        steps.append(run_step(prefix+'_cumulative',[sys.executable,'tools/quality/painterly_grass_g0_checks.py'],timeout=1000))
+    steps.append(run_step(prefix+'_tests',[engine_binary(),'--headless','--path',str(ROOT),'-s',
+        'addons/gut/gut_cmdln.gd','-gdir='+','.join(['res://tests/week_14']+[f'res://tests/week_14/g{s}' for s in range(2,args.stage+1)]),'-gexit',
+        f'-gjunit_xml_file=reports/week_14/{prefix}/tests.xml'],timeout=300))
+    suite=ET.parse(OUT/'tests.xml').getroot()
+    count=int(suite.get('tests',0))
+    assert count>=({1:8,2:16,3:28}[args.stage]) and int(suite.get('failures',0))==0
+    expected_suites = ['tests/week_14/test_grass_lab.gd']
+    if args.stage >= 2:
+        expected_suites.append('tests/week_14/g2/test_grass_patch.gd')
+    if args.stage == 3:
+        expected_suites.append('tests/week_14/g3/test_grass_garden.gd')
+    suites = {s.get('name'): s for s in suite.findall('testsuite')}
+    assert all(name in suites and int(suites[name].get('tests', 0)) >= 8 for name in expected_suites)
+    assert not any(int(s.get('skipped',0)) for s in suite.findall('testsuite'))
+    assert before==production_files()
+    previous=json.loads((ROOT/'reports/week_14/g0/checks.json').read_text()) if not args.local_only else None
+    result={'environment':environment,'stage':args.stage,'stage_tests':count, 'g1_tests':count if args.stage == 1 else 8,
+            'stage_assertions':sum(int(t.get('assertions',0)) for t in suite.iter('testcase')),
+            'godot_tests':previous['godot_tests']+count if previous else None,
+            'python_tests':previous['python_tests'] if previous else None,
+            'cumulative_run':previous is not None,'negative_control':previous['negative_control'] if previous else None,
+            'failures':0,'skipped':0,'production_unchanged':True,'assets':assets,'steps':steps,
+            'asset_repository_terms':'pending; local-only derivatives'}
+    (OUT/('local_checks.json' if args.local_only else 'checks.json')).write_text(json.dumps(result,indent=2)+'\n')
+    print(prefix.upper(),'PASS:',count,'new Godot tests; cumulative:',previous is not None)
+
+
+if __name__=='__main__':
+    main()

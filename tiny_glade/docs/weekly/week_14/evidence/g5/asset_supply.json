@@ -1,0 +1,234 @@
+{
+  "passed": true,
+  "files": {
+    "art_source/painterly_grass/local/valley/blades.blend": {
+      "sha256": "1282a02cc9b6d95e1addecd42afc7c8d3e131b437638ac6f4cce8188b79ba87e",
+      "bytes": 9468840,
+      "tracked": false
+    },
+    "assets/painterly_grass/local/valley/blades.glb": {
+      "sha256": "bcbcd22ef2d2831be754deb036fe32b79f7185203716f69ffb6aaaffe4f2a727",
+      "bytes": 3516,
+      "tracked": false
+    },
+    "assets/painterly_grass/local/valley/coverage4k.png": {
+      "sha256": "91db86dc6c885c9768de2596a32eeed0c2cc75f00f2be47f73328201f8954212",
+      "bytes": 9404532,
+      "tracked": false
+    },
+    "art_source/painterly_grass/local/valley/detail.blend": {
+      "sha256": "2b4426430eb3b7046ca4ebfdcbd92ed82801ef89f59df033ad49318331e9b12c",
+      "bytes": 9546757,
+      "tracked": false
+    },
+    "assets/painterly_grass/local/valley/detail.glb": {
+      "sha256": "0656a867dc8f89e73f4efda5aa4845671613ae708db630e41b37ee0e67453e84",
+      "bytes": 123988,
+      "tracked": false
+    },
+    "art_source/painterly_grass/local/valley/puffs.blend": {
+      "sha256": "46df33bc2f687d9dd62079d7eb426f6f5481c2bf024fc05334c1a90e4689bf32",
+      "bytes": 9468976,
+      "tracked": false
+    },
+    "assets/painterly_grass/local/valley/puffs.glb": {
+      "sha256": "e97c612120949fd16c2a107138fa1f3da2d71cf17d6d1295153d4976cdab1481",
+      "bytes": 4380,
+      "tracked": false
+    },
+    "art_source/painterly_grass/local/valley/floor.blend": {
+      "sha256": "845f1a1d37c6b9ef83fabbdc9562705c04d84f02e0766a7bc78d14576240ae6e",
+      "bytes": 9468077,
+      "tracked": false
+    },
+    "assets/painterly_grass/local/valley/floor.glb": {
+      "sha256": "767b5d9d6b0dc4598dc7bed0b2d253006e26c7ea5fd2be0b8cefa2551436b2da",
+      "bytes": 2408,
+      "tracked": false
+    },
+    "assets/painterly_grass/local/grass_card_b.glb": {
+      "sha256": "80010896561bb292a3ed0aaafe224d5dc1b0c592f12068899f4393a72370ca87",
+      "bytes": 2400,
+      "tracked": false
+    },
+    "assets/painterly_grass/local/grass_card_a.glb": {
+      "sha256": "6d13579a60ea99cfc1dff6bd884067e88a7ee1b0889b23271cec4eebb92e5201",
+      "bytes": 2400,
+      "tracked": false
+    },
+    "assets/painterly_grass/local/grass_card_a.glb.import": {
+      "sha256": "9ced44984f30f8676a91918d0a839f76cc2a254face8c33608acc8a53b772d64",
+      "bytes": 1179,
+      "tracked": false
+    },
+    "assets/painterly_grass/local/grass_coverage.png": {
+      "sha256": "e79bd3a4f229b7378a7c4b6410a4139c23ba98dfd94756c7c6fb491c14409b39",
+      "bytes": 2493830,
+      "tracked": false
+    },
+    "assets/painterly_grass/local/grass_card_b.glb.import": {
+      "sha256": "57df577116bc9e6bd0a22904a5ed4ba77c4171ad9f5517d8c66846f0db58800d",
+      "bytes": 1180,
+      "tracked": false
+    },
+    "assets/painterly_grass/local/grass_floor.glb.import": {
+      "sha256": "99e686038a4e5a11e85a9371a9fe143235daf2d778735d27e810345ca6ea18fe",
+      "bytes": 1176,
+      "tracked": false
+    },
+    "assets/painterly_grass/local/grass_floor.glb": {
+      "sha256": "32b44ae6f79f02d8f188e00d7419854264aacf6738f677eed2a9b25db9472f54",
+      "bytes": 2392,
+      "tracked": false
+    },
+    "assets/painterly_grass/local/grass_coverage.png.import": {
+      "sha256": "bc4a666072136491a90ec0bb013ed3e94aa51018afafadce129c7735e8326fe7",
+      "bytes": 974,
+      "tracked": false
+    },
+    "assets/painterly_grass/local/valley/scatter_patch.json": {
+      "sha256": "1f4cd5c2af109434b8049a16bc1478d2b46348b1706dbc666e64d372eef1b6e7",
+      "bytes": 200553,
+      "tracked": false
+    },
+    "assets/painterly_grass/local/valley/floor.glb.import": {
+      "sha256": "b4e44f93ba6a67013f67311523fab9281afac935d40161fd2139714fd08d3b8a",
+      "bytes": 1165,
+      "tracked": false
+    },
+    "assets/painterly_grass/local/valley/blades.glb.import": {
+      "sha256": "52e51c5b2f08a98addd94b61b93d989a5c1f7c79432fd98969b98be3c6cea5e7",
+      "bytes": 1169,
+      "tracked": false
+    },
+    "assets/painterly_grass/local/valley/terrain_height.json": {
+      "sha256": "3ac962213c4b429c8587a3393a2e485dbced69a0ad9d1ad83db62b5a91bfc7c0",
+      "bytes": 739,
+      "tracked": false
+    },
+    "assets/painterly_grass/local/valley/detail.glb.import": {
+      "sha256": "69531a6bc638074e18469059a1bf82649bacc66090e21128531d682c7533268d",
+      "bytes": 1168,
+      "tracked": false
+    },
+    "assets/painterly_grass/local/valley/reference.png": {
+      "sha256": "1e23612609adb024ecbc20d87786273a94e2c1988974736fa9a0cb3437aa3f12",
+      "bytes": 3507888,
+      "tracked": false
+    },
+    "assets/painterly_grass/local/valley/terrain_height.r32": {
+      "sha256": "f37f5ea8b997e2e39d25ca2c4c27bac2158994f44dd4581796b96f9bac581db9",
+      "bytes": 262144,
+      "tracked": false
+    },
+    "assets/painterly_grass/local/valley/puffs.glb.import": {
+      "sha256": "299696199d93000e8c6849f7adf4be1d40baf52a25879ee6b2990af22c8bec9e",
+      "bytes": 1165,
+      "tracked": false
+    },
+    "assets/painterly_grass/local/valley/scatter_full.json": {
+      "sha256": "3104dc44497138928d4b277ee457f1788d4168ef00b459a7d07b8e5835a85dc9",
+      "bytes": 2099559,
+      "tracked": false
+    },
+    "assets/painterly_grass/local/valley/reference.png.import": {
+      "sha256": "13506c34c7de7588c33ea9d14178b1cbe0bd97af3b764f7dae6fc141b0ad2a8c",
+      "bytes": 967,
+      "tracked": false
+    },
+    "assets/painterly_grass/local/valley/coverage4k.png.import": {
+      "sha256": "a172914a88aea7313b3713fa3a660ca06d21aef2e751e2cdf333b06ebc006b24",
+      "bytes": 970,
+      "tracked": false
+    },
+    "art_source/painterly_grass/local/grass_floor.blend": {
+      "sha256": "40a8a8e7fcb976ca148886287af2d31f1b46c185d9d25e36c9f54ae1c2fd9f04",
+      "bytes": 2578882,
+      "tracked": false
+    },
+    "art_source/painterly_grass/local/grass_card_a.blend": {
+      "sha256": "01ab79ed29d20772f24312f868fd23dd9f7449113cfd3b67be836684ac20f46e",
+      "bytes": 2578757,
+      "tracked": false
+    },
+    "art_source/painterly_grass/local/grass_card_b.blend": {
+      "sha256": "5b1f3064634e1f6e82df8eba418e36ecc58cb72134a5692d804dd75ac6a28dbc",
+      "bytes": 2578760,
+      "tracked": false
+    }
+  },
+  "asset_count": 4,
+  "manifest_bound_file_count": 9,
+  "fidelity": {
+    "passed": true,
+    "assets": [
+      {
+        "asset_id": "blades",
+        "vendor_object": "Basic_Grass_13",
+        "triangles": 24,
+        "vertices": 34,
+        "dimensions_y_up": [
+          1.5112702250480652,
+          1.0602200031280518,
+          1.5979921221733093
+        ],
+        "export_sha256": "bcbcd22ef2d2831be754deb036fe32b79f7185203716f69ffb6aaaffe4f2a727"
+      },
+      {
+        "asset_id": "detail",
+        "vendor_object": "Detailed_Wave_Grass_06",
+        "triangles": 2288,
+        "vertices": 1942,
+        "dimensions_y_up": [
+          1.4041316509246826,
+          0.9744814187288284,
+          1.5469148755073547
+        ],
+        "export_sha256": "0656a867dc8f89e73f4efda5aa4845671613ae708db630e41b37ee0e67453e84"
+      },
+      {
+        "asset_id": "puffs",
+        "vendor_object": "Basic_Grass_04",
+        "triangles": 28,
+        "vertices": 49,
+        "dimensions_y_up": [
+          1.2763972878456116,
+          0.6757481060922146,
+          1.30761057138443
+        ],
+        "export_sha256": "e97c612120949fd16c2a107138fa1f3da2d71cf17d6d1295153d4976cdab1481"
+      },
+      {
+        "asset_id": "floor",
+        "vendor_object": "Basic_Grass_Floor_10",
+        "triangles": 8,
+        "vertices": 16,
+        "dimensions_y_up": [
+          1.2719954252243042,
+          0.02522591222077608,
+          1.2778600454330444
+        ],
+        "export_sha256": "767b5d9d6b0dc4598dc7bed0b2d253006e26c7ea5fd2be0b8cefa2551436b2da"
+      }
+    ],
+    "texture_size": [
+      4096,
+      4096
+    ],
+    "coverage_textures": [
+      "assets/painterly_grass/local/valley/coverage4k.png"
+    ],
+    "source_hashes_match": true,
+    "performance_gate_run": false,
+    "visual_acceptance": "requires user review"
+  },
+  "production_unchanged": true,
+  "license_status": [
+    "local-only; repository/distribution terms pending"
+  ],
+  "git_only_assets_present": false,
+  "distribution_approved": false,
+  "fresh_checkout_run": false,
+  "candidate_release_approved": false,
+  "windows_verified": false
+}

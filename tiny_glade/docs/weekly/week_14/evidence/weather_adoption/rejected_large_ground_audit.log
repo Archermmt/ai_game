@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M4 Pro (Apple9)
+
+2026-10-27 21:34:16.165 Godot[12666:19016571] +[IMKClient subclass]: chose IMKClient_Modern
+BLANKET_LARGE_LAYOUT 411393 index_stride=4 vertex_stride=12 versions=out_u32 / out_u32
+BAD_FACE (-31.06628, 0.03209, -29.86331) (-28.66733, 0.315939, -27.255) (-31.00947, 0.036741, -29.34866)
+BAD_FACE (-28.66733, 0.315939, -27.255) (-30.78188, 0.118668, -29.49717) (-31.00947, 0.036741, -29.34866)
+BAD_FACE (-27.8544, 0.440718, -26.12306) (-29.47139, 0.316508, -28.33831) (-30.78188, 0.118668, -29.49717)
+GROUND_AUDIT 19426 verts 2463744 indices max_edge 14.5720653533936 bad 7382 height -2.3202993113429 .. 1.70979656814758

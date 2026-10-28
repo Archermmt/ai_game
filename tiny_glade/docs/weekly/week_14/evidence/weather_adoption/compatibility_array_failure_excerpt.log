@@ -1,0 +1,45 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M4 Pro (Apple9)
+
+2026-10-27 20:58:13.649 Godot[11852:18997839] +[IMKClient subclass]: chose IMKClient_Modern
+ERROR: Condition "p_arrays[ai].get_type() != Variant::PACKED_FLOAT32_ARRAY" is true. Returning: ERR_INVALID_PARAMETER
+   at: _surface_set_data (servers/rendering/rendering_server.cpp:821)
+   GDScript backtrace (most recent call first):
+       [0] allocate (res://addons/blanket/surface.gd:77)
+       [1] allocate (res://addons/blanket/passes/out_mesh.gd:40)
+       [2] compute (res://addons/blanket/passes/out_mesh.gd:110)
+       [3] bake (res://addons/blanket/pipeline.gd:60)
+       [4] bake (res://features/weather_plugins/blanket_baker.gd:15)
+       [5] _run (res://tests/week_14/weather_production/blanket_native_probe.gd:12)
+ERROR: Invalid array format for surface.
+   at: mesh_create_surface_data_from_arrays (servers/rendering/rendering_server.cpp:1315)
+   GDScript backtrace (most recent call first):
+       [0] allocate (res://addons/blanket/surface.gd:77)
+       [1] allocate (res://addons/blanket/passes/out_mesh.gd:40)
+       [2] compute (res://addons/blanket/passes/out_mesh.gd:110)
+       [3] bake (res://addons/blanket/pipeline.gd:60)
+       [4] bake (res://features/weather_plugins/blanket_baker.gd:15)
+       [5] _run (res://tests/week_14/weather_production/blanket_native_probe.gd:12)
+ERROR: Condition "err != OK" is true.
+   at: add_surface_from_arrays (scene/resources/mesh.cpp:1827)
+   GDScript backtrace (most recent call first):
+       [0] allocate (res://addons/blanket/surface.gd:77)
+       [1] allocate (res://addons/blanket/passes/out_mesh.gd:40)
+       [2] compute (res://addons/blanket/passes/out_mesh.gd:110)
+       [3] bake (res://addons/blanket/pipeline.gd:60)
+       [4] bake (res://features/weather_plugins/blanket_baker.gd:15)
+       [5] _run (res://tests/week_14/weather_production/blanket_native_probe.gd:12)
+ERROR: Index p_idx = 1 is out of bounds (surfaces.size() = 1).
+   at: surface_set_name (scene/resources/mesh.cpp:1968)
+   GDScript backtrace (most recent call first):
+       [0] allocate (res://addons/blanket/surface.gd:78)
+       [1] allocate (res://addons/blanket/passes/out_mesh.gd:40)
+       [2] compute (res://addons/blanket/passes/out_mesh.gd:110)
+       [3] bake (res://addons/blanket/pipeline.gd:60)
+       [4] bake (res://features/weather_plugins/blanket_baker.gd:15)
+       [5] _run (res://tests/week_14/weather_production/blanket_native_probe.gd:12)
+ERROR: Index (uint32_t)p_surface = 1 is out of bounds (mesh->surface_count = 1).
+   at: mesh_get_surface (servers/rendering/renderer_rd/storage_rd/mesh_storage.cpp:644)
+   GDScript backtrace (most recent call first):
+       [0] bridge_buffer (res://addons/blanket/surface.gd:117)
+[Repeated downstream errors omitted.]

@@ -1,0 +1,2 @@
+PASS seasonal_music_mix (15.08s)
+PASS calibrated actual CoreAudio clear PCM; music/ambience 2.12dB; music/wind 5.66dB; device output muted; physical listening separate

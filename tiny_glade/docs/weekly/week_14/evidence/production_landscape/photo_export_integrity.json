@@ -1,0 +1,18 @@
+[
+  {
+    "name": "photo_1080.png",
+    "size": [
+      1920,
+      1080
+    ],
+    "sha256": "c2f5bb122b1635f301287526cc2dbeaec62eba6b77485e744611ecb09c801636"
+  },
+  {
+    "name": "photo_2k.png",
+    "size": [
+      2560,
+      1440
+    ],
+    "sha256": "0b380221525d227d3a2a91a447ad0f2e418ad58059a4a64ef6d9ccb8f0b0a5ad"
+  }
+]

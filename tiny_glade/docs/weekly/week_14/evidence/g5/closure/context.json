@@ -1,0 +1,13 @@
+{
+  "generator_sha256": "853547efa515b1b3c91982e751da6e83bb14fbc38bfec7ca1344061bf076303e",
+  "post_run_integrity_verified": true,
+  "runtime_files": 1720,
+  "local_supply_files": 31,
+  "source_revision": "9ebe3bf80db1263f7acad4569d3a2506ff840e9d",
+  "runtime_changed": false,
+  "qa_only_configuration_override": true,
+  "local_g5_complete": true,
+  "g4_performance_passed": false,
+  "distribution_approved": false,
+  "windows_verified": false
+}

@@ -1,0 +1,24 @@
+{
+  "checks": 4,
+  "passed": true,
+  "paused_after_toolbar_walk_exit": true,
+  "source_unchanged": true,
+  "ui": "actual viewport button press/release",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "revision": "44fbffd3178d3208cff28ed9144da609a1f52fec",
+  "production_before": {
+    "preferences.cfg": "b6f5dede52ba7e8d41e6f281bf962dc878724a0880ac43519f9978f170591255"
+  },
+  "production_after": {
+    "preferences.cfg": "b6f5dede52ba7e8d41e6f281bf962dc878724a0880ac43519f9978f170591255"
+  },
+  "production_unchanged": true,
+  "step": {
+    "name": "g2_button_return",
+    "exit_code": 0,
+    "seconds": 3.373
+  }
+}

@@ -1,0 +1,48 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[1m[INFO]:  [0musing [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+[4m
+
+res://tests/week_14/g3/test_grass_garden.gd
+[0m* test_f6_is_editable_and_uses_exclusive_persistent_preview_storage
+* test_density_zero_latest_request_empty_blocks_and_one_are_supported
+* test_local_terrain_edit_reuses_far_chunk_nodes_and_keeps_distribution
+* test_building_path_tree_pool_and_bridge_changes_preserve_unaffected_chunks
+* test_brush_erase_preserves_manual_locked_ids_and_source_schema
+* test_latest_worker_variant_switch_and_cancel_never_publish_stale_data
+* test_fifty_mixed_edits_undo_redo_restore_source_and_derived_versions
+* test_isolated_save_load_regenerates_identical_grass_and_legacy_source
+* test_seasons_weather_freeze_reduce_motion_and_reflection_layers_share_interfaces
+[31m    [Failed] [0m
+      at line 249
+* test_height_layers_match_mesh_roots_and_clearance_covers_full_wind
+[1m9/10 passed.
+[0m
+
+
+
+[33m==============================================
+[0m[33m= Run Summary
+[0m[33m==============================================
+[0m[4m
+res://tests/week_14/g3/test_grass_garden.gd
+[0m- test_seasons_weather_freeze_reduce_motion_and_reflection_layers_share_interfaces
+[31m    [Failed]:  [0m
+          at line 249
+
+Totals
+------
+Scripts               1
+Tests                10
+Passing Tests         9
+Failing Tests         1
+Asserts           20517/20518
+Time              61.912s
+
+
+[31m---- 1 failing tests ----
+[0m
+Results saved to reports/week_14/g3/tests.xml

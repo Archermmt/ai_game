@@ -1,0 +1,11 @@
+{
+  "source_sha256": "487631daaefc27eec0b02a2457c7eb4d93a78f48c14c0bf891ba1b50d99b3be3",
+  "source_unchanged": true,
+  "read_only": true,
+  "scatter_evaluated": false,
+  "triangles_are_base_mesh_before_modifiers": true,
+  "evidence_sha256": {
+    "valley_layers.json": "772801d3d69c5d9e0c210c3d513a10b4cf8ead2244d3342213565f10c2c070b5",
+    "valley.json": "df22806898fdfbcd50dd0587b943efaf065d7d2cfef64c483eb3e75c78a5e944"
+  }
+}

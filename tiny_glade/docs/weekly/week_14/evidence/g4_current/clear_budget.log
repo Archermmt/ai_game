@@ -1,0 +1,3 @@
+legacy_clear_45_1: p95 7.509ms, RSS 1071.9MiB, budget True
+valley_clear_45_1: p95 7.288ms, RSS 1317.6MiB, budget True
+G4 pilot complete

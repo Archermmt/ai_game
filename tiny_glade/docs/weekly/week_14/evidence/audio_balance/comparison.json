@@ -1,0 +1,138 @@
+{
+  "weather": {
+    "clear": {
+      "before_music_to_ambient_db": -3.1616621032765173,
+      "after_music_to_ambient_db": 2.18443169710168,
+      "before_music_to_wind_db": -1.4755952389961053,
+      "after_music_to_wind_db": 5.728149352774723,
+      "music_to_ambient_improvement_db": 5.346093800378197,
+      "music_to_wind_improvement_db": 7.203744591770828,
+      "music_level_change_db": 2.987113289671614,
+      "wind_level_change_db": -4.2166313020992146,
+      "old_mix_rejected": true,
+      "old_mix_rejection": "Clear-day music must remain discernible over ambience",
+      "production_unchanged": true,
+      "new_calibration_passed": true,
+      "after_rms": {
+        "music": 0.00853978064137119,
+        "ambient": 0.00664087231983,
+        "wind": 0.00441610354301819
+      },
+      "after_peaks": [
+        0.0457350462675095,
+        0.0420615933835506,
+        0.0215953104197979
+      ],
+      "after_frames": [
+        201216,
+        201216,
+        201216
+      ],
+      "wind_strength": 0.45,
+      "duck": 1.0
+    },
+    "storm": {
+      "before_music_to_ambient_db": -12.425939345736804,
+      "after_music_to_ambient_db": -1.5682509176373975,
+      "before_music_to_wind_db": -10.743158560393837,
+      "after_music_to_wind_db": 1.958710275677177,
+      "music_to_ambient_improvement_db": 10.857688428099406,
+      "music_to_wind_improvement_db": 12.701868836071014,
+      "music_level_change_db": 8.493855436435544,
+      "wind_level_change_db": -4.208013399635472,
+      "old_mix_rejected": true,
+      "old_mix_rejection": "Music is inaudible at the calibrated default gain",
+      "production_unchanged": true,
+      "new_calibration_passed": true,
+      "after_rms": {
+        "music": 0.00555697508809376,
+        "ambient": 0.00665657754649108,
+        "wind": 0.00443509509378466
+      },
+      "after_peaks": [
+        0.0297277793288231,
+        0.0387600511312485,
+        0.0187807288020849
+      ],
+      "after_frames": [
+        202240,
+        202240,
+        202240
+      ],
+      "wind_strength": 0.95,
+      "duck": 0.65
+    }
+  },
+  "device_output_muted": true,
+  "microphone_used": false,
+  "physical_listening_verified": false,
+  "conservative_peak_bound": {
+    "bound": 0.8797417401411071,
+    "headroom_db": 1.1128960409319368,
+    "terms": {
+      "forest": 0.0363922119140625,
+      "wind": 0.03906851531443259,
+      "water": 0.06300551987367607,
+      "effects": 0.59140625,
+      "seasonal_music": 0.14986924303893584
+    },
+    "music_source_peak": 0.3330427623087463,
+    "tracks": {
+      "winter": {
+        "decoded_sample_peak": 0.26042813062667847,
+        "manifest_true_peak": 0.2606153549998896
+      },
+      "all_seasons": {
+        "decoded_sample_peak": 0.23714929819107056,
+        "manifest_true_peak": 0.23713737056616552
+      },
+      "summer_flowers": {
+        "decoded_sample_peak": 0.22806097567081451,
+        "manifest_true_peak": 0.2290867652767773
+      },
+      "summer_breeze": {
+        "decoded_sample_peak": 0.24793602526187897,
+        "manifest_true_peak": 0.24802759376929584
+      },
+      "pastoral": {
+        "decoded_sample_peak": 0.24364955723285675,
+        "manifest_true_peak": 0.24378108183687525
+      },
+      "autumn": {
+        "decoded_sample_peak": 0.2899862825870514,
+        "manifest_true_peak": 0.2907367959444229
+      },
+      "stars": {
+        "decoded_sample_peak": 0.2917618751525879,
+        "manifest_true_peak": 0.29174270140011677
+      },
+      "sunny_pasture": {
+        "decoded_sample_peak": 0.33243313431739807,
+        "manifest_true_peak": 0.3330427623087463
+      }
+    },
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "assumptions": [
+      "all sliders at 100%",
+      "production ambient_gain 0.5",
+      "all wind strengths by Cauchy bound",
+      "four simultaneous effects",
+      "complementary music envelopes sum at most 1; duck at most 1",
+      "music source peak is maximum of freshly decoded sample peak and committed true peak",
+      "water near-field gain is capped by measured runtime max_db, including positive amplification"
+    ],
+    "water_peak_before_nearfield_gain": 0.0446044921875,
+    "water_max_db": 3.0,
+    "water_nearfield_gain": 1.4125375446227544,
+    "water_max_db_evidence": "controls.json: water_max_db (runtime AudioStreamPlayer3D property)"
+  },
+  "native_controls": {
+    "passed": true,
+    "count": 10,
+    "production_unchanged": true,
+    "first_fixed_wait_failed": true,
+    "bounded_actual_state_waits_passed": true,
+    "evidence": "controls.json",
+    "first_failure_evidence": "controls_first_failure.json"
+  }
+}

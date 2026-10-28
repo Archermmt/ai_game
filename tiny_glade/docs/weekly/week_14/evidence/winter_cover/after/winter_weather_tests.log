@@ -1,0 +1,39 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/week_13/test_weather_blend.gd
+* test_first_sample_is_ready_without_a_startup_fade
+* test_clouds_and_dimming_precede_the_first_rain
+* test_all_weather_pairs_are_continuous_and_reach_their_targets
+* test_rapid_retarget_starts_at_the_current_visual_without_a_jump
+* test_freeze_holds_transition_and_unfreeze_resumes
+* test_partitioned_time_matches_coarse_steps
+* test_clearing_rain_ends_before_clouds_finish_clearing
+* test_season_change_blends_snow_cover_without_mutating_source
+* test_already_overcast_weather_can_start_precipitation_when_retargeted_quickly
+9/9 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               1
+Tests                 9
+Passing Tests         9
+Asserts            8224
+Time              0.463s
+
+
+---- All tests passed! ----
+
+Results saved to /Users/tongmeng/Desktop/codes/ai_game/tiny_glade/reports/week_14/winter_cover/weather.xml

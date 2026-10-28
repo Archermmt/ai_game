@@ -1,0 +1,48 @@
+{
+  "ambient_rms": 0.00665410129285458,
+  "automatic_weather": false,
+  "bus_order": [
+    "QaMusic",
+    "QaAmbient",
+    "QaWind"
+  ],
+  "calendar_weather": "storm",
+  "capture_seconds": 4.0,
+  "driver": "CoreAudio",
+  "duck": 0.65,
+  "frames": [
+    201728,
+    201728,
+    201728
+  ],
+  "master_muted": true,
+  "minute_of_day": 720.0,
+  "mix_age": 0.008496,
+  "music_rms": 0.00551256191155036,
+  "music_volume_db": -16.6980819702148,
+  "peaks": [
+    0.0297277793288231,
+    0.0387600511312485,
+    0.0187807288020849
+  ],
+  "physical_listening_verified": false,
+  "position": 10.1786670684814,
+  "target_duck": 0.65,
+  "track": "all_seasons",
+  "weather": "storm",
+  "weather_blend_age": 18.0,
+  "wind_rms": 0.00443219084296936,
+  "wind_strength": 0.95,
+  "passed": true,
+  "baseline": false,
+  "capture_valid": true,
+  "calibration_passed": true,
+  "production_unchanged": true,
+  "step": {
+    "name": "seasonal_music_mix_storm",
+    "exit_code": 0,
+    "seconds": 15.196
+  },
+  "music_to_ambient_db": -1.634718552417621,
+  "music_to_wind_db": 1.8947005584216252
+}

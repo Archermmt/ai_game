@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="8" >
+  <testsuite name="tests/week_14/landscape/test_landscape_lab.gd" tests="4" failures="0" skipped="0" time="0.14925" >
+      <testcase name="test_four_evaluated_meshes_keep_the_3277_source_instances" assertions="20" status="pass" classname="tests/week_14/landscape/test_landscape_lab.gd" time="0.003383" >
+      </testcase>
+      <testcase name="test_visible_root_origins_match_native_terrain_and_source_burial" assertions="109" status="pass" classname="tests/week_14/landscape/test_landscape_lab.gd" time="0.003662" >
+      </testcase>
+      <testcase name="test_plugin_distribution_and_independent_layers_preserve_artist_sources" assertions="27" status="pass" classname="tests/week_14/landscape/test_landscape_lab.gd" time="0.13913" >
+      </testcase>
+      <testcase name="test_orbit_outside_the_source_keeps_finite_camera_without_expanding_plantable_area" assertions="34" status="pass" classname="tests/week_14/landscape/test_landscape_lab.gd" time="0.003075" >
+      </testcase>
+  </testsuite>
+  <testsuite name="tests/week_14/landscape/test_scatter_adapter.gd" tests="4" failures="0" skipped="0" time="0.01144" >
+      <testcase name="test_upstream_seed_repeats_and_new_seed_changes_candidates" assertions="6" status="pass" classname="tests/week_14/landscape/test_scatter_adapter.gd" time="0.009409" >
+      </testcase>
+      <testcase name="test_current_surface_and_root_offset_are_preserved" assertions="96" status="pass" classname="tests/week_14/landscape/test_scatter_adapter.gd" time="0.000741" >
+      </testcase>
+      <testcase name="test_protected_roots_and_steep_slopes_are_rejected" assertions="39" status="pass" classname="tests/week_14/landscape/test_scatter_adapter.gd" time="0.000769" >
+      </testcase>
+      <testcase name="test_world_space_output_is_independent_of_render_parent_pose" assertions="34" status="pass" classname="tests/week_14/landscape/test_scatter_adapter.gd" time="0.000521" >
+      </testcase>
+  </testsuite>
+</testsuites>

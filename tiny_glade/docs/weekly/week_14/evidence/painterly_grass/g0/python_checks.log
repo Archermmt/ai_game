@@ -1,0 +1,17 @@
+test_api_limit_uses_exact_official_checksum_entry (__main__.BootstrapTests.test_api_limit_uses_exact_official_checksum_entry) ... Release API limited; using official SHA512 manifest
+ok
+test_download_integrity_rejects_changed_or_missing_cache (__main__.BootstrapTests.test_download_integrity_rejects_changed_or_missing_cache) ... ok
+test_missing_or_invalid_official_checksum_fails_closed (__main__.BootstrapTests.test_missing_or_invalid_official_checksum_fails_closed) ... ok
+test_other_http_errors_do_not_trigger_fallback (__main__.BootstrapTests.test_other_http_errors_do_not_trigger_fallback) ... ok
+test_empty_failed_skipped_or_no_negative_control_summaries_rejected (__main__.CleanCheckoutTests.test_empty_failed_skipped_or_no_negative_control_summaries_rejected) ... ok
+test_failed_child_exit_propagates (__main__.CleanCheckoutTests.test_failed_child_exit_propagates) ... 
+ok
+test_monorepo_subproject_excludes_other_projects_and_dirty_files (__main__.CleanCheckoutTests.test_monorepo_subproject_excludes_other_projects_and_dirty_files) ... ok
+test_standalone_committed_project (__main__.CleanCheckoutTests.test_standalone_committed_project) ... ok
+test_zero_exit_script_error_is_rejected (__main__.CleanCheckoutTests.test_zero_exit_script_error_is_rejected) ... 
+ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.200s
+
+OK

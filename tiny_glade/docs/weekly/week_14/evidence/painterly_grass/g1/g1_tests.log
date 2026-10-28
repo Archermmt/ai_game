@@ -1,0 +1,38 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/tongmeng/Library/Application Support/WindhavenDiorama] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://tests/week_14/test_grass_lab.gd
+* test_imported_meshes_preserve_single_surface_budget_and_root_weights
+* test_imported_y_up_scale_and_origin_match_manifest
+* test_coverage_has_real_transparent_and_brush_edge_pixels
+* test_batches_are_deterministic_and_share_only_per_lab_material
+* test_pause_resume_and_reduce_motion_are_independent_local_controls
+* test_light_modes_and_close_views_do_not_rebuild_geometry
+* test_reset_restores_local_presentation_and_preview_has_no_save_service
+* test_missing_derivatives_report_failure_without_substituting_old_grass
+8/8 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               1
+Tests                 8
+Passing Tests         8
+Asserts             130
+Time              1.324s
+
+
+---- All tests passed! ----
+
+Results saved to reports/week_14/g1/tests.xml

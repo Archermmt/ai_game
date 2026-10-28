@@ -1,0 +1,133 @@
+{
+  "date": "2026-10-25",
+  "source": "CGChefs Painterly Grass 1.0, user-provided local bundle",
+  "source_files": [
+    {
+      "file": "CGC_Painterly_Grass_1.0/CGC_Painterly_Grass_1.0.blend",
+      "sha256": "9d86f760b3ec2834d0726bb39ffe58607702a8789df46d1a7b6804e7fe5f920e",
+      "bytes": 74535051
+    },
+    {
+      "file": "预置场景文件/DemoB_ScenesD_3.3/Adventure_Fields_Demo.blend",
+      "sha256": "c15e3c2691094c8984faaee3d987d01b752a4e5d33cb6539c5e09839f43f77a4",
+      "bytes": 70231330
+    },
+    {
+      "file": "预置场景文件/DemoB_ScenesD_3.3/Butter_Fields_Demo.blend",
+      "sha256": "f338d621ea925ae2b9cb907bfe9d266ae04da6a2ad63d04c375d9a61b52a91f9",
+      "bytes": 51172557
+    },
+    {
+      "file": "预置场景文件/DemoB_ScenesD_3.3/Forest_Floor_Night_Demo.blend",
+      "sha256": "9b2249f93d8f7c45a1aaa956ae35867a2275946fc9934b5b2e99db04d3a46cf0",
+      "bytes": 46050380
+    },
+    {
+      "file": "预置场景文件/DemoB_ScenesD_3.3/Pampas_Grass_Field_Demo.blend",
+      "sha256": "c3572134ebbbced01345f0d9fadb93d5ae67fd6dbfc79721c128bba72932e77a",
+      "bytes": 94053078
+    },
+    {
+      "file": "预置场景文件/DemoB_ScenesD_3.3/SnowB_SunriseD_Field_Demo.blend",
+      "sha256": "56eb51cdec9497e88a34e77ae1aaed50aff23e825aa502e8ef8ce8c5a282b6b9",
+      "bytes": 146685906
+    },
+    {
+      "file": "预置场景文件/DemoB_ScenesD_3.3_GeoScatter_Version/Adventure_Fields_Geoscatter.blend",
+      "sha256": "f3ab0d74612b533ad30fc5efd987b87aa2a023db91e0e17f65bf9d2076f20176",
+      "bytes": 77967889
+    },
+    {
+      "file": "预置场景文件/DemoB_ScenesD_3.3_GeoScatter_Version/Butter_Fields_Geoscatter.blend",
+      "sha256": "f6589dc28a0f8080628ca2b5dabe952a4a688b7ecb840af001dd2017d01db170",
+      "bytes": 61454998
+    },
+    {
+      "file": "预置场景文件/DemoB_ScenesD_3.3_GeoScatter_Version/Forest_Floor_Night_Geoscatter.blend",
+      "sha256": "4bebcf84a19d2ad972f3ea11ca5ed1d80de43dc5106f55d72aa642cb43542d05",
+      "bytes": 54244766
+    },
+    {
+      "file": "预置场景文件/DemoB_ScenesD_3.3_GeoScatter_Version/Pampas_Grass_Field_Geoscatter.blend",
+      "sha256": "5cbe7c09d9861cc22cfa0b37fb48deb90ac9df4f456147e61538d1c0437ed31e",
+      "bytes": 100105961
+    },
+    {
+      "file": "预置场景文件/DemoB_ScenesD_3.3_GeoScatter_Version/SnowB_SunriseD_Field_Geoscatter.blend",
+      "sha256": "bc4370ccfaf24fbd16df1f4c1f28a405ce36b34fd2cc68eb0cfc353b915a085c",
+      "bytes": 266743805
+    },
+    {
+      "file": "预置场景文件/Extra_Grass_Dioramas_3.3.blend",
+      "sha256": "439914edac00a17dbe2e79dc67d3e6b0ef2bf208088aa4dd9c4869ef54173199",
+      "bytes": 89358550
+    },
+    {
+      "file": "预置场景文件/山谷场景演示/Cliff_Assets/Basic_Cliff_Asset_3.3.blend",
+      "sha256": "03687ffd410ef0cf75367f2e4b54e4433d71c008de68385906749bdbdac483e3",
+      "bytes": 112855632
+    },
+    {
+      "file": "预置场景文件/山谷场景演示/Cliff_Assets/Mountain_Cliff_Demo_3.3.blend",
+      "sha256": "9ab94a20b0b485f1a477c13925711f2d3fc0743a7a6f35d9d60587319f103067",
+      "bytes": 205458922
+    },
+    {
+      "file": "预置场景文件/山谷场景演示/Valleys_of_the_North_Free_Demo/Valley_of_the_North_Demo_3.3.blend",
+      "sha256": "487631daaefc27eec0b02a2457c7eb4d93a78f48c14c0bf891ba1b50d99b3be3",
+      "bytes": 164446207
+    },
+    {
+      "file": "预置场景文件/山谷场景演示/Valleys_of_the_North_Free_Demo/Valley_of_the_North_Demo_3.3_Geoscatter.blend",
+      "sha256": "ec2128793dfe965265b4153ab8b6716197683b4c333e3dcbdbd8707a47c466a7",
+      "bytes": 169968577
+    }
+  ],
+  "unchanged_sources": 16,
+  "provisional_selection": [
+    {
+      "object": "Basic_Grass_Card_01",
+      "mesh": "Plane.091",
+      "base_triangles": 8,
+      "material_slots": [
+        "Eevee Grass C"
+      ],
+      "dimensions_blender_units": [
+        0.7125639319419861,
+        0.19802774488925934,
+        0.8338171243667603
+      ],
+      "selection_status": "provisional; visual review and export remain G1"
+    },
+    {
+      "object": "Basic_Grass_Card_03",
+      "mesh": "Plane.093",
+      "base_triangles": 8,
+      "material_slots": [
+        "Eevee Grass C"
+      ],
+      "dimensions_blender_units": [
+        0.49668699502944946,
+        0.19802774488925934,
+        0.8508040308952332
+      ],
+      "selection_status": "provisional; visual review and export remain G1"
+    },
+    {
+      "object": "Basic_Grass_Floor_04",
+      "mesh": "Plane.053",
+      "base_triangles": 8,
+      "material_slots": [
+        "Eevee Grass C Floor"
+      ],
+      "dimensions_blender_units": [
+        0.9832504987716675,
+        1.0638513565063477,
+        0.05855098366737366
+      ],
+      "selection_status": "provisional; visual review and export remain G1"
+    }
+  ],
+  "license_record": "not found in provided bundle; project asset repository/distribution gate remains pending",
+  "new_assets_imported": false
+}

@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M4 Pro (Apple9)
+
+W09_FIRST_DRAW
+MUSIC_MIX { "driver": "CoreAudio", "weather": "clear", "calendar_weather": "clear", "automatic_weather": false, "minute_of_day": 720.0, "weather_blend_age": 18.0, "duck": 1.0, "target_duck": 1.0, "wind_strength": 0.45, "bus_order": ["QaMusic", "QaAmbient", "QaWind"], "frames": [201216, 201216, 201216], "peaks": [0.03252270072699, 0.05397816747427, 0.03509238362312], "music_rms": 0.00605467799064, "ambient_rms": 0.00871312924097, "wind_rms": 0.00717580804549, "track": "all_seasons", "position": 10.1893329620361, "music_volume_db": -15.9176006317139, "mix_age": 0.005811, "master_muted": true, "capture_seconds": 4.0, "physical_listening_verified": false }
+2026-10-26 06:24:57.065 Godot[89304:18520102] +[IMKClient subclass]: chose IMKClient_Modern
+WARNING: instance_reset_physics_interpolation() is deprecated.
+     at: _instance_reset_physics_interpolation_bind_compat_104269 (servers/rendering/rendering_server.compat.inc:62)
+     GDScript backtrace (most recent call first):
+         [0] configure (res://features/landscape_lab/terrain_adapter.gd:52)
+         [1] _deliver (res://features/landscape/production_terrain.gd:131)
+2026-10-26 06:24:59.450 Godot[89304:18520102] +[IMKInputSession subclass]: chose IMKInputSession_Modern

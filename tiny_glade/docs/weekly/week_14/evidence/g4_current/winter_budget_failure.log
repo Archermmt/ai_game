@@ -1,0 +1,10 @@
+legacy_blizzard_45_1: p95 23.009ms, RSS 1139.5MiB, budget False
+valley_blizzard_45_1: p95 28.415ms, RSS 1314.9MiB, budget False
+G4 pilot complete
+Traceback (most recent call last):
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/painterly_grass_performance.py", line 178, in <module>
+    main()
+    ~~~~^^
+  File "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/tools/quality/painterly_grass_performance.py", line 174, in main
+    raise RuntimeError('Sampled budget exceeded; evidence retained; G4 not passed')
+RuntimeError: Sampled budget exceeded; evidence retained; G4 not passed

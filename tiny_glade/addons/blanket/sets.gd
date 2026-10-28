@@ -1,0 +1,100 @@
+# SPDX-FileCopyrightText: © 2026 1hue
+# SPDX-License-Identifier: MIT
+
+extends RefCounted
+class_name BlanketSets
+
+## dispatch_buffer offsets of each uvec3(X,Y,Z)
+enum Dispatch {
+	DEDUPE = 0 * 12,
+	FACES = 1 * 12,
+	EDGES = 2 * 12,
+	OUT_MESH = 3 * 12,
+	SHRINK = 4 * 12,
+	FILL = 5 * 12,
+	BOUNDARY = 6 * 12,
+}
+
+var rd: RenderingDevice
+var surface: BlanketSurface
+
+var in_mesh: RID # 0 = Verts, 1 = Indices, 2 = Attributes
+var out_mesh: RID
+## 0 = faces_dedupe, 1 = faces_write, 2 = shared_edges, 3 = out_mesh, 4 = bevel_shrink, 5 = bevel_fill, 6 = boundary
+var dispatch_buffer: RID
+var dispatch: RID
+
+#region Faces
+var selected_faces: RID # Vertex + Index buffer
+var selected_index_buffer: RID
+var selected_vertex_buffer: RID
+var faces_table: RID
+var faces_table_buffer: RID
+#endregion
+
+#region Bevel
+var shared_edge: RID
+var shared_edge_buffer: RID
+var face_edge: RID
+var face_edge_buffer: RID
+var vertex_flag: RID
+var vertex_flag_buffer: RID
+var boundary: RID
+var boundary_buffer: RID
+#endregion
+
+var normals_sum: RID
+var normals_sum_buffer: RID
+
+var smooth_sum: RID
+var smooth_sum_buffer: RID
+
+var debug: RID
+
+
+func _init(p_surface: BlanketSurface) -> void:
+	rd = RenderingServer.get_rendering_device()
+	surface = p_surface
+
+	init_indirect_dispatch()
+
+
+func init_indirect_dispatch() -> void:
+	dispatch_buffer = rd.storage_buffer_create(
+		Dispatch.size() * 12,
+		get_dispatch_bytes(),
+		RenderingDevice.STORAGE_BUFFER_USAGE_DISPATCH_INDIRECT
+	)
+	dispatch = rd.uniform_set_create([
+		BlanketUtil.create_uniform([dispatch_buffer], RenderingDevice.UNIFORM_TYPE_STORAGE_BUFFER, 0),
+	], BlanketShaders.select.shaders[&"in_u16"], 2)
+
+
+func clear_dispatch() -> void:
+	rd.buffer_update(dispatch_buffer, 0, Dispatch.size() * 12, get_dispatch_bytes())
+
+
+func get_dispatch_bytes() -> PackedByteArray:
+	var bytes := PackedByteArray()
+	bytes.resize(Dispatch.size() * 12)
+
+	for i in Dispatch.size() * 3:
+		bytes.encode_u32(i * 4, 1)
+
+	return bytes
+
+
+## TODO: Free scratch buffers after bake
+#func cleanup_bake() -> void:
+	#for rid in [faces_set, edges_set]:
+		#if rid.is_valid():
+			#rd.free_rid(rid)
+
+
+func _notification(what) -> void:
+	if what != NOTIFICATION_PREDELETE:
+		return
+
+	for rid in [in_mesh, dispatch, dispatch_buffer]: # Free uniform set -> free buffer
+		if rid:
+			rd.free_rid(rid)

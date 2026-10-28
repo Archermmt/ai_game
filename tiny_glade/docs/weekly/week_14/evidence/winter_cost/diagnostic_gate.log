@@ -1,0 +1,58 @@
+PASS winter_cost_native (263.64s)
+{
+  "full": {
+    "p95_samples_ms": [
+      28.15,
+      28.268,
+      28.312
+    ],
+    "median_p95_ms": 28.268,
+    "median_draw_calls": 6082
+  },
+  "no_caps": {
+    "p95_samples_ms": [
+      20.158,
+      20.248,
+      20.235
+    ],
+    "median_p95_ms": 20.235,
+    "median_draw_calls": 4932
+  },
+  "no_clouds": {
+    "p95_samples_ms": [
+      26.103,
+      25.992,
+      26.32
+    ],
+    "median_p95_ms": 26.103,
+    "median_draw_calls": 6082
+  },
+  "no_grass": {
+    "p95_samples_ms": [
+      22.603,
+      22.642,
+      22.557
+    ],
+    "median_p95_ms": 22.603,
+    "median_draw_calls": 5705
+  },
+  "no_snowfall": {
+    "p95_samples_ms": [
+      28.183,
+      28.223,
+      28.261
+    ],
+    "median_p95_ms": 28.223,
+    "median_draw_calls": 6084
+  },
+  "all_off": {
+    "p95_samples_ms": [
+      13.128,
+      13.103,
+      13.035
+    ],
+    "median_p95_ms": 13.103,
+    "median_draw_calls": 4551
+  }
+}
+WINTER COST DIAGNOSTIC PASS: 18 samples; G4 acceptance remains separate

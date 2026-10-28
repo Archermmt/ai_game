@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "cumulative_run": false,
+  "week09_tests": null,
+  "audio_tests": [
+    {
+      "suite": "world_audio",
+      "tests": 10,
+      "assertions": 89
+    },
+    {
+      "suite": "seasonal_audio",
+      "tests": 6,
+      "assertions": 328
+    }
+  ],
+  "native_controls": 10,
+  "mixes": {
+    "clear": {
+      "music_to_ambient_db": 2.121741339718891,
+      "music_to_wind_db": 5.664009322879822
+    },
+    "storm": {
+      "music_to_ambient_db": -1.634718552417621,
+      "music_to_wind_db": 1.8947005584216252
+    }
+  },
+  "physical_listening_verified": false,
+  "steps": [
+    {
+      "name": "audio_balance_world_audio",
+      "exit_code": 0,
+      "seconds": 1.166
+    },
+    {
+      "name": "audio_balance_seasonal_audio",
+      "exit_code": 0,
+      "seconds": 3.764
+    },
+    {
+      "name": "audio_balance_controls",
+      "exit_code": 0,
+      "seconds": 8.91
+    },
+    {
+      "name": "audio_balance_sources",
+      "exit_code": 0,
+      "seconds": 0.127
+    },
+    {
+      "name": "audio_balance_music_assets",
+      "exit_code": 0,
+      "seconds": 0.041
+    },
+    {
+      "name": "audio_balance_pcm_clear",
+      "exit_code": 0,
+      "seconds": 15.138
+    },
+    {
+      "name": "audio_balance_pcm_storm",
+      "exit_code": 0,
+      "seconds": 15.241
+    }
+  ]
+}
