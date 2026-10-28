@@ -1,0 +1,712 @@
+{
+	"baseline_sky_only": false,
+	"checks": {
+		"QA saves isolated": true,
+		"Terrain3D is visible receiver": true,
+		"actual FirstPersonWalk entered": true,
+		"actual Terrain3D receives decals": true,
+		"actual photo mode entered": true,
+		"actual production grass renderer": true,
+		"actual production landscape ready": true,
+		"actual walk populates grass contacts": true,
+		"actual walk temporarily thaws prior frozen photo": true,
+		"all actual building and roof meshes exclude footprint receiver": true,
+		"all actual grass batches exclude footprint receiver": true,
+		"all cottage tile roof meshes inspected": true,
+		"all source cottages inspected as published nodes": true,
+		"continuous safe off road grass route found": true,
+		"decals change actual Terrain3D pixels": true,
+		"eighteen seconds fades every existing print alpha": true,
+		"exit Terrain3D signature unchanged": true,
+		"exit clears snow footprints": true,
+		"exit grass signature unchanged": true,
+		"exit grass versions unchanged": true,
+		"exit history unchanged": true,
+		"exit restores prior frozen photo": true,
+		"exit source unchanged": true,
+		"exit starts with live footprints": true,
+		"exit starts with live grass contact": true,
+		"exit stops actual FirstPersonWalk": true,
+		"exit_setup_walk ends on safe ground": true,
+		"exit_setup_walk real W input moves requested distance": true,
+		"expired pooled decals all hidden": true,
+		"expired print pixels return to unmarked snow": true,
+		"fade visibly weakens footprint pixels": true,
+		"footprint receiver bit is layer 18": true,
+		"footprint records available for camera diagnosis": true,
+		"formal scene uses accepted volume clouds": true,
+		"frozen contact samples remain exact": true,
+		"frozen footprints do not age during captures": true,
+		"frozen grass baseline stable": true,
+		"frozen snow baseline stable": true,
+		"grass contact returns within about one second": true,
+		"grass recovery preserves photo and wind freeze": true,
+		"grass walking Terrain3D signature unchanged": true,
+		"grass walking grass signature unchanged": true,
+		"grass walking grass versions unchanged": true,
+		"grass walking history unchanged": true,
+		"grass walking source unchanged": true,
+		"grass_contact_off saved": true,
+		"grass_contact_off_repeat saved": true,
+		"grass_contact_on saved": true,
+		"grass_first_person saved": true,
+		"inactive grass GPU contact fast path restored": true,
+		"legacy terrain fallback hidden": true,
+		"native renderer required": true,
+		"real grass bending changes pixels": true,
+		"real winter walk emits at least three footprints": true,
+		"snow walking and fading Terrain3D signature unchanged": true,
+		"snow walking and fading grass signature unchanged": true,
+		"snow walking and fading grass versions unchanged": true,
+		"snow walking and fading history unchanged": true,
+		"snow walking and fading source unchanged": true,
+		"source publications settled": true,
+		"summer footsteps not emitted": true,
+		"summer_walk ends on safe ground": true,
+		"summer_walk real W input moves requested distance": true,
+		"twenty five seconds expires all prints": true,
+		"winter clear cover stable": true,
+		"winter snow geometry ready before contact captures": true,
+		"winter_first_person_look_back saved": true,
+		"winter_footprints_faded_18s saved": true,
+		"winter_footprints_fresh saved": true,
+		"winter_footprints_fresh_repeat saved": true,
+		"winter_footprints_gone_25s saved": true,
+		"winter_footprints_hidden saved": true,
+		"winter_walk ends on safe ground": true,
+		"winter_walk real W input moves requested distance": true
+	},
+	"images": {
+		"grass_contact_off": "res://reports/immersion/native/grass_contact_off.png",
+		"grass_contact_off_repeat": "res://reports/immersion/native/grass_contact_off_repeat.png",
+		"grass_contact_on": "res://reports/immersion/native/grass_contact_on.png",
+		"grass_first_person": "res://reports/immersion/native/grass_first_person.png",
+		"winter_first_person_look_back": "res://reports/immersion/native/winter_first_person_look_back.png",
+		"winter_footprints_faded_18s": "res://reports/immersion/native/winter_footprints_faded_18s.png",
+		"winter_footprints_fresh": "res://reports/immersion/native/winter_footprints_fresh.png",
+		"winter_footprints_fresh_repeat": "res://reports/immersion/native/winter_footprints_fresh_repeat.png",
+		"winter_footprints_gone_25s": "res://reports/immersion/native/winter_footprints_gone_25s.png",
+		"winter_footprints_hidden": "res://reports/immersion/native/winter_footprints_hidden.png"
+	},
+	"measurements": {
+		"building_receiver_inspection": {
+			"buildings": 3,
+			"geometry": [
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/HandLaidTiles",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/HoneyTimber",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/Limestone",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arched_door",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_00",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_01",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_02",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_03",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_04",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_05",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_06",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_07",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_08",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_09",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_10",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_11",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_12",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_13",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_14",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_15",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/frame_post",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/frame_post_001",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/iron_hinge",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/iron_hinge_001",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/handle",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/dark_inner_lining",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/window_rect/window_frame_post",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/window_rect/window_frame_post_001",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/window_rect/window_frame_rail",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/window_rect/window_frame_rail_001",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/window_rect/window_light_rect",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/window_rect/closed_dark_back",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/window_rect/window_mullion",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/window_rect/window_crossbar",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/window_round/window_round_continuous_frame",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/window_round/window_light_round",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/window_round/closed_dark_back",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/window_round/window_mullion",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/window_round/window_crossbar",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/@Node3D@579/window_frame_post",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/@Node3D@579/window_frame_post_001",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/@Node3D@579/window_frame_rail",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/@Node3D@579/window_frame_rail_001",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/@Node3D@579/window_light_rect",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/@Node3D@579/closed_dark_back",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/@Node3D@579/window_mullion",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/Cottage/@Node3D@579/window_crossbar",
+					"unit": "building:7b708be93b273ee1f6e20f4c"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729",
+					"unit": "building:2f0c2d8c993b06836b069ed4"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/HandLaidTiles",
+					"unit": "building:2f0c2d8c993b06836b069ed4"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/HoneyTimber",
+					"unit": "building:2f0c2d8c993b06836b069ed4"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/Limestone",
+					"unit": "building:2f0c2d8c993b06836b069ed4"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_rect/window_frame_post",
+					"unit": "building:2f0c2d8c993b06836b069ed4"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_rect/window_frame_post_001",
+					"unit": "building:2f0c2d8c993b06836b069ed4"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_rect/window_frame_rail",
+					"unit": "building:2f0c2d8c993b06836b069ed4"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_rect/window_frame_rail_001",
+					"unit": "building:2f0c2d8c993b06836b069ed4"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_rect/window_light_rect",
+					"unit": "building:2f0c2d8c993b06836b069ed4"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_rect/closed_dark_back",
+					"unit": "building:2f0c2d8c993b06836b069ed4"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_rect/window_mullion",
+					"unit": "building:2f0c2d8c993b06836b069ed4"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_rect/window_crossbar",
+					"unit": "building:2f0c2d8c993b06836b069ed4"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_round/window_round_continuous_frame",
+					"unit": "building:2f0c2d8c993b06836b069ed4"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_round/window_light_round",
+					"unit": "building:2f0c2d8c993b06836b069ed4"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_round/closed_dark_back",
+					"unit": "building:2f0c2d8c993b06836b069ed4"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_round/window_mullion",
+					"unit": "building:2f0c2d8c993b06836b069ed4"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_round/window_crossbar",
+					"unit": "building:2f0c2d8c993b06836b069ed4"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/HandLaidTiles",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/HoneyTimber",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/Limestone",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arched_door",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_00",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_01",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_02",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_03",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_04",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_05",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_06",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_07",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_08",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_09",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_10",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_11",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_12",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_13",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_14",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_15",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/frame_post",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/frame_post_001",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/iron_hinge",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/iron_hinge_001",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/handle",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/dark_inner_lining",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/window_round/window_round_continuous_frame",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/window_round/window_light_round",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/window_round/closed_dark_back",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/window_round/window_mullion",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				},
+				{
+					"layers": 262145,
+					"path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/window_round/window_crossbar",
+					"unit": "building:246418e32b3c35d3523b0b70"
+				}
+			],
+			"roof_meshes": 3
+		},
+		"exit_setup_walk_distance_m": 1.07827997207642,
+		"footprints_after_walk": [
+			{
+				"age": 1.23049,
+				"left": true,
+				"normal": "(-0.396967, 0.916809, -0.043343)",
+				"opacity": 1.0,
+				"point": "(14.91983, 0.904914, 11.9)",
+				"sequence": 1
+			},
+			{
+				"age": 0.93049,
+				"left": false,
+				"normal": "(-0.348521, 0.936045, -0.04851)",
+				"opacity": 1.0,
+				"point": "(15.52223, 1.158955, 12.1)",
+				"sequence": 2
+			},
+			{
+				"age": 0.630198333333334,
+				"left": true,
+				"normal": "(-0.298481, 0.954068, -0.025754)",
+				"opacity": 1.0,
+				"point": "(16.13703, 1.361792, 11.9)",
+				"sequence": 3
+			},
+			{
+				"age": 0.322852333333333,
+				"left": false,
+				"normal": "(-0.23502, 0.971894, -0.013676)",
+				"opacity": 1.0,
+				"point": "(16.7633, 1.539714, 12.1)",
+				"sequence": 4
+			}
+		],
+		"footprints_expired_count": 0,
+		"footprints_faded_records": [
+			{
+				"age": 19.23049,
+				"left": true,
+				"normal": "(-0.396967, 0.916809, -0.043343)",
+				"opacity": 0.269107032630748,
+				"point": "(14.91983, 0.904914, 11.9)",
+				"sequence": 1
+			},
+			{
+				"age": 18.93049,
+				"left": false,
+				"normal": "(-0.348521, 0.936045, -0.04851)",
+				"opacity": 0.298405615155464,
+				"point": "(15.52223, 1.158955, 12.1)",
+				"sequence": 2
+			},
+			{
+				"age": 18.6301983333333,
+				"left": true,
+				"normal": "(-0.298481, 0.954068, -0.025754)",
+				"opacity": 0.328493566361415,
+				"point": "(16.13703, 1.361792, 11.9)",
+				"sequence": 3
+			},
+			{
+				"age": 18.3228523333333,
+				"left": false,
+				"normal": "(-0.23502, 0.971894, -0.013676)",
+				"opacity": 0.359953073584399,
+				"point": "(16.7633, 1.539714, 12.1)",
+				"sequence": 4
+			}
+		],
+		"footprints_total_emitted": 4,
+		"grass_contacts_after_walk": 4,
+		"grass_pixels": {
+			"off_on": {
+				"changed_samples": 96352,
+				"mean": 0.0530547992369533,
+				"samples": 276828
+			},
+			"off_repeat": {
+				"changed_samples": 0,
+				"mean": 0.0,
+				"samples": 276828
+			},
+			"region": "[P: (251, 298), S: (1416, 782)]"
+		},
+		"route": {
+			"direction": "(1.0, 0.0)",
+			"length": 6.4,
+			"start": "(12.0, -0.608641, 12.0)",
+			"yaw": -1.5707963267949
+		},
+		"snow_pixels": {
+			"faded_vs_hidden": {
+				"changed_samples": 710,
+				"mean": 0.000556123160546826,
+				"samples": 24180
+			},
+			"fresh_vs_hidden": {
+				"changed_samples": 847,
+				"mean": 0.00177119306979641,
+				"samples": 24180
+			},
+			"frozen_repeat": {
+				"changed_samples": 0,
+				"mean": 0.0,
+				"samples": 24180
+			},
+			"gone_vs_hidden": {
+				"changed_samples": 0,
+				"mean": 0.0,
+				"samples": 24180
+			},
+			"region": "[P: (784, 441), S: (310, 311)]"
+		},
+		"summer_walk_distance_m": 2.58026027679443,
+		"winter_walk_distance_m": 2.83167624473572
+	},
+	"passed": true,
+	"performance_gate_run": false,
+	"production_clouds": true,
+	"real_keyboard_walking": true,
+	"rendering_driver": "metal",
+	"single_initial_spawn": true,
+	"taa_during_pixel_checks": false,
+	"viewport_size": [
+		1920,
+		1080
+	],
+	"windows_real_device_verified": false
+}

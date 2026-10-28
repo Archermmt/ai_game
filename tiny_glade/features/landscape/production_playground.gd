@@ -166,6 +166,7 @@ func _process(delta: float) -> void:
 			_landscape_environment_key = key
 	var grass: ProductionGrassRenderer = meadow as ProductionGrassRenderer
 	if grass != null:
+		grass.set_snow_cover(float(atmosphere.blend.current.get("cover", 0.0)))
 		grass.set_walker_contact(
 			walk_controller.feet, walk_controller.active, atmosphere != null and atmosphere.frozen
 		)

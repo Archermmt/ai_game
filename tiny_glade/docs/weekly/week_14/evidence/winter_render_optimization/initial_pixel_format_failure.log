@@ -1,0 +1,227 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M4 Pro (Apple9)
+
+2026-10-28 07:35:42.603 Godot[22151:19166914] +[IMKClient subclass]: chose IMKClient_Modern
+WARNING: instance_reset_physics_interpolation() is deprecated.
+     at: _instance_reset_physics_interpolation_bind_compat_104269 (servers/rendering/rendering_server.compat.inc:62)
+     GDScript backtrace (most recent call first):
+         [0] configure (res://features/landscape_lab/terrain_adapter.gd:52)
+         [1] _deliver (res://features/landscape/production_terrain.gd:146)
+W09_FIRST_DRAW
+2026-10-28 07:35:47.985 Godot[22151:19166914] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)
+SCRIPT ERROR: Assertion failed.
+          at: _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+          GDScript backtrace (most recent call first):
+              [0] _significant_pixels (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:33)
+              [1] _run (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:110)
+              [2] _frames (res://tests/week_14/winter_optimization/winter_optimization_probe.gd:17)

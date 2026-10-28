@@ -26,7 +26,7 @@ func _mode(mode: String) -> void:
 	garden.set_plugin_clouds(mode not in ["no_clouds", "all_off"])
 	garden.meadow.visible = mode not in ["no_grass", "all_off"]
 	snow_gate.visible = mode not in ["no_snowfall", "all_off"]
-	for view: MeshInstance3D in garden.snow_cover._views:
+	for view: GeometryInstance3D in garden.snow_cover._views:
 		view.visible = mode not in ["no_caps", "all_off"]
 	garden.pond_reflections.request_update()
 
@@ -97,7 +97,7 @@ func _run() -> void:
 	await process_frame
 	while _busy() and Time.get_ticks_msec() < deadline:
 		await process_frame
-	assert(not _busy() and garden.snow_cover._views.size() > 1000)
+	assert(not _busy() and garden.snow_cover.cap_count > 1000)
 	assert(garden.meadow is ProductionGrassRenderer and garden.cloud_adapter.ready_for_clouds)
 	assert(root.msaa_3d == Viewport.MSAA_DISABLED and root.use_taa)
 	var source: Dictionary = garden.document.snapshot()

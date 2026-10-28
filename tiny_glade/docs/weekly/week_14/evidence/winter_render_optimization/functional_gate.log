@@ -1,0 +1,4 @@
+PASS winter_opt_prior (204.46s)
+PASS winter_opt_unit (1.37s)
+PASS winter_opt_pixels (62.57s)
+WINTER OPTIMIZATION CHECKS PASS: 6 new tests; 36 pixel pairs

@@ -1,0 +1,9 @@
+{
+  "stage": "G4",
+  "decision": "deferred_for_local_G5",
+  "frame_budget_passed": false,
+  "absolute_optimization_limit_proven": false,
+  "bounded_attempt_complete": true,
+  "retained_visual_quality": true,
+  "release_approved": false
+}

@@ -7,12 +7,18 @@ const MATERIAL: StandardMaterial3D = preload("res://addons/blanket/materials/sno
 
 var host: Node3D
 var baked_count: int = 0
+var cap_count: int = 0
+var batching_enabled: bool = true
+var opaque_material_enabled: bool = true
 var _snapshot: Dictionary = {}
 var _signature: int = 0
 var _dirty: bool = false
 var _jobs: Array[Dictionary] = []
 var _cache: Dictionary = {}
-var _views: Array[MeshInstance3D] = []
+var _views: Array[GeometryInstance3D] = []
+var _records: Array[Dictionary] = []
+var _batch_mode: bool = false
+var _batch_dirty: bool = false
 var _material: StandardMaterial3D
 var _cover: float = 0.0
 
@@ -41,12 +47,17 @@ func request(snapshot: Dictionary) -> void:
 	_dirty = true
 	_jobs.clear()
 	_clear_views()
+	_records.clear()
+	cap_count = 0
+	_batch_dirty = false
 
 
 func sync(cover: float) -> void:
 	_cover = clampf(cover, 0, 1)
 	visible = _cover > 0.35
-	_material.albedo_color.a = smoothstep(0.35, 0.9, _cover)
+	_sync_material()
+	if _jobs.is_empty() and _batch_mode != (batching_enabled and _cover >= 0.9):
+		_rebuild_views()
 	if (
 		not visible
 		or DisplayServer.get_name() == "headless"
@@ -64,6 +75,8 @@ func sync(cover: float) -> void:
 		_publish(job)
 		if not cached:
 			break
+	if _jobs.is_empty() and _batch_dirty:
+		_rebuild_views()
 
 
 func is_busy() -> bool:
@@ -78,12 +91,14 @@ func is_busy() -> bool:
 func shutdown() -> void:
 	_jobs.clear()
 	_cache.clear()
+	_records.clear()
+	cap_count = 0
 	_clear_views()
 	BlanketShaders.shutdown()
 
 
 func _clear_views() -> void:
-	for view: MeshInstance3D in _views:
+	for view: GeometryInstance3D in _views:
 		view.free()
 	_views.clear()
 
@@ -178,17 +193,91 @@ func _publish(job: Dictionary) -> void:
 			return
 		_cache[job["key"]] = mesh
 		baked_count += 1
+	var record: Dictionary = job.duplicate()
+	record["baked_mesh"] = mesh
+	_records.append(record)
+	cap_count = _records.size()
+	_batch_dirty = true
+	_single_view(record)
+
+
+func set_opaque_enabled(enabled: bool) -> void:
+	opaque_material_enabled = enabled
+	_sync_material()
+
+
+func _sync_material() -> void:
+	_material.albedo_color.a = smoothstep(0.35, 0.9, _cover)
+	var mode: int = (
+		BaseMaterial3D.TRANSPARENCY_DISABLED
+		if opaque_material_enabled and _cover >= 0.9
+		else BaseMaterial3D.TRANSPARENCY_ALPHA_HASH
+	)
+	if _material.transparency != mode:
+		_material.transparency = mode
+
+
+func set_batching_enabled(enabled: bool) -> void:
+	batching_enabled = enabled
+	_rebuild_views()
+
+
+func _single_view(record: Dictionary) -> void:
 	var view: MeshInstance3D = MeshInstance3D.new()
 	view.name = "SnowCap"
-	view.set_meta("snow_kind", job["kind"])
-	view.mesh = mesh
+	view.set_meta("snow_kind", record["kind"])
+	view.set_meta("cap_count", 1)
+	view.mesh = record["baked_mesh"]
 	view.material_override = _material
-	view.visibility_range_begin = job.get("begin", 0.0)
-	view.visibility_range_end = job.get("end", 0.0)
+	view.visibility_range_begin = record.get("begin", 0.0)
+	view.visibility_range_end = record.get("end", 0.0)
 	view.layers = 1 | PondReflections.REFLECTION_LAYER
 	add_child(view)
-	view.transform = job.get("pose", Transform3D.IDENTITY)
+	view.transform = record.get("pose", Transform3D.IDENTITY)
 	_views.append(view)
+
+
+func _rebuild_views() -> void:
+	_clear_views()
+	_batch_mode = batching_enabled and _cover >= 0.9
+	_batch_dirty = false
+	var groups: Dictionary = {}
+	for record: Dictionary in _records:
+		# Keep every distance-limited cap's own visibility origin and all roofs.
+		# Hash fading also retains the original per-object shader path.
+		if (
+			not _batch_mode
+			or record["kind"] == "roof"
+			or record["begin"] != 0.0
+			or record["end"] != 0.0
+		):
+			_single_view(record)
+			continue
+		var pose: Transform3D = record["pose"]
+		var cell: Vector2i = Vector2i(floori(pose.origin.x / 8), floori(pose.origin.z / 8))
+		var key: String = str([record["baked_mesh"].get_rid(), cell])
+		if not groups.has(key):
+			groups[key] = []
+		groups[key].append(record)
+	for group: Array in groups.values():
+		if group.size() == 1:
+			_single_view(group[0])
+			continue
+		var multimesh: MultiMesh = MultiMesh.new()
+		multimesh.transform_format = MultiMesh.TRANSFORM_3D
+		multimesh.mesh = group[0]["baked_mesh"]
+		multimesh.instance_count = group.size()
+		for index: int in group.size():
+			multimesh.set_instance_transform(index, group[index]["pose"])
+		var view: MultiMeshInstance3D = MultiMeshInstance3D.new()
+		view.name = "SnowCapBatch"
+		view.multimesh = multimesh
+		view.material_override = _material
+		view.set_meta("snow_kind", "nature")
+		view.set_meta("cap_count", group.size())
+		view.layers = 1 | PondReflections.REFLECTION_LAYER
+		add_child(view)
+		_views.append(view)
 
 
 static func _bed_color(color: Color) -> bool:

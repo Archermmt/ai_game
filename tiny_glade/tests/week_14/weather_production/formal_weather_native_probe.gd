@@ -207,7 +207,7 @@ func _run() -> void:
 	)
 	var roofs: int = 0
 	var nature: int = 0
-	for view: MeshInstance3D in garden.snow_cover._views:
+	for view: GeometryInstance3D in garden.snow_cover._views:
 		roofs += int(view.get_meta("snow_kind") == "roof")
 		nature += int(view.get_meta("snow_kind") == "nature")
 	print("SNOW_CAPS roofs=", roofs, " nature=", nature, " bakes=", garden.snow_cover.baked_count)

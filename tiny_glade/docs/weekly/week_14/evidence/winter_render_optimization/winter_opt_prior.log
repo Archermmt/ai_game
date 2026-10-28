@@ -1,0 +1,6 @@
+PASS weather_adoption_prior_regressions (133.57s)
+PASS weather_adoption_tests (7.86s)
+PASS blanket_native (0.55s)
+PASS weather_adoption_native (33.35s)
+PASS weather_adoption_immersion (28.74s)
+WEATHER ADOPTION PASS {'new_tests': 9, 'new_assertions': 1545, 'focused_tests': 36, 'focused_assertions': 2807, 'failures': 0, 'skipped': 0} native: True

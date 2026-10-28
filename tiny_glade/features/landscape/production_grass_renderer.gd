@@ -7,6 +7,7 @@ const LOCAL: String = "res://assets/painterly_grass/local/valley/"
 const IDS: Array[String] = ["blades", "detail", "puffs", "floor"]
 const CANDIDATE_COUNTS: Array[int] = [3040, 4800, 2640, 14400]
 
+var winter_floor_cull_enabled: bool = true
 var ready_for_grass: bool = false
 var failed: bool = false
 var failure_message: String = ""
@@ -17,6 +18,8 @@ var candidate_pools: Array[Array] = []
 var groups: Dictionary = {}
 var published_chunks: Dictionary = {}
 var published_signature: int = -1
+var _snow_cover: float = 0.0
+var _floor_buried: bool = false
 var _profiles: Array[Dictionary] = []
 var _loading: bool = false
 var _preparing_candidates: bool = false
@@ -245,6 +248,32 @@ func _process(delta: float) -> void:
 	total = _data["count"]
 	worker_ms = _data["worker_ms"]
 	_data = {}
+	_sync_floor_visibility()
+
+
+func set_snow_cover(cover: float) -> void:
+	_snow_cover = cover
+	var buried: bool = winter_floor_cull_enabled and cover >= 0.65
+	if buried == _floor_buried:
+		return
+	_floor_buried = buried
+	_sync_floor_visibility()
+
+
+func set_floor_culling_enabled(enabled: bool) -> void:
+	winter_floor_cull_enabled = enabled
+	set_snow_cover(_snow_cover)
+
+
+func set_density(value: float) -> void:
+	super.set_density(value)
+	_sync_floor_visibility()
+
+
+func _sync_floor_visibility() -> void:
+	for view: MultiMeshInstance3D in batches:
+		if view.get_meta("grass_layer", -1) == 3:
+			view.visible = density > 0 and _pending.is_empty() and not _floor_buried
 
 
 func set_walker_contact(feet: Vector3, active: bool, frozen: bool = false) -> void:
