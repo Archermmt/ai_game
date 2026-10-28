@@ -1,215 +1,261 @@
 extends Node3D
-var data = IslandData.new()
-var terrain = Node3D.new()
-var camera = Camera3D.new()
-var tool: String = "grass"
-var radius: int = 1
-var stroke: Array = []
-var dragging: bool = false
-var angle: float = 0.65
-var center=Vector3(32,0,32)
-var hint=Label.new()
-var preview=Node3D.new()
-var stage: int = 3
+var data=IslandData.new()
 var sim=ResidentSim.new()
-var actors=Node3D.new()
-var autosave_clock:float=0
-var feedback=Label.new()
+var view=IslandView.new()
+var wildlife=Wildlife.new()
+var audio=IslandAudio.new()
+var reduced_motion=false
+var hud=IslandHud.new()
+var camera=Camera3D.new()
+var sun=DirectionalLight3D.new()
+var world_env=WorldEnvironment.new()
+var preview=Node3D.new()
+var tool:String="grass"
+var radius:int=1
+var span:int=3
+var placement_rotation:int=0
 var moving_id:int=0
-var placement_rotation: int = 0
-var span: int = 3
+var angle:float=0.3
+var center=Vector3(31.5,0,32)
+var stroke:Array=[]
+var dragging=false
+var time:float=0
+var autosave_clock:float=0
+var capturing=false
+var photo_mode=false
+var photo_previous_paused=false
+var photo_hint=Label.new()
+var modal:Control
+var selected:Dictionary={}
 func _ready() -> void:
-	for arg in OS.get_cmdline_user_args():
-		if arg.begins_with("--week="): stage=int(arg.trim_prefix("--week="))
-	data.seed_island()
-	if OS.get_cmdline_user_args().has("--capture") and stage>=2: seed_village()
-	add_child(terrain); add_child(preview); add_child(actors)
-	var env=WorldEnvironment.new(); var e=Environment.new()
-	e.background_mode=Environment.BG_COLOR; e.background_color=Color("b8d5d0")
-	e.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR; e.ambient_light_color=Color("fff0d6"); e.ambient_light_energy=0.35
-	env.environment=e; add_child(env)
-	var sun=DirectionalLight3D.new(); sun.rotation_degrees=Vector3(-50,-25,0); sun.light_color=Color("fff0d6"); sun.light_energy=0.65; sun.shadow_enabled=true; add_child(sun)
-	add_child(camera); camera.projection=Camera3D.PROJECTION_ORTHOGONAL; camera.size=36; camera.current=true; update_camera()
-	box(self,Vector3(32,-0.3,32),Vector3(150,0.2,150),Color("86bdbb"))
-	build_ui(); rebuild()
-	if stage>=3 and OS.get_cmdline_user_args().has("--capture"):
-		for i in range(36):sim.tick(data,1.0)
-		draw_residents()
-	if OS.get_cmdline_user_args().has("--capture"):
-		await get_tree().process_frame
-		await get_tree().process_frame
+	get_tree().auto_accept_quit=false
+	capturing=OS.get_cmdline_user_args().has("--capture")
+	DemoIsland.create(data)
+	if OS.get_cmdline_user_args().has("--empty"):data.clear_world()
+	add_child(view);view.setup(data);add_child(preview)
+	add_child(wildlife);wildlife.setup()
+	var env=Environment.new();env.background_mode=Environment.BG_COLOR;env.background_color=Color("8bbcb9")
+	env.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR;env.ambient_light_color=Color.WHITE;env.ambient_light_energy=0.5
+	world_env.environment=env;add_child(world_env)
+	sun.rotation_degrees=Vector3(-48,-25,0);sun.light_color=Color("fff3de");sun.light_energy=0.9;sun.shadow_enabled=true;sun.directional_shadow_max_distance=70;add_child(sun)
+	add_child(camera);camera.projection=Camera3D.PROJECTION_ORTHOGONAL;camera.size=28;camera.current=true;update_camera()
+	add_child(audio)
+	add_child(hud);hud.add_child(photo_hint);photo_hint.text="拍照模式 · Q/E 转向 · 滚轮缩放 · F12 保存 · Esc 返回";photo_hint.position=Vector2(30,24);photo_hint.visible=false
+	hud.tool_selected.connect(select_tool);hud.action_requested.connect(action)
+	for o in data.objects:
+		if o.kind=="house":
+			var p=RouteGraph.entrance(o)
+			sim.people.append({"id":sim.next_id,"home":o.id,"x":float(p.x),"z":float(p.y),"state":"home","route":[],"timer":float(sim.next_id),"target":0,"activity":"","crossed":false});sim.next_id+=1
+	rebuild();set_sunset(false)
+	if capturing:
+		for i in range(16):sim.tick(data,0.5)
+		await get_tree().process_frame;await get_tree().process_frame
+		view.update_actors(sim,time)
 		await RenderingServer.frame_post_draw
-		var err=get_viewport().get_texture().get_image().save_png("res://snapshots/week_%02d.png"%stage)
-		print("SNAPSHOT ",err); get_tree().quit()
-func box(parent: Node3D,pos: Vector3,size: Vector3,color: Color) -> MeshInstance3D:
-	var n=MeshInstance3D.new(); var m=BoxMesh.new(); m.size=size; n.mesh=m; n.position=pos
-	var mat=StandardMaterial3D.new(); mat.albedo_color=color; mat.roughness=0.9; n.material_override=mat; parent.add_child(n); return n
-func ball(parent:Node3D,pos:Vector3,size:float,color:Color) -> void:
-	var n=MeshInstance3D.new(); var m=SphereMesh.new(); m.radius=size; m.height=size*2; m.radial_segments=12; m.rings=6; n.mesh=m; n.position=pos
-	var mat=StandardMaterial3D.new(); mat.albedo_color=color; n.material_override=mat; parent.add_child(n)
+		var target="res://snapshots/playable_day.png"
+		if OS.get_cmdline_user_args().has("--sunset"):set_sunset(true);target="res://snapshots/playable_sunset.png"
+		if OS.get_cmdline_user_args().has("--photo"):hud.root.visible=false;target="res://snapshots/playable_photo.png"
+		await RenderingServer.frame_post_draw
+		var err=get_viewport().get_texture().get_image().save_png(target)
+		print("CAPTURE ",target," ",error_string(err));get_tree().quit()
+	else:welcome()
+func select_tool(id:String) -> void:
+	audio.effect("click")
+	tool=id;dragging=false;stroke.clear();moving_id=0
+	hud.toast({"house":"在平整的 2×2 草地上放一座小屋，门前接上小路","dock":"从一至二级海岸向海延伸；R 旋转，−/+ 调长度","bridge":"选择第一端岸边，R 转向、−/+ 调跨度，两岸须同高","flower":"在小屋外圈画三格花圃，试试它的新模样","move":"先点物件，再点新位置；右键取消","lock":"点击小屋，保留 / 解锁当前外观","color":"点击建筑，更换屋顶配色"}.get(id,"选择了"+IslandHud.NAMES[id]));refresh_preview()
 func rebuild() -> void:
-	if stage>=3:sim.reconcile(data)
-	for n in terrain.get_children(): n.free()
-	for k in data.tiles:
-		var p=k.split(","); var x=int(p[0]); var z=int(p[1]); var c:Dictionary=data.tiles[k]
-		if c.h==0: continue
-		var h=float(c.h)*0.5
-		var color=Color("aec393") if c.surface=="grass" else Color("e4d4b1") if c.surface=="sand" else Color("b4b5a4")
-		box(terrain,Vector3(x,h/2-0.2,z),Vector3(1,h,1),color)
-		if c.road: box(terrain,Vector3(x,h-0.17,z),Vector3(0.68,0.08,0.68),Color("d9c7a3"))
-		if c.flower:
-			for i in range(3): ball(terrain,Vector3(x+sin(i*2)*0.25,h-0.05,z+cos(i*2)*0.25),0.12,Color("edc980"))
-		if (x*19+z*7)%47==0 and c.surface=="grass" and not BuildingRules.occupied(data,Vector2i(x,z)):
-			box(terrain,Vector3(x,h+0.3,z),Vector3(0.18,1,0.18),Color("9a8065")); ball(terrain,Vector3(x,h+1.2,z),0.8,Color("809d77"))
-	for o in data.objects: draw_building(o)
-	hint.text="WEEK %02d  •  %s  •  Brush %d  |  %d edits"%[stage,tool.to_upper(),radius,data.history.size()]
+	sim.reconcile(data);view.rebuild();view.update_actors(sim,time);hud.refresh_journal(sim.completed);refresh_preview()
 func update_camera() -> void:
-	camera.position=center+Vector3(sin(angle)*35,35,cos(angle)*35); camera.look_at(center)
-func build_ui() -> void:
-	var layer=CanvasLayer.new(); add_child(layer)
-	var panel=PanelContainer.new(); panel.position=Vector2(28,26); panel.size=Vector2(430,110); layer.add_child(panel)
-	var col=VBoxContainer.new(); panel.add_child(col)
-	var title=Label.new(); title.text="  B R E E Z E L Y   I S L E S"; title.add_theme_font_size_override("font_size",24); col.add_child(title)
-	var sub=Label.new(); sub.text="  A little island, one gentle brushstroke at a time."; col.add_child(sub)
-	col.add_child(hint)
-	var bar=HFlowContainer.new(); bar.position=Vector2(28,748); bar.size=Vector2(1380,110); layer.add_child(bar)
-	for name in ["grass","sand","rock","water","raise","lower","flower","road","house","bridge","dock","move","erase","lock"]:
-		add_button(bar,name.capitalize(),func(): tool=name)
-	add_button(bar,"Undo",func():data.undo();rebuild())
-	add_button(bar,"Redo",func():data.redo();rebuild())
-	if stage>=3:
-		add_button(bar,"Save",func():feedback.text="Save: " + error_string(SaveStore.save_game(data,sim)))
-		add_button(bar,"Recover",func():feedback.text="Recovery: " + error_string(SaveStore.load_game(data,sim,"user://island.json.bak"));rebuild())
-		add_button(bar,"Load",func():feedback.text="Load: " + error_string(SaveStore.load_game(data,sim));rebuild())
-		add_button(bar,"Pause",func():sim.paused=not sim.paused)
-	feedback.position=Vector2(28,708);layer.add_child(feedback)
-	var help=Label.new(); help.position=Vector2(30,864); help.text="LMB paint • RMB cancel • WASD pan • Q/E orbit • R rotate • -/+ span • Wheel zoom • [ / ] brush • Ctrl/Cmd Z undo"; layer.add_child(help)
-func add_button(parent:Node,label:String,action:Callable) -> void:
-	var b=Button.new(); b.text=label; b.custom_minimum_size=Vector2(92,42); b.pressed.connect(action); parent.add_child(b)
+	center.x=clampf(center.x,8,56);center.z=clampf(center.z,8,56)
+	camera.position=center+Vector3(sin(angle)*38,38,cos(angle)*38);camera.look_at(center)
 func pick() -> Vector2i:
-	var mouse=get_viewport().get_mouse_position()
-	var from=camera.project_ray_origin(mouse); var dir=camera.project_ray_normal(mouse)
-	var hit=Plane(Vector3.UP,0.5).intersects_ray(from,dir)
-	if hit==null:return Vector2i(-1,-1)
-	return Vector2i(roundi(hit.x),roundi(hit.z))
-func _unhandled_input(event:InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.button_index==MOUSE_BUTTON_WHEEL_UP:camera.size=maxf(12,camera.size-2)
-		if event.button_index==MOUSE_BUTTON_WHEEL_DOWN:camera.size=minf(65,camera.size+2)
-		if event.button_index==MOUSE_BUTTON_RIGHT:stroke.clear(); dragging=false
-		if event.button_index==MOUSE_BUTTON_LEFT:
-			if event.pressed:dragging=true;stroke.clear();collect()
-			elif dragging:
-				dragging=false
-				if tool in ["house","bridge","dock"]: feedback.text=BuildingRules.place(data,pick(),tool,placement_rotation,span)
-				elif tool=="move":move_object(pick())
-				elif tool in ["erase","lock"]:
-					for o in data.objects:
-						if pick() in BuildingRules.footprint(o):
-							data.begin()
-							if tool=="erase":data.objects.erase(o)
-							else:o.variant=BuildingRules.variant(data,o);o.locked=not o.locked
-							break
-				else:data.paint(stroke,tool)
-				stroke.clear();rebuild()
-	if event is InputEventMouseMotion:
-		if dragging:collect()
-		for n in preview.get_children():n.free()
-		var p=pick();box(preview,Vector3(p.x,float(data.cell(p).h)*0.5+0.03,p.y),Vector3(radius*2+1,0.035,radius*2+1),Color("f4e8c2"))
-	if event is InputEventKey and event.pressed:
-		match event.keycode:
-			KEY_R:placement_rotation=(placement_rotation+1)%4
-			KEY_MINUS:span=maxi(2,span-1)
-			KEY_EQUAL:span=mini(6,span+1)
-			KEY_SPACE:sim.paused=not sim.paused
-			KEY_Q:angle-=PI/2
-			KEY_E:angle+=PI/2
-			KEY_W:center.z-=2
-			KEY_S:center.z+=2
-			KEY_A:center.x-=2
-			KEY_D:center.x+=2
-			KEY_BRACKETLEFT:radius=maxi(1,radius-1)
-			KEY_BRACKETRIGHT:radius=mini(3,radius+1)
-			KEY_ESCAPE:stroke.clear();dragging=false
-			KEY_Z:
-				if event.ctrl_pressed or event.meta_pressed:
-					if event.shift_pressed:data.redo()
-					else:data.undo()
-					rebuild()
-		update_camera()
+	var mouse=get_viewport().get_mouse_position();var origin=camera.project_ray_origin(mouse);var dir=camera.project_ray_normal(mouse)
+	# Intersect each possible height and accept only the tile at that level.
+	for height in range(4,-1,-1):
+		var hit=Plane(Vector3.UP,height*0.5).intersects_ray(origin,dir)
+		if hit==null:continue
+		var p=Vector2i(roundi(hit.x),roundi(hit.z))
+		if int(data.cell(p).h)==height:return p
+	return Vector2i(-1,-1)
+func prototype(p:Vector2i) -> Dictionary:
+	return {"id":0,"x":p.x,"z":p.y,"kind":tool,"rotation":placement_rotation,"length":span,"locked":false}
+func refresh_preview() -> void:
+	for n in preview.get_children():n.free()
+	if photo_mode or modal!=null:return
+	var p=pick()
+	if not BuildingRules.inside(p):return
+	var cells:Array=[];var valid=true
+	if tool in BuildingRules.TOOLS:
+		var o=prototype(p);cells=BuildingRules.footprint(o);valid=BuildingRules.check(data,o).is_empty()
+	elif dragging:cells=stroke
+	else:
+		for x in range(-radius,radius+1):
+			for z in range(-radius,radius+1):
+				if x*x+z*z<=radius*radius:cells.append(p+Vector2i(x,z))
+	for q in cells:
+		if not BuildingRules.inside(q):continue
+		var protected=BuildingRules.occupied(data,q,tool!="road") and not tool in BuildingRules.TOOLS
+		var color=Color("d4b28d") if not valid or protected else Color("cdddb2")
+		view.kit.box(preview,Vector3(q.x,float(data.cell(q).h)*0.5+0.045,q.y),Vector3(0.88,0.035,0.88),color)
 func collect() -> void:
 	var p=pick()
 	for x in range(-radius,radius+1):
 		for z in range(-radius,radius+1):
 			var q=p+Vector2i(x,z)
 			if x*x+z*z<=radius*radius and not stroke.has(q):stroke.append(q)
-
-func draw_building(o:Dictionary) -> void:
-	var x=float(o.x);var z=float(o.z);var h=float(data.cell(Vector2i(o.x,o.z)).h)*0.5-0.2
-	if o.kind in ["dock","bridge"]:
-		var dir=BuildingRules.DIRS[int(o.rotation)%4]
-		for i in range(int(o.length)+1):
-			var pos=Vector3(x+dir.x*i,h,z+dir.y*i)
-			box(terrain,pos,Vector3(0.9,0.16,0.9),Color("ae8965"))
-			box(terrain,pos+Vector3(0.35,-0.4,0.35),Vector3(0.12,1,0.12),Color("927257"))
-		if o.kind=="dock" and stage>=3:
-			var side=Vector2i(-dir.y,dir.x);var p=Vector3(x+dir.x*2+side.x,0,z+dir.y*2+side.y)
-			var ship=box(terrain,p,Vector3(0.85,0.35,2.8),Color("ad8862"))
-			ship.rotation.y=PI/2 if dir.x!=0 else 0
-			box(terrain,p+Vector3(0,0.2,0),Vector3(0.6,0.12,0.7),Color("eadcc0"))
-		return
-	var first=terrain.get_child_count()
-	var variant=BuildingRules.variant(data,o)
-	box(terrain,Vector3(x+0.5,h+0.85,z+0.5),Vector3(1.65,1.7,1.65),Color("eadfc5"))
-	var roof=box(terrain,Vector3(x+0.5,h+1.95,z+0.5),Vector3(1.5,1.5,1.9),Color("849fac") if variant=="coast" else Color("cb8c76"))
-	roof.rotation.z=PI/4;roof.scale.y=0.7
-	box(terrain,Vector3(x+0.5,h+0.5,z+1.34),Vector3(0.42,1,0.05),Color("688e8e"))
-	for dx in [-0.05,1.05]:box(terrain,Vector3(x+dx,h+1,z+1.34),Vector3(0.3,0.4,0.06),Color("c0d4d1"))
-	if variant=="garden":
-		for dx in [0,1]:ball(terrain,Vector3(x+dx,h+0.4,z+1.4),0.25,Color("a4b37b"))
-	var pivot=Vector3(x+0.5,0,z+0.5);var turn=Basis(Vector3.UP,-float(o.rotation)*PI/2)
-	for i in range(first,terrain.get_child_count()):
-		var piece=terrain.get_child(i) as Node3D
-		piece.position=pivot+turn*(piece.position-pivot);piece.basis=turn*piece.basis
-func seed_village() -> void:
-	for x in range(23,41):
-		var p=Vector2i(x,33);var c=data.cell(p).duplicate();c.road=true;data.tiles[data.key(p)]=c
-	for p in [Vector2i(26,30),Vector2i(30,30),Vector2i(35,30)]:BuildingRules.place(data,p,"house")
-	data.paint([Vector2i(29,29),Vector2i(30,29),Vector2i(31,29)],"flower")
-	# Anchor at the west shore, extending towards the open sea.
-	var anchor=Vector2i(21,33)
-	data.tiles[data.key(anchor)]={"h":1,"surface":"sand","road":true,"flower":false}
-	data.paint([Vector2i(22,33)],"road")
-	BuildingRules.place(data,anchor,"dock",1,3)
-	for o in data.objects:
-		if o.kind=="house":data.paint([Vector2i(o.x,32)],"road")
-	data.history.clear()
-
+func commit_stroke() -> void:
+	var p=pick()
+	if tool in BuildingRules.TOOLS:
+		var result=BuildingRules.place(data,p,tool,placement_rotation,span)
+		hud.toast("已放下"+IslandHud.NAMES[tool] if result.begins_with("Placed") else result)
+	elif tool=="move":move_object(p)
+	elif tool in ["erase","lock","color"]:
+		var found=false
+		for o in data.objects:
+			if p not in BuildingRules.footprint(o):continue
+			found=true;data.begin()
+			if tool=="erase":data.objects.erase(o);hud.toast("已移除，可随时撤销")
+			elif tool=="color":o.color=(int(o.get("color",0))+1)%3;hud.toast("换了一种屋顶颜色")
+			elif o.kind=="house":o.variant=BuildingRules.variant(data,o);o.locked=not o.locked;hud.toast("已保留外观" if o.locked else "外观将随周围环境变化")
+			break
+		if not found and tool=="erase":
+			data.begin()
+			for q in stroke:
+				var c=data.cell(q).duplicate();c.road=false;c.flower=false;data.tiles[data.key(q)]=c
+	else:
+		var blocked=0
+		for q in stroke:
+			if BuildingRules.occupied(data,q,tool!="road"):blocked+=1
+		data.paint(stroke,tool)
+		if blocked>0:hud.toast("保留了 %d 格支撑 / 入口；先移动上面的物件再改地形"%blocked)
+	audio.effect("place" if tool in BuildingRules.TOOLS else "paint")
+	stroke.clear();rebuild()
+func _input(event:InputEvent) -> void:
+	# A release over UI must end the world stroke as well; never leave a brush stuck.
+	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and not event.pressed and dragging:
+		dragging=false
+		if get_viewport().gui_get_hovered_control()!=null:stroke.clear();refresh_preview()
+		else:commit_stroke()
+func _unhandled_input(event:InputEvent) -> void:
+	if modal!=null:return
+	if event is InputEventMouseButton:
+		if event.button_index==MOUSE_BUTTON_WHEEL_UP:camera.size=maxf(13,camera.size-1.5)
+		if event.button_index==MOUSE_BUTTON_WHEEL_DOWN:camera.size=minf(58,camera.size+1.5)
+		if event.button_index==MOUSE_BUTTON_RIGHT:stroke.clear();dragging=false;moving_id=0;hud.toast("已取消")
+		if event.button_index==MOUSE_BUTTON_LEFT and event.pressed and not photo_mode:dragging=true;stroke.clear();collect()
+	if event is InputEventMouseMotion:
+		if dragging:collect()
+		refresh_preview()
+	if event is InputEventKey and event.pressed and not event.echo:
+		match event.keycode:
+			KEY_R:placement_rotation=(placement_rotation+1)%4
+			KEY_MINUS:span=maxi(2,span-1)
+			KEY_EQUAL:span=mini(6,span+1)
+			KEY_SPACE:action("pause")
+			KEY_Q:angle-=PI/2
+			KEY_E:angle+=PI/2
+			KEY_W:center.z-=1.5
+			KEY_S:center.z+=1.5
+			KEY_A:center.x-=1.5
+			KEY_D:center.x+=1.5
+			KEY_BRACKETLEFT:radius=maxi(1,radius-1)
+			KEY_BRACKETRIGHT:radius=mini(3,radius+1)
+			KEY_TAB:hud.card.visible=not hud.card.visible
+			KEY_P:action("photo")
+			KEY_F12:action("capture")
+			KEY_ESCAPE:
+				if photo_mode:action("photo")
+				else:stroke.clear();dragging=false;moving_id=0
+			KEY_Z:
+				if event.ctrl_pressed or event.meta_pressed:action("redo" if event.shift_pressed else "undo")
+		update_camera();refresh_preview()
 func _process(dt:float) -> void:
-	if stage<3:return
-	sim.tick(data,dt);draw_residents();autosave_clock+=dt
-	if autosave_clock>=60 and not dragging:
-		autosave_clock=0;feedback.text="Autosave: "+error_string(SaveStore.save_game(data,sim))
-func draw_residents() -> void:
-	for n in actors.get_children():n.free()
-	for person in sim.people:
-		if person.state=="resting":continue
-		var p=Vector2i(roundi(person.x),roundi(person.z));var h=float(data.cell(p).h)*0.5-0.2
-		box(actors,Vector3(person.x,h+0.38,person.z),Vector3(0.3,0.5,0.25),Color("dcba69"))
-		ball(actors,Vector3(person.x,h+0.85,person.z),0.22,Color("e4c59c"))
+	wildlife.enabled=not sim.paused and not reduced_motion
+	if not sim.paused:time+=dt
+	sim.tick(data,dt);view.update_actors(sim,time);autosave_clock+=dt
+	if not sim.events.is_empty():
+		for key in sim.events:hud.toast("收录了新的日常："+IslandHud.JOURNAL[key][0])
+		audio.effect("journal");sim.events.clear();hud.refresh_journal(sim.completed)
+	hud.refresh_status(sim.people.size(),tool,radius,span,sim.paused)
+	if autosave_clock>=60 and not dragging and modal==null:
+		autosave_clock=0
+		var err=SaveStore.save_game(data,sim)
+		if err!=OK:hud.toast("自动保存失败，请打开存档面板重试："+error_string(err))
+func action(id:String) -> void:
+	audio.effect("undo" if id in ["undo","redo"] else "click")
+	match id:
+		"undo":data.undo();rebuild();hud.toast("已撤销")
+		"redo":data.redo();rebuild();hud.toast("已重做")
+		"pause":sim.paused=not sim.paused
+		"sunset":set_sunset(not sim.sunset)
+		"photo":
+			if not photo_mode:photo_previous_paused=sim.paused
+			photo_mode=not photo_mode;hud.root.visible=not photo_mode;sim.paused=true if photo_mode else photo_previous_paused;photo_hint.visible=photo_mode
+			refresh_preview()
+			if photo_mode:action("capture")
+		"capture":save_photo()
+		"menu":save_menu()
+func set_sunset(value:bool) -> void:
+	if is_instance_valid(audio) and audio.is_inside_tree():audio.set_evening(value)
+	sim.sunset=value;sun.light_color=Color("ffd4a3") if value else Color("fff3de");sun.light_energy=0.75 if value else 0.9
+	sun.rotation_degrees.x=-20 if value else -48
+	world_env.environment.ambient_light_energy=0.6 if value else 0.5
 func move_object(p:Vector2i) -> void:
 	if moving_id==0:
 		for o in data.objects:
-			if p in BuildingRules.footprint(o):moving_id=int(o.id);feedback.text="Choose a new flat foundation";return
+			if p in BuildingRules.footprint(o):moving_id=int(o.id);hud.toast("再点击新位置；右键取消");return
 		return
 	for o in data.objects:
 		if o.id!=moving_id:continue
-		var old=o.duplicate(true);var before=data.snapshot();data.objects.erase(o)
-		var message=BuildingRules.place(data,p,old.kind,int(old.rotation),int(old.length))
-		if not message.begins_with("Placed"):data.restore(before);feedback.text=message;return
-		data.history.pop_back();data.history.append(before)
-		var replacement=data.objects.back();replacement.id=old.id;replacement.locked=old.locked
-		if old.has("variant"):replacement.variant=old.variant
-		moving_id=0;feedback.text="Moved";return
+		var replacement=o.duplicate(true);replacement.x=p.x;replacement.z=p.y
+		var error=BuildingRules.check(data,replacement,moving_id)
+		if not error.is_empty():hud.toast(error);return
+		data.begin();o.x=p.x;o.z=p.y;moving_id=0;hud.toast("已移动");return
+func save_photo() -> void:
+	var was_visible=hud.root.visible;var hint_visible=photo_hint.visible;hud.root.visible=false;photo_hint.visible=false
+	for n in preview.get_children():n.hide()
+	await RenderingServer.frame_post_draw
+	var folder="user://photos";DirAccess.make_dir_recursive_absolute(folder)
+	var path=folder+"/island_%d.png"%Time.get_unix_time_from_system()
+	var err=get_viewport().get_texture().get_image().save_png(path)
+	hud.root.visible=was_visible;photo_hint.visible=hint_visible
+	for n in preview.get_children():n.show()
+	hud.toast("照片已保存："+ProjectSettings.globalize_path(path) if err==OK else "保存照片失败："+error_string(err))
+func open_modal(title:String) -> VBoxContainer:
+	if modal!=null:modal.queue_free()
+	modal=Control.new();hud.root.add_child(modal);modal.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	var shade=ColorRect.new();shade.color=Color(0.15,0.27,0.25,0.35);modal.add_child(shade);shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	var panel=PanelContainer.new();modal.add_child(panel);panel.set_anchors_and_offsets_preset(Control.PRESET_CENTER);panel.offset_left=-220;panel.offset_right=220;panel.offset_top=-210;panel.offset_bottom=210
+	panel.add_theme_stylebox_override("panel",hud.style(Color("f7f1df")))
+	var col=VBoxContainer.new();col.add_theme_constant_override("separation",10);panel.add_child(col);col.add_child(hud.label(title,27));return col
+func close_modal() -> void:
+	if modal!=null:modal.queue_free();modal=null
+func welcome() -> void:
+	sim.paused=true
+	var col=open_modal("欢迎来到风屿")
+	var text=hud.label("画一段海岸，留一盏灯。\n\n工具全部免费，喜欢的风景可以随时改。\n小屋旁添三格花，试试它的新模样。\n\n先走进准备好的海湾，或从一片海开始。",17);col.add_child(text)
+	hud.button(col,"走进海湾",func():close_modal();sim.paused=false;hud.toast("先添一片花圃，或在建造栏放下一间新屋"))
+	if FileAccess.file_exists("user://island.json"):hud.button(col,"继续上次的岛",func():load_slot("user://island.json");close_modal())
+	hud.button(col,"空白海面",func():data.clear_world();sim=ResidentSim.new();close_modal();rebuild())
+func load_slot(path:String) -> void:
+	var err=SaveStore.load_game(data,sim,path)
+	if err==OK:set_sunset(sim.sunset);rebuild();hud.toast("岛屿已恢复");sim.paused=false
+	else:hud.toast("无法读取，当前作品保持不变："+error_string(err))
+func save_menu() -> void:
+	var col=open_modal("岛屿存档")
+	for slot in range(1,4):
+		var row=HBoxContainer.new();col.add_child(row);row.add_child(hud.label("手动槽 %d"%slot))
+		var path="user://slot_%d.json"%slot
+		hud.button(row,"保存",func():hud.toast("保存："+error_string(SaveStore.save_game(data,sim,path))))
+		hud.button(row,"读取",func():load_slot(path))
+	hud.button(col,"读取最近自动保存",func():load_slot("user://island.json"))
+	hud.button(col,"恢复自动保存的上一备份",func():load_slot("user://island.json.bak"))
+	hud.button(col,"打开照片文件夹",func():DirAccess.make_dir_recursive_absolute("user://photos");OS.shell_open(ProjectSettings.globalize_path("user://photos")))
+	hud.button(col,"声音：开 / 关",func():audio.toggle();hud.toast("声音已开启" if audio.enabled else "声音已关闭"))
+	hud.button(col,"减少环境动画：开 / 关",func():reduced_motion=not reduced_motion;view.sea.material_override.set_shader_parameter("motion",0.0 if reduced_motion else 1.0);hud.toast("已减少环境动画" if reduced_motion else "已恢复环境动画"))
+	hud.button(col,"返回海湾",close_modal)
 func _notification(what:int) -> void:
-	if what==NOTIFICATION_WM_CLOSE_REQUEST and stage>=3:SaveStore.save_game(data,sim)
+	if what==NOTIFICATION_WM_CLOSE_REQUEST:
+		var err=SaveStore.save_game(data,sim)
+		if err!=OK:hud.toast("退出保存失败，请重试："+error_string(err));return
+		get_tree().quit()

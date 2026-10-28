@@ -6,6 +6,7 @@ var objects: Array = []
 var history: Array = []
 var future: Array = []
 var next_id: int = 1
+var revision:int=0
 func key(p: Vector2i) -> String:
 	return "%d,%d" % [p.x,p.y]
 func cell(p: Vector2i) -> Dictionary:
@@ -13,8 +14,10 @@ func cell(p: Vector2i) -> Dictionary:
 func snapshot() -> Dictionary:
 	return {"tiles":tiles.duplicate(true),"objects":objects.duplicate(true),"next_id":next_id}
 func restore(s: Dictionary) -> void:
+	revision+=1
 	tiles=s.tiles.duplicate(true); objects=s.objects.duplicate(true); next_id=int(s.next_id)
 func begin() -> void:
+	revision+=1
 	history.append(snapshot())
 	if history.size()>50: history.pop_front()
 	future.clear()
@@ -51,3 +54,6 @@ func seed_island() -> void:
 			if d<1.0:
 				tiles[key(Vector2i(x,z))]={"h":1 if d>0.80 else 2,"surface":"sand" if d>0.80 else "grass","road":false,"flower":false}
 	history.clear()
+
+func clear_world() -> void:
+	tiles.clear();objects.clear();history.clear();future.clear();next_id=1;revision+=1
