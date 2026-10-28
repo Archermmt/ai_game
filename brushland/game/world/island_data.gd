@@ -26,9 +26,12 @@ func redo() -> void:
 	history.append(snapshot()); restore(future.pop_back())
 func paint(points: Array, tool: String) -> void:
 	begin()
+	var visited:Dictionary={}
 	for p in points:
+		if visited.has(p):continue
+		visited[p]=true
 		if p.x<0 or p.y<0 or p.x>=SIZE or p.y>=SIZE: continue
-		if BuildingRules.occupied(self,p): continue
+		if BuildingRules.occupied(self,p,tool!="road"): continue
 		var c: Dictionary=cell(p).duplicate()
 		match tool:
 			"grass","sand","rock": c.h=maxi(1,int(c.h)); c.surface=tool; c.flower=false
@@ -39,6 +42,7 @@ func paint(points: Array, tool: String) -> void:
 				if c.h>0: c.road=true
 			"flower":
 				if c.surface=="grass": c.flower=true
+		if c.surface!="grass":c.flower=false
 		tiles[key(p)]=c
 func seed_island() -> void:
 	for x in range(20,45):

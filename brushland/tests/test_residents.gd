@@ -1,0 +1,22 @@
+extends SceneTree
+func _initialize() -> void:
+	var d=IslandData.new();var sim=ResidentSim.new()
+	for x in range(4,15):
+		for z in range(10,15):d.paint([Vector2i(x,z)],"grass")
+	for x in range(4,15):d.paint([Vector2i(x,12)],"road")
+	assert(BuildingRules.place(d,Vector2i(4,12),"dock",1,3).begins_with("Placed"))
+	assert(BuildingRules.place(d,Vector2i(10,10),"house").begins_with("Placed"))
+	sim.tick(d,8.1);assert(sim.people.size()==1)
+	for i in range(20):sim.tick(d,1)
+	assert(sim.people[0].state=="home")
+	assert(SaveStore.save_game(d,sim,"user://test_island.json")==OK)
+	var loaded=IslandData.new();var resumed=ResidentSim.new()
+	assert(SaveStore.load_game(loaded,resumed,"user://test_island.json")==OK)
+	assert(resumed.people.size()==1 and loaded.objects.size()==2)
+	d.begin();d.objects.pop_back();sim.reconcile(d)
+	assert(sim.people[0].home==0 and sim.people[0].state=="resting")
+	d.undo();sim.reconcile(d);assert(sim.people[0].home!=0)
+	assert(SaveStore.save_game(d,sim,"user://test_island.json")==OK)
+	assert(FileAccess.file_exists("user://test_island.json.bak"))
+	print("PASS week 3: arrival, occupancy, save/load, backup, remove/undo housing recovery")
+	quit()

@@ -15,6 +15,7 @@ static func neighbors(d:IslandData,p:Vector2i) -> Array:
 		if p==b and d.cell(a).road:out.append(a)
 	return out
 static func path(d:IslandData,start:Vector2i,goal:Vector2i) -> Array:
+	if not d.cell(start).road or not d.cell(goal).road:return []
 	var queue:Array=[start];var prev:Dictionary={start:start};var at=0
 	while at<queue.size():
 		var p:Vector2i=queue[at];at+=1
@@ -27,6 +28,7 @@ static func path(d:IslandData,start:Vector2i,goal:Vector2i) -> Array:
 	return []
 static func open_sea(d:IslandData,o:Dictionary) -> bool:
 	var dir=BuildingRules.DIRS[int(o.rotation)%4];var start=Vector2i(o.x,o.z)+dir*(int(o.length)+1)
+	if d.cell(start).h!=0:return false
 	var queue:Array=[start];var seen:Dictionary={start:true};var at=0
 	while at<queue.size():
 		var p:Vector2i=queue[at];at+=1
