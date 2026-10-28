@@ -1,14 +1,35 @@
 # 风栖小筑 · Godot MVP
 
-当前版本 **0.13.0-w13** 在已接受的手绘庭园美术与PERF-02基础上，加入自然起伏地貌、全图标快捷工具、右侧林间历、连续昼夜、四季与阴云/雨雪天气。
-默认入口 `app/living_root.tscn`；F5运行当前主场景，若用F6请打开该文件。旧周场景用于历史回归。
-进度见 [STATUS.md](STATUS.md)，本轮说明、实拍与测试见 [W13报告](docs/weekly/week_13/README.md)，范围补充见 [SCOPE.md](docs/weekly/week_13/SCOPE.md)。旧W12安装包未自动替换。
+工程版本标识仍为 **0.13.0-w13**，当前源码已完成W14的Terrain3D、四层Painterly Grass、体积云、厚雪、拨草与渐隐脚印接入。默认入口 `app/living_root.tscn`，F5运行正式主场景。
 
-## Painterly Grass 局部美术试验
+**G0–G5本地集成已收口：G4性能按授权后置，G5本地技术候选完成。** 冬景20ms、素材分发、独立导出包与Windows实机等仍开放；旧W12安装包未替换。进度见[STATUS](STATUS.md)、[G阶段台账](docs/weekly/week_14/G_STAGE_ACCEPTANCE.md)、[本地候选说明](docs/weekly/week_14/G5_CANDIDATE.md)。
+
+## 本地候选与新旧草对照
+
+已验证候选可从 `reports/week_14/g5/handoff_9ebe3bf8/` 启动：
+
+- `play_winter.command` / `play_summer.command`：实际主场景冬景/夏景。
+- `compare_new_grass.command` / `compare_original_grass.command`：同源容量样例的新/旧草；可在界面继续切换密度和天气。
+
+Finder双击脚本即可体验。候选拥有独立用户目录，直接打开候选工程也不会使用正式作品或其他QA阶段的数据。容量对照切换会重载样例，不是当前未保存作品的热切开关。
+
+首次准备和复建（派生美术素材须先按来源记录在本地供应，不会自动从Git获得）：
+
+```sh
+python3 tools/quality/candidate_asset_supply_checks.py
+# 源码提交后，从空导入缓存创建并验证候选
+python3 tools/quality/production_candidate_portable_checks.py
+# 校验候选与源码/素材、生成交付脚本并执行最终检查
+python3 tools/quality/g5_handoff_checks.py
+```
+
+候选目录、导入缓存、工具链和下载素材不提交Git。原项目F5继续沿用正常作品目录；本地交付不等于独立发行包。
+
+## 历史G1–G3美术试验入口
 
 打开 `app/painterly_grass_patch.tscn` 按F6，可在屋前8×8m区域切换新旧草，使用五个固定机位、日间/黄昏、暂停和第一人称漫步，Esc返回俯视。统一入口 `app/painterly_grass_preview.tscn` 提供G1单体展示与G2庭园对照的双向按钮；F5仍为正常游戏。
 
-预览只读，直接F6也隔离正式存档和偏好。派生素材目前本地供应，Git单独检出需按[G1提取说明](art_source/painterly_grass/README.md)准备；[G2报告与五组对照](docs/weekly/week_14/G2_GRASS_PATCH.md)记录技术结果。G3可编辑庭园已交付，G4/G5和用户视觉验收尚待完成。
+预览只读，直接F6也隔离正式存档和偏好。派生素材目前本地供应，Git单独检出需按[G1提取说明](art_source/painterly_grass/README.md)准备；[G2报告与五组对照](docs/weekly/week_14/G2_GRASS_PATCH.md)记录技术结果。这些早期预览保留用于历史对照；当前正式实现和验收状态以G阶段台账为准。
 
 打开 `app/painterly_grass_garden.tscn` 按F6，可直接用新草建造、刷坡、撤销重做，切换四季雨雪、漫步和导出照片；存档与偏好使用独立预览目录。统一入口和G2中都可点击“编辑庭园 G3”。详见[G3报告](docs/weekly/week_14/G3_EDITABLE_GRASS_GARDEN.md)。
 
@@ -19,11 +40,12 @@
 
 ```bash
 python3 tools/quality/bootstrap.py
-python3 tools/quality/week_thirteen_checks.py
+python3 tools/quality/candidate_asset_supply_checks.py
+python3 tools/quality/winter_render_optimization_checks.py
 python3 tools/quality/run_game.py
 ```
 
-本机已准备 `.tools/` 和 `.venv/`，可直接运行后两条命令。也可使用相同版本 Godot 打开
+本机已准备 `.tools/` 和 `.venv/`，素材在本地齐备时可直接运行验证与启动命令。也可使用相同版本 Godot 打开
 `project.godot` 后按 F5；单场景测试请打开 `app/living_root.tscn` 后按 F6。系统的 Godot 4.7 不满足本项目补丁版本锁。
 可通过 `GODOT_BIN` 指定同版本引擎；下载的引擎、缓存、试玩包和用户存档不进入 Git。
 
@@ -61,6 +83,17 @@ python3 tools/quality/run_game.py
 
 
 ## 测试与导出
+
+当前W14正式场景与G5本地交付：
+
+```sh
+python3 tools/quality/winter_render_optimization_checks.py
+python3 tools/quality/g5_handoff_checks.py
+# 冬景20ms仍未通过；严格性能命令保留非零结果
+python3 tools/quality/winter_render_performance.py
+```
+
+以下W13入口作为历史分层验证保留：
 
 ```bash
 # 自动化回归、格式、lint、资源契约、跨进程重启与失败注入

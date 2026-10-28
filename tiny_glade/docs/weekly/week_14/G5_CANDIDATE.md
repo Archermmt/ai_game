@@ -1,6 +1,20 @@
 # G5 · 本地技术候选收口
 
-2026-10-28。G4限定保真尝试已完成，性能风险按用户授权后置，20ms未通过；本阶段推进当前正式主场景的本地技术候选，**不代表发行放行**。
+2026-10-28。G4限定保真尝试已完成，性能风险按用户授权后置，20ms未通过；本阶段推进当前正式主场景的本地技术候选，**本地G5已完成，不代表发行放行**。
+
+## 最终本地交付入口
+
+交付目录：`reports/week_14/g5/handoff_9ebe3bf8/`，含`HANDOFF.md`、完整校验清单与四个启动脚本。Finder双击`play_winter.command`/`play_summer.command`体验实际庭园；`compare_new_grass.command`/`compare_original_grass.command`打开相同容量样例，样例内也可切换新旧草、密度和天气。
+
+候选额外有显式的`override.cfg`，在引擎启动、场景与偏好读取之前分配独立用户目录`WindhavenDiorama_G5_9ebe3bf8_1x72b2ch`。源码与`project.godot`未改；覆盖文件哈希已记录。即使直接打开候选工程也不共用正式或其他QA存档；主项目F5仍使用正常目录。
+
+最终检查核对1,720份运行文件、31份本地供应文件与启动脚本，重跑446项累计及失败负控，通过11项实际容量UI检查和真实启动/退出、目录隔离验证；无错误/泄漏，正式作品/偏好哈希保持。[最终收据](evidence/g5/closure/checks.json) · [G0–G5台账](G_STAGE_ACCEPTANCE.md)。这次复用已验证的空缓存副本，不把它记作新一次冷导入，也不重复计算此前42项/原生回归。
+
+```sh
+python3 tools/quality/g5_handoff_checks.py
+```
+
+如果候选不在本机或运行源码已变化，先提交源码、重跑`production_candidate_portable_checks.py`，再生成交付目录。交付脚本与目录是忽略产物，本机工具链仍显式复用，未上传下载包。
 
 ## 当前已核对
 
