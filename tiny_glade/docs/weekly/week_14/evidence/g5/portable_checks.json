@@ -1,0 +1,2451 @@
+{
+  "passed": true,
+  "revision": "9ebe3bf80db1263f7acad4569d3a2506ff840e9d",
+  "project_subdirectory": "tiny_glade",
+  "candidate_directory": "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/reports/week_14/g5/candidate_9ebe3bf8_1x72b2ch",
+  "launcher": "/Users/tongmeng/Desktop/codes/ai_game/tiny_glade/reports/week_14/g5/open_candidate.command",
+  "cache_reused": false,
+  "local_derivatives_supplied": true,
+  "external_locked_toolchain_supplied": true,
+  "vendor_bundle_copied": false,
+  "vendor_original_path_needed_at_runtime": false,
+  "git_only_asset_portability": false,
+  "distribution_approved": false,
+  "standalone_export_verified": false,
+  "windows_verified": false,
+  "production_unchanged": true,
+  "checks": {
+    "passed": true,
+    "environment": {
+      "engine": "4.7.2.stable.official.ed1daf0bf",
+      "engine_sha256": "c7cccbf8fb143e34e02fd6521e09be2c2b974f0d5db080b19071c9c570718ccf",
+      "python": "3.14.3 (main, Feb  3 2026, 15:32:20) [Clang 17.0.0 (clang-1700.6.3.2)]",
+      "locked_python_packages": {
+        "colorama": "0.4.6",
+        "docopt-ng": "0.9.0",
+        "gdtoolkit": "4.5.0",
+        "lark": "1.2.2",
+        "mando": "0.7.1",
+        "pip": "26.0",
+        "pyyaml": "6.0.3",
+        "radon": "6.0.1",
+        "regex": "2026.9.29",
+        "setuptools": "84.0.0",
+        "six": "1.17.0"
+      },
+      "revision": "9ebe3bf80db1263f7acad4569d3a2506ff840e9d"
+    },
+    "source_hashes": {
+      "features/weather_plugins/blanket_snow_renderer.gd": "11e3080f6f63ebc1c2b1a3c0900c36237b559b610035ae5eeeb97c273215da1b",
+      "features/landscape/production_grass_renderer.gd": "beb6b119442b6c83a5379d7aa817301f3b374283dad8ab32b59cc20172f1f9cb",
+      "features/landscape/production_playground.gd": "ca39632f6e753a240024341f5e6c427d396933d3e008e548f6a6e2ee008c90b0",
+      "tests/week_14/winter_optimization/test_winter_rendering.gd": "38b13c9e6766da13810466091571d0941b3e1250e74fc56bae9b8ef33ba11862",
+      "tests/week_14/winter_optimization/winter_optimization_probe.gd": "f0657c46c34b0cc22f52918e417a99978dd88cba83e568b45357d6505d9362eb"
+    },
+    "steps": [
+      {
+        "name": "winter_opt_prior",
+        "exit_code": 0,
+        "seconds": 206.445
+      },
+      {
+        "name": "winter_opt_unit",
+        "exit_code": 0,
+        "seconds": 1.305
+      },
+      {
+        "name": "winter_opt_pixels",
+        "exit_code": 0,
+        "seconds": 62.822
+      }
+    ],
+    "adoption": {
+      "passed": true,
+      "environment": {
+        "engine": "4.7.2.stable.official.ed1daf0bf",
+        "engine_sha256": "c7cccbf8fb143e34e02fd6521e09be2c2b974f0d5db080b19071c9c570718ccf",
+        "python": "3.14.3 (main, Feb  3 2026, 15:32:20) [Clang 17.0.0 (clang-1700.6.3.2)]",
+        "locked_python_packages": {
+          "colorama": "0.4.6",
+          "docopt-ng": "0.9.0",
+          "gdtoolkit": "4.5.0",
+          "lark": "1.2.2",
+          "mando": "0.7.1",
+          "pip": "26.0",
+          "pyyaml": "6.0.3",
+          "radon": "6.0.1",
+          "regex": "2026.9.29",
+          "setuptools": "84.0.0",
+          "six": "1.17.0"
+        },
+        "revision": "9ebe3bf80db1263f7acad4569d3a2506ff840e9d"
+      },
+      "steps": [
+        {
+          "name": "weather_adoption_prior_regressions",
+          "exit_code": 0,
+          "seconds": 135.584
+        },
+        {
+          "name": "weather_adoption_tests",
+          "exit_code": 0,
+          "seconds": 7.868
+        },
+        {
+          "name": "blanket_native",
+          "exit_code": 0,
+          "seconds": 0.57
+        },
+        {
+          "name": "weather_adoption_native",
+          "exit_code": 0,
+          "seconds": 33.255
+        },
+        {
+          "name": "weather_adoption_immersion",
+          "exit_code": 0,
+          "seconds": 28.812
+        }
+      ],
+      "regressions": {
+        "new_tests": 9,
+        "new_assertions": 1545,
+        "focused_tests": 36,
+        "focused_assertions": 2807,
+        "failures": 0,
+        "skipped": 0
+      },
+      "previous": {
+        "passed": true,
+        "environment": {
+          "engine": "4.7.2.stable.official.ed1daf0bf",
+          "engine_sha256": "c7cccbf8fb143e34e02fd6521e09be2c2b974f0d5db080b19071c9c570718ccf",
+          "python": "3.14.3 (main, Feb  3 2026, 15:32:20) [Clang 17.0.0 (clang-1700.6.3.2)]",
+          "locked_python_packages": {
+            "colorama": "0.4.6",
+            "docopt-ng": "0.9.0",
+            "gdtoolkit": "4.5.0",
+            "lark": "1.2.2",
+            "mando": "0.7.1",
+            "pip": "26.0",
+            "pyyaml": "6.0.3",
+            "radon": "6.0.1",
+            "regex": "2026.9.29",
+            "setuptools": "84.0.0",
+            "six": "1.17.0"
+          },
+          "revision": "9ebe3bf80db1263f7acad4569d3a2506ff840e9d"
+        },
+        "plugins": {
+          "clouds": {
+            "commit": "a73a80b08fb37b255f8f10d49debd71e5541bd70",
+            "files": {
+              "addons/SunshineClouds2/CloudsDriverIcon.svg": "f0d4534aeae79f4b2a294347ba46f8fca57784cab325d43f9ca98eade64bad90",
+              "addons/SunshineClouds2/CloudsDriverIcon.svg.import": "be4d962fdcc6420c2fbed74b71e0e34fb41bfebe9231df9084a14bd789ba469f",
+              "addons/SunshineClouds2/CloudsInc.comp": "8da0d86475ab114483e47c1ed9f419c3bbcc83d5dce1b6d531e5b440e8a54f58",
+              "addons/SunshineClouds2/Dock/AccordionButton.gd": "ba0f85007d500504227e39887ffc4ae4f96e6a842da1451bb95b6c1d17a7a899",
+              "addons/SunshineClouds2/Dock/AccordionButton.gd.uid": "dbc2208d9838e2bb13b50bff1359d60edb174d0ea8d61c2d8992307a286d475c",
+              "addons/SunshineClouds2/Dock/AdaptingGridContainer.gd": "c4e37831dd0e5138a8516458f4e9aa62719b37ca5700948fb133a6d53146bc23",
+              "addons/SunshineClouds2/Dock/AdaptingGridContainer.gd.uid": "42e060192b2dbda79b3e01e23237662f2ccc5d0a18da9464924e06af5821699b",
+              "addons/SunshineClouds2/Dock/CloudsDrawBrush.tscn": "655e7a2a9fec5df2b1a2a6fc80175eacececd429b6baac9bbc6cdbefe4c21dee",
+              "addons/SunshineClouds2/Dock/CloudsEditorController.gd": "26f294fe3158a98a3892215676e1201e4b814ca4fe1af3c1eb61e649ee63eca3",
+              "addons/SunshineClouds2/Dock/CloudsEditorController.gd.uid": "473e97fd6a04f1979cc7bb7656bc1d2f5702d6b25a0bfb77a23c7b06fc2a0572",
+              "addons/SunshineClouds2/Dock/CloudsEditorDock.tscn": "4acaa64da7e1d99b0124a104a2bf5a8a54e9c95690c8762db6b34a33bfa8bd09",
+              "addons/SunshineClouds2/Dock/DockPanelStyle.tres": "d857c8c5e26d1f947eff38a1307a42271561ecdbf9d86d82d0025cfcab92febe",
+              "addons/SunshineClouds2/Dock/Icons/caret-down-solid.svg": "523d7e1d291e91fdcc7e86445340352d6fe38347e197ca889e78a9bff2616000",
+              "addons/SunshineClouds2/Dock/Icons/caret-down-solid.svg.import": "d421a4bdadd0b433d1d87160387be5acf49b779a14b7de00ee25922229343f86",
+              "addons/SunshineClouds2/Dock/Icons/caret-up-solid.svg": "19e8d9189f85a61660084ad0e0a3da141d5e7c96c1fab08ff0147c233a6ae23f",
+              "addons/SunshineClouds2/Dock/Icons/caret-up-solid.svg.import": "cf5183404b780f72bc91d7e7ff151429ecdd304c78ac3d758daa3efb502e7bd0",
+              "addons/SunshineClouds2/Dock/Icons/cloud-solid-hovered.svg": "9c807b8c1b025ac2c35c1c18d605fdfab6ef63d25ace4e74798c6d19107aa0e1",
+              "addons/SunshineClouds2/Dock/Icons/cloud-solid-hovered.svg.import": "aa9dea56e5f54931cc7f5c450f135c1a60e0578445636c6cd4ba7fe7b4398c65",
+              "addons/SunshineClouds2/Dock/Icons/cloud-solid-toggled.svg": "d815727001a9b4868e85c764d74f4ee58ec219f224bc4c88a096e39866a8c040",
+              "addons/SunshineClouds2/Dock/Icons/cloud-solid-toggled.svg.import": "c81da02724d2b3da536488dd87d5fff582c08fab9c2fb94b284b8d9e890946ce",
+              "addons/SunshineClouds2/Dock/Icons/cloud-solid.svg": "b05b11727e72b92945f71fc3f6242a98dbd750c63fba5d45a1f715f14b7b9cd1",
+              "addons/SunshineClouds2/Dock/Icons/cloud-solid.svg.import": "cc1ff0eaf14cd49d048da1d91940ca904ec919a03c6471b3f4247d46b99ef20a",
+              "addons/SunshineClouds2/Dock/Icons/paintbrush-solid-hovered.svg": "a45591f6f53fd756034cc0cce8c6ec0a78287bf967528fa94f526ae446ab65b3",
+              "addons/SunshineClouds2/Dock/Icons/paintbrush-solid-hovered.svg.import": "3191fb44f7ab5909662cf85dd90d3e37f1a653c1b10618f63628993809e89342",
+              "addons/SunshineClouds2/Dock/Icons/paintbrush-solid-toggled.svg": "1e29185a8645f143ea4bde8df5bf09f2ee9e8291df401efa152213afef18697b",
+              "addons/SunshineClouds2/Dock/Icons/paintbrush-solid-toggled.svg.import": "62854a6e19800e7d92737bf50b0b8014a84ecc459f5a35a6eb3b9fec10c1a7cc",
+              "addons/SunshineClouds2/Dock/Icons/paintbrush-solid.svg": "d5775d8e70708754682daf133d9e243ff4183576ae9752df22051ccb6b83717d",
+              "addons/SunshineClouds2/Dock/Icons/paintbrush-solid.svg.import": "563ab2360b1824cafa0252d204f1b7b038623a2b67893efeda1e65ec1fe05794",
+              "addons/SunshineClouds2/Dock/MaskDrawingCompute.glsl": "828ce32a85048ddea68daf31bfdcfbc6ef33fa6ad31ab5e87406e814a90e69d7",
+              "addons/SunshineClouds2/Dock/MaskDrawingCompute.glsl.import": "7340a2076d1182ef32e808a2dbe01cc9d7984314ab1b436385520b9ad862a126",
+              "addons/SunshineClouds2/Dock/Materials/DrawBrushToolsMaterial.tres": "2d04a014c248e30ec4ec391d01be93f940d677ee4f0c0c4ad8387dc142605c3f",
+              "addons/SunshineClouds2/NoiseTextures/ExtraLargeScaleNoise.tres": "cda3fdf67cb0cd07079537225cc4c2ffa7ff4a191bea8cfe539d4120c16d293a",
+              "addons/SunshineClouds2/NoiseTextures/HeightGradient.tres": "6215f8f6755d8f4462a99c9a2e94aaee768a4ed30879ed5584376f9151128728",
+              "addons/SunshineClouds2/NoiseTextures/HeightGradient2.tres": "205fd3069a604074793e4c34f9b901853a7dc91de49ec70af03c1fbc89f4c5e4",
+              "addons/SunshineClouds2/NoiseTextures/LargeScaleNoise.tres": "9694fe98372abee9da65f850ea2ca6db14724ec8bf54fcaf0d0be3d228de3d05",
+              "addons/SunshineClouds2/NoiseTextures/MediumScaleNoise.tres": "a8c78581676f671d15e61b3888d1e27d7047ba480f5c69f4eba59ca78b6f4ee0",
+              "addons/SunshineClouds2/NoiseTextures/SmallScaleNoise.tres": "1eb99f4a6ed2872930b6d56b6b26f238e0be10126e6119bf676cb23b1f688a8a",
+              "addons/SunshineClouds2/NoiseTextures/bluenoise_Dither.png": "3612096421e82e99f45f121d38e94284047d4d98d951e05d9f42e80c56fed698",
+              "addons/SunshineClouds2/NoiseTextures/bluenoise_Dither.png.import": "4890969c02e636356c2ef95660ed3300bf107c16663e987d7e33c7d3bbc64172",
+              "addons/SunshineClouds2/NoiseTextures/curl_noise_packed.png": "9c18cd9279caba56a708ab23d00ebb7a19f23be4c117f29fc4273380149a9da8",
+              "addons/SunshineClouds2/NoiseTextures/curl_noise_packed.png.import": "d94ef9d92687fe1f72b8af2dc9e2635d8acf2378c0c99b42465466378a3edcf9",
+              "addons/SunshineClouds2/NoiseTextures/curl_noise_varied.tga": "acf7b11deb5d637a6bca039c572537bf562cb8e87e79c6081177954ac5057cd1",
+              "addons/SunshineClouds2/NoiseTextures/curl_noise_varied.tga.import": "77a448540e40ee8c95df71ceab99315d0c68e04ba08f5346a4ffe276482f4040",
+              "addons/SunshineClouds2/SunshineCloudEffector.gd": "0a7cb1c6aa6c7b2ccc92ee9b0d3c311bf02f38ceae86bb6891b7a50de1aa1026",
+              "addons/SunshineClouds2/SunshineCloudEffector.gd.uid": "0435998240a524e1bbf101c40c082c1f14e2a73e7fe5522ef1063ebbd244a2f8",
+              "addons/SunshineClouds2/SunshineClouds.gd": "71fb1cd0e3891c218f22a52784e8c6406cf50bc2756533882d0885a2de16ec8a",
+              "addons/SunshineClouds2/SunshineClouds.gd.uid": "f7ba8a7fd5616ff41302c3583996979bec9b9fffc7fcfdbe9a41b28f11f4d86d",
+              "addons/SunshineClouds2/SunshineClouds2.gd": "97001abae1f7795794210e719ffdd46442baf18d952e1f4dc4502e923ab13783",
+              "addons/SunshineClouds2/SunshineClouds2.gd.uid": "d02d13b2b0646f8edc8ae3a8dd8b92093fa5c6b1506314840ac0f78d4b143086",
+              "addons/SunshineClouds2/SunshineCloudsCompute.glsl": "635048edee9eb1e92c4db0b2151975ce98675a9695469fd01eead5dd1e1c30bc",
+              "addons/SunshineClouds2/SunshineCloudsCompute.glsl.import": "87671df94441a823d1fcd2dd43bcde806d33884cc568f1159c22c420c1d779c7",
+              "addons/SunshineClouds2/SunshineCloudsDisplay.glsl": "60e152ffb7ee5318109eccd810581127dde8ed51a219ae167516a749459aaddb",
+              "addons/SunshineClouds2/SunshineCloudsDisplay.glsl.import": "bc80c4ddf3a212df99cebfe07dcaf6cb65449706f5cd34acb13c2dcb21b10f0e",
+              "addons/SunshineClouds2/SunshineCloudsDisplay.msaa.glsl": "8060bfdc7c7b28c772fde5ef4bf7513cebd3007a9c12471ce3404d8c9c94a58b",
+              "addons/SunshineClouds2/SunshineCloudsDisplay.msaa.glsl.import": "cf63bd6ac197088ef5a5117a2c19565f19ebbdabd222d9a33208f2c262d1141d",
+              "addons/SunshineClouds2/SunshineCloudsDisplay.rast": "dcd42134f1692b5620c08cf24f042d379c8377cd414fabea31af56b9c5c7d356",
+              "addons/SunshineClouds2/SunshineCloudsDriver.gd": "fbc1bc1fcd006904409a9141feb6c60a1fc90ee1163fa25ad25229c5c53a8394",
+              "addons/SunshineClouds2/SunshineCloudsDriver.gd.uid": "f879c0747ce3ea1f9b76322344bc995cfe191c5064f6e60bdc28bd29582ed5b8",
+              "addons/SunshineClouds2/SunshineCloudsPostCompute.comp": "55d7bcb5c5cff086ff88d3b88a4d8db309c46f545bf8e3bbfd0cf6fd94f96930",
+              "addons/SunshineClouds2/SunshineCloudsPostCompute.glsl": "ad18865f3eaeb84fd6388914f3ac1195163efb6e2896db770d17cb1e544358c8",
+              "addons/SunshineClouds2/SunshineCloudsPostCompute.glsl.import": "b26eb518f275c80aaf7e993dd7f4cbba357e43b605596d377d72af9226e159c1",
+              "addons/SunshineClouds2/SunshineCloudsPostCompute.msaa.glsl": "91d962893e0472f161cb9d7ae9f027c7c45ba2175838ead4b497bc93f52c0c0b",
+              "addons/SunshineClouds2/SunshineCloudsPostCompute.msaa.glsl.import": "313b6e725a8448a58c59e499e80bdbce4f68fef7a3f391bd8552b4fca1b3c4a2",
+              "addons/SunshineClouds2/SunshineCloudsPreCompute.glsl": "70476eca23a1540ad2de1fecb83076a44b6859f65fa32bec15d0154206440c14",
+              "addons/SunshineClouds2/SunshineCloudsPreCompute.glsl.import": "b75e4366e23cae903ebd7e065d6262b6f2a3f54f4a6d1f0ac103c097d8b3f3c4",
+              "addons/SunshineClouds2/plugin.cfg": "b5ae05f6a5213bcd624b0677c09b1108e8ec2e73257099b1cd1cf3ea98874e7c",
+              "addons/SunshineClouds2/UPSTREAM_LICENSE": "9a6c6a64821878a9523188d7bbcad84bc4a27d822316be7ca34f57b07a27f5ab",
+              "addons/SunshineClouds2/UPSTREAM_README.md": "e817b7147456be34325d873c1aead6e25b0d2f893f4b6dfc7c139e732f4f290c"
+            }
+          },
+          "snow": {
+            "commit": "515900a4aee952cdc4487bed98cc69758c899a32",
+            "files": {
+              "addons/puchik_snow/README.md": "bd10a276281d2b8c4c63e4b60386bf15d9f32a04474daaebc4d4b11d669ff2e5",
+              "addons/puchik_snow/shaders/basic_snow.gdshader": "9406342b6123b44b9c000aa8c4891d332cad84fdbcddd271e574ddf27eae62d8",
+              "addons/puchik_snow/textures/snow/snow_02_diff_2k.jpg": "d185c2853c7e674161789db4eed1c5708d85e4f6e3dcb5698209568adf02aa98",
+              "addons/puchik_snow/textures/snow/snow_02_nor_gl_1k.jpg": "9495ec680616b8340e2cbecbd151bff84c690cfad4209e90cc98d2d0ba81f810",
+              "addons/puchik_snow/textures/rocks/rocks_ground_02_col_1k.jpg": "729e26281b28b9c05a53e755658da184ccd673ac291e6ec0532229743c06bf66",
+              "addons/puchik_snow/textures/rocks/rocks_ground_02_nor_gl_1k.jpg": "28f6f35894cb60da7ecd639506c385e3c9e868f7e3ce24a6ceae1d08198b9e69",
+              "addons/puchik_snow/textures/rocks/rocks_ground_02_nor_gl_1k.jpg.import": "34e2327ebc1b9341bc4dc5a33d78834185528eff4d5fea9b55a325809af513d3",
+              "addons/puchik_snow/textures/rocks/rocks_ground_02_col_1k.jpg.import": "26ee72666ae7b2834f620ef024e6bf186ee690ef33f3100ffa70013b7461a93e",
+              "addons/puchik_snow/textures/snow/snow_02_nor_gl_1k.jpg.import": "b7e3a13fbb0c6fde7cb96732e4db3fc8c388b06be2c88722c094cadb342305bc",
+              "addons/puchik_snow/textures/snow/snow_02_diff_2k.jpg.import": "3a12b4b5489c1d5ea484843fc081d6f785e4ee2e3caef19c6828ff4daf5031a7"
+            }
+          }
+        },
+        "regression": {
+          "tests": 27,
+          "assertions": 1262,
+          "failures": 0,
+          "skipped": 0
+        },
+        "cumulative": {
+          "week": 9,
+          "groups": [
+            {
+              "week": 1,
+              "tests": 42,
+              "failures": 0,
+              "skipped": 0
+            },
+            {
+              "week": 2,
+              "tests": 52,
+              "failures": 0,
+              "skipped": 0
+            },
+            {
+              "week": 3,
+              "tests": 42,
+              "failures": 0,
+              "skipped": 0
+            },
+            {
+              "week": 4,
+              "tests": 50,
+              "failures": 0,
+              "skipped": 0
+            },
+            {
+              "week": 5,
+              "tests": 45,
+              "failures": 0,
+              "skipped": 0
+            },
+            {
+              "week": 6,
+              "tests": 68,
+              "failures": 0,
+              "skipped": 0
+            },
+            {
+              "week": 7,
+              "tests": 51,
+              "failures": 0,
+              "skipped": 0
+            },
+            {
+              "week": 8,
+              "tests": 62,
+              "failures": 0,
+              "skipped": 0
+            },
+            {
+              "week": 9,
+              "tests": 34,
+              "failures": 0,
+              "skipped": 0
+            }
+          ],
+          "engine": "4.7.2.stable.official.ed1daf0bf",
+          "tests": 446,
+          "failures": 0,
+          "skipped": 0,
+          "negative_control": true,
+          "steps": [
+            {
+              "name": "engine_import",
+              "exit_code": 0,
+              "seconds": 3.756
+            },
+            {
+              "name": "format",
+              "exit_code": 0,
+              "seconds": 5.231
+            },
+            {
+              "name": "lint",
+              "exit_code": 0,
+              "seconds": 5.184
+            },
+            {
+              "name": "asset_contract",
+              "exit_code": 0,
+              "seconds": 0.041
+            },
+            {
+              "name": "week_06_media",
+              "exit_code": 0,
+              "seconds": 0.035
+            },
+            {
+              "name": "week_07_assets",
+              "exit_code": 0,
+              "seconds": 0.027
+            },
+            {
+              "name": "week_09_assets",
+              "exit_code": 0,
+              "seconds": 0.024
+            },
+            {
+              "name": "week_01_tests",
+              "exit_code": 0,
+              "seconds": 1.505
+            },
+            {
+              "name": "week_01_restart_write",
+              "exit_code": 0,
+              "seconds": 0.309
+            },
+            {
+              "name": "week_01_restart_read",
+              "exit_code": 0,
+              "seconds": 0.3
+            },
+            {
+              "name": "week_02_tests",
+              "exit_code": 0,
+              "seconds": 7.152
+            },
+            {
+              "name": "week_02_restart_write",
+              "exit_code": 0,
+              "seconds": 0.315
+            },
+            {
+              "name": "week_02_restart_read",
+              "exit_code": 0,
+              "seconds": 0.301
+            },
+            {
+              "name": "week_03_tests",
+              "exit_code": 0,
+              "seconds": 8.972
+            },
+            {
+              "name": "week_03_restart_write",
+              "exit_code": 0,
+              "seconds": 0.285
+            },
+            {
+              "name": "week_03_restart_read",
+              "exit_code": 0,
+              "seconds": 0.303
+            },
+            {
+              "name": "week_04_tests",
+              "exit_code": 0,
+              "seconds": 7.731
+            },
+            {
+              "name": "week_04_restart_write",
+              "exit_code": 0,
+              "seconds": 0.304
+            },
+            {
+              "name": "week_04_restart_read",
+              "exit_code": 0,
+              "seconds": 0.297
+            },
+            {
+              "name": "week_05_tests",
+              "exit_code": 0,
+              "seconds": 6.844
+            },
+            {
+              "name": "week_05_restart_write",
+              "exit_code": 0,
+              "seconds": 0.293
+            },
+            {
+              "name": "week_05_restart_read",
+              "exit_code": 0,
+              "seconds": 0.284
+            },
+            {
+              "name": "week_06_tests",
+              "exit_code": 0,
+              "seconds": 12.4
+            },
+            {
+              "name": "week_06_restart_write",
+              "exit_code": 0,
+              "seconds": 0.285
+            },
+            {
+              "name": "week_06_restart_read",
+              "exit_code": 0,
+              "seconds": 0.298
+            },
+            {
+              "name": "week_07_tests",
+              "exit_code": 0,
+              "seconds": 4.914
+            },
+            {
+              "name": "week_07_restart_write",
+              "exit_code": 0,
+              "seconds": 0.396
+            },
+            {
+              "name": "week_07_restart_read",
+              "exit_code": 0,
+              "seconds": 0.393
+            },
+            {
+              "name": "week_08_tests",
+              "exit_code": 0,
+              "seconds": 8.641
+            },
+            {
+              "name": "week_08_restart_write",
+              "exit_code": 0,
+              "seconds": 0.391
+            },
+            {
+              "name": "week_08_restart_read",
+              "exit_code": 0,
+              "seconds": 0.397
+            },
+            {
+              "name": "week_09_tests",
+              "exit_code": 0,
+              "seconds": 10.006
+            },
+            {
+              "name": "week_09_restart_write",
+              "exit_code": 0,
+              "seconds": 0.396
+            },
+            {
+              "name": "week_09_restart_read",
+              "exit_code": 0,
+              "seconds": 0.402
+            },
+            {
+              "name": "week_02_risk_metrics",
+              "exit_code": 0,
+              "seconds": 0.8
+            },
+            {
+              "name": "negative_control",
+              "exit_code": 1,
+              "seconds": 1.109
+            }
+          ]
+        },
+        "steps": [
+          {
+            "name": "weather_immersion_import",
+            "exit_code": 0,
+            "seconds": 8.501
+          },
+          {
+            "name": "weather_immersion_cumulative",
+            "exit_code": 0,
+            "seconds": 90.409
+          },
+          {
+            "name": "weather_immersion_tests",
+            "exit_code": 0,
+            "seconds": 36.324
+          }
+        ],
+        "weather_native": null,
+        "immersion_native": null,
+        "production_before": {
+          "saves/slot_01.wgs.bak1": "107b237e9139b3d75cd93fe747a86b720828e3071a29da328dbe1b2288059c42",
+          "saves/slot_01.wgs": "9db01255e497c1019597cd62896faf01a9d947749916ecdb750289de1193ac87",
+          "preferences.cfg": "b6f5dede52ba7e8d41e6f281bf962dc878724a0880ac43519f9978f170591255"
+        },
+        "production_after": {
+          "saves/slot_01.wgs.bak1": "107b237e9139b3d75cd93fe747a86b720828e3071a29da328dbe1b2288059c42",
+          "saves/slot_01.wgs": "9db01255e497c1019597cd62896faf01a9d947749916ecdb750289de1193ac87",
+          "preferences.cfg": "b6f5dede52ba7e8d41e6f281bf962dc878724a0880ac43519f9978f170591255"
+        },
+        "production_unchanged": true,
+        "performance_gate_run": false,
+        "windows_real_device_verified": false,
+        "thick_snow_approved": false,
+        "clouds_formal_default": true
+      },
+      "blanket": {
+        "repository": "https://github.com/1hue/Blanket",
+        "commit": "7b1166a9f03135098c80fc0aba3a19e7e0909b9f",
+        "license": "MIT",
+        "license_file": "addons/blanket/LICENSE",
+        "upstream_engine_requirement": "4.8 and Vulkan; installed bounded-mesh bridge is a separately tested 4.7.2/Metal compatibility port",
+        "port": "Owned 4.7 mesh-data storage upload/readback; original compute geometry unchanged; lazy shader service; optional debug/editor nodes omitted; output >65536 vertices skipped",
+        "ground": "Native Terrain3D displacement/material adapter; blanket is used only on bounded object meshes",
+        "files": {
+          "addons/blanket/LICENSE": {
+            "sha256": "37c017e42842b10fa2ea6e5cb700fc92097fe1472872a4cc83d55adf6e303773",
+            "bytes": 1061,
+            "upstream_path": "addons/blanket/LICENSE",
+            "upstream_sha256": "37c017e42842b10fa2ea6e5cb700fc92097fe1472872a4cc83d55adf6e303773",
+            "upstream_git_blob": "12a32316581351b00a7575f137a547867d15786f",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/UPSTREAM_README.md": {
+            "sha256": "f7a8c0f1b12dd6cb7f7a61adae32cd3870856640f7f6eec29bc42d7083a3ae4a",
+            "bytes": 4483,
+            "upstream_path": "README.md",
+            "upstream_sha256": "f7a8c0f1b12dd6cb7f7a61adae32cd3870856640f7f6eec29bc42d7083a3ae4a",
+            "upstream_git_blob": "0d7d5999e51db25d7cade4d74998b62e61cbd030",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/assets/blanket.svg": {
+            "sha256": "153120d9e8d7f9e0c25eabbd2cfa5c25f19a96c96f40060e9bf9c606d27b0cf7",
+            "bytes": 409,
+            "upstream_path": "addons/blanket/assets/blanket.svg",
+            "upstream_sha256": "153120d9e8d7f9e0c25eabbd2cfa5c25f19a96c96f40060e9bf9c606d27b0cf7",
+            "upstream_git_blob": "0eb5667a03455d26ef9a9fd2d29d0f6a66e34adc",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/assets/blanket.svg.import": {
+            "sha256": "f897449678878d98a6509587799ea45e040d4481e4d1bce088201a61f9f38f63",
+            "bytes": 1044,
+            "upstream_path": "addons/blanket/assets/blanket.svg.import",
+            "upstream_sha256": "22270d3c9b2d046500cad70c8ad1502adf4c3e243bdac6cbd9ccd32ea2602d57",
+            "upstream_git_blob": "27c73430def9f545fb971beb9f22f8a57f4fafff",
+            "compatibility_patch": false,
+            "godot_normalized_import": true
+          },
+          "addons/blanket/assets/blanket_instance.svg": {
+            "sha256": "706969be048c6e420c7f9bcc2ce0794b3b0bc3a0932cafe5e4c082fa91eb54cf",
+            "bytes": 265,
+            "upstream_path": "addons/blanket/assets/blanket_instance.svg",
+            "upstream_sha256": "706969be048c6e420c7f9bcc2ce0794b3b0bc3a0932cafe5e4c082fa91eb54cf",
+            "upstream_git_blob": "037039ea27efcc7afd9db2ea588cca47a46dc6bc",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/assets/blanket_instance.svg.import": {
+            "sha256": "f667e0b138552117d86956eeda5dda334b06cd8802f6b767a97589dd636b5d41",
+            "bytes": 1071,
+            "upstream_path": "addons/blanket/assets/blanket_instance.svg.import",
+            "upstream_sha256": "6bc08dc2886a5cb28f596e36cb598568171cf3b86868340f86560a3be92658e0",
+            "upstream_git_blob": "69b592dc0f64e40bda3174fa2fe19b4b9d27eddb",
+            "compatibility_patch": false,
+            "godot_normalized_import": true
+          },
+          "addons/blanket/assets/icon.svg": {
+            "sha256": "f5be1c9d239895f85ee71765e84c0f40bb5b05dadc2f846f86da367af7177882",
+            "bytes": 14468,
+            "upstream_path": "addons/blanket/assets/icon.svg",
+            "upstream_sha256": "f5be1c9d239895f85ee71765e84c0f40bb5b05dadc2f846f86da367af7177882",
+            "upstream_git_blob": "ebdcd6cd6e663d1256825dcde10c540292da6f39",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/assets/icon.svg.import": {
+            "sha256": "e76f448fc7e5a4229b9a3a5622cbb9bb6a87f5c93d949b322effa01ca38d1fd2",
+            "bytes": 1035,
+            "upstream_path": "addons/blanket/assets/icon.svg.import",
+            "upstream_sha256": "b94db49dd10356bc6d6e913b19a98948cf42d533ea1ed632642221ed6f1ec392",
+            "upstream_git_blob": "a5c1ed37b694cdb2e18a34de66ec70ece5626668",
+            "compatibility_patch": false,
+            "godot_normalized_import": true
+          },
+          "addons/blanket/materials/albedo.tres": {
+            "sha256": "a01258b2f780e4c4e6e8ed4f53324722f1c2ff525fec56ae6f5055cf474494c5",
+            "bytes": 330,
+            "upstream_path": "addons/blanket/materials/albedo.tres",
+            "upstream_sha256": "a01258b2f780e4c4e6e8ed4f53324722f1c2ff525fec56ae6f5055cf474494c5",
+            "upstream_git_blob": "d7f9002087f4ebac3b95aa7d66a1e88e2beb6c06",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/materials/snow_standard.tres": {
+            "sha256": "25bfb6b8f9c715726450aa7934d07d5259a145b9050b7987ddb98de5d243ac56",
+            "bytes": 1269,
+            "upstream_path": "addons/blanket/materials/snow_standard.tres",
+            "upstream_sha256": "25bfb6b8f9c715726450aa7934d07d5259a145b9050b7987ddb98de5d243ac56",
+            "upstream_git_blob": "c97d390de26016f9b8ac17a254e36b25444bf2e4",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/materials/wireframe.tres": {
+            "sha256": "1c1bfc6fadd6bfb40d051f6bebc9d114be9c8bb81effd82eefda7ab20ec9f9f3",
+            "bytes": 298,
+            "upstream_path": "addons/blanket/materials/wireframe.tres",
+            "upstream_sha256": "1c1bfc6fadd6bfb40d051f6bebc9d114be9c8bb81effd82eefda7ab20ec9f9f3",
+            "upstream_git_blob": "7adf34673a64ba12cfc89c1ead0041e5b2fcbb5c",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/materials/wireframe_backgound.tres": {
+            "sha256": "f477fb833967bc9cdadbeae0e13508c93e6e1a74ee453e566d89d7d0c9641ced",
+            "bytes": 302,
+            "upstream_path": "addons/blanket/materials/wireframe_backgound.tres",
+            "upstream_sha256": "f477fb833967bc9cdadbeae0e13508c93e6e1a74ee453e566d89d7d0c9641ced",
+            "upstream_git_blob": "4f059784514f494ba57a36f731a6d870f8d920cb",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/params.gd": {
+            "sha256": "3100cc78dd21e7ba9b1aa3560daf98877a01e1efc2e43cde3acc035fac409bc2",
+            "bytes": 4948,
+            "upstream_path": "addons/blanket/params.gd",
+            "upstream_sha256": "3100cc78dd21e7ba9b1aa3560daf98877a01e1efc2e43cde3acc035fac409bc2",
+            "upstream_git_blob": "2841ea2051764602f9319635021f379b3672daaa",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/params.gd.uid": {
+            "sha256": "3d171c0b7ff6a93fe15e4028a3a5e17129adcde58faeb871889860f089f39200",
+            "bytes": 20,
+            "upstream_path": "addons/blanket/params.gd.uid",
+            "upstream_sha256": "3d171c0b7ff6a93fe15e4028a3a5e17129adcde58faeb871889860f089f39200",
+            "upstream_git_blob": "80b7899810d9278e9eeead9de48ecd814304ce05",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/pass.gd": {
+            "sha256": "6f15e7b2e419e7d241fc9faf3829f6726b3abdb64d7e228fbe70f04dcf42c928",
+            "bytes": 1207,
+            "upstream_path": "addons/blanket/pass.gd",
+            "upstream_sha256": "6f15e7b2e419e7d241fc9faf3829f6726b3abdb64d7e228fbe70f04dcf42c928",
+            "upstream_git_blob": "6b05791efc1f25493a1eb0dd0aac7421a80eff3e",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/pass.gd.uid": {
+            "sha256": "f765abdd36d314aadc4b91e4cb3acbc79038f276808e99ebd119b18ec79e0d71",
+            "bytes": 20,
+            "upstream_path": "addons/blanket/pass.gd.uid",
+            "upstream_sha256": "f765abdd36d314aadc4b91e4cb3acbc79038f276808e99ebd119b18ec79e0d71",
+            "upstream_git_blob": "534cb7014e6575863f317617ef9eea2a2d2ea9a8",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/bevel/fill.gd": {
+            "sha256": "3a695b6a5459e82eec30644aa525b644ba8e96a2da00457cbebd94adb343ba53",
+            "bytes": 1131,
+            "upstream_path": "addons/blanket/passes/bevel/fill.gd",
+            "upstream_sha256": "3a695b6a5459e82eec30644aa525b644ba8e96a2da00457cbebd94adb343ba53",
+            "upstream_git_blob": "a71a90a30f10ffd4f037250b92f6db95c9e850b2",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/bevel/fill.gd.uid": {
+            "sha256": "c92c4a78fe32b4f04a9f8dbda03cf5ef22ef632e180403916a50df92cb200771",
+            "bytes": 19,
+            "upstream_path": "addons/blanket/passes/bevel/fill.gd.uid",
+            "upstream_sha256": "c92c4a78fe32b4f04a9f8dbda03cf5ef22ef632e180403916a50df92cb200771",
+            "upstream_git_blob": "afeaf31dd5d8587323b43ccfd7799ac0e5a6d97c",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/bevel/fill.glsl": {
+            "sha256": "3dbe590130b8f753b79e8e0d3dda9c9d9853a6bfc17b2ae32b13a12b7f641b12",
+            "bytes": 8397,
+            "upstream_path": "addons/blanket/passes/bevel/fill.glsl",
+            "upstream_sha256": "3dbe590130b8f753b79e8e0d3dda9c9d9853a6bfc17b2ae32b13a12b7f641b12",
+            "upstream_git_blob": "30c7ff2aa83ec9d873fcc41dd7a4a579511dc437",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/bevel/fill.glsl.import": {
+            "sha256": "33b559d63ee67be010feb89bbdce42e4a14a89d82cbb8b00c82d5fbc9de0e3de",
+            "bytes": 308,
+            "upstream_path": "addons/blanket/passes/bevel/fill.glsl.import",
+            "upstream_sha256": "33b559d63ee67be010feb89bbdce42e4a14a89d82cbb8b00c82d5fbc9de0e3de",
+            "upstream_git_blob": "e61df606f96cc3d24bf6e14830426f4ddb7a42ed",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/bevel/shrink.gd": {
+            "sha256": "faccea74e49e9ef2c4cce49d10f83d88bda02091c5f49c7e4c464ce08b335ac3",
+            "bytes": 1068,
+            "upstream_path": "addons/blanket/passes/bevel/shrink.gd",
+            "upstream_sha256": "faccea74e49e9ef2c4cce49d10f83d88bda02091c5f49c7e4c464ce08b335ac3",
+            "upstream_git_blob": "6ee529403aafa6f38b97e30993cf6244d87db8f1",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/bevel/shrink.gd.uid": {
+            "sha256": "38c21f55e5edd6b69d4ea82a820f0682b04b29c776ae4890b43dad55a08ad991",
+            "bytes": 20,
+            "upstream_path": "addons/blanket/passes/bevel/shrink.gd.uid",
+            "upstream_sha256": "38c21f55e5edd6b69d4ea82a820f0682b04b29c776ae4890b43dad55a08ad991",
+            "upstream_git_blob": "e4702a670f238c31223029f724d9052899cad809",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/bevel/shrink.glsl": {
+            "sha256": "4c9ecefe90f33411dbf4f2e3bc59cc60ab6d39975823971494cf994f26f90a82",
+            "bytes": 4708,
+            "upstream_path": "addons/blanket/passes/bevel/shrink.glsl",
+            "upstream_sha256": "4c9ecefe90f33411dbf4f2e3bc59cc60ab6d39975823971494cf994f26f90a82",
+            "upstream_git_blob": "a91359d01e5c1480af716a83cb86b1d9590a04e6",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/bevel/shrink.glsl.import": {
+            "sha256": "e0d2aa3ef5f8ccd7d2ca4a7664a81cc43bd3ed93219bbeec357ea795c8699bb7",
+            "bytes": 314,
+            "upstream_path": "addons/blanket/passes/bevel/shrink.glsl.import",
+            "upstream_sha256": "e0d2aa3ef5f8ccd7d2ca4a7664a81cc43bd3ed93219bbeec357ea795c8699bb7",
+            "upstream_git_blob": "219c53fc2a823f4fd7b2b6b52ada55c17c0fda12",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/boundary/boundary_resolve.gd": {
+            "sha256": "cf75ab1715271108081ebfd13314e49b3812291461992138f8668201180361b0",
+            "bytes": 966,
+            "upstream_path": "addons/blanket/passes/boundary/boundary_resolve.gd",
+            "upstream_sha256": "cf75ab1715271108081ebfd13314e49b3812291461992138f8668201180361b0",
+            "upstream_git_blob": "0ccecb8b3ceec22b04173a381ca577d7f9223d33",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/boundary/boundary_resolve.gd.uid": {
+            "sha256": "2e26ea29439b21295f6c4f96662bf26da2f26b8e566da34cf0a2c044eab53dcc",
+            "bytes": 19,
+            "upstream_path": "addons/blanket/passes/boundary/boundary_resolve.gd.uid",
+            "upstream_sha256": "2e26ea29439b21295f6c4f96662bf26da2f26b8e566da34cf0a2c044eab53dcc",
+            "upstream_git_blob": "a2048936079ef9b804f1314c1f97417bafdc2890",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/boundary/boundary_resolve.glsl": {
+            "sha256": "a98608e0b93858b65ba2a58599034700538706117547522ec325b7364b42ce62",
+            "bytes": 3376,
+            "upstream_path": "addons/blanket/passes/boundary/boundary_resolve.glsl",
+            "upstream_sha256": "a98608e0b93858b65ba2a58599034700538706117547522ec325b7364b42ce62",
+            "upstream_git_blob": "10b2efbfd3fbae35329f8679b6cf8dee503fb304",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/boundary/boundary_resolve.glsl.import": {
+            "sha256": "3e084924894aa1f846b3244bb2b55a2642db9064538c6e1108ed1866e6ca3ac6",
+            "bytes": 348,
+            "upstream_path": "addons/blanket/passes/boundary/boundary_resolve.glsl.import",
+            "upstream_sha256": "3e084924894aa1f846b3244bb2b55a2642db9064538c6e1108ed1866e6ca3ac6",
+            "upstream_git_blob": "16cc16a9980449972799aba2cc72f139cc5f72c1",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/boundary/boundary_write.gd": {
+            "sha256": "ea4a391b464208aaed957623cfd624a4f63e0c0188b19fb5b69d7138dffb4712",
+            "bytes": 1333,
+            "upstream_path": "addons/blanket/passes/boundary/boundary_write.gd",
+            "upstream_sha256": "ea4a391b464208aaed957623cfd624a4f63e0c0188b19fb5b69d7138dffb4712",
+            "upstream_git_blob": "e37c72235512d894fc012978e402aa09beefcfcb",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/boundary/boundary_write.gd.uid": {
+            "sha256": "bf027deae5238323cdd2a2a1ad095ff5db9b18d405aa5569a285dc8ee2c5ab5d",
+            "bytes": 20,
+            "upstream_path": "addons/blanket/passes/boundary/boundary_write.gd.uid",
+            "upstream_sha256": "bf027deae5238323cdd2a2a1ad095ff5db9b18d405aa5569a285dc8ee2c5ab5d",
+            "upstream_git_blob": "6cd3171478e3d82f61d0872fdeb64e4069162d89",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/boundary/boundary_write.glsl": {
+            "sha256": "acbfa86904d814482366247144ca23289cc19f4ed37b68dc25991d628dcb74e0",
+            "bytes": 5357,
+            "upstream_path": "addons/blanket/passes/boundary/boundary_write.glsl",
+            "upstream_sha256": "acbfa86904d814482366247144ca23289cc19f4ed37b68dc25991d628dcb74e0",
+            "upstream_git_blob": "bff6415fd6de2e5efe35cf426e31901b66326d08",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/boundary/boundary_write.glsl.import": {
+            "sha256": "3abb8325b69809a2b377cfb4a1bbd6492cd44a7a89ca3788a96f0c7dd3e019dd",
+            "bytes": 342,
+            "upstream_path": "addons/blanket/passes/boundary/boundary_write.glsl.import",
+            "upstream_sha256": "3abb8325b69809a2b377cfb4a1bbd6492cd44a7a89ca3788a96f0c7dd3e019dd",
+            "upstream_git_blob": "d68077a5a2bea2c34beaa7553094839bbbcf7dd0",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/common.glsl.inc": {
+            "sha256": "9572d1b408e9278e3d6eaebaf160541fa56ccbd32bfead2497cddde2bfbaf56e",
+            "bytes": 1219,
+            "upstream_path": "addons/blanket/passes/common.glsl.inc",
+            "upstream_sha256": "9572d1b408e9278e3d6eaebaf160541fa56ccbd32bfead2497cddde2bfbaf56e",
+            "upstream_git_blob": "e16031bda948b7450046a79079e8c23f5b866c5b",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/edges.gd": {
+            "sha256": "d504b234438b632b910dbe035e97ff412cb7572550225958a1b8c869f383507a",
+            "bytes": 4246,
+            "upstream_path": "addons/blanket/passes/edges.gd",
+            "upstream_sha256": "d504b234438b632b910dbe035e97ff412cb7572550225958a1b8c869f383507a",
+            "upstream_git_blob": "4fb647f65617742ad2a08da230f01fe295142aaa",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/edges.gd.uid": {
+            "sha256": "bb49441005ee3a281133cb3c1562eb02c63257735923aab5ad88e88f8a6875da",
+            "bytes": 18,
+            "upstream_path": "addons/blanket/passes/edges.gd.uid",
+            "upstream_sha256": "bb49441005ee3a281133cb3c1562eb02c63257735923aab5ad88e88f8a6875da",
+            "upstream_git_blob": "704e7709291d17c5a24c29f86621e068406c225a",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/edges.glsl": {
+            "sha256": "3c6f98dd0ea67d1fd5fc6e632a6055207b5642157a1d5bce0bdeed27a7821f0e",
+            "bytes": 5648,
+            "upstream_path": "addons/blanket/passes/edges.glsl",
+            "upstream_sha256": "3c6f98dd0ea67d1fd5fc6e632a6055207b5642157a1d5bce0bdeed27a7821f0e",
+            "upstream_git_blob": "5a45eec2eeec7076c7cc37d8d3ff869be54004ac",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/edges.glsl.import": {
+            "sha256": "f1ccd38c47e7cc7698986d28f499dacfe9523b5496362d606fb2d6254c8dcd6a",
+            "bytes": 306,
+            "upstream_path": "addons/blanket/passes/edges.glsl.import",
+            "upstream_sha256": "f1ccd38c47e7cc7698986d28f499dacfe9523b5496362d606fb2d6254c8dcd6a",
+            "upstream_git_blob": "88de66441b933e7285ec259eebc49006990e0461",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/face_edge.glsl.inc": {
+            "sha256": "917a4c101b3b23beed73873ce449b2a3c34300384cdc24e3fb4e127bd4016085",
+            "bytes": 1465,
+            "upstream_path": "addons/blanket/passes/face_edge.glsl.inc",
+            "upstream_sha256": "917a4c101b3b23beed73873ce449b2a3c34300384cdc24e3fb4e127bd4016085",
+            "upstream_git_blob": "dae6b3fc8f6a1d5be8ffa49cb6ef8c6fd139ced6",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/faces/dedupe.gd": {
+            "sha256": "87144d2b14d019bc824f9a5d6a5fb94f285a78d8c4ba22dda474503c3776b64e",
+            "bytes": 2073,
+            "upstream_path": "addons/blanket/passes/faces/dedupe.gd",
+            "upstream_sha256": "87144d2b14d019bc824f9a5d6a5fb94f285a78d8c4ba22dda474503c3776b64e",
+            "upstream_git_blob": "c41e48396339b7812c481c79c00fb5eef6803951",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/faces/dedupe.gd.uid": {
+            "sha256": "dd39b939e2eb8539a0c887061ff4a601d4da26573d40bcbf9f8f4c787f055f7a",
+            "bytes": 20,
+            "upstream_path": "addons/blanket/passes/faces/dedupe.gd.uid",
+            "upstream_sha256": "dd39b939e2eb8539a0c887061ff4a601d4da26573d40bcbf9f8f4c787f055f7a",
+            "upstream_git_blob": "2fe441018d50a429dbb19b31b118181401183218",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/faces/dedupe.glsl": {
+            "sha256": "6da2d140dfb34e522bc9d662ed6dfb4a163b3d255ea6e81f8d11eb382357e47a",
+            "bytes": 2554,
+            "upstream_path": "addons/blanket/passes/faces/dedupe.glsl",
+            "upstream_sha256": "6da2d140dfb34e522bc9d662ed6dfb4a163b3d255ea6e81f8d11eb382357e47a",
+            "upstream_git_blob": "1e9b17aa7189b77f8ab925a9fc11f547352144f2",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/faces/dedupe.glsl.import": {
+            "sha256": "63c1a5004941cbcdaeff6efd773edae0a1637637640d7d053b7632620aa3835b",
+            "bytes": 315,
+            "upstream_path": "addons/blanket/passes/faces/dedupe.glsl.import",
+            "upstream_sha256": "63c1a5004941cbcdaeff6efd773edae0a1637637640d7d053b7632620aa3835b",
+            "upstream_git_blob": "c6866244ec96e2e3ff1a88074f325d1e1b480e6b",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/faces/faces.gd": {
+            "sha256": "c8a993193c3b25a3bcb856e9cf060569f46a47d3d8267ff646e0324d129f9300",
+            "bytes": 634,
+            "upstream_path": "addons/blanket/passes/faces/faces.gd",
+            "upstream_sha256": "c8a993193c3b25a3bcb856e9cf060569f46a47d3d8267ff646e0324d129f9300",
+            "upstream_git_blob": "ecd29f4b8af05b138c2648029ff802aa35605f42",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/faces/faces.gd.uid": {
+            "sha256": "828845eae8e54b9eee984f60506b00d185c5b2965f7eea82eb40066fb00b8352",
+            "bytes": 20,
+            "upstream_path": "addons/blanket/passes/faces/faces.gd.uid",
+            "upstream_sha256": "828845eae8e54b9eee984f60506b00d185c5b2965f7eea82eb40066fb00b8352",
+            "upstream_git_blob": "55e3daee73072d2302af7c8d8724c397289540a8",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/faces/faces.glsl": {
+            "sha256": "0677b05305cab36fe2bb069cd9dd35e3f8d9f8ee09d400383202309f545edf42",
+            "bytes": 1983,
+            "upstream_path": "addons/blanket/passes/faces/faces.glsl",
+            "upstream_sha256": "0677b05305cab36fe2bb069cd9dd35e3f8d9f8ee09d400383202309f545edf42",
+            "upstream_git_blob": "90ad7604ecd79bf9d05383a67db307bb65461936",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/faces/faces.glsl.import": {
+            "sha256": "85d0882ca69a573847aa461f6b0517bf7c63be641bd35ffee7b9958249c65e3f",
+            "bytes": 312,
+            "upstream_path": "addons/blanket/passes/faces/faces.glsl.import",
+            "upstream_sha256": "85d0882ca69a573847aa461f6b0517bf7c63be641bd35ffee7b9958249c65e3f",
+            "upstream_git_blob": "945cb4bd580c12bcc0a66538685c6e4978566bcd",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/faces/select.gd": {
+            "sha256": "09124933fab31afa2303feb2cefe5424c15b42835557c5f1acccbad7fb57aeba",
+            "bytes": 3232,
+            "upstream_path": "addons/blanket/passes/faces/select.gd",
+            "upstream_sha256": "2574d66583d4192e5500292bfd59aae98a07cc1bebe720e6be9ac3666e60d9a6",
+            "upstream_git_blob": "8c9cde3db22356e7a7e3db8c3c705a736df08f2a",
+            "compatibility_patch": true,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/faces/select.gd.uid": {
+            "sha256": "6c31ffffe72292dd68a87c9c61de246a55a33709a7a8f5602b41ca384578a279",
+            "bytes": 20,
+            "upstream_path": "addons/blanket/passes/faces/select.gd.uid",
+            "upstream_sha256": "6c31ffffe72292dd68a87c9c61de246a55a33709a7a8f5602b41ca384578a279",
+            "upstream_git_blob": "dadd80ae65d8f97e0b46d1ddee66e927dc6826c8",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/faces/select.glsl": {
+            "sha256": "8d27668c30e887632ab9f3a49ed5f382ddfea492b90417eb6c04c94bf1abec86",
+            "bytes": 2410,
+            "upstream_path": "addons/blanket/passes/faces/select.glsl",
+            "upstream_sha256": "8d27668c30e887632ab9f3a49ed5f382ddfea492b90417eb6c04c94bf1abec86",
+            "upstream_git_blob": "cab56b43352e275e8f617ff656b8ec0d4cfbc859",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/faces/select.glsl.import": {
+            "sha256": "df3d8175ed6a853dd9e9699780f36c1c69859517583ae49f6bd7f1814b3ab696",
+            "bytes": 313,
+            "upstream_path": "addons/blanket/passes/faces/select.glsl.import",
+            "upstream_sha256": "df3d8175ed6a853dd9e9699780f36c1c69859517583ae49f6bd7f1814b3ab696",
+            "upstream_git_blob": "b0c7c518e1d230663b987d52b7ce3ad03a1ffe57",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/normals/normals_sum.gd": {
+            "sha256": "3738f17fbb76d8a60a65844f9074c584facdf14625a35b8aa2f884b101f3a031",
+            "bytes": 2026,
+            "upstream_path": "addons/blanket/passes/normals/normals_sum.gd",
+            "upstream_sha256": "3738f17fbb76d8a60a65844f9074c584facdf14625a35b8aa2f884b101f3a031",
+            "upstream_git_blob": "f3123e0ca48414635fa30bdf0e4e1ff06b220651",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/normals/normals_sum.gd.uid": {
+            "sha256": "1babb1148fe6c2eaa7edccd91aff71409d5be44311f4f69bc7366ab791874dcb",
+            "bytes": 19,
+            "upstream_path": "addons/blanket/passes/normals/normals_sum.gd.uid",
+            "upstream_sha256": "1babb1148fe6c2eaa7edccd91aff71409d5be44311f4f69bc7366ab791874dcb",
+            "upstream_git_blob": "50346afe708eb47c339aac3ab54b7949615ad644",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/normals/normals_sum.glsl": {
+            "sha256": "5820b754d950a80f9bb269993b6b2a21c1a7f2aaa246ad1087a6e5277da7d539",
+            "bytes": 2870,
+            "upstream_path": "addons/blanket/passes/normals/normals_sum.glsl",
+            "upstream_sha256": "5820b754d950a80f9bb269993b6b2a21c1a7f2aaa246ad1087a6e5277da7d539",
+            "upstream_git_blob": "0b1983246555837c7d1cb5d6eb0143b2f6a0264b",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/normals/normals_sum.glsl.import": {
+            "sha256": "fed20046d8ec863cef8aff08e642d56e2836d7c60d52a226a9248ac941d5db84",
+            "bytes": 332,
+            "upstream_path": "addons/blanket/passes/normals/normals_sum.glsl.import",
+            "upstream_sha256": "fed20046d8ec863cef8aff08e642d56e2836d7c60d52a226a9248ac941d5db84",
+            "upstream_git_blob": "16bc10c94da49661422280fd13558fac797598e5",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/normals/normals_write.gd": {
+            "sha256": "d70d7d2a1512b1f79a66bc5b2559528490be21ca8feff83dea20eedd381b92d4",
+            "bytes": 1197,
+            "upstream_path": "addons/blanket/passes/normals/normals_write.gd",
+            "upstream_sha256": "d70d7d2a1512b1f79a66bc5b2559528490be21ca8feff83dea20eedd381b92d4",
+            "upstream_git_blob": "dc3080f38316d8712b951cc4c68da1c8cc24c809",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/normals/normals_write.gd.uid": {
+            "sha256": "f333a39234cf202084e8a33c17e14e813cdba13af2fd87787b60637956f5218c",
+            "bytes": 20,
+            "upstream_path": "addons/blanket/passes/normals/normals_write.gd.uid",
+            "upstream_sha256": "f333a39234cf202084e8a33c17e14e813cdba13af2fd87787b60637956f5218c",
+            "upstream_git_blob": "432941d124169756cc2e01c09507606ca1ff35eb",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/normals/normals_write.glsl": {
+            "sha256": "b1d469a4deabf64ea4791c50dcd5e574e29dd9c3a3ef340d24a9a3dc7496b92d",
+            "bytes": 1492,
+            "upstream_path": "addons/blanket/passes/normals/normals_write.glsl",
+            "upstream_sha256": "b1d469a4deabf64ea4791c50dcd5e574e29dd9c3a3ef340d24a9a3dc7496b92d",
+            "upstream_git_blob": "24d5fdcb772a5cb575370002f933235b422cde82",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/normals/normals_write.glsl.import": {
+            "sha256": "3d78005dbd60a1432578946f457a717aa353f8e610d3d4c814c4df8657ede576",
+            "bytes": 338,
+            "upstream_path": "addons/blanket/passes/normals/normals_write.glsl.import",
+            "upstream_sha256": "3d78005dbd60a1432578946f457a717aa353f8e610d3d4c814c4df8657ede576",
+            "upstream_git_blob": "8f41de7fc242545707cf183cd91dc50b7ac1e1bc",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/offset.gd": {
+            "sha256": "5affbec50ec608746cf729090cca8af460897debcff84f9f001675787eea95b5",
+            "bytes": 1083,
+            "upstream_path": "addons/blanket/passes/offset.gd",
+            "upstream_sha256": "5affbec50ec608746cf729090cca8af460897debcff84f9f001675787eea95b5",
+            "upstream_git_blob": "124fd89ff682b57ea822240014ed1cc4ea4dba66",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/offset.gd.uid": {
+            "sha256": "10689f6b058a74c919d37cbbac981a99570dff2622d3e9c5218acc97d40e0e7c",
+            "bytes": 20,
+            "upstream_path": "addons/blanket/passes/offset.gd.uid",
+            "upstream_sha256": "10689f6b058a74c919d37cbbac981a99570dff2622d3e9c5218acc97d40e0e7c",
+            "upstream_git_blob": "0c1ecee78c27ad16975f523f2a8e2ca0a31b2a28",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/offset.glsl": {
+            "sha256": "6d12bd8fa70c0b1b35bc6daf4ea8ef2de1d48271cf1cca741383a1b0da36639a",
+            "bytes": 1355,
+            "upstream_path": "addons/blanket/passes/offset.glsl",
+            "upstream_sha256": "6d12bd8fa70c0b1b35bc6daf4ea8ef2de1d48271cf1cca741383a1b0da36639a",
+            "upstream_git_blob": "59cf0ccfe9128d8d3eecf59847072f5706718b32",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/offset.glsl.import": {
+            "sha256": "a56226eaf9018e767d8765cdac29269e90be27d23f46fa465a962cff7d11971d",
+            "bytes": 309,
+            "upstream_path": "addons/blanket/passes/offset.glsl.import",
+            "upstream_sha256": "a56226eaf9018e767d8765cdac29269e90be27d23f46fa465a962cff7d11971d",
+            "upstream_git_blob": "456be9ae375f863ec44522a15c4c0fe5d624dbe3",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/out_mesh.gd": {
+            "sha256": "36833646cc32a91519f21520253c207735fe610897305b1de711194f71ebe8b5",
+            "bytes": 5078,
+            "upstream_path": "addons/blanket/passes/out_mesh.gd",
+            "upstream_sha256": "cc2995d8ee764b001c006a5040854076220d71f7d0f9fbe848afef842bc8c28d",
+            "upstream_git_blob": "95165b1331a041ddfe221dc49e03e1d8b24afe3f",
+            "compatibility_patch": true,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/out_mesh.gd.uid": {
+            "sha256": "e29d2e1bd50b35241523a9608fb3ec8b4e15569213ce7eb9ba690717f654e86c",
+            "bytes": 20,
+            "upstream_path": "addons/blanket/passes/out_mesh.gd.uid",
+            "upstream_sha256": "e29d2e1bd50b35241523a9608fb3ec8b4e15569213ce7eb9ba690717f654e86c",
+            "upstream_git_blob": "07afe1ab90cf6a893667e0f340bcf7ca7a85f568",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/out_mesh.glsl": {
+            "sha256": "c9a33f81ef2abbc025b29343a39784cea1013f902dc97dbdb9afbd3d0c822ffc",
+            "bytes": 2425,
+            "upstream_path": "addons/blanket/passes/out_mesh.glsl",
+            "upstream_sha256": "c9a33f81ef2abbc025b29343a39784cea1013f902dc97dbdb9afbd3d0c822ffc",
+            "upstream_git_blob": "6cc64bed9dcfeb4e9ba0a1d612027141539f2da8",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/out_mesh.glsl.import": {
+            "sha256": "afda12510a8bcbb4e7c24cdf95a174c8317ec352f789321e0c4172990aa91f82",
+            "bytes": 315,
+            "upstream_path": "addons/blanket/passes/out_mesh.glsl.import",
+            "upstream_sha256": "afda12510a8bcbb4e7c24cdf95a174c8317ec352f789321e0c4172990aa91f82",
+            "upstream_git_blob": "8c3a3fccbc164ffa440bd361e79bb6f568b54e11",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/smooth/smooth.gd": {
+            "sha256": "1fcfd32c90364a06859c94524c8e2d7ff57dd34a24b718049b9c8f82e4372d5d",
+            "bytes": 471,
+            "upstream_path": "addons/blanket/passes/smooth/smooth.gd",
+            "upstream_sha256": "1fcfd32c90364a06859c94524c8e2d7ff57dd34a24b718049b9c8f82e4372d5d",
+            "upstream_git_blob": "823ae705563552b35089395ac352e7a136fda496",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/smooth/smooth.gd.uid": {
+            "sha256": "8af744f97126866b6d0d57c82549dd988e66983e55c3f7412d4c486fbd6a9481",
+            "bytes": 20,
+            "upstream_path": "addons/blanket/passes/smooth/smooth.gd.uid",
+            "upstream_sha256": "8af744f97126866b6d0d57c82549dd988e66983e55c3f7412d4c486fbd6a9481",
+            "upstream_git_blob": "7a7356153cdf7ab3d81279d3fec076172e2411e7",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/smooth/smooth_sum.gd": {
+            "sha256": "0db3df96e7ee7fcae8d1facc6488ce71a0daefaecc9f1369a80eacef0974b3cd",
+            "bytes": 1736,
+            "upstream_path": "addons/blanket/passes/smooth/smooth_sum.gd",
+            "upstream_sha256": "0db3df96e7ee7fcae8d1facc6488ce71a0daefaecc9f1369a80eacef0974b3cd",
+            "upstream_git_blob": "684c27d0e6d2e2626cd3386d57f92f6bc9df30d9",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/smooth/smooth_sum.gd.uid": {
+            "sha256": "b20545564b760437c323293f2bd7ee66cbc773aadbbecf9209dc745df5394658",
+            "bytes": 20,
+            "upstream_path": "addons/blanket/passes/smooth/smooth_sum.gd.uid",
+            "upstream_sha256": "b20545564b760437c323293f2bd7ee66cbc773aadbbecf9209dc745df5394658",
+            "upstream_git_blob": "807fc141d4ca7cff6c906fcef0d9979417950ad3",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/smooth/smooth_sum.glsl": {
+            "sha256": "8b71810e250f02368d4b19804da9e6ddb708b7725e88c40f122c2928c243bb33",
+            "bytes": 2492,
+            "upstream_path": "addons/blanket/passes/smooth/smooth_sum.glsl",
+            "upstream_sha256": "8b71810e250f02368d4b19804da9e6ddb708b7725e88c40f122c2928c243bb33",
+            "upstream_git_blob": "603fddd989fc6a40ebfc99b472cfd2318172cf31",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/smooth/smooth_sum.glsl.import": {
+            "sha256": "6463b479f02f00ac6a890d06771166f7ac978b53ea884e281c34b361a2fc99d5",
+            "bytes": 327,
+            "upstream_path": "addons/blanket/passes/smooth/smooth_sum.glsl.import",
+            "upstream_sha256": "6463b479f02f00ac6a890d06771166f7ac978b53ea884e281c34b361a2fc99d5",
+            "upstream_git_blob": "d938464ca7cf66a5c4bc3638f8700d336570e764",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/smooth/smooth_write.gd": {
+            "sha256": "e86e6f16946435bb0f5f313f2aa100024a0852df118b4d736295ab736a6c97c3",
+            "bytes": 1070,
+            "upstream_path": "addons/blanket/passes/smooth/smooth_write.gd",
+            "upstream_sha256": "e86e6f16946435bb0f5f313f2aa100024a0852df118b4d736295ab736a6c97c3",
+            "upstream_git_blob": "40efdb5b077b28f444bd26ad091c34d559b475d0",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/smooth/smooth_write.gd.uid": {
+            "sha256": "03d2f1bfd93a0d3d130d9a8622b44157d9e24f7dfa9af48d56dc3b713882a34b",
+            "bytes": 20,
+            "upstream_path": "addons/blanket/passes/smooth/smooth_write.gd.uid",
+            "upstream_sha256": "03d2f1bfd93a0d3d130d9a8622b44157d9e24f7dfa9af48d56dc3b713882a34b",
+            "upstream_git_blob": "aa8b18cbeb8124d8bb47446cccb2b97a8839b3e7",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/smooth/smooth_write.glsl": {
+            "sha256": "b3c54e1445392bebeb892796a99c4be803ecee5a405adcbb70e82c0db5e8a707",
+            "bytes": 1758,
+            "upstream_path": "addons/blanket/passes/smooth/smooth_write.glsl",
+            "upstream_sha256": "b3c54e1445392bebeb892796a99c4be803ecee5a405adcbb70e82c0db5e8a707",
+            "upstream_git_blob": "14c517bb32610abe4511654df25aa56f1967e363",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/passes/smooth/smooth_write.glsl.import": {
+            "sha256": "64b29ce1a78ff20f14ea609f6072deec78ba0847fdccc0a21baea32ceed0b06c",
+            "bytes": 334,
+            "upstream_path": "addons/blanket/passes/smooth/smooth_write.glsl.import",
+            "upstream_sha256": "64b29ce1a78ff20f14ea609f6072deec78ba0847fdccc0a21baea32ceed0b06c",
+            "upstream_git_blob": "1063f85c340cc250601649c52b56359083fd45ac",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/pipeline.gd": {
+            "sha256": "026a30f90773ad66ce83c221fdfd5b51c86ae299dd115984941103dc4d3faea3",
+            "bytes": 2233,
+            "upstream_path": "addons/blanket/pipeline.gd",
+            "upstream_sha256": "20897a133a873ad4e47034e7d26d6fd7455931d8ea0faadeaeef20d523a2d1f3",
+            "upstream_git_blob": "1f647861acfbdc74d23b57f977247ecb724c8f3d",
+            "compatibility_patch": true,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/pipeline.gd.uid": {
+            "sha256": "1fdf3d0067fe6a429d240b0d59ee2cbae70b45f2536a7b7c877e4207c7d25511",
+            "bytes": 20,
+            "upstream_path": "addons/blanket/pipeline.gd.uid",
+            "upstream_sha256": "1fdf3d0067fe6a429d240b0d59ee2cbae70b45f2536a7b7c877e4207c7d25511",
+            "upstream_git_blob": "df18791633532de71fb71858d81994837c39e312",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/sets.gd": {
+            "sha256": "64f0e687b0f54601b11b4c35ef0f2744953dc179f2f923c5bc4d5f43f8e9324f",
+            "bytes": 2282,
+            "upstream_path": "addons/blanket/sets.gd",
+            "upstream_sha256": "64f0e687b0f54601b11b4c35ef0f2744953dc179f2f923c5bc4d5f43f8e9324f",
+            "upstream_git_blob": "3e85daeefc4e893ff9d060df6b264ed71ebe64d0",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/sets.gd.uid": {
+            "sha256": "8fa49919e407c2658dd342fd60ab6285a8558048aebeebc99103fe82800298f0",
+            "bytes": 19,
+            "upstream_path": "addons/blanket/sets.gd.uid",
+            "upstream_sha256": "8fa49919e407c2658dd342fd60ab6285a8558048aebeebc99103fe82800298f0",
+            "upstream_git_blob": "d046b14b3606c9f439f1e6edd66f8325ae31ef24",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/shaders/wireframe_background.tres": {
+            "sha256": "38f2d102fb3d9a94de6a7fc10942df5a799495d39b3b2274383928e1fe7baf2a",
+            "bytes": 898,
+            "upstream_path": "addons/blanket/shaders/wireframe_background.tres",
+            "upstream_sha256": "38f2d102fb3d9a94de6a7fc10942df5a799495d39b3b2274383928e1fe7baf2a",
+            "upstream_git_blob": "d688def975e6f522f06cf0d0a60edadfad460958",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/shaders/wireframe_shader.tres": {
+            "sha256": "590aa14ceb80524069a2f019a573a8ac1bac04ff80b64da5fbd52716f7e1f463",
+            "bytes": 817,
+            "upstream_path": "addons/blanket/shaders/wireframe_shader.tres",
+            "upstream_sha256": "590aa14ceb80524069a2f019a573a8ac1bac04ff80b64da5fbd52716f7e1f463",
+            "upstream_git_blob": "db7e0c5d294d0748fd23e4bdecc410ee1662a76a",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/shaders.gd": {
+            "sha256": "3e15e191605f0fc8e85d94eb981e3d30349ec64789f91bcbd61e5030f37bc3be",
+            "bytes": 3730,
+            "upstream_path": "addons/blanket/shaders.gd",
+            "upstream_sha256": "f7c5189e58ad9ed4e8bfb61441b8cf1b64bddd2d92d7151542c3d86775478477",
+            "upstream_git_blob": "5e93c96b8caf6e8367655df071a8588c56926600",
+            "compatibility_patch": true,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/shaders.gd.uid": {
+            "sha256": "006a3b510257e805ca430b7942f1cca72e63866da17bae4751196469b4c0c77f",
+            "bytes": 20,
+            "upstream_path": "addons/blanket/shaders.gd.uid",
+            "upstream_sha256": "006a3b510257e805ca430b7942f1cca72e63866da17bae4751196469b4c0c77f",
+            "upstream_git_blob": "292faa2ef06065bef22a080819daebb36de20e14",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/surface.gd": {
+            "sha256": "8ebcd56602cba8153caa9e8d079ba9dc25a9b18aa88f72e1d024d276685c6471",
+            "bytes": 4191,
+            "upstream_path": "addons/blanket/surface.gd",
+            "upstream_sha256": "aa995b60b075f007f60aa9fa71bed121b050958fc7fc79b633388c89b07de13a",
+            "upstream_git_blob": "0393b3a6ec36c18037c56abc3f138987d447a2d9",
+            "compatibility_patch": true,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/surface.gd.uid": {
+            "sha256": "6abebdbc49a667b2358c17426ae9300ebbefc5e67e901ee107afb54426fe624c",
+            "bytes": 19,
+            "upstream_path": "addons/blanket/surface.gd.uid",
+            "upstream_sha256": "6abebdbc49a667b2358c17426ae9300ebbefc5e67e901ee107afb54426fe624c",
+            "upstream_git_blob": "a9b4ef38beb7dbb8871a0dec12e92dda1c6bac2b",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/util.gd": {
+            "sha256": "f3cf6bb00601284e31e5c41d9751a8530f6345878242c82fd1c22ba0b5da090c",
+            "bytes": 3517,
+            "upstream_path": "addons/blanket/util.gd",
+            "upstream_sha256": "f3cf6bb00601284e31e5c41d9751a8530f6345878242c82fd1c22ba0b5da090c",
+            "upstream_git_blob": "4a59b2314efe923fedeb5d24b23bb4e89175152d",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          },
+          "addons/blanket/util.gd.uid": {
+            "sha256": "0034bb864c78ae70727a6efe61805bbe7d4599c03f3050aa229a6986f530a7ff",
+            "bytes": 20,
+            "upstream_path": "addons/blanket/util.gd.uid",
+            "upstream_sha256": "0034bb864c78ae70727a6efe61805bbe7d4599c03f3050aa229a6986f530a7ff",
+            "upstream_git_blob": "d10f7407617149c2b4eaec2dc2f423d29a9b02c4",
+            "compatibility_patch": false,
+            "godot_normalized_import": false
+          }
+        }
+      },
+      "native": {
+        "camera_histories_independent": true,
+        "checks": {
+          "1080p export succeeds": true,
+          "2K export renders cloud compositor": true,
+          "all three roofs covered": true,
+          "capture main_clouds": true,
+          "capture main_clouds_default_aa": true,
+          "capture snow_depth_14cm": true,
+          "capture snow_depth_zero": true,
+          "capture winter_eaves": true,
+          "capture winter_garden": true,
+          "capture winter_garden_default_aa": true,
+          "clouds resume after freeze": true,
+          "environment has no shared cloud history": true,
+          "frozen multi camera pixels stable": true,
+          "main buffer size unchanged": true,
+          "main camera owns cloud effect": true,
+          "main camera pose restored": true,
+          "main history survives independent reflection and photo views": true,
+          "main landscape ready": true,
+          "native terrain has snow display thickness": true,
+          "paired 2K exports succeed": true,
+          "photo camera effects released": true,
+          "photo effect had its own full render target": true,
+          "real reflection image contains plugin clouds": true,
+          "reflection captures actual updates": true,
+          "reflection cloud buffer has native size": true,
+          "reflection has independent cloud effect": true,
+          "save reflection off": true,
+          "save reflection on": true,
+          "snow follows committed roof edit": true,
+          "snow follows undo": true,
+          "snow is display only": true,
+          "snow jobs complete": true,
+          "snow publication settles": true,
+          "spring hides caps": true,
+          "terrain snow displacement changes actual pixels": true,
+          "trees and rocks covered": true
+        },
+        "geometric_object_snow": true,
+        "images": [
+          "res://reports/weather_production/main_clouds_default_aa.png",
+          "res://reports/weather_production/main_clouds.png",
+          "res://reports/weather_production/winter_garden.png",
+          "res://reports/weather_production/winter_garden_default_aa.png",
+          "res://reports/weather_production/winter_eaves.png",
+          "res://reports/weather_production/snow_depth_zero.png",
+          "res://reports/weather_production/snow_depth_14cm.png"
+        ],
+        "measurements": {
+          "after_photo_history_pixels": 0.0,
+          "photo_cloud_pixels": 0.0811370231231882,
+          "reflection_cloud_pixels": 0.0170053174536602,
+          "resumed_cloud_pixels": 0.0115515208452817,
+          "terrain_displacement_pixels": 0.0184263368384154
+        },
+        "passed": true,
+        "performance_gate_run": false,
+        "rendering_driver": "metal",
+        "terrain_snow_displacement_m": 0.14
+      },
+      "immersion": {
+        "baseline_sky_only": false,
+        "checks": {
+          "QA saves isolated": true,
+          "Terrain3D is visible receiver": true,
+          "actual FirstPersonWalk entered": true,
+          "actual Terrain3D receives decals": true,
+          "actual photo mode entered": true,
+          "actual production grass renderer": true,
+          "actual production landscape ready": true,
+          "actual walk populates grass contacts": true,
+          "actual walk temporarily thaws prior frozen photo": true,
+          "all actual building and roof meshes exclude footprint receiver": true,
+          "all actual grass batches exclude footprint receiver": true,
+          "all cottage tile roof meshes inspected": true,
+          "all source cottages inspected as published nodes": true,
+          "continuous safe off road grass route found": true,
+          "decals change actual Terrain3D pixels": true,
+          "eighteen seconds fades every existing print alpha": true,
+          "exit Terrain3D signature unchanged": true,
+          "exit clears snow footprints": true,
+          "exit grass signature unchanged": true,
+          "exit grass versions unchanged": true,
+          "exit history unchanged": true,
+          "exit restores prior frozen photo": true,
+          "exit source unchanged": true,
+          "exit starts with live footprints": true,
+          "exit starts with live grass contact": true,
+          "exit stops actual FirstPersonWalk": true,
+          "exit_setup_walk ends on safe ground": true,
+          "exit_setup_walk real W input moves requested distance": true,
+          "expired pooled decals all hidden": true,
+          "expired print pixels return to unmarked snow": true,
+          "fade visibly weakens footprint pixels": true,
+          "footprint receiver bit is layer 18": true,
+          "footprint records available for camera diagnosis": true,
+          "formal scene uses accepted volume clouds": true,
+          "frozen contact samples remain exact": true,
+          "frozen footprints do not age during captures": true,
+          "frozen grass baseline stable": true,
+          "frozen snow baseline stable": true,
+          "grass contact returns within about one second": true,
+          "grass recovery preserves photo and wind freeze": true,
+          "grass walking Terrain3D signature unchanged": true,
+          "grass walking grass signature unchanged": true,
+          "grass walking grass versions unchanged": true,
+          "grass walking history unchanged": true,
+          "grass walking source unchanged": true,
+          "grass_contact_off saved": true,
+          "grass_contact_off_repeat saved": true,
+          "grass_contact_on saved": true,
+          "grass_first_person saved": true,
+          "inactive grass GPU contact fast path restored": true,
+          "legacy terrain fallback hidden": true,
+          "native renderer required": true,
+          "real grass bending changes pixels": true,
+          "real winter walk emits at least three footprints": true,
+          "snow walking and fading Terrain3D signature unchanged": true,
+          "snow walking and fading grass signature unchanged": true,
+          "snow walking and fading grass versions unchanged": true,
+          "snow walking and fading history unchanged": true,
+          "snow walking and fading source unchanged": true,
+          "source publications settled": true,
+          "summer footsteps not emitted": true,
+          "summer_walk ends on safe ground": true,
+          "summer_walk real W input moves requested distance": true,
+          "twenty five seconds expires all prints": true,
+          "winter clear cover stable": true,
+          "winter snow geometry ready before contact captures": true,
+          "winter_first_person_look_back saved": true,
+          "winter_footprints_faded_18s saved": true,
+          "winter_footprints_fresh saved": true,
+          "winter_footprints_fresh_repeat saved": true,
+          "winter_footprints_gone_25s saved": true,
+          "winter_footprints_hidden saved": true,
+          "winter_walk ends on safe ground": true,
+          "winter_walk real W input moves requested distance": true
+        },
+        "images": {
+          "grass_contact_off": "res://reports/immersion/native/grass_contact_off.png",
+          "grass_contact_off_repeat": "res://reports/immersion/native/grass_contact_off_repeat.png",
+          "grass_contact_on": "res://reports/immersion/native/grass_contact_on.png",
+          "grass_first_person": "res://reports/immersion/native/grass_first_person.png",
+          "winter_first_person_look_back": "res://reports/immersion/native/winter_first_person_look_back.png",
+          "winter_footprints_faded_18s": "res://reports/immersion/native/winter_footprints_faded_18s.png",
+          "winter_footprints_fresh": "res://reports/immersion/native/winter_footprints_fresh.png",
+          "winter_footprints_fresh_repeat": "res://reports/immersion/native/winter_footprints_fresh_repeat.png",
+          "winter_footprints_gone_25s": "res://reports/immersion/native/winter_footprints_gone_25s.png",
+          "winter_footprints_hidden": "res://reports/immersion/native/winter_footprints_hidden.png"
+        },
+        "measurements": {
+          "building_receiver_inspection": {
+            "buildings": 3,
+            "geometry": [
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/HandLaidTiles",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/HoneyTimber",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/Limestone",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arched_door",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_00",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_01",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_02",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_03",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_04",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_05",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_06",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_07",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_08",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_09",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_10",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_11",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_12",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_13",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_14",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/arch_frame_15",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/frame_post",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/frame_post_001",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/iron_hinge",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/iron_hinge_001",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/handle",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/door_arch/dark_inner_lining",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/window_rect/window_frame_post",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/window_rect/window_frame_post_001",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/window_rect/window_frame_rail",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/window_rect/window_frame_rail_001",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/window_rect/window_light_rect",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/window_rect/closed_dark_back",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/window_rect/window_mullion",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/window_rect/window_crossbar",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/window_round/window_round_continuous_frame",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/window_round/window_light_round",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/window_round/closed_dark_back",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/window_round/window_mullion",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/window_round/window_crossbar",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/@Node3D@579/window_frame_post",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/@Node3D@579/window_frame_post_001",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/@Node3D@579/window_frame_rail",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/@Node3D@579/window_frame_rail_001",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/@Node3D@579/window_light_rect",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/@Node3D@579/closed_dark_back",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/@Node3D@579/window_mullion",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/Cottage/@Node3D@579/window_crossbar",
+                "unit": "building:7b708be93b273ee1f6e20f4c"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729",
+                "unit": "building:2f0c2d8c993b06836b069ed4"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/HandLaidTiles",
+                "unit": "building:2f0c2d8c993b06836b069ed4"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/HoneyTimber",
+                "unit": "building:2f0c2d8c993b06836b069ed4"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/Limestone",
+                "unit": "building:2f0c2d8c993b06836b069ed4"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_rect/window_frame_post",
+                "unit": "building:2f0c2d8c993b06836b069ed4"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_rect/window_frame_post_001",
+                "unit": "building:2f0c2d8c993b06836b069ed4"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_rect/window_frame_rail",
+                "unit": "building:2f0c2d8c993b06836b069ed4"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_rect/window_frame_rail_001",
+                "unit": "building:2f0c2d8c993b06836b069ed4"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_rect/window_light_rect",
+                "unit": "building:2f0c2d8c993b06836b069ed4"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_rect/closed_dark_back",
+                "unit": "building:2f0c2d8c993b06836b069ed4"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_rect/window_mullion",
+                "unit": "building:2f0c2d8c993b06836b069ed4"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_rect/window_crossbar",
+                "unit": "building:2f0c2d8c993b06836b069ed4"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_round/window_round_continuous_frame",
+                "unit": "building:2f0c2d8c993b06836b069ed4"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_round/window_light_round",
+                "unit": "building:2f0c2d8c993b06836b069ed4"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_round/closed_dark_back",
+                "unit": "building:2f0c2d8c993b06836b069ed4"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_round/window_mullion",
+                "unit": "building:2f0c2d8c993b06836b069ed4"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@729/window_round/window_crossbar",
+                "unit": "building:2f0c2d8c993b06836b069ed4"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/HandLaidTiles",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/HoneyTimber",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/Limestone",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arched_door",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_00",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_01",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_02",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_03",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_04",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_05",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_06",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_07",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_08",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_09",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_10",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_11",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_12",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_13",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_14",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/arch_frame_15",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/frame_post",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/frame_post_001",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/iron_hinge",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/iron_hinge_001",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/handle",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/door_arch/dark_inner_lining",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/window_round/window_round_continuous_frame",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/window_round/window_light_round",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/window_round/closed_dark_back",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/window_round/window_mullion",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              },
+              {
+                "layers": 262145,
+                "path": "/root/Playground/WorldView/Buildings/@MeshInstance3D@731/window_round/window_crossbar",
+                "unit": "building:246418e32b3c35d3523b0b70"
+              }
+            ],
+            "roof_meshes": 3
+          },
+          "exit_setup_walk_distance_m": 1.05904710292816,
+          "footprints_after_walk": [
+            {
+              "age": 1.253153,
+              "left": true,
+              "normal": "(-0.396339, 0.917084, -0.043279)",
+              "opacity": 1.0,
+              "point": "(14.92932, 0.909035, 11.9)",
+              "sequence": 1
+            },
+            {
+              "age": 0.953153,
+              "left": false,
+              "normal": "(-0.347702, 0.936359, -0.048317)",
+              "opacity": 1.0,
+              "point": "(15.53192, 1.162564, 12.1)",
+              "sequence": 2
+            },
+            {
+              "age": 0.653153,
+              "left": true,
+              "normal": "(-0.297589, 0.954353, -0.025528)",
+              "opacity": 1.0,
+              "point": "(16.14692, 1.364877, 11.9)",
+              "sequence": 3
+            },
+            {
+              "age": 0.322486757575758,
+              "left": false,
+              "normal": "(-0.234083, 0.972125, -0.013312)",
+              "opacity": 1.0,
+              "point": "(16.77335, 1.542134, 12.1)",
+              "sequence": 4
+            }
+          ],
+          "footprints_expired_count": 0,
+          "footprints_faded_records": [
+            {
+              "age": 19.253153,
+              "left": true,
+              "normal": "(-0.396339, 0.917084, -0.043279)",
+              "opacity": 0.266927906212359,
+              "point": "(14.92932, 0.909035, 11.9)",
+              "sequence": 1
+            },
+            {
+              "age": 18.953153,
+              "left": false,
+              "normal": "(-0.347702, 0.936359, -0.048317)",
+              "opacity": 0.296164293029219,
+              "point": "(15.53192, 1.162564, 12.1)",
+              "sequence": 2
+            },
+            {
+              "age": 18.653153,
+              "left": true,
+              "normal": "(-0.297589, 0.954353, -0.025528)",
+              "opacity": 0.326169413534125,
+              "point": "(16.14692, 1.364877, 11.9)",
+              "sequence": 3
+            },
+            {
+              "age": 18.3224867575758,
+              "left": false,
+              "normal": "(-0.234083, 0.972125, -0.013312)",
+              "opacity": 0.359990843964604,
+              "point": "(16.77335, 1.542134, 12.1)",
+              "sequence": 4
+            }
+          ],
+          "footprints_total_emitted": 4,
+          "grass_contacts_after_walk": 4,
+          "grass_pixels": {
+            "off_on": {
+              "changed_samples": 96086,
+              "mean": 0.0532164153763946,
+              "samples": 276828
+            },
+            "off_repeat": {
+              "changed_samples": 0,
+              "mean": 0.0,
+              "samples": 276828
+            },
+            "region": "[P: (251, 298), S: (1416, 782)]"
+          },
+          "route": {
+            "direction": "(1.0, 0.0)",
+            "length": 6.4,
+            "start": "(12.0, -0.608641, 12.0)",
+            "yaw": -1.5707963267949
+          },
+          "snow_pixels": {
+            "faded_vs_hidden": {
+              "changed_samples": 711,
+              "mean": 0.000557528740616255,
+              "samples": 24180
+            },
+            "fresh_vs_hidden": {
+              "changed_samples": 852,
+              "mean": 0.00178254583189564,
+              "samples": 24180
+            },
+            "frozen_repeat": {
+              "changed_samples": 0,
+              "mean": 0.0,
+              "samples": 24180
+            },
+            "gone_vs_hidden": {
+              "changed_samples": 0,
+              "mean": 0.0,
+              "samples": 24180
+            },
+            "region": "[P: (784, 441), S: (310, 311)]"
+          },
+          "summer_walk_distance_m": 2.59060668945312,
+          "winter_walk_distance_m": 2.87754106521606
+        },
+        "passed": true,
+        "performance_gate_run": false,
+        "production_clouds": true,
+        "real_keyboard_walking": true,
+        "rendering_driver": "metal",
+        "single_initial_spawn": true,
+        "taa_during_pixel_checks": false,
+        "viewport_size": [
+          1920,
+          1080
+        ],
+        "windows_real_device_verified": false
+      },
+      "production_before": {
+        "saves/slot_01.wgs.bak1": "107b237e9139b3d75cd93fe747a86b720828e3071a29da328dbe1b2288059c42",
+        "saves/slot_01.wgs": "9db01255e497c1019597cd62896faf01a9d947749916ecdb750289de1193ac87",
+        "preferences.cfg": "b6f5dede52ba7e8d41e6f281bf962dc878724a0880ac43519f9978f170591255"
+      },
+      "production_after": {
+        "saves/slot_01.wgs.bak1": "107b237e9139b3d75cd93fe747a86b720828e3071a29da328dbe1b2288059c42",
+        "saves/slot_01.wgs": "9db01255e497c1019597cd62896faf01a9d947749916ecdb750289de1193ac87",
+        "preferences.cfg": "b6f5dede52ba7e8d41e6f281bf962dc878724a0880ac43519f9978f170591255"
+      },
+      "production_unchanged": true,
+      "clouds_formal_default": true,
+      "object_snow_geometry": true,
+      "snow_physical_deformation": false,
+      "performance_gate_run": false,
+      "windows_real_device_verified": false
+    },
+    "new_tests": 6,
+    "new_assertions": 40,
+    "pixel_comparisons": {
+      "cap_count": 1412,
+      "clouds_disabled_for_pixel_proof": true,
+      "comparisons": [
+        {
+          "cover": 0.0,
+          "difference": 0.0,
+          "distance": 8.0,
+          "noise": 0.0,
+          "opaque": false,
+          "significant_fraction": 0.0,
+          "views": 1412
+        },
+        {
+          "cover": 0.0,
+          "difference": 0.0,
+          "distance": 8.0,
+          "noise": 0.0,
+          "opaque": true,
+          "significant_fraction": 0.0,
+          "views": 1412
+        },
+        {
+          "cover": 0.4,
+          "difference": 0.0,
+          "distance": 8.0,
+          "noise": 0.0,
+          "opaque": false,
+          "significant_fraction": 0.0,
+          "views": 1412
+        },
+        {
+          "cover": 0.4,
+          "difference": 0.0,
+          "distance": 8.0,
+          "noise": 0.0,
+          "opaque": true,
+          "significant_fraction": 0.0,
+          "views": 1412
+        },
+        {
+          "cover": 0.65,
+          "difference": 0.0,
+          "distance": 8.0,
+          "noise": 0.0,
+          "opaque": false,
+          "significant_fraction": 0.0,
+          "views": 1412
+        },
+        {
+          "cover": 0.65,
+          "difference": 0.0,
+          "distance": 8.0,
+          "noise": 0.0,
+          "opaque": true,
+          "significant_fraction": 0.0,
+          "views": 1412
+        },
+        {
+          "cover": 0.899,
+          "difference": 0.0,
+          "distance": 8.0,
+          "noise": 0.0,
+          "opaque": false,
+          "significant_fraction": 0.0,
+          "views": 1412
+        },
+        {
+          "cover": 0.899,
+          "difference": 0.0,
+          "distance": 8.0,
+          "noise": 0.0,
+          "opaque": true,
+          "significant_fraction": 0.0,
+          "views": 1412
+        },
+        {
+          "cover": 0.9,
+          "difference": 1.33801591624304e-06,
+          "distance": 8.0,
+          "noise": 0.0,
+          "opaque": false,
+          "significant_fraction": 0.0,
+          "views": 1137
+        },
+        {
+          "cover": 0.9,
+          "difference": 4.02980765351408e-06,
+          "distance": 8.0,
+          "noise": 0.0,
+          "opaque": true,
+          "significant_fraction": 0.0,
+          "views": 1137
+        },
+        {
+          "cover": 0.98,
+          "difference": 1.60435830710885e-06,
+          "distance": 8.0,
+          "noise": 0.0,
+          "opaque": false,
+          "significant_fraction": 0.0,
+          "views": 1137
+        },
+        {
+          "cover": 0.98,
+          "difference": 4.23626240619705e-06,
+          "distance": 8.0,
+          "noise": 0.0,
+          "opaque": true,
+          "significant_fraction": 0.0,
+          "views": 1137
+        },
+        {
+          "cover": 0.0,
+          "difference": 0.0,
+          "distance": 28.0,
+          "noise": 0.0,
+          "opaque": false,
+          "significant_fraction": 0.0,
+          "views": 1412
+        },
+        {
+          "cover": 0.0,
+          "difference": 0.0,
+          "distance": 28.0,
+          "noise": 0.0,
+          "opaque": true,
+          "significant_fraction": 0.0,
+          "views": 1412
+        },
+        {
+          "cover": 0.4,
+          "difference": 0.0,
+          "distance": 28.0,
+          "noise": 0.0,
+          "opaque": false,
+          "significant_fraction": 0.0,
+          "views": 1412
+        },
+        {
+          "cover": 0.4,
+          "difference": 0.0,
+          "distance": 28.0,
+          "noise": 0.0,
+          "opaque": true,
+          "significant_fraction": 0.0,
+          "views": 1412
+        },
+        {
+          "cover": 0.65,
+          "difference": 1.57599047849593e-09,
+          "distance": 28.0,
+          "noise": 0.0,
+          "opaque": false,
+          "significant_fraction": 0.0,
+          "views": 1412
+        },
+        {
+          "cover": 0.65,
+          "difference": 1.57599047849593e-09,
+          "distance": 28.0,
+          "noise": 0.0,
+          "opaque": true,
+          "significant_fraction": 0.0,
+          "views": 1412
+        },
+        {
+          "cover": 0.899,
+          "difference": 1.57599047849593e-09,
+          "distance": 28.0,
+          "noise": 0.0,
+          "opaque": false,
+          "significant_fraction": 0.0,
+          "views": 1412
+        },
+        {
+          "cover": 0.899,
+          "difference": 1.57599047849593e-09,
+          "distance": 28.0,
+          "noise": 0.0,
+          "opaque": true,
+          "significant_fraction": 0.0,
+          "views": 1412
+        },
+        {
+          "cover": 0.9,
+          "difference": 0.000104702503429355,
+          "distance": 28.0,
+          "noise": 0.0,
+          "opaque": false,
+          "significant_fraction": 0.000866849922839506,
+          "views": 1137
+        },
+        {
+          "cover": 0.9,
+          "difference": 0.000131910403050109,
+          "distance": 28.0,
+          "noise": 0.0,
+          "opaque": true,
+          "significant_fraction": 0.000863233024691358,
+          "views": 1137
+        },
+        {
+          "cover": 0.98,
+          "difference": 0.000104423553114662,
+          "distance": 28.0,
+          "noise": 0.0,
+          "opaque": false,
+          "significant_fraction": 0.000860821759259259,
+          "views": 1137
+        },
+        {
+          "cover": 0.98,
+          "difference": 0.000131309950677802,
+          "distance": 28.0,
+          "noise": 0.0,
+          "opaque": true,
+          "significant_fraction": 0.000857204861111111,
+          "views": 1137
+        },
+        {
+          "cover": 0.0,
+          "difference": 0.0,
+          "distance": 48.0,
+          "noise": 0.0,
+          "opaque": false,
+          "significant_fraction": 0.0,
+          "views": 1412
+        },
+        {
+          "cover": 0.0,
+          "difference": 0.0,
+          "distance": 48.0,
+          "noise": 0.0,
+          "opaque": true,
+          "significant_fraction": 0.0,
+          "views": 1412
+        },
+        {
+          "cover": 0.4,
+          "difference": 0.0,
+          "distance": 48.0,
+          "noise": 0.0,
+          "opaque": false,
+          "significant_fraction": 0.0,
+          "views": 1412
+        },
+        {
+          "cover": 0.4,
+          "difference": 0.0,
+          "distance": 48.0,
+          "noise": 0.0,
+          "opaque": true,
+          "significant_fraction": 0.0,
+          "views": 1412
+        },
+        {
+          "cover": 0.65,
+          "difference": 1.57599047849593e-09,
+          "distance": 48.0,
+          "noise": 0.0,
+          "opaque": false,
+          "significant_fraction": 0.0,
+          "views": 1412
+        },
+        {
+          "cover": 0.65,
+          "difference": 1.57599047849593e-09,
+          "distance": 48.0,
+          "noise": 0.0,
+          "opaque": true,
+          "significant_fraction": 0.0,
+          "views": 1412
+        },
+        {
+          "cover": 0.899,
+          "difference": 1.57599047849593e-09,
+          "distance": 48.0,
+          "noise": 0.0,
+          "opaque": false,
+          "significant_fraction": 0.0,
+          "views": 1412
+        },
+        {
+          "cover": 0.899,
+          "difference": 1.57599047849593e-09,
+          "distance": 48.0,
+          "noise": 0.0,
+          "opaque": true,
+          "significant_fraction": 0.0,
+          "views": 1412
+        },
+        {
+          "cover": 0.9,
+          "difference": 6.85697697288792e-05,
+          "distance": 48.0,
+          "noise": 0.0,
+          "opaque": false,
+          "significant_fraction": 0.000338782793209877,
+          "views": 1137
+        },
+        {
+          "cover": 0.9,
+          "difference": 9.49770661865569e-05,
+          "distance": 48.0,
+          "noise": 0.0,
+          "opaque": true,
+          "significant_fraction": 0.000338782793209877,
+          "views": 1137
+        },
+        {
+          "cover": 0.98,
+          "difference": 6.79961091947067e-05,
+          "distance": 48.0,
+          "noise": 0.0,
+          "opaque": false,
+          "significant_fraction": 0.000327932098765432,
+          "views": 1137
+        },
+        {
+          "cover": 0.98,
+          "difference": 9.4564156681191e-05,
+          "distance": 48.0,
+          "noise": 0.0,
+          "opaque": true,
+          "significant_fraction": 0.000327932098765432,
+          "views": 1137
+        }
+      ],
+      "instance_count_unchanged": true,
+      "passed": true,
+      "rendering_driver": "metal",
+      "source_unchanged": true,
+      "taa": false
+    },
+    "production_unchanged": true,
+    "performance_gate_run": false,
+    "windows_verified": false
+  }
+}

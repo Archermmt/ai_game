@@ -10,7 +10,13 @@
 
 ## 空缓存候选副本
 
-状态：准备执行。从已提交版本导出项目源码，在独立候选目录显式供应本地派生素材/导入设置，复用固定外部引擎与Python工具链，不复用`.godot`缓存，不复制桌面原下载包。对当前正式场景执行累计、云雪/漫步/摄影和本轮保真回归；成功后保留候选目录及QA隔离启动器，便于继续体验。
+状态：**本地空缓存候选验证通过**，源码提交`9ebe3bf8`。从已提交源码创建的候选副本，完成446项累计及负控、42项定向/2,847断言、36项正式云雪与74项漫步原生检查、36组保真对照；无脚本错误/退出泄漏，正式作品/偏好哈希不变。[候选总收据](evidence/g5/portable_checks.json)、[执行日志](evidence/g5/portable.log)、[副本W09收据](evidence/g5/candidate_week_09_checks.json)。
+
+本机候选目录：`reports/week_14/g5/candidate_9ebe3bf8_1x72b2ch/`。Finder双击[隔离启动脚本](../../../reports/week_14/g5/open_candidate.command)，或运行`sh reports/week_14/g5/open_candidate.command`；打开的是实际`app/living_root.tscn`冬景，使用QA作品/偏好。目录和启动脚本为本机忽略产物，不上传Git；原项目F5也已采用本轮优化。
+
+只保证候选工程的`.godot`导入缓存为空，不宣称系统GPU缓存或新设备冷启动已验证。候选显式复用锁定的外部工具链；未制作独立`.app`/`.exe`发行包。
+
+具体流程：从已提交版本导出项目源码，在独立候选目录显式供应本地派生素材/导入设置，复用固定外部引擎与Python工具链，不复用`.godot`缓存，不复制桌面原下载包。对当前正式场景执行累计、云雪/漫步/摄影和本轮保真回归；成功后保留候选目录及QA隔离启动器，便于继续体验。
 
 ```sh
 python3 tools/quality/candidate_asset_supply_checks.py
