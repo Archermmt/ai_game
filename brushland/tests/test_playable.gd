@@ -6,13 +6,13 @@ func _initialize() -> void:
 	var d=IslandData.new();DemoIsland.create(d)
 	var counts:Dictionary={}
 	for o in d.objects:counts[o.kind]=int(counts.get(o.kind,0))+1
-	check(counts.get("house",0)==3,"demo needs 3 houses")
+	check(counts.get("house",0)==4,"demo needs 4 houses")
 	for kind in ["dock","tea","greenhouse","lighthouse","bench"]:check(counts.get(kind,0)>=1,"missing demo object: "+kind)
 	var sim=ResidentSim.new();sim.sunset=true
 	for i in range(1000):sim.tick(d,0.25)
-	check(sim.people.size()==3,"three reachable homes must receive residents")
+	check(sim.people.size()==4,"four reachable homes must receive residents")
 	print("COMPLETED ",sim.completed)
-	for key in ["garden","tea","greenhouse","bench","lighthouse"]:check(key in sim.completed,"activity never completed: "+key)
+	for key in ["garden","tea","greenhouse","bench","lighthouse","bridge"]:check(key in sim.completed,"activity never completed: "+key)
 	check(SaveStore.save_game(d,sim,"user://test_playable.json")==OK,"save failed")
 	var loaded=IslandData.new();var resumed=ResidentSim.new()
 	check(SaveStore.load_game(loaded,resumed,"user://test_playable.json")==OK,"load failed")

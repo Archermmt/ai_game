@@ -25,7 +25,12 @@ func reconcile(d:IslandData) -> void:
 			person.home=0;person.state="resting";person.route=[];person.target=0
 		else:
 			used[person.home]=true
-			if person.target!=0 and object_by_id(d,int(person.target)).is_empty():person.target=0;person.route=[];person.state="home";person.timer=0
+			if person.target!=0:
+				var activity=object_by_id(d,int(person.target))
+				var moved=not activity.is_empty() and (int(person.get("target_x",activity.x))!=int(activity.x) or int(person.get("target_z",activity.z))!=int(activity.z))
+				if activity.is_empty() or moved:person.target=0;person.route=[];person.state="home";person.timer=0
+			if person.state=="resting" and d.cell(RouteGraph.entrance(house)).road:
+				var entry=RouteGraph.entrance(house);person.x=float(entry.x);person.z=float(entry.y);person.state="home";person.timer=0
 			if person.state in ["arriving","waiting"] and person.route.is_empty():
 				person.route=RouteGraph.path(d,Vector2i(roundi(person.x),roundi(person.z)),RouteGraph.entrance(house))
 				if not person.route.is_empty():person.state="arriving"
@@ -66,7 +71,9 @@ func tick(d:IslandData,dt:float) -> bool:
 		person.timer=float(person.timer)-dt
 		if not person.route.is_empty():
 			var target:Vector2i=person.route[0]
-			if not d.cell(target).road:
+			var here=Vector2i(roundi(person.x),roundi(person.z))
+			var invalid_jump=here.distance_to(target)>1.5 and d.cell(here).h>0 and not target in RouteGraph.neighbors(d,here)
+			if not d.cell(target).road or invalid_jump:
 				person.route=[];person.target=0;person.state="waiting";continue
 			var pos=Vector2(person.x,person.z);var goal=Vector2(target)
 			# Bridge graph edges span water; the actor moves across the deck continuously.
@@ -113,7 +120,7 @@ func choose_activity(d:IslandData,person:Dictionary) -> void:
 		if taken>=(2 if o.kind=="tea" else 1):continue
 		var r=RouteGraph.path(d,start,BuildingRules.activity_cell(o))
 		if r.is_empty():continue
-		person.route=r;person.target=o.id;person.activity=o.kind;person.state="walking";return
+		person.route=r;person.target=o.id;person.target_x=o.x;person.target_z=o.z;person.activity=o.kind;person.state="walking";return
 	# With no activity reachable, stroll to a reachable road, then rest.
 	var choices=RouteGraph.neighbors(d,start)
 	if not choices.is_empty():person.route=[choices[posmod(int(person.id)+int(elapsed),choices.size())]]

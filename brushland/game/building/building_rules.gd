@@ -22,7 +22,7 @@ static func inside(p:Vector2i) -> bool:
 static func occupied(d:IslandData,p:Vector2i,include_entry:bool=true,exclude_id:int=0) -> bool:
 	for o in d.objects:
 		if int(o.id)==exclude_id:continue
-		if p in footprint(o) or (include_entry and o.kind in BUILDINGS and p==RouteGraph.entrance(o)):return true
+		if p in footprint(o) or (include_entry and (o.kind in BUILDINGS or o.kind=="bench") and p==activity_cell(o)):return true
 	return false
 static func variant(d:IslandData,o:Dictionary) -> String:
 	if o.kind!="house":return "basic"

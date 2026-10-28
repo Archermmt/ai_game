@@ -27,6 +27,7 @@ varying vec3 world_pos;
 void vertex(){world_pos=(MODEL_MATRIX*vec4(VERTEX,1.0)).xyz;}
 void fragment(){float wave=sin(world_pos.x*1.8+world_pos.z*0.7+TIME*0.7*motion)*sin(world_pos.z*2.7-TIME*0.35*motion);float streak=smoothstep(0.93,1.0,wave)*0.11;float fade=clamp(length(world_pos.xz-vec2(32.0))/65.0,0.0,1.0);ALBEDO=shallow.rgb+vec3(streak)-vec3(fade*0.035);}
 """
+	kit.material(Color("c5dfcf")).shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED
 	var mat=ShaderMaterial.new();mat.shader=shader;sea.material_override=mat;add_child(sea)
 func rebuild() -> void:
 	for n in ground.get_children():n.free()
@@ -102,6 +103,8 @@ func draw_object(o:Dictionary) -> void:
 	var node=MODELS[model_id].instantiate() if int(o.get("color",0))==0 else kit.building(kind,BuildingRules.variant(data,o) if kind=="house" else "basic",int(o.get("color",0)))
 	node.position=Vector3(p.x+0.5 if kind in ["house","tea","greenhouse","lighthouse"] else p.x,y,p.y+0.5 if kind in ["house","tea","greenhouse","lighthouse"] else p.y)
 	node.rotation.y=-float(o.rotation)*PI/2;props.add_child(node)
+	if kind=="lighthouse":
+		var lamp=OmniLight3D.new();lamp.position=Vector3(0,4,0);lamp.light_color=Color("ffd08a");lamp.light_energy=0.6;lamp.omni_range=6;lamp.visible=not day;node.add_child(lamp);lamp.add_to_group("island_lanterns")
 func draw_boat(o:Dictionary,_y:float) -> void:
 	var dir:Vector2i=BuildingRules.DIRS[int(o.rotation)%4];var side=Vector2i(-dir.y,dir.x)
 	var node=Node3D.new();props.add_child(node);node.name="Boat"
@@ -139,25 +142,23 @@ func update_actors(sim:ResidentSim,time:float) -> void:
 	for id in actor_nodes.keys():
 		if not active.has(id):actor_nodes[id].free();actor_nodes.erase(id)
 func compact_props() -> void:
-	# Share repeated static meshes through MultiMesh batches; actors remain independent.
-	var groups:Dictionary={}
-	var queue:Array=[props]
+	# Merge static geometry by visual material, including imported GLB surfaces.
+	var groups:Dictionary={};var sources:Array=[];var queue:Array=[props]
 	while not queue.is_empty():
 		var node:Node=queue.pop_back()
 		for child in node.get_children():queue.append(child)
 		if not node is MeshInstance3D:continue
-		var geo=node.mesh;var signature=""
-		if geo is SphereMesh:signature="sphere"+str([geo.radius,geo.height])
-		elif geo is BoxMesh:signature="box"+str(geo.size)
-		elif geo is CylinderMesh:signature="cylinder"+str([geo.top_radius,geo.bottom_radius,geo.height])
-		else:continue
-		signature+=str(node.material_override.get_instance_id())
-		if not groups.has(signature):groups[signature]=[]
-		groups[signature].append(node)
-	for group in groups.values():
-		if group.size()<3:continue
-		var batch=MultiMeshInstance3D.new();var mm=MultiMesh.new();mm.transform_format=MultiMesh.TRANSFORM_3D;mm.mesh=group[0].mesh;mm.instance_count=group.size()
-		batch.multimesh=mm;batch.material_override=group[0].material_override
-		props.add_child(batch)
-		for i in range(group.size()):mm.set_instance_transform(i,props.global_transform.affine_inverse()*group[i].global_transform)
-		for n in group:n.free()
+		var geo:Mesh=node.mesh
+		if geo==null:continue
+		for surface in range(geo.get_surface_count()):
+			var mat=node.get_active_material(surface)
+			if not mat is StandardMaterial3D:continue
+			var signature=str([mat.albedo_color,mat.cull_mode,mat.shading_mode,mat.roughness])
+			if not groups.has(signature):
+				var st=SurfaceTool.new();st.begin(Mesh.PRIMITIVE_TRIANGLES)
+				groups[signature]={"st":st,"mat":mat}
+			groups[signature].st.append_from(geo,surface,props.global_transform.affine_inverse()*node.global_transform)
+		sources.append(node)
+	for entry in groups.values():
+		var mesh=MeshInstance3D.new();mesh.mesh=entry.st.commit();mesh.material_override=entry.mat;props.add_child(mesh)
+	for node in sources:node.free()

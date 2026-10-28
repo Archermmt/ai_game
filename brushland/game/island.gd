@@ -16,7 +16,7 @@ var span:int=3
 var placement_rotation:int=0
 var moving_id:int=0
 var angle:float=0.3
-var center=Vector3(31.5,0,32)
+var center=Vector3(31.5,0,33)
 var stroke:Array=[]
 var dragging=false
 var time:float=0
@@ -38,7 +38,7 @@ func _ready() -> void:
 	env.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR;env.ambient_light_color=Color.WHITE;env.ambient_light_energy=0.5
 	world_env.environment=env;add_child(world_env)
 	sun.rotation_degrees=Vector3(-48,-25,0);sun.light_color=Color("fff3de");sun.light_energy=0.9;sun.shadow_enabled=true;sun.directional_shadow_max_distance=70;add_child(sun)
-	add_child(camera);camera.projection=Camera3D.PROJECTION_ORTHOGONAL;camera.size=28;camera.current=true;update_camera()
+	add_child(camera);camera.projection=Camera3D.PROJECTION_ORTHOGONAL;camera.size=30.5;camera.current=true;update_camera()
 	add_child(audio)
 	add_child(hud);hud.add_child(photo_hint);photo_hint.text="拍照模式 · Q/E 转向 · 滚轮缩放 · F12 保存 · Esc 返回";photo_hint.position=Vector2(30,24);photo_hint.visible=false
 	hud.tool_selected.connect(select_tool);hud.action_requested.connect(action)
@@ -55,6 +55,8 @@ func _ready() -> void:
 		var target="res://snapshots/playable_day.png"
 		if OS.get_cmdline_user_args().has("--sunset"):set_sunset(true);target="res://snapshots/playable_sunset.png"
 		if OS.get_cmdline_user_args().has("--photo"):hud.root.visible=false;target="res://snapshots/playable_photo.png"
+		if OS.get_cmdline_user_args().has("--welcome"):welcome();target="res://snapshots/playable_welcome.png"
+		if OS.get_cmdline_user_args().has("--menu"):save_menu();target="res://snapshots/playable_menu.png"
 		await RenderingServer.frame_post_draw
 		var err=get_viewport().get_texture().get_image().save_png(target)
 		print("CAPTURE ",target," ",error_string(err));get_tree().quit()
@@ -64,7 +66,7 @@ func select_tool(id:String) -> void:
 	tool=id;dragging=false;stroke.clear();moving_id=0
 	hud.toast({"house":"在平整的 2×2 草地上放一座小屋，门前接上小路","dock":"从一至二级海岸向海延伸；R 旋转，−/+ 调长度","bridge":"选择第一端岸边，R 转向、−/+ 调跨度，两岸须同高","flower":"在小屋外圈画三格花圃，试试它的新模样","move":"先点物件，再点新位置；右键取消","lock":"点击小屋，保留 / 解锁当前外观","color":"点击建筑，更换屋顶配色"}.get(id,"选择了"+IslandHud.NAMES[id]));refresh_preview()
 func rebuild() -> void:
-	sim.reconcile(data);view.rebuild();view.update_actors(sim,time);hud.refresh_journal(sim.completed);refresh_preview()
+	sim.reconcile(data);view.day=not sim.sunset;view.rebuild();view.update_actors(sim,time);hud.refresh_journal(sim.completed);refresh_preview()
 func update_camera() -> void:
 	center.x=clampf(center.x,8,56);center.z=clampf(center.z,8,56)
 	camera.position=center+Vector3(sin(angle)*38,38,cos(angle)*38);camera.look_at(center)
@@ -85,7 +87,10 @@ func refresh_preview() -> void:
 	var p=pick()
 	if not BuildingRules.inside(p):return
 	var cells:Array=[];var valid=true
-	if tool in BuildingRules.TOOLS:
+	if tool=="move" and moving_id!=0:
+		var o=sim.object_by_id(data,moving_id).duplicate(true)
+		if not o.is_empty():o.x=p.x;o.z=p.y;cells=BuildingRules.footprint(o);valid=BuildingRules.check(data,o,moving_id).is_empty()
+	elif tool in BuildingRules.TOOLS:
 		var o=prototype(p);cells=BuildingRules.footprint(o);valid=BuildingRules.check(data,o).is_empty()
 	elif dragging:cells=stroke
 	else:
@@ -105,6 +110,7 @@ func collect() -> void:
 			if x*x+z*z<=radius*radius and not stroke.has(q):stroke.append(q)
 func commit_stroke() -> void:
 	var p=pick()
+	var regions=resident_regions()
 	if tool in BuildingRules.TOOLS:
 		var result=BuildingRules.place(data,p,tool,placement_rotation,span)
 		hud.toast("已放下"+IslandHud.NAMES[tool] if result.begins_with("Placed") else result)
@@ -129,7 +135,7 @@ func commit_stroke() -> void:
 		data.paint(stroke,tool)
 		if blocked>0:hud.toast("保留了 %d 格支撑 / 入口；先移动上面的物件再改地形"%blocked)
 	audio.effect("place" if tool in BuildingRules.TOOLS else "paint")
-	stroke.clear();rebuild()
+	stroke.clear();protect_residents(regions);rebuild()
 func _input(event:InputEvent) -> void:
 	# A release over UI must end the world stroke as well; never leave a brush stuck.
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and not event.pressed and dragging:
@@ -184,11 +190,14 @@ func _process(dt:float) -> void:
 func action(id:String) -> void:
 	audio.effect("undo" if id in ["undo","redo"] else "click")
 	match id:
-		"undo":data.undo();rebuild();hud.toast("已撤销")
-		"redo":data.redo();rebuild();hud.toast("已重做")
+		"undo":
+			var regions=resident_regions();data.undo();protect_residents(regions);rebuild();hud.toast("已撤销")
+		"redo":
+			var regions=resident_regions();data.redo();protect_residents(regions);rebuild();hud.toast("已重做")
 		"pause":sim.paused=not sim.paused
 		"sunset":set_sunset(not sim.sunset)
 		"photo":
+			dragging=false;stroke.clear();moving_id=0
 			if not photo_mode:photo_previous_paused=sim.paused
 			photo_mode=not photo_mode;hud.root.visible=not photo_mode;sim.paused=true if photo_mode else photo_previous_paused;photo_hint.visible=photo_mode
 			refresh_preview()
@@ -197,6 +206,8 @@ func action(id:String) -> void:
 		"menu":save_menu()
 func set_sunset(value:bool) -> void:
 	if is_instance_valid(audio) and audio.is_inside_tree():audio.set_evening(value)
+	view.day=not value
+	for lamp in get_tree().get_nodes_in_group("island_lanterns"):lamp.visible=value
 	sim.sunset=value;sun.light_color=Color("ffd4a3") if value else Color("fff3de");sun.light_energy=0.75 if value else 0.9
 	sun.rotation_degrees.x=-20 if value else -48
 	world_env.environment.ambient_light_energy=0.6 if value else 0.5
@@ -218,7 +229,7 @@ func save_photo() -> void:
 	var folder="user://photos";DirAccess.make_dir_recursive_absolute(folder)
 	var path=folder+"/island_%d.png"%Time.get_unix_time_from_system()
 	var err=get_viewport().get_texture().get_image().save_png(path)
-	hud.root.visible=was_visible;photo_hint.visible=hint_visible
+	hud.root.visible=not photo_mode;photo_hint.visible=photo_mode
 	for n in preview.get_children():n.show()
 	hud.toast("照片已保存："+ProjectSettings.globalize_path(path) if err==OK else "保存照片失败："+error_string(err))
 func open_modal(title:String) -> VBoxContainer:
@@ -251,11 +262,40 @@ func save_menu() -> void:
 	hud.button(col,"读取最近自动保存",func():load_slot("user://island.json"))
 	hud.button(col,"恢复自动保存的上一备份",func():load_slot("user://island.json.bak"))
 	hud.button(col,"打开照片文件夹",func():DirAccess.make_dir_recursive_absolute("user://photos");OS.shell_open(ProjectSettings.globalize_path("user://photos")))
-	hud.button(col,"声音：开 / 关",func():audio.toggle();hud.toast("声音已开启" if audio.enabled else "声音已关闭"))
-	hud.button(col,"减少环境动画：开 / 关",func():reduced_motion=not reduced_motion;view.sea.material_override.set_shader_parameter("motion",0.0 if reduced_motion else 1.0);hud.toast("已减少环境动画" if reduced_motion else "已恢复环境动画"))
+	hud.button(col,"声音（当前："+("开" if audio.enabled else "关")+"）",func():audio.toggle();close_modal();save_menu())
+	hud.button(col,"减少环境动画（当前："+("开" if reduced_motion else "关")+"）",func():reduced_motion=not reduced_motion;view.sea.material_override.set_shader_parameter("motion",0.0 if reduced_motion else 1.0);close_modal();save_menu())
 	hud.button(col,"返回海湾",close_modal)
 func _notification(what:int) -> void:
 	if what==NOTIFICATION_WM_CLOSE_REQUEST:
 		var err=SaveStore.save_game(data,sim)
 		if err!=OK:hud.toast("退出保存失败，请重试："+error_string(err));return
 		get_tree().quit()
+
+func resident_regions() -> Dictionary:
+	var regions:Dictionary={}
+	for person in sim.people:
+		var p=Vector2i(roundi(person.x),roundi(person.z));var todo:Array=[p];var visited:Dictionary={p:true};var at=0
+		if data.cell(p).h==0:
+			for o in data.objects:
+				if o.kind=="bridge" and p in BuildingRules.footprint(o):todo=[Vector2i(o.x,o.z)];visited={todo[0]:true};break
+		while at<todo.size():
+			var cell:Vector2i=todo[at];at+=1
+			for q in RouteGraph.neighbors(data,cell):
+				if not visited.has(q):visited[q]=true;todo.append(q)
+		regions[int(person.id)]=visited
+	return regions
+func protect_residents(regions:Dictionary) -> void:
+	for person in sim.people:
+		var p=Vector2i(roundi(person.x),roundi(person.z))
+		if data.cell(p).h>0:continue
+		var on_bridge=false
+		for o in data.objects:
+			if o.kind=="bridge" and p in BuildingRules.footprint(o):on_bridge=true;break
+		if on_bridge:continue
+		var nearest=Vector2i(-1,-1);var distance=INF
+		for q in regions.get(int(person.id),{}):
+			if data.cell(q).h>0 and data.cell(q).road and Vector2(q).distance_to(Vector2(person.x,person.z))<distance:
+				nearest=q;distance=Vector2(q).distance_to(Vector2(person.x,person.z))
+		person.route=[];person.target=0
+		if nearest.x>=0:person.x=float(nearest.x);person.z=float(nearest.y);person.state="waiting"
+		else:person.state="resting"

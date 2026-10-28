@@ -33,4 +33,15 @@ static func create(d:IslandData) -> void:
 	for p in [Vector2i(28,35),Vector2i(32,35),Vector2i(34,37),Vector2i(37,30)]:BuildingRules.place(d,p,"pot")
 	for p in [Vector2i(24,27),Vector2i(28,25),Vector2i(33,25),Vector2i(37,26),Vector2i(25,37),Vector2i(38,37)]:BuildingRules.place(d,p,"tree")
 	for p in [Vector2i(27,28),Vector2i(32,28),Vector2i(28,37),Vector2i(32,37)]:d.paint([p],"flower")
+	# A coast cottage and a short bridge make every basic visual family visible.
+	for x in range(41,43):
+		for z in range(31,33):d.tiles[d.key(Vector2i(x,z))]={"h":1,"surface":"sand","road":false,"flower":false}
+	d.tiles[d.key(Vector2i(41,33))]={"h":1,"surface":"sand","road":true,"flower":false}
+	BuildingRules.place(d,Vector2i(41,31),"house")
+	for x in range(35,38):
+		for z in range(43,46):d.tiles[d.key(Vector2i(x,z))]={"h":1,"surface":"sand","road":false,"flower":false}
+	for z in range(33,41):d.paint([Vector2i(36,z)],"road")
+	d.paint([Vector2i(36,43),Vector2i(35,43)],"road")
+	BuildingRules.place(d,Vector2i(36,40),"bridge",2,2)
+	BuildingRules.place(d,Vector2i(35,44),"bench",2)
 	d.history.clear();d.future.clear();d.revision+=1

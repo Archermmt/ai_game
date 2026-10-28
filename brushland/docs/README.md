@@ -12,6 +12,8 @@
 
 | 文件 | 内容 |
 | --- | --- |
+| [BASIC_ART.md](BASIC_ART.md) | 当前基础美术、可体验内容、十五个GLB及制作边界 |
+| [reports/playable_validation.md](reports/playable_validation.md) | 当前体验版测试、实际画面与性能采样记录 |
 | [STATUS.md](STATUS.md) | 三周开发记录、提交、运行方式、截图与未通过验收项 |
 | [PRD.md](PRD.md) | 产品定位、完整玩法与边界规则、首次 30 分钟、场景、美术规范、逐项资源清单、开发顺序与验收 |
 | [DEVELOPMENT_PLAN.md](DEVELOPMENT_PLAN.md) | 两人 10 周开发基线、42 项任务、依赖与工时、阶段门槛、风险和 13 条验收映射 |

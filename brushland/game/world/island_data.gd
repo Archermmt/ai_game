@@ -42,9 +42,9 @@ func paint(points: Array, tool: String) -> void:
 			"raise": c.h=mini(4,int(c.h)+1); c.surface="grass" if c.surface=="water" else c.surface
 			"lower": c.h=maxi(0,int(c.h)-1); c.surface="water" if c.h==0 else c.surface
 			"road":
-				if c.h>0: c.road=true
+				if c.h>0: c.road=true;c.flower=false
 			"flower":
-				if c.surface=="grass": c.flower=true
+				if c.surface=="grass" and not c.road: c.flower=true
 		if c.surface!="grass":c.flower=false
 		tiles[key(p)]=c
 func seed_island() -> void:

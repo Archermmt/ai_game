@@ -36,7 +36,7 @@ func _ready() -> void:
 	for item in [["undo","↶ 撤销"],["redo","↷ 重做"],["pause","暂停"],["sunset","日落"],["photo","拍照"],["menu","存档"]]:button(actions,item[1],func():action_requested.emit(item[0]))
 	card=panel(Vector2(-268,98),Vector2(244,356));card.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT);card.offset_left=-268;card.offset_right=-24;card.offset_top=98;card.offset_bottom=454;card.add_child(journal)
 	refresh_journal([])
-	var bottom=PanelContainer.new();root.add_child(bottom);bottom.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE);bottom.offset_left=24;bottom.offset_right=-24;bottom.offset_top=-152;bottom.offset_bottom=-42
+	var bottom=PanelContainer.new();root.add_child(bottom);bottom.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE);bottom.offset_left=24;bottom.offset_right=-24;bottom.offset_top=-166;bottom.offset_bottom=-42
 	bottom.add_theme_stylebox_override("panel",style(Color("f7f1df")))
 	var col=VBoxContainer.new();bottom.add_child(col);col.add_theme_constant_override("separation",8)
 	var categories=HBoxContainer.new();col.add_child(categories)
@@ -45,7 +45,7 @@ func _ready() -> void:
 	col.add_child(subbar);show_category("land")
 	toast_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;root.add_child(toast_label);toast_label.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE);toast_label.offset_top=-205;toast_label.offset_bottom=-165
 	var help=label("左键绘制 / 放置   右键取消   WASD 平移   Q/E 转相机   R 转物件   滚轮缩放   [ ] 笔刷   −/+ 桥长   Tab 手记",13)
-	root.add_child(help);help.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE);help.offset_left=30;help.offset_top=-32;help.offset_bottom=-10
+	root.add_child(help);help.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE);help.offset_left=30;help.offset_top=-27;help.offset_bottom=-7
 func label(text:String,size:int=16) -> Label:
 	var n=Label.new();n.text=text;n.add_theme_font_size_override("font_size",size);return n
 func panel(pos:Vector2,size:Vector2) -> PanelContainer:
