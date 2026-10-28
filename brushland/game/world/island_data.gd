@@ -28,12 +28,15 @@ func paint(points: Array, tool: String) -> void:
 	begin()
 	for p in points:
 		if p.x<0 or p.y<0 or p.x>=SIZE or p.y>=SIZE: continue
+		if BuildingRules.occupied(self,p): continue
 		var c: Dictionary=cell(p).duplicate()
 		match tool:
 			"grass","sand","rock": c.h=maxi(1,int(c.h)); c.surface=tool; c.flower=false
 			"water": c={"h":0,"surface":"water","road":false,"flower":false}
 			"raise": c.h=mini(4,int(c.h)+1); c.surface="grass" if c.surface=="water" else c.surface
 			"lower": c.h=maxi(0,int(c.h)-1); c.surface="water" if c.h==0 else c.surface
+			"road":
+				if c.h>0: c.road=true
 			"flower":
 				if c.surface=="grass": c.flower=true
 		tiles[key(p)]=c

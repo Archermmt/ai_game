@@ -10,11 +10,14 @@ var angle: float = 0.65
 var center=Vector3(32,0,32)
 var hint=Label.new()
 var preview=Node3D.new()
-var stage: int = 1
+var stage: int = 2
+var placement_rotation: int = 0
+var span: int = 3
 func _ready() -> void:
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--week="): stage=int(arg.trim_prefix("--week="))
 	data.seed_island()
+	if OS.get_cmdline_user_args().has("--capture") and stage>=2: seed_village()
 	add_child(terrain); add_child(preview)
 	var env=WorldEnvironment.new(); var e=Environment.new()
 	e.background_mode=Environment.BG_COLOR; e.background_color=Color("b8d5d0")
@@ -44,10 +47,12 @@ func rebuild() -> void:
 		var h=float(c.h)*0.5
 		var color=Color("aec393") if c.surface=="grass" else Color("e4d4b1") if c.surface=="sand" else Color("b4b5a4")
 		box(terrain,Vector3(x,h/2-0.2,z),Vector3(1,h,1),color)
+		if c.road: box(terrain,Vector3(x,h-0.17,z),Vector3(0.68,0.08,0.68),Color("d9c7a3"))
 		if c.flower:
 			for i in range(3): ball(terrain,Vector3(x+sin(i*2)*0.25,h-0.05,z+cos(i*2)*0.25),0.12,Color("edc980"))
 		if (x*19+z*7)%47==0 and c.surface=="grass":
 			box(terrain,Vector3(x,h+0.3,z),Vector3(0.18,1,0.18),Color("9a8065")); ball(terrain,Vector3(x,h+1.2,z),0.8,Color("809d77"))
+	for o in data.objects: draw_building(o)
 	hint.text="WEEK %02d  •  %s  •  Brush %d  |  %d edits"%[stage,tool.to_upper(),radius,data.history.size()]
 func update_camera() -> void:
 	camera.position=center+Vector3(sin(angle)*35,35,cos(angle)*35); camera.look_at(center)
@@ -58,8 +63,8 @@ func build_ui() -> void:
 	var title=Label.new(); title.text="  B R E E Z E L Y   I S L E S"; title.add_theme_font_size_override("font_size",24); col.add_child(title)
 	var sub=Label.new(); sub.text="  A little island, one gentle brushstroke at a time."; col.add_child(sub)
 	col.add_child(hint)
-	var bar=HBoxContainer.new(); bar.position=Vector2(28,810); layer.add_child(bar)
-	for name in ["grass","sand","rock","water","raise","lower","flower"]:
+	var bar=HFlowContainer.new(); bar.position=Vector2(28,748); bar.size=Vector2(1380,110); layer.add_child(bar)
+	for name in ["grass","sand","rock","water","raise","lower","flower","road","house","bridge","dock","erase","lock"]:
 		add_button(bar,name.capitalize(),func(): tool=name)
 	add_button(bar,"Undo",func():data.undo();rebuild())
 	add_button(bar,"Redo",func():data.redo();rebuild())
@@ -79,13 +84,25 @@ func _unhandled_input(event:InputEvent) -> void:
 		if event.button_index==MOUSE_BUTTON_RIGHT:stroke.clear(); dragging=false
 		if event.button_index==MOUSE_BUTTON_LEFT:
 			if event.pressed:dragging=true;stroke.clear();collect()
-			elif dragging:dragging=false;data.paint(stroke,tool);stroke.clear();rebuild()
+			elif dragging:
+				dragging=false
+				if tool in ["house","bridge","dock"]: hint.text=BuildingRules.place(data,pick(),tool,placement_rotation,span)
+				elif tool in ["erase","lock"]:
+					for o in data.objects:
+						if pick() in BuildingRules.footprint(o):
+							data.begin()
+							if tool=="erase":data.objects.erase(o)
+							else:o.variant=BuildingRules.variant(data,o);o.locked=not o.locked
+							break
+				else:data.paint(stroke,tool)
+				stroke.clear();rebuild()
 	if event is InputEventMouseMotion:
 		if dragging:collect()
 		for n in preview.get_children():n.free()
 		var p=pick();box(preview,Vector3(p.x,float(data.cell(p).h)*0.5+0.03,p.y),Vector3(radius*2+1,0.035,radius*2+1),Color("f4e8c2"))
 	if event is InputEventKey and event.pressed:
 		match event.keycode:
+			KEY_R:placement_rotation=(placement_rotation+1)%4
 			KEY_Q:angle-=PI/2
 			KEY_E:angle+=PI/2
 			KEY_W:center.z-=2
@@ -107,3 +124,27 @@ func collect() -> void:
 		for z in range(-radius,radius+1):
 			var q=p+Vector2i(x,z)
 			if x*x+z*z<=radius*radius and not stroke.has(q):stroke.append(q)
+
+func draw_building(o:Dictionary) -> void:
+	var x=float(o.x);var z=float(o.z);var h=float(data.cell(Vector2i(o.x,o.z)).h)*0.5-0.2
+	if o.kind in ["dock","bridge"]:
+		var dir=BuildingRules.DIRS[int(o.rotation)%4]
+		for i in range(int(o.length)+1):
+			var pos=Vector3(x+dir.x*i,h,z+dir.y*i)
+			box(terrain,pos,Vector3(0.9,0.16,0.9),Color("ae8965"))
+			box(terrain,pos+Vector3(0.35,-0.4,0.35),Vector3(0.12,1,0.12),Color("927257"))
+		return
+	var variant=BuildingRules.variant(data,o)
+	box(terrain,Vector3(x+0.5,h+0.85,z+0.5),Vector3(1.65,1.7,1.65),Color("eadfc5"))
+	var roof=box(terrain,Vector3(x+0.5,h+1.95,z+0.5),Vector3(1.5,1.5,1.9),Color("849fac") if variant=="coast" else Color("cb8c76"))
+	roof.rotation.z=PI/4;roof.scale.y=0.7
+	box(terrain,Vector3(x+0.5,h+0.5,z+1.34),Vector3(0.42,1,0.05),Color("688e8e"))
+	for dx in [-0.05,1.05]:box(terrain,Vector3(x+dx,h+1,z+1.34),Vector3(0.3,0.4,0.06),Color("c0d4d1"))
+	if variant=="garden":
+		for dx in [0,1]:ball(terrain,Vector3(x+dx,h+0.4,z+1.4),0.25,Color("a4b37b"))
+func seed_village() -> void:
+	for x in range(23,41):
+		var p=Vector2i(x,33);var c=data.cell(p).duplicate();c.road=true;data.tiles[data.key(p)]=c
+	for p in [Vector2i(26,30),Vector2i(30,30),Vector2i(35,30)]:BuildingRules.place(data,p,"house")
+	data.paint([Vector2i(29,29),Vector2i(30,29),Vector2i(31,29)],"flower")
+	data.history.clear()
