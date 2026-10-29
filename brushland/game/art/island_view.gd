@@ -28,6 +28,9 @@ var generated_foliage:Array=[]
 func update_environment(delta:float,active:bool) -> void:
 	if active:environment_clock+=delta
 	sea.material_override.set_shader_parameter("clock",environment_clock)
+	for boat in get_tree().get_nodes_in_group("island_boats"):
+		boat.position.y=0.1+sin(environment_clock*0.8+boat.position.x)*0.02;boat.rotation.z=sin(environment_clock*0.7)*0.012
+	for leaf in get_tree().get_nodes_in_group("island_leaf_nodes"):leaf.material_override.set_shader_parameter("clock",environment_clock)
 	for nodes in foliage_nodes.values():
 		for node in nodes:
 			node.material_override.set_shader_parameter("clock",environment_clock)
@@ -161,7 +164,7 @@ func draw_object(o:Dictionary) -> void:
 		var lamp=OmniLight3D.new();lamp.position=Vector3(0,4,0);lamp.light_color=Color("ffd08a");lamp.light_energy=0.6;lamp.omni_range=6;lamp.visible=not day;node.add_child(lamp);lamp.add_to_group("island_lanterns")
 func draw_boat(o:Dictionary,_y:float) -> void:
 	var dir:Vector2i=BuildingRules.DIRS[int(o.rotation)%4];var side=Vector2i(-dir.y,dir.x)
-	var node=Node3D.new();props.add_child(node);node.name="Boat"
+	var node=Node3D.new();props.add_child(node);node.name="Boat";node.add_to_group("island_boats");node.add_to_group("dynamic_visual")
 	node.position=Vector3(o.x+dir.x*2+side.x,0.1,o.z+dir.y*2+side.y)
 	node.rotation.y=PI/2 if dir.x!=0 else 0
 	kit.sphere(node,Vector3.ZERO,Vector3(0.87,0.42,2.8),ArtKit.BLUE)
@@ -173,12 +176,13 @@ func update_actors(sim:ResidentSim,time:float) -> void:
 	for person in sim.people:
 		var id=int(person.id);active[id]=true
 		if not actor_nodes.has(id):
-			var n=RESIDENTS[(id-1)%4].instantiate();inhabitants.add_child(n);actor_nodes[id]=n
+			var n=ResidentRig.create((id-1)%4);inhabitants.add_child(n);actor_nodes[id]=n
 		var n:Node3D=actor_nodes[id];n.visible=person.state!="resting"
 		var p=Vector2i(roundi(person.x),roundi(person.z));var y=surface.height_at(Vector2(person.x,person.z))
 		for o in data.objects:
 			if o.kind=="bridge" and p in BuildingRules.footprint(o):y=float(data.cell(Vector2i(o.x,o.z)).h)*0.5+0.08
 		var moving=not person.route.is_empty()
+		n.animate(String(person.state),moving,time+id*0.2)
 		n.position=Vector3(person.x,y+(absf(sin(time*8+id))*0.045 if moving else 0),person.z)
 		if moving:
 			var target:Vector2i=person.route[0];var facing=Vector3(target.x,0,target.y)-Vector3(person.x,0,person.z)
@@ -193,6 +197,10 @@ func update_actors(sim:ResidentSim,time:float) -> void:
 				n.position=Vector3(target.x+0.5,y+0.16,target.z+0.5)+offset
 				n.rotation.y=PI/2 if seat%2==0 else -PI/2
 				n.rotation.z=sin(time*0.7+id)*0.025
+		if person.state=="bench":
+			var bench=sim.object_by_id(data,int(person.target))
+			if not bench.is_empty():
+				n.position=Vector3(bench.x,y+0.06,bench.z);n.rotation.y=-float(bench.rotation)*PI/2
 	for id in actor_nodes.keys():
 		if not active.has(id):actor_nodes[id].free();actor_nodes.erase(id)
 func compact_props() -> void:

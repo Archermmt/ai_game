@@ -32,10 +32,10 @@ func _ready() -> void:
 	var title_panel=panel(Vector2(24,24),Vector2(345,104));var title_col=VBoxContainer.new();title_panel.add_child(title_col)
 	var title=label("风屿手记",28);title_col.add_child(title)
 	title_col.add_child(label("B R E E Z E L Y   I S L E S",11));title_col.add_child(status)
-	var actions=HBoxContainer.new();root.add_child(actions);actions.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT);actions.offset_left=-596;actions.offset_right=-24;actions.offset_top=24;actions.offset_bottom=68
-	for item in [["undo","↶ 撤销"],["redo","↷ 重做"],["pause","暂停"],["sunset","日落"],["photo","拍照"],["menu","存档"]]:button(actions,item[1],func():action_requested.emit(item[0]))
+	var actions=HBoxContainer.new();root.add_child(actions);actions.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT);actions.offset_left=-676;actions.offset_right=-24;actions.offset_top=24;actions.offset_bottom=68
+	for item in [["journal","手记"],["undo","↶ 撤销"],["redo","↷ 重做"],["pause","暂停"],["sunset","日落"],["photo","拍照"],["menu","存档"]]:button(actions,item[1],func():action_requested.emit(item[0]))
 	card=panel(Vector2(-268,98),Vector2(244,356));card.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT);card.offset_left=-268;card.offset_right=-24;card.offset_top=98;card.offset_bottom=454;card.add_child(journal)
-	refresh_journal([])
+	refresh_journal([]);card.visible=false
 	var bottom=PanelContainer.new();root.add_child(bottom);bottom.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE);bottom.offset_left=24;bottom.offset_right=-24;bottom.offset_top=-166;bottom.offset_bottom=-42
 	bottom.add_theme_stylebox_override("panel",style(Color("f7f1df")))
 	var col=VBoxContainer.new();bottom.add_child(col);col.add_theme_constant_override("separation",8)
@@ -56,7 +56,10 @@ func show_category(category:String) -> void:
 	for n in subbar.get_children():n.queue_free()
 	tool_buttons.clear()
 	var items={"land":["grass","sand","rock","water","raise","lower","road"],"build":["house","tea","greenhouse","lighthouse","bridge","dock"],"nature":["flower","bench","pot","tree"],"edit":["move","erase","lock","color"]}[category]
-	for id in items:tool_buttons[id]=button(subbar,NAMES[id],func():tool_selected.emit(id);highlight(id))
+	for id in items:
+		var b=button(subbar,NAMES[id],func():tool_selected.emit(id);highlight(id))
+		b.icon=load("res://game/ui/icons/"+id+".png");b.add_theme_constant_override("icon_max_width",30);b.custom_minimum_size=Vector2(88,50);b.tooltip_text=NAMES[id]
+		tool_buttons[id]=b
 func highlight(id:String) -> void:
 	for key in tool_buttons:tool_buttons[key].modulate=Color("c6d6c2") if key==id else Color.WHITE
 func toast(text:String) -> void:

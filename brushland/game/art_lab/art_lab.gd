@@ -47,6 +47,7 @@ func _ready() -> void:
 		camera.position=center+Vector3(sin(spec.angle)*38,38,cos(spec.angle)*38);camera.look_at(center)
 		var sunset=id=="sunset";IslandLighting.apply(sun,environment,sunset)
 		for lamp in get_tree().get_nodes_in_group("island_lanterns"):lamp.visible=sunset
+		view.update_environment(0,false)
 		for i in range(12):await get_tree().process_frame
 		await RenderingServer.frame_post_draw
 		var image=get_viewport().get_texture().get_image();var err=image.save_png(folder+"/"+id+".png")

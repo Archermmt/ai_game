@@ -56,21 +56,16 @@ func tree(parent:Node3D,pos:Vector3,seed_value:int=0) -> void:
 		var angle=cluster*2.399963
 		var center=Vector3(cos(angle)*(0.3 if slender else 0.65),1.6+cluster*0.15,sin(angle)*(0.3 if slender else 0.65))
 		beam(root,Vector3(0,0.9,0),center,0.065,WOOD)
-		for i in range(56):
-			var az=i*2.399963+cluster
-			var vertical=1.0-2.0*(i+0.5)/56.0
-			var radial=sqrt(1.0-vertical*vertical)
-			var point=center+Vector3(cos(az)*radial*0.55,vertical*(0.8 if slender else 0.48),sin(az)*radial*0.55)
-			var direction=Vector3(cos(az),0.25+vertical*0.3,sin(az)).normalized()*0.13
-			var side=direction.cross(Vector3.UP).normalized()*0.10
-			var color=GREEN.lightened(float((i+cluster)%5)*0.025)
-			for triangle in [[point-direction,point+side,point+direction],[point-direction,point+direction,point-side]]:
-				var normal=Vector3.UP.lerp((point-center).normalized(),0.3).normalized()
-				for v in triangle:st.set_normal(normal);st.set_color(color);st.add_vertex(v)
+		for plane in range(4):
+			var yaw=plane*PI/3;var side=Vector3(cos(yaw),0,sin(yaw))*0.65
+			var up=Vector3.UP*(0.85 if slender else 0.65)
+			if plane==3:side=Vector3(0.6,0,0);up=Vector3(0,0,0.6)
+			var points=[center-side-up,center+side-up,center+side+up,center-side+up]
+			var uv=[Vector2(0,1),Vector2(1,1),Vector2(1,0),Vector2(0,0)]
+			for i in [0,1,2,0,2,3]:st.set_uv(uv[i]);st.add_vertex(points[i])
 	var leaves=MeshInstance3D.new();leaves.mesh=st.commit()
-	var mat=StandardMaterial3D.new();mat.vertex_color_use_as_albedo=true;mat.vertex_color_is_srgb=true;mat.cull_mode=BaseMaterial3D.CULL_DISABLED;mat.roughness=1
-	mat.shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED
-	leaves.material_override=mat;root.add_child(leaves)
+	var mat=ShaderMaterial.new();mat.shader=load("res://game/art/shaders/leaves.gdshader");mat.set_shader_parameter("leaves",load("res://game/art/generated/leaf_cluster.png"))
+	leaves.material_override=mat;root.add_child(leaves);leaves.add_to_group("island_leaf_nodes")
 func bench(parent:Node3D) -> void:
 	for x in [-0.38,0.38]:
 		for z in [-0.16,0.16]:box(parent,Vector3(x,0.19,z),Vector3(0.08,0.38,0.08),WOOD.darkened(0.1))
@@ -116,13 +111,18 @@ func building(kind:String,variant:String="basic",roof_index:int=0) -> Node3D:
 			beam(root,Vector3(-0.8,1.8,z),Vector3(0,2.45,z),0.07,CREAM)
 			beam(root,Vector3(0,2.45,z),Vector3(0.8,1.8,z),0.07,CREAM)
 			pot(root,Vector3(-0.4,0.3,z*0.7));pot(root,Vector3(0.4,0.3,z*0.7))
-		# Solid tinted panels keep the silhouette readable without transparent sorting.
-		for x in [-0.8,0.8]:box(root,Vector3(x,1.05,0),Vector3(0.025,1.35,1.55),Color("b4ccbd"))
+		# Separate transparent panels keep frame, panes and interior readable.
+		for x in [-0.8,0.8]:
+			var panel=box(root,Vector3(x,1.05,0),Vector3(0.025,1.35,1.55),Color("b4ccbd"))
+			var glass=StandardMaterial3D.new();glass.albedo_color=Color(0.64,0.80,0.73,0.2);glass.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA;glass.roughness=0.18;glass.cull_mode=BaseMaterial3D.CULL_DISABLED;panel.material_override=glass
 		beam(root,Vector3(0,2.45,-0.9),Vector3(0,2.45,0.9),0.08,CREAM)
 		return root
 	box(root,Vector3(0,0.12,0),Vector3(1.9,0.24,1.9),Color("c7bfa9"))
 	box(root,Vector3(0,1,0),Vector3(1.65,1.7,1.65),CREAM)
 	roof(root,1.85,roof_color)
+	for z in [-0.84,0.84]:
+		for x in [-0.84,0,0.84]:box(root,Vector3(x,1,z),Vector3(0.06,1.72,0.045),WOOD)
+		for y in [0.28,1.55]:box(root,Vector3(0,y,z),Vector3(1.72,0.07,0.045),WOOD)
 	box(root,Vector3(0,0.63,0.84),Vector3(0.45,1.12,0.08),BLUE)
 	sphere(root,Vector3(0,1.2,0.84),Vector3(0.45,0.45,0.08),BLUE)
 	sphere(root,Vector3(0.13,0.65,0.91),Vector3.ONE*0.05,Color("e3c487"))

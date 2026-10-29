@@ -1,0 +1,128 @@
+{
+  "batch_stats": {
+    "dirty_chunks": 16,
+    "object_change": true,
+    "terrain_chunks": 12
+  },
+  "camera_specs": {
+    "harbor": {
+      "angle": 0.55,
+      "center": [
+        27,
+        0,
+        32
+      ],
+      "size": 19.0
+    },
+    "house": {
+      "angle": 0.3,
+      "center": [
+        29.5,
+        1,
+        30.5
+      ],
+      "size": 9.0
+    },
+    "orbit": {
+      "angle": 2.1207963268,
+      "center": [
+        27,
+        0,
+        32
+      ],
+      "size": 19.0
+    },
+    "shore": {
+      "angle": 0.65,
+      "center": [
+        22,
+        0.3,
+        33
+      ],
+      "size": 10.0
+    },
+    "sunset": {
+      "angle": 0.55,
+      "center": [
+        27,
+        0,
+        32
+      ],
+      "size": 19.0
+    },
+    "whole": {
+      "angle": 0.3,
+      "center": [
+        31.5,
+        0,
+        34
+      ],
+      "size": 31.0
+    }
+  },
+  "composition_id": "harbor",
+  "driver": "metal",
+  "edit_rebuild_ms_p95": 55.368,
+  "engine": "4.7-stable (official)",
+  "engine_static_bytes": 70501621.0,
+  "fixture_sha256": "fc74fe3b9d9f9ba86df093baea7e47fd1214b82ac566aa65372908b81706728c",
+  "focus_bounds_xz": {
+    "max_exclusive": [
+      35,
+      40
+    ],
+    "min": [
+      19,
+      24
+    ],
+    "unit_m": 1
+  },
+  "frame_ms_p50": 8.313,
+  "frame_ms_p95": 10.142,
+  "frame_samples": 150,
+  "frozen": true,
+  "label": "forward_plus",
+  "objects": 21,
+  "people": 4,
+  "renderer": "forward_plus",
+  "resolution": [
+    1920,
+    1080
+  ],
+  "scope": "Fixed bay / native renderer parity lab; not full PRD pressure scene",
+  "tiles": 342,
+  "views": {
+    "harbor": {
+      "draw_calls": 313,
+      "path": "res://snapshots/art_i4/forward_plus/harbor.png",
+      "sha256": "26add0aa12ef87f7eb301b6524758b600e2482a796190dfea60fde0581dc3190"
+    },
+    "house": {
+      "draw_calls": 241,
+      "path": "res://snapshots/art_i4/forward_plus/house.png",
+      "sha256": "330570f899b50b8a02a449c0261f1b35329eea367617bdcaeb3c286881d2b094"
+    },
+    "orbit": {
+      "draw_calls": 314,
+      "path": "res://snapshots/art_i4/forward_plus/orbit.png",
+      "sha256": "09ed8ebaca693981a9d94f3e9b2d58c92f8d7be3838de0ba7b727ceb6c38d023"
+    },
+    "shore": {
+      "draw_calls": 201,
+      "path": "res://snapshots/art_i4/forward_plus/shore.png",
+      "sha256": "93a270aa4e9d6ab8be553032305eaf4234e0300b3ab1d7f14925f999e1558f34"
+    },
+    "sunset": {
+      "draw_calls": 313,
+      "path": "res://snapshots/art_i4/forward_plus/sunset.png",
+      "sha256": "dcf3db28f121b20e544c21f8fba58f58cd0dd944ef363877cf8c790dbd053879"
+    },
+    "whole": {
+      "draw_calls": 314,
+      "path": "res://snapshots/art_i4/forward_plus/whole.png",
+      "sha256": "6c8eee9cab472e84502ff497f3137038dbbf6809aad7c25367444f0b40562aa8"
+    }
+  },
+  "world_sha256": "98e97e5426cc7b93ad706d8187e7c386afc8cdaa4aca9e32e7d118f983497037",
+  "world_unchanged": true
+}

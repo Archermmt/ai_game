@@ -16,6 +16,8 @@ func snapshot() -> Dictionary:
 func restore(s: Dictionary) -> void:
 	revision+=1
 	tiles=s.tiles.duplicate(true); objects=s.objects.duplicate(true); next_id=int(s.next_id)
+	# JSON reads numbers as floats; keep source height levels canonical integers.
+	for tile in tiles.values():tile.h=int(tile.h)
 func begin() -> void:
 	revision+=1
 	history.append(snapshot())

@@ -198,6 +198,7 @@ func _process(dt:float) -> void:
 func action(id:String) -> void:
 	audio.effect("undo" if id in ["undo","redo"] else "click")
 	match id:
+		"journal":hud.card.visible=not hud.card.visible
 		"undo":
 			var regions=resident_regions();data.undo();protect_residents(regions);rebuild();hud.toast("已撤销")
 		"redo":
