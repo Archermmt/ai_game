@@ -3,8 +3,9 @@ extends RefCounted
 ## Immutable derived surface. Source cells remain authoritative for gameplay.
 var tiles:Dictionary
 var foundations:Array=[]
+var objects:Array
 func _init(world:Dictionary) -> void:
-	tiles=world.tiles
+	tiles=world.tiles;objects=world.objects
 	for o in world.objects:
 		if o.kind in ["house","tea","greenhouse","lighthouse"]:
 			foundations.append({"bounds":Rect2(Vector2(o.x-0.5,o.z-0.5),Vector2(2,2)),"height":height_at_cell(Vector2i(o.x,o.z))})

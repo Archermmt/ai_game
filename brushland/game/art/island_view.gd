@@ -21,16 +21,35 @@ func setup(d:IslandData) -> void:
 	ground.name="Ground";props.name="Buildings";inhabitants.name="Inhabitants"
 	var plane=PlaneMesh.new();plane.size=Vector2(180,180)
 	sea=MeshInstance3D.new();sea.mesh=plane;sea.position=Vector3(32,-0.04,32)
-	var shader=Shader.new();shader.code="""shader_type spatial;
-render_mode unshaded;
-uniform vec4 shallow : source_color = vec4(0.47,0.71,0.70,1.0);
-uniform float motion = 1.0;
-varying vec3 world_pos;
-void vertex(){world_pos=(MODEL_MATRIX*vec4(VERTEX,1.0)).xyz;}
-void fragment(){float wave=sin(world_pos.x*1.8+world_pos.z*0.7+TIME*0.7*motion)*sin(world_pos.z*2.7-TIME*0.35*motion);float streak=smoothstep(0.93,1.0,wave)*0.11;float fade=clamp(length(world_pos.xz-vec2(32.0))/65.0,0.0,1.0);ALBEDO=shallow.rgb+vec3(streak)-vec3(fade*0.035);}
-"""
-	kit.material(Color("c5dfcf")).shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED
-	var mat=ShaderMaterial.new();mat.shader=shader;sea.material_override=mat;add_child(sea)
+	var mat=ShaderMaterial.new();mat.shader=preload("res://game/art/shaders/bay_water.gdshader");sea.material_override=mat;add_child(sea)
+var foliage_shader=preload("res://game/art/shaders/foliage.gdshader")
+var foliage_nodes:Dictionary={}
+var generated_foliage:Array=[]
+func update_environment(delta:float,active:bool) -> void:
+	if active:environment_clock+=delta
+	sea.material_override.set_shader_parameter("clock",environment_clock)
+	for nodes in foliage_nodes.values():
+		for node in nodes:
+			node.material_override.set_shader_parameter("clock",environment_clock)
+			var cam=get_viewport().get_camera_3d()
+			if cam!=null:node.multimesh.visible_instance_count=int(node.multimesh.instance_count*(0.55 if cam.size>36.0 else 1.0))
+var environment_clock=0.0
+func update_water_field() -> void:
+	var image=Image.create(64,64,false,Image.FORMAT_RGB8)
+	var distances=PackedFloat32Array();distances.resize(4096)
+	for z in range(64):
+		for x in range(64):distances[z*64+x]=0.0 if int(surface.cell(Vector2i(x,z)).h)>0 else 8.0
+	for pass_index in range(2):
+		for zi in range(64):
+			for xi in range(64):
+				var x=xi if pass_index==0 else 63-xi;var z=zi if pass_index==0 else 63-zi
+				var sign_value=1 if pass_index==0 else -1
+				for d in [Vector2i(-sign_value,0),Vector2i(0,-sign_value),Vector2i(-sign_value,-sign_value),Vector2i(sign_value,-sign_value)]:
+					var q=Vector2i(x,z)+d
+					if q.x>=0 and q.y>=0 and q.x<64 and q.y<64:distances[z*64+x]=minf(distances[z*64+x],distances[q.y*64+q.x]+Vector2(d).length())
+	for z in range(64):
+		for x in range(64):image.set_pixel(x,z,Color((surface.height_at_cell(Vector2i(x,z))+0.15)/2.2,distances[z*64+x]/8.0,0))
+	sea.material_override.set_shader_parameter("island_field",ImageTexture.create_from_image(image))
 var surface:IslandSurface
 var previous_world:Dictionary={}
 var terrain_chunks:Dictionary={}
@@ -43,6 +62,7 @@ func sample_surface(xz:Vector2) -> Dictionary:
 func generate_chunk(index:int) -> void:
 	# Each worker owns a distinct slot, using only immutable snapshot data.
 	generated_arrays[index]=surface.build_chunk(changed_chunks[index])
+	generated_foliage[index]=FoliageLayer.generate(surface,changed_chunks[index])
 var generated_arrays:Array=[]
 func rebuild() -> void:
 	var world=data.snapshot();var dirty:Dictionary={}
@@ -59,13 +79,16 @@ func rebuild() -> void:
 		for o in world.objects+previous_world.get("objects",[]):
 			for dx in range(-2,4):
 				for dz in range(-2,4):dirty[Vector2i(floori((o.x+dx)/8.0),floori((o.z+dz)/8.0))]=true
-	surface=IslandSurface.new(world);changed_chunks=dirty.keys();generated_arrays=[];generated_arrays.resize(changed_chunks.size())
+	surface=IslandSurface.new(world);changed_chunks=dirty.keys();generated_arrays=[];generated_arrays.resize(changed_chunks.size());generated_foliage=[];generated_foliage.resize(changed_chunks.size())
 	if not changed_chunks.is_empty():
 		var task=WorkerThreadPool.add_group_task(generate_chunk,changed_chunks.size())
 		WorkerThreadPool.wait_for_group_task_completion(task)
 	var mat=StandardMaterial3D.new();mat.vertex_color_use_as_albedo=true;mat.vertex_color_is_srgb=true;mat.roughness=1
 	for i in range(changed_chunks.size()):
 		var chunk:Vector2i=changed_chunks[i]
+		if foliage_nodes.has(chunk):
+			for n in foliage_nodes[chunk]:n.free()
+		foliage_nodes[chunk]=FoliageLayer.publish(ground,generated_foliage[i],foliage_shader)
 		if terrain_chunks.has(chunk):terrain_chunks[chunk].free();terrain_chunks.erase(chunk)
 		var arrays=generated_arrays[i]
 		if arrays[Mesh.ARRAY_VERTEX].is_empty():continue
@@ -97,6 +120,7 @@ func rebuild() -> void:
 	props=original_props
 	rebuild_stats={"dirty_chunks":changed_chunks.size(),"terrain_chunks":terrain_chunks.size(),"object_change":object_change}
 	batch_stats=rebuild_stats;previous_world=world
+	if not dirty.is_empty():update_water_field()
 func tri(st:SurfaceTool,a:Vector3,b:Vector3,c:Vector3,color:Color) -> void:
 	st.set_normal((b-a).cross(c-a).normalized());st.set_color(color);st.add_vertex(a);st.add_vertex(b);st.add_vertex(c)
 func draw_road(p:Vector2i,y:float) -> void:

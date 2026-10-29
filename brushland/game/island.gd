@@ -184,6 +184,7 @@ func _unhandled_input(event:InputEvent) -> void:
 		update_camera();refresh_preview()
 func _process(dt:float) -> void:
 	wildlife.enabled=not sim.paused and not reduced_motion
+	view.update_environment(dt,not sim.paused and not reduced_motion and not photo_mode)
 	if not sim.paused:time+=dt
 	sim.tick(data,dt);view.update_actors(sim,time);autosave_clock+=dt
 	if not sim.events.is_empty():
