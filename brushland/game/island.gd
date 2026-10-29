@@ -4,6 +4,10 @@ var sim=ResidentSim.new()
 var view=IslandView.new()
 var wildlife=Wildlife.new()
 var audio=IslandAudio.new()
+var listener=AudioListener3D.new()
+var preferences=preload("res://game/settings/island_settings.gd").new()
+var binding_target=""
+var photo_busy=false
 var reduced_motion=false
 var hud=IslandHud.new()
 var camera=Camera3D.new()
@@ -26,6 +30,7 @@ var photo_mode=false
 var photo_previous_paused=false
 var photo_hint=Label.new()
 var modal:Control
+var modal_panel:PanelContainer
 var selected:Dictionary={}
 func _ready() -> void:
 	get_tree().auto_accept_quit=false
@@ -39,8 +44,8 @@ func _ready() -> void:
 	world_env.environment=env;add_child(world_env)
 	sun.rotation_degrees=Vector3(-48,-25,0);sun.light_color=Color("fff3de");sun.light_energy=0.9;sun.shadow_enabled=true;sun.directional_shadow_max_distance=70;add_child(sun)
 	add_child(camera);camera.projection=Camera3D.PROJECTION_ORTHOGONAL;camera.size=30.5;camera.current=true;update_camera()
-	add_child(audio)
-	add_child(hud);hud.add_child(photo_hint);photo_hint.text="拍照模式 · Q/E 转向 · 滚轮缩放 · F12 保存 · Esc 返回";photo_hint.position=Vector2(30,24);photo_hint.visible=false
+	add_child(audio);add_child(listener);listener.make_current()
+	add_child(hud);preferences.read();apply_preferences(false);hud.add_child(photo_hint);photo_hint.text="拍照模式 · Q/E 转向 · 滚轮缩放 · F12 保存 · Esc 返回";photo_hint.position=Vector2(30,24);photo_hint.visible=false
 	hud.tool_selected.connect(select_tool);hud.action_requested.connect(action)
 	for o in data.objects:
 		if o.kind=="house":
@@ -144,10 +149,16 @@ func commit_stroke() -> void:
 			if BuildingRules.occupied(data,q,tool!="road"):blocked+=1
 		data.paint(stroke,tool)
 		if blocked>0:hud.toast("保留了 %d 格支撑 / 入口；先移动上面的物件再改地形"%blocked)
-	audio.effect("place" if tool in BuildingRules.TOOLS else "paint")
+	audio.effect("move" if tool=="move" else "remove" if tool=="erase" else "road" if tool=="road" else "place" if tool in BuildingRules.TOOLS else "paint")
 	stroke.clear();protect_residents(regions);rebuild()
-	if data.snapshot()!=before and BuildingRules.inside(p):IslandEffects.burst(view,Vector3(p.x,view.surface.height_at(Vector2(p))+0.1,p.y),view.environment_clock)
+	if preferences.values.flash and data.snapshot()!=before and BuildingRules.inside(p):IslandEffects.burst(view,Vector3(p.x,view.surface.height_at(Vector2(p))+0.1,p.y),view.environment_clock)
 func _input(event:InputEvent) -> void:
+	if not binding_target.is_empty() and event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode in [KEY_SHIFT,KEY_CTRL,KEY_ALT,KEY_META]:return
+		var error="" if event.keycode==KEY_ESCAPE else preferences.bind(binding_target,int(event.get_keycode_with_modifiers()))
+		if not error.is_empty():hud.toast(error)
+		else:binding_target="";apply_preferences();preload("res://game/settings/settings_panel.gd").show_keys(self)
+		get_viewport().set_input_as_handled();return
 	# A release over UI must end the world stroke as well; never leave a brush stuck.
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and not event.pressed and dragging:
 		dragging=false
@@ -164,37 +175,40 @@ func _unhandled_input(event:InputEvent) -> void:
 		if dragging:collect()
 		refresh_preview()
 	if event is InputEventKey and event.pressed and not event.echo:
-		match event.keycode:
-			KEY_R:placement_rotation=(placement_rotation+1)%4
-			KEY_MINUS:span=maxi(2,span-1)
-			KEY_EQUAL:span=mini(6,span+1)
-			KEY_SPACE:action("pause")
-			KEY_Q:angle-=PI/2
-			KEY_E:angle+=PI/2
-			KEY_W:center.z-=1.5
-			KEY_S:center.z+=1.5
-			KEY_A:center.x-=1.5
-			KEY_D:center.x+=1.5
-			KEY_BRACKETLEFT:radius=maxi(1,radius-1)
-			KEY_BRACKETRIGHT:radius=mini(3,radius+1)
-			KEY_TAB:hud.card.visible=not hud.card.visible
-			KEY_P:action("photo")
-			KEY_F12:action("capture")
-			KEY_ESCAPE:
-				if photo_mode:action("photo")
-				else:stroke.clear();dragging=false;moving_id=0
-			KEY_Z:
-				if event.ctrl_pressed or event.meta_pressed:action("redo" if event.shift_pressed else "undo")
+		if preferences.matches(event,"rotate"):placement_rotation=(placement_rotation+1)%4
+		elif preferences.matches(event,"shorten"):span=maxi(2,span-1)
+		elif preferences.matches(event,"lengthen"):span=mini(6,span+1)
+		elif preferences.matches(event,"pause"):action("pause")
+		elif preferences.matches(event,"orbit_left"):angle-=PI/2
+		elif preferences.matches(event,"orbit_right"):angle+=PI/2
+		elif preferences.matches(event,"north"):center.z-=1.5
+		elif preferences.matches(event,"south"):center.z+=1.5
+		elif preferences.matches(event,"west"):center.x-=1.5
+		elif preferences.matches(event,"east"):center.x+=1.5
+		elif preferences.matches(event,"brush_down"):radius=maxi(1,radius-1)
+		elif preferences.matches(event,"brush_up"):radius=mini(3,radius+1)
+		elif preferences.matches(event,"journal"):action("journal")
+		elif preferences.matches(event,"photo"):action("photo")
+		elif preferences.matches(event,"capture"):action("capture")
+		elif preferences.matches(event,"undo"):action("undo")
+		elif preferences.matches(event,"redo"):action("redo")
+		elif preferences.matches(event,"cancel"):
+			if photo_mode:action("photo")
+			else:stroke.clear();dragging=false;moving_id=0
 		update_camera();refresh_preview()
 func _process(dt:float) -> void:
+	layout_modal()
 	wildlife.enabled=not sim.paused and not reduced_motion
 	wildlife.surface=view.surface
 	view.update_environment(dt,not sim.paused and not reduced_motion and not photo_mode)
 	if not sim.paused:time+=dt
 	sim.tick(data,dt);view.update_actors(sim,time);autosave_clock+=dt
+	listener.position=center+Vector3.UP*3;audio.update_residents(data,sim,dt,not sim.paused and not photo_mode)
 	if not sim.events.is_empty():
 		for key in sim.events:hud.toast("收录了新的日常："+IslandHud.JOURNAL[key][0])
-		audio.effect("journal");IslandEffects.burst(view,center+Vector3.UP*2,view.environment_clock,true);sim.events.clear();hud.refresh_journal(sim.completed)
+		audio.effect("journal")
+		if preferences.values.flash:IslandEffects.burst(view,center+Vector3.UP*2,view.environment_clock,true)
+		sim.events.clear();hud.refresh_journal(sim.completed)
 	hud.refresh_status(sim.people.size(),tool,radius,span,sim.paused)
 	if autosave_clock>=60 and not dragging and modal==null:
 		autosave_clock=0
@@ -235,23 +249,43 @@ func move_object(p:Vector2i) -> void:
 		if not error.is_empty():hud.toast(error);return
 		data.begin();o.x=p.x;o.z=p.y;moving_id=0;hud.toast("已移动");return
 func save_photo() -> void:
-	var was_visible=hud.root.visible;var hint_visible=photo_hint.visible;hud.root.visible=false;photo_hint.visible=false
+	if photo_busy:return
+	photo_busy=true
+	var paused=sim.paused;sim.paused=true
 	for n in preview.get_children():n.hide()
-	await RenderingServer.frame_post_draw
+	var resolution=Vector2i(1920,1080) if preferences.values.photo_resolution=="1080p" else Vector2i(get_viewport().get_visible_rect().size)
+	var image=await preload("res://game/photography/photo_capture.gd").image(self,camera,resolution)
 	var folder="user://photos";DirAccess.make_dir_recursive_absolute(folder)
-	var path=folder+"/island_%d.png"%Time.get_unix_time_from_system()
-	var err=get_viewport().get_texture().get_image().save_png(path)
-	hud.root.visible=not photo_mode;photo_hint.visible=photo_mode
-	for n in preview.get_children():n.show()
-	hud.toast("照片已保存："+ProjectSettings.globalize_path(path) if err==OK else "保存照片失败："+error_string(err))
+	var path=folder+"/island_%d_%d.png"%[Time.get_unix_time_from_system(),Time.get_ticks_usec()]
+	var err=image.save_png(path) if image!=null else ERR_CANT_CREATE
+	if err==OK:audio.effect("photo")
+	sim.paused=paused;photo_busy=false
+	refresh_preview()
+	hud.toast("照片已保存："+ProjectSettings.globalize_path(path) if err==OK else "保存照片失败，可重试："+error_string(err))
+func apply_preferences(persist:bool=true) -> void:
+	reduced_motion=preferences.values.reduced_motion
+	view.detail_density=0.6 if preferences.values.quality=="low" else 1.0
+	sun.shadow_enabled=preferences.values.quality!="low"
+	audio.apply_settings(preferences.values)
+	hud.ui_scale=preferences.values.ui_scale;hud.layout()
+	hud.help.text="左键绘制 / 放置 · 右键取消 · %s%s%s%s 平移 · %s/%s 转相机 · %s 转物件 · 滚轮缩放 · %s 手记"%[preferences.key_text("north"),preferences.key_text("west"),preferences.key_text("south"),preferences.key_text("east"),preferences.key_text("orbit_left"),preferences.key_text("orbit_right"),preferences.key_text("rotate"),preferences.key_text("journal")]
+	if persist:
+		var error=preferences.write()
+		if error!=OK:hud.toast("设置未能保存，可重试："+error_string(error))
 func open_modal(title:String) -> VBoxContainer:
 	if modal!=null:modal.queue_free()
 	modal=Control.new();hud.root.add_child(modal);modal.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var shade=ColorRect.new();shade.color=Color(0.15,0.27,0.25,0.35);modal.add_child(shade);shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	var panel=PanelContainer.new();modal.add_child(panel);panel.set_anchors_and_offsets_preset(Control.PRESET_CENTER);panel.offset_left=-220;panel.offset_right=220;panel.offset_top=-210;panel.offset_bottom=210
+	var panel=PanelContainer.new();modal_panel=panel;modal.add_child(panel);panel.set_anchors_and_offsets_preset(Control.PRESET_CENTER);layout_modal()
 	panel.add_theme_stylebox_override("panel",hud.style(Color("f7f1df")))
-	var col=VBoxContainer.new();col.add_theme_constant_override("separation",10);panel.add_child(col);col.add_child(hud.label(title,27));return col
+	var scroll=ScrollContainer.new();scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;panel.add_child(scroll)
+	var col=VBoxContainer.new();col.size_flags_horizontal=Control.SIZE_EXPAND_FILL;col.add_theme_constant_override("separation",10);scroll.add_child(col);col.add_child(hud.label(title,27));return col
+func layout_modal() -> void:
+	if not is_instance_valid(modal_panel):return
+	var extent=(hud.root.size-Vector2(48,48)).min(Vector2(640,680))*0.5
+	modal_panel.offset_left=-extent.x;modal_panel.offset_right=extent.x;modal_panel.offset_top=-extent.y;modal_panel.offset_bottom=extent.y
 func close_modal() -> void:
+	binding_target=""
 	if modal!=null:modal.queue_free();modal=null
 func welcome() -> void:
 	sim.paused=true
@@ -275,8 +309,9 @@ func save_menu() -> void:
 	hud.button(col,"读取最近自动保存",func():load_slot("user://island.json"))
 	hud.button(col,"恢复自动保存的上一备份",func():load_slot("user://island.json.bak"))
 	hud.button(col,"打开照片文件夹",func():DirAccess.make_dir_recursive_absolute("user://photos");OS.shell_open(ProjectSettings.globalize_path("user://photos")))
-	hud.button(col,"声音（当前："+("开" if audio.enabled else "关")+"）",func():audio.toggle();close_modal();save_menu())
-	hud.button(col,"减少环境动画（当前："+("开" if reduced_motion else "关")+"）",func():reduced_motion=not reduced_motion;view.sea.material_override.set_shader_parameter("motion",0.0 if reduced_motion else 1.0);close_modal();save_menu())
+	hud.button(col,"声音（当前："+("开" if audio.enabled else "关")+"）",func():preferences.values.muted=not preferences.values.muted;apply_preferences();close_modal();save_menu())
+	hud.button(col,"减少环境动画（当前："+("开" if reduced_motion else "关")+"）",func():preferences.values.reduced_motion=not reduced_motion;apply_preferences();close_modal();save_menu())
+	hud.button(col,"设置与按键",func():preload("res://game/settings/settings_panel.gd").build(self))
 	hud.button(col,"返回海湾",close_modal)
 func _notification(what:int) -> void:
 	if what==NOTIFICATION_WM_CLOSE_REQUEST:

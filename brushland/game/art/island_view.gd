@@ -4,6 +4,7 @@ var kit=ArtKit.new()
 var material_library=MaterialLibrary.new()
 var frozen_instances=FrozenArtInstances.new()
 var use_instancing=true
+var detail_density=1.0
 const MODELS={
 	"house_basic":preload("res://game/art/models/house_basic.glb"),"house_coast":preload("res://game/art/models/house_coast.glb"),"house_garden":preload("res://game/art/models/house_garden.glb"),
 	"tea":preload("res://game/art/models/tea.glb"),"greenhouse":preload("res://game/art/models/greenhouse.glb"),"lighthouse":preload("res://game/art/models/lighthouse.glb"),
@@ -38,7 +39,7 @@ func update_environment(delta:float,active:bool) -> void:
 		for node in nodes:
 			node.material_override.set_shader_parameter("clock",environment_clock)
 			var cam=get_viewport().get_camera_3d()
-			if cam!=null:node.multimesh.visible_instance_count=int(node.multimesh.instance_count*(0.55 if cam.size>36.0 else 1.0))
+			if cam!=null:node.multimesh.visible_instance_count=int(node.multimesh.instance_count*detail_density*(0.55 if cam.size>36.0 else 1.0))
 var environment_clock=0.0
 func update_water_field() -> void:
 	var image=Image.create(64,64,false,Image.FORMAT_RGB8)
