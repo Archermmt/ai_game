@@ -1,0 +1,65 @@
+{
+  "passed": true,
+  "steps": [
+    {
+      "name": "catalog",
+      "passed": true,
+      "exit_code": 0
+    },
+    {
+      "name": "frozen_art",
+      "passed": true,
+      "exit_code": 0
+    },
+    {
+      "name": "budgets",
+      "passed": true,
+      "exit_code": 0
+    },
+    {
+      "name": "compositions",
+      "passed": true,
+      "exit_code": 0
+    },
+    {
+      "name": "preflight",
+      "passed": true,
+      "exit_code": 0
+    },
+    {
+      "name": "rig",
+      "passed": true,
+      "exit_code": 0
+    },
+    {
+      "name": "foliage",
+      "passed": true,
+      "exit_code": 0
+    },
+    {
+      "name": "surface",
+      "passed": true,
+      "exit_code": 0
+    },
+    {
+      "name": "gl_compatibility",
+      "passed": true,
+      "exit_code": 0
+    },
+    {
+      "name": "app_gl_compatibility",
+      "passed": true,
+      "exit_code": 0
+    },
+    {
+      "name": "forward_plus",
+      "passed": true,
+      "exit_code": 0
+    },
+    {
+      "name": "app_forward_plus",
+      "passed": true,
+      "exit_code": 0
+    }
+  ]
+}

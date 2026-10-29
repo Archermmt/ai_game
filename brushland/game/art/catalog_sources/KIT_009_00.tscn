@@ -1,0 +1,57 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dftfb"]
+albedo_color = Color(0.6666667, 0.5019608, 0.3764706, 1)
+roughness = 0.95
+
+[sub_resource type="BoxMesh" id="BoxMesh_l71j1"]
+size = Vector3(1.2, 0.1, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tecq0"]
+size = Vector3(0.045, 0.65, 0.045)
+
+[sub_resource type="BoxMesh" id="BoxMesh_usnnh"]
+size = Vector3(0.045, 0.65, 0.045)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n17a7"]
+size = Vector3(0.045, 0.65, 0.045)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6pp0f"]
+size = Vector3(1.2, 0.05, 0.05)
+
+[node name="KIT_009_00" type="Node3D" unique_id=1985829496]
+metadata/asset_id = "KIT_009"
+metadata/variant = 0
+
+[node name="@MeshInstance3D@154" type="MeshInstance3D" parent="." unique_id=811959091]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+material_override = SubResource("StandardMaterial3D_dftfb")
+mesh = SubResource("BoxMesh_l71j1")
+
+[node name="@MeshInstance3D@155" type="MeshInstance3D" parent="." unique_id=2000360925]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0.375, 0.12)
+material_override = SubResource("StandardMaterial3D_dftfb")
+mesh = SubResource("BoxMesh_tecq0")
+
+[node name="@MeshInstance3D@156" type="MeshInstance3D" parent="." unique_id=1854966565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0.12)
+material_override = SubResource("StandardMaterial3D_dftfb")
+mesh = SubResource("BoxMesh_usnnh")
+
+[node name="@MeshInstance3D@157" type="MeshInstance3D" parent="." unique_id=13159467]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0.375, 0.12)
+material_override = SubResource("StandardMaterial3D_dftfb")
+mesh = SubResource("BoxMesh_n17a7")
+
+[node name="@MeshInstance3D@158" type="MeshInstance3D" parent="." unique_id=617357347]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0.12)
+material_override = SubResource("StandardMaterial3D_dftfb")
+mesh = SubResource("BoxMesh_6pp0f")
+
+[node name="LeftSnap" type="Marker3D" parent="." unique_id=1649187946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0, 0)
+
+[node name="RightSnap" type="Marker3D" parent="." unique_id=1208456684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0)
+
+[node name="Origin" type="Marker3D" parent="." unique_id=331749308]

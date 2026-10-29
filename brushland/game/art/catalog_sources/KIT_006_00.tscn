@@ -1,0 +1,29 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rucwa"]
+albedo_color = Color(0.7764706, 0.4862745, 0.39607844, 1)
+roughness = 0.95
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5kiqp"]
+top_radius = 0.015
+bottom_radius = 0.9
+height = 0.8
+radial_segments = 16
+rings = 0
+
+[node name="KIT_006_00" type="Node3D" unique_id=770398672]
+metadata/asset_id = "KIT_006"
+metadata/variant = 0
+
+[node name="@MeshInstance3D@132" type="MeshInstance3D" parent="." unique_id=1196831207]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.6, 0)
+material_override = SubResource("StandardMaterial3D_rucwa")
+mesh = SubResource("CylinderMesh_5kiqp")
+
+[node name="LeftSnap" type="Marker3D" parent="." unique_id=1883327267]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0, 0)
+
+[node name="RightSnap" type="Marker3D" parent="." unique_id=2136898014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0)
+
+[node name="Origin" type="Marker3D" parent="." unique_id=799355086]

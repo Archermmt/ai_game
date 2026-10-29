@@ -1,0 +1,10 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+OpenGL API 4.1 Metal - 89.3 - Compatibility - Using Device: Apple - Apple M4 Pro
+
+PRESSURE_READY 40 buildings / 400 decorations / 12 residents / 6 animals
+PRESSURE_PROGRESS 0 minutes; frames=1
+PRESSURE_PROGRESS 1 minutes; frames=5932
+PRESSURE_PROGRESS 2 minutes; frames=11834
+PRESSURE_PROGRESS 3 minutes; frames=17320
+PRESSURE_PROGRESS 4 minutes; frames=22682
+PRESSURE_PASS {"animals":6,"build_ms":1961.87,"buildings":40,"camera_orthographic_size":42,"day_frame_ms_p95":10.649,"decorations":400,"draw_calls_peak":1989,"driver":"opengl3","duration_wall_seconds":300.010225,"engine":"4.7-stable (official)","engine_static_bytes":92241053.0,"frame_count":28056,"frame_ms_p50":10.547,"frame_ms_p95":11.723,"grass_density_lod":0.55,"night_frame_ms_p95":11.925,"renderer":"gl_compatibility","residents":12,"scope":"Five minute native M4 Pro pressure run; M1/8GB and Windows remain unverified","target_device_tested":false,"visible_primitives_peak":357870}

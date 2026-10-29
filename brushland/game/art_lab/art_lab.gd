@@ -27,6 +27,7 @@ func _ready() -> void:
 		push_error("Missing committed art baseline fixture");get_tree().quit(1);return
 	data.restore(JSON.parse_string(FileAccess.get_file_as_string(path)).world)
 	if args.has("composition"):IslandCompositions.create(data,args.composition)
+	view.use_instancing=args.get("instancing","1")!="0"
 	add_child(view);view.setup(data);view.sea.material_override.set_shader_parameter("motion",0.0)
 	var env=WorldEnvironment.new();environment.background_mode=Environment.BG_COLOR;environment.background_color=Color("8bbcb9")
 	environment.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR;environment.ambient_light_color=Color.WHITE;environment.ambient_light_energy=0.5
@@ -37,7 +38,7 @@ func _ready() -> void:
 	for o in data.objects:
 		if o.kind=="house":
 			var p=RouteGraph.entrance(o);sim.people.append({"id":sim.next_id,"home":o.id,"x":float(p.x),"z":float(p.y),"state":"home","route":[],"timer":0.0,"target":0});sim.next_id+=1
-	sim.paused=true;view.rebuild();view.update_actors(sim,0)
+	sim.paused=true;view.rebuild();view.update_actors(sim,0);wildlife.surface=view.surface
 	var method=RenderingServer.get_current_rendering_method()
 	var label=String(args.get("label",method));var iteration=String(args.get("iteration","art_i1"));var folder="res://snapshots/"+iteration+"/"+label
 	DirAccess.make_dir_recursive_absolute(folder)
@@ -47,7 +48,7 @@ func _ready() -> void:
 	for id in CAMERAS:
 		var spec=CAMERAS[id];var c=spec.center;var center=Vector3(c[0],c[1],c[2]);camera.size=spec.size
 		camera.position=center+Vector3(sin(spec.angle)*38,38,cos(spec.angle)*38);camera.look_at(center)
-		var sunset=id=="sunset";IslandLighting.apply(sun,environment,sunset)
+		var sunset=id=="sunset";IslandLighting.apply(sun,environment,sunset);view.set_night(sunset)
 		for lamp in get_tree().get_nodes_in_group("island_lanterns"):lamp.visible=sunset
 		view.update_environment(0,false)
 		for i in range(12):await get_tree().process_frame
@@ -75,7 +76,8 @@ func _ready() -> void:
 	if args.get("preview","0")=="1":
 		result.scope="Fixed FPS movie preview, NOT a performance sample"
 		var preview_file=FileAccess.open("res://docs/reports/"+iteration+"/"+label+".json",FileAccess.WRITE);preview_file.store_string(JSON.stringify(result,"  "));preview_file.close()
-		IslandLighting.apply(sun,environment,false);camera.size=19;sim.paused=false
+		IslandLighting.apply(sun,environment,false);view.set_night(false);camera.size=19;sim.paused=false;wildlife.enabled=true
+		for lamp in get_tree().get_nodes_in_group("island_lanterns"):lamp.visible=false
 		for frame in range(900):
 			var phase=frame/900.0;var target=Vector3(29,0,33)
 			camera.position=target+Vector3(sin(0.55+phase*0.35)*38,38,cos(0.55+phase*0.35)*38);camera.look_at(target)

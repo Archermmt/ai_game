@@ -1,0 +1,85 @@
+{
+  "passed": true,
+  "steps": [
+    {
+      "name": "materials_gl_compatibility",
+      "passed": true,
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "name": "materials_gl_compatibility_negative",
+      "passed": true,
+      "exit_code": 1,
+      "expected_exit": 1
+    },
+    {
+      "name": "materials_gl_compatibility_normal_negative",
+      "passed": true,
+      "exit_code": 1,
+      "expected_exit": 1
+    },
+    {
+      "name": "materials_forward_plus",
+      "passed": true,
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "name": "materials_forward_plus_negative",
+      "passed": true,
+      "exit_code": 1,
+      "expected_exit": 1
+    },
+    {
+      "name": "materials_forward_plus_normal_negative",
+      "passed": true,
+      "exit_code": 1,
+      "expected_exit": 1
+    },
+    {
+      "name": "instancing_off",
+      "passed": true,
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "name": "instancing_on",
+      "passed": true,
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "name": "garden",
+      "passed": true,
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "name": "lighthouse",
+      "passed": true,
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "name": "catalog_gallery",
+      "passed": true,
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "name": "interface",
+      "passed": true,
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "name": "instance_pixels",
+      "passed": true,
+      "exit_code": 0,
+      "expected_exit": 0,
+      "executed_separately": true,
+      "log": "instance_pixels.log"
+    }
+  ]
+}

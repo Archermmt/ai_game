@@ -1,0 +1,224 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qmqkf"]
+albedo_color = Color(0.43137255, 0.5686275, 0.61960787, 1)
+roughness = 0.95
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_oxudh"]
+top_radius = 0.08
+bottom_radius = 0.08
+height = 0.13
+radial_segments = 8
+rings = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_uvb83"]
+size = Vector3(0.035, 0.18248288, 0.035)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wy10j"]
+albedo_color = Color(0.5294118, 0.7764706, 0.79607844, 1)
+roughness = 0.95
+
+[sub_resource type="SphereMesh" id="SphereMesh_jbwwb"]
+radial_segments = 4
+rings = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_s8r5x"]
+radial_segments = 4
+rings = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_f6glc"]
+radial_segments = 4
+rings = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_dymvm"]
+radial_segments = 4
+rings = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqqak"]
+albedo_color = Color(0.6666667, 0.5019608, 0.3764706, 1)
+roughness = 0.95
+
+[sub_resource type="BoxMesh" id="BoxMesh_2u1o6"]
+size = Vector3(0.28, 0.34, 0.16)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_csrt5"]
+albedo_color = Color(0.9372549, 0.89411765, 0.7882353, 1)
+roughness = 0.95
+
+[sub_resource type="BoxMesh" id="BoxMesh_fmm8l"]
+size = Vector3(0.025, 0.3, 0.015)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3ty3u"]
+size = Vector3(0.025, 0.3, 0.015)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ile04"]
+size = Vector3(0.025, 0.060000002, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_40860"]
+size = Vector3(0.025, 0.12, 0.025)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b8h2a"]
+albedo_color = Color(0.9372549, 0.89411765, 0.7882353, 1)
+roughness = 0.95
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_s01ed"]
+top_radius = 0.055
+bottom_radius = 0.055
+height = 0.1
+radial_segments = 8
+rings = 0
+
+[node name="ACT_002_00" type="Skeleton3D" unique_id=652236542]
+bones/0/name = "Pelvis"
+bones/0/parent = -1
+bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+bones/0/enabled = true
+bones/0/position = Vector3(0, 0.4, 0)
+bones/0/rotation = Quaternion(0, 0, 0, 1)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/name = "Spine"
+bones/1/parent = 0
+bones/1/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+bones/1/enabled = true
+bones/1/position = Vector3(0, 0.15, 0)
+bones/1/rotation = Quaternion(0, 0, 0, 1)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/name = "Head"
+bones/2/parent = 1
+bones/2/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+bones/2/enabled = true
+bones/2/position = Vector3(0, 0.3, 0)
+bones/2/rotation = Quaternion(0, 0, 0, 1)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/name = "ArmLeft"
+bones/3/parent = 1
+bones/3/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.08, 0)
+bones/3/enabled = true
+bones/3/position = Vector3(-0.25, 0.08, 0)
+bones/3/rotation = Quaternion(0, 0, 0, 1)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/name = "ArmRight"
+bones/4/parent = 1
+bones/4/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.08, 0)
+bones/4/enabled = true
+bones/4/position = Vector3(0.25, 0.08, 0)
+bones/4/rotation = Quaternion(0, 0, 0, 1)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/name = "LegLeft"
+bones/5/parent = 0
+bones/5/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12, 0, 0)
+bones/5/enabled = true
+bones/5/position = Vector3(-0.12, 0, 0)
+bones/5/rotation = Quaternion(0, 0, 0, 1)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/name = "LegRight"
+bones/6/parent = 0
+bones/6/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12, 0, 0)
+bones/6/enabled = true
+bones/6/position = Vector3(0.12, 0, 0)
+bones/6/rotation = Quaternion(0, 0, 0, 1)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/name = "ShinLeft"
+bones/7/parent = 5
+bones/7/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0)
+bones/7/enabled = true
+bones/7/position = Vector3(0, -0.18, 0)
+bones/7/rotation = Quaternion(0, 0, 0, 1)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/name = "ShinRight"
+bones/8/parent = 6
+bones/8/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0)
+bones/8/enabled = true
+bones/8/position = Vector3(0, -0.18, 0)
+bones/8/rotation = Quaternion(0, 0, 0, 1)
+bones/8/scale = Vector3(1, 1, 1)
+metadata/asset_id = "ACT_002"
+metadata/variant = 0
+
+[node name="LeftHandSocket" type="BoneAttachment3D" parent="." unique_id=1618147627]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.63, 0)
+bone_name = "ArmLeft"
+bone_idx = 3
+
+[node name="@Node3D@557" type="Node3D" parent="LeftHandSocket" unique_id=1929320938]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0.1)
+visible = false
+
+[node name="@MeshInstance3D@558" type="MeshInstance3D" parent="LeftHandSocket/@Node3D@557" unique_id=1047435656]
+material_override = SubResource("StandardMaterial3D_qmqkf")
+mesh = SubResource("CylinderMesh_oxudh")
+
+[node name="@MeshInstance3D@559" type="MeshInstance3D" parent="LeftHandSocket/@Node3D@557" unique_id=1406820814]
+transform = Transform3D(1, 0, 0, 0, 0.16439903, -0.98639387, 0, 0.98639387, 0.16439903, 0, 0.044999998, 0.09)
+material_override = SubResource("StandardMaterial3D_qmqkf")
+mesh = SubResource("BoxMesh_uvb83")
+
+[node name="@MeshInstance3D@560" type="MeshInstance3D" parent="LeftHandSocket/@Node3D@557" unique_id=91732345]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, -0.1, 0.18)
+material_override = SubResource("StandardMaterial3D_wy10j")
+mesh = SubResource("SphereMesh_jbwwb")
+
+[node name="@MeshInstance3D@561" type="MeshInstance3D" parent="LeftHandSocket/@Node3D@557" unique_id=191695990]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, -0.1, 0.18)
+material_override = SubResource("StandardMaterial3D_wy10j")
+mesh = SubResource("SphereMesh_s8r5x")
+
+[node name="@MeshInstance3D@562" type="MeshInstance3D" parent="LeftHandSocket/@Node3D@557" unique_id=699382406]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, -0.1, 0.18)
+material_override = SubResource("StandardMaterial3D_wy10j")
+mesh = SubResource("SphereMesh_f6glc")
+
+[node name="@MeshInstance3D@563" type="MeshInstance3D" parent="LeftHandSocket/@Node3D@557" unique_id=1880199210]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, -0.1, 0.18)
+material_override = SubResource("StandardMaterial3D_wy10j")
+mesh = SubResource("SphereMesh_dymvm")
+
+[node name="RightHandSocket" type="BoneAttachment3D" parent="." unique_id=954111266]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.63, 0)
+bone_name = "ArmRight"
+bone_idx = 4
+
+[node name="PROP_012_00" type="Node3D" parent="RightHandSocket" unique_id=1248160455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.62, 0.02)
+visible = false
+
+[node name="@MeshInstance3D@564" type="MeshInstance3D" parent="RightHandSocket/PROP_012_00" unique_id=885272483]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17, 0)
+material_override = SubResource("StandardMaterial3D_dqqak")
+mesh = SubResource("BoxMesh_2u1o6")
+
+[node name="@MeshInstance3D@565" type="MeshInstance3D" parent="RightHandSocket/PROP_012_00" unique_id=457183332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09, 0.17, 0.085)
+material_override = SubResource("StandardMaterial3D_csrt5")
+mesh = SubResource("BoxMesh_fmm8l")
+
+[node name="@MeshInstance3D@566" type="MeshInstance3D" parent="RightHandSocket/PROP_012_00" unique_id=1811877975]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09, 0.17, 0.085)
+material_override = SubResource("StandardMaterial3D_csrt5")
+mesh = SubResource("BoxMesh_3ty3u")
+
+[node name="@MeshInstance3D@567" type="MeshInstance3D" parent="RightHandSocket/PROP_012_00" unique_id=1570113473]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06, 0.37, 0)
+material_override = SubResource("StandardMaterial3D_dqqak")
+mesh = SubResource("BoxMesh_ile04")
+
+[node name="@MeshInstance3D@568" type="MeshInstance3D" parent="RightHandSocket/PROP_012_00" unique_id=982860264]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.4, 0)
+material_override = SubResource("StandardMaterial3D_dqqak")
+mesh = SubResource("BoxMesh_40860")
+
+[node name="Grip" type="Marker3D" parent="RightHandSocket/PROP_012_00" unique_id=507832832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39, 0)
+
+[node name="Ground" type="Marker3D" parent="RightHandSocket/PROP_012_00" unique_id=1642239974]
+
+[node name="@MeshInstance3D@569" type="MeshInstance3D" parent="RightHandSocket" unique_id=346649350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0.06)
+visible = false
+material_override = SubResource("StandardMaterial3D_b8h2a")
+mesh = SubResource("CylinderMesh_s01ed")
+
+[node name="SeatSocket" type="BoneAttachment3D" parent="." unique_id=2085238409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+bone_name = "Pelvis"
+bone_idx = 0

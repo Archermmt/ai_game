@@ -7,7 +7,7 @@ func export_all() -> void:
 	for variant in ["basic","coast","garden"]:models["house_"+variant]=kit.building("house",variant)
 	for kind in ["tea","greenhouse","lighthouse","bench","pot","tree"]:models[kind]=kit.building(kind)
 	for i in range(4):models["resident_%d"%i]=ResidentRig.create(i)
-	models.cat=kit.animal("cat");models.gull=kit.animal("gull")
+	models.cat=AnimalRig.make("cat");models.gull=AnimalRig.make("gull")
 	for id in models:
 		var node:Node3D=models[id];root.add_child(node)
 		# glTF cannot preserve custom wind shaders; export the same leaf texture as

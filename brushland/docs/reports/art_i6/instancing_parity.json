@@ -1,0 +1,39 @@
+{
+  "changed_fraction_limit": 0.005,
+  "mean_error_limit": 0.001,
+  "passed": true,
+  "renderer": "gl_compatibility",
+  "scope": "Frozen bay six views, same world/clock; not animation or target-device acceptance",
+  "views": {
+    "harbor": {
+      "changed_fraction_gt_2_255": 0.000708429783950617,
+      "mean_rgb_error": 0.0000348136308119122,
+      "passed": true
+    },
+    "house": {
+      "changed_fraction_gt_2_255": 0.00336033950617284,
+      "mean_rgb_error": 0.000158649922670498,
+      "passed": true
+    },
+    "orbit": {
+      "changed_fraction_gt_2_255": 0.00054735725308642,
+      "mean_rgb_error": 0.0000311169874904208,
+      "passed": true
+    },
+    "shore": {
+      "changed_fraction_gt_2_255": 0.00102623456790123,
+      "mean_rgb_error": 0.0000569777308873177,
+      "passed": true
+    },
+    "sunset": {
+      "changed_fraction_gt_2_255": 0.000564718364197531,
+      "mean_rgb_error": 0.0000206688011027757,
+      "passed": true
+    },
+    "whole": {
+      "changed_fraction_gt_2_255": 0.000303819444444444,
+      "mean_rgb_error": 0.0000145117207353651,
+      "passed": true
+    }
+  }
+}

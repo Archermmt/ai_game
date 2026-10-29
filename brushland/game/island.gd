@@ -188,6 +188,7 @@ func _unhandled_input(event:InputEvent) -> void:
 		update_camera();refresh_preview()
 func _process(dt:float) -> void:
 	wildlife.enabled=not sim.paused and not reduced_motion
+	wildlife.surface=view.surface
 	view.update_environment(dt,not sim.paused and not reduced_motion and not photo_mode)
 	if not sim.paused:time+=dt
 	sim.tick(data,dt);view.update_actors(sim,time);autosave_clock+=dt
@@ -219,7 +220,7 @@ func action(id:String) -> void:
 		"menu":save_menu()
 func set_sunset(value:bool) -> void:
 	if is_instance_valid(audio) and audio.is_inside_tree():audio.set_evening(value)
-	view.day=not value
+	view.set_night(value)
 	for lamp in get_tree().get_nodes_in_group("island_lanterns"):lamp.visible=value
 	sim.sunset=value;IslandLighting.apply(sun,world_env.environment,value)
 func move_object(p:Vector2i) -> void:

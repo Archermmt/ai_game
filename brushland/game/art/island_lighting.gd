@@ -1,6 +1,7 @@
 class_name IslandLighting
 extends RefCounted
 static func apply(sun:DirectionalLight3D,environment:Environment,sunset:bool) -> void:
+	sun.directional_shadow_mode=DirectionalLight3D.SHADOW_ORTHOGONAL
 	# Calibrated separately: Compatibility accumulates light differently.
 	if environment.sky==null:
 		var sky=Sky.new();var material=ProceduralSkyMaterial.new();material.sky_top_color=Color("89b9c5");material.sky_horizon_color=Color("cadbc5");sky.sky_material=material;environment.sky=sky

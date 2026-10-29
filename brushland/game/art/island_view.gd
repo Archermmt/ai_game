@@ -2,6 +2,8 @@ class_name IslandView
 extends Node3D
 var kit=ArtKit.new()
 var material_library=MaterialLibrary.new()
+var frozen_instances=FrozenArtInstances.new()
+var use_instancing=true
 const MODELS={
 	"house_basic":preload("res://game/art/models/house_basic.glb"),"house_coast":preload("res://game/art/models/house_coast.glb"),"house_garden":preload("res://game/art/models/house_garden.glb"),
 	"tea":preload("res://game/art/models/tea.glb"),"greenhouse":preload("res://game/art/models/greenhouse.glb"),"lighthouse":preload("res://game/art/models/lighthouse.glb"),
@@ -120,20 +122,44 @@ func rebuild() -> void:
 					rock.material_override=material_library.material("rocky_terrain_02",Color("c4c7b4"),0.7)
 		for o in data.objects:
 			if Vector2i(floori(o.x/8.0),floori(o.z/8.0))==chunk:draw_object(o)
+		if use_instancing:frozen_instances.canonicalize(node)
 		StaticBatcher.compact(node,8.0)
+		if use_instancing:
+			frozen_instances.instance_remaining(node)
+			instance_leaf_cards(node)
 	props=original_props
 	rebuild_stats={"dirty_chunks":changed_chunks.size(),"terrain_chunks":terrain_chunks.size(),"object_change":object_change}
 	batch_stats=rebuild_stats;previous_world=world
 	if not dirty.is_empty():update_water_field()
+func set_night(value:bool) -> void:
+	day=not value;material_library.set_night(value)
+func instance_leaf_cards(parent:Node3D) -> void:
+	var groups:Dictionary={}
+	for leaf in parent.find_children("*","MeshInstance3D",true,false):
+		if not leaf.is_in_group("island_leaf_nodes"):continue
+		if not frozen_instances.static_branch(leaf,parent):continue
+		var settings:Array=[]
+		for property in StaticBatcher.INSTANCE_PROPERTIES:settings.append(leaf.get(property))
+		var key=[leaf.mesh.get_instance_id(),leaf.material_override.get_instance_id(),settings]
+		if not groups.has(key):groups[key]=[]
+		groups[key].append(leaf)
+	for sources in groups.values():
+		if sources.size()<2:continue
+		var multi=MultiMesh.new();multi.transform_format=MultiMesh.TRANSFORM_3D;multi.mesh=sources[0].mesh;multi.instance_count=sources.size()
+		for i in range(sources.size()):multi.set_instance_transform(i,parent.global_transform.affine_inverse()*sources[i].global_transform)
+		var node=MultiMeshInstance3D.new();node.multimesh=multi;node.material_override=sources[0].material_override
+		for property in StaticBatcher.INSTANCE_PROPERTIES:node.set(property,sources[0].get(property))
+		parent.add_child(node);node.add_to_group("island_leaf_nodes")
+		for source in sources:source.free()
 func tri(st:SurfaceTool,a:Vector3,b:Vector3,c:Vector3,color:Color) -> void:
 	st.set_normal((b-a).cross(c-a).normalized());st.set_color(color);st.add_vertex(a);st.add_vertex(b);st.add_vertex(c)
 func draw_road(p:Vector2i,y:float) -> void:
-	kit.cylinder(props,Vector3(p.x,y+0.015,p.y),0.36,0.035,Color("d9c7a5"))
-	for dir in BuildingRules.DIRS:
+	kit.cylinder(props,Vector3(p.x,y+0.015,p.y),0.325,0.035,Color("d9c7a5"))
+	for dir in [Vector2i.RIGHT,Vector2i.DOWN]:
 		var next=data.cell(p+dir)
 		if next.road and absi(int(next.h)-int(data.cell(p).h))<=1:
 			var a=Vector3(p.x,y+0.025,p.y);var b=Vector3(p.x+dir.x,surface.height_at(Vector2(p+dir))+0.025,p.y+dir.y)
-			var piece=kit.box(props,(a+b)/2,Vector3(0.57,0.04,a.distance_to(b)),Color("d9c7a5"))
+			var piece=kit.box(props,(a+b)/2,Vector3(0.65,0.04,a.distance_to(b)),Color("d9c7a5"))
 			piece.look_at_from_position((a+b)/2,b,Vector3.UP)
 func draw_object(o:Dictionary) -> void:
 	var p=Vector2i(o.x,o.z);var y=float(data.cell(p).h)*0.5
@@ -160,9 +186,16 @@ func draw_object(o:Dictionary) -> void:
 	else:node=MODELS[model_id].instantiate() if int(o.get("color",0))==0 else kit.building(kind,BuildingRules.variant(data,o) if kind=="house" else "basic",int(o.get("color",0)))
 	node.position=Vector3(p.x+0.5 if kind in ["house","tea","greenhouse","lighthouse"] else p.x,y,p.y+0.5 if kind in ["house","tea","greenhouse","lighthouse"] else p.y)
 	material_library.dress(node,kind)
-	if kind=="house":IslandEffects.chimney(node)
+	if kind=="house":
+		IslandEffects.chimney(node)
+		var mailbox=ArtExtras.create("PROP_008");mailbox.position=Vector3(0.9,0,0.8);node.add_child(mailbox)
+		if BuildingRules.variant(data,o)=="garden":
+			var ivy=ArtExtras.create("NAT_006");ivy.position=Vector3(-0.84,0,0.8);node.add_child(ivy)
+	if kind=="tea":
+		var teapot=ArtExtras.create("PROP_016");teapot.position=Vector3(0,0.68,0);node.add_child(teapot)
 	node.rotation.y=-float(o.rotation)*PI/2;props.add_child(node)
 	if kind=="lighthouse":
+		IslandEffects.lighthouse(node,not day)
 		var lamp=OmniLight3D.new();lamp.position=Vector3(0,4,0);lamp.light_color=Color("ffd08a");lamp.light_energy=0.6;lamp.omni_range=6;lamp.visible=not day;node.add_child(lamp);lamp.add_to_group("island_lanterns")
 func draw_boat(o:Dictionary,_y:float) -> void:
 	var dir:Vector2i=BuildingRules.DIRS[int(o.rotation)%4];var side=Vector2i(-dir.y,dir.x)

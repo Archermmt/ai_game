@@ -1,0 +1,56 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e4sxu"]
+albedo_color = Color(0.9372549, 0.89411765, 0.7882353, 1)
+roughness = 0.95
+
+[sub_resource type="BoxMesh" id="BoxMesh_dw33c"]
+size = Vector3(0.075, 1.8, 0.08)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tw0kf"]
+size = Vector3(0.075, 1.8, 0.08)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5ugdu"]
+size = Vector3(0.65, 0.4, 0.08)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ycexg"]
+albedo_color = Color(0.43137255, 0.5686275, 0.61960787, 1)
+roughness = 0.95
+
+[sub_resource type="BoxMesh" id="BoxMesh_ae5lr"]
+size = Vector3(0.65, 1.4, 0.035)
+
+[node name="KIT_003_00" type="Node3D" unique_id=1076767066]
+metadata/asset_id = "KIT_003"
+metadata/variant = 0
+
+[node name="@MeshInstance3D@105" type="MeshInstance3D" parent="." unique_id=1110224659]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3625, 0.9, 0)
+material_override = SubResource("StandardMaterial3D_e4sxu")
+mesh = SubResource("BoxMesh_dw33c")
+
+[node name="@MeshInstance3D@106" type="MeshInstance3D" parent="." unique_id=52687333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3625, 0.9, 0)
+material_override = SubResource("StandardMaterial3D_e4sxu")
+mesh = SubResource("BoxMesh_tw0kf")
+
+[node name="@MeshInstance3D@107" type="MeshInstance3D" parent="." unique_id=958667729]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_e4sxu")
+mesh = SubResource("BoxMesh_5ugdu")
+
+[node name="@MeshInstance3D@108" type="MeshInstance3D" parent="." unique_id=477913257]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0.025)
+material_override = SubResource("StandardMaterial3D_ycexg")
+mesh = SubResource("BoxMesh_ae5lr")
+
+[node name="LeftSnap" type="Marker3D" parent="." unique_id=1314523962]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0, 0)
+
+[node name="RightSnap" type="Marker3D" parent="." unique_id=519196161]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0)
+
+[node name="Origin" type="Marker3D" parent="." unique_id=1241050709]
+
+[node name="Entrance" type="Marker3D" parent="." unique_id=55606431]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)

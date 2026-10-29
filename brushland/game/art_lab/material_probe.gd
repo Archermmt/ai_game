@@ -170,8 +170,8 @@ func _ready() -> void:
 	# Matching albedo colors with different textures must remain separate.
 	red_material = standard()
 	red_material.albedo_texture = checker_texture(Color("df614e"), Color("a93539"))
-	var blue = standard()
-	blue.albedo_texture = checker_texture(Color("508bd6"), Color("255394"))
+	var blue_shader=Shader.new();blue_shader.code="shader_type spatial; render_mode unshaded; uniform sampler2D tex : source_color; void fragment(){ALBEDO=texture(tex,UV).rgb;}"
+	var blue=ShaderMaterial.new();blue.shader=blue_shader;blue.set_shader_parameter("tex",checker_texture(Color("508bd6"),Color("255394")));blue.set_meta("static_batch_safe",true)
 	pair(Vector3(-3.6, 2.05, 0), red_material)
 	pair(Vector3(-1.2, 2.05, 0), blue)
 	# Same color/roughness/albedo texture; only the normal texture differs.
@@ -311,7 +311,10 @@ func _ready() -> void:
 	var exercised = int(stats.get("merged_source_count", 0)) >= 8 and int(stats.get("preserved", 0)) >= 8 and int(stats.get("shadow_batches", 0)) > 0 and int(stats.get("merged_shadow_source_count", 0)) >= 2
 	var method = RenderingServer.get_current_rendering_method()
 	var label = method + ("_normal_negative" if normal_negative else "_negative" if negative else "")
-	var folder = "res://snapshots/art_i1/materials/"
+	var iteration="art_i1"
+	for arg in OS.get_cmdline_user_args():
+		if arg.begins_with("--iteration="):iteration=arg.trim_prefix("--iteration=")
+	var folder = "res://snapshots/"+iteration+"/materials/"
 	DirAccess.make_dir_recursive_absolute(folder)
 	if before.save_png(folder + label + "_before.png") != OK or after.save_png(folder + label + "_after.png") != OK:
 		print("MATERIAL_PROBE_FAIL screenshot write failed")
@@ -319,8 +322,8 @@ func _ready() -> void:
 		return
 	shadow_off.save_png(folder + label + "_shadow_off.png")
 	var report = {"renderer": method, "driver": RenderingServer.get_current_rendering_driver_name(), "resolution": [SIZE.x, SIZE.y], "native_gpu": true, "negative_control": negative, "corruption": "legacy_normal_transform" if normal_negative else "albedo_texture" if negative else "none", "content_visible": content_visible, "shadow_visible": shadow_visible, "shadow_region_pixels": shadow_pixels, "shadow_off": folder + label + "_shadow_off.png", "normal_lighting_difference": difference(flat, tilted_color), "nonuniform_parent_scale": [1.15, 0.9, 0.38], "geometry_y_tilt": 0.65, "real_batch_exercised": exercised, "batch_stats": stats, "mean_rgb_error": mean_delta, "changed_pixel_fraction": changed_fraction, "pixel_tolerance": PIXEL_TOLERANCE, "mean_error_limit": 0.001, "changed_fraction_limit": 0.005, "visual_match": visual_match, "samples": sample_report, "before": folder + label + "_before.png", "after": folder + label + "_after.png"}
-	DirAccess.make_dir_recursive_absolute("res://docs/reports/art_i1")
-	var file = FileAccess.open("res://docs/reports/art_i1/materials_" + label + ".json", FileAccess.WRITE)
+	DirAccess.make_dir_recursive_absolute("res://docs/reports/"+iteration)
+	var file = FileAccess.open("res://docs/reports/"+iteration+"/materials_" + label + ".json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(report, "  "))
 	file.close()
 	if negative:

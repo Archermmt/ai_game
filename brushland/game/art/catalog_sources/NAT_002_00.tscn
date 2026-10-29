@@ -1,0 +1,30 @@
+[gd_scene format=4]
+
+[ext_resource type="Shader" path="res://game/art/shaders/leaves.gdshader" id="1_061xs"]
+[ext_resource type="Texture2D" path="res://game/art/generated/leaf_cluster.png" id="2_xxxm3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1v6ft"]
+render_priority = 0
+shader = ExtResource("1_061xs")
+shader_parameter/leaves = ExtResource("2_xxxm3")
+shader_parameter/tint = null
+shader_parameter/clock = null
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_42qd3"]
+_surfaces = [{
+"aabb": AABB(-0.42, 0.030000001, -0.38, 0.84, 0.5400001, 0.76),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAIA/AACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAA"),
+"format": 34359738385,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("PQrXvpDC9TwAAAAAPQrXPpDC9TwAAAAAPQrXPobrET8AAAAAPQrXvpDC9TwAAAAAPQrXPobrET8AAAAAPQrXvobrET8AAAAAPQpXvpDC9TznOrq+PQpXPpDC9TznOro+PQpXPobrET/nOro+PQpXvpDC9TznOrq+PQpXPobrET/nOro+PQpXvobrET/nOrq+PQpXPpDC9TznOrq+PQpXvpDC9TznOro+PQpXvobrET/nOro+PQpXPpDC9TznOrq+PQpXvobrET/nOro+PQpXPobrET/nOrq+XI/CvpqZmT5cj8K+XI/CPpqZmT5cj8K+XI/CPpqZmT5cj8I+XI/CvpqZmT5cj8K+XI/CPpqZmT5cj8I+XI/CvpqZmT5cj8I+")
+}]
+
+[node name="NAT_002_00" type="Node3D" unique_id=1807102989]
+metadata/asset_id = "NAT_002"
+metadata/variant = 0
+
+[node name="@MeshInstance3D@413" type="MeshInstance3D" parent="." unique_id=1404258913]
+material_override = SubResource("ShaderMaterial_1v6ft")
+mesh = SubResource("ArrayMesh_42qd3")

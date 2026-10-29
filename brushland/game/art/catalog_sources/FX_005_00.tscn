@@ -1,0 +1,35 @@
+[gd_scene format=3]
+
+[sub_resource type="Shader" id="Shader_kgjr4"]
+code = "shader_type spatial; render_mode unshaded,cull_disabled,blend_add,depth_draw_never; void fragment(){ALBEDO=vec3(0.95,0.80,0.48);ALPHA=0.025*(1.0-UV.y)*pow(sin(UV.x*3.14159),2.0);}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s030k"]
+render_priority = 0
+shader = SubResource("Shader_kgjr4")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ei4g6"]
+top_radius = 0.03
+bottom_radius = 1.7
+height = 12.0
+radial_segments = 16
+
+[node name="FX_005_00" type="Node3D" unique_id=73542516]
+metadata/asset_id = "FX_005"
+metadata/variant = 0
+
+[node name="LighthouseSweep" type="Node3D" parent="." unique_id=1520981120]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.98, 0)
+metadata/batch_exclude = true
+
+[node name="@SpotLight3D@724" type="SpotLight3D" parent="LighthouseSweep" unique_id=1948857538]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+light_color = Color(0.9372549, 0.8117647, 0.5686275, 1)
+light_energy = 0.7
+spot_range = 14.0
+spot_angle = 16.0
+
+[node name="@MeshInstance3D@725" type="MeshInstance3D" parent="LighthouseSweep" unique_id=1236585686]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 6)
+material_override = SubResource("ShaderMaterial_s030k")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_ei4g6")

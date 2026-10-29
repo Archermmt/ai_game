@@ -222,6 +222,9 @@ static func _preserve_reason(node: MeshInstance3D, boundary: Node3D, formats: Ar
 	formats.assign(layout.formats)
 	for surface in range(node.mesh.get_surface_count()):
 		var mat = node.get_active_material(surface)
+		if mat is ShaderMaterial and bool(mat.get_meta("static_batch_safe",false)):
+			if mat.next_pass!=null:return "material_next_pass"
+			continue
 		if not mat is StandardMaterial3D:
 			return "custom_or_missing_material"
 		if mat.transparency != BaseMaterial3D.TRANSPARENCY_DISABLED:

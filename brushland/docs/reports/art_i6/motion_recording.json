@@ -1,0 +1,39 @@
+{
+  "raw": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "width": 1440,
+        "height": 900,
+        "r_frame_rate": "30/1",
+        "nb_frames": "1152"
+      },
+      {
+        "r_frame_rate": "0/0",
+        "nb_frames": "1843200"
+      }
+    ],
+    "format": {
+      "duration": "38.400000"
+    }
+  },
+  "delivery": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "width": 1280,
+        "height": 800,
+        "r_frame_rate": "30/1",
+        "nb_frames": "900"
+      }
+    ],
+    "format": {
+      "duration": "30.000000"
+    }
+  },
+  "scope": "Godot fixed-FPS movie preview; NOT performance evidence",
+  "trim": "Last 30 seconds; scaled to 1280x800; H264 CRF22",
+  "sha256": "b4d582f47e0361236f480c258702184cff2b3084506dc1f1977e296d0fc6391f"
+}

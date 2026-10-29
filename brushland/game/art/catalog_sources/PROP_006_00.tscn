@@ -1,0 +1,38 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oed3b"]
+albedo_color = Color(0.6666667, 0.5019608, 0.3764706, 1)
+roughness = 0.95
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vtml4"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.24
+radial_segments = 16
+rings = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gnan2"]
+albedo_color = Color(0.9372549, 0.8392157, 0.60784316, 1)
+emission_enabled = true
+emission = Color(0.9098039, 0.7058824, 0.36078432, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ko6fa"]
+radial_segments = 8
+rings = 2
+
+[node name="PROP_006_00" type="Node3D" unique_id=1757532188]
+metadata/asset_id = "PROP_006"
+metadata/variant = 0
+
+[node name="@MeshInstance3D@481" type="MeshInstance3D" parent="." unique_id=355682092]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12, 0)
+material_override = SubResource("StandardMaterial3D_oed3b")
+mesh = SubResource("CylinderMesh_vtml4")
+
+[node name="@MeshInstance3D@482" type="MeshInstance3D" parent="." unique_id=1850304523]
+transform = Transform3D(0.16, 0, 0, 0, 0.22, 0, 0, 0, 0.16, 0, 0.17, 0)
+material_override = SubResource("StandardMaterial3D_gnan2")
+mesh = SubResource("SphereMesh_ko6fa")
+
+[node name="Grip" type="Marker3D" parent="." unique_id=1204099555]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)

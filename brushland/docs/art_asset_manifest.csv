@@ -1,118 +1,118 @@
-﻿asset_id,name_zh,category,resource_type,priority,phase,base_count,variant_count,total_deliverables,unit,spec,reuse,acceptance,status
-TER_001,草地顶面,地形,source_mesh,P0,MVP,1,0,1,source_mesh,1×1格；LOD0≤80三角面；圆润外轮廓,全岛通用；颜色由MAT_001控制,四向拼接无裂缝；法线统一,planned
-TER_002,岩壁直段,地形,source_mesh,P0,MVP,1,0,1,source_mesh,长1格；高0.5格；LOD0≤160三角面,沿高度重复；旋转不增加源件,跨层接缝无漏光；顶底吸附正确,planned
-TER_003,岩壁外角,地形,source_mesh,P0,MVP,1,0,1,source_mesh,90度外角；高0.5格；≤200三角面,镜像与旋转复用,与直段同时拼接无裂缝,planned
-TER_004,岩壁内角,地形,source_mesh,P0,MVP,1,0,1,source_mesh,90度内角；高0.5格；≤200三角面,旋转复用,内凹边缘无黑面和穿帮,planned
-TER_005,沙滩直边,地形,source_mesh,P0,MVP,1,0,1,source_mesh,长1格；水平缓坡；≤140三角面,海岸自动拼接,草沙过渡无硬接缝,planned
-TER_006,沙滩外角,地形,source_mesh,P0,MVP,1,0,1,source_mesh,90度弧角；≤180三角面,旋转复用,水面覆盖范围不露空,planned
-TER_007,沙滩内角,地形,source_mesh,P0,MVP,1,0,1,source_mesh,90度内弧；≤180三角面,旋转复用,窄水湾仍保持连续沙岸,planned
-TER_008,低坡步道基底,地形,source_mesh,P0,MVP,1,0,1,source_mesh,长1格跨0.5m高差；路面视觉宽0.65m；≤180三角面,坡路与园路共用,仅相邻高差1级时连接；坡面与可走表面一致,planned
-TER_009,水面分块,地形,source_mesh,P0,MVP,1,0,1,source_mesh,8×8格平面；≤128三角面,平铺；波纹来自MAT_003,岸边无裂缝；远景无明显重复,planned
-TER_010,小岛下层封底,地形,source_mesh,P0,MVP,1,0,1,source_mesh,可拉伸封底块；≤120三角面,只封闭可见地块底面,最低相机角度看不到内部空面,planned
-INF_001,小路直段,基础设施,source_mesh,P0,MVP,1,0,1,source_mesh,1×1格；≤100三角面；1格=1m；实际铺装宽0.65m,四向旋转复用；含低频石块纹理,路面不闪烁；与地形无穿插,planned
-INF_002,小路转角,基础设施,source_mesh,P0,MVP,1,0,1,source_mesh,1×1格；≤120三角面；1格=1m；实际铺装宽0.65m,四向旋转复用,内外弯边缘连续,planned
-INF_003,小路丁字路口,基础设施,source_mesh,P0,MVP,1,0,1,source_mesh,1×1格；≤140三角面；1格=1m；实际铺装宽0.65m,四向旋转复用,三方向接点宽度一致,planned
-INF_004,小路十字路口,基础设施,source_mesh,P0,MVP,1,0,1,source_mesh,1×1格；≤140三角面；1格=1m；实际铺装宽0.65m,同一材质与UV密度,四路连接无可见切线,planned
-INF_005,小路端头,基础设施,source_mesh,P0,MVP,1,0,1,source_mesh,1×1格；圆头；≤80三角面；1格=1m；实际铺装宽0.65m,单独孤立点由端头组合生成,断头路无方形硬切边,planned
-INF_006,木桥模块,基础设施,source_mesh,P0,MVP,2,0,2,source_mesh,陆地桥头1件+1m重复跨段1件；通行宽0.65m；每件≤400三角面,组合横跨2–6个连续水格的直桥；两端陆地同高且h=1–2；不另计整桥模型,桥头接路；跨段无缝；非法跨度只预览不提交,planned
-INF_007,码头模块,基础设施,source_mesh,P0,MVP,2,0,2,source_mesh,陆地岸接段1件+1m水上重复端段1件；通行宽0.65m；每件≤400三角面,一个h=1–2陆地锚点+沿朝向2–4水格；侧边留1×3水格泊位；共享桥木材,锚点接路；3m船体停泊无穿模；水路通外海；不做物理船舶模拟,planned
-INF_008,设施组合场景,基础设施,prefab,P0,MVP,2,0,2,prefab,木桥与码头各1个参数化组合场景；桥2–6水格/码头2–4水格；含简化碰撞与吸附点,引用INF_006与INF_007；不增加新网格,改变长度后碰撞和吸附点正确,planned
-KIT_001,灰泥墙面,建筑源件,source_mesh,P0,MVP,1,0,1,source_mesh,宽0.8m；檐高1.8m；每边两段组成1.6m房身；≤180三角面,小屋主体留在2×2m占地内；前后留附着件余量；角部圆角,四方向轮廓圆润；尺寸吸附一致,planned
-KIT_002,窗墙模块,建筑源件,source_mesh,P0,MVP,1,0,1,source_mesh,宽0.8m×高1.8m窗墙；窗洞约0.55×0.65m；≤300三角面,共享窗框；夜间发光由材质切换,缩远仍读得出窗框和窗台,planned
-KIT_003,入口模块,建筑源件,source_mesh,P0,MVP,1,0,1,source_mesh,宽0.8m×高1.8m入口模块；门洞约0.65×1.4m；≤350三角面,全部可入住建筑,入口锚点与道路连接方向一致,planned
-KIT_004,双坡屋顶,建筑源件,source_mesh,P0,MVP,1,0,1,source_mesh,约2×2m双坡屋顶；屋脊高于檐口1m；组合总高2.8m；≤400三角面,珊瑚色和海盐蓝为材质变化,四向观察无背面破损,planned
-KIT_005,低坡茶亭屋顶,建筑源件,source_mesh,P0,MVP,1,0,1,source_mesh,约2×2m低坡亭顶；檐高1.8m；顶高约2.4m；≤300三角面,茶屋与附属遮棚共用,与墙体不露空隙,planned
-KIT_006,灯塔圆锥顶,建筑源件,source_mesh,P0,MVP,1,0,1,source_mesh,直径约1.8m；含檐口高约0.8m；组合灯塔总高5m；≤450三角面,灯塔专用；同材质色盘,圆形轮廓无明显锐角,planned
-KIT_007,温室框架玻璃,建筑源件,source_mesh,P0,MVP,1,0,1,source_mesh,2×2m内的温室框架与玻璃；檐高1.8m；顶高2.8m；≤900三角面,温室整套框架复用单一玻璃材质,透明排序稳定；内部不依赖高成本折射,planned
-KIT_008,木门廊,建筑源件,source_mesh,P0,MVP,1,0,1,source_mesh,宽1.5m×深0.35m；立柱高1.8m；≤350三角面,茶屋与普通居所,立柱/台阶在2×2m占地内；柱脚落地；入口不受阻,planned
-KIT_009,海景阳台,建筑源件,source_mesh,P0,MVP,1,0,1,source_mesh,宽1.2m×深0.3m；栏高0.65m；≤450三角面,海岸居所；栏杆组件复用,和房身一起位于2×2m占地；可视檐口不产生额外阻挡,planned
-KIT_010,灯塔塔身,建筑源件,source_mesh,P0,MVP,1,0,1,source_mesh,直径约1.5m；塔身连灯室高4.2m；组合总高5m；≤1600三角面,灯塔独有轮廓；门窗引用通用模块,四向均可识别；UV无可见接缝,planned
-KIT_011,烟囱,建筑源件,source_mesh,P0,MVP,1,0,1,source_mesh,高0.45m；截面0.25×0.25m；≤120三角面,居所与茶屋；烟来自FX_001,安装点稳定；不穿透屋顶,planned
-KIT_012,小屋地基裙边,建筑源件,source_mesh,P0,MVP,1,0,1,source_mesh,2×2m低地基；高0.12m；≤180三角面,全部小屋；与岛面交界遮缝,斜岸边放置时不露底,planned
-BLD_001,普通居所,建筑组合,prefab,P0,MVP,1,0,1,prefab,2×2格；檐高1.8m/总高2.8m；整体LOD0≤3000三角面,门窗屋顶烟囱均引用源件,2×2灰盒内检查；入口朝路；四向可读；含居民门口点,planned
-BLD_002,海岸居所,建筑组合,prefab,P0,MVP,1,0,1,prefab,2×2格；檐高1.8m/总高2.8m；海景阳台；整体≤3000三角面,BLD_001+KIT_009；无新网格,海岸附件不改变入口或床位；可阻挡附件不越2×2格；四向可读,planned
-BLD_003,花园居所,建筑组合,prefab,P0,MVP,1,0,1,prefab,2×2格；檐高1.8m/总高2.8m；花箱/藤蔓；整体≤3000三角面,BLD_001+PROP_002+NAT_006,植物不遮门；可阻挡附件不越2×2格；缩远可识别花园,planned
-BLD_004,温室,建筑组合,prefab,P0,MVP,1,0,1,prefab,2×2格；檐高1.8m/顶高2.8m；整体≤4000三角面,KIT_007+共用地基+盆栽,玻璃排序稳定；一个活动点可达；框架植株层次清晰,planned
-BLD_005,茶屋,建筑组合,prefab,P0,MVP,1,0,1,prefab,2×2格开放茶亭；檐高1.8m；顶高约2.4m；整体≤4000三角面,KIT_005/008+PROP_004/005/016；两个坐席活动点；桌椅茶具引用源件,两个活动点可预约；椅座高0.35m与1m居民坐姿一起验收,planned
-BLD_006,灯塔,建筑组合,prefab,P0,MVP,1,0,1,prefab,2×2格；总高5m；整体≤5000三角面,KIT_006/010与通用入口,四向可识别；入口和塔外活动点可达；灯束可关闭,planned
-NAT_001,圆冠海岸树,植被石头,source_mesh,P0,MVP,1,1,2,source_mesh,高约3m；冠径约2m；≤1500三角面/件；新增轮廓变体1件,调色与缩放不增加变体数,冠层遮挡可淡出；无尖锐细枝,planned
-NAT_002,低矮灌木,植被石头,source_mesh,P0,MVP,1,1,2,source_mesh,高0.45m；宽约0.7m；≤180三角面/件；新增轮廓变体1件,道路与庭院共享,最远镜头不闪烁,planned
-NAT_003,草簇,植被石头,source_mesh,P0,MVP,1,0,1,source_mesh,高0.15m；宽0.3m；≤60三角面,多实例散布；非逐根草叶,无高频噪点；不遮道路,planned
-NAT_004,花簇,植被石头,source_mesh,P0,MVP,1,0,1,source_mesh,高0.25m；宽0.4m；3至5朵为一簇；≤140三角面,奶黄与珊瑚色使用调色,缩远仍呈花团色块,planned
-NAT_005,芦苇,植被石头,source_mesh,P0,MVP,1,0,1,source_mesh,高0.8m；簇宽0.35m；≤120三角面,湾岸与小池共享,风摆不穿入建筑,planned
-NAT_006,攀爬藤蔓,植被石头,source_mesh,P0,MVP,1,0,1,source_mesh,约高1.2m×宽0.5m墙挂模块；≤140三角面,花园居所与茶屋共享,贴墙不闪烁；不覆盖窗洞,planned
-NAT_007,圆润海石,植被石头,source_mesh,P0,MVP,1,2,3,source_mesh,宽0.5–1m；高0.3–0.6m；每件≤260三角面；新增轮廓变体2件,缩放和旋转用于散布,平滑法线；三种轮廓可辨,planned
-NAT_008,浅水礁石,植被石头,source_mesh,P0,MVP,1,0,1,source_mesh,宽约0.8m；露水部分高0.35m；≤320三角面,潮线构图；无新生物群系,水线过渡稳定；无悬浮感,planned
-NAT_009,盆栽植株,植被石头,source_mesh,P0,MVP,1,0,1,source_mesh,高0.45m；冠径0.3m；≤180三角面,温室和门口共用PROP_001花盆,不与盆沿穿插,planned
-NAT_010,瘦长海岸树,植被石头,source_mesh,P1,MVP,1,0,1,source_mesh,高约3m；冠径约0.8m；≤1500三角面,与圆冠树形成轮廓对比；共用MAT_004,四向读形；缩远仍可分辨树形,planned
-PROP_001,陶盆,摆件,source_mesh,P0,MVP,1,0,1,source_mesh,高0.3m；口径0.3m；≤160三角面,与NAT_009组合；不另计盆栽整体模型,轮廓圆润；底面可落地,planned
-PROP_002,窗台花箱,摆件,source_mesh,P0,MVP,1,0,1,source_mesh,宽0.7m×深0.22m×高0.25m；≤220三角面,花朵引用NAT_004,窗台锚点一致；不遮窗,planned
-PROP_003,海边长椅,摆件,source_mesh,P0,MVP,1,0,1,source_mesh,宽约1m×深0.4m；座高0.35m；总高0.7m；≤450三角面,花园/码头/茶屋共享,1×1格占地内；含坐席与前方活动点；1m居民坐姿不悬空,planned
-PROP_004,圆茶桌,摆件,source_mesh,P0,MVP,1,0,1,source_mesh,直径0.8m；桌高0.5m；≤300三角面,茶屋与庭院共享,高度与椅子配套,planned
-PROP_005,木椅,摆件,source_mesh,P0,MVP,1,0,1,source_mesh,宽0.4m×深0.4m；座高0.35m；总高0.75m；≤280三角面,可组合茶桌；坐姿复用,含坐席锚点；轮廓简洁,planned
-PROP_006,暖光灯笼,摆件,source_mesh,P0,MVP,1,0,1,source_mesh,高0.35m×宽0.2m；≤200三角面；顶部持握挂点,自由摆放与守灯人手持共用同一源件；发光由MAT_007控制,日夜可辨；手部挂点对齐；无过亮溢出,planned
-PROP_007,木路牌,摆件,source_mesh,P0,MVP,1,0,1,source_mesh,高1.1m；牌宽0.45m；≤220三角面,牌面无烘焙文字；可本地化贴图,两面无错法线；不占行走中心,planned
-PROP_008,岛屿信箱,摆件,source_mesh,P0,MVP,1,0,1,source_mesh,高0.9m；箱体宽0.35m；≤350三角面,心愿提示节点；旗帜单独挂点,旗帜状态可切换；不使用可读小字,planned
-PROP_009,遮阳伞,摆件,source_mesh,P0,MVP,1,0,1,source_mesh,高2.2m；伞径1.6m；≤500三角面,茶屋和海岸共享,伞沿不遮互动热点,planned
-PROP_010,来岛小舟,摆件,source_mesh,P0,MVP,1,0,1,source_mesh,船长3m；船宽≤0.9m；≤1200三角面；船底水线明确,到访与码头停泊共用,码头侧面有3m完整水面余量；泊位锚点与乘客挂点正确；靠岸不穿模,planned
-PROP_011,居民头部附件,摆件,source_mesh,P0,MVP,4,0,4,source_mesh,总4种：蓝帽/宽檐帽/头带/浅色渔帽；宽约0.3–0.5m；每件≤180三角面,四外观预设各引用一件；头带也计独立附件；不另计调色,适配1m居民；四种轮廓可分；转头不穿模,planned
-PROP_012,居民行李与浇水壶,摆件,source_mesh,P0,MVP,2,0,2,source_mesh,行李箱1件（高0.45m）+浇水壶1件（高0.3m）；各≤350三角面,行李箱配拖箱行走；浇水壶配ANI_005；共享手部挂点,两件分别导出；箱底接地；壶与手握点不穿模,planned
-PROP_013,海岸木箱,摆件,source_mesh,P1,MVP,1,0,1,source_mesh,约0.5×0.45×0.45m；≤300三角面,码头演示构图与庭院共用,落地稳定；不堵入口或泊位,planned
-PROP_014,系缆桩与绳圈,摆件,source_mesh,P1,MVP,2,0,2,source_mesh,桩1件高0.45m+绳圈1件直径0.3m；各≤300三角面,码头组合引用两件；绳圈可重复摆放,两件分别导出；绳与船挂点不穿模,planned
-PROP_015,短围栏套件,摆件,source_mesh,P1,MVP,2,0,2,source_mesh,0.8m横栏1件+高0.6m立柱1件；各≤300三角面,灯塔岬与花园共享；转角引用立柱,占格与碰撞明确；不替代道路栏杆导航,planned
-PROP_016,茶壶与茶杯,摆件,source_mesh,P0,MVP,2,0,2,source_mesh,茶壶1件高0.18m+茶杯1件高0.1m；各≤300三角面,同一杯源件重复至两席；茶友手持和茶桌共用,杯口可读；手部锚点与桌面高度吻合,planned
-ACT_001,居民通用身体,角色动物,skinned_mesh,P0,MVP,1,0,1,skinned_mesh,高1m；约三头身；头/手/脚与可隐藏躯干区；≤1500三角面,四外观共享身体；衣装来自ACT_006；不用四套身体,蒙皮无塌陷；含衣装附件及手持件的角色总预算≤2500三角面,planned
-ACT_002,居民通用骨架,角色动物,rig,P0,MVP,1,0,1,rig,≤24骨；统一根骨与挂点命名,所有居民共享动画,根节点比例1；左右手与座位挂点齐全,planned
-ACT_003,居民外观预设,角色动物,appearance_prefab,P0,MVP,4,0,4,appearance_prefab,4套：黄斗篷蓝帽旅人/绿背带裤宽檐帽园丁/珊瑚围裙蓝围巾头带茶友/蓝毛衣渔帽守灯人；高1m,ACT_001/002/006+PROP_011/012/006/016；共享骨架与衣装切换；无新身体,四套在标准镜头轮廓可分；茶友不是仅换颜色；无职业权限绑定,planned
-ACT_004,海鸥,角色动物,rigged_model,P0,MVP,1,0,1,rigged_model,站高0.3m；翼展约0.8m；≤1200三角面；≤10骨；含专用骨架,只做海鸥1类；群体复用,展翅轮廓清晰；落地脚点正确,planned
-ACT_005,海岛小猫,角色动物,rigged_model,P0,MVP,1,0,1,rigged_model,肩高约0.35m；体长约0.65m不含尾；≤1200三角面；≤18骨；含专用骨架,只做猫1类；毛色是材质参数,尾部弯曲无塌陷；地面脚点正确,planned
-ACT_006,共享可切换衣装件,角色动物,skinned_attachment,P0,MVP,5,0,5,skinned_attachment,共5件：黄斗篷≤400/绿背带裤≤350/珊瑚围裙≤250/蓝围巾≤100/蓝毛衣≤350三角面,绑定ACT_002；按外观切换并隐藏身体重叠区；头部件另列PROP_011,衣装/头饰/手持件组合后各居民总面数≤2500；茶友围裙轮廓明显；走坐不严重穿模,planned
-ANI_001,居民待机,动画,animation_clip,P0,MVP,1,0,1,animation_clip,循环3秒；30fps；无根位移,全部4种居民共用,首尾无跳帧；呼吸幅度克制,planned
-ANI_002,居民散步,动画,animation_clip,P0,MVP,1,0,1,animation_clip,循环1秒；原地步行；速度由程序匹配,全部居民共用,标准移动速度下不明显滑步,planned
-ANI_003,居民挥手,动画,animation_clip,P0,MVP,1,0,1,animation_clip,一次性2秒；原地动作,来岛与心愿完成共用,可从待机平滑混合,planned
-ANI_004,居民坐下与起身,动画,animation_clip,P0,MVP,3,0,3,animation_clip,坐下1段+坐姿循环1段+起身1段；各30fps,茶桌/长椅共用座位锚点,三段衔接无跳变；坐姿不悬空,planned
-ANI_005,居民浇花,动画,animation_clip,P0,MVP,1,0,1,animation_clip,循环2秒；适配1m居民；浇水壶引用PROP_012；根节点原地,温室和花园生活表演共用,手部运动不穿过身体,planned
-ANI_006,海鸥飞行,动画,animation_clip,P0,MVP,1,0,1,animation_clip,循环1秒；无根位移,飞行路径由程序提供,翼尖不穿身体；循环自然,planned
-ANI_007,海鸥站立,动画,animation_clip,P0,MVP,1,0,1,animation_clip,循环3秒；轻微转头,岸边和码头共享,脚点稳定,planned
-ANI_008,猫散步,动画,animation_clip,P0,MVP,1,0,1,animation_clip,循环1秒；无根位移,所有猫实例共用,四足步态顺序正确,planned
-ANI_009,猫睡觉,动画,animation_clip,P0,MVP,1,0,1,animation_clip,循环3秒；尾巴收拢,长椅旁与门廊共享,呼吸轻微；接地稳定,planned
-ANI_010,船体轻摇,动画,procedural_motion,P0,MVP,1,0,1,procedural_motion,正弦轻摇配置；振幅≤3度,PROP_010共用；不新建动画骨架,3m船体轻摇不穿码头；与海面保持正确水线,planned
-ANI_011,居民坐姿喝茶,动画,animation_clip,P0,MVP,1,0,1,animation_clip,原地循环约4秒；含端杯/饮茶/放低；配1m角色,ACT_002+PROP_016；两位居民独立播放；桌高0.5m/座高0.35m,手杯对齐；不穿脸；接坐姿无跳帧,planned
-ANI_012,海鸥起飞,动画,animation_clip,P0,MVP,1,0,1,animation_clip,一次性约1秒；原地表演；路径系统驱动升空,衔接ANI_007驻足和ANI_006飞行,双脚离地与振翅同步；过渡无瞬移,planned
-ANI_013,海鸥落地,动画,animation_clip,P0,MVP,1,0,1,animation_clip,一次性约1秒；原地表演；预设栖息点落脚,衔接飞行和驻足；不做真实鸟类物理,落脚点稳定；不穿码头,planned
-ANI_014,猫伸懒腰,动画,animation_clip,P1,MVP,1,0,1,animation_clip,一次性约2秒；原地；适配ACT_005,衔接猫睡觉与散步；P1但仍属MVP,四足落点合理；脊背弯曲无塌陷,planned
-ANI_015,居民拖箱行走,动画,animation_clip,P1,MVP,1,0,1,animation_clip,原地步行循环约1秒；手臂后伸拖箱姿势,ACT_002+PROP_012行李箱；脚步可复用ANI_002下半身,箱轮/箱底接地；与手挂点不拉伸,planned
-ANI_016,居民持物上身姿势,动画,animation_clip,P1,MVP,2,0,2,animation_clip,2段可混合持物姿势：提灯笼/抱陶盆；根节点原地,沿用散步与待机下半身；不新增骨架；茶杯姿势用ANI_011,与PROP_006/001挂点共同验收；不穿身体,planned
-MAT_001,地形色盘材质,材质,material,P0,MVP,1,0,1,material,统一低饱和色盘；草/沙/岩3个可调色区,所有地形共享主材质,标准光下无过曝；粗糙度统一,planned
-MAT_002,建筑道具主材质,材质,material,P0,MVP,1,0,1,material,色盘/顶点色；灰泥/木/屋顶统一着色逻辑,建筑与摆件共享；配色不计新网格,珊瑚与海盐蓝配色可参数切换,planned
-MAT_003,浅青海水,材质,material,P0,MVP,1,0,1,material,无折射依赖；低频法线/深浅渐变/岸线遮罩,整个海湾唯一水体主材质,低档画质仍保持岸线可读,planned
-MAT_004,植被柔和材质,材质,material,P0,MVP,1,0,1,material,顶点风摆；不依赖高密度透明卡片,树/草/花共用主材质,无明显透明排序问题；风摆可关闭,planned
-MAT_005,温室玻璃,材质,material,P0,MVP,1,0,1,material,柔色半透明或抖动透明；无屏幕空间折射,只用于KIT_007,四向旋转无层叠闪烁,planned
-MAT_006,居民动物色盘,材质,material,P0,MVP,1,0,1,material,统一色盘；角色可按实例调色,居民/猫/海鸥共享着色基底,肌肤与衣物明度足以区分,planned
-MAT_007,窗灯发光材质,材质,material,P0,MVP,1,0,1,material,发光上限可调；曝光固定时不溢白,窗/灯/灯塔共用,关闭后仍有基础颜色,planned
-FX_001,烟囱轻烟,特效,particle_effect,P0,MVP,1,0,1,particle_effect,单点≤16粒子；寿命约3秒,所有烟囱复用,风向一致；不遮主建筑,planned
-FX_002,岸线白沫,特效,shader_effect,P0,MVP,1,0,1,shader_effect,岸线遮罩循环；低频无眩光,引用MAT_003；不计独立海面模型,细岸不漏接；关闭动态仍能识别水陆,planned
-FX_003,笔刷落地反馈,特效,particle_effect,P0,MVP,1,0,1,particle_effect,一次性≤12粒子；0.5秒内结束,土地/植物落笔共用调色,不遮当前笔刷格；减少动态模式可关闭,planned
-FX_004,愿望完成微光,特效,particle_effect,P0,MVP,1,0,1,particle_effect,一次性≤16粒子；1秒内结束,不以满屏庆祝干扰建造,静音与减少动态模式下仍有UI反馈,planned
-FX_005,灯塔柔光扫掠,特效,shader_effect,P0,MVP,1,0,1,shader_effect,轻量透明扇面；1个动态光上限,附加到BLD_006；可单独关闭,光束不穿透UI；亮度柔和,planned
-ENV_001,午后与日落光照预设,环境光照,environment_profile,P0,MVP,2,0,2,environment_profile,2套：午后/日落；同一世界环境基础；暖主光与偏青柔影,共享天空与材质；不重复计新场景模型,两套均可读道路/入口/角色；海水无刺眼闪烁,planned
-UI_001,笔刷工具图标,界面,vector_icon,P0,MVP,8,0,8,vector_icon,8枚工具图标；可编辑SVG+32/64px PNG；统一图形语言,土地/水/高差/路/建筑/植物/摆件/擦除；程序生成交互状态,32px尺寸可识别；不只依靠颜色,planned
-UI_002,操作图标,界面,vector_icon,P0,MVP,6,0,6,vector_icon,6枚操作图标；SVG+32/64px PNG,撤销/重做/旋转/设置/暂停/拍照；程序生成焦点/禁用态,图标语义一致；暗底亮底均可读,planned
-UI_003,六条愿望图标,界面,vector_icon,P0,MVP,6,0,6,vector_icon,6枚：海风座位/花园/茶会/过桥/温室/灯塔；SVG+32/64px PNG,与六条手记共用；不使用倒计时,与对应物件形状一致,planned
-UI_004,连通与锁定状态图标,界面,vector_icon,P0,MVP,4,0,4,vector_icon,4枚状态图标；已连通/未连通/锁定/自动；SVG+32/64px PNG,图形和文字共同提示状态,色觉差异情况下仍可区分,planned
-UI_005,底部工具栏皮肤,界面,ui_layout,P0,MVP,1,0,1,ui_layout,9切片工具栏1套；支持16:9与16:10；1920×1080基准/1280×720最低,统一组件；不逐按钮重复画背景,关键正文≥18px；100/125/150%缩放不重叠；焦点明确,planned
-UI_006,手记与愿望卡片,界面,ui_layout,P0,MVP,1,0,1,ui_layout,手记侧栏与愿望卡片共享组件1套；6条手记内容槽,图文长度可扩展；支持简中与英文,关键正文≥18px；100/125/150%缩放；简中与英文不裁切,planned
-UI_007,笔刷预览与提示框,界面,ui_layout,P0,MVP,1,0,1,ui_layout,有效/无效轮廓+邻接提示+锁定按钮一套；正文≥18px,状态由样式切换；无额外图标资源计数,100/125/150%缩放；不遮目标格；鼠标与键盘焦点均可读,planned
-UI_008,六种建筑缩略图,界面,raster_thumbnail,P0,MVP,6,0,6,raster_thumbnail,6枚：基础居所/海岸/花园/温室/茶屋/灯塔；128/256px PNG,由6个最终prefab同角度同光照离屏渲染；不切割概念板,透明边无白晕；统一占画面比例；小尺寸可分辨,planned
-UI_009,设置面板组件,界面,ui_layout,P0,MVP,1,0,1,ui_layout,画质/声音/减少动画/镜头缓动/UI缩放；正文≥18px,复用UI_005面板/滑条/开关；100/125/150%缩放,720p无裁切；每项标签与值明确；键盘焦点可见,planned
-UI_010,存档与载入组件,界面,ui_layout,P0,MVP,1,0,1,ui_layout,3个手动槽/最近自动备份列表/写入失败重试提示；正文≥18px,复用通用面板；缩略图引用截图数据而非新增绘制,缩放至150%仍可用；时间/名称不截断；错误状态可辨,planned
-UI_011,拍照模式组件,界面,ui_layout,P0,MVP,1,0,1,ui_layout,隐藏UI/冻结居民/午后日落/分辨率/保存/打开文件夹；正文≥18px,复用UI_002图标；100/125/150%缩放；最终导出隐藏控件,导出PNG无UI水印；清楚提示本地保存位置,planned
-SCN_001,月牙湾内部演示构图,场景构图,scene_recipe,P0,MVP,1,0,1,scene_recipe,完整内部演示：小岛+浅湾+码头+3至5幢屋；不作为玩家开局已有房屋,只引用MVP源件；用于概念复现/验收/宣传构图；新开局仍无建筑,到岛/路网/入口/泊位可读；不污染空海面与预设海湾起点,planned
-SCN_002,花园茶歇,场景构图,scene_recipe,P0,MVP,1,0,1,scene_recipe,2×2温室与茶屋+花园路径；共享海湾的中期构图,复用同一海湾、花簇与家具,茶屋与温室从俯视镜头易区分,planned
-SCN_003,暮色灯塔岬,场景构图,scene_recipe,P0,MVP,1,0,1,scene_recipe,高岸+5m灯塔+合法短桥；台地最高h=4；共享海湾拍照构图,同一生物群系；只改灯光与物件排列,黄昏仍读得出道路和海岸,planned
-POST_001,秋日树冠变体,后续扩展,source_mesh,P1,POST,2,0,2,source_mesh,2种秋季树冠；≤900三角面/件,沿用NAT_001树干与MAT_004,不引入第二套骨架或地形,planned
-POST_002,雨天氛围,后续扩展,particle_effect,P1,POST,1,0,1,particle_effect,低密度雨线与地面涟漪1套,引用现有海水；不影响建造规则,可完全关闭；无频闪,planned
-POST_003,夜景灯串,后续扩展,source_mesh,P1,POST,1,0,1,source_mesh,可重复灯串模块；≤300三角面,复用MAT_007；按节点布置,远景不过曝；不增加大量动态光,planned
-POST_004,小舟帆篷变体,后续扩展,source_mesh,P1,POST,1,0,1,source_mesh,帆篷附加件；≤400三角面,引用PROP_010船体；不重复计整船,与乘客挂点不冲突,planned
-POST_005,岛屿合影相框,后续扩展,ui_layout,P1,POST,3,0,3,ui_layout,3种拍照相框；文字为运行时UI,引用已有色盘；不烘焙中文标题,支持无框导出；安全区一致,planned
-POST_006,居民坐姿看海表演,后续扩展,animation_clip,P1,POST,1,0,1,animation_clip,循环3秒；转头与轻摆脚；无需新增道具,沿用ACT_002与ANI_004坐姿；不列入MVP数量,与坐姿混合自然；座位脚点不漂移,planned
+﻿asset_id,name_zh,category,resource_type,priority,phase,base_count,variant_count,total_deliverables,unit,spec,reuse,acceptance,status,source_paths,technical_check,visual_acceptance
+TER_001,草地顶面,地形,source_mesh,P0,MVP,1,0,1,source_mesh,1×1格；LOD0≤80三角面；圆润外轮廓,全岛通用；颜色由MAT_001控制,四向拼接无裂缝；法线统一,source_available,res://game/art/catalog_sources/TER_001_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+TER_002,岩壁直段,地形,source_mesh,P0,MVP,1,0,1,source_mesh,长1格；高0.5格；LOD0≤160三角面,沿高度重复；旋转不增加源件,跨层接缝无漏光；顶底吸附正确,source_available,res://game/art/catalog_sources/TER_002_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+TER_003,岩壁外角,地形,source_mesh,P0,MVP,1,0,1,source_mesh,90度外角；高0.5格；≤200三角面,镜像与旋转复用,与直段同时拼接无裂缝,source_available,res://game/art/catalog_sources/TER_003_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+TER_004,岩壁内角,地形,source_mesh,P0,MVP,1,0,1,source_mesh,90度内角；高0.5格；≤200三角面,旋转复用,内凹边缘无黑面和穿帮,source_available,res://game/art/catalog_sources/TER_004_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+TER_005,沙滩直边,地形,source_mesh,P0,MVP,1,0,1,source_mesh,长1格；水平缓坡；≤140三角面,海岸自动拼接,草沙过渡无硬接缝,source_available,res://game/art/catalog_sources/TER_005_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+TER_006,沙滩外角,地形,source_mesh,P0,MVP,1,0,1,source_mesh,90度弧角；≤180三角面,旋转复用,水面覆盖范围不露空,source_available,res://game/art/catalog_sources/TER_006_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+TER_007,沙滩内角,地形,source_mesh,P0,MVP,1,0,1,source_mesh,90度内弧；≤180三角面,旋转复用,窄水湾仍保持连续沙岸,source_available,res://game/art/catalog_sources/TER_007_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+TER_008,低坡步道基底,地形,source_mesh,P0,MVP,1,0,1,source_mesh,长1格跨0.5m高差；路面视觉宽0.65m；≤180三角面,坡路与园路共用,仅相邻高差1级时连接；坡面与可走表面一致,source_available,res://game/art/catalog_sources/TER_008_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+TER_009,水面分块,地形,source_mesh,P0,MVP,1,0,1,source_mesh,8×8格平面；≤128三角面,平铺；波纹来自MAT_003,岸边无裂缝；远景无明显重复,source_available,res://game/art/catalog_sources/TER_009_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+TER_010,小岛下层封底,地形,source_mesh,P0,MVP,1,0,1,source_mesh,可拉伸封底块；≤120三角面,只封闭可见地块底面,最低相机角度看不到内部空面,source_available,res://game/art/catalog_sources/TER_010_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+INF_001,小路直段,基础设施,source_mesh,P0,MVP,1,0,1,source_mesh,1×1格；≤100三角面；1格=1m；实际铺装宽0.65m,四向旋转复用；含低频石块纹理,路面不闪烁；与地形无穿插,source_available,res://game/art/catalog_sources/INF_001_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+INF_002,小路转角,基础设施,source_mesh,P0,MVP,1,0,1,source_mesh,1×1格；≤120三角面；1格=1m；实际铺装宽0.65m,四向旋转复用,内外弯边缘连续,source_available,res://game/art/catalog_sources/INF_002_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+INF_003,小路丁字路口,基础设施,source_mesh,P0,MVP,1,0,1,source_mesh,1×1格；≤140三角面；1格=1m；实际铺装宽0.65m,四向旋转复用,三方向接点宽度一致,source_available,res://game/art/catalog_sources/INF_003_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+INF_004,小路十字路口,基础设施,source_mesh,P0,MVP,1,0,1,source_mesh,1×1格；≤140三角面；1格=1m；实际铺装宽0.65m,同一材质与UV密度,四路连接无可见切线,source_available,res://game/art/catalog_sources/INF_004_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+INF_005,小路端头,基础设施,source_mesh,P0,MVP,1,0,1,source_mesh,1×1格；圆头；≤80三角面；1格=1m；实际铺装宽0.65m,单独孤立点由端头组合生成,断头路无方形硬切边,source_available,res://game/art/catalog_sources/INF_005_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+INF_006,木桥模块,基础设施,source_mesh,P0,MVP,2,0,2,source_mesh,陆地桥头1件+1m重复跨段1件；通行宽0.65m；每件≤400三角面,组合横跨2–6个连续水格的直桥；两端陆地同高且h=1–2；不另计整桥模型,桥头接路；跨段无缝；非法跨度只预览不提交,source_available,res://game/art/catalog_sources/INF_006_00.tscn | res://game/art/catalog_sources/INF_006_01.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+INF_007,码头模块,基础设施,source_mesh,P0,MVP,2,0,2,source_mesh,陆地岸接段1件+1m水上重复端段1件；通行宽0.65m；每件≤400三角面,一个h=1–2陆地锚点+沿朝向2–4水格；侧边留1×3水格泊位；共享桥木材,锚点接路；3m船体停泊无穿模；水路通外海；不做物理船舶模拟,source_available,res://game/art/catalog_sources/INF_007_00.tscn | res://game/art/catalog_sources/INF_007_01.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+INF_008,设施组合场景,基础设施,prefab,P0,MVP,2,0,2,prefab,木桥与码头各1个参数化组合场景；桥2–6水格/码头2–4水格；含简化碰撞与吸附点,引用INF_006与INF_007；不增加新网格,改变长度后碰撞和吸附点正确,source_available,res://game/art/catalog_sources/INF_008_00.tscn | res://game/art/catalog_sources/INF_008_01.tscn,resource_load_hash_checked,pending_visual_and_spec_review
+KIT_001,灰泥墙面,建筑源件,source_mesh,P0,MVP,1,0,1,source_mesh,宽0.8m；檐高1.8m；每边两段组成1.6m房身；≤180三角面,小屋主体留在2×2m占地内；前后留附着件余量；角部圆角,四方向轮廓圆润；尺寸吸附一致,source_available,res://game/art/catalog_sources/KIT_001_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+KIT_002,窗墙模块,建筑源件,source_mesh,P0,MVP,1,0,1,source_mesh,宽0.8m×高1.8m窗墙；窗洞约0.55×0.65m；≤300三角面,共享窗框；夜间发光由材质切换,缩远仍读得出窗框和窗台,source_available,res://game/art/catalog_sources/KIT_002_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+KIT_003,入口模块,建筑源件,source_mesh,P0,MVP,1,0,1,source_mesh,宽0.8m×高1.8m入口模块；门洞约0.65×1.4m；≤350三角面,全部可入住建筑,入口锚点与道路连接方向一致,source_available,res://game/art/catalog_sources/KIT_003_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+KIT_004,双坡屋顶,建筑源件,source_mesh,P0,MVP,1,0,1,source_mesh,约2×2m双坡屋顶；屋脊高于檐口1m；组合总高2.8m；≤400三角面,珊瑚色和海盐蓝为材质变化,四向观察无背面破损,source_available,res://game/art/catalog_sources/KIT_004_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+KIT_005,低坡茶亭屋顶,建筑源件,source_mesh,P0,MVP,1,0,1,source_mesh,约2×2m低坡亭顶；檐高1.8m；顶高约2.4m；≤300三角面,茶屋与附属遮棚共用,与墙体不露空隙,source_available,res://game/art/catalog_sources/KIT_005_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+KIT_006,灯塔圆锥顶,建筑源件,source_mesh,P0,MVP,1,0,1,source_mesh,直径约1.8m；含檐口高约0.8m；组合灯塔总高5m；≤450三角面,灯塔专用；同材质色盘,圆形轮廓无明显锐角,source_available,res://game/art/catalog_sources/KIT_006_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+KIT_007,温室框架玻璃,建筑源件,source_mesh,P0,MVP,1,0,1,source_mesh,2×2m内的温室框架与玻璃；檐高1.8m；顶高2.8m；≤900三角面,温室整套框架复用单一玻璃材质,透明排序稳定；内部不依赖高成本折射,source_available,res://game/art/catalog_sources/KIT_007_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+KIT_008,木门廊,建筑源件,source_mesh,P0,MVP,1,0,1,source_mesh,宽1.5m×深0.35m；立柱高1.8m；≤350三角面,茶屋与普通居所,立柱/台阶在2×2m占地内；柱脚落地；入口不受阻,source_available,res://game/art/catalog_sources/KIT_008_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+KIT_009,海景阳台,建筑源件,source_mesh,P0,MVP,1,0,1,source_mesh,宽1.2m×深0.3m；栏高0.65m；≤450三角面,海岸居所；栏杆组件复用,和房身一起位于2×2m占地；可视檐口不产生额外阻挡,source_available,res://game/art/catalog_sources/KIT_009_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+KIT_010,灯塔塔身,建筑源件,source_mesh,P0,MVP,1,0,1,source_mesh,直径约1.5m；塔身连灯室高4.2m；组合总高5m；≤1600三角面,灯塔独有轮廓；门窗引用通用模块,四向均可识别；UV无可见接缝,source_available,res://game/art/catalog_sources/KIT_010_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+KIT_011,烟囱,建筑源件,source_mesh,P0,MVP,1,0,1,source_mesh,高0.45m；截面0.25×0.25m；≤120三角面,居所与茶屋；烟来自FX_001,安装点稳定；不穿透屋顶,source_available,res://game/art/catalog_sources/KIT_011_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+KIT_012,小屋地基裙边,建筑源件,source_mesh,P0,MVP,1,0,1,source_mesh,2×2m低地基；高0.12m；≤180三角面,全部小屋；与岛面交界遮缝,斜岸边放置时不露底,source_available,res://game/art/catalog_sources/KIT_012_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+BLD_001,普通居所,建筑组合,prefab,P0,MVP,1,0,1,prefab,2×2格；檐高1.8m/总高2.8m；整体LOD0≤3000三角面,门窗屋顶烟囱均引用源件,2×2灰盒内检查；入口朝路；四向可读；含居民门口点,source_available,res://game/art/catalog_sources/BLD_001_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+BLD_002,海岸居所,建筑组合,prefab,P0,MVP,1,0,1,prefab,2×2格；檐高1.8m/总高2.8m；海景阳台；整体≤3000三角面,BLD_001+KIT_009；无新网格,海岸附件不改变入口或床位；可阻挡附件不越2×2格；四向可读,source_available,res://game/art/catalog_sources/BLD_002_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+BLD_003,花园居所,建筑组合,prefab,P0,MVP,1,0,1,prefab,2×2格；檐高1.8m/总高2.8m；花箱/藤蔓；整体≤3000三角面,BLD_001+PROP_002+NAT_006,植物不遮门；可阻挡附件不越2×2格；缩远可识别花园,source_available,res://game/art/catalog_sources/BLD_003_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+BLD_004,温室,建筑组合,prefab,P0,MVP,1,0,1,prefab,2×2格；檐高1.8m/顶高2.8m；整体≤4000三角面,KIT_007+共用地基+盆栽,玻璃排序稳定；一个活动点可达；框架植株层次清晰,source_available,res://game/art/catalog_sources/BLD_004_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+BLD_005,茶屋,建筑组合,prefab,P0,MVP,1,0,1,prefab,2×2格开放茶亭；檐高1.8m；顶高约2.4m；整体≤4000三角面,KIT_005/008+PROP_004/005/016；两个坐席活动点；桌椅茶具引用源件,两个活动点可预约；椅座高0.35m与1m居民坐姿一起验收,source_available,res://game/art/catalog_sources/BLD_005_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+BLD_006,灯塔,建筑组合,prefab,P0,MVP,1,0,1,prefab,2×2格；总高5m；整体≤5000三角面,KIT_006/010与通用入口,四向可识别；入口和塔外活动点可达；灯束可关闭,source_available,res://game/art/catalog_sources/BLD_006_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+NAT_001,圆冠海岸树,植被石头,source_mesh,P0,MVP,1,1,2,source_mesh,高约3m；冠径约2m；≤1500三角面/件；新增轮廓变体1件,调色与缩放不增加变体数,冠层遮挡可淡出；无尖锐细枝,source_available,res://game/art/catalog_sources/NAT_001_00.tscn | res://game/art/catalog_sources/NAT_001_01.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+NAT_002,低矮灌木,植被石头,source_mesh,P0,MVP,1,1,2,source_mesh,高0.45m；宽约0.7m；≤180三角面/件；新增轮廓变体1件,道路与庭院共享,最远镜头不闪烁,source_available,res://game/art/catalog_sources/NAT_002_00.tscn | res://game/art/catalog_sources/NAT_002_01.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+NAT_003,草簇,植被石头,source_mesh,P0,MVP,1,0,1,source_mesh,高0.15m；宽0.3m；≤60三角面,多实例散布；非逐根草叶,无高频噪点；不遮道路,source_available,res://game/art/catalog_sources/NAT_003_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+NAT_004,花簇,植被石头,source_mesh,P0,MVP,1,0,1,source_mesh,高0.25m；宽0.4m；3至5朵为一簇；≤140三角面,奶黄与珊瑚色使用调色,缩远仍呈花团色块,source_available,res://game/art/catalog_sources/NAT_004_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+NAT_005,芦苇,植被石头,source_mesh,P0,MVP,1,0,1,source_mesh,高0.8m；簇宽0.35m；≤120三角面,湾岸与小池共享,风摆不穿入建筑,source_available,res://game/art/catalog_sources/NAT_005_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+NAT_006,攀爬藤蔓,植被石头,source_mesh,P0,MVP,1,0,1,source_mesh,约高1.2m×宽0.5m墙挂模块；≤140三角面,花园居所与茶屋共享,贴墙不闪烁；不覆盖窗洞,source_available,res://game/art/catalog_sources/NAT_006_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+NAT_007,圆润海石,植被石头,source_mesh,P0,MVP,1,2,3,source_mesh,宽0.5–1m；高0.3–0.6m；每件≤260三角面；新增轮廓变体2件,缩放和旋转用于散布,平滑法线；三种轮廓可辨,source_available,res://game/art/catalog_sources/NAT_007_00.tscn | res://game/art/catalog_sources/NAT_007_01.tscn | res://game/art/catalog_sources/NAT_007_02.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+NAT_008,浅水礁石,植被石头,source_mesh,P0,MVP,1,0,1,source_mesh,宽约0.8m；露水部分高0.35m；≤320三角面,潮线构图；无新生物群系,水线过渡稳定；无悬浮感,source_available,res://game/art/catalog_sources/NAT_008_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+NAT_009,盆栽植株,植被石头,source_mesh,P0,MVP,1,0,1,source_mesh,高0.45m；冠径0.3m；≤180三角面,温室和门口共用PROP_001花盆,不与盆沿穿插,source_available,res://game/art/catalog_sources/NAT_009_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+NAT_010,瘦长海岸树,植被石头,source_mesh,P1,MVP,1,0,1,source_mesh,高约3m；冠径约0.8m；≤1500三角面,与圆冠树形成轮廓对比；共用MAT_004,四向读形；缩远仍可分辨树形,source_available,res://game/art/catalog_sources/NAT_010_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+PROP_001,陶盆,摆件,source_mesh,P0,MVP,1,0,1,source_mesh,高0.3m；口径0.3m；≤160三角面,与NAT_009组合；不另计盆栽整体模型,轮廓圆润；底面可落地,source_available,res://game/art/catalog_sources/PROP_001_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+PROP_002,窗台花箱,摆件,source_mesh,P0,MVP,1,0,1,source_mesh,宽0.7m×深0.22m×高0.25m；≤220三角面,花朵引用NAT_004,窗台锚点一致；不遮窗,source_available,res://game/art/catalog_sources/PROP_002_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+PROP_003,海边长椅,摆件,source_mesh,P0,MVP,1,0,1,source_mesh,宽约1m×深0.4m；座高0.35m；总高0.7m；≤450三角面,花园/码头/茶屋共享,1×1格占地内；含坐席与前方活动点；1m居民坐姿不悬空,source_available,res://game/art/catalog_sources/PROP_003_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+PROP_004,圆茶桌,摆件,source_mesh,P0,MVP,1,0,1,source_mesh,直径0.8m；桌高0.5m；≤300三角面,茶屋与庭院共享,高度与椅子配套,source_available,res://game/art/catalog_sources/PROP_004_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+PROP_005,木椅,摆件,source_mesh,P0,MVP,1,0,1,source_mesh,宽0.4m×深0.4m；座高0.35m；总高0.75m；≤280三角面,可组合茶桌；坐姿复用,含坐席锚点；轮廓简洁,source_available,res://game/art/catalog_sources/PROP_005_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+PROP_006,暖光灯笼,摆件,source_mesh,P0,MVP,1,0,1,source_mesh,高0.35m×宽0.2m；≤200三角面；顶部持握挂点,自由摆放与守灯人手持共用同一源件；发光由MAT_007控制,日夜可辨；手部挂点对齐；无过亮溢出,source_available,res://game/art/catalog_sources/PROP_006_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+PROP_007,木路牌,摆件,source_mesh,P0,MVP,1,0,1,source_mesh,高1.1m；牌宽0.45m；≤220三角面,牌面无烘焙文字；可本地化贴图,两面无错法线；不占行走中心,source_available,res://game/art/catalog_sources/PROP_007_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+PROP_008,岛屿信箱,摆件,source_mesh,P0,MVP,1,0,1,source_mesh,高0.9m；箱体宽0.35m；≤350三角面,心愿提示节点；旗帜单独挂点,旗帜状态可切换；不使用可读小字,source_available,res://game/art/catalog_sources/PROP_008_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+PROP_009,遮阳伞,摆件,source_mesh,P0,MVP,1,0,1,source_mesh,高2.2m；伞径1.6m；≤500三角面,茶屋和海岸共享,伞沿不遮互动热点,source_available,res://game/art/catalog_sources/PROP_009_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+PROP_010,来岛小舟,摆件,source_mesh,P0,MVP,1,0,1,source_mesh,船长3m；船宽≤0.9m；≤1200三角面；船底水线明确,到访与码头停泊共用,码头侧面有3m完整水面余量；泊位锚点与乘客挂点正确；靠岸不穿模,source_available,res://game/art/catalog_sources/PROP_010_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+PROP_011,居民头部附件,摆件,source_mesh,P0,MVP,4,0,4,source_mesh,总4种：蓝帽/宽檐帽/头带/浅色渔帽；宽约0.3–0.5m；每件≤180三角面,四外观预设各引用一件；头带也计独立附件；不另计调色,适配1m居民；四种轮廓可分；转头不穿模,source_available,res://game/art/catalog_sources/PROP_011_00.tscn | res://game/art/catalog_sources/PROP_011_01.tscn | res://game/art/catalog_sources/PROP_011_02.tscn | res://game/art/catalog_sources/PROP_011_03.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+PROP_012,居民行李与浇水壶,摆件,source_mesh,P0,MVP,2,0,2,source_mesh,行李箱1件（高0.45m）+浇水壶1件（高0.3m）；各≤350三角面,行李箱配拖箱行走；浇水壶配ANI_005；共享手部挂点,两件分别导出；箱底接地；壶与手握点不穿模,source_available,res://game/art/catalog_sources/PROP_012_00.tscn | res://game/art/catalog_sources/PROP_012_01.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+PROP_013,海岸木箱,摆件,source_mesh,P1,MVP,1,0,1,source_mesh,约0.5×0.45×0.45m；≤300三角面,码头演示构图与庭院共用,落地稳定；不堵入口或泊位,source_available,res://game/art/catalog_sources/PROP_013_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+PROP_014,系缆桩与绳圈,摆件,source_mesh,P1,MVP,2,0,2,source_mesh,桩1件高0.45m+绳圈1件直径0.3m；各≤300三角面,码头组合引用两件；绳圈可重复摆放,两件分别导出；绳与船挂点不穿模,source_available,res://game/art/catalog_sources/PROP_014_00.tscn | res://game/art/catalog_sources/PROP_014_01.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+PROP_015,短围栏套件,摆件,source_mesh,P1,MVP,2,0,2,source_mesh,0.8m横栏1件+高0.6m立柱1件；各≤300三角面,灯塔岬与花园共享；转角引用立柱,占格与碰撞明确；不替代道路栏杆导航,source_available,res://game/art/catalog_sources/PROP_015_00.tscn | res://game/art/catalog_sources/PROP_015_01.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+PROP_016,茶壶与茶杯,摆件,source_mesh,P0,MVP,2,0,2,source_mesh,茶壶1件高0.18m+茶杯1件高0.1m；各≤300三角面,同一杯源件重复至两席；茶友手持和茶桌共用,杯口可读；手部锚点与桌面高度吻合,source_available,res://game/art/catalog_sources/PROP_016_00.tscn | res://game/art/catalog_sources/PROP_016_01.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+ACT_001,居民通用身体,角色动物,skinned_mesh,P0,MVP,1,0,1,skinned_mesh,高1m；约三头身；头/手/脚与可隐藏躯干区；≤1500三角面,四外观共享身体；衣装来自ACT_006；不用四套身体,蒙皮无塌陷；含衣装附件及手持件的角色总预算≤2500三角面,source_available,res://game/art/catalog_sources/ACT_001_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+ACT_002,居民通用骨架,角色动物,rig,P0,MVP,1,0,1,rig,≤24骨；统一根骨与挂点命名,所有居民共享动画,根节点比例1；左右手与座位挂点齐全,source_available,res://game/art/catalog_sources/ACT_002_00.tscn,resource_load_hash_checked,pending_visual_and_spec_review
+ACT_003,居民外观预设,角色动物,appearance_prefab,P0,MVP,4,0,4,appearance_prefab,4套：黄斗篷蓝帽旅人/绿背带裤宽檐帽园丁/珊瑚围裙蓝围巾头带茶友/蓝毛衣渔帽守灯人；高1m,ACT_001/002/006+PROP_011/012/006/016；共享骨架与衣装切换；无新身体,四套在标准镜头轮廓可分；茶友不是仅换颜色；无职业权限绑定,source_available,res://game/art/catalog_sources/ACT_003_00.tscn | res://game/art/catalog_sources/ACT_003_01.tscn | res://game/art/catalog_sources/ACT_003_02.tscn | res://game/art/catalog_sources/ACT_003_03.tscn,resource_load_hash_checked,pending_visual_and_spec_review
+ACT_004,海鸥,角色动物,rigged_model,P0,MVP,1,0,1,rigged_model,站高0.3m；翼展约0.8m；≤1200三角面；≤10骨；含专用骨架,只做海鸥1类；群体复用,展翅轮廓清晰；落地脚点正确,source_available,res://game/art/catalog_sources/ACT_004_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+ACT_005,海岛小猫,角色动物,rigged_model,P0,MVP,1,0,1,rigged_model,肩高约0.35m；体长约0.65m不含尾；≤1200三角面；≤18骨；含专用骨架,只做猫1类；毛色是材质参数,尾部弯曲无塌陷；地面脚点正确,source_available,res://game/art/catalog_sources/ACT_005_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+ACT_006,共享可切换衣装件,角色动物,skinned_attachment,P0,MVP,5,0,5,skinned_attachment,共5件：黄斗篷≤400/绿背带裤≤350/珊瑚围裙≤250/蓝围巾≤100/蓝毛衣≤350三角面,绑定ACT_002；按外观切换并隐藏身体重叠区；头部件另列PROP_011,衣装/头饰/手持件组合后各居民总面数≤2500；茶友围裙轮廓明显；走坐不严重穿模,source_available,res://game/art/catalog_sources/ACT_006_00.tscn | res://game/art/catalog_sources/ACT_006_01.tscn | res://game/art/catalog_sources/ACT_006_02.tscn | res://game/art/catalog_sources/ACT_006_03.tscn | res://game/art/catalog_sources/ACT_006_04.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+ANI_001,居民待机,动画,animation_clip,P0,MVP,1,0,1,animation_clip,循环3秒；30fps；无根位移,全部4种居民共用,首尾无跳帧；呼吸幅度克制,source_available,res://game/art/catalog_sources/ANI_001_00.tres,resource_load_hash_checked,pending_visual_and_spec_review
+ANI_002,居民散步,动画,animation_clip,P0,MVP,1,0,1,animation_clip,循环1秒；原地步行；速度由程序匹配,全部居民共用,标准移动速度下不明显滑步,source_available,res://game/art/catalog_sources/ANI_002_00.tres,resource_load_hash_checked,pending_visual_and_spec_review
+ANI_003,居民挥手,动画,animation_clip,P0,MVP,1,0,1,animation_clip,一次性2秒；原地动作,来岛与心愿完成共用,可从待机平滑混合,source_available,res://game/art/catalog_sources/ANI_003_00.tres,resource_load_hash_checked,pending_visual_and_spec_review
+ANI_004,居民坐下与起身,动画,animation_clip,P0,MVP,3,0,3,animation_clip,坐下1段+坐姿循环1段+起身1段；各30fps,茶桌/长椅共用座位锚点,三段衔接无跳变；坐姿不悬空,source_available,res://game/art/catalog_sources/ANI_004_00.tres | res://game/art/catalog_sources/ANI_004_01.tres | res://game/art/catalog_sources/ANI_004_02.tres,resource_load_hash_checked,pending_visual_and_spec_review
+ANI_005,居民浇花,动画,animation_clip,P0,MVP,1,0,1,animation_clip,循环2秒；适配1m居民；浇水壶引用PROP_012；根节点原地,温室和花园生活表演共用,手部运动不穿过身体,source_available,res://game/art/catalog_sources/ANI_005_00.tres,resource_load_hash_checked,pending_visual_and_spec_review
+ANI_006,海鸥飞行,动画,animation_clip,P0,MVP,1,0,1,animation_clip,循环1秒；无根位移,飞行路径由程序提供,翼尖不穿身体；循环自然,source_available,res://game/art/catalog_sources/ANI_006_00.tres,resource_load_hash_checked,pending_visual_and_spec_review
+ANI_007,海鸥站立,动画,animation_clip,P0,MVP,1,0,1,animation_clip,循环3秒；轻微转头,岸边和码头共享,脚点稳定,source_available,res://game/art/catalog_sources/ANI_007_00.tres,resource_load_hash_checked,pending_visual_and_spec_review
+ANI_008,猫散步,动画,animation_clip,P0,MVP,1,0,1,animation_clip,循环1秒；无根位移,所有猫实例共用,四足步态顺序正确,source_available,res://game/art/catalog_sources/ANI_008_00.tres,resource_load_hash_checked,pending_visual_and_spec_review
+ANI_009,猫睡觉,动画,animation_clip,P0,MVP,1,0,1,animation_clip,循环3秒；尾巴收拢,长椅旁与门廊共享,呼吸轻微；接地稳定,source_available,res://game/art/catalog_sources/ANI_009_00.tres,resource_load_hash_checked,pending_visual_and_spec_review
+ANI_010,船体轻摇,动画,procedural_motion,P0,MVP,1,0,1,procedural_motion,正弦轻摇配置；振幅≤3度,PROP_010共用；不新建动画骨架,3m船体轻摇不穿码头；与海面保持正确水线,source_available,res://game/art/catalog_sources/ANI_010_00.tres,resource_load_hash_checked,pending_visual_and_spec_review
+ANI_011,居民坐姿喝茶,动画,animation_clip,P0,MVP,1,0,1,animation_clip,原地循环约4秒；含端杯/饮茶/放低；配1m角色,ACT_002+PROP_016；两位居民独立播放；桌高0.5m/座高0.35m,手杯对齐；不穿脸；接坐姿无跳帧,source_available,res://game/art/catalog_sources/ANI_011_00.tres,resource_load_hash_checked,pending_visual_and_spec_review
+ANI_012,海鸥起飞,动画,animation_clip,P0,MVP,1,0,1,animation_clip,一次性约1秒；原地表演；路径系统驱动升空,衔接ANI_007驻足和ANI_006飞行,双脚离地与振翅同步；过渡无瞬移,source_available,res://game/art/catalog_sources/ANI_012_00.tres,resource_load_hash_checked,pending_visual_and_spec_review
+ANI_013,海鸥落地,动画,animation_clip,P0,MVP,1,0,1,animation_clip,一次性约1秒；原地表演；预设栖息点落脚,衔接飞行和驻足；不做真实鸟类物理,落脚点稳定；不穿码头,source_available,res://game/art/catalog_sources/ANI_013_00.tres,resource_load_hash_checked,pending_visual_and_spec_review
+ANI_014,猫伸懒腰,动画,animation_clip,P1,MVP,1,0,1,animation_clip,一次性约2秒；原地；适配ACT_005,衔接猫睡觉与散步；P1但仍属MVP,四足落点合理；脊背弯曲无塌陷,source_available,res://game/art/catalog_sources/ANI_014_00.tres,resource_load_hash_checked,pending_visual_and_spec_review
+ANI_015,居民拖箱行走,动画,animation_clip,P1,MVP,1,0,1,animation_clip,原地步行循环约1秒；手臂后伸拖箱姿势,ACT_002+PROP_012行李箱；脚步可复用ANI_002下半身,箱轮/箱底接地；与手挂点不拉伸,source_available,res://game/art/catalog_sources/ANI_015_00.tres,resource_load_hash_checked,pending_visual_and_spec_review
+ANI_016,居民持物上身姿势,动画,animation_clip,P1,MVP,2,0,2,animation_clip,2段可混合持物姿势：提灯笼/抱陶盆；根节点原地,沿用散步与待机下半身；不新增骨架；茶杯姿势用ANI_011,与PROP_006/001挂点共同验收；不穿身体,source_available,res://game/art/catalog_sources/ANI_016_00.tres | res://game/art/catalog_sources/ANI_016_01.tres,resource_load_hash_checked,pending_visual_and_spec_review
+MAT_001,地形色盘材质,材质,material,P0,MVP,1,0,1,material,统一低饱和色盘；草/沙/岩3个可调色区,所有地形共享主材质,标准光下无过曝；粗糙度统一,source_available,res://game/art/catalog_sources/MAT_001_00.tres,resource_load_hash_checked,pending_visual_and_spec_review
+MAT_002,建筑道具主材质,材质,material,P0,MVP,1,0,1,material,色盘/顶点色；灰泥/木/屋顶统一着色逻辑,建筑与摆件共享；配色不计新网格,珊瑚与海盐蓝配色可参数切换,source_available,res://game/art/catalog_sources/MAT_002_00.tres,resource_load_hash_checked,pending_visual_and_spec_review
+MAT_003,浅青海水,材质,material,P0,MVP,1,0,1,material,无折射依赖；低频法线/深浅渐变/岸线遮罩,整个海湾唯一水体主材质,低档画质仍保持岸线可读,source_available,res://game/art/catalog_sources/MAT_003_00.tres,resource_load_hash_checked,pending_visual_and_spec_review
+MAT_004,植被柔和材质,材质,material,P0,MVP,1,0,1,material,顶点风摆；不依赖高密度透明卡片,树/草/花共用主材质,无明显透明排序问题；风摆可关闭,source_available,res://game/art/catalog_sources/MAT_004_00.tres,resource_load_hash_checked,pending_visual_and_spec_review
+MAT_005,温室玻璃,材质,material,P0,MVP,1,0,1,material,柔色半透明或抖动透明；无屏幕空间折射,只用于KIT_007,四向旋转无层叠闪烁,source_available,res://game/art/catalog_sources/MAT_005_00.tres,resource_load_hash_checked,pending_visual_and_spec_review
+MAT_006,居民动物色盘,材质,material,P0,MVP,1,0,1,material,统一色盘；角色可按实例调色,居民/猫/海鸥共享着色基底,肌肤与衣物明度足以区分,source_available,res://game/art/catalog_sources/MAT_006_00.tres,resource_load_hash_checked,pending_visual_and_spec_review
+MAT_007,窗灯发光材质,材质,material,P0,MVP,1,0,1,material,发光上限可调；曝光固定时不溢白,窗/灯/灯塔共用,关闭后仍有基础颜色,source_available,res://game/art/catalog_sources/MAT_007_00.tres,resource_load_hash_checked,pending_visual_and_spec_review
+FX_001,烟囱轻烟,特效,particle_effect,P0,MVP,1,0,1,particle_effect,单点≤16粒子；寿命约3秒,所有烟囱复用,风向一致；不遮主建筑,source_available,res://game/art/catalog_sources/FX_001_00.tscn,resource_load_hash_checked,pending_visual_and_spec_review
+FX_002,岸线白沫,特效,shader_effect,P0,MVP,1,0,1,shader_effect,岸线遮罩循环；低频无眩光,引用MAT_003；不计独立海面模型,细岸不漏接；关闭动态仍能识别水陆,source_available,res://game/art/catalog_sources/FX_002_00.tscn,resource_load_hash_checked,pending_visual_and_spec_review
+FX_003,笔刷落地反馈,特效,particle_effect,P0,MVP,1,0,1,particle_effect,一次性≤12粒子；0.5秒内结束,土地/植物落笔共用调色,不遮当前笔刷格；减少动态模式可关闭,source_available,res://game/art/catalog_sources/FX_003_00.tscn,resource_load_hash_checked,pending_visual_and_spec_review
+FX_004,愿望完成微光,特效,particle_effect,P0,MVP,1,0,1,particle_effect,一次性≤16粒子；1秒内结束,不以满屏庆祝干扰建造,静音与减少动态模式下仍有UI反馈,source_available,res://game/art/catalog_sources/FX_004_00.tscn,resource_load_hash_checked,pending_visual_and_spec_review
+FX_005,灯塔柔光扫掠,特效,shader_effect,P0,MVP,1,0,1,shader_effect,轻量透明扇面；1个动态光上限,附加到BLD_006；可单独关闭,光束不穿透UI；亮度柔和,source_available,res://game/art/catalog_sources/FX_005_00.tscn,resource_load_hash_checked,pending_visual_and_spec_review
+ENV_001,午后与日落光照预设,环境光照,environment_profile,P0,MVP,2,0,2,environment_profile,2套：午后/日落；同一世界环境基础；暖主光与偏青柔影,共享天空与材质；不重复计新场景模型,两套均可读道路/入口/角色；海水无刺眼闪烁,source_available,res://game/art/catalog_sources/ENV_001_00.tres | res://game/art/catalog_sources/ENV_001_01.tres,resource_load_hash_checked,pending_visual_and_spec_review
+UI_001,笔刷工具图标,界面,vector_icon,P0,MVP,8,0,8,vector_icon,8枚工具图标；可编辑SVG+32/64px PNG；统一图形语言,土地/水/高差/路/建筑/植物/摆件/擦除；程序生成交互状态,32px尺寸可识别；不只依靠颜色,source_available,res://game/ui/vectors/UI_001_00.svg | res://game/ui/vectors/UI_001_01.svg | res://game/ui/vectors/UI_001_02.svg | res://game/ui/vectors/UI_001_03.svg | res://game/ui/vectors/UI_001_04.svg | res://game/ui/vectors/UI_001_05.svg | res://game/ui/vectors/UI_001_06.svg | res://game/ui/vectors/UI_001_07.svg,resource_load_hash_checked,pending_visual_and_spec_review
+UI_002,操作图标,界面,vector_icon,P0,MVP,6,0,6,vector_icon,6枚操作图标；SVG+32/64px PNG,撤销/重做/旋转/设置/暂停/拍照；程序生成焦点/禁用态,图标语义一致；暗底亮底均可读,source_available,res://game/ui/vectors/UI_002_00.svg | res://game/ui/vectors/UI_002_01.svg | res://game/ui/vectors/UI_002_02.svg | res://game/ui/vectors/UI_002_03.svg | res://game/ui/vectors/UI_002_04.svg | res://game/ui/vectors/UI_002_05.svg,resource_load_hash_checked,pending_visual_and_spec_review
+UI_003,六条愿望图标,界面,vector_icon,P0,MVP,6,0,6,vector_icon,6枚：海风座位/花园/茶会/过桥/温室/灯塔；SVG+32/64px PNG,与六条手记共用；不使用倒计时,与对应物件形状一致,source_available,res://game/ui/vectors/UI_003_00.svg | res://game/ui/vectors/UI_003_01.svg | res://game/ui/vectors/UI_003_02.svg | res://game/ui/vectors/UI_003_03.svg | res://game/ui/vectors/UI_003_04.svg | res://game/ui/vectors/UI_003_05.svg,resource_load_hash_checked,pending_visual_and_spec_review
+UI_004,连通与锁定状态图标,界面,vector_icon,P0,MVP,4,0,4,vector_icon,4枚状态图标；已连通/未连通/锁定/自动；SVG+32/64px PNG,图形和文字共同提示状态,色觉差异情况下仍可区分,source_available,res://game/ui/vectors/UI_004_00.svg | res://game/ui/vectors/UI_004_01.svg | res://game/ui/vectors/UI_004_02.svg | res://game/ui/vectors/UI_004_03.svg,resource_load_hash_checked,pending_visual_and_spec_review
+UI_005,底部工具栏皮肤,界面,ui_layout,P0,MVP,1,0,1,ui_layout,9切片工具栏1套；支持16:9与16:10；1920×1080基准/1280×720最低,统一组件；不逐按钮重复画背景,关键正文≥18px；100/125/150%缩放不重叠；焦点明确,source_available,res://game/art/catalog_sources/UI_005_00.tscn,resource_load_hash_checked,pending_visual_and_spec_review
+UI_006,手记与愿望卡片,界面,ui_layout,P0,MVP,1,0,1,ui_layout,手记侧栏与愿望卡片共享组件1套；6条手记内容槽,图文长度可扩展；支持简中与英文,关键正文≥18px；100/125/150%缩放；简中与英文不裁切,source_available,res://game/art/catalog_sources/UI_006_00.tscn,resource_load_hash_checked,pending_visual_and_spec_review
+UI_007,笔刷预览与提示框,界面,ui_layout,P0,MVP,1,0,1,ui_layout,有效/无效轮廓+邻接提示+锁定按钮一套；正文≥18px,状态由样式切换；无额外图标资源计数,100/125/150%缩放；不遮目标格；鼠标与键盘焦点均可读,source_available,res://game/art/catalog_sources/UI_007_00.tscn,resource_load_hash_checked,pending_visual_and_spec_review
+UI_008,六种建筑缩略图,界面,raster_thumbnail,P0,MVP,6,0,6,raster_thumbnail,6枚：基础居所/海岸/花园/温室/茶屋/灯塔；128/256px PNG,由6个最终prefab同角度同光照离屏渲染；不切割概念板,透明边无白晕；统一占画面比例；小尺寸可分辨,source_available,res://game/ui/icons/house_basic.png | res://game/ui/icons/house_coast.png | res://game/ui/icons/house_garden.png | res://game/ui/icons/greenhouse.png | res://game/ui/icons/tea.png | res://game/ui/icons/lighthouse.png,resource_load_hash_checked,pending_visual_and_spec_review
+UI_009,设置面板组件,界面,ui_layout,P0,MVP,1,0,1,ui_layout,画质/声音/减少动画/镜头缓动/UI缩放；正文≥18px,复用UI_005面板/滑条/开关；100/125/150%缩放,720p无裁切；每项标签与值明确；键盘焦点可见,source_available,res://game/art/catalog_sources/UI_009_00.tscn,resource_load_hash_checked,pending_visual_and_spec_review
+UI_010,存档与载入组件,界面,ui_layout,P0,MVP,1,0,1,ui_layout,3个手动槽/最近自动备份列表/写入失败重试提示；正文≥18px,复用通用面板；缩略图引用截图数据而非新增绘制,缩放至150%仍可用；时间/名称不截断；错误状态可辨,source_available,res://game/art/catalog_sources/UI_010_00.tscn,resource_load_hash_checked,pending_visual_and_spec_review
+UI_011,拍照模式组件,界面,ui_layout,P0,MVP,1,0,1,ui_layout,隐藏UI/冻结居民/午后日落/分辨率/保存/打开文件夹；正文≥18px,复用UI_002图标；100/125/150%缩放；最终导出隐藏控件,导出PNG无UI水印；清楚提示本地保存位置,source_available,res://game/art/catalog_sources/UI_011_00.tscn,resource_load_hash_checked,pending_visual_and_spec_review
+SCN_001,月牙湾内部演示构图,场景构图,scene_recipe,P0,MVP,1,0,1,scene_recipe,完整内部演示：小岛+浅湾+码头+3至5幢屋；不作为玩家开局已有房屋,只引用MVP源件；用于概念复现/验收/宣传构图；新开局仍无建筑,到岛/路网/入口/泊位可读；不污染空海面与预设海湾起点,source_available,res://game/art/catalog_sources/SCN_001_00.json,resource_load_hash_checked,pending_visual_and_spec_review
+SCN_002,花园茶歇,场景构图,scene_recipe,P0,MVP,1,0,1,scene_recipe,2×2温室与茶屋+花园路径；共享海湾的中期构图,复用同一海湾、花簇与家具,茶屋与温室从俯视镜头易区分,source_available,res://game/art/catalog_sources/SCN_002_00.json,resource_load_hash_checked,pending_visual_and_spec_review
+SCN_003,暮色灯塔岬,场景构图,scene_recipe,P0,MVP,1,0,1,scene_recipe,高岸+5m灯塔+合法短桥；台地最高h=4；共享海湾拍照构图,同一生物群系；只改灯光与物件排列,黄昏仍读得出道路和海岸,source_available,res://game/art/catalog_sources/SCN_003_00.json,resource_load_hash_checked,pending_visual_and_spec_review
+POST_001,秋日树冠变体,后续扩展,source_mesh,P1,POST,2,0,2,source_mesh,2种秋季树冠；≤900三角面/件,沿用NAT_001树干与MAT_004,不引入第二套骨架或地形,source_available,res://game/art/catalog_sources/POST_001_00.tscn | res://game/art/catalog_sources/POST_001_01.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+POST_002,雨天氛围,后续扩展,particle_effect,P1,POST,1,0,1,particle_effect,低密度雨线与地面涟漪1套,引用现有海水；不影响建造规则,可完全关闭；无频闪,source_available,res://game/art/catalog_sources/POST_002_00.tscn,resource_load_hash_checked,pending_visual_and_spec_review
+POST_003,夜景灯串,后续扩展,source_mesh,P1,POST,1,0,1,source_mesh,可重复灯串模块；≤300三角面,复用MAT_007；按节点布置,远景不过曝；不增加大量动态光,source_available,res://game/art/catalog_sources/POST_003_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+POST_004,小舟帆篷变体,后续扩展,source_mesh,P1,POST,1,0,1,source_mesh,帆篷附加件；≤400三角面,引用PROP_010船体；不重复计整船,与乘客挂点不冲突,source_available,res://game/art/catalog_sources/POST_004_00.tscn,resource_load_hash_checked; geometry_budget_checked,pending_visual_and_spec_review
+POST_005,岛屿合影相框,后续扩展,ui_layout,P1,POST,3,0,3,ui_layout,3种拍照相框；文字为运行时UI,引用已有色盘；不烘焙中文标题,支持无框导出；安全区一致,source_available,res://game/ui/vectors/POST_005_00.svg | res://game/ui/vectors/POST_005_01.svg | res://game/ui/vectors/POST_005_02.svg,resource_load_hash_checked,pending_visual_and_spec_review
+POST_006,居民坐姿看海表演,后续扩展,animation_clip,P1,POST,1,0,1,animation_clip,循环3秒；转头与轻摆脚；无需新增道具,沿用ACT_002与ANI_004坐姿；不列入MVP数量,与坐姿混合自然；座位脚点不漂移,source_available,res://game/art/catalog_sources/POST_006_00.tres,resource_load_hash_checked,pending_visual_and_spec_review

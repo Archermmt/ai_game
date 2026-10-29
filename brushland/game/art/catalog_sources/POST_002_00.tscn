@@ -1,0 +1,170 @@
+[gd_scene format=3]
+
+[sub_resource type="Shader" id="Shader_refwk"]
+code = "shader_type spatial; render_mode unshaded,cull_disabled; uniform float clock=0.0; void vertex(){VERTEX.y-=mod(clock*1.7,3.0);} void fragment(){ALBEDO=vec3(0.74,0.85,0.84);ALPHA=0.24;}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eig3n"]
+render_priority = 0
+shader = SubResource("Shader_refwk")
+shader_parameter/clock = null
+
+[sub_resource type="QuadMesh" id="QuadMesh_xeem2"]
+size = Vector2(0.012, 0.25)
+
+[sub_resource type="MultiMesh" id="MultiMesh_lsv3w"]
+transform_format = 1
+instance_count = 80
+mesh = SubResource("QuadMesh_xeem2")
+
+[sub_resource type="Shader" id="Shader_1srns"]
+code = "shader_type spatial; render_mode unshaded,cull_disabled; uniform float clock=0.0; uniform float phase=0.0; void fragment(){float t=fract(clock*0.6+phase);float d=length(UV-vec2(0.5));ALBEDO=vec3(0.77,0.86,0.82);ALPHA=(1.0-smoothstep(0.015,0.03,abs(d-t*0.45)))*(1.0-t)*0.35;}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1itvy"]
+render_priority = 0
+shader = SubResource("Shader_1srns")
+shader_parameter/clock = null
+shader_parameter/phase = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_j172a"]
+size = Vector2(0.4, 0.4)
+
+[sub_resource type="Shader" id="Shader_451y0"]
+code = "shader_type spatial; render_mode unshaded,cull_disabled; uniform float clock=0.0; uniform float phase=0.0; void fragment(){float t=fract(clock*0.6+phase);float d=length(UV-vec2(0.5));ALBEDO=vec3(0.77,0.86,0.82);ALPHA=(1.0-smoothstep(0.015,0.03,abs(d-t*0.45)))*(1.0-t)*0.35;}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_behx1"]
+render_priority = 0
+shader = SubResource("Shader_451y0")
+shader_parameter/clock = null
+shader_parameter/phase = 0.137
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fytsl"]
+size = Vector2(0.4, 0.4)
+
+[sub_resource type="Shader" id="Shader_7p5o3"]
+code = "shader_type spatial; render_mode unshaded,cull_disabled; uniform float clock=0.0; uniform float phase=0.0; void fragment(){float t=fract(clock*0.6+phase);float d=length(UV-vec2(0.5));ALBEDO=vec3(0.77,0.86,0.82);ALPHA=(1.0-smoothstep(0.015,0.03,abs(d-t*0.45)))*(1.0-t)*0.35;}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1oj6b"]
+render_priority = 0
+shader = SubResource("Shader_7p5o3")
+shader_parameter/clock = null
+shader_parameter/phase = 0.274
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_osb6g"]
+size = Vector2(0.4, 0.4)
+
+[sub_resource type="Shader" id="Shader_ey0ph"]
+code = "shader_type spatial; render_mode unshaded,cull_disabled; uniform float clock=0.0; uniform float phase=0.0; void fragment(){float t=fract(clock*0.6+phase);float d=length(UV-vec2(0.5));ALBEDO=vec3(0.77,0.86,0.82);ALPHA=(1.0-smoothstep(0.015,0.03,abs(d-t*0.45)))*(1.0-t)*0.35;}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xo1jq"]
+render_priority = 0
+shader = SubResource("Shader_ey0ph")
+shader_parameter/clock = null
+shader_parameter/phase = 0.41100000000000003
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_flheg"]
+size = Vector2(0.4, 0.4)
+
+[sub_resource type="Shader" id="Shader_e71n0"]
+code = "shader_type spatial; render_mode unshaded,cull_disabled; uniform float clock=0.0; uniform float phase=0.0; void fragment(){float t=fract(clock*0.6+phase);float d=length(UV-vec2(0.5));ALBEDO=vec3(0.77,0.86,0.82);ALPHA=(1.0-smoothstep(0.015,0.03,abs(d-t*0.45)))*(1.0-t)*0.35;}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t3qy7"]
+render_priority = 0
+shader = SubResource("Shader_e71n0")
+shader_parameter/clock = null
+shader_parameter/phase = 0.548
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wq2lr"]
+size = Vector2(0.4, 0.4)
+
+[sub_resource type="Shader" id="Shader_vnket"]
+code = "shader_type spatial; render_mode unshaded,cull_disabled; uniform float clock=0.0; uniform float phase=0.0; void fragment(){float t=fract(clock*0.6+phase);float d=length(UV-vec2(0.5));ALBEDO=vec3(0.77,0.86,0.82);ALPHA=(1.0-smoothstep(0.015,0.03,abs(d-t*0.45)))*(1.0-t)*0.35;}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hdr6p"]
+render_priority = 0
+shader = SubResource("Shader_vnket")
+shader_parameter/clock = null
+shader_parameter/phase = 0.685
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_x1p3j"]
+size = Vector2(0.4, 0.4)
+
+[sub_resource type="Shader" id="Shader_m62a1"]
+code = "shader_type spatial; render_mode unshaded,cull_disabled; uniform float clock=0.0; uniform float phase=0.0; void fragment(){float t=fract(clock*0.6+phase);float d=length(UV-vec2(0.5));ALBEDO=vec3(0.77,0.86,0.82);ALPHA=(1.0-smoothstep(0.015,0.03,abs(d-t*0.45)))*(1.0-t)*0.35;}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8criw"]
+render_priority = 0
+shader = SubResource("Shader_m62a1")
+shader_parameter/clock = null
+shader_parameter/phase = 0.8220000000000001
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5di4y"]
+size = Vector2(0.4, 0.4)
+
+[sub_resource type="Shader" id="Shader_ko225"]
+code = "shader_type spatial; render_mode unshaded,cull_disabled; uniform float clock=0.0; uniform float phase=0.0; void fragment(){float t=fract(clock*0.6+phase);float d=length(UV-vec2(0.5));ALBEDO=vec3(0.77,0.86,0.82);ALPHA=(1.0-smoothstep(0.015,0.03,abs(d-t*0.45)))*(1.0-t)*0.35;}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xpga3"]
+render_priority = 0
+shader = SubResource("Shader_ko225")
+shader_parameter/clock = null
+shader_parameter/phase = 0.9590000000000001
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kjevg"]
+size = Vector2(0.4, 0.4)
+
+[node name="POST_002_00" type="Node3D" unique_id=1173470014]
+metadata/asset_id = "POST_002"
+metadata/variant = 0
+
+[node name="@MultiMeshInstance3D@1153" type="MultiMeshInstance3D" parent="." unique_id=890414570]
+material_override = SubResource("ShaderMaterial_eig3n")
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_lsv3w")
+
+[node name="@MeshInstance3D@1154" type="MeshInstance3D" parent="." unique_id=2039834070]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015, 2)
+material_override = SubResource("ShaderMaterial_1itvy")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_j172a")
+
+[node name="@MeshInstance3D@1155" type="MeshInstance3D" parent="." unique_id=1304298024]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85475975, 0.015, 0.3399343)
+material_override = SubResource("ShaderMaterial_behx1")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_fytsl")
+
+[node name="@MeshInstance3D@1156" type="MeshInstance3D" parent="." unique_id=762562512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.545529, 0.015, -1.8844447)
+material_override = SubResource("ShaderMaterial_1oj6b")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_osb6g")
+
+[node name="@MeshInstance3D@1157" type="MeshInstance3D" parent="." unique_id=1944603947]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9397796, 0.015, -0.9805216)
+material_override = SubResource("ShaderMaterial_xo1jq")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_flheg")
+
+[node name="@MeshInstance3D@1158" type="MeshInstance3D" parent="." unique_id=1080314568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9618725, 0.015, 1.5511317)
+material_override = SubResource("ShaderMaterial_t3qy7")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_wq2lr")
+
+[node name="@MeshInstance3D@1159" type="MeshInstance3D" parent="." unique_id=268833068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6075689, 0.015, 1.5078045)
+material_override = SubResource("ShaderMaterial_hdr6p")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_x1p3j")
+
+[node name="@MeshInstance3D@1160" type="MeshInstance3D" parent="." unique_id=818324085]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.94484395, 0.015, -1.0385773)
+material_override = SubResource("ShaderMaterial_8criw")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_5di4y")
+
+[node name="@MeshInstance3D@1161" type="MeshInstance3D" parent="." unique_id=221420525]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.100845374, 0.015, -1.8608526)
+material_override = SubResource("ShaderMaterial_xpga3")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_kjevg")

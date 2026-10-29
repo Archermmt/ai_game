@@ -7,10 +7,13 @@ func run() -> void:
 	var light=DirectionalLight3D.new();light.rotation_degrees=Vector3(-45,-30,0);light.light_energy=0.7;scene.add_child(light)
 	var kit=ArtKit.new();var library=MaterialLibrary.new()
 	DirAccess.make_dir_recursive_absolute("res://game/ui/icons")
-	for id in IslandHud.NAMES:
+	var ids=IslandHud.NAMES.keys()+["house_basic","house_coast","house_garden"]
+	for id in ids:
 		var prop=Node3D.new();scene.add_child(prop)
 		kit.box(prop,Vector3(0,-0.1,0),Vector3(2,0.2,2),Color("8ca57b"))
-		if id in ["house","tea","greenhouse","lighthouse","bench","pot","tree"]:
+		if id.begins_with("house_"):
+			prop.add_child(kit.building("house",id.trim_prefix("house_")))
+		elif id in ["house","tea","greenhouse","lighthouse","bench","pot","tree"]:
 			var model=kit.building(id,"garden" if id=="house" else "basic");prop.add_child(model);library.dress(model,id)
 			if id=="lighthouse":model.scale=Vector3.ONE*0.5
 		elif id=="flower":
@@ -26,4 +29,4 @@ func run() -> void:
 		var error=vp.get_texture().get_image().save_png("res://game/ui/icons/"+id+".png")
 		if error!=OK:quit(1);return
 		prop.free()
-	vp.free();print("PASS baked ",IslandHud.NAMES.size()," tool thumbnails");quit()
+	vp.free();print("PASS baked ",ids.size()," tool thumbnails");quit()

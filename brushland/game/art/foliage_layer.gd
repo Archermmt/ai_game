@@ -3,9 +3,7 @@ extends RefCounted
 const SEED=4271
 static func generate(surface:IslandSurface,chunk:Vector2i) -> Array:
 	var layers:Array=[[],[],[]]
-	var occupied:Dictionary={}
-	for o in surface.objects:
-		for p in BuildingRules.footprint(o):occupied[p]=true
+	var occupied=surface.occupied
 	for z in range(8):
 		for x in range(8):
 			var p=chunk*8+Vector2i(x,z);var cell=surface.cell(p)

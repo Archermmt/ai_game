@@ -1,0 +1,23 @@
+{
+  "animals": 6,
+  "build_ms": 1880.307,
+  "buildings": 40,
+  "camera_orthographic_size": 42,
+  "day_frame_ms_p95": 9.08,
+  "decorations": 400,
+  "draw_calls_peak": 1798,
+  "driver": "opengl3",
+  "duration_wall_seconds": 10.005994,
+  "engine": "4.7-stable (official)",
+  "engine_static_bytes": 80207069.0,
+  "frame_count": 932,
+  "frame_ms_p50": 8.547,
+  "frame_ms_p95": 9.426,
+  "grass_density_lod": 0.55,
+  "night_frame_ms_p95": 9.949,
+  "renderer": "gl_compatibility",
+  "residents": 12,
+  "scope": "Short smoke sample, not five minute native M4 Pro pressure run; M1/8GB and Windows remain unverified",
+  "target_device_tested": false,
+  "visible_primitives_peak": 170064
+}

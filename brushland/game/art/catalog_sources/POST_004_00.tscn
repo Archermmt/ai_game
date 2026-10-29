@@ -1,0 +1,35 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qv7tx"]
+albedo_color = Color(0.6666667, 0.5019608, 0.3764706, 1)
+roughness = 0.95
+
+[sub_resource type="BoxMesh" id="BoxMesh_c3ms2"]
+size = Vector3(0.04, 1.55, 0.04)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8mqan"]
+cull_mode = 2
+albedo_color = Color(0.9372549, 0.89411765, 0.7882353, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jcbcq"]
+_surfaces = [{
+"aabb": AABB(0, 0.45, 0, 1e-05, 1.25, 0.85),
+"format": 34359738375,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 3,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 102, 102, 230, 62, 0, 0, 0, 0, 0, 0, 0, 0, 154, 153, 217, 63, 0, 0, 0, 0, 0, 0, 0, 0, 102, 102, 230, 62, 154, 153, 89, 63, 255, 255, 255, 127, 255, 127, 255, 191, 255, 255, 255, 127, 255, 127, 255, 191, 255, 255, 255, 127, 255, 127, 255, 191)
+}]
+
+[node name="POST_004_00" type="Node3D" unique_id=1411355681]
+metadata/asset_id = "POST_004"
+metadata/variant = 0
+
+[node name="@MeshInstance3D@1177" type="MeshInstance3D" parent="." unique_id=806683642]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.975, 0)
+material_override = SubResource("StandardMaterial3D_qv7tx")
+mesh = SubResource("BoxMesh_c3ms2")
+
+[node name="@MeshInstance3D@1178" type="MeshInstance3D" parent="." unique_id=1896534772]
+material_override = SubResource("StandardMaterial3D_8mqan")
+mesh = SubResource("ArrayMesh_jcbcq")

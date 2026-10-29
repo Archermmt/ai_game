@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reproduce I2 evidence without modifying historical I1 reports."""
+"""Reproduce I3–I6 evidence without modifying historical I1 reports."""
 import subprocess,sys,json,re
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
@@ -20,6 +20,9 @@ def run(name,args,marker):
  ok=p.returncode==0 and marker in p.stdout and not re.search(r'SCRIPT ERROR:|^ERROR:',p.stdout,re.M)
  steps.append(dict(name=name,passed=ok,exit_code=p.returncode));print(('PASS ' if ok else 'FAIL ')+name,flush=True)
  if not ok:print(p.stdout[-2000:])
+if STAGE=='art_i6':run('catalog',['--headless','--script','tests/test_catalog.gd'],'PASS catalog')
+if STAGE=='art_i6':run('frozen_art',['--rendering-method','gl_compatibility','--script','tests/test_frozen_art_instances.gd'],'PASS frozen art')
+if STAGE=='art_i6':run('budgets',['--headless','--script','game/art/check_art_budgets.gd'],'BUDGET_REVIEW')
 if STAGE in ['art_i5','art_i6']:run('compositions',['--headless','--script','tests/test_compositions.gd'],'PASS three')
 run('preflight',['--headless','--check-only','--script','game/art_lab/art_lab.gd'],'Godot Engine')
 if not steps[-1]['passed']:sys.exit(1)

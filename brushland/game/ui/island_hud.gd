@@ -33,10 +33,12 @@ func _ready() -> void:
 	var title=label("风屿手记",28);title_col.add_child(title)
 	title_col.add_child(label("B R E E Z E L Y   I S L E S",11));title_col.add_child(status)
 	var actions=HBoxContainer.new();root.add_child(actions);actions.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT);actions.offset_left=-676;actions.offset_right=-24;actions.offset_top=24;actions.offset_bottom=68
-	for item in [["journal","手记"],["undo","↶ 撤销"],["redo","↷ 重做"],["pause","暂停"],["sunset","日落"],["photo","拍照"],["menu","存档"]]:button(actions,item[1],func():action_requested.emit(item[0]))
+	for item in [["journal","手记"],["undo","撤销"],["redo","重做"],["pause","暂停"],["sunset","日落"],["photo","拍照"],["menu","存档"]]:
+		var b=button(actions,item[1],func():action_requested.emit(item[0]))
+		if item[0] in ["undo","redo","photo"]:b.icon=load("res://game/ui/vectors/UI_002_%02d.svg"%{"undo":0,"redo":1,"photo":5}[item[0]]);b.add_theme_constant_override("icon_max_width",18)
 	card=panel(Vector2(-268,98),Vector2(244,356));card.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT);card.offset_left=-268;card.offset_right=-24;card.offset_top=98;card.offset_bottom=454;card.add_child(journal)
 	refresh_journal([]);card.visible=false
-	var bottom=PanelContainer.new();root.add_child(bottom);bottom.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE);bottom.offset_left=24;bottom.offset_right=-24;bottom.offset_top=-166;bottom.offset_bottom=-42
+	var bottom=PanelContainer.new();bottom.name="ToolBar";root.add_child(bottom);bottom.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE);bottom.offset_left=24;bottom.offset_right=-24;bottom.offset_top=-166;bottom.offset_bottom=-42
 	bottom.add_theme_stylebox_override("panel",style(Color("f7f1df")))
 	var col=VBoxContainer.new();bottom.add_child(col);col.add_theme_constant_override("separation",8)
 	var categories=HBoxContainer.new();col.add_child(categories)
@@ -58,7 +60,10 @@ func show_category(category:String) -> void:
 	var items={"land":["grass","sand","rock","water","raise","lower","road"],"build":["house","tea","greenhouse","lighthouse","bridge","dock"],"nature":["flower","bench","pot","tree"],"edit":["move","erase","lock","color"]}[category]
 	for id in items:
 		var b=button(subbar,NAMES[id],func():tool_selected.emit(id);highlight(id))
-		b.icon=load("res://game/ui/icons/"+id+".png");b.add_theme_constant_override("icon_max_width",30);b.custom_minimum_size=Vector2(88,50);b.tooltip_text=NAMES[id]
+		var brush_ids=["grass","sand","rock","water","raise","lower","road","flower"]
+		b.icon=load("res://game/ui/vectors/UI_001_%02d.svg"%brush_ids.find(id)) if id in brush_ids else load("res://game/ui/icons/"+id+".png");b.add_theme_constant_override("icon_max_width",30);b.custom_minimum_size=Vector2(88,50);b.tooltip_text=NAMES[id]
+		if id in ["move","erase","lock"]:
+			b.icon=load("res://game/ui/vectors/"+("UI_004_02" if id=="lock" else "UI_002_02" if id=="move" else "UI_002_03")+".svg")
 		tool_buttons[id]=b
 func highlight(id:String) -> void:
 	for key in tool_buttons:tool_buttons[key].modulate=Color("c6d6c2") if key==id else Color.WHITE
@@ -72,7 +77,7 @@ func refresh_journal(completed:Array) -> void:
 	journal.add_child(label("%d / 6 个日常片段   ·   没有期限"%completed.size(),12))
 	for key in JOURNAL:
 		var info=JOURNAL[key];var row=VBoxContainer.new();journal.add_child(row)
-		row.add_child(label(("●  " if key in completed else "○  ")+info[0],16))
+		var heading=HBoxContainer.new();row.add_child(heading);var icon=TextureRect.new();icon.texture=load("res://game/ui/vectors/UI_003_%02d.svg"%JOURNAL.keys().find(key));icon.custom_minimum_size=Vector2(22,22);icon.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;icon.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;heading.add_child(icon);heading.add_child(label(("●  " if key in completed else "○  ")+info[0],16))
 		var detail=label("已记在手记里" if key in completed else info[1],11);detail.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;detail.custom_minimum_size.x=210;row.add_child(detail)
 func _process(dt:float) -> void:
 	if toast_time>0:toast_time-=dt

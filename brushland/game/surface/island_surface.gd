@@ -4,9 +4,11 @@ extends RefCounted
 var tiles:Dictionary
 var foundations:Array=[]
 var objects:Array
+var occupied:Dictionary={}
 func _init(world:Dictionary) -> void:
 	tiles=world.tiles;objects=world.objects
 	for o in world.objects:
+		for p in BuildingRules.footprint(o):occupied[p]=true
 		if o.kind in ["house","tea","greenhouse","lighthouse"]:
 			foundations.append({"bounds":Rect2(Vector2(o.x-0.5,o.z-0.5),Vector2(2,2)),"height":height_at_cell(Vector2i(o.x,o.z))})
 func cell(p:Vector2i) -> Dictionary:
