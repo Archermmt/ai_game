@@ -1,0 +1,5 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+OpenGL API 4.1 Metal - 89.3 - Compatibility - Using Device: Apple - Apple M4 Pro
+
+2026-10-29 21:21:16.541 godot[51219:20075666] +[IMKClient subclass]: chose IMKClient_Modern
+PASS UI signals, undo/redo, photo pause restore, safe actor relocation, save menu

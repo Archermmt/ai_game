@@ -1,0 +1,7 @@
+Poly Haven source assets: white_plaster_02, grey_roof_tiles_02, rocky_terrain_02.
+License: CC0 1.0 Universal. https://creativecommons.org/publicdomain/zero/1.0/
+Official asset license statement: https://polyhaven.com/license
+Downloaded 2026-10-29 from the official public file API / dl.polyhaven.org.
+Source URLs, original channel names, exact byte verification and SHA256: docs/art_i2/downloads.json.
+Project adaptation: shader contrast reduced to 23%, weak GL normal mapping; raw source files retained.
+This license statement applies to these nine source textures, not all project code.

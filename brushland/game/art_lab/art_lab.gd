@@ -38,15 +38,14 @@ func _ready() -> void:
 			var p=RouteGraph.entrance(o);sim.people.append({"id":sim.next_id,"home":o.id,"x":float(p.x),"z":float(p.y),"state":"home","route":[],"timer":0.0,"target":0});sim.next_id+=1
 	sim.paused=true;view.rebuild();view.update_actors(sim,0)
 	var method=RenderingServer.get_current_rendering_method()
-	var label=String(args.get("label",method));var folder="res://snapshots/art_i1/"+label
+	var label=String(args.get("label",method));var iteration=String(args.get("iteration","art_i1"));var folder="res://snapshots/"+iteration+"/"+label
 	DirAccess.make_dir_recursive_absolute(folder)
 	var result={"engine":Engine.get_version_info().string,"renderer":method,"driver":RenderingServer.get_current_rendering_driver_name(),"resolution":[1920,1080],"fixture_sha256":FileAccess.get_sha256(path),"camera_specs":CAMERAS,"frozen":true,"label":label,"views":{},"batch_stats":view.batch_stats,"tiles":data.tiles.size(),"objects":data.objects.size(),"people":sim.people.size(),"scope":"Fixed bay / native renderer parity lab; not full PRD pressure scene"}
 	result.focus_bounds_xz={"min":[19,24],"max_exclusive":[35,40],"unit_m":1}
 	for id in CAMERAS:
 		var spec=CAMERAS[id];var c=spec.center;var center=Vector3(c[0],c[1],c[2]);camera.size=spec.size
 		camera.position=center+Vector3(sin(spec.angle)*38,38,cos(spec.angle)*38);camera.look_at(center)
-		var sunset=id=="sunset";sun.light_color=Color("ffd4a3") if sunset else Color("fff3de");sun.light_energy=0.75 if sunset else 0.9;sun.rotation_degrees.x=-20 if sunset else -48
-		environment.ambient_light_energy=0.6 if sunset else 0.5
+		var sunset=id=="sunset";IslandLighting.apply(sun,environment,sunset)
 		for lamp in get_tree().get_nodes_in_group("island_lanterns"):lamp.visible=sunset
 		for i in range(12):await get_tree().process_frame
 		await RenderingServer.frame_post_draw
@@ -67,6 +66,6 @@ func _ready() -> void:
 	data.restore(before);view.rebuild();edits.sort();result.edit_rebuild_ms_p95=edits[int(edits.size()*0.95)]
 	result.engine_static_bytes=Performance.get_monitor(Performance.MEMORY_STATIC)
 	result.world_unchanged=data.snapshot()==before
-	DirAccess.make_dir_recursive_absolute("res://docs/reports/art_i1")
-	var f=FileAccess.open("res://docs/reports/art_i1/"+label+".json",FileAccess.WRITE);f.store_string(JSON.stringify(result,"  "));f.close()
+	DirAccess.make_dir_recursive_absolute("res://docs/reports/"+iteration)
+	var f=FileAccess.open("res://docs/reports/"+iteration+"/"+label+".json",FileAccess.WRITE);f.store_string(JSON.stringify(result,"  "));f.close()
 	print("ART_LAB_PASS ",label," ",JSON.stringify(result));get_tree().quit(0 if result.world_unchanged else 1)

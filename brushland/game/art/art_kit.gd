@@ -33,8 +33,9 @@ func roof(parent:Node3D,y:float,color:Color,width:float=2.05,depth:float=2.05) -
 	var indices=[0,2,1,3,4,5,0,3,5,0,5,2,1,2,5,1,5,4]
 	var st=SurfaceTool.new();st.begin(Mesh.PRIMITIVE_TRIANGLES)
 	for offset in range(0,indices.size(),3):
-		for i in [indices[offset],indices[offset+2],indices[offset+1]]:st.add_vertex(v[i])
-	st.generate_normals();mesh(parent,st.commit(),Vector3.ZERO,color)
+		for i in [indices[offset],indices[offset+2],indices[offset+1]]:
+			st.set_uv(Vector2(v[i].x,v[i].z));st.add_vertex(v[i])
+	st.generate_normals();st.generate_tangents();mesh(parent,st.commit(),Vector3.ZERO,color)
 	beam(parent,Vector3(0,y+0.68,-d-0.04),Vector3(0,y+0.68,d+0.04),0.12,color.lightened(0.1))
 	for side in [-1,1]:
 		beam(parent,Vector3(side*w,y,-d),Vector3(side*w,y,d),0.12,CREAM)
@@ -48,11 +49,28 @@ func pot(parent:Node3D,pos:Vector3) -> void:
 	for a in range(3):sphere(parent,pos+Vector3(cos(a*2)*0.1,0.32,sin(a*2)*0.1),Vector3(0.18,0.25,0.18),GREEN)
 func tree(parent:Node3D,pos:Vector3,seed_value:int=0) -> void:
 	var root=Node3D.new();root.position=pos;root.rotation.y=seed_value*0.71;parent.add_child(root)
-	cylinder(root,Vector3(0,0.85,0),0.13,1.7,WOOD,0.09)
-	for i in range(5):
-		var a=i*2.4
-		beam(root,Vector3(0,0.8,0),Vector3(cos(a)*0.5,1.65,sin(a)*0.5),0.1,WOOD)
-		sphere(root,Vector3(cos(a)*0.52,1.8+(i%2)*0.35,sin(a)*0.52),Vector3(1.35,1.35,1.35),GREEN.lightened((i%3)*0.035))
+	var slender=seed_value%2!=0
+	cylinder(root,Vector3(0,0.9,0),0.12,1.8,WOOD,0.065)
+	var st=SurfaceTool.new();st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	for cluster in range(7):
+		var angle=cluster*2.399963
+		var center=Vector3(cos(angle)*(0.3 if slender else 0.65),1.6+cluster*0.15,sin(angle)*(0.3 if slender else 0.65))
+		beam(root,Vector3(0,0.9,0),center,0.065,WOOD)
+		for i in range(56):
+			var az=i*2.399963+cluster
+			var vertical=1.0-2.0*(i+0.5)/56.0
+			var radial=sqrt(1.0-vertical*vertical)
+			var point=center+Vector3(cos(az)*radial*0.55,vertical*(0.8 if slender else 0.48),sin(az)*radial*0.55)
+			var direction=Vector3(cos(az),0.25+vertical*0.3,sin(az)).normalized()*0.13
+			var side=direction.cross(Vector3.UP).normalized()*0.10
+			var color=GREEN.lightened(float((i+cluster)%5)*0.025)
+			for triangle in [[point-direction,point+side,point+direction],[point-direction,point+direction,point-side]]:
+				var normal=Vector3.UP.lerp((point-center).normalized(),0.3).normalized()
+				for v in triangle:st.set_normal(normal);st.set_color(color);st.add_vertex(v)
+	var leaves=MeshInstance3D.new();leaves.mesh=st.commit()
+	var mat=StandardMaterial3D.new();mat.vertex_color_use_as_albedo=true;mat.vertex_color_is_srgb=true;mat.cull_mode=BaseMaterial3D.CULL_DISABLED;mat.roughness=1
+	mat.shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED
+	leaves.material_override=mat;root.add_child(leaves)
 func bench(parent:Node3D) -> void:
 	for x in [-0.38,0.38]:
 		for z in [-0.16,0.16]:box(parent,Vector3(x,0.19,z),Vector3(0.08,0.38,0.08),WOOD.darkened(0.1))

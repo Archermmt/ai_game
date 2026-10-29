@@ -72,12 +72,19 @@ func update_camera() -> void:
 	camera.position=center+Vector3(sin(angle)*38,38,cos(angle)*38);camera.look_at(center)
 func pick() -> Vector2i:
 	var mouse=get_viewport().get_mouse_position();var origin=camera.project_ray_origin(mouse);var dir=camera.project_ray_normal(mouse)
-	# Intersect each possible height and accept only the tile at that level.
-	for height in range(4,-1,-1):
-		var hit=Plane(Vector3.UP,height*0.5).intersects_ray(origin,dir)
-		if hit==null:continue
-		var p=Vector2i(roundi(hit.x),roundi(hit.z))
-		if int(data.cell(p).h)==height:return p
+	# Solve against the same derived surface used for rendering and feet.
+	if view.surface!=null:
+		var previous=origin
+		for i in range(1,801):
+			var point=origin+dir*(i*0.15)
+			if point.y<=view.surface.height_at(Vector2(point.x,point.z)):
+				var lo=previous;var hi=point
+				for step in range(10):
+					var mid=(lo+hi)*0.5
+					if mid.y>view.surface.height_at(Vector2(mid.x,mid.z)):lo=mid
+					else:hi=mid
+				return Vector2i(roundi(hi.x),roundi(hi.z))
+			previous=point
 	return Vector2i(-1,-1)
 func prototype(p:Vector2i) -> Dictionary:
 	return {"id":0,"x":p.x,"z":p.y,"kind":tool,"rotation":placement_rotation,"length":span,"locked":false}
@@ -208,9 +215,7 @@ func set_sunset(value:bool) -> void:
 	if is_instance_valid(audio) and audio.is_inside_tree():audio.set_evening(value)
 	view.day=not value
 	for lamp in get_tree().get_nodes_in_group("island_lanterns"):lamp.visible=value
-	sim.sunset=value;sun.light_color=Color("ffd4a3") if value else Color("fff3de");sun.light_energy=0.75 if value else 0.9
-	sun.rotation_degrees.x=-20 if value else -48
-	world_env.environment.ambient_light_energy=0.6 if value else 0.5
+	sim.sunset=value;IslandLighting.apply(sun,world_env.environment,value)
 func move_object(p:Vector2i) -> void:
 	if moving_id==0:
 		for o in data.objects:
