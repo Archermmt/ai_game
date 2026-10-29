@@ -6,8 +6,14 @@ var kit=ArtKit.new()
 var geometry=ArrayMesh.new()
 var builders:Dictionary={}
 var rests:Array=[]
+var watering_can:Node3D
+var water_drops:Array=[]
 var cup:MeshInstance3D
 var last_time=-1.0
+var last_state=""
+var state_age=0.0
+var entering_sit=false
+var leaving_sit=false
 const BONES=["Pelvis","Spine","Head","ArmLeft","ArmRight","LegLeft","LegRight","ShinLeft","ShinRight"]
 static func create(index:int) -> ResidentRig:
 	var rig=ResidentRig.new();rig.name="ResidentRig";rig.build(index);return rig
@@ -49,12 +55,19 @@ func build(index:int) -> void:
 	var skin=Skin.new()
 	for i in range(BONES.size()):skin.add_bind(i,Transform3D(Basis.IDENTITY,rests[i]).affine_inverse())
 	body.name="SkinnedBody";body.mesh=geometry;body.skin=skin;body.skeleton=NodePath("../Skeleton3D");add_child(body)
+	var left_hand=BoneAttachment3D.new();left_hand.name="WateringSocket";skeleton.add_child(left_hand);left_hand.bone_name="ArmLeft"
+	watering_can=Node3D.new();watering_can.position=Vector3(0,-0.25,0.10);left_hand.add_child(watering_can)
+	kit.cylinder(watering_can,Vector3.ZERO,0.08,0.13,ArtKit.BLUE);kit.beam(watering_can,Vector3(0,0.03,0),Vector3(0,0.06,0.18),0.035,ArtKit.BLUE)
+	for i in range(4):water_drops.append(kit.sphere(watering_can,Vector3(0,-0.1,0.18),Vector3.ONE*0.02,Color("87c6cb")))
+	watering_can.visible=false
 	var hand=BoneAttachment3D.new();hand.name="CupSocket";skeleton.add_child(hand);hand.bone_name="ArmRight"
 	cup=kit.cylinder(hand,Vector3(0,-0.24,0.06),0.055,0.10,ArtKit.CREAM);cup.visible=false
 func animate(state:String,walking:bool,time:float) -> void:
 	var old:Array=[]
 	for i in range(BONES.size()):old.append(skeleton.get_bone_pose_rotation(i));skeleton.reset_bone_pose(i)
 	cup.visible=state=="tea"
+	watering_can.visible=state=="greenhouse"
+	for i in range(water_drops.size()):water_drops[i].position=Vector3(0,-fposmod(time*0.25+i*0.08,0.28),0.18)
 	if walking:
 		var swing=sin(time*7.0)*0.55
 		for pair in [[5,swing],[6,-swing],[3,-swing*0.75],[4,swing*0.75]]:skeleton.set_bone_pose_rotation(pair[0],Quaternion(Vector3.RIGHT,pair[1]))
@@ -63,8 +76,12 @@ func animate(state:String,walking:bool,time:float) -> void:
 		for i in [5,6]:skeleton.set_bone_pose_rotation(i,Quaternion(Vector3.RIGHT,-PI/2))
 		for i in [7,8]:skeleton.set_bone_pose_rotation(i,Quaternion(Vector3.RIGHT,PI/2))
 		if state=="tea":skeleton.set_bone_pose_rotation(4,Quaternion(Vector3.RIGHT,-0.8-0.35*sin(time*0.8)))
-	elif state in ["greenhouse","garden"]:skeleton.set_bone_pose_rotation(1,Quaternion(Vector3.RIGHT,0.25+0.08*sin(time)))
-	else:skeleton.set_bone_pose_rotation(2,Quaternion(Vector3.UP,0.12*sin(time*0.6)))
+	elif state in ["greenhouse","garden"]:
+		skeleton.set_bone_pose_rotation(1,Quaternion(Vector3.RIGHT,0.25+0.08*sin(time)))
+		skeleton.set_bone_pose_rotation(3,Quaternion(Vector3.RIGHT,-0.85))
+	else:
+		skeleton.set_bone_pose_rotation(2,Quaternion(Vector3.UP,0.12*sin(time*0.6)))
+		if fposmod(time,14.0)<2.0:skeleton.set_bone_pose_rotation(4,Quaternion(Vector3.FORWARD,1.8+0.25*sin(time*6)))
 
 	var blend=1.0 if last_time<0 else 1.0-exp(-maxf(0.0,time-last_time)*12.0)
 	for i in range(BONES.size()):skeleton.set_bone_pose_rotation(i,old[i].slerp(skeleton.get_bone_pose_rotation(i),blend))

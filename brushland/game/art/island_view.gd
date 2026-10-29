@@ -27,6 +27,7 @@ var foliage_nodes:Dictionary={}
 var generated_foliage:Array=[]
 func update_environment(delta:float,active:bool) -> void:
 	if active:environment_clock+=delta
+	IslandEffects.update(get_tree(),environment_clock)
 	sea.material_override.set_shader_parameter("clock",environment_clock)
 	for boat in get_tree().get_nodes_in_group("island_boats"):
 		boat.position.y=0.1+sin(environment_clock*0.8+boat.position.x)*0.02;boat.rotation.z=sin(environment_clock*0.7)*0.012
@@ -159,6 +160,7 @@ func draw_object(o:Dictionary) -> void:
 	else:node=MODELS[model_id].instantiate() if int(o.get("color",0))==0 else kit.building(kind,BuildingRules.variant(data,o) if kind=="house" else "basic",int(o.get("color",0)))
 	node.position=Vector3(p.x+0.5 if kind in ["house","tea","greenhouse","lighthouse"] else p.x,y,p.y+0.5 if kind in ["house","tea","greenhouse","lighthouse"] else p.y)
 	material_library.dress(node,kind)
+	if kind=="house":IslandEffects.chimney(node)
 	node.rotation.y=-float(o.rotation)*PI/2;props.add_child(node)
 	if kind=="lighthouse":
 		var lamp=OmniLight3D.new();lamp.position=Vector3(0,4,0);lamp.light_color=Color("ffd08a");lamp.light_energy=0.6;lamp.omni_range=6;lamp.visible=not day;node.add_child(lamp);lamp.add_to_group("island_lanterns")

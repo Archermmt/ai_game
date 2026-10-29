@@ -1,0 +1,128 @@
+{
+  "batch_stats": {
+    "dirty_chunks": 16,
+    "object_change": true,
+    "terrain_chunks": 12
+  },
+  "camera_specs": {
+    "harbor": {
+      "angle": 0.55,
+      "center": [
+        27,
+        0,
+        32
+      ],
+      "size": 19.0
+    },
+    "house": {
+      "angle": 0.3,
+      "center": [
+        29.5,
+        1,
+        30.5
+      ],
+      "size": 9.0
+    },
+    "orbit": {
+      "angle": 2.1207963268,
+      "center": [
+        27,
+        0,
+        32
+      ],
+      "size": 19.0
+    },
+    "shore": {
+      "angle": 0.65,
+      "center": [
+        22,
+        0.3,
+        33
+      ],
+      "size": 10.0
+    },
+    "sunset": {
+      "angle": 0.55,
+      "center": [
+        27,
+        0,
+        32
+      ],
+      "size": 19.0
+    },
+    "whole": {
+      "angle": 0.3,
+      "center": [
+        31.5,
+        0,
+        34
+      ],
+      "size": 31.0
+    }
+  },
+  "composition_id": "garden",
+  "driver": "opengl3",
+  "edit_rebuild_ms_p95": 58.088,
+  "engine": "4.7-stable (official)",
+  "engine_static_bytes": 51600406.0,
+  "fixture_sha256": "fc74fe3b9d9f9ba86df093baea7e47fd1214b82ac566aa65372908b81706728c",
+  "focus_bounds_xz": {
+    "max_exclusive": [
+      35,
+      40
+    ],
+    "min": [
+      19,
+      24
+    ],
+    "unit_m": 1
+  },
+  "frame_ms_p50": 8.218,
+  "frame_ms_p95": 14.103,
+  "frame_samples": 150,
+  "frozen": true,
+  "label": "garden",
+  "objects": 22,
+  "people": 4,
+  "renderer": "gl_compatibility",
+  "resolution": [
+    1920,
+    1080
+  ],
+  "scope": "Fixed bay / native renderer parity lab; not full PRD pressure scene",
+  "tiles": 342,
+  "views": {
+    "harbor": {
+      "draw_calls": 362,
+      "path": "res://snapshots/art_i5/garden/harbor.png",
+      "sha256": "efd89cf63e016813dd4f4f541cb4e48273717ddf92c9cd29b209123d3da6f4e0"
+    },
+    "house": {
+      "draw_calls": 283,
+      "path": "res://snapshots/art_i5/garden/house.png",
+      "sha256": "c88eb0faf5799760c49ed745c0c6278f862dc5107c6aac552d596add80a185cf"
+    },
+    "orbit": {
+      "draw_calls": 363,
+      "path": "res://snapshots/art_i5/garden/orbit.png",
+      "sha256": "84f1612754f7f0e999ae0615f4ff336c07e8534a634cd046b33a469e3c7b8f7d"
+    },
+    "shore": {
+      "draw_calls": 218,
+      "path": "res://snapshots/art_i5/garden/shore.png",
+      "sha256": "61c3950922006332b8fb650466fb595d8c5cf274e61e57d59c2a79b0c5034f5f"
+    },
+    "sunset": {
+      "draw_calls": 362,
+      "path": "res://snapshots/art_i5/garden/sunset.png",
+      "sha256": "0a08ee3221c97b4283d703179aec1da078329d2cad1092984f536764b07b6324"
+    },
+    "whole": {
+      "draw_calls": 363,
+      "path": "res://snapshots/art_i5/garden/whole.png",
+      "sha256": "c0eae8bbe761ba78b83174b64d626fd907dbbfd1722eee6d8aaa3dff07a950fc"
+    }
+  },
+  "world_sha256": "d5a44777e5341fe01de99e7b4ea2f631fdc839e54ad7d57e583f5de8400e7ea1",
+  "world_unchanged": true
+}

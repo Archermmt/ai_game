@@ -57,6 +57,8 @@ func _ready() -> void:
 		if OS.get_cmdline_user_args().has("--photo"):hud.root.visible=false;target="res://snapshots/playable_photo.png"
 		if OS.get_cmdline_user_args().has("--welcome"):welcome();target="res://snapshots/playable_welcome.png"
 		if OS.get_cmdline_user_args().has("--menu"):save_menu();target="res://snapshots/playable_menu.png"
+		for arg in OS.get_cmdline_user_args():
+			if arg.begins_with("--capture-target="):target=arg.trim_prefix("--capture-target=")
 		await RenderingServer.frame_post_draw
 		var err=get_viewport().get_texture().get_image().save_png(target)
 		print("CAPTURE ",target," ",error_string(err));get_tree().quit()
@@ -116,6 +118,7 @@ func collect() -> void:
 			var q=p+Vector2i(x,z)
 			if x*x+z*z<=radius*radius and not stroke.has(q):stroke.append(q)
 func commit_stroke() -> void:
+	var before=data.snapshot()
 	var p=pick()
 	var regions=resident_regions()
 	if tool in BuildingRules.TOOLS:
@@ -143,6 +146,7 @@ func commit_stroke() -> void:
 		if blocked>0:hud.toast("保留了 %d 格支撑 / 入口；先移动上面的物件再改地形"%blocked)
 	audio.effect("place" if tool in BuildingRules.TOOLS else "paint")
 	stroke.clear();protect_residents(regions);rebuild()
+	if data.snapshot()!=before and BuildingRules.inside(p):IslandEffects.burst(view,Vector3(p.x,view.surface.height_at(Vector2(p))+0.1,p.y),view.environment_clock)
 func _input(event:InputEvent) -> void:
 	# A release over UI must end the world stroke as well; never leave a brush stuck.
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and not event.pressed and dragging:
@@ -189,7 +193,7 @@ func _process(dt:float) -> void:
 	sim.tick(data,dt);view.update_actors(sim,time);autosave_clock+=dt
 	if not sim.events.is_empty():
 		for key in sim.events:hud.toast("收录了新的日常："+IslandHud.JOURNAL[key][0])
-		audio.effect("journal");sim.events.clear();hud.refresh_journal(sim.completed)
+		audio.effect("journal");IslandEffects.burst(view,center+Vector3.UP*2,view.environment_clock,true);sim.events.clear();hud.refresh_journal(sim.completed)
 	hud.refresh_status(sim.people.size(),tool,radius,span,sim.paused)
 	if autosave_clock>=60 and not dragging and modal==null:
 		autosave_clock=0
@@ -253,6 +257,7 @@ func welcome() -> void:
 	var col=open_modal("欢迎来到风屿")
 	var text=hud.label("画一段海岸，留一盏灯。\n\n工具全部免费，喜欢的风景可以随时改。\n小屋旁添三格花，试试它的新模样。\n\n先走进准备好的海湾，或从一片海开始。",17);col.add_child(text)
 	hud.button(col,"走进海湾",func():close_modal();sim.paused=false;hud.toast("先添一片花圃，或在建造栏放下一间新屋"))
+	for composition in [["garden","去花园池畔"],["lighthouse","去灯塔岩岬"]]:hud.button(col,composition[1],func():IslandCompositions.create(data,composition[0]);sim=ResidentSim.new();close_modal();rebuild();sim.paused=false)
 	if FileAccess.file_exists("user://island.json"):hud.button(col,"继续上次的岛",func():load_slot("user://island.json");close_modal())
 	hud.button(col,"空白海面",func():data.clear_world();sim=ResidentSim.new();close_modal();rebuild())
 func load_slot(path:String) -> void:

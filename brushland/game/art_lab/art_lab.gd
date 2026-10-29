@@ -26,6 +26,7 @@ func _ready() -> void:
 	if not FileAccess.file_exists(path):
 		push_error("Missing committed art baseline fixture");get_tree().quit(1);return
 	data.restore(JSON.parse_string(FileAccess.get_file_as_string(path)).world)
+	if args.has("composition"):IslandCompositions.create(data,args.composition)
 	add_child(view);view.setup(data);view.sea.material_override.set_shader_parameter("motion",0.0)
 	var env=WorldEnvironment.new();environment.background_mode=Environment.BG_COLOR;environment.background_color=Color("8bbcb9")
 	environment.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR;environment.ambient_light_color=Color.WHITE;environment.ambient_light_energy=0.5
@@ -41,6 +42,7 @@ func _ready() -> void:
 	var label=String(args.get("label",method));var iteration=String(args.get("iteration","art_i1"));var folder="res://snapshots/"+iteration+"/"+label
 	DirAccess.make_dir_recursive_absolute(folder)
 	var result={"engine":Engine.get_version_info().string,"renderer":method,"driver":RenderingServer.get_current_rendering_driver_name(),"resolution":[1920,1080],"fixture_sha256":FileAccess.get_sha256(path),"camera_specs":CAMERAS,"frozen":true,"label":label,"views":{},"batch_stats":view.batch_stats,"tiles":data.tiles.size(),"objects":data.objects.size(),"people":sim.people.size(),"scope":"Fixed bay / native renderer parity lab; not full PRD pressure scene"}
+	result.composition_id=String(args.get("composition","harbor"));result.world_sha256=JSON.stringify(data.snapshot()).sha256_text()
 	result.focus_bounds_xz={"min":[19,24],"max_exclusive":[35,40],"unit_m":1}
 	for id in CAMERAS:
 		var spec=CAMERAS[id];var c=spec.center;var center=Vector3(c[0],c[1],c[2]);camera.size=spec.size
@@ -52,6 +54,7 @@ func _ready() -> void:
 		await RenderingServer.frame_post_draw
 		var image=get_viewport().get_texture().get_image();var err=image.save_png(folder+"/"+id+".png")
 		if err!=OK:push_error("Capture failed "+id);get_tree().quit(1);return
+		result.resolution=[image.get_width(),image.get_height()]
 		result.views[id]={"path":folder+"/"+id+".png","draw_calls":get_viewport().get_render_info(Viewport.RENDER_INFO_TYPE_VISIBLE,Viewport.RENDER_INFO_DRAW_CALLS_IN_FRAME),"sha256":FileAccess.get_sha256(folder+"/"+id+".png")}
 	# Same sample and duration for both native renderers, no simulated fixed-FPS timing.
 	var samples:Array=[];var previous=Time.get_ticks_usec()
@@ -69,4 +72,13 @@ func _ready() -> void:
 	result.world_unchanged=data.snapshot()==before
 	DirAccess.make_dir_recursive_absolute("res://docs/reports/"+iteration)
 	var f=FileAccess.open("res://docs/reports/"+iteration+"/"+label+".json",FileAccess.WRITE);f.store_string(JSON.stringify(result,"  "));f.close()
+	if args.get("preview","0")=="1":
+		result.scope="Fixed FPS movie preview, NOT a performance sample"
+		var preview_file=FileAccess.open("res://docs/reports/"+iteration+"/"+label+".json",FileAccess.WRITE);preview_file.store_string(JSON.stringify(result,"  "));preview_file.close()
+		IslandLighting.apply(sun,environment,false);camera.size=19;sim.paused=false
+		for frame in range(900):
+			var phase=frame/900.0;var target=Vector3(29,0,33)
+			camera.position=target+Vector3(sin(0.55+phase*0.35)*38,38,cos(0.55+phase*0.35)*38);camera.look_at(target)
+			view.update_environment(1.0/30.0,true);sim.tick(data,1.0/30.0);view.update_actors(sim,frame/30.0)
+			await get_tree().process_frame
 	print("ART_LAB_PASS ",label," ",JSON.stringify(result));get_tree().quit(0 if result.world_unchanged else 1)

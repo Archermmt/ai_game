@@ -20,6 +20,7 @@ def run(name,args,marker):
  ok=p.returncode==0 and marker in p.stdout and not re.search(r'SCRIPT ERROR:|^ERROR:',p.stdout,re.M)
  steps.append(dict(name=name,passed=ok,exit_code=p.returncode));print(('PASS ' if ok else 'FAIL ')+name,flush=True)
  if not ok:print(p.stdout[-2000:])
+if STAGE in ['art_i5','art_i6']:run('compositions',['--headless','--script','tests/test_compositions.gd'],'PASS three')
 run('preflight',['--headless','--check-only','--script','game/art_lab/art_lab.gd'],'Godot Engine')
 if not steps[-1]['passed']:sys.exit(1)
 if STAGE!='art_i3':run('rig',['--headless','--script','tests/test_rig.gd'],'PASS four')
