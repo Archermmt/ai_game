@@ -12,6 +12,7 @@ static func build(app:Node) -> void:
 		for text in pair[3]:choice.add_item(text)
 		choice.select(pair[2].find(app.preferences.values[pair[0]]));choice.item_selected.connect(func(index):app.preferences.values[pair[0]]=pair[2][index];app.apply_preferences())
 	app.hud.button(col,"更改按键",func():show_keys(app))
+	app.hud.button(col,"制作与许可",app.show_credits)
 	app.hud.button(col,"返回",app.close_modal)
 static func show_keys(app:Node) -> void:
 	var col=app.open_modal("按键设置 · 点击后按新键")

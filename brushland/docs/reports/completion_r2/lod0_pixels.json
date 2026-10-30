@@ -1,0 +1,38 @@
+{
+  "scope": "Same LOD0, clock, world, six camera views; not dynamic or human acceptance",
+  "mean_limit": 0.001,
+  "changed_fraction_limit": 0.005,
+  "views": {
+    "orbit": {
+      "mean": 2.1135293109013155e-05,
+      "fraction_gt_3": 0.00011429398148148148,
+      "passed": true
+    },
+    "shore": {
+      "mean": 4.67974612684581e-05,
+      "fraction_gt_3": 0.00031105324074074076,
+      "passed": true
+    },
+    "house": {
+      "mean": 0.00014765959109981432,
+      "fraction_gt_3": 0.0028877314814814816,
+      "passed": true
+    },
+    "whole": {
+      "mean": 1.126770152505446e-05,
+      "fraction_gt_3": 8.53587962962963e-05,
+      "passed": true
+    },
+    "sunset": {
+      "mean": 2.2862578673444678e-05,
+      "fraction_gt_3": 0.00018566743827160494,
+      "passed": true
+    },
+    "harbor": {
+      "mean": 2.8002198821915587e-05,
+      "fraction_gt_3": 0.00021797839506172839,
+      "passed": true
+    }
+  },
+  "passed": true
+}

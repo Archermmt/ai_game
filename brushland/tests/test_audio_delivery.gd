@@ -14,5 +14,6 @@ func run() -> void:
 	settings.values.muted=true;audio.apply_settings(settings.values);assert(not audio.enabled and not audio.music.playing and not audio.sea.playing)
 	for voice in audio.voices:assert(not voice.playing)
 	stage.free()
+	await create_timer(0.15).timeout
 	for i in range(3):await process_frame
 	print("PASS 4 ambience / 8 interaction plus UI / 7 spatial life / 2 music, 48kHz and voice cap/mute");quit()

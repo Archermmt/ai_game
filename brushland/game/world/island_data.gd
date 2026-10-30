@@ -18,6 +18,9 @@ func restore(s: Dictionary) -> void:
 	tiles=s.tiles.duplicate(true); objects=s.objects.duplicate(true); next_id=int(s.next_id)
 	# JSON reads numbers as floats; keep source height levels canonical integers.
 	for tile in tiles.values():tile.h=int(tile.h)
+	for object in objects:
+		for key in ["id","x","z","rotation","length","color"]:
+			if object.has(key):object[key]=int(object[key])
 func begin() -> void:
 	revision+=1
 	history.append(snapshot())
@@ -36,7 +39,9 @@ func paint(points: Array, tool: String) -> void:
 		if visited.has(p):continue
 		visited[p]=true
 		if p.x<0 or p.y<0 or p.x>=SIZE or p.y>=SIZE: continue
-		if BuildingRules.occupied(self,p,tool!="road"): continue
+		if tool=="road":
+			if not BuildingRules.road_paintable(self,p):continue
+		elif BuildingRules.occupied(self,p,true):continue
 		var c: Dictionary=cell(p).duplicate()
 		match tool:
 			"grass","sand","rock": c.h=maxi(1,int(c.h)); c.surface=tool; c.flower=false

@@ -24,6 +24,15 @@ static func occupied(d:IslandData,p:Vector2i,include_entry:bool=true,exclude_id:
 		if int(o.id)==exclude_id:continue
 		if p in footprint(o) or (include_entry and (o.kind in BUILDINGS or o.kind=="bench") and p==activity_cell(o)):return true
 	return false
+static func road_paintable(d:IslandData,p:Vector2i) -> bool:
+	if not inside(p) or int(d.cell(p).h)<=0:return false
+	for object in d.objects:
+		if not p in footprint(object):continue
+		var anchor=Vector2i(object.x,object.z)
+		if object.kind=="dock" and p==anchor:continue
+		if object.kind=="bridge" and (p==anchor or p==anchor+DIRS[int(object.rotation)]*(int(object.length)+1)):continue
+		return false
+	return true
 static func variant(d:IslandData,o:Dictionary) -> String:
 	if o.kind!="house":return "basic"
 	if o.get("locked",false):return o.get("variant","basic")

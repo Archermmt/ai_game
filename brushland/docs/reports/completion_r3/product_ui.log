@@ -1,0 +1,6 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+OpenGL API 4.1 Metal - 89.3 - Compatibility - Using Device: Apple - Apple M4 Pro
+
+2026-10-30 08:39:39.320 godot[82165:20476884] +[IMKClient subclass]: chose IMKClient_Modern
+2026-10-30 08:39:41.357 godot[82165:20476884] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+PASS independent 1080p photo, camera/settings reload, unchanged world, rebound input and 150% UI

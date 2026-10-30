@@ -4,7 +4,13 @@ func run() -> void:
 	create_timer(30).timeout.connect(func():push_error("Product UI timeout");quit(1))
 	var app=load("res://game/island.tscn").instantiate();app.preferences.path="user://test_completion_ui.cfg";root.add_child(app)
 	await process_frame;app.close_modal();app.sim.paused=true
+	app.center=Vector3(25,0,31);app.angle=0.8;app.camera.size=24;app.update_camera()
+	assert(app.save_current("user://test_completion_camera.json")==OK)
+	app.center=Vector3(32,0,33);app.angle=0.3;app.camera.size=30.5;app.update_camera();app.load_slot("user://test_completion_camera.json")
+	assert(app.center==Vector3(25,0,31) and is_equal_approx(app.angle,0.8) and app.camera.size==24)
+	app.sim.paused=true
 	var before=app.data.snapshot();var transform=app.camera.global_transform;var size=app.camera.size
+	for marker in app.preview.get_children():assert(marker.layers==1<<19 and marker.cast_shadow==GeometryInstance3D.SHADOW_CASTING_SETTING_OFF)
 	var image=await preload("res://game/photography/photo_capture.gd").image(app,app.camera,Vector2i(1920,1080))
 	assert(image.get_size()==Vector2i(1920,1080));assert(app.camera.global_transform==transform and app.camera.size==size and app.data.snapshot()==before)
 	image.save_png("res://snapshots/completion/photo_1080p.png")
@@ -25,4 +31,6 @@ func run() -> void:
 	app.hud.card.visible=true
 	for i in range(3):await process_frame
 	assert(app.hud.card.get_global_rect().end.y<=721)
-	app.free();DirAccess.remove_absolute("user://test_completion_ui.cfg");print("PASS independent 1080p photo, unchanged camera/world, rebound input and 150% UI");quit()
+	app.free();DirAccess.remove_absolute("user://test_completion_ui.cfg")
+	for suffix in ["",".tmp",".bak",".bak2",".bak3"]:DirAccess.remove_absolute("user://test_completion_camera.json"+suffix)
+	print("PASS independent 1080p photo, camera/settings reload, unchanged world, rebound input and 150% UI");quit()

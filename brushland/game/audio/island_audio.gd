@@ -84,3 +84,8 @@ func apply_settings(values:Dictionary) -> void:
 	for voice in voices:voice.volume_db=linear_to_db(maxf(0.0001,life_gain))-10
 	var active=not values.muted
 	if active!=enabled:toggle()
+
+func _exit_tree() -> void:
+	for player in [music,sea,fx]+layers+voices:
+		player.stop();player.stream=null
+	clips.clear();day_track=null;evening_track=null

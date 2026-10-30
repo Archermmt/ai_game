@@ -5,6 +5,8 @@ var material_library=MaterialLibrary.new()
 var frozen_instances=FrozenArtInstances.new()
 var use_instancing=true
 var detail_density=1.0
+var use_project_batches=DisplayServer.get_name()!="headless"
+var render_batches=preload("res://game/art/project_render_batches.gd").new()
 const MODELS={
 	"house_basic":preload("res://game/art/models/house_basic.glb"),"house_coast":preload("res://game/art/models/house_coast.glb"),"house_garden":preload("res://game/art/models/house_garden.glb"),
 	"tea":preload("res://game/art/models/tea.glb"),"greenhouse":preload("res://game/art/models/greenhouse.glb"),"lighthouse":preload("res://game/art/models/lighthouse.glb"),
@@ -31,32 +33,52 @@ var generated_foliage:Array=[]
 func update_environment(delta:float,active:bool) -> void:
 	if active:environment_clock+=delta
 	IslandEffects.update(get_tree(),environment_clock)
+	if use_project_batches:render_batches.update_smoke(get_viewport().get_camera_3d())
 	sea.material_override.set_shader_parameter("clock",environment_clock)
 	for boat in get_tree().get_nodes_in_group("island_boats"):
 		boat.position.y=0.1+sin(environment_clock*0.8+boat.position.x)*0.02;boat.rotation.z=sin(environment_clock*0.7)*0.012
 	for leaf in get_tree().get_nodes_in_group("island_leaf_nodes"):leaf.material_override.set_shader_parameter("clock",environment_clock)
-	for nodes in foliage_nodes.values():
+	for nodes in foliage_nodes.values()+[render_batches.grass]:
 		for node in nodes:
 			node.material_override.set_shader_parameter("clock",environment_clock)
 			var cam=get_viewport().get_camera_3d()
 			if cam!=null:node.multimesh.visible_instance_count=int(node.multimesh.instance_count*detail_density*(0.55 if cam.size>36.0 else 1.0))
 var environment_clock=0.0
+var water_levels=PackedByteArray()
+var water_distances=PackedFloat32Array()
+var water_image:Image
+var water_texture:ImageTexture
 func update_water_field() -> void:
-	var image=Image.create(64,64,false,Image.FORMAT_RGB8)
-	var distances=PackedFloat32Array();distances.resize(4096)
-	for z in range(64):
-		for x in range(64):distances[z*64+x]=0.0 if int(surface.cell(Vector2i(x,z)).h)>0 else 8.0
-	for pass_index in range(2):
-		for zi in range(64):
-			for xi in range(64):
-				var x=xi if pass_index==0 else 63-xi;var z=zi if pass_index==0 else 63-zi
-				var sign_value=1 if pass_index==0 else -1
-				for d in [Vector2i(-sign_value,0),Vector2i(0,-sign_value),Vector2i(-sign_value,-sign_value),Vector2i(sign_value,-sign_value)]:
-					var q=Vector2i(x,z)+d
-					if q.x>=0 and q.y>=0 and q.x<64 and q.y<64:distances[z*64+x]=minf(distances[z*64+x],distances[q.y*64+q.x]+Vector2(d).length())
-	for z in range(64):
-		for x in range(64):image.set_pixel(x,z,Color((surface.height_at_cell(Vector2i(x,z))+0.15)/2.2,distances[z*64+x]/8.0,0))
-	sea.material_override.set_shader_parameter("island_field",ImageTexture.create_from_image(image))
+	var levels=PackedByteArray();levels.resize(4096)
+	for key in surface.tiles:
+		var parts=key.split(",");var x=int(parts[0]);var z=int(parts[1])
+		if x>=0 and z>=0 and x<64 and z<64:levels[z*64+x]=int(surface.tiles[key].h)
+	if levels==water_levels:return
+	var mask_changed=water_levels.size()!=4096
+	if not mask_changed:
+		for i in range(4096):
+			if (levels[i]>0)!=(water_levels[i]>0):mask_changed=true;break
+	if mask_changed:
+		water_distances.resize(4096)
+		for i in range(4096):water_distances[i]=0.0 if levels[i]>0 else 8.0
+		for pass_index in range(2):
+			for zi in range(64):
+				for xi in range(64):
+					var x=xi if pass_index==0 else 63-xi;var z=zi if pass_index==0 else 63-zi
+					var sign_value=1 if pass_index==0 else -1
+					for d in [Vector2i(-sign_value,0),Vector2i(0,-sign_value),Vector2i(-sign_value,-sign_value),Vector2i(sign_value,-sign_value)]:
+						var q=Vector2i(x,z)+d
+						if q.x>=0 and q.y>=0 and q.x<64 and q.y<64:water_distances[z*64+x]=minf(water_distances[z*64+x],water_distances[q.y*64+q.x]+Vector2(d).length())
+	if water_image==null:water_image=Image.create(64,64,false,Image.FORMAT_RGB8)
+	for i in range(4096):
+		if mask_changed or levels[i]!=water_levels[i]:
+			var height=levels[i]*0.5 if levels[i]>0 else -0.15
+			water_image.set_pixel(i%64,i/64,Color((height+0.15)/2.2,water_distances[i]/8.0,0))
+	water_levels=levels
+	if water_texture==null:
+		water_texture=ImageTexture.create_from_image(water_image)
+		sea.material_override.set_shader_parameter("island_field",water_texture)
+	else:water_texture.update(water_image)
 var surface:IslandSurface
 var previous_world:Dictionary={}
 var terrain_chunks:Dictionary={}
@@ -64,6 +86,7 @@ var decoration_chunks:Dictionary={}
 var chunk_arrays:Dictionary={}
 var changed_chunks:Array=[]
 var rebuild_stats:Dictionary={}
+var rebuild_profile:Dictionary={}
 func sample_surface(xz:Vector2) -> Dictionary:
 	return surface.sample_surface(xz)
 func generate_chunk(index:int) -> void:
@@ -72,6 +95,7 @@ func generate_chunk(index:int) -> void:
 	generated_foliage[index]=FoliageLayer.generate(surface,changed_chunks[index])
 var generated_arrays:Array=[]
 func rebuild() -> void:
+	var profile_start=Time.get_ticks_usec()
 	var world=data.snapshot();var dirty:Dictionary={}
 	var keys=world.tiles.keys()
 	for key in previous_world.get("tiles",{}):
@@ -83,13 +107,27 @@ func rebuild() -> void:
 			for dz in range(-2,3):dirty[Vector2i(floori((p.x+dx)/8.0),floori((p.y+dz)/8.0))]=true
 	var object_change=world.objects!=previous_world.get("objects",[])
 	if object_change:
-		for o in world.objects+previous_world.get("objects",[]):
-			for dx in range(-2,4):
-				for dz in range(-2,4):dirty[Vector2i(floori((o.x+dx)/8.0),floori((o.z+dz)/8.0))]=true
+		var old:Dictionary={};var current:Dictionary={};var ids:Dictionary={}
+		for object in previous_world.get("objects",[]):old[int(object.id)]=object;ids[int(object.id)]=true
+		for object in world.objects:current[int(object.id)]=object;ids[int(object.id)]=true
+		for id in ids:
+			if old.get(id)==current.get(id):continue
+			for object in [old.get(id),current.get(id)]:
+				if object==null:continue
+				for cell in BuildingRules.footprint(object):
+					for dx in range(-2,3):
+						for dz in range(-2,3):dirty[Vector2i(floori((cell.x+dx)/8.0),floori((cell.y+dz)/8.0))]=true
+
+	if dirty.is_empty():
+		if surface==null:
+			surface=IslandSurface.new(world);previous_world=world;update_water_field()
+		return
+	if use_project_batches:render_batches.restore(true)
 	surface=IslandSurface.new(world);changed_chunks=dirty.keys();generated_arrays=[];generated_arrays.resize(changed_chunks.size());generated_foliage=[];generated_foliage.resize(changed_chunks.size())
 	if not changed_chunks.is_empty():
 		var task=WorkerThreadPool.add_group_task(generate_chunk,changed_chunks.size())
 		WorkerThreadPool.wait_for_group_task_completion(task)
+	var profile_generated=Time.get_ticks_usec()
 	var mat=StandardMaterial3D.new();mat.vertex_color_use_as_albedo=true;mat.vertex_color_is_srgb=true;mat.roughness=1
 	for i in range(changed_chunks.size()):
 		var chunk:Vector2i=changed_chunks[i]
@@ -99,13 +137,14 @@ func rebuild() -> void:
 		if terrain_chunks.has(chunk):terrain_chunks[chunk].free();terrain_chunks.erase(chunk)
 		var arrays=generated_arrays[i]
 		if arrays[Mesh.ARRAY_VERTEX].is_empty():continue
-		var mesh=MeshInstance3D.new();mesh.mesh=ArrayMesh.new();mesh.mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays);mesh.material_override=mat
+		var mesh=MeshInstance3D.new();mesh.set_meta("art_terrain",chunk);mesh.mesh=ArrayMesh.new();mesh.mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays);mesh.material_override=mat
 		ground.add_child(mesh);terrain_chunks[chunk]=mesh
 	# Preserve unrelated decoration resources and imported models across terrain edits.
+	var profile_terrain=Time.get_ticks_usec()
 	var original_props=props
 	for chunk in changed_chunks:
 		if decoration_chunks.has(chunk):decoration_chunks[chunk].free()
-		var node=Node3D.new();original_props.add_child(node);decoration_chunks[chunk]=node;props=node
+		var node=Node3D.new();node.set_meta("art_chunk",chunk);original_props.add_child(node);decoration_chunks[chunk]=node;props=node
 		for key in data.tiles:
 			var parts=key.split(",");var p=Vector2i(int(parts[0]),int(parts[1]))
 			if Vector2i(floori(p.x/8.0),floori(p.y/8.0))!=chunk:continue
@@ -123,13 +162,17 @@ func rebuild() -> void:
 					rock.material_override=material_library.material("rocky_terrain_02",Color("c4c7b4"),0.7)
 		for o in data.objects:
 			if Vector2i(floori(o.x/8.0),floori(o.z/8.0))==chunk:draw_object(o)
-		if use_instancing:frozen_instances.canonicalize(node)
-		StaticBatcher.compact(node,8.0)
-		if use_instancing:
-			frozen_instances.instance_remaining(node)
-			instance_leaf_cards(node)
+		if not use_project_batches:
+			if use_instancing:frozen_instances.canonicalize(node)
+			StaticBatcher.compact(node,8.0)
+			if use_instancing:
+				frozen_instances.instance_remaining(node)
+				instance_leaf_cards(node)
 	props=original_props
+	var profile_props=Time.get_ticks_usec()
+	if use_project_batches:render_batches.rebuild(self,props,ground)
 	rebuild_stats={"dirty_chunks":changed_chunks.size(),"terrain_chunks":terrain_chunks.size(),"object_change":object_change}
+	rebuild_profile={"generate_ms":(profile_generated-profile_start)/1000.0,"terrain_publish_ms":(profile_terrain-profile_generated)/1000.0,"props_ms":(profile_props-profile_terrain)/1000.0,"render_publish_ms":(Time.get_ticks_usec()-profile_props)/1000.0}
 	batch_stats=rebuild_stats;previous_world=world
 	if not dirty.is_empty():update_water_field()
 func set_night(value:bool) -> void:
@@ -202,12 +245,26 @@ func draw_boat(o:Dictionary,_y:float) -> void:
 	var dir:Vector2i=BuildingRules.DIRS[int(o.rotation)%4];var side=Vector2i(-dir.y,dir.x)
 	var node=Node3D.new();props.add_child(node);node.name="Boat";node.add_to_group("island_boats");node.add_to_group("dynamic_visual")
 	node.position=Vector3(o.x+dir.x*2+side.x,0.1,o.z+dir.y*2+side.y)
+	node.set_meta("dock_id",int(o.id));node.set_meta("mooring",node.position);node.set_meta("direction",Vector3(dir.x,0,dir.y))
 	node.rotation.y=PI/2 if dir.x!=0 else 0
 	kit.sphere(node,Vector3.ZERO,Vector3(0.87,0.42,2.8),ArtKit.BLUE)
 	kit.sphere(node,Vector3(0,0.12,0),Vector3(0.7,0.2,2.55),ArtKit.CREAM)
 	for z in [-0.65,0,0.65]:kit.box(node,Vector3(0,0.25,z),Vector3(0.65,0.06,0.18),ArtKit.WOOD)
 	kit.beam(node,Vector3(-0.5,0.25,-0.1),Vector3(0.55,0.25,-0.1),0.04,ArtKit.WOOD)
 func update_actors(sim:ResidentSim,time:float) -> void:
+	var passengers:Dictionary={}
+	for boat in get_tree().get_nodes_in_group("island_boats"):
+		if not boat.has_meta("mooring"):continue
+		var mooring:Vector3=boat.get_meta("mooring");boat.position.x=mooring.x;boat.position.z=mooring.z
+		for person in sim.people:
+			if int(person.get("arrival_dock",0))!=int(boat.get_meta("dock_id")) or person.state!="arriving" or float(person.timer)<=0:continue
+			var direction:Vector3=boat.get_meta("direction");var distance=0.0
+			# Check the complete hull's forward clearance before the short approach.
+			for step in range(1,9):
+				var probe=mooring+direction*(step*0.5+1.5);var cell=Vector2i(roundi(probe.x),roundi(probe.z))
+				if not BuildingRules.inside(cell) or int(data.cell(cell).h)>0 or BuildingRules.occupied(data,cell):break
+				distance=step*0.5
+			boat.position+=direction*distance*clampf(float(person.timer)/4.0,0,1);passengers[int(person.id)]=boat.position+Vector3.UP*0.35
 	var active:Dictionary={}
 	for person in sim.people:
 		var id=int(person.id);active[id]=true
@@ -220,6 +277,7 @@ func update_actors(sim:ResidentSim,time:float) -> void:
 		var moving=not person.route.is_empty()
 		n.animate(String(person.state),moving,time+id*0.2)
 		n.position=Vector3(person.x,y+(absf(sin(time*8+id))*0.045 if moving else 0),person.z)
+		if passengers.has(id):n.position=passengers[id];n.animate("bench",false,time);continue
 		if moving:
 			var target:Vector2i=person.route[0];var facing=Vector3(target.x,0,target.y)-Vector3(person.x,0,person.z)
 			if facing.length()>0.02:n.rotation.y=atan2(facing.x,facing.z)

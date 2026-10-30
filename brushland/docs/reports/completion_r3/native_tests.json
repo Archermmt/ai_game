@@ -1,0 +1,22 @@
+[
+  {
+    "test": "app_gl",
+    "passed": true,
+    "exit_code": 0
+  },
+  {
+    "test": "app_metal",
+    "passed": true,
+    "exit_code": 0
+  },
+  {
+    "test": "product_ui",
+    "passed": true,
+    "exit_code": 0
+  },
+  {
+    "test": "arrival_presentation",
+    "passed": true,
+    "exit_code": 0
+  }
+]

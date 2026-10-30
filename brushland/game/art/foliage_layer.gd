@@ -42,6 +42,7 @@ static func publish(parent:Node3D,layers:Array,shader:Shader) -> Array:
 		for i in range(layers[layer].size()):multi.set_instance_transform(i,layers[layer][i].transform);multi.set_instance_color(i,layers[layer][i].color)
 		var node=MultiMeshInstance3D.new();node.multimesh=multi
 		var mat=ShaderMaterial.new();mat.shader=shader;mat.set_shader_parameter("flower",layer==2);mat.set_shader_parameter("tuft",load("res://game/art/generated/meadow_tuft.png"));node.material_override=mat
+		node.set_meta("foliage_layer",layer)
 		node.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		parent.add_child(node);nodes.append(node)
 	return nodes

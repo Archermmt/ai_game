@@ -2,6 +2,7 @@ class_name IslandHud
 extends CanvasLayer
 signal tool_selected(tool:String)
 signal action_requested(action:String)
+signal wish_toggled(id:String)
 var root=Control.new()
 var status=Label.new()
 var toast_label=Label.new()
@@ -26,7 +27,7 @@ func style(color:Color,border:Color=Color.TRANSPARENT) -> StyleBoxFlat:
 	return s
 func _ready() -> void:
 	add_child(root);root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);root.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	var font=SystemFont.new();font.font_names=PackedStringArray(["PingFang SC","Microsoft YaHei","Noto Sans CJK SC","sans-serif"])
+	var font=preload("res://game/ui/fonts/noto_sans_cjk_sc_regular.otf")
 	var theme=Theme.new();theme.default_font=font;theme.default_font_size=18
 	theme.set_color("font_color","Label",Color("405c54"));theme.set_color("font_color","Button",Color("466158"))
 	theme.set_color("font_hover_color","Button",Color("274b40"));theme.set_color("font_pressed_color","Button",Color("f8f1dc"))
@@ -39,7 +40,7 @@ func _ready() -> void:
 	var title=label("风屿手记",28);title_col.add_child(title)
 	title_col.add_child(label("B R E E Z E L Y   I S L E S",11));title_col.add_child(status)
 	actions=HFlowContainer.new();root.add_child(actions);actions.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT);actions.offset_left=-676;actions.offset_right=-24;actions.offset_top=24;actions.offset_bottom=68
-	for item in [["journal","手记"],["undo","撤销"],["redo","重做"],["pause","暂停"],["sunset","日落"],["photo","拍照"],["menu","存档"]]:
+	for item in [["journal","手记"],["residents","入住"],["undo","撤销"],["redo","重做"],["pause","暂停"],["sunset","日落"],["photo","拍照"],["menu","存档"]]:
 		var b=button(actions,item[1],func():action_requested.emit(item[0]))
 		if item[0] in ["undo","redo","photo"]:b.icon=load("res://game/ui/vectors/UI_002_%02d.svg"%{"undo":0,"redo":1,"photo":5}[item[0]]);b.add_theme_constant_override("icon_max_width",18)
 	card=panel(Vector2(-268,98),Vector2(244,356));card.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT);card.offset_left=-268;card.offset_right=-24;card.offset_top=98;card.offset_bottom=454;var journal_scroll=ScrollContainer.new();journal_scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;card.add_child(journal_scroll);journal_scroll.add_child(journal);journal.size_flags_horizontal=Control.SIZE_EXPAND_FILL
@@ -77,14 +78,18 @@ func toast(text:String) -> void:
 	toast_label.text=text;toast_time=5.0
 func refresh_status(population:int,tool:String,radius:int,span:int,paused:bool) -> void:
 	status.text="%d 位岛民   ·   %s %s%s"%[population,NAMES.get(tool,tool),str(span)+" 格" if tool in ["bridge","dock"] else str(radius)+" 号笔", "   已暂停" if paused else ""]
-func refresh_journal(completed:Array) -> void:
+func refresh_journal(completed:Array,hidden:Array=[]) -> void:
 	for n in journal.get_children():n.queue_free()
 	journal.add_child(label("岛上的小心愿",21))
 	journal.add_child(label("%d / 6 个日常片段   ·   没有期限"%completed.size(),12))
 	for key in JOURNAL:
-		var info=JOURNAL[key];var row=VBoxContainer.new();journal.add_child(row)
+		var info=JOURNAL[key]
+		if key in hidden:
+			button(journal,"展开 · "+info[0],func():wish_toggled.emit(key));continue
+		var row=VBoxContainer.new();journal.add_child(row)
 		var heading=HBoxContainer.new();row.add_child(heading);var icon=TextureRect.new();icon.texture=load("res://game/ui/vectors/UI_003_%02d.svg"%JOURNAL.keys().find(key));icon.custom_minimum_size=Vector2(22,22);icon.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;icon.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;heading.add_child(icon);heading.add_child(label(("●  " if key in completed else "○  ")+info[0],18))
 		var detail=label("已记在手记里" if key in completed else info[1],11);detail.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;detail.custom_minimum_size.x=210;row.add_child(detail)
+		if not key in completed:button(row,"收起这条心愿",func():wish_toggled.emit(key))
 func layout() -> void:
 	if not is_instance_valid(root) or not is_instance_valid(bottom):return
 	root.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT);root.scale=Vector2.ONE*ui_scale;root.size=get_viewport().get_visible_rect().size/ui_scale

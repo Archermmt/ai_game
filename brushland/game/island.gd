@@ -32,6 +32,7 @@ var photo_hint=Label.new()
 var modal:Control
 var modal_panel:PanelContainer
 var selected:Dictionary={}
+var preview_note=Label.new()
 func _ready() -> void:
 	get_tree().auto_accept_quit=false
 	capturing=OS.get_cmdline_user_args().has("--capture")
@@ -46,7 +47,12 @@ func _ready() -> void:
 	add_child(camera);camera.projection=Camera3D.PROJECTION_ORTHOGONAL;camera.size=30.5;camera.current=true;update_camera()
 	add_child(audio);add_child(listener);listener.make_current()
 	add_child(hud);preferences.read();apply_preferences(false);hud.add_child(photo_hint);photo_hint.text="拍照模式 · Q/E 转向 · 滚轮缩放 · F12 保存 · Esc 返回";photo_hint.position=Vector2(30,24);photo_hint.visible=false
+	hud.root.add_child(preview_note);preview_note.mouse_filter=Control.MOUSE_FILTER_IGNORE;preview_note.add_theme_font_size_override("font_size",17);preview_note.add_theme_color_override("font_shadow_color",Color("fff6df"));preview_note.add_theme_constant_override("shadow_offset_x",1);preview_note.add_theme_constant_override("shadow_offset_y",1)
 	hud.tool_selected.connect(select_tool);hud.action_requested.connect(action)
+	hud.wish_toggled.connect(func(id):
+		if id in sim.hidden_wishes:sim.hidden_wishes.erase(id)
+		else:sim.hidden_wishes.append(id)
+		hud.refresh_journal(sim.completed,sim.hidden_wishes))
 	for o in data.objects:
 		if o.kind=="house":
 			var p=RouteGraph.entrance(o)
@@ -73,7 +79,7 @@ func select_tool(id:String) -> void:
 	tool=id;dragging=false;stroke.clear();moving_id=0
 	hud.toast({"house":"在平整的 2×2 草地上放一座小屋，门前接上小路","dock":"从一至二级海岸向海延伸；R 旋转，−/+ 调长度","bridge":"选择第一端岸边，R 转向、−/+ 调跨度，两岸须同高","flower":"在小屋外圈画三格花圃，试试它的新模样","move":"先点物件，再点新位置；右键取消","lock":"点击小屋，保留 / 解锁当前外观","color":"点击建筑，更换屋顶配色"}.get(id,"选择了"+IslandHud.NAMES[id]));refresh_preview()
 func rebuild() -> void:
-	sim.reconcile(data);view.day=not sim.sunset;view.rebuild();view.update_actors(sim,time);hud.refresh_journal(sim.completed);refresh_preview()
+	sim.reconcile(data);view.day=not sim.sunset;view.rebuild();view.update_actors(sim,time);hud.refresh_journal(sim.completed,sim.hidden_wishes);refresh_preview()
 func update_camera() -> void:
 	center.x=clampf(center.x,8,56);center.z=clampf(center.z,8,56)
 	camera.position=center+Vector3(sin(angle)*38,38,cos(angle)*38);camera.look_at(center)
@@ -96,16 +102,18 @@ func pick() -> Vector2i:
 func prototype(p:Vector2i) -> Dictionary:
 	return {"id":0,"x":p.x,"z":p.y,"kind":tool,"rotation":placement_rotation,"length":span,"locked":false}
 func refresh_preview() -> void:
+	preview_note.visible=false
 	for n in preview.get_children():n.free()
 	if photo_mode or modal!=null:return
 	var p=pick()
 	if not BuildingRules.inside(p):return
-	var cells:Array=[];var valid=true
+	var cells:Array=[];var valid=true;var reason=""
 	if tool=="move" and moving_id!=0:
 		var o=sim.object_by_id(data,moving_id).duplicate(true)
-		if not o.is_empty():o.x=p.x;o.z=p.y;cells=BuildingRules.footprint(o);valid=BuildingRules.check(data,o,moving_id).is_empty()
+		if not o.is_empty():o.x=p.x;o.z=p.y;cells=BuildingRules.footprint(o);reason=BuildingRules.check(data,o,moving_id);valid=reason.is_empty()
 	elif tool in BuildingRules.TOOLS:
-		var o=prototype(p);cells=BuildingRules.footprint(o);valid=BuildingRules.check(data,o).is_empty()
+		var o=prototype(p);cells=BuildingRules.footprint(o);reason=BuildingRules.check(data,o);valid=reason.is_empty()
+		if valid:reason="可放置 · "+({"basic":"普通居所","coast":"海岸居所","garden":"花园居所"}[BuildingRules.variant(data,o)] if tool=="house" else IslandHud.NAMES[tool])
 	elif dragging:cells=stroke
 	else:
 		for x in range(-radius,radius+1):
@@ -113,9 +121,17 @@ func refresh_preview() -> void:
 				if x*x+z*z<=radius*radius:cells.append(p+Vector2i(x,z))
 	for q in cells:
 		if not BuildingRules.inside(q):continue
-		var protected=BuildingRules.occupied(data,q,tool!="road") and not tool in BuildingRules.TOOLS
+		var protected=(not BuildingRules.road_paintable(data,q) if tool=="road" else BuildingRules.occupied(data,q,true)) and not tool in BuildingRules.TOOLS
 		var color=Color("d4b28d") if not valid or protected else Color("cdddb2")
-		view.kit.box(preview,Vector3(q.x,float(data.cell(q).h)*0.5+0.045,q.y),Vector3(0.88,0.035,0.88),color)
+		var marker=view.kit.box(preview,Vector3(q.x,float(data.cell(q).h)*0.5+0.045,q.y),Vector3(0.88,0.035,0.88),color)
+		marker.layers=1<<19;marker.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		if not valid or protected:
+			for angle_value in [-PI/4,PI/4]:
+				var stripe=view.kit.box(preview,marker.position+Vector3.UP*0.025,Vector3(0.85,0.02,0.06),Color("916a58"));stripe.rotation.y=angle_value;stripe.layers=1<<19;stripe.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			if protected:reason="支撑 / 入口会保留"
+	if not reason.is_empty():
+		preview_note.text=reason;preview_note.visible=true
+		var mouse=hud.root.get_local_mouse_position();preview_note.position=Vector2(clampf(mouse.x+20,10,maxf(10,hud.root.size.x-380)),clampf(mouse.y-40,140,maxf(140,hud.root.size.y-160)))
 func collect() -> void:
 	var p=pick()
 	for x in range(-radius,radius+1):
@@ -128,7 +144,7 @@ func commit_stroke() -> void:
 	var regions=resident_regions()
 	if tool in BuildingRules.TOOLS:
 		var result=BuildingRules.place(data,p,tool,placement_rotation,span)
-		hud.toast("已放下"+IslandHud.NAMES[tool] if result.begins_with("Placed") else result)
+		hud.toast(("小屋建好了 · "+sim.arrival_info(data,data.objects[-1]).reason if tool=="house" else "已放下"+IslandHud.NAMES[tool]) if result.begins_with("Placed") else result)
 	elif tool=="move":move_object(p)
 	elif tool in ["erase","lock","color"]:
 		var found=false
@@ -146,7 +162,7 @@ func commit_stroke() -> void:
 	else:
 		var blocked=0
 		for q in stroke:
-			if BuildingRules.occupied(data,q,tool!="road"):blocked+=1
+			if not BuildingRules.road_paintable(data,q) if tool=="road" else BuildingRules.occupied(data,q,true):blocked+=1
 		data.paint(stroke,tool)
 		if blocked>0:hud.toast("保留了 %d 格支撑 / 入口；先移动上面的物件再改地形"%blocked)
 	audio.effect("move" if tool=="move" else "remove" if tool=="erase" else "road" if tool=="road" else "place" if tool in BuildingRules.TOOLS else "paint")
@@ -165,7 +181,10 @@ func _input(event:InputEvent) -> void:
 		if get_viewport().gui_get_hovered_control()!=null:stroke.clear();refresh_preview()
 		else:commit_stroke()
 func _unhandled_input(event:InputEvent) -> void:
-	if modal!=null:return
+	if photo_busy:return
+	if modal!=null:
+		if event is InputEventKey and event.pressed and not event.echo and preferences.matches(event,"cancel"):close_modal();get_viewport().set_input_as_handled()
+		return
 	if event is InputEventMouseButton:
 		if event.button_index==MOUSE_BUTTON_WHEEL_UP:camera.size=maxf(13,camera.size-1.5)
 		if event.button_index==MOUSE_BUTTON_WHEEL_DOWN:camera.size=minf(58,camera.size+1.5)
@@ -208,16 +227,18 @@ func _process(dt:float) -> void:
 		for key in sim.events:hud.toast("收录了新的日常："+IslandHud.JOURNAL[key][0])
 		audio.effect("journal")
 		if preferences.values.flash:IslandEffects.burst(view,center+Vector3.UP*2,view.environment_clock,true)
-		sim.events.clear();hud.refresh_journal(sim.completed)
+		sim.events.clear();hud.refresh_journal(sim.completed,sim.hidden_wishes)
 	hud.refresh_status(sim.people.size(),tool,radius,span,sim.paused)
 	if autosave_clock>=60 and not dragging and modal==null:
 		autosave_clock=0
-		var err=SaveStore.save_game(data,sim)
+		var err=save_current()
 		if err!=OK:hud.toast("自动保存失败，请打开存档面板重试："+error_string(err))
 func action(id:String) -> void:
+	if photo_busy:return
 	audio.effect("undo" if id in ["undo","redo"] else "click")
 	match id:
 		"journal":hud.card.visible=not hud.card.visible
+		"residents":show_residents()
 		"undo":
 			var regions=resident_regions();data.undo();protect_residents(regions);rebuild();hud.toast("已撤销")
 		"redo":
@@ -273,6 +294,7 @@ func apply_preferences(persist:bool=true) -> void:
 		var error=preferences.write()
 		if error!=OK:hud.toast("设置未能保存，可重试："+error_string(error))
 func open_modal(title:String) -> VBoxContainer:
+	dragging=false;stroke.clear();moving_id=0
 	if modal!=null:modal.queue_free()
 	modal=Control.new();hud.root.add_child(modal);modal.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var shade=ColorRect.new();shade.color=Color(0.15,0.27,0.25,0.35);modal.add_child(shade);shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -290,24 +312,37 @@ func close_modal() -> void:
 func welcome() -> void:
 	sim.paused=true
 	var col=open_modal("欢迎来到风屿")
-	var text=hud.label("画一段海岸，留一盏灯。\n\n工具全部免费，喜欢的风景可以随时改。\n小屋旁添三格花，试试它的新模样。\n\n先走进准备好的海湾，或从一片海开始。",17);col.add_child(text)
-	hud.button(col,"走进海湾",func():close_modal();sim.paused=false;hud.toast("先添一片花圃，或在建造栏放下一间新屋"))
+	var text=hud.label("画一段海岸，留一盏灯。\n\n工具全部免费，喜欢的风景可以随时改。\n小屋旁添三格花，试试它的新模样。\n\n新建一座海湾，或参观准备好的风景。",17);col.add_child(text)
+	hud.button(col,"新建海湾（无建筑）",func():data.clear_world();data.seed_island();data.paint([Vector2i(28,33),Vector2i(29,33),Vector2i(30,33)],"road");data.history.clear();sim=ResidentSim.new();close_modal();rebuild();hud.toast("先画岸边，再摆小屋；门前接路，码头通向外海"))
+	hud.button(col,"参观月牙湾",func():close_modal();sim.paused=false;hud.toast("先添一片花圃，或在建造栏放下一间新屋"))
 	for composition in [["garden","去花园池畔"],["lighthouse","去灯塔岩岬"]]:hud.button(col,composition[1],func():IslandCompositions.create(data,composition[0]);sim=ResidentSim.new();close_modal();rebuild();sim.paused=false)
 	if FileAccess.file_exists("user://island.json"):hud.button(col,"继续上次的岛",func():load_slot("user://island.json");close_modal())
 	hud.button(col,"空白海面",func():data.clear_world();sim=ResidentSim.new();close_modal();rebuild())
+func save_current(path:String="user://island.json") -> Error:
+	var presentation={"camera":{"center":[center.x,center.y,center.z],"size":camera.size,"angle":fposmod(angle,TAU)},"settings":preferences.values.duplicate(true)}
+	return SaveStore.save_game(data,sim,path,presentation)
 func load_slot(path:String) -> void:
-	var err=SaveStore.load_game(data,sim,path)
-	if err==OK:set_sunset(sim.sunset);rebuild();hud.toast("岛屿已恢复");sim.paused=false
+	var presentation:Dictionary={}
+	var err=SaveStore.load_game(data,sim,path,presentation)
+	if err==OK:
+		if presentation.has("camera"):
+			var saved=presentation.camera;center=Vector3(saved.center[0],saved.center[1],saved.center[2]);angle=saved.angle;camera.size=saved.size;update_camera()
+		if presentation.has("settings"):preferences.merge_values(presentation.settings);apply_preferences()
+		set_sunset(sim.sunset);rebuild();hud.toast("岛屿已恢复");sim.paused=false
 	else:hud.toast("无法读取，当前作品保持不变："+error_string(err))
 func save_menu() -> void:
 	var col=open_modal("岛屿存档")
 	for slot in range(1,4):
-		var row=HBoxContainer.new();col.add_child(row);row.add_child(hud.label("手动槽 %d"%slot))
+		var row=HBoxContainer.new();col.add_child(row)
+		var name=LineEdit.new();name.text=preferences.values.slot_names[slot-1];name.placeholder_text="手动槽 %d"%slot;name.max_length=40;name.size_flags_horizontal=Control.SIZE_EXPAND_FILL;row.add_child(name)
+		name.text_changed.connect(func(value):
+			preferences.values.slot_names[slot-1]=value;var error=preferences.write()
+			if error!=OK:hud.toast("存档名称未能保存，可重试"))
 		var path="user://slot_%d.json"%slot
-		hud.button(row,"保存",func():hud.toast("保存："+error_string(SaveStore.save_game(data,sim,path))))
+		hud.button(row,"保存",func():hud.toast("保存："+error_string(save_current(path))))
 		hud.button(row,"读取",func():load_slot(path))
 	hud.button(col,"读取最近自动保存",func():load_slot("user://island.json"))
-	hud.button(col,"恢复自动保存的上一备份",func():load_slot("user://island.json.bak"))
+	for suffix in ["bak","bak2","bak3"]:hud.button(col,"恢复自动备份 "+str(["bak","bak2","bak3"].find(suffix)+1),func():load_slot("user://island.json."+suffix))
 	hud.button(col,"打开照片文件夹",func():DirAccess.make_dir_recursive_absolute("user://photos");OS.shell_open(ProjectSettings.globalize_path("user://photos")))
 	hud.button(col,"声音（当前："+("开" if audio.enabled else "关")+"）",func():preferences.values.muted=not preferences.values.muted;apply_preferences();close_modal();save_menu())
 	hud.button(col,"减少环境动画（当前："+("开" if reduced_motion else "关")+"）",func():preferences.values.reduced_motion=not reduced_motion;apply_preferences();close_modal();save_menu())
@@ -315,7 +350,7 @@ func save_menu() -> void:
 	hud.button(col,"返回海湾",close_modal)
 func _notification(what:int) -> void:
 	if what==NOTIFICATION_WM_CLOSE_REQUEST:
-		var err=SaveStore.save_game(data,sim)
+		var err=save_current()
 		if err!=OK:hud.toast("退出保存失败，请重试："+error_string(err));return
 		get_tree().quit()
 
@@ -347,3 +382,25 @@ func protect_residents(regions:Dictionary) -> void:
 		person.route=[];person.target=0
 		if nearest.x>=0:person.x=float(nearest.x);person.z=float(nearest.y);person.state="waiting"
 		else:person.state="resting"
+
+func show_credits() -> void:
+	var col=open_modal("制作与许可")
+	var text=hud.label(FileAccess.get_file_as_string("res://THIRD_PARTY_NOTICES.md"),18);text.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;col.add_child(text)
+	text=hud.label(Engine.get_license_text(),16);text.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;col.add_child(text)
+	text=hud.label(FileAccess.get_file_as_string("res://game/ui/fonts/OFL.txt"),16);text.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;col.add_child(text)
+	hud.button(col,"返回设置",func():preload("res://game/settings/settings_panel.gd").build(self))
+
+func show_residents() -> void:
+	var col=open_modal("岛民与入住")
+	var houses=0
+	for object in data.objects:
+		if object.kind!="house":continue
+		houses+=1;var occupant=0
+		for person in sim.people:
+			if int(person.home)==int(object.id):occupant=int(person.id);break
+		var reason="岛民 %d 的家"%occupant if occupant>0 else sim.arrival_info(data,object).reason
+		for person in sim.people:
+			if int(person.id)==occupant:reason+=" · 喜欢"+{"tea":"喝茶","greenhouse":"花草","bench":"看海","lighthouse":"灯塔"}[sim.preference_of(person)]
+		var label=hud.label("小屋 %d · %s"%[object.id,reason]);label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;col.add_child(label)
+	if houses==0:col.add_child(hud.label("先在陆地上放一间小屋，再从门口接路。"))
+	hud.button(col,"返回建造",close_modal)

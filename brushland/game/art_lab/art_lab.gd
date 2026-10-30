@@ -28,6 +28,7 @@ func _ready() -> void:
 	data.restore(JSON.parse_string(FileAccess.get_file_as_string(path)).world)
 	if args.has("composition"):IslandCompositions.create(data,args.composition)
 	view.use_instancing=args.get("instancing","1")!="0"
+	view.use_project_batches=args.get("project_batches","1")!="0"
 	add_child(view);view.setup(data);view.sea.material_override.set_shader_parameter("motion",0.0)
 	var env=WorldEnvironment.new();environment.background_mode=Environment.BG_COLOR;environment.background_color=Color("8bbcb9")
 	environment.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR;environment.ambient_light_color=Color.WHITE;environment.ambient_light_energy=0.5
@@ -39,8 +40,10 @@ func _ready() -> void:
 		if o.kind=="house":
 			var p=RouteGraph.entrance(o);sim.people.append({"id":sim.next_id,"home":o.id,"x":float(p.x),"z":float(p.y),"state":"home","route":[],"timer":0.0,"target":0});sim.next_id+=1
 	sim.paused=true;view.rebuild();view.update_actors(sim,0);wildlife.surface=view.surface
+	if args.get("force_lod0","0")=="1":
+		for node in view.find_children("*","GeometryInstance3D",true,false):node.lod_bias=10000.0
 	var method=RenderingServer.get_current_rendering_method()
-	var label=String(args.get("label",method));var iteration=String(args.get("iteration","art_i1"));var folder="res://snapshots/"+iteration+"/"+label
+	var label=String(args.get("label",method));var iteration=String(args.get("iteration","completion_r2"));var folder="res://snapshots/"+iteration+"/"+label
 	DirAccess.make_dir_recursive_absolute(folder)
 	var result={"engine":Engine.get_version_info().string,"renderer":method,"driver":RenderingServer.get_current_rendering_driver_name(),"resolution":[1920,1080],"fixture_sha256":FileAccess.get_sha256(path),"camera_specs":CAMERAS,"frozen":true,"label":label,"views":{},"batch_stats":view.batch_stats,"tiles":data.tiles.size(),"objects":data.objects.size(),"people":sim.people.size(),"scope":"Fixed bay / native renderer parity lab; not full PRD pressure scene"}
 	result.composition_id=String(args.get("composition","harbor"));result.world_sha256=JSON.stringify(data.snapshot()).sha256_text()
@@ -56,7 +59,7 @@ func _ready() -> void:
 		var image=get_viewport().get_texture().get_image();var err=image.save_png(folder+"/"+id+".png")
 		if err!=OK:push_error("Capture failed "+id);get_tree().quit(1);return
 		result.resolution=[image.get_width(),image.get_height()]
-		result.views[id]={"path":folder+"/"+id+".png","draw_calls":get_viewport().get_render_info(Viewport.RENDER_INFO_TYPE_VISIBLE,Viewport.RENDER_INFO_DRAW_CALLS_IN_FRAME),"sha256":FileAccess.get_sha256(folder+"/"+id+".png")}
+		result.views[id]={"path":folder+"/"+id+".png","primitives":get_viewport().get_render_info(Viewport.RENDER_INFO_TYPE_VISIBLE,Viewport.RENDER_INFO_PRIMITIVES_IN_FRAME),"draw_calls":get_viewport().get_render_info(Viewport.RENDER_INFO_TYPE_VISIBLE,Viewport.RENDER_INFO_DRAW_CALLS_IN_FRAME),"sha256":FileAccess.get_sha256(folder+"/"+id+".png")}
 	# Same sample and duration for both native renderers, no simulated fixed-FPS timing.
 	var samples:Array=[];var previous=Time.get_ticks_usec()
 	for i in range(180):
