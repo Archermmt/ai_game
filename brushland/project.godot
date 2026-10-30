@@ -1,7 +1,8 @@
 config_version=5
 [application]
 config/name="Breezely Isles · 风屿手记"
-run/main_scene="res://game/island.tscn"
+run/main_scene="res://game/bootstrap/launcher.tscn"
+config/version="0.3.0"
 [display]
 window/size/viewport_width=1440
 window/size/viewport_height=900
@@ -9,4 +10,5 @@ window/stretch/mode="canvas_items"
 [rendering]
 renderer/rendering_method="gl_compatibility"
 limits/opengl/max_lights_per_object=32
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.68,0.81,0.80,1)

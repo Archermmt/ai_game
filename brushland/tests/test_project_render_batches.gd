@@ -19,6 +19,9 @@ func run() -> void:
 	for i in range(10):
 		var x=grass.get_instance_transform(i).origin.x;west=west or x<50;east=east or x>50
 	assert(west and east)
+	var output_id=renderer.output.get_instance_id();var batch_id=batches[0].get_instance_id();var grass_id=renderer.grass[0].get_instance_id()
+	renderer.restore(true);renderer.rebuild(view,props,ground)
+	assert(renderer.output.get_instance_id()==output_id and renderer.output.find_children("*","MeshInstance3D",true,false)[0].get_instance_id()==batch_id and renderer.grass[0].get_instance_id()==grass_id)
 	renderer.restore();assert(a.visible and b.visible and not hidden.visible)
 	a.material_override.roughness=0.4;a.material_override.emit_changed();renderer.rebuild(view,props,ground)
 	assert(renderer.output.find_children("*","MeshInstance3D",true,false).size()==2)

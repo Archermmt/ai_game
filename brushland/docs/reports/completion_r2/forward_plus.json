@@ -62,9 +62,9 @@
   },
   "composition_id": "harbor",
   "driver": "metal",
-  "edit_rebuild_ms_p95": 60.709,
+  "edit_rebuild_ms_p95": 45.776,
   "engine": "4.7-stable (official)",
-  "engine_static_bytes": 87378625.0,
+  "engine_static_bytes": 87901369.0,
   "fixture_sha256": "fc74fe3b9d9f9ba86df093baea7e47fd1214b82ac566aa65372908b81706728c",
   "focus_bounds_xz": {
     "max_exclusive": [
@@ -77,8 +77,8 @@
     ],
     "unit_m": 1
   },
-  "frame_ms_p50": 8.319,
-  "frame_ms_p95": 9.004,
+  "frame_ms_p50": 6.899,
+  "frame_ms_p95": 7.426,
   "frame_samples": 150,
   "frozen": true,
   "label": "forward_plus",

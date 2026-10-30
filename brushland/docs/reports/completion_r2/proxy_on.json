@@ -62,9 +62,9 @@
   },
   "composition_id": "harbor",
   "driver": "opengl3",
-  "edit_rebuild_ms_p95": 57.563,
+  "edit_rebuild_ms_p95": 45.532,
   "engine": "4.7-stable (official)",
-  "engine_static_bytes": 68791273.0,
+  "engine_static_bytes": 69275241.0,
   "fixture_sha256": "fc74fe3b9d9f9ba86df093baea7e47fd1214b82ac566aa65372908b81706728c",
   "focus_bounds_xz": {
     "max_exclusive": [
@@ -77,8 +77,8 @@
     ],
     "unit_m": 1
   },
-  "frame_ms_p50": 8.29,
-  "frame_ms_p95": 14.715,
+  "frame_ms_p50": 6.909,
+  "frame_ms_p95": 14.497,
   "frame_samples": 150,
   "frozen": true,
   "label": "proxy_on",
@@ -120,7 +120,7 @@
       "draw_calls": 107,
       "path": "res://snapshots/completion_r2/proxy_on/sunset.png",
       "primitives": 43598,
-      "sha256": "885e476cbe23fe80331c3315bcc8a53af6eb1099005acc91ffec7960120668b8"
+      "sha256": "406a1ddd6e11d82b0ff2ea01a279d357422e001a1d90586a0569b2bfa15459de"
     },
     "whole": {
       "draw_calls": 106,

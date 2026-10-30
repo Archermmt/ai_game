@@ -1,5 +1,5 @@
 Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
 OpenGL API 4.1 Metal - 89.3 - Compatibility - Using Device: Apple - Apple M4 Pro
 
-2026-10-30 08:23:32.978 godot[77964:20452110] +[IMKClient subclass]: chose IMKClient_Modern
+2026-10-30 22:15:24.680 godot[94817:20699115] +[IMKClient subclass]: chose IMKClient_Modern
 PASS project proxies: geometry/colors, source restore, hidden/dynamic/alpha, whole-island grass LOD and material invalidation

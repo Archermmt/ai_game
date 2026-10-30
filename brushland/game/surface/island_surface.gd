@@ -3,21 +3,32 @@ extends RefCounted
 ## Immutable derived surface. Source cells remain authoritative for gameplay.
 var tiles:Dictionary
 var foundations:Array=[]
+var foundation_grid:Dictionary={}
+var height_levels=PackedByteArray()
 var objects:Array
 var occupied:Dictionary={}
 func _init(world:Dictionary) -> void:
-	tiles=world.tiles;objects=world.objects
+	tiles=world.tiles;objects=world.objects;height_levels.resize(4096)
+	for key in tiles:
+		var xy=key.split(",");var x=int(xy[0]);var z=int(xy[1])
+		if x>=0 and z>=0 and x<64 and z<64:height_levels[z*64+x]=int(tiles[key].h)
 	for o in world.objects:
 		for p in BuildingRules.footprint(o):occupied[p]=true
 		if o.kind in ["house","tea","greenhouse","lighthouse"]:
-			foundations.append({"bounds":Rect2(Vector2(o.x-0.5,o.z-0.5),Vector2(2,2)),"height":height_at_cell(Vector2i(o.x,o.z))})
+			var foundation={"bounds":Rect2(Vector2(o.x-0.5,o.z-0.5),Vector2(2,2)),"height":height_at_cell(Vector2i(o.x,o.z))};foundations.append(foundation)
+			for x in range(int(o.x)-1,int(o.x)+2):
+				for z in range(int(o.z)-1,int(o.z)+2):
+					var key=Vector2i(x,z)
+					if not foundation_grid.has(key):foundation_grid[key]=[]
+					foundation_grid[key].append(foundation)
 func cell(p:Vector2i) -> Dictionary:
 	return tiles.get("%d,%d"%[p.x,p.y],{"h":0,"surface":"water"})
 func height_at_cell(p:Vector2i) -> float:
-	var h=int(cell(p).h)
+	if p.x<0 or p.y<0 or p.x>=64 or p.y>=64:return -0.15
+	var h=int(height_levels[p.y*64+p.x])
 	return h*0.5 if h>0 else -0.15
 func height_at(v:Vector2) -> float:
-	for f in foundations:
+	for f in foundation_grid.get(Vector2i(floori(v.x),floori(v.y)),[]):
 		if f.bounds.has_point(v):return f.height
 	var p=Vector2i(floori(v.x),floori(v.y));var t=v-Vector2(p)
 	var a=height_at_cell(p);var b=height_at_cell(p+Vector2i.RIGHT)

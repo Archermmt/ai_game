@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://7v85wkfgqq0h"
 path.s3tc="res://.godot/imported/white_plaster_02_nor_gl.jpg-83a8479d887b210d068b6182a91e1934.s3tc.ctex"
+path.etc2="res://.godot/imported/white_plaster_02_nor_gl.jpg-83a8479d887b210d068b6182a91e1934.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://game/art/materials/white_plaster_02_nor_gl.jpg"
-dest_files=["res://.godot/imported/white_plaster_02_nor_gl.jpg-83a8479d887b210d068b6182a91e1934.s3tc.ctex"]
+dest_files=["res://.godot/imported/white_plaster_02_nor_gl.jpg-83a8479d887b210d068b6182a91e1934.s3tc.ctex", "res://.godot/imported/white_plaster_02_nor_gl.jpg-83a8479d887b210d068b6182a91e1934.etc2.ctex"]
 
 [params]
 

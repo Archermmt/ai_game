@@ -62,9 +62,9 @@
   },
   "composition_id": "harbor",
   "driver": "opengl3",
-  "edit_rebuild_ms_p95": 48.779,
+  "edit_rebuild_ms_p95": 40.439,
   "engine": "4.7-stable (official)",
-  "engine_static_bytes": 55964285.0,
+  "engine_static_bytes": 56051677.0,
   "fixture_sha256": "fc74fe3b9d9f9ba86df093baea7e47fd1214b82ac566aa65372908b81706728c",
   "focus_bounds_xz": {
     "max_exclusive": [
@@ -77,8 +77,8 @@
     ],
     "unit_m": 1
   },
-  "frame_ms_p50": 8.316,
-  "frame_ms_p95": 13.872,
+  "frame_ms_p50": 6.904,
+  "frame_ms_p95": 14.096,
   "frame_samples": 150,
   "frozen": true,
   "label": "lod0_source",

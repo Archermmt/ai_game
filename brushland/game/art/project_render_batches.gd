@@ -16,6 +16,10 @@ var batch_mesh_cache:Dictionary={}
 var scope_cache:Dictionary={}
 var material_snapshots:Dictionary={}
 var instance_snapshots:Dictionary={}
+var mesh_nodes:Dictionary={}
+var instance_nodes:Dictionary={}
+var grass_nodes:Dictionary={}
+var smoke_nodes:Dictionary={}
 func material_signature(mat:Material) -> Array:
 	var signature:Array=[mat.get_class()]
 	for property in mat.get_property_list():
@@ -31,7 +35,9 @@ func restore(keep_sources_hidden:bool=false) -> void:
 			if is_instance_valid(node):node.visible=true
 		hidden_ids.clear()
 	hidden.clear();grass.clear();smoke.clear()
-	if is_instance_valid(output):output.free()
+	if not keep_sources_hidden:
+		if is_instance_valid(output):output.free()
+		mesh_nodes.clear();instance_nodes.clear();grass_nodes.clear();smoke_nodes.clear()
 func draw_material(mat:Material) -> Array:
 	if mat is StandardMaterial3D:
 		if not materials.opaque_material(mat):return []
@@ -108,7 +114,7 @@ func collect(boundary:Node3D,nodes:Array,inverse:Transform3D,context:Dictionary)
 				if shadow_arrays.is_empty() or shadow_arrays[Mesh.ARRAY_VERTEX]==null:valid=false;break
 			var spatial=Vector2i(floori(node.global_position.x/32.0),floori(node.global_position.z/32.0))
 			if node.has_meta("art_terrain"):
-				var chunk=node.get_meta("art_terrain");spatial=Vector2i(floori(chunk.x/2.0),floori(chunk.y/2.0))
+				var chunk=node.get_meta("art_terrain");spatial=Vector2i(floori(chunk.x/4.0),floori(chunk.y/4.0))
 			var key=[material[0].get_instance_id(),channels,settings,shadow!=null,spatial]
 			surfaces.append({"key":key,"material":material[0],"arrays":arrays,"shadow":shadow_arrays,"settings":settings,"transform":transform,"signature":[node.get_instance_id(),node.mesh.get_instance_id(),node.mesh.get_aabb(),i,material[1],transform]})
 		if valid:result.meshes.append_array(surfaces);result.hide.append(node)
@@ -119,7 +125,8 @@ func rebuild(view:Node3D,props:Node3D,ground:Node3D) -> void:
 	palette.clear();instance_materials.clear()
 	for key in mesh_references.keys():
 		if mesh_references[key].get_ref()==null:geometry_cache.erase(key);mesh_references.erase(key)
-	output=Node3D.new();output.name="RenderProxies";view.add_child(output)
+	if not is_instance_valid(output):
+		output=Node3D.new();output.name="RenderProxies";view.add_child(output)
 	var inverse=output.global_transform.affine_inverse();var context={"curves":{},"meshes":{},"shadows":{}}
 	var groups:Dictionary={};var instances:Dictionary={};var to_hide:Array=[];var smoke_sources:Array=[];var new_scopes:Dictionary={};var new_grass_cache:Dictionary={};var new_batch_mesh_cache:Dictionary={}
 	for boundary in [props,ground]:
@@ -156,16 +163,28 @@ func rebuild(view:Node3D,props:Node3D,ground:Node3D) -> void:
 				for record in group.shadows:StaticBatcher._append_surface(arrays_shadow,record[0],record[1])
 				var shadow=ArrayMesh.new();shadow.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays_shadow);mesh.shadow_mesh=shadow
 		new_batch_mesh_cache[key]={"signature":group.signature,"mesh":mesh}
-		var node=MeshInstance3D.new();node.mesh=mesh;node.material_override=group.material;output.add_child(node)
-		for i in range(StaticBatcher.INSTANCE_PROPERTIES.size()):node.set(StaticBatcher.INSTANCE_PROPERTIES[i],group.settings[i])
-	for group in instances.values():
-		var multi=MultiMesh.new();multi.transform_format=MultiMesh.TRANSFORM_3D;multi.mesh=group.mesh;multi.instance_count=group.transforms.size()
-		var buffer=PackedFloat32Array()
-		for t in group.transforms:buffer.append_array(transform_buffer(t))
-		multi.buffer=buffer
-		var node=MultiMeshInstance3D.new();node.multimesh=multi;node.material_override=group.material;output.add_child(node)
-		if group.leaves:node.add_to_group("island_leaf_nodes")
-		for i in range(StaticBatcher.INSTANCE_PROPERTIES.size()):node.set(StaticBatcher.INSTANCE_PROPERTIES[i],group.settings[i])
+		if not mesh_nodes.has(key):
+			var node=MeshInstance3D.new();output.add_child(node);mesh_nodes[key]=node;node.material_override=group.material
+			for i in range(StaticBatcher.INSTANCE_PROPERTIES.size()):node.set(StaticBatcher.INSTANCE_PROPERTIES[i],group.settings[i])
+		if mesh_nodes[key].mesh!=mesh:mesh_nodes[key].mesh=mesh
+	for key in mesh_nodes.keys():
+		if not groups.has(key):mesh_nodes[key].free();mesh_nodes.erase(key)
+	for key in instances:
+		var group=instances[key]
+		if not instance_nodes.has(key):
+			var multi=MultiMesh.new();multi.transform_format=MultiMesh.TRANSFORM_3D;multi.mesh=group.mesh
+			var node=MultiMeshInstance3D.new();node.multimesh=multi;node.material_override=group.material;output.add_child(node)
+			if group.leaves:node.add_to_group("island_leaf_nodes")
+			for i in range(StaticBatcher.INSTANCE_PROPERTIES.size()):node.set(StaticBatcher.INSTANCE_PROPERTIES[i],group.settings[i])
+			instance_nodes[key]={"node":node,"transforms":[]}
+		var entry=instance_nodes[key]
+		if entry.transforms!=group.transforms:
+			var buffer=PackedFloat32Array()
+			for t in group.transforms:buffer.append_array(transform_buffer(t))
+			if entry.node.multimesh.instance_count!=group.transforms.size():entry.node.multimesh.instance_count=group.transforms.size()
+			entry.node.multimesh.buffer=buffer;entry.transforms=group.transforms
+	for key in instance_nodes.keys():
+		if not instances.has(key):instance_nodes[key].node.free();instance_nodes.erase(key)
 	# Grass cards share an authored layer even when their per-chunk Mesh differs.
 	var foliage:Dictionary={}
 	for node in ground.find_children("*","MultiMeshInstance3D",true,false):
@@ -173,10 +192,15 @@ func rebuild(view:Node3D,props:Node3D,ground:Node3D) -> void:
 		var layer=int(node.get_meta("foliage_layer"))
 		if not foliage.has(layer):foliage[layer]=[]
 		foliage[layer].append(node)
-	for sources in foliage.values():
+	for layer in foliage:
+		var sources=foliage[layer]
 		var count=0
 		for node in sources:count+=node.multimesh.instance_count
-		var multi=MultiMesh.new();multi.transform_format=MultiMesh.TRANSFORM_3D;multi.use_colors=true;multi.mesh=sources[0].multimesh.mesh;multi.instance_count=count
+		if not grass_nodes.has(layer):
+			var multi=MultiMesh.new();multi.transform_format=MultiMesh.TRANSFORM_3D;multi.use_colors=true;multi.mesh=sources[0].multimesh.mesh
+			var node=MultiMeshInstance3D.new();node.multimesh=multi;node.material_override=sources[0].material_override;node.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF;output.add_child(node);grass_nodes[layer]=node
+		var node=grass_nodes[layer];var multi=node.multimesh
+		if multi.instance_count!=count:multi.instance_count=count
 		var records:Array=[]
 		for source in sources:
 			var transform=output.global_transform.affine_inverse()*source.global_transform;var key=[source.get_instance_id(),transform]
@@ -200,7 +224,9 @@ func rebuild(view:Node3D,props:Node3D,ground:Node3D) -> void:
 		var buffer=PackedFloat32Array()
 		for record in records:buffer.append_array(record.buffer)
 		multi.buffer=buffer
-		var node=MultiMeshInstance3D.new();node.multimesh=multi;node.material_override=sources[0].material_override;node.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF;output.add_child(node);grass.append(node)
+		grass.append(node)
+	for layer in grass_nodes.keys():
+		if not foliage.has(layer):grass_nodes[layer].free();grass_nodes.erase(layer)
 	# Only the project-authored unshaded smoke uses this transparent path.
 	# Spatial groups retain local ordering relative to greenhouse glass.
 	var smoke_groups:Dictionary={}
@@ -208,10 +234,17 @@ func rebuild(view:Node3D,props:Node3D,ground:Node3D) -> void:
 		var position=source.global_position;var key=Vector2i(floori(position.x/8),floori(position.z/8))
 		if not smoke_groups.has(key):smoke_groups[key]=[]
 		smoke_groups[key].append(source);to_hide.append(source)
-	for sources in smoke_groups.values():
-		var multi=MultiMesh.new();multi.transform_format=MultiMesh.TRANSFORM_3D;multi.use_colors=true;multi.mesh=sources[0].mesh;multi.instance_count=sources.size()
-		var mat=sources[0].material_override.duplicate();mat.albedo_color=Color.WHITE;mat.vertex_color_use_as_albedo=true;mat.vertex_color_is_srgb=true
-		var node=MultiMeshInstance3D.new();node.multimesh=multi;node.material_override=mat;node.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF;output.add_child(node);smoke.append({"node":node,"sources":sources})
+	for key in smoke_groups:
+		var sources=smoke_groups[key]
+		if not smoke_nodes.has(key):
+			var multi=MultiMesh.new();multi.transform_format=MultiMesh.TRANSFORM_3D;multi.use_colors=true;multi.mesh=sources[0].mesh
+			var mat=sources[0].material_override.duplicate();mat.albedo_color=Color.WHITE;mat.vertex_color_use_as_albedo=true;mat.vertex_color_is_srgb=true
+			var node=MultiMeshInstance3D.new();node.multimesh=multi;node.material_override=mat;node.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF;output.add_child(node);smoke_nodes[key]=node
+		var node=smoke_nodes[key]
+		if node.multimesh.instance_count!=sources.size():node.multimesh.instance_count=sources.size()
+		smoke.append({"node":node,"sources":sources})
+	for key in smoke_nodes.keys():
+		if not smoke_groups.has(key):smoke_nodes[key].free();smoke_nodes.erase(key)
 	update_smoke(view.get_viewport().get_camera_3d())
 	grass_cache=new_grass_cache;batch_mesh_cache=new_batch_mesh_cache
 	hidden_ids.clear()

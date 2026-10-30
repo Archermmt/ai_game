@@ -1,0 +1,6 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+LICENSE res://THIRD_PARTY_NOTICES.md true size 785
+LICENSE res://game/ui/fonts/OFL.txt true size 4301
+LICENSE res://game/art/materials/LICENSE-CC0.txt true size 589
+PASS standalone packed scenes, fonts, models and licenses; authoring/tests excluded

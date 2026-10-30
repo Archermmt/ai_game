@@ -1,5 +1,6 @@
 {
-  "scope": "Same LOD0, clock, world, six camera views; not dynamic or human acceptance",
+  "after_label": "proxy_on",
+  "scope": "Source LOD0 versus current proxies, same clock/world/six cameras; not dynamic or human acceptance",
   "mean_limit": 0.001,
   "changed_fraction_limit": 0.005,
   "views": {
@@ -24,8 +25,8 @@
       "passed": true
     },
     "sunset": {
-      "mean": 2.2862578673444678e-05,
-      "fraction_gt_3": 0.00018566743827160494,
+      "mean": 2.137736524651012e-05,
+      "fraction_gt_3": 0.00017361111111111112,
       "passed": true
     },
     "harbor": {

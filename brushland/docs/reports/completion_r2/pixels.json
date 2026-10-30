@@ -1,0 +1,26 @@
+{
+  "harbor": {
+    "mean_rgb_error": 5.0125953159041385e-05,
+    "changed_fraction_gt_3_255": 0.0008101851851851852
+  },
+  "house": {
+    "mean_rgb_error": 0.0002476416878479786,
+    "changed_fraction_gt_3_255": 0.0052980324074074076
+  },
+  "orbit": {
+    "mean_rgb_error": 4.8131379609456943e-05,
+    "changed_fraction_gt_3_255": 0.0007118055555555556
+  },
+  "shore": {
+    "mean_rgb_error": 8.224211752602287e-05,
+    "changed_fraction_gt_3_255": 0.001033468364197531
+  },
+  "sunset": {
+    "mean_rgb_error": 4.6394638102154425e-05,
+    "changed_fraction_gt_3_255": 0.000808738425925926
+  },
+  "whole": {
+    "mean_rgb_error": 3.6781096183329285e-05,
+    "changed_fraction_gt_3_255": 0.0006577932098765432
+  }
+}

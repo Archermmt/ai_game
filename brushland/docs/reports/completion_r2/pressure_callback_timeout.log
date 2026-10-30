@@ -1,0 +1,15 @@
+2026-10-30 21:52:52.666 Breezely Isles · 风屿手记[93499:20680247] +[IMKClient subclass]: chose IMKClient_Modern
+2026-10-30 21:52:54.557 Breezely Isles · 风屿手记[93499:20680247] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+ERROR: Benchmark timed out waiting for rendered frames; repeat without suspension
+   at: push_error (core/variant/variant_utility.cpp:1023)
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+OpenGL API 4.1 Metal - 89.3 - Compatibility - Using Device: Apple - Apple M4 Pro
+
+BOOT_READY_MS 774
+PRESSURE_READY 40 buildings / 400 decorations / 12 residents / 6 animals
+BENCHMARK_DIRECTORY /Users/tongmeng/Library/Application Support/Godot/app_userdata/Breezely Isles · 风屿手记/benchmarks/run_467283
+PRESSURE_PROGRESS 0 minutes; frames=1 edits=0
+PRESSURE_PROGRESS 1 minutes; frames=13296 edits=30
+PRESSURE_PROGRESS 2 minutes; frames=26414 edits=60
+PRESSURE_PROGRESS 3 minutes; frames=38522 edits=90
+PRESSURE_PROGRESS 4 minutes; frames=49930 edits=120

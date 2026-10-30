@@ -1,0 +1,15 @@
+{
+  "binary_sha256": "3fedf2a0b402250ba6e6be78790cd381b8ff626c9b2d543e1009c961a58ad8a3",
+  "pck_sha256": "a618656b010cde7f937e79fc0ab36d6b3280410e8f11e0739182b191ef662f9e",
+  "executed": false,
+  "exit_code": 3,
+  "elapsed_seconds": 362.3187003330095,
+  "rss_peak_bytes": 983482368,
+  "rss_samples": 180,
+  "draw_budget_passed": null,
+  "triangle_budget_passed": null,
+  "edit_budget_passed": null,
+  "frame_60fps_p95_passed": null,
+  "memory_sample_budget_passed": true,
+  "scope": "Actual macOS release / M4 Pro / PRD 1200-cell fixture; M1/8GB, Windows and human acceptance untested"
+}

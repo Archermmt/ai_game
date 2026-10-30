@@ -1,5 +1,5 @@
 Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
 OpenGL API 4.1 Metal - 89.3 - Compatibility - Using Device: Apple - Apple M4 Pro
 
-2026-10-30 08:23:30.805 godot[77798:20451397] +[IMKClient subclass]: chose IMKClient_Modern
+2026-10-30 20:00:18.941 godot[87980:20587578] +[IMKClient subclass]: chose IMKClient_Modern
 PASS frozen art: full materials, geometry reuse, hidden/custom bounds, transforms, LOD and shadow retention
