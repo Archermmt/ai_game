@@ -1,0 +1,88 @@
+{
+  "after": "res://snapshots/art_i1/materials/gl_compatibility_normal_negative_after.png",
+  "batch_stats": {
+    "batches": 7,
+    "candidate_source_count": 13,
+    "chunks": 2,
+    "merged_shadow_source_count": 2,
+    "merged_source_count": 12,
+    "merged_surface_count": 14,
+    "preserved": 12,
+    "preserved_reasons": {
+      "custom_or_missing_material": 3,
+      "explicit_dynamic_or_excluded": 2,
+      "material_next_pass": 2,
+      "material_overlay": 2,
+      "singleton": 1,
+      "transparent_material": 2
+    },
+    "shadow_batches": 1,
+    "source_count": 24
+  },
+  "before": "res://snapshots/art_i1/materials/gl_compatibility_normal_negative_before.png",
+  "changed_fraction_limit": 0.005,
+  "changed_pixel_fraction": 0.0238362630208333,
+  "content_visible": true,
+  "corruption": "legacy_normal_transform",
+  "driver": "opengl3",
+  "geometry_y_tilt": 0.65,
+  "mean_error_limit": 0.001,
+  "mean_rgb_error": 0.00807477196400008,
+  "native_gpu": true,
+  "negative_control": true,
+  "nonuniform_parent_scale": [
+    1.15,
+    0.9,
+    0.38
+  ],
+  "normal_lighting_difference": 0.411764711141586,
+  "pixel_tolerance": 0.0117647058823529,
+  "real_batch_exercised": true,
+  "renderer": "gl_compatibility",
+  "resolution": [
+    960,
+    640
+  ],
+  "samples": {
+    "alpha": {
+      "after": "31a9ae",
+      "before": "31a9ae"
+    },
+    "excluded": {
+      "after": "68cd7e",
+      "before": "68cd7e"
+    },
+    "mixed_left": {
+      "after": "3a70b6",
+      "before": "3a70b6"
+    },
+    "mixed_right": {
+      "after": "efd36c",
+      "before": "efd36c"
+    },
+    "next_pass": {
+      "after": "d9a44f",
+      "before": "d9a44f"
+    },
+    "overlay": {
+      "after": "c47dc9",
+      "before": "c47dc9"
+    },
+    "shader": {
+      "after": "68cd7e",
+      "before": "68cd7e"
+    },
+    "standard_multi": {
+      "after": "c44b43",
+      "before": "c44b43"
+    },
+    "transformed": {
+      "after": "511a17",
+      "before": "e5554c"
+    }
+  },
+  "shadow_off": "res://snapshots/art_i1/materials/gl_compatibility_normal_negative_shadow_off.png",
+  "shadow_region_pixels": 31933,
+  "shadow_visible": true,
+  "visual_match": false
+}

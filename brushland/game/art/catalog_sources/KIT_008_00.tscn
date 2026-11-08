@@ -1,0 +1,41 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7j14"]
+albedo_color = Color(0.6666667, 0.5019608, 0.3764706, 1)
+roughness = 0.95
+
+[sub_resource type="BoxMesh" id="BoxMesh_hsoo8"]
+size = Vector3(1.5, 0.12, 0.35)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xgo78"]
+size = Vector3(0.06, 1.8, 0.06)
+
+[sub_resource type="BoxMesh" id="BoxMesh_icgfo"]
+size = Vector3(0.06, 1.8, 0.06)
+
+[node name="KIT_008_00" type="Node3D" unique_id=341542729]
+metadata/asset_id = "KIT_008"
+metadata/variant = 0
+
+[node name="@MeshInstance3D@150" type="MeshInstance3D" parent="." unique_id=2092513800]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
+material_override = SubResource("StandardMaterial3D_e7j14")
+mesh = SubResource("BoxMesh_hsoo8")
+
+[node name="@MeshInstance3D@151" type="MeshInstance3D" parent="." unique_id=328628459]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0.9, 0)
+material_override = SubResource("StandardMaterial3D_e7j14")
+mesh = SubResource("BoxMesh_xgo78")
+
+[node name="@MeshInstance3D@152" type="MeshInstance3D" parent="." unique_id=1994953823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0.9, 0)
+material_override = SubResource("StandardMaterial3D_e7j14")
+mesh = SubResource("BoxMesh_icgfo")
+
+[node name="LeftSnap" type="Marker3D" parent="." unique_id=411260725]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0, 0)
+
+[node name="RightSnap" type="Marker3D" parent="." unique_id=1181171526]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0)
+
+[node name="Origin" type="Marker3D" parent="." unique_id=1350132004]

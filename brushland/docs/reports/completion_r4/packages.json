@@ -1,0 +1,21 @@
+{
+  "version": "0.3.0",
+  "packages": [
+    {
+      "file": "BreezelyIsles-0.3.0-macos-test.zip",
+      "bytes": 90308444,
+      "sha256": "2731dbf9b6c7dc71477d09364b727f4d1d394f9f39ccf32c18de8c3fa4e94a79"
+    },
+    {
+      "file": "BreezelyIsles-0.3.0-windows-test.zip",
+      "bytes": 67935749,
+      "sha256": "55ff56c4a99b11ddf46e4e76260482329a0e3b108b7f270e2f5209eb2214b645"
+    }
+  ],
+  "signing": {
+    "macOS": "ad-hoc, not notarized",
+    "Windows": "unsigned"
+  },
+  "windows_execution_tested": false,
+  "target_device_tested": false
+}

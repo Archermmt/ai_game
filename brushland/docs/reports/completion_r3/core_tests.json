@@ -1,0 +1,57 @@
+[
+  {
+    "test": "world",
+    "passed": true,
+    "exit_code": 0
+  },
+  {
+    "test": "building",
+    "passed": true,
+    "exit_code": 0
+  },
+  {
+    "test": "residents",
+    "passed": true,
+    "exit_code": 0
+  },
+  {
+    "test": "playable",
+    "passed": true,
+    "exit_code": 0
+  },
+  {
+    "test": "bridge_activity",
+    "passed": true,
+    "exit_code": 0
+  },
+  {
+    "test": "acceptance_rules",
+    "passed": true,
+    "exit_code": 0
+  },
+  {
+    "test": "acceptance_core",
+    "passed": true,
+    "exit_code": 0
+  },
+  {
+    "test": "save_faults",
+    "passed": true,
+    "exit_code": 0
+  },
+  {
+    "test": "preferences",
+    "passed": true,
+    "exit_code": 0
+  },
+  {
+    "test": "audio_delivery",
+    "passed": true,
+    "exit_code": 0
+  },
+  {
+    "test": "surface",
+    "passed": true,
+    "exit_code": 0
+  }
+]

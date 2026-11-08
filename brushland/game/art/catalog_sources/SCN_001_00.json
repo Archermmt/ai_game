@@ -1,0 +1,2272 @@
+{
+  "recipe": "harbor",
+  "world": {
+    "next_id": 22,
+    "objects": [
+      {
+        "color": 0,
+        "id": 1,
+        "kind": "house",
+        "length": 3,
+        "locked": false,
+        "rotation": 0,
+        "x": 25,
+        "z": 30
+      },
+      {
+        "color": 0,
+        "id": 2,
+        "kind": "house",
+        "length": 3,
+        "locked": false,
+        "rotation": 0,
+        "x": 29,
+        "z": 30
+      },
+      {
+        "color": 0,
+        "id": 3,
+        "kind": "house",
+        "length": 3,
+        "locked": false,
+        "rotation": 0,
+        "x": 34,
+        "z": 30
+      },
+      {
+        "color": 0,
+        "id": 4,
+        "kind": "dock",
+        "length": 3,
+        "locked": false,
+        "rotation": 1,
+        "x": 21,
+        "z": 33
+      },
+      {
+        "color": 0,
+        "id": 5,
+        "kind": "tea",
+        "length": 3,
+        "locked": false,
+        "rotation": 2,
+        "x": 29,
+        "z": 35
+      },
+      {
+        "color": 0,
+        "id": 6,
+        "kind": "greenhouse",
+        "length": 3,
+        "locked": false,
+        "rotation": 2,
+        "x": 33,
+        "z": 35
+      },
+      {
+        "color": 0,
+        "id": 7,
+        "kind": "lighthouse",
+        "length": 3,
+        "locked": false,
+        "rotation": 0,
+        "x": 38,
+        "z": 29
+      },
+      {
+        "color": 0,
+        "id": 8,
+        "kind": "bench",
+        "length": 3,
+        "locked": false,
+        "rotation": 0,
+        "x": 26,
+        "z": 38
+      },
+      {
+        "color": 0,
+        "id": 9,
+        "kind": "pot",
+        "length": 3,
+        "locked": false,
+        "rotation": 0,
+        "x": 28,
+        "z": 35
+      },
+      {
+        "color": 0,
+        "id": 10,
+        "kind": "pot",
+        "length": 3,
+        "locked": false,
+        "rotation": 0,
+        "x": 32,
+        "z": 35
+      },
+      {
+        "color": 0,
+        "id": 11,
+        "kind": "pot",
+        "length": 3,
+        "locked": false,
+        "rotation": 0,
+        "x": 34,
+        "z": 37
+      },
+      {
+        "color": 0,
+        "id": 12,
+        "kind": "pot",
+        "length": 3,
+        "locked": false,
+        "rotation": 0,
+        "x": 37,
+        "z": 30
+      },
+      {
+        "color": 0,
+        "id": 13,
+        "kind": "tree",
+        "length": 3,
+        "locked": false,
+        "rotation": 0,
+        "x": 24,
+        "z": 27
+      },
+      {
+        "color": 0,
+        "id": 14,
+        "kind": "tree",
+        "length": 3,
+        "locked": false,
+        "rotation": 0,
+        "x": 28,
+        "z": 25
+      },
+      {
+        "color": 0,
+        "id": 15,
+        "kind": "tree",
+        "length": 3,
+        "locked": false,
+        "rotation": 0,
+        "x": 33,
+        "z": 25
+      },
+      {
+        "color": 0,
+        "id": 16,
+        "kind": "tree",
+        "length": 3,
+        "locked": false,
+        "rotation": 0,
+        "x": 37,
+        "z": 26
+      },
+      {
+        "color": 0,
+        "id": 17,
+        "kind": "tree",
+        "length": 3,
+        "locked": false,
+        "rotation": 0,
+        "x": 25,
+        "z": 37
+      },
+      {
+        "color": 0,
+        "id": 18,
+        "kind": "tree",
+        "length": 3,
+        "locked": false,
+        "rotation": 0,
+        "x": 38,
+        "z": 37
+      },
+      {
+        "color": 0,
+        "id": 19,
+        "kind": "house",
+        "length": 3,
+        "locked": false,
+        "rotation": 0,
+        "x": 41,
+        "z": 31
+      },
+      {
+        "color": 0,
+        "id": 20,
+        "kind": "bridge",
+        "length": 2,
+        "locked": false,
+        "rotation": 2,
+        "x": 36,
+        "z": 40
+      },
+      {
+        "color": 0,
+        "id": 21,
+        "kind": "bench",
+        "length": 3,
+        "locked": false,
+        "rotation": 2,
+        "x": 35,
+        "z": 44
+      }
+    ],
+    "tiles": {
+      "18,32": {
+        "flower": false,
+        "h": 0,
+        "road": false,
+        "surface": "water"
+      },
+      "19,32": {
+        "flower": false,
+        "h": 0,
+        "road": false,
+        "surface": "water"
+      },
+      "20,32": {
+        "flower": false,
+        "h": 0,
+        "road": false,
+        "surface": "water"
+      },
+      "21,29": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "21,30": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "21,31": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "21,32": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "21,33": {
+        "flower": false,
+        "h": 1,
+        "road": true,
+        "surface": "sand"
+      },
+      "21,34": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "21,35": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "22,28": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "22,29": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "22,30": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "22,31": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "22,32": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "22,33": {
+        "flower": false,
+        "h": 1,
+        "road": true,
+        "surface": "sand"
+      },
+      "22,34": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "22,35": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "22,36": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "23,27": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "23,28": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "23,29": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "23,30": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "23,31": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "23,32": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "23,33": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "23,34": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "23,35": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "23,36": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "23,37": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "24,26": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "24,27": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "24,28": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "24,29": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "24,30": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "24,31": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "24,32": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "24,33": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "24,34": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "24,35": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "24,36": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "24,37": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "24,38": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "25,25": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "25,26": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "25,27": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "25,28": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "25,29": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "25,30": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "25,31": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "25,32": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "25,33": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "25,34": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "25,35": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "25,36": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "25,37": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "25,38": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "25,39": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "26,25": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "26,26": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "26,27": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "26,28": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "26,29": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "26,30": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "26,31": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "26,32": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "26,33": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "26,34": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "26,35": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "26,36": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "26,37": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "26,38": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "26,39": {
+        "flower": false,
+        "h": 1,
+        "road": true,
+        "surface": "sand"
+      },
+      "27,24": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "27,25": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "27,26": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "27,27": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "27,28": {
+        "flower": true,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "27,29": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "27,30": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "27,31": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "27,32": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "27,33": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "27,34": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "27,35": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "27,36": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "27,37": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "27,38": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "27,39": {
+        "flower": false,
+        "h": 1,
+        "road": true,
+        "surface": "sand"
+      },
+      "27,40": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "28,24": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "28,25": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "28,26": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "28,27": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "28,28": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "28,29": {
+        "flower": true,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "28,30": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "28,31": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "28,32": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "28,33": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "28,34": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "28,35": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "28,36": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "28,37": {
+        "flower": true,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "28,38": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "28,39": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "28,40": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "29,24": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "29,25": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "29,26": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "29,27": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "29,28": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "29,29": {
+        "flower": true,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "29,30": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "29,31": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "29,32": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "29,33": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "29,34": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "29,35": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "29,36": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "29,37": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "29,38": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "29,39": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "29,40": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "30,24": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "30,25": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "30,26": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "30,27": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "30,28": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "30,29": {
+        "flower": true,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "30,30": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "30,31": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "30,32": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "30,33": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "30,34": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "30,35": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "30,36": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "30,37": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "30,38": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "30,39": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "30,40": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "31,24": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "31,25": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "31,26": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "31,27": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "31,28": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "31,29": {
+        "flower": true,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "31,30": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "31,31": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "31,32": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "31,33": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "31,34": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "31,35": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "31,36": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "31,37": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "31,38": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "31,39": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "31,40": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "32,23": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "32,24": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "32,25": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "32,26": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "32,27": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "32,28": {
+        "flower": true,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "32,29": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "32,30": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "32,31": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "32,32": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "32,33": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "32,34": {
+        "flower": true,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "32,35": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "32,36": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "32,37": {
+        "flower": true,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "32,38": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "32,39": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "32,40": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "32,41": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "33,24": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "33,25": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "33,26": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "33,27": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "33,28": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "33,29": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "33,30": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "33,31": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "33,32": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "33,33": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "33,34": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "33,35": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "33,36": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "33,37": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "33,38": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "33,39": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "33,40": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "34,24": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "34,25": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "34,26": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "34,27": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "34,28": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "34,29": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "34,30": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "34,31": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "34,32": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "34,33": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "34,34": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "34,35": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "34,36": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "34,37": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "34,38": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "34,39": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "34,40": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "35,24": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "35,25": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "35,26": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "35,27": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "35,28": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "35,29": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "35,30": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "35,31": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "35,32": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "35,33": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "35,34": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "35,35": {
+        "flower": true,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "35,36": {
+        "flower": true,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "35,37": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "35,38": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "35,39": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "35,40": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "35,43": {
+        "flower": false,
+        "h": 1,
+        "road": true,
+        "surface": "sand"
+      },
+      "35,44": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "35,45": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "36,24": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "36,25": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "36,26": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "36,27": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "36,28": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "36,29": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "36,30": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "36,31": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "36,32": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "36,33": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "36,34": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "36,35": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "36,36": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "36,37": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "36,38": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "36,39": {
+        "flower": false,
+        "h": 1,
+        "road": true,
+        "surface": "sand"
+      },
+      "36,40": {
+        "flower": false,
+        "h": 1,
+        "road": true,
+        "surface": "sand"
+      },
+      "36,43": {
+        "flower": false,
+        "h": 1,
+        "road": true,
+        "surface": "sand"
+      },
+      "36,44": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "36,45": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "37,24": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "37,25": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "37,26": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "37,27": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "37,28": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "37,29": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "37,30": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "37,31": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "37,32": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "37,33": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "37,34": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "37,35": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "37,36": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "37,37": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "37,38": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "37,39": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "37,40": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "37,43": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "37,44": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "37,45": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "38,25": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "38,26": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "38,27": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "38,28": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "38,29": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "38,30": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "38,31": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "38,32": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "38,33": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "38,34": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "38,35": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "38,36": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "38,37": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "38,38": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "38,39": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "39,25": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "39,26": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "39,27": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "39,28": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "39,29": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "39,30": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "39,31": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "39,32": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "39,33": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "39,34": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "39,35": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "39,36": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "39,37": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "39,38": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "39,39": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "40,26": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "40,27": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "40,28": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "40,29": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "40,30": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "40,31": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "40,32": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "40,33": {
+        "flower": false,
+        "h": 2,
+        "road": true,
+        "surface": "grass"
+      },
+      "40,34": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "40,35": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "40,36": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "40,37": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "40,38": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "41,27": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "41,28": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "41,29": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "41,30": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "41,31": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "41,32": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "41,33": {
+        "flower": false,
+        "h": 1,
+        "road": true,
+        "surface": "sand"
+      },
+      "41,34": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "41,35": {
+        "flower": false,
+        "h": 2,
+        "road": false,
+        "surface": "grass"
+      },
+      "41,36": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "41,37": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "42,28": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "42,29": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "42,30": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "42,31": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "42,32": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "42,33": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "42,34": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "42,35": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "42,36": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "43,29": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "43,30": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "43,31": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "43,32": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "43,33": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "43,34": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "43,35": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      },
+      "44,32": {
+        "flower": false,
+        "h": 1,
+        "road": false,
+        "surface": "sand"
+      }
+    }
+  }
+}

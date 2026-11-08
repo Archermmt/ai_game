@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Texture2D" path="res://game/art/materials/white_plaster_02_diffuse.jpg" id="1_55xya"]
+[ext_resource type="Texture2D" path="res://game/art/materials/white_plaster_02_nor_gl.jpg" id="2_f3rql"]
+
+[sub_resource type="Shader" id="Shader_8yq28"]
+code = "shader_type spatial;
+uniform sampler2D albedo_tex : source_color, filter_linear_mipmap_anisotropic, repeat_enable;
+uniform sampler2D normal_tex : hint_normal, filter_linear_mipmap_anisotropic, repeat_enable;
+uniform vec4 tint : source_color;
+uniform float uv_scale=1.0;
+void fragment(){vec2 uv=UV*uv_scale;ALBEDO=tint.rgb*mix(vec3(1.0),texture(albedo_tex,uv).rgb,0.23);NORMAL_MAP=texture(normal_tex,uv).rgb;NORMAL_MAP_DEPTH=0.05;ROUGHNESS=0.95;}
+"
+
+[resource]
+render_priority = 0
+shader = SubResource("Shader_8yq28")
+shader_parameter/albedo_tex = ExtResource("1_55xya")
+shader_parameter/normal_tex = ExtResource("2_f3rql")
+shader_parameter/tint = Color(0.9372549, 0.89411765, 0.7882353, 1)
+shader_parameter/uv_scale = 1.0
+metadata/static_batch_safe = true

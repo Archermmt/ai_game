@@ -1,0 +1,10 @@
+{
+  "executed": true,
+  "exit_code": 0,
+  "elapsed_seconds": 305.3076389170019,
+  "rss_peak_bytes": 769196032,
+  "rss_samples": 152,
+  "draw_budget_passed": false,
+  "triangle_budget_passed": true,
+  "scope": "M4 Pro renderer/simulation pressure; external target hardware and human acceptance are untested"
+}

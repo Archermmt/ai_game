@@ -1,0 +1,32 @@
+[gd_scene format=3]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgmp0"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.96862745, 0.94509804, 0.8745098, 1)
+border_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="UI_007_00" type="PanelContainer" unique_id=2021246139]
+custom_minimum_size = Vector2(320, 120)
+theme_override_styles/panel = SubResource("StyleBoxFlat_qgmp0")
+metadata/asset_id = "UI_007"
+metadata/variant = 0
+
+[node name="@VBoxContainer@921" type="VBoxContainer" parent="." unique_id=1844862847]
+layout_mode = 2
+
+[node name="@Label@922" type="Label" parent="@VBoxContainer@921" unique_id=803437727]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "按住左键涂画"
+
+[node name="@Label@923" type="Label" parent="@VBoxContainer@921" unique_id=1145990121]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "右键取消 · 抬手提交"

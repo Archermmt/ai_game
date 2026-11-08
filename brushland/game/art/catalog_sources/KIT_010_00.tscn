@@ -1,0 +1,45 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ijm3s"]
+albedo_color = Color(0.9372549, 0.89411765, 0.7882353, 1)
+roughness = 0.95
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_u3gga"]
+top_radius = 0.55
+bottom_radius = 0.75
+height = 3.7
+radial_segments = 16
+rings = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bqk6w"]
+albedo_color = Color(0.43137255, 0.5686275, 0.61960787, 1)
+roughness = 0.95
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_u2b5g"]
+top_radius = 0.55
+bottom_radius = 0.55
+height = 0.5
+radial_segments = 16
+rings = 0
+
+[node name="KIT_010_00" type="Node3D" unique_id=336502668]
+metadata/asset_id = "KIT_010"
+metadata/variant = 0
+
+[node name="@MeshInstance3D@160" type="MeshInstance3D" parent="." unique_id=1035273085]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85, 0)
+material_override = SubResource("StandardMaterial3D_ijm3s")
+mesh = SubResource("CylinderMesh_u3gga")
+
+[node name="@MeshInstance3D@161" type="MeshInstance3D" parent="." unique_id=1932870397]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.95, 0)
+material_override = SubResource("StandardMaterial3D_bqk6w")
+mesh = SubResource("CylinderMesh_u2b5g")
+
+[node name="LeftSnap" type="Marker3D" parent="." unique_id=704603471]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0, 0)
+
+[node name="RightSnap" type="Marker3D" parent="." unique_id=1498007228]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0)
+
+[node name="Origin" type="Marker3D" parent="." unique_id=936404219]

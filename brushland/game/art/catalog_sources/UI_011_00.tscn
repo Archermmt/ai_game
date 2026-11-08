@@ -1,0 +1,37 @@
+[gd_scene format=3]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_auis8"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.96862745, 0.94509804, 0.8745098, 1)
+border_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="UI_011_00" type="PanelContainer" unique_id=659285561]
+custom_minimum_size = Vector2(320, 120)
+theme_override_styles/panel = SubResource("StyleBoxFlat_auis8")
+metadata/asset_id = "UI_011"
+metadata/variant = 0
+
+[node name="@VBoxContainer@1130" type="VBoxContainer" parent="." unique_id=833952293]
+layout_mode = 2
+
+[node name="@Label@1131" type="Label" parent="@VBoxContainer@1130" unique_id=311312074]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "拍照模式"
+
+[node name="@Label@1132" type="Label" parent="@VBoxContainer@1130" unique_id=69731343]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Q/E 转向 · 滚轮缩放"
+
+[node name="@Label@1133" type="Label" parent="@VBoxContainer@1130" unique_id=318850207]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "F12 保存照片 · Esc 返回"

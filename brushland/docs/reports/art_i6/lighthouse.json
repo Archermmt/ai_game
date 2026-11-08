@@ -1,0 +1,128 @@
+{
+  "batch_stats": {
+    "dirty_chunks": 16,
+    "object_change": true,
+    "terrain_chunks": 13
+  },
+  "camera_specs": {
+    "harbor": {
+      "angle": 0.55,
+      "center": [
+        27,
+        0,
+        32
+      ],
+      "size": 19.0
+    },
+    "house": {
+      "angle": 0.3,
+      "center": [
+        29.5,
+        1,
+        30.5
+      ],
+      "size": 9.0
+    },
+    "orbit": {
+      "angle": 2.1207963268,
+      "center": [
+        27,
+        0,
+        32
+      ],
+      "size": 19.0
+    },
+    "shore": {
+      "angle": 0.65,
+      "center": [
+        22,
+        0.3,
+        33
+      ],
+      "size": 10.0
+    },
+    "sunset": {
+      "angle": 0.55,
+      "center": [
+        27,
+        0,
+        32
+      ],
+      "size": 19.0
+    },
+    "whole": {
+      "angle": 0.3,
+      "center": [
+        31.5,
+        0,
+        34
+      ],
+      "size": 31.0
+    }
+  },
+  "composition_id": "lighthouse",
+  "driver": "opengl3",
+  "edit_rebuild_ms_p95": 53.551,
+  "engine": "4.7-stable (official)",
+  "engine_static_bytes": 55568154.0,
+  "fixture_sha256": "fc74fe3b9d9f9ba86df093baea7e47fd1214b82ac566aa65372908b81706728c",
+  "focus_bounds_xz": {
+    "max_exclusive": [
+      35,
+      40
+    ],
+    "min": [
+      19,
+      24
+    ],
+    "unit_m": 1
+  },
+  "frame_ms_p50": 1.998,
+  "frame_ms_p95": 2.055,
+  "frame_samples": 150,
+  "frozen": true,
+  "label": "lighthouse",
+  "objects": 21,
+  "people": 4,
+  "renderer": "gl_compatibility",
+  "resolution": [
+    1920,
+    1080
+  ],
+  "scope": "Fixed bay / native renderer parity lab; not full PRD pressure scene",
+  "tiles": 355,
+  "views": {
+    "harbor": {
+      "draw_calls": 349,
+      "path": "res://snapshots/art_i6/lighthouse/harbor.png",
+      "sha256": "201c76d3454bd5a7dde7b1dfd017baffe1074810b00870bc1e0114599df3164a"
+    },
+    "house": {
+      "draw_calls": 251,
+      "path": "res://snapshots/art_i6/lighthouse/house.png",
+      "sha256": "d9eeecabd52082625baf975e95ec3091883337db5c814d94b161dec6f967e201"
+    },
+    "orbit": {
+      "draw_calls": 345,
+      "path": "res://snapshots/art_i6/lighthouse/orbit.png",
+      "sha256": "eb287d50320e7e332391dc318da472d3a2ed6e6dbedc154afdb6c3cba1978d2a"
+    },
+    "shore": {
+      "draw_calls": 192,
+      "path": "res://snapshots/art_i6/lighthouse/shore.png",
+      "sha256": "5a71b4dd75b728db8ea80831661392d1357a30e1f2764f73fd0ab57ad2c588f0"
+    },
+    "sunset": {
+      "draw_calls": 350,
+      "path": "res://snapshots/art_i6/lighthouse/sunset.png",
+      "sha256": "e69739af267410802efce4cbb3afb03c316c9fa70e413e115bdc87960e503e90"
+    },
+    "whole": {
+      "draw_calls": 349,
+      "path": "res://snapshots/art_i6/lighthouse/whole.png",
+      "sha256": "43cb6d7aefc1956f54e39062859cab796435305be635df7f2946ee6a7c2210b5"
+    }
+  },
+  "world_sha256": "945bbef54305479fb320afab0d12b529c626e32e9bf49a193e563a4232ef1821",
+  "world_unchanged": true
+}

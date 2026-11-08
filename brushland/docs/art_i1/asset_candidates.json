@@ -1,0 +1,331 @@
+{
+  "schema_version": 1,
+  "updated_date": "2026-10-29",
+  "timezone": "Asia/Shanghai",
+  "purpose": "I1 / VA01首批候选来源清单；不构成下载锁文件或采用记录。",
+  "plan_reference": "docs/ART_IMPROVEMENT_PLAN.md §§8–11",
+  "local_target_baseline": {
+    "engine": "Godot 4.7 stable",
+    "current_renderer": "Compatibility",
+    "comparison_renderer": "Forward+ candidate; not approved by this manifest"
+  },
+  "license_note": "代码、模型、贴图与外部关联资产分别归档；许可证字段为上游页面声明，不替代下载文件中的LICENSE核验。",
+  "resolution_policy": "未下载即resolved_commit/sha256保持null，actual_files保持空数组；不填推测值。资源包无可核实版本号时candidate_version也保持null。",
+  "excluded_from_this_batch": [
+    "AS-04 Kenney Nature Kit（非首选主植被）",
+    "AS-08 Universal Animation Library（VA09另评估）",
+    "AS-09 PainterlyGrass（本轮许可/分发证据不足）",
+    "Boujie Water / SunshineClouds2 / Waterways（各自隔离样板或后置任务另记录）"
+  ],
+  "candidates": [
+    {
+      "candidate_id": "AS-01",
+      "name": "Quaternius Medieval Village MegaKit — Standard",
+      "candidate_type": "model_pack",
+      "source_url": "https://quaternius.com/packs/medievalvillagemegakit.html",
+      "role": "主屋的墙、门窗、屋顶与附着件样板输入，按本项目2×2足印重新组合；不是直接替换整套村庄。",
+      "declared_license": "CC0 — 按原作者资产页声明；随包代码、贴图与下载档实际内容仍需逐文件归档。",
+      "free_tier_limits": "Standard免费子集约为整包60–70%；不能按整包304件计为免费交付。完整Godot预置工程、自定义shader与全部Blend源属于Source档权益，不纳入当前零采购路线。",
+      "declared_formats": [
+        "OBJ",
+        "FBX",
+        "glTF"
+      ],
+      "candidate_version": null,
+      "proposed_project_ids": [
+        "KIT_001",
+        "KIT_002",
+        "KIT_003",
+        "KIT_004",
+        "KIT_008",
+        "KIT_009",
+        "KIT_011",
+        "KIT_012",
+        "BLD_001",
+        "BLD_002",
+        "BLD_003",
+        "MAT_002"
+      ],
+      "priority": "first_sample",
+      "next_lock_requirement": "VA05开始前锁定实际Standard下载件、取得的模块文件清单与哈希；先确认免费子集有主屋所需墙/门窗/屋顶，并检验门高与2×2组装。",
+      "integration_status": "not_downloaded",
+      "resolved_commit": null,
+      "sha256": null,
+      "verification_scope": "基于2026-10-29《ART_IMPROVEMENT_PLAN.md》第8/9节已完成的原作者/官方页面调研整理；本条仅记录上游声明和候选选择，不代表已核验下载包内具体文件、Godot导入、GPU画面或目标平台兼容。",
+      "actual_files": [],
+      "mapping_scope": "仅为设计ID的潜在映射，不表示已替换、已导入或原制作清单已完成。",
+      "candidate_ref": null
+    },
+    {
+      "candidate_id": "AS-02",
+      "name": "Quaternius Stylized Nature MegaKit — Standard",
+      "candidate_type": "model_pack",
+      "source_url": "https://quaternius.com/packs/stylizednaturemegakit.html",
+      "role": "主树、灌木、草/花与岩组候选；用同一家族先做分层植被样板。",
+      "declared_license": "CC0 — 按原作者资产页声明；素材声明不能扩写成全部附带Godot代码均已核实CC0。",
+      "free_tier_limits": "Standard免费子集约60–70%，整包116件不是免费包数量。完整Godot实现、草风线/树叶风格shader与全部Blend源属于Source档；本项目需要自己准备或另核实风与受光材质。",
+      "declared_formats": [
+        "OBJ",
+        "FBX",
+        "glTF"
+      ],
+      "candidate_version": null,
+      "proposed_project_ids": [
+        "NAT_001",
+        "NAT_002",
+        "NAT_003",
+        "NAT_004",
+        "NAT_007",
+        "NAT_008",
+        "NAT_010",
+        "MAT_004"
+      ],
+      "priority": "first_sample",
+      "next_lock_requirement": "VA05/VA06开始前锁定免费子集实际模型和贴图；确认一棵树、一个灌木、两种草簇和岩组可取得。免费版缺项时改用AS-03或自制，不用Source档截图替代实物验证。",
+      "integration_status": "not_downloaded",
+      "resolved_commit": null,
+      "sha256": null,
+      "verification_scope": "基于2026-10-29《ART_IMPROVEMENT_PLAN.md》第8/9节已完成的原作者/官方页面调研整理；本条仅记录上游声明和候选选择，不代表已核验下载包内具体文件、Godot导入、GPU画面或目标平台兼容。",
+      "actual_files": [],
+      "mapping_scope": "仅为设计ID的潜在映射，不表示已替换、已导入或原制作清单已完成。",
+      "candidate_ref": null
+    },
+    {
+      "candidate_id": "AS-03",
+      "name": "Quaternius Ultimate Stylized Nature Pack",
+      "candidate_type": "model_pack",
+      "source_url": "https://quaternius.com/packs/ultimatestylizednature.html",
+      "role": "AS-02样本不足或风格不统一时的免费自然物家族后备。",
+      "declared_license": "CC0 — 原作者页面提供免费包并声明可用于个人与商业项目。",
+      "free_tier_limits": "页面列63件与免费包；实际下载目录、可用变体与贴图仍未核验。只选作为最终自然物家族之一，不无选择地与AS-02两整包混用。",
+      "declared_formats": [
+        "OBJ",
+        "FBX",
+        "glTF",
+        "Blend"
+      ],
+      "candidate_version": null,
+      "proposed_project_ids": [
+        "NAT_001",
+        "NAT_002",
+        "NAT_003",
+        "NAT_004",
+        "NAT_007",
+        "NAT_008",
+        "NAT_010",
+        "MAT_004"
+      ],
+      "priority": "free_fallback",
+      "next_lock_requirement": "仅在AS-02首轮样本不足时下载锁定；用同一机位检查树形、alpha边、法线与草层可组合性，选择一套统一自然物家族。",
+      "integration_status": "not_downloaded",
+      "resolved_commit": null,
+      "sha256": null,
+      "verification_scope": "基于2026-10-29《ART_IMPROVEMENT_PLAN.md》第8/9节已完成的原作者/官方页面调研整理；本条仅记录上游声明和候选选择，不代表已核验下载包内具体文件、Godot导入、GPU画面或目标平台兼容。",
+      "actual_files": [],
+      "mapping_scope": "仅为设计ID的潜在映射，不表示已替换、已导入或原制作清单已完成。",
+      "candidate_ref": null
+    },
+    {
+      "candidate_id": "AS-05",
+      "name": "Poly Haven Grey Roof Tiles 02",
+      "candidate_type": "pbr_texture",
+      "source_url": "https://polyhaven.com/a/grey_roof_tiles_02",
+      "role": "灰瓦屋顶的Diffuse、GL法线、粗糙度与AO输入；不能替代屋顶厚度和瓦边轮廓。",
+      "declared_license": "CC0 — 按单项资产页及Poly Haven资产许可声明。",
+      "free_tier_limits": "资产CC0；不需要购买网站插件或调用API。首轮只取1K–2K实际所需通道，不把8K全通道或API服务引入运行依赖。",
+      "declared_formats": [
+        "PNG",
+        "JPG",
+        "EXR"
+      ],
+      "candidate_version": null,
+      "proposed_project_ids": [
+        "KIT_004",
+        "KIT_005",
+        "MAT_002"
+      ],
+      "priority": "first_material_sample",
+      "next_lock_requirement": "锁定分辨率、实际通道文件名/哈希、GL法线方向、UV现实尺度与导入设置；与VA02色卡结果对齐后再改强度。",
+      "integration_status": "not_downloaded",
+      "resolved_commit": null,
+      "sha256": null,
+      "verification_scope": "基于2026-10-29《ART_IMPROVEMENT_PLAN.md》第8/9节已完成的原作者/官方页面调研整理；本条仅记录上游声明和候选选择，不代表已核验下载包内具体文件、Godot导入、GPU画面或目标平台兼容。",
+      "actual_files": [],
+      "mapping_scope": "仅为设计ID的潜在映射，不表示已替换、已导入或原制作清单已完成。",
+      "candidate_ref": null
+    },
+    {
+      "candidate_id": "AS-06",
+      "name": "Poly Haven White Plaster 02",
+      "candidate_type": "pbr_texture",
+      "source_url": "https://polyhaven.com/a/white_plaster_02",
+      "role": "灰泥墙的低对比表面细节、弱法线与粗糙度输入，保留奶油墙色盘。",
+      "declared_license": "CC0 — 按单项资产页及Poly Haven资产许可声明。",
+      "free_tier_limits": "资产CC0；不等于必须采用其原始摄影对比和法线强度，也不依赖网站代码/API许可。",
+      "declared_formats": [
+        "PNG",
+        "JPG",
+        "EXR"
+      ],
+      "candidate_version": null,
+      "proposed_project_ids": [
+        "KIT_001",
+        "KIT_002",
+        "MAT_002"
+      ],
+      "priority": "first_material_sample",
+      "next_lock_requirement": "与AS-05一起锁定1K–2K通道/哈希与sRGB、normal、roughness导入；先检查缩至正式镜头后仍是柔和灰泥而非噪点。",
+      "integration_status": "not_downloaded",
+      "resolved_commit": null,
+      "sha256": null,
+      "verification_scope": "基于2026-10-29《ART_IMPROVEMENT_PLAN.md》第8/9节已完成的原作者/官方页面调研整理；本条仅记录上游声明和候选选择，不代表已核验下载包内具体文件、Godot导入、GPU画面或目标平台兼容。",
+      "actual_files": [],
+      "mapping_scope": "仅为设计ID的潜在映射，不表示已替换、已导入或原制作清单已完成。",
+      "candidate_ref": null
+    },
+    {
+      "candidate_id": "AS-07",
+      "name": "Poly Haven Rocky Terrain 02",
+      "candidate_type": "pbr_texture",
+      "source_url": "https://polyhaven.com/a/rocky_terrain_02",
+      "role": "岩台/土石的低频材质输入隔离对照；不替代连续地形和外露崖面几何。",
+      "declared_license": "CC0 — 按单项资产页及Poly Haven资产许可声明。",
+      "free_tier_limits": "资产CC0；作者标注现实覆盖尺度约90m。本项目必须重定尺度和调色，不能将原图直接铺到1m逻辑格；照片感过强则弃用。",
+      "declared_formats": [
+        "PNG",
+        "JPG",
+        "EXR"
+      ],
+      "candidate_version": null,
+      "proposed_project_ids": [
+        "TER_001",
+        "TER_002",
+        "TER_003",
+        "TER_004",
+        "MAT_001"
+      ],
+      "priority": "isolated_material_comparison",
+      "next_lock_requirement": "VA04/VA05按需要另取低分辨率样本，记录裁选/平铺尺度和通道哈希；只有岩岸样板通过才进入正式地形材质。",
+      "integration_status": "not_downloaded",
+      "resolved_commit": null,
+      "sha256": null,
+      "verification_scope": "基于2026-10-29《ART_IMPROVEMENT_PLAN.md》第8/9节已完成的原作者/官方页面调研整理；本条仅记录上游声明和候选选择，不代表已核验下载包内具体文件、Godot导入、GPU画面或目标平台兼容。",
+      "actual_files": [],
+      "mapping_scope": "仅为设计ID的潜在映射，不表示已替换、已导入或原制作清单已完成。",
+      "candidate_ref": null
+    },
+    {
+      "candidate_id": "PL-01",
+      "name": "ProtonScatter",
+      "candidate_type": "godot_addon",
+      "source_url": "https://codeberg.org/hungryproton/proton_scatter",
+      "additional_source_urls": [
+        "https://github.com/HungryProton/scatter",
+        "https://github.com/HungryProton/scatter/blob/main/addons/proton_scatter/plugin.cfg"
+      ],
+      "role": "在VA06提供固定种子的植被候选点/变换；项目继续负责地面采样、避让和分块发布。",
+      "declared_license": "MIT — 插件代码；README另列demo模型MIT及多数demo纹理来源Textures.com，不能整体按MIT迁入。",
+      "free_tier_limits": "开源插件没有本计划中的付费档；本轮只考虑addon代码。随demo纹理不能单独再分发，不复制整个演示工程。",
+      "declared_formats": [
+        "GDScript addon"
+      ],
+      "candidate_version": "4.2.0",
+      "candidate_ref": null,
+      "proposed_project_ids": [
+        "NAT_001",
+        "NAT_002",
+        "NAT_003",
+        "NAT_004",
+        "NAT_007",
+        "NAT_010",
+        "MAT_004"
+      ],
+      "priority": "VA06_distribution_sample",
+      "next_lock_requirement": "VA06隔离样板前解析4.2.0候选所对应的实际tag/完整commit，锁下载哈希、LICENSE与所选addon目录；核实在Godot4.7上的公共接口和稳定种子输出。",
+      "integration_status": "not_downloaded",
+      "resolved_commit": null,
+      "sha256": null,
+      "verification_scope": "基于2026-10-29《ART_IMPROVEMENT_PLAN.md》第8/9节已完成的原作者/官方页面调研整理；本条仅记录上游声明和候选选择，不代表已核验下载包内具体文件、Godot导入、GPU画面或目标平台兼容。",
+      "actual_files": [],
+      "mapping_scope": "仅为设计ID的潜在映射，不表示已替换、已导入或原制作清单已完成。"
+    },
+    {
+      "candidate_id": "PL-02",
+      "name": "Terrain3D",
+      "candidate_type": "native_godot_extension",
+      "source_url": "https://github.com/TokisanGames/Terrain3D",
+      "additional_source_urls": [
+        "https://github.com/TokisanGames/Terrain3D/releases/tag/v1.0.2-stable",
+        "https://terrain3d.readthedocs.io/en/stable/docs/platforms.html"
+      ],
+      "role": "自有小地形显示无法满足样板时的隔离备选，不接管IslandData或玩家存档。",
+      "declared_license": "MIT — 上游插件/原生扩展声明；附带示例资产仍按实际下载声明逐项复核。",
+      "free_tier_limits": "开源组件；需要原生二进制、renderer/driver和导出平台实际验证。候选release声明Godot4.4–4.7支持，不代表本机已加载；stable平台页仍称Metal未支持/未测试。",
+      "declared_formats": [
+        "GDScript addon",
+        "GDExtension native binaries"
+      ],
+      "candidate_version": "1.0.2-stable",
+      "candidate_ref": "v1.0.2-stable",
+      "proposed_project_ids": [
+        "TER_001",
+        "TER_002",
+        "TER_003",
+        "TER_004",
+        "TER_005",
+        "TER_006",
+        "TER_007",
+        "TER_008",
+        "TER_009",
+        "TER_010",
+        "MAT_001"
+      ],
+      "priority": "isolated_fallback_only",
+      "next_lock_requirement": "只有VA04比较证明有采用价值才下载；锁tag解析的完整commit、对应平台release包哈希与GDExtension实际注册/渲染/退出证据。tiny_glade实测不代替本工程验证。",
+      "integration_status": "not_downloaded",
+      "resolved_commit": null,
+      "sha256": null,
+      "verification_scope": "基于2026-10-29《ART_IMPROVEMENT_PLAN.md》第8/9节已完成的原作者/官方页面调研整理；本条仅记录上游声明和候选选择，不代表已核验下载包内具体文件、Godot导入、GPU画面或目标平台兼容。",
+      "actual_files": [],
+      "mapping_scope": "仅为设计ID的潜在映射，不表示已替换、已导入或原制作清单已完成。"
+    },
+    {
+      "candidate_id": "PL-03",
+      "name": "GUT",
+      "candidate_type": "godot_test_addon",
+      "source_url": "https://github.com/bitwes/Gut",
+      "additional_source_urls": [
+        "https://github.com/bitwes/Gut/blob/main/README.md",
+        "https://github.com/bitwes/Gut/blob/v9.7.1/addons/gut/LICENSE.md"
+      ],
+      "role": "后续测试治理候选，用于确定性、事务、异步发布和生命周期；不提供视觉效果。",
+      "declared_license": "MIT — 按上游addon许可声明。",
+      "free_tier_limits": "开源测试组件；引入仍有迁移与负控成本，不因可免费获取就替换本周已有测试。",
+      "declared_formats": [
+        "GDScript addon"
+      ],
+      "candidate_version": "9.7.1",
+      "candidate_ref": "v9.7.1",
+      "proposed_project_ids": [],
+      "related_validation_ids": [
+        "AC-01",
+        "AC-02",
+        "AC-03",
+        "AC-04",
+        "AC-07",
+        "AC-08",
+        "AC-09",
+        "AC-11",
+        "AC-13"
+      ],
+      "priority": "test_governance_candidate",
+      "next_lock_requirement": "确需迁移测试时解析v9.7.1完整commit并锁addon哈希；复核4.7对应版本表、非零用例、无跳过、故意失败负控和外层非零退出。",
+      "integration_status": "not_downloaded",
+      "resolved_commit": null,
+      "sha256": null,
+      "verification_scope": "基于2026-10-29《ART_IMPROVEMENT_PLAN.md》第8/9节已完成的原作者/官方页面调研整理；本条仅记录上游声明和候选选择，不代表已核验下载包内具体文件、Godot导入、GPU画面或目标平台兼容。",
+      "actual_files": [],
+      "mapping_scope": "仅为设计ID的潜在映射，不表示已替换、已导入或原制作清单已完成。"
+    }
+  ]
+}

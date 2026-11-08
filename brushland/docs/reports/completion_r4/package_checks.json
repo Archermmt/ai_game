@@ -1,0 +1,46 @@
+[
+  {
+    "name": "windows_pack",
+    "passed": true,
+    "exit_code": 0
+  },
+  {
+    "name": "macos_pack",
+    "passed": true,
+    "exit_code": 0
+  },
+  {
+    "name": "macos_signature",
+    "passed": true,
+    "exit_code": 0
+  },
+  {
+    "name": "macos_release_0",
+    "passed": true,
+    "exit_code": 0,
+    "launcher_ready_ms": 308
+  },
+  {
+    "name": "macos_release_1",
+    "passed": true,
+    "exit_code": 0,
+    "launcher_ready_ms": 293
+  },
+  {
+    "name": "macos_release_2",
+    "passed": true,
+    "exit_code": 0,
+    "launcher_ready_ms": 293
+  },
+  {
+    "name": "macos_low",
+    "passed": true,
+    "exit_code": 0,
+    "launcher_ready_ms": 806
+  },
+  {
+    "name": "windows_PE_x86_64_embedded_PCK",
+    "passed": true,
+    "scope": "Binary/pack inspection on macOS; not Windows execution"
+  }
+]

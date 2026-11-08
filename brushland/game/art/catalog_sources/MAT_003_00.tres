@@ -1,0 +1,24 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://game/art/shaders/bay_water.gdshader" id="1_0cacy"]
+
+[sub_resource type="Image" id="Image_ca4rt"]
+data = {
+"data": PackedByteArray(0, 127, 0),
+"format": "RGB8",
+"height": 1,
+"mipmaps": false,
+"width": 1
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_ik37b"]
+image = SubResource("Image_ca4rt")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_0cacy")
+shader_parameter/island_field = SubResource("ImageTexture_ik37b")
+shader_parameter/shallow = null
+shader_parameter/deep_color = null
+shader_parameter/clock = null
+shader_parameter/motion = null

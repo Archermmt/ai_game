@@ -1,0 +1,14 @@
+2026-10-30 08:42:26.837 Breezely Isles · 风屿手记[83624:20482691] +[IMKClient subclass]: chose IMKClient_Modern
+2026-10-30 08:42:29.567 Breezely Isles · 风屿手记[83624:20482691] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+OpenGL API 4.1 Metal - 89.3 - Compatibility - Using Device: Apple - Apple M4 Pro
+
+BOOT_READY_MS 1651
+PRESSURE_READY 40 buildings / 400 decorations / 12 residents / 6 animals
+PRESSURE_PROGRESS 0 minutes; frames=1
+PRESSURE_PROGRESS 1 minutes; frames=6618
+PRESSURE_PROGRESS 2 minutes; frames=13206
+PRESSURE_PROGRESS 3 minutes; frames=19609
+PRESSURE_PROGRESS 4 minutes; frames=26104
+BENCHMARK_REPORT /Users/tongmeng/Library/Application Support/Godot/app_userdata/Breezely Isles · 风屿手记/benchmarks/run_464507/report.json
+PRESSURE_PASS {"animals":6,"build_ms":1598.46,"buildings":40,"camera_orthographic_size":42,"cpu":"Apple M4 Pro","day_frame_ms_p95":14.899,"decorations":400,"device":"Apple M4 Pro","draw_calls_peak":200,"driver":"opengl3","duration_wall_seconds":300.008454,"edit_ms_p95":85.351,"edit_samples":149,"engine":"4.7-stable (official)","engine_static_bytes":0.0,"frame_count":32599,"frame_ms_p50":6.312,"frame_ms_p95":14.936,"grass_density_lod":0.55,"land_cells":1200,"night_frame_ms_p95":15.063,"platform":"macOS","quality":"medium","renderer":"gl_compatibility","residents":12,"scope":"Five minute exported benchmark on this device; not acceptance on any other device","target_device_tested":false,"visible_primitives_peak":149408}

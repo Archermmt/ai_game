@@ -1,0 +1,41 @@
+[gd_scene format=4]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_okvxh"]
+albedo_color = Color(0.47058824, 0.58431375, 0.4745098, 1)
+roughness = 0.95
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1ggdp"]
+top_radius = 0.018
+bottom_radius = 0.018
+height = 0.3
+radial_segments = 6
+rings = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_la225"]
+cull_mode = 2
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ogc1c"]
+_surfaces = [{
+"aabb": AABB(-0.10663119, 0.31, -0.109875225, 0.2266312, 0.014999986, 0.21975045),
+"attribute_data": PackedByteArray("2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/17Nl/9ezZf/Xs2X/17Nl/9ezZf/Xs2X/17Nl/9ezZf/Xs2X/17Nl/9ezZf/Xs2X/17Nl/9ezZf/Xs2X/17Nl/9ezZf/Xs2X/"),
+"format": 34359738383,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 108,
+"vertex_data": PackedByteArray("KVyPPVK4nj4AAAAAkML1PVK4nj4AAAAAXI/CPVK4nj6sXDE9KVyPPVK4nj4AAAAAXI/CPVK4nj6sXDE97FE4PVK4nj6sXDE9KVyPPVK4nj4AAAAA7FE4PVK4nj6sXDE9CtejPFK4nj5P6OEiKVyPPVK4nj4AAAAACtejPFK4nj5P6OEi7FE4PVK4nj6sXDG9KVyPPVK4nj4AAAAA7FE4PVK4nj6sXDG9XI/CPVK4nj6sXDG9KVyPPVK4nj4AAAAAXI/CPVK4nj6sXDG9kML1PVK4nj5P6GGj5DOxPFK4nj7tV4g9YLOSPVK4nj7tV4g9WAA/PVK4nj5DBuE95DOxPFK4nj7tV4g9WAA/PVK4nj5DBuE9SMdcu1K4nj5DBuE95DOxPFK4nj7tV4g9SMdcu1K4nj5DBuE9tmXovFK4nj7tV4g95DOxPFK4nj7tV4g9tmXovFK4nj7tV4g9SMdcu1K4nj5cpr485DOxPFK4nj7tV4g9SMdcu1K4nj5cpr48WAA/PVK4nj5cpr485DOxPFK4nj7tV4g9WAA/PVK4nj5cpr48YLOSPVK4nj7tV4g9G/ZnvVK4nj6ghyg9cErZu1K4nj6ghyg9tI8BvVK4nj4m8qw9G/ZnvVK4nj6ghyg9tI8BvVK4nj4m8qw9QS6nvVK4nj4m8qw9G/ZnvVK4nj6ghyg9QS6nvVK4nj4m8qw9dGHavVK4nj6ghyg9G/ZnvVK4nj6ghyg9dGHavVK4nj6ghyg9QS6nvVK4nj7AUA27G/ZnvVK4nj6ghyg9QS6nvVK4nj7AUA27tI8BvVK4nj7AUA27G/ZnvVK4nj6ghyg9tI8BvVK4nj7AUA27cErZu1K4nj6ghyg9G/ZnvVK4nj6ghyi9cErZu1K4nj6ghyi9tI8BvVK4nj7AUA07G/ZnvVK4nj6ghyi9tI8BvVK4nj7AUA07QS6nvVK4nj7AUA07G/ZnvVK4nj6ghyi9QS6nvVK4nj7AUA07dGHavVK4nj6ghyi9G/ZnvVK4nj6ghyi9dGHavVK4nj6ghyi9QS6nvVK4nj4m8qy9G/ZnvVK4nj6ghyi9QS6nvVK4nj4m8qy9tI8BvVK4nj4m8qy9G/ZnvVK4nj6ghyi9tI8BvVK4nj4m8qy9cErZu1K4nj6ghyi95DOxPFK4nj7tV4i9YLOSPVK4nj7tV4i9WAA/PVK4nj5cpr685DOxPFK4nj7tV4i9WAA/PVK4nj5cpr68SMdcu1K4nj5cpr685DOxPFK4nj7tV4i9SMdcu1K4nj5cpr68tmXovFK4nj7tV4i95DOxPFK4nj7tV4i9tmXovFK4nj7tV4i9SMdcu1K4nj5DBuG95DOxPFK4nj7tV4i9SMdcu1K4nj5DBuG9WAA/PVK4nj5DBuG95DOxPFK4nj7tV4i9WAA/PVK4nj5DBuG9YLOSPVK4nj7tV4i9AAAAAGZmpj4AAAAAKVwPPWZmpj4AAAAAKVyPPGZmpj6LTvg8AAAAAGZmpj4AAAAAKVyPPGZmpj6LTvg8KVyPvGZmpj6LTvg8AAAAAGZmpj4AAAAAKVyPvGZmpj6LTvg8KVwPvWZmpj6eIp4iAAAAAGZmpj4AAAAAKVwPvWZmpj6eIp4iKVyPvGZmpj6LTvi8AAAAAGZmpj4AAAAAKVyPvGZmpj6LTvi8KVyPPGZmpj6LTvi8AAAAAGZmpj4AAAAAKVyPPGZmpj6LTvi8KVwPPWZmpj6eIh6j/3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+/")
+}]
+
+[node name="NAT_004_00" type="Node3D" unique_id=1374365881]
+metadata/asset_id = "NAT_004"
+metadata/variant = 0
+
+[node name="@MeshInstance3D@418" type="MeshInstance3D" parent="." unique_id=1413615437]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+material_override = SubResource("StandardMaterial3D_okvxh")
+mesh = SubResource("CylinderMesh_1ggdp")
+
+[node name="@MeshInstance3D@419" type="MeshInstance3D" parent="." unique_id=1264126826]
+material_override = SubResource("StandardMaterial3D_la225")
+mesh = SubResource("ArrayMesh_ogc1c")

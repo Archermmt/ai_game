@@ -1,0 +1,24 @@
+[gd_scene format=4]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c6oyx"]
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_20g8d"]
+_surfaces = [{
+"aabb": AABB(0, 1, 0, 1, 1e-05, 1),
+"attribute_data": PackedByteArray("pLmK/6S5iv+kuYr/pLmK/6S5iv+kuYr/pLmK/6S5iv+kuYr/pLmK/6S5iv+kuYr/pLmK/6S5iv+kuYr/pLmK/6S5iv+kuYr/pLmK/6S5iv+kuYr/pLmK/6S5iv+kuYr/"),
+"format": 34359738383,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAAgD8AAAAAAAAAPwAAgD8AAAA/AAAAAAAAgD8AAAA/AAAAAAAAgD8AAAAAAAAAPwAAgD8AAAAAAAAAPwAAgD8AAAA/AAAAPwAAgD8AAAAAAACAPwAAgD8AAAA/AAAAPwAAgD8AAAA/AAAAPwAAgD8AAAAAAACAPwAAgD8AAAAAAACAPwAAgD8AAAA/AAAAAAAAgD8AAAA/AAAAPwAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAgD8AAAA/AAAAPwAAgD8AAAA/AAAAPwAAgD8AAIA/AAAAPwAAgD8AAAA/AACAPwAAgD8AAIA/AAAAPwAAgD8AAIA/AAAAPwAAgD8AAAA/AACAPwAAgD8AAAA/AACAPwAAgD8AAIA//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+/")
+}]
+
+[node name="TER_001_00" type="Node3D" unique_id=2068540134]
+metadata/asset_id = "TER_001"
+metadata/variant = 0
+
+[node name="@MeshInstance3D@2" type="MeshInstance3D" parent="." unique_id=463388797]
+material_override = SubResource("StandardMaterial3D_c6oyx")
+mesh = SubResource("ArrayMesh_20g8d")

@@ -1,0 +1,83 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_igj4a"]
+albedo_color = Color(0.77254903, 0.85882354, 0.6901961, 1)
+roughness = 0.95
+
+[sub_resource type="SphereMesh" id="SphereMesh_sgrrc"]
+radial_segments = 4
+rings = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_8540v"]
+radial_segments = 4
+rings = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_dkbk8"]
+radial_segments = 4
+rings = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_l6h3s"]
+radial_segments = 4
+rings = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_yifo8"]
+radial_segments = 4
+rings = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_gbyam"]
+radial_segments = 4
+rings = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_vol5p"]
+radial_segments = 4
+rings = 1
+
+[node name="FX_003_00" type="Node3D" unique_id=138271630]
+metadata/asset_id = "FX_003"
+metadata/variant = 0
+
+[node name="@Node3D@708" type="Node3D" parent="." unique_id=1189480987]
+metadata/born = 0.0
+metadata/wish = false
+
+[node name="@MeshInstance3D@709" type="MeshInstance3D" parent="@Node3D@708" unique_id=604206457]
+transform = Transform3D(0.045, 0, 0, 0, 0.045, 0, 0, 0, 0.045, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_igj4a")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_sgrrc")
+
+[node name="@MeshInstance3D@710" type="MeshInstance3D" parent="@Node3D@708" unique_id=1617720622]
+transform = Transform3D(0.045, 0, 0, 0, 0.045, 0, 0, 0, 0.045, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_igj4a")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_8540v")
+
+[node name="@MeshInstance3D@711" type="MeshInstance3D" parent="@Node3D@708" unique_id=1687090938]
+transform = Transform3D(0.045, 0, 0, 0, 0.045, 0, 0, 0, 0.045, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_igj4a")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_dkbk8")
+
+[node name="@MeshInstance3D@712" type="MeshInstance3D" parent="@Node3D@708" unique_id=1093774223]
+transform = Transform3D(0.045, 0, 0, 0, 0.045, 0, 0, 0, 0.045, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_igj4a")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_l6h3s")
+
+[node name="@MeshInstance3D@713" type="MeshInstance3D" parent="@Node3D@708" unique_id=631879875]
+transform = Transform3D(0.045, 0, 0, 0, 0.045, 0, 0, 0, 0.045, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_igj4a")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_yifo8")
+
+[node name="@MeshInstance3D@714" type="MeshInstance3D" parent="@Node3D@708" unique_id=1630941117]
+transform = Transform3D(0.045, 0, 0, 0, 0.045, 0, 0, 0, 0.045, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_igj4a")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_gbyam")
+
+[node name="@MeshInstance3D@715" type="MeshInstance3D" parent="@Node3D@708" unique_id=1950138872]
+transform = Transform3D(0.045, 0, 0, 0, 0.045, 0, 0, 0, 0.045, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_igj4a")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_vol5p")

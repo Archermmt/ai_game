@@ -1,0 +1,1706 @@
+{
+  "engine": "4.7-stable (official)",
+  "records": [
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "TER_001",
+      "path": "res://game/art/catalog_sources/TER_001_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "1d2fd33f2d45e18f7575a62c18e672a1deea1add578575bd4f68e915831b55f1",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "TER_002",
+      "path": "res://game/art/catalog_sources/TER_002_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "a92b79efcf3b49bf064d30baa7fad7e911985e0cdbb540fdaed7140774331194",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "TER_003",
+      "path": "res://game/art/catalog_sources/TER_003_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "4a53917f0855494d3f8a50b4d87b22b7a2016ca877e9b3533d8f03e31a0b0712",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "TER_004",
+      "path": "res://game/art/catalog_sources/TER_004_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "3e6971db4d3d88b3f8b5454059dee61dbbe6c35629605e7aca47ac02ae7e0748",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "TER_005",
+      "path": "res://game/art/catalog_sources/TER_005_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "05dac64fda225d1a7939ffe81cb36574bd419c736841d96be25f8c5d5a1763c6",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "TER_006",
+      "path": "res://game/art/catalog_sources/TER_006_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "01f73f96fbba865608bddc752c0130c407887d44a60045f4111138cd484e67b9",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "TER_007",
+      "path": "res://game/art/catalog_sources/TER_007_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "e9a01ae06e5922bc2ca921f36116b360bba55e708bc372da210c3aa12c969cfb",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "TER_008",
+      "path": "res://game/art/catalog_sources/TER_008_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "e4f106492d402959f837cd32596bc69ea42563d8a83b31072d319ff4341f6c3a",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "TER_009",
+      "path": "res://game/art/catalog_sources/TER_009_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "b15a77c8e58da7c1b8620b4da184e89eb42a718ed2e1bfffa7f8c1d0094448c4",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "TER_010",
+      "path": "res://game/art/catalog_sources/TER_010_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "cc244f420cc5f291d7d6cbdee46b157c744cd55f116712fb81bee3dfeaee3bd0",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "INF_001",
+      "path": "res://game/art/catalog_sources/INF_001_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "67fe71ee038ad9945a6aa0c5e0ba3a291f6912bbeb8ce86bcbbb6cf0bdff8953",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "INF_002",
+      "path": "res://game/art/catalog_sources/INF_002_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "2f5dae2036e1f348b062f6da8569b9c6e1a70000c2ccd0b6b2140b65a33a7409",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "INF_003",
+      "path": "res://game/art/catalog_sources/INF_003_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "786c6600fde1c1e36e84fa0a64dab4e793386fc8308f6bca7197f819307135f3",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "INF_004",
+      "path": "res://game/art/catalog_sources/INF_004_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "f46a8b73289e04143a6d6b5d2d7fb908feb2a448351e99e93fcc61c4a4c6abad",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "INF_005",
+      "path": "res://game/art/catalog_sources/INF_005_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "db20f725fb008fc8aa553736c9a8803c3e2e38adbf4598e121816bf272853671",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "INF_006",
+      "path": "res://game/art/catalog_sources/INF_006_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "f177d2b8da4ae148f9ce1816dfb6d1acdd7bd52b6f77ab97f316f9ca167edd86",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "INF_006",
+      "path": "res://game/art/catalog_sources/INF_006_01.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "c58e145ed6cdd4597e8feb1fb98457ce5c0e0b45b7836e159d1db640650bd890",
+      "variant": 1
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "INF_007",
+      "path": "res://game/art/catalog_sources/INF_007_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "12e54da19252374731573c8849dff347bc89d1a25d2cca4acad9e31614fdf94c",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "INF_007",
+      "path": "res://game/art/catalog_sources/INF_007_01.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "79b63b13cc12f1fab90ff797a640cc39f0c07ef37968bc22b7d344f45e396876",
+      "variant": 1
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "INF_008",
+      "path": "res://game/art/catalog_sources/INF_008_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "0e83265ca31baf28b60f8c8e06f563b2b3684c5d235ddc8eacc07f475a6b04c1",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "INF_008",
+      "path": "res://game/art/catalog_sources/INF_008_01.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "cf3289a64622d16a3b6a2b3beae4a3445c3d7082532ae58c5b88418dc3218c41",
+      "variant": 1
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "KIT_001",
+      "path": "res://game/art/catalog_sources/KIT_001_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "43152627dc7e1c93f469e18fcae81b28a68dd4a9843b6efa3f6e396f698bc792",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "KIT_002",
+      "path": "res://game/art/catalog_sources/KIT_002_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "eaf02df8a8e778874e234ea8bcdce3ae09a8fa3a65ad14cd6f97ad1bf6d7ad71",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "KIT_003",
+      "path": "res://game/art/catalog_sources/KIT_003_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "d7e65d5f2837c82ec2c70f0d869a6af9a5ed4b848080833f996595389926b709",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "KIT_004",
+      "path": "res://game/art/catalog_sources/KIT_004_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "290e9f1728bfa8df64265e7b0505963c68593056af45130cd5ff9a5106db533d",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "KIT_005",
+      "path": "res://game/art/catalog_sources/KIT_005_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "27bb269332c4ba143cbb08101ebf72fb816ed39ee08439208207a3d25944a916",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "KIT_006",
+      "path": "res://game/art/catalog_sources/KIT_006_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "062324830c1ec819a7b0fcf5bc20a1e921dd746e7ef1ae49708474f58bd261f8",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "KIT_007",
+      "path": "res://game/art/catalog_sources/KIT_007_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "c7d824a05dec4a73dd58b9dceedef072f43758f41226424c997540cd6a98a9f2",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "KIT_008",
+      "path": "res://game/art/catalog_sources/KIT_008_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "37756cf8f35142027eb8cc08af6bc97b83f0c5296f727f54a6fb21dfc5c78904",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "KIT_009",
+      "path": "res://game/art/catalog_sources/KIT_009_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "ad12253fe9e67416dcf60b0ed991275ba8df1aec6614da82394b5ee374370bac",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "KIT_010",
+      "path": "res://game/art/catalog_sources/KIT_010_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "51bc350922d540687b0cd534d9f1a7cf3bcd026891c9146f398da5128cab39a1",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "KIT_011",
+      "path": "res://game/art/catalog_sources/KIT_011_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "d6e3e1baf739f0d4e0829aa89d35984ce5ff93a83d3259a50847acc083d3a14a",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "KIT_012",
+      "path": "res://game/art/catalog_sources/KIT_012_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "90e97921132a8d0f18294385e4d7cbd1a6c01f9e129d46cf67ae384b7ad34c97",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "BLD_001",
+      "path": "res://game/art/catalog_sources/BLD_001_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "1969a3237cdcf16a59dd8cdc91b154a83461c2448a65bf09aae8184359233a85",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "BLD_002",
+      "path": "res://game/art/catalog_sources/BLD_002_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "4a74a62a89f38811848ba30137e35d0073224766e7161985b83b8bbabe17d498",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "BLD_003",
+      "path": "res://game/art/catalog_sources/BLD_003_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "0bb87b81f29dad0cedab239e6d27e422efcc5b7700c60072b70a6b1f59a59dc4",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "BLD_004",
+      "path": "res://game/art/catalog_sources/BLD_004_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "2eca343d5627b654b9ea8b025efc52077642b1cb286f4fed7bee616d2d83a300",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "BLD_005",
+      "path": "res://game/art/catalog_sources/BLD_005_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "6583f26a36d1e13e9a6c5966bcf0b5302e11e3a4fe49386fc9d1f92930505b89",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "BLD_006",
+      "path": "res://game/art/catalog_sources/BLD_006_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "377c6544fd71e85023ad6bba318fdacfb8ea8773b89982dc238d6e43c35eda45",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "NAT_001",
+      "path": "res://game/art/catalog_sources/NAT_001_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "12db0bc42b00a92dc43502562e7d76bf7857452f5d048289c14563e26b477dfe",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "NAT_001",
+      "path": "res://game/art/catalog_sources/NAT_001_01.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "c4a052e42ffcbd6de1fd78a6a25d358827a0751f37255ec6a4ee63a1f692e18c",
+      "variant": 1
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "NAT_002",
+      "path": "res://game/art/catalog_sources/NAT_002_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "a6e809a8787101c3dbf5bfd539540c8a52aa2fdce96fda4eade3638f3826106f",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "NAT_002",
+      "path": "res://game/art/catalog_sources/NAT_002_01.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "b02fb10f43c9e73e214b0ae77c47ece81895d64bba4b151f9f6ad9a53d4f10ab",
+      "variant": 1
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "NAT_003",
+      "path": "res://game/art/catalog_sources/NAT_003_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "5ac451d375e24215513ef157064763f64ef3d97b20ad1365a37f1035cb0d230f",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "NAT_004",
+      "path": "res://game/art/catalog_sources/NAT_004_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "99770e67d060a0e7d321d0fd629d3e5f0069539e48c837d0f65cf5be624296c3",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "NAT_005",
+      "path": "res://game/art/catalog_sources/NAT_005_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "cd314e464fe23adbb54ec0d95a467c1a5ba14aa6e608de2189befa4352b80929",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "NAT_006",
+      "path": "res://game/art/catalog_sources/NAT_006_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "6ccec7645cbfb02c7815e76c12541478bb2a9dcf778b63992cdccd5d75a48472",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "NAT_007",
+      "path": "res://game/art/catalog_sources/NAT_007_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "a557c9a8d8567dc92d58dc2d7928da9e628361081d40e42f7c424bb2ef40c626",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "NAT_007",
+      "path": "res://game/art/catalog_sources/NAT_007_01.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "8475c25e2ddfb9ed02ff540ded0f16434fb23e5cd182f87d0c1a7d421a552010",
+      "variant": 1
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "NAT_007",
+      "path": "res://game/art/catalog_sources/NAT_007_02.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "9d7656732b3a7f26f072a363317c35925c8314dc248ef829fefa42c5b2c28ca9",
+      "variant": 2
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "NAT_008",
+      "path": "res://game/art/catalog_sources/NAT_008_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "5fabfd4988bf1feec43979bdafa7190e230fc44048708686ffd8987d524296a7",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "NAT_009",
+      "path": "res://game/art/catalog_sources/NAT_009_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "7e2877cd145bf7401fe06ebb2ccf4eba8f420f76fbd7b4739079857a1b975840",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "NAT_010",
+      "path": "res://game/art/catalog_sources/NAT_010_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "e2adb9590a9c704fea482d48a56802ce6932f5885be5339b9513c0dfe08bd952",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "PROP_001",
+      "path": "res://game/art/catalog_sources/PROP_001_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "7790678744bb6c0f68a5751cf2b2a4a513aa8d3fb9c297d47988bfee91d4fc0e",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "PROP_002",
+      "path": "res://game/art/catalog_sources/PROP_002_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "d62fba79d6489871ff5d22b7c305a8b37cc113b9fb20c2053c03d05747851cf5",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "PROP_003",
+      "path": "res://game/art/catalog_sources/PROP_003_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "ba0ab43afbf942c57e1d761c7fac6dc0c938787027473b7f15787755d9b69afe",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "PROP_004",
+      "path": "res://game/art/catalog_sources/PROP_004_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "a76f7822b2770fe88003996ced3dfcde950e5482c566c4cf954bce5fe977005e",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "PROP_005",
+      "path": "res://game/art/catalog_sources/PROP_005_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "f64f0cb916b60bb11cc2622983100be06b8271838cacdaddf9ebd60036cbe40a",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "PROP_006",
+      "path": "res://game/art/catalog_sources/PROP_006_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "3ddadd2f0f4418c248dcb36f9fa86333c4408c51bec841dd4a09ed60d987644a",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "PROP_007",
+      "path": "res://game/art/catalog_sources/PROP_007_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "13b04151fda6d8d1caad4a422faec481544471526d50d0fbb5eb5604e67a0db0",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "PROP_008",
+      "path": "res://game/art/catalog_sources/PROP_008_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "befa0f94f90f689d1984cbd8be942cec5cbfb80a9f73658030d6757147479a3b",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "PROP_009",
+      "path": "res://game/art/catalog_sources/PROP_009_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "d05d4beb238b405c4ebd2e5f76a5352efefbeb35566e3dbef76d0c320c54b8fc",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "PROP_010",
+      "path": "res://game/art/catalog_sources/PROP_010_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "acd0c6c7822e13fda74a86c5c11e2d4d6476d5c87eee532e269211670f31d298",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "PROP_011",
+      "path": "res://game/art/catalog_sources/PROP_011_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "cea1d3b025f877a8e9ce72fe3efe7afcce47fe88eb5e1cbbc3156feca5da4b51",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "PROP_011",
+      "path": "res://game/art/catalog_sources/PROP_011_01.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "c27935c973af678c09eb1ae99ebb95dbfe919455742ec411d8bb893376ceeda0",
+      "variant": 1
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "PROP_011",
+      "path": "res://game/art/catalog_sources/PROP_011_02.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "75d8519279b06bdca7a0997c24c0cbe2c52d02e9e975fb35a025d69970396205",
+      "variant": 2
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "PROP_011",
+      "path": "res://game/art/catalog_sources/PROP_011_03.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "426adb1d70e1de4945628375b5e3748e20bfc78ef8545d92f615c96cffd7f1e8",
+      "variant": 3
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "PROP_012",
+      "path": "res://game/art/catalog_sources/PROP_012_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "407c12e5f88b8e2fda75770ad2867508f7de015d0f9bd7175e16332a2a957bbd",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "PROP_012",
+      "path": "res://game/art/catalog_sources/PROP_012_01.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "7ee15c8dcb8ac87d876b12ea40cb9e12aada93a14e0b044f048b457229cc94d6",
+      "variant": 1
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "PROP_013",
+      "path": "res://game/art/catalog_sources/PROP_013_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "c50fa9b96b7ba4ccdad31f5e2c8941f986e9ac32d3dde8905e1af16b8b866ffb",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "PROP_014",
+      "path": "res://game/art/catalog_sources/PROP_014_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "78f7377ee27bb4406ee3cc99faa13c9bf5df9d57987333c7c1f73a91633c6903",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "PROP_014",
+      "path": "res://game/art/catalog_sources/PROP_014_01.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "331bf416f353ab05bc6a5bfdc94ca67865a5e5e09336e64a8bd9cd863d10efc1",
+      "variant": 1
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "PROP_015",
+      "path": "res://game/art/catalog_sources/PROP_015_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "37a1aa5a5f05bb73b9cbc9b0fb16aaf00fa54c3853ff41f175bc8ce769027e53",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "PROP_015",
+      "path": "res://game/art/catalog_sources/PROP_015_01.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "2ed172f6f6925e7e13218dd931f6b4ee173df4a7d10f9b2fb931352baa91c962",
+      "variant": 1
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "PROP_016",
+      "path": "res://game/art/catalog_sources/PROP_016_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "a0794dd2ba6e31dc833ca9b3bd1b6136a066645d4b1fdefa5352c88dc1232005",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "PROP_016",
+      "path": "res://game/art/catalog_sources/PROP_016_01.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "c8d2a70d1c2264327c06ace21ca6f82884ddad8fd2ee566d3e319a7f3ff9eecf",
+      "variant": 1
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ACT_001",
+      "path": "res://game/art/catalog_sources/ACT_001_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "4f7994836abe46c8ed45ecbc0158dc4fefd752d02f343d6cfa6a34d3650343bb",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ACT_002",
+      "path": "res://game/art/catalog_sources/ACT_002_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "04f4aa18ad51f7a3e78293cd8d79132f7728887c8e717860370d314f21838aa9",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ACT_003",
+      "path": "res://game/art/catalog_sources/ACT_003_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "f8f544c91e40314e7de5bdbc4a415b48cd9cb26edc65ea8023b9267cc1e954a4",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ACT_003",
+      "path": "res://game/art/catalog_sources/ACT_003_01.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "ca176433b7f261f7d2ea4fd0e11a16f32098839d47e8bfddc0a4739a554297f5",
+      "variant": 1
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ACT_003",
+      "path": "res://game/art/catalog_sources/ACT_003_02.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "5654c1251b7712be41d464f91b5d6f3ff5fd1d1086e50240d3263ef3ef7dd29d",
+      "variant": 2
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ACT_003",
+      "path": "res://game/art/catalog_sources/ACT_003_03.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "e08ab3a1fd22202a5bbd2d76915a748be323a44b393bfeb8ec5e4f4e06594041",
+      "variant": 3
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ACT_004",
+      "path": "res://game/art/catalog_sources/ACT_004_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "ebf9543ec82f9230e46dc1482304e9788bbefd9abbacbc03bf20d962c8e100f0",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ACT_005",
+      "path": "res://game/art/catalog_sources/ACT_005_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "1c66bc2815da40014657843e73a1f0a0db81dcfc005a8228602b8062ee0cd942",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ACT_006",
+      "path": "res://game/art/catalog_sources/ACT_006_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "bf4446d3dcba67a193e3e23e245eeb29357c5cbd1cd7b7fe1c4e06d59f266825",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ACT_006",
+      "path": "res://game/art/catalog_sources/ACT_006_01.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "81f0133cce669c5a17c4642af43bb02a4a342d6180d4189b3e56c6dfeecbfcf6",
+      "variant": 1
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ACT_006",
+      "path": "res://game/art/catalog_sources/ACT_006_02.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "643e37d62eadb02b1a9b570a36ac1ec06fec729fa360e1ea600512b6012d822f",
+      "variant": 2
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ACT_006",
+      "path": "res://game/art/catalog_sources/ACT_006_03.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "cbe38446296c16dd81f5a8f4227e3e7164732cf60b047ad15729de668d535aa5",
+      "variant": 3
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ACT_006",
+      "path": "res://game/art/catalog_sources/ACT_006_04.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "ef73cb4fb26e76473de380327bd98029c8e0493f72ce27db8878384337d5cd94",
+      "variant": 4
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ANI_001",
+      "path": "res://game/art/catalog_sources/ANI_001_00.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "Animation",
+      "sha256": "443760d91fc121f6f46b03459f4ce60c93b84514c683a60e4179fd902b8d3459",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ANI_002",
+      "path": "res://game/art/catalog_sources/ANI_002_00.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "Animation",
+      "sha256": "39b7d38e0a5306dc2aa934ecf33f378d6826416725cd41fb4d40db8c4c4f115b",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ANI_003",
+      "path": "res://game/art/catalog_sources/ANI_003_00.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "Animation",
+      "sha256": "f4c6c3e25bbdfff8e0e27a3f28b67110430c181361fe9a207d220add9d4ad715",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ANI_004",
+      "path": "res://game/art/catalog_sources/ANI_004_00.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "Animation",
+      "sha256": "11fc80b24ffbff76907e0820c775f5ad924b73a7301895928fd11780d5f6b432",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ANI_004",
+      "path": "res://game/art/catalog_sources/ANI_004_01.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "Animation",
+      "sha256": "41aafc433c084aa297b46a912aab9f4c378e20aa34eb265dbf8b082a406bb959",
+      "variant": 1
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ANI_004",
+      "path": "res://game/art/catalog_sources/ANI_004_02.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "Animation",
+      "sha256": "3978d5563f384d0fbc1f24d57921bfc0a61edc6c8304b2c18e592cf58ebfc095",
+      "variant": 2
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ANI_005",
+      "path": "res://game/art/catalog_sources/ANI_005_00.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "Animation",
+      "sha256": "3ffb72feb0e218186ff86e5b5e966a4efedd1a234fb65fa6be9e11732a311216",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ANI_006",
+      "path": "res://game/art/catalog_sources/ANI_006_00.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "Animation",
+      "sha256": "2350cd2059f65a849e11a73efd2bb51206e60f2c933b266a0b835226a61822cd",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ANI_007",
+      "path": "res://game/art/catalog_sources/ANI_007_00.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "Animation",
+      "sha256": "20884068c59dd7ba3f300d36305b48128792d817a2ba4224097e9a10caae6ad4",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ANI_008",
+      "path": "res://game/art/catalog_sources/ANI_008_00.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "Animation",
+      "sha256": "eea13cf43d4011ca49c40813469caf5abfce41550b28163472032c02627cd49e",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ANI_009",
+      "path": "res://game/art/catalog_sources/ANI_009_00.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "Animation",
+      "sha256": "4ba0234fb487faa6ef29e9056b53c38f8be6ad0af07993959b1afa5ef908d3ff",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ANI_010",
+      "path": "res://game/art/catalog_sources/ANI_010_00.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "Animation",
+      "sha256": "07ca21087ec35a6622343516c6c5dd31c61f78ed41f18394122f62f5c073a638",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ANI_011",
+      "path": "res://game/art/catalog_sources/ANI_011_00.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "Animation",
+      "sha256": "fa6b860aa4522a402a2ad0705bdfb00b35f4422f1943681a6d19d445eeab1e31",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ANI_012",
+      "path": "res://game/art/catalog_sources/ANI_012_00.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "Animation",
+      "sha256": "8e79b379dc72ac2bb909a65dc2abd124b02080abb38197c4649ac9a292883cf2",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ANI_013",
+      "path": "res://game/art/catalog_sources/ANI_013_00.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "Animation",
+      "sha256": "9b9944e21ba7dbc11fe5f9f0095b64dbf9a7fc1e10b56d645206172be84f87e9",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ANI_014",
+      "path": "res://game/art/catalog_sources/ANI_014_00.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "Animation",
+      "sha256": "bb5cea9a33abe07e2a31cea585277a5a61afb51c353b8ddc518388eacbd225d6",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ANI_015",
+      "path": "res://game/art/catalog_sources/ANI_015_00.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "Animation",
+      "sha256": "d8d62bb3ead147e6ddfad6b50d92728bb49782cfc10360a4f9a3835903d8d836",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ANI_016",
+      "path": "res://game/art/catalog_sources/ANI_016_00.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "Animation",
+      "sha256": "ad336930106e12d80dbf479a4f0e844bc7ad3fcf06d4fa31fc81cde46354437b",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ANI_016",
+      "path": "res://game/art/catalog_sources/ANI_016_01.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "Animation",
+      "sha256": "028a70975350b1d727fd6af2c64d8e2e97382a579f134688b26df03f1468745b",
+      "variant": 1
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "MAT_001",
+      "path": "res://game/art/catalog_sources/MAT_001_00.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "StandardMaterial3D",
+      "sha256": "53d19ad895c66f95f535f702f5bd4fe7febfab8db5d37d0c57b4ad2c7ab6c606",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "MAT_002",
+      "path": "res://game/art/catalog_sources/MAT_002_00.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "ShaderMaterial",
+      "sha256": "13d919882428dddb07e0d17b28110a8612d83b82277fc4b5ac200a3fc9ae0047",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "MAT_003",
+      "path": "res://game/art/catalog_sources/MAT_003_00.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "ShaderMaterial",
+      "sha256": "f9a8dcb4ed5bafc0f24c0178f16dedf5f4a64c0805f76894dae44c9fb43f74bb",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "MAT_004",
+      "path": "res://game/art/catalog_sources/MAT_004_00.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "ShaderMaterial",
+      "sha256": "553b2e51a776f0081575035026a16812b62b1d77b01b57623c568137de5afe08",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "MAT_005",
+      "path": "res://game/art/catalog_sources/MAT_005_00.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "StandardMaterial3D",
+      "sha256": "2aa8df312fc648acfe6bad14d3f9cfe9ec88e9845c0c96e11687ee6c06326431",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "MAT_006",
+      "path": "res://game/art/catalog_sources/MAT_006_00.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "StandardMaterial3D",
+      "sha256": "53d19ad895c66f95f535f702f5bd4fe7febfab8db5d37d0c57b4ad2c7ab6c606",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "MAT_007",
+      "path": "res://game/art/catalog_sources/MAT_007_00.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "ShaderMaterial",
+      "sha256": "aee759e13d48f3990c20a0db3ee4189171a1c280f502e32b57f551fc24186704",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "FX_001",
+      "path": "res://game/art/catalog_sources/FX_001_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "b5b2175b273e3d775342933e61a83fb2ea18feed6e26eb9ea0f63885a3e5c9ad",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "FX_002",
+      "path": "res://game/art/catalog_sources/FX_002_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "026f3aa3e785b5950432854a5867d54dcbe82e2b87309d93bb1f99b2b956fc26",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "FX_003",
+      "path": "res://game/art/catalog_sources/FX_003_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "612f32d6d120b276d804aef83e49ba2e6fdf6d90562b6d003494519aef43a018",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "FX_004",
+      "path": "res://game/art/catalog_sources/FX_004_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "5fa2e9875e7487ec4ef4a0d2f929d83c9b841e73a0e0da087365d560bc06a34f",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "FX_005",
+      "path": "res://game/art/catalog_sources/FX_005_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "06dbc7d25781fb0855bb630e03585d90210dd649993a51bff2ae4a819592f626",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ENV_001",
+      "path": "res://game/art/catalog_sources/ENV_001_00.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "Environment",
+      "sha256": "94292d9fb1f6c5b67398055d36d8458070991c72286a2d4340de2e884c9c0ea5",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "ENV_001",
+      "path": "res://game/art/catalog_sources/ENV_001_01.tres",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "Environment",
+      "sha256": "0f806c3a2264451b1a6e50bbae8e0dc7a7ac86d64a65d301dd73369bba8c7204",
+      "variant": 1
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_001",
+      "path": "res://game/ui/vectors/UI_001_00.svg",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "03d75097e00db477160665e1656f84925cf16e397561de0acef3057278e56fba",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_001",
+      "path": "res://game/ui/vectors/UI_001_01.svg",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "8f7c79747362dd41b42927be9eafaa3e52fc9969c348c284acf26467abfd4c65",
+      "variant": 1
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_001",
+      "path": "res://game/ui/vectors/UI_001_02.svg",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "1428ca76fce16714dd6c512b0b886c5bdb3f5a234fd72cd6652c6f6fcf2d5b1d",
+      "variant": 2
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_001",
+      "path": "res://game/ui/vectors/UI_001_03.svg",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "8b0124f0fdc88681cacc4eb47b9523f11d74a287e80b7c5595cbd06fa4916708",
+      "variant": 3
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_001",
+      "path": "res://game/ui/vectors/UI_001_04.svg",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "7ca2bc2c589a457361895d2aa2aab142b3923508a319372339a8a8d263b87671",
+      "variant": 4
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_001",
+      "path": "res://game/ui/vectors/UI_001_05.svg",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "13ccd958d54b589828f2cf7dc548519f419fac560904a66d93b2a03c56d9a603",
+      "variant": 5
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_001",
+      "path": "res://game/ui/vectors/UI_001_06.svg",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "8cb370aab33b42d6688d26ead18b1a9c378825cf54973e097a5b50f89b89e430",
+      "variant": 6
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_001",
+      "path": "res://game/ui/vectors/UI_001_07.svg",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "2a997efa21922f1864a36003b910d59d9dd76121cdb37c1732f2b1ca9d1465fe",
+      "variant": 7
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_002",
+      "path": "res://game/ui/vectors/UI_002_00.svg",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "4d2b9a834337cb286646e8c9ba6ccd6654bceb81f3c41da5b893e611db43786e",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_002",
+      "path": "res://game/ui/vectors/UI_002_01.svg",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "9187a78b78616c3463e3c05203b1efdc155086ec00ed292fd28d1c9cbde3d57a",
+      "variant": 1
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_002",
+      "path": "res://game/ui/vectors/UI_002_02.svg",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "273cd86d4943d444d17841aea20cb75aeb81894f67051b9bc1076e0e0e7cc5cd",
+      "variant": 2
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_002",
+      "path": "res://game/ui/vectors/UI_002_03.svg",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "7ce47973b171d8a3a8a81dc9c88f91b535089b7d4038ddad4379cb014be8e2e5",
+      "variant": 3
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_002",
+      "path": "res://game/ui/vectors/UI_002_04.svg",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "7a6062c0cdf368561a594833d3d798f5a639eb73b707b43f797e5f7d66dfbb9c",
+      "variant": 4
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_002",
+      "path": "res://game/ui/vectors/UI_002_05.svg",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "affdbd905251a93d194c5fa8dac8b14d1fa842ae1e204eb0f419abb2f8534d50",
+      "variant": 5
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_003",
+      "path": "res://game/ui/vectors/UI_003_00.svg",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "131e5bff7fcb2ba34459e1ef6da21ca95dea4483b336aa893fdaa7d744b6458b",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_003",
+      "path": "res://game/ui/vectors/UI_003_01.svg",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "886b9ba04fafcf8ab7de513734b276cac3fbc7179826b019af710a9c33bb6bd8",
+      "variant": 1
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_003",
+      "path": "res://game/ui/vectors/UI_003_02.svg",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "a8db628e99d0819e01c7af8641b23fc315237d80f82d666a89f694f1838661d4",
+      "variant": 2
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_003",
+      "path": "res://game/ui/vectors/UI_003_03.svg",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "3e2f828673fc59f9ec090dbfbd7c887acae6f8b5362db8ef6e17f8f3b37ee3ff",
+      "variant": 3
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_003",
+      "path": "res://game/ui/vectors/UI_003_04.svg",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "ea40367a062739c943ed9e15dd99f4c693e2534e0d268023d945564e33014759",
+      "variant": 4
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_003",
+      "path": "res://game/ui/vectors/UI_003_05.svg",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "cfabd8172dee287f21c3e91284b5fb03af2a4c21bc6815f901b8ce8cbf6d6617",
+      "variant": 5
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_004",
+      "path": "res://game/ui/vectors/UI_004_00.svg",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "849d59a89e0e15d4783b581d4ce293c9b7a349fc5449befc87510c0e10a26234",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_004",
+      "path": "res://game/ui/vectors/UI_004_01.svg",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "81af18d71efccd975e669fc4d30daf74ed7d7ed80c924446ff6bbc1b5f6dc75c",
+      "variant": 1
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_004",
+      "path": "res://game/ui/vectors/UI_004_02.svg",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "34356604b5150c7926ab1997dc1ad28152fc27b73f46797013ff01581909d987",
+      "variant": 2
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_004",
+      "path": "res://game/ui/vectors/UI_004_03.svg",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "1988d110be8111f69472273d5e5f7d94378fa227b26a9d23762582571616a2db",
+      "variant": 3
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_005",
+      "path": "res://game/art/catalog_sources/UI_005_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "0bd2fbac5ef250d66881de9b2b43c1cad30b67549fc51ba83880938de3b21361",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_006",
+      "path": "res://game/art/catalog_sources/UI_006_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "8fc2cfe972bea1025f7efbc0915b035a4abacc1c5036bbe560ae662dfe7bd526",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_007",
+      "path": "res://game/art/catalog_sources/UI_007_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "66c80cafde0c7af5f7fbbc2fc7bf0ca128f0486b216b0764afc1db2fe8defdd9",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_008",
+      "path": "res://game/ui/icons/house_basic.png",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "raster_thumbnail",
+      "sha256": "c0bf050fa5e9b3eca9e6e60f6ef44871fb8d40b649fe1418ca260db6106c2fc8",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_008",
+      "path": "res://game/ui/icons/house_coast.png",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "raster_thumbnail",
+      "sha256": "0fb6bf768fc8076e5c9f8a5b2bef6d8321c899c621c034659c86c6a8bc24a7ad",
+      "variant": 1
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_008",
+      "path": "res://game/ui/icons/house_garden.png",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "raster_thumbnail",
+      "sha256": "55d861b528a7900fede7e17c4c280c80a8beadabb9c137a661a4f15b5fd16b18",
+      "variant": 2
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_008",
+      "path": "res://game/ui/icons/greenhouse.png",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "raster_thumbnail",
+      "sha256": "91514c9e4afa33dc736425aea2fb84e20ab290f01a0debe2abaa53d81e4cb33a",
+      "variant": 3
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_008",
+      "path": "res://game/ui/icons/tea.png",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "raster_thumbnail",
+      "sha256": "2cd138a64a787c2fa173cc2ab23f741259521247288e537faa1269833111a3cb",
+      "variant": 4
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_008",
+      "path": "res://game/ui/icons/lighthouse.png",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "raster_thumbnail",
+      "sha256": "6ce21f6f03c8aa371fad14f9e7edf2f864a600901840636efd929bc79643bad5",
+      "variant": 5
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_009",
+      "path": "res://game/art/catalog_sources/UI_009_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "0b0d2bacc9d4f00fb2a0361f64b288c86f0f34702690ea078d7fb30f2d03dd90",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_010",
+      "path": "res://game/art/catalog_sources/UI_010_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "5b2a448ea12fca92e67c49e18952799107049135c326767f2c5cfbc602f14242",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "UI_011",
+      "path": "res://game/art/catalog_sources/UI_011_00.tscn",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "87a659b57fd32e4904ec63e1514ea986e026b30dae8a8d593660b3e44d7cf4b3",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "SCN_001",
+      "path": "res://game/art/catalog_sources/SCN_001_00.json",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "scene_recipe",
+      "sha256": "018b53d4b20b117ffebcfeda561ed08b319b3b38eaae78f1692c3353ebabf957",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "SCN_002",
+      "path": "res://game/art/catalog_sources/SCN_002_00.json",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "scene_recipe",
+      "sha256": "1fddc7ad5db2fede4a06575d776c7325d78ea56974f04fa6524d2805078c3ac3",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "SCN_003",
+      "path": "res://game/art/catalog_sources/SCN_003_00.json",
+      "phase": "MVP",
+      "production_status": "source_available",
+      "representation": "scene_recipe",
+      "sha256": "9f1b1354d30091c242bc781676be89f3b6a3f59a6eafff0b9d0cd89bc45b3d94",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "POST_001",
+      "path": "res://game/art/catalog_sources/POST_001_00.tscn",
+      "phase": "POST",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "d5374731f6dda8e30c657fc083a7e16f95ba675eb271a67bd6bf842893441819",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "POST_001",
+      "path": "res://game/art/catalog_sources/POST_001_01.tscn",
+      "phase": "POST",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "b73c20d67c8ccb8f5e3d1f2ce1cb5652a46e19565f5b2443b36fc97100f6835b",
+      "variant": 1
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "POST_002",
+      "path": "res://game/art/catalog_sources/POST_002_00.tscn",
+      "phase": "POST",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "1d35a241e5507fc74d922d68c430ff5f0b8586025ec7b536e95479584a675a13",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "POST_003",
+      "path": "res://game/art/catalog_sources/POST_003_00.tscn",
+      "phase": "POST",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "24fdcc018328157513934a1264113742d8d2134849ae54d0abf42acb5c259107",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "POST_004",
+      "path": "res://game/art/catalog_sources/POST_004_00.tscn",
+      "phase": "POST",
+      "production_status": "source_available",
+      "representation": "PackedScene",
+      "sha256": "0b1f468b28a64c767bca1771de2f62e5a7b1abae2227ad488b4d1b46633b65e7",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "POST_005",
+      "path": "res://game/ui/vectors/POST_005_00.svg",
+      "phase": "POST",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "48200de50490c59af7f0ba0702f8205f51586c7920b82a67e2b47b4eb9b36f69",
+      "variant": 0
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "POST_005",
+      "path": "res://game/ui/vectors/POST_005_01.svg",
+      "phase": "POST",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "8f862d1c3e4a10d644710e940aebf8c2e5984a6a6b6ed47871bb2929b9550ddb",
+      "variant": 1
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "POST_005",
+      "path": "res://game/ui/vectors/POST_005_02.svg",
+      "phase": "POST",
+      "production_status": "source_available",
+      "representation": "svg",
+      "sha256": "7af0769802d1078000a7910aab6c08b8f571fef4659b79dc1b0e1b061461c352",
+      "variant": 2
+    },
+    {
+      "acceptance": "pending_visual_and_spec_review",
+      "asset_id": "POST_006",
+      "path": "res://game/art/catalog_sources/POST_006_00.tres",
+      "phase": "POST",
+      "production_status": "source_available",
+      "representation": "Animation",
+      "sha256": "9421f31bef49d2fcb1e222b0d5d4381a92a169346a79b725280aa9cf3f41edf6",
+      "variant": 0
+    }
+  ],
+  "scope": "Art sources; not automatic acceptance of original budgets, topology or visual criteria"
+}

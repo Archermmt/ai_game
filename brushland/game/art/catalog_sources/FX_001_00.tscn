@@ -1,0 +1,57 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kiqv4"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.9, 0.92, 0.85, 0.15)
+
+[sub_resource type="SphereMesh" id="SphereMesh_uldoo"]
+radial_segments = 6
+rings = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v6ibb"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.9, 0.92, 0.85, 0.15)
+
+[sub_resource type="SphereMesh" id="SphereMesh_l2sc4"]
+radial_segments = 6
+rings = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1vti0"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.9, 0.92, 0.85, 0.15)
+
+[sub_resource type="SphereMesh" id="SphereMesh_5k70u"]
+radial_segments = 6
+rings = 1
+
+[node name="FX_001_00" type="Node3D" unique_id=343786035]
+metadata/asset_id = "FX_001"
+metadata/variant = 0
+
+[node name="ChimneySmoke" type="Node3D" parent="." unique_id=186856046]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.72, -0.4)
+metadata/batch_exclude = true
+
+[node name="@MeshInstance3D@704" type="MeshInstance3D" parent="ChimneySmoke" unique_id=1565975118]
+transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_kiqv4")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_uldoo")
+metadata/phase = 0.0
+
+[node name="@MeshInstance3D@705" type="MeshInstance3D" parent="ChimneySmoke" unique_id=1016167445]
+transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0, 0.15, 0)
+material_override = SubResource("StandardMaterial3D_v6ibb")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_l2sc4")
+metadata/phase = 0.3333333333333333
+
+[node name="@MeshInstance3D@706" type="MeshInstance3D" parent="ChimneySmoke" unique_id=888241404]
+transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0, 0.3, 0)
+material_override = SubResource("StandardMaterial3D_1vti0")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_5k70u")
+metadata/phase = 0.6666666666666666

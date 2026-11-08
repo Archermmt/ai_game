@@ -1,0 +1,12 @@
+2026-10-30 21:10:35.061 Breezely Isles · 风屿手记[91460:20648673] +[IMKClient subclass]: chose IMKClient_Modern
+2026-10-30 21:10:36.890 Breezely Isles · 风屿手记[91460:20648673] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+ERROR: Benchmark interrupted: missing day/night/frame/edit samples; repeat without suspension
+   at: push_error (core/variant/variant_utility.cpp:1023)
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+OpenGL API 4.1 Metal - 89.3 - Compatibility - Using Device: Apple - Apple M4 Pro
+
+BOOT_READY_MS 813
+PRESSURE_READY 40 buildings / 400 decorations / 12 residents / 6 animals
+BENCHMARK_DIRECTORY /Users/tongmeng/Library/Application Support/Godot/app_userdata/Breezely Isles · 风屿手记/benchmarks/run_475234
+PRESSURE_PROGRESS 0 minutes; frames=1 edits=0
+BENCHMARK_COVERAGE {"captures":1,"day_frames":692,"edits":2,"elapsed_wall_seconds":26.911469,"frames":693,"land_cells":1200,"last_edit_tick":2,"night_frames":0}

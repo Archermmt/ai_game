@@ -1,0 +1,70 @@
+{
+  "animals": 6,
+  "build_ms": 752.578,
+  "buildings": 40,
+  "camera_orthographic_size": 42,
+  "cpu": "Apple M4 Pro",
+  "day_frame_ms_p95": 4.968,
+  "decorations": 400,
+  "device": "Apple M4 Pro",
+  "draw_calls_peak": 94,
+  "driver": "opengl3",
+  "duration_wall_seconds": 10.005036,
+  "edit_cpu_ms_p95": 46.567,
+  "edit_measurement": "paint + rebuild through RenderingServer.frame_post_draw; excludes OS compositor/display latency",
+  "edit_ms_p95": 62.399,
+  "edit_profiles": [
+    {
+      "generate_ms": 10.867,
+      "props_ms": 6.14,
+      "render_publish_ms": 27.576,
+      "terrain_publish_ms": 0.3
+    },
+    {
+      "generate_ms": 10.823,
+      "props_ms": 6.246,
+      "render_publish_ms": 27.092,
+      "terrain_publish_ms": 0.261
+    },
+    {
+      "generate_ms": 10.195,
+      "props_ms": 6.077,
+      "render_publish_ms": 27.582,
+      "terrain_publish_ms": 0.284
+    },
+    {
+      "generate_ms": 10.184,
+      "props_ms": 6.102,
+      "render_publish_ms": 27.268,
+      "terrain_publish_ms": 0.256
+    }
+  ],
+  "edit_samples": 4,
+  "edit_samples_ms": [
+    55.792,
+    56.192,
+    62.187,
+    62.399
+  ],
+  "engine": "4.7-stable (official)",
+  "engine_static_bytes": 0.0,
+  "frame_count": 2053,
+  "frame_ms_p50": 4.15,
+  "frame_ms_p95": 5.257,
+  "grass_density_lod": 0.33,
+  "land_cells": 1200,
+  "night_frame_ms_p95": 5.32,
+  "platform": "macOS",
+  "preview_mode": "compact",
+  "quality": "low",
+  "render_resolution": [
+    1920,
+    1080
+  ],
+  "renderer": "gl_compatibility",
+  "residents": 12,
+  "scope": "Short smoke sample, not five minute exported benchmark on this device; not acceptance on any other device",
+  "source_tile_records": 1200,
+  "target_device_tested": false,
+  "visible_primitives_peak": 146540
+}

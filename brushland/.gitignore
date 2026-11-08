@@ -1,0 +1,13 @@
+.godot/
+*.tmp
+.DS_Store
+# Keep project validation evidence despite the parent repository's reports/ rule.
+!docs/reports/
+!docs/reports/**
+
+# Local engine templates and distributable builds.
+.tools/
+builds/
+
+__pycache__/
+*.pyc

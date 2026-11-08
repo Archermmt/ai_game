@@ -1,0 +1,26 @@
+{
+  "source": "https://godot-releases.nbg1.your-objectstorage.com/4.7-stable/Godot_v4.7-stable_export_templates.tpz",
+  "version": "4.7.stable",
+  "archive_bytes": 1279207690,
+  "members": [
+    {
+      "name": "version.txt",
+      "bytes": 11,
+      "zip_crc32": "c5d0c7c2",
+      "sha256": "7017d4d6a7a1d42d86638574e001a0042dfdcb78554ab24dd714ab23ad38baa2"
+    },
+    {
+      "name": "macos.zip",
+      "bytes": 123345600,
+      "zip_crc32": "d3ef1509",
+      "sha256": "b9b036261c18dac2c6ade52ffb592e3842cb9b76d8c8d0f55bc7b99ac4dfeae0"
+    },
+    {
+      "name": "windows_release_x86_64.exe",
+      "bytes": 109160448,
+      "zip_crc32": "829baf50",
+      "sha256": "c42eb5d17f683eb8bcd52c19a9f36ebf811b1788623878d5276a7d9ffc09f95c"
+    }
+  ],
+  "verification": "TLS official origin, ZIP CRC and local member hashes; full archive hash not verified"
+}

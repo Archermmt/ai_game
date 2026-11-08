@@ -1,0 +1,16 @@
+{
+  "edit_rebuild_ms_p95": 53.205,
+  "engine": "4.7-stable (official)",
+  "engine_static_bytes": 237206347.0,
+  "frame_ms_p50": 8.398,
+  "frame_ms_p95": 14.919,
+  "objects": 21,
+  "people": 4,
+  "renderer": "Compatibility",
+  "resolution": "(1440, 900)",
+  "samples": 179,
+  "scope": "Prepared playable bay smoke profile; not PRD full pressure scene",
+  "tiles": 349,
+  "unix_time": 1793196335.73446,
+  "visible_draw_calls": 101
+}

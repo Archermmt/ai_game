@@ -1,0 +1,3 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+PASS atomic partial-write/backup/rename failures, 3 recoverable backups, 16 corrupt saves, unchanged live world and camera/settings metadata

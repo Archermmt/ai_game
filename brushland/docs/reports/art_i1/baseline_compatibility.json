@@ -1,0 +1,107 @@
+{
+  "camera_specs": {
+    "harbor": {
+      "angle": 0.55,
+      "center": [
+        27,
+        0,
+        32
+      ],
+      "size": 19.0
+    },
+    "house": {
+      "angle": 0.3,
+      "center": [
+        29.5,
+        1,
+        30.5
+      ],
+      "size": 9.0
+    },
+    "orbit": {
+      "angle": 2.1207963268,
+      "center": [
+        27,
+        0,
+        32
+      ],
+      "size": 19.0
+    },
+    "shore": {
+      "angle": 0.65,
+      "center": [
+        22,
+        0.3,
+        33
+      ],
+      "size": 10.0
+    },
+    "sunset": {
+      "angle": 0.55,
+      "center": [
+        27,
+        0,
+        32
+      ],
+      "size": 19.0
+    },
+    "whole": {
+      "angle": 0.3,
+      "center": [
+        31.5,
+        0,
+        34
+      ],
+      "size": 31.0
+    }
+  },
+  "driver": "opengl3",
+  "edit_rebuild_ms_p95": 63.759,
+  "engine": "4.7-stable (official)",
+  "engine_static_bytes": 42969721.0,
+  "fixture_sha256": "fc74fe3b9d9f9ba86df093baea7e47fd1214b82ac566aa65372908b81706728c",
+  "frame_ms_p50": 8.318,
+  "frame_ms_p95": 14.637,
+  "frame_samples": 150,
+  "frozen": true,
+  "label": "baseline_compatibility",
+  "renderer": "gl_compatibility",
+  "resolution": [
+    1920,
+    1080
+  ],
+  "scope": "Fixed bay / native renderer parity lab; not full PRD pressure scene",
+  "views": {
+    "harbor": {
+      "draw_calls": 100,
+      "path": "res://snapshots/art_i1/baseline_compatibility/harbor.png",
+      "sha256": "38211d6522f6a468e4f0714d6ae480d4f54afdc12fec6bcc98b147a101e1024a"
+    },
+    "house": {
+      "draw_calls": 74,
+      "path": "res://snapshots/art_i1/baseline_compatibility/house.png",
+      "sha256": "e869f994ab78e4a4f3f210d492ae807b4cad744577ce03f67bbcb724cd79cd1d"
+    },
+    "orbit": {
+      "draw_calls": 101,
+      "path": "res://snapshots/art_i1/baseline_compatibility/orbit.png",
+      "sha256": "2fc1067402d2542182e01f0f07dda69b32533d0f9eb5a7b22bd63150abc1c2ef"
+    },
+    "shore": {
+      "draw_calls": 62,
+      "path": "res://snapshots/art_i1/baseline_compatibility/shore.png",
+      "sha256": "7839b5ccd1ea7e028acd95d1ff44d18a7a5a9fcfd70644a887525ef2e7f96a11"
+    },
+    "sunset": {
+      "draw_calls": 100,
+      "path": "res://snapshots/art_i1/baseline_compatibility/sunset.png",
+      "sha256": "4a32604f3f01a40268663b6334f7ed403bf3d89dbeade684ac2c586d57978720"
+    },
+    "whole": {
+      "draw_calls": 101,
+      "path": "res://snapshots/art_i1/baseline_compatibility/whole.png",
+      "sha256": "3e56dde942d6d66b6071ecc421aa78c042a77bf348f24fec17dbee38de3ace3e"
+    }
+  },
+  "world_unchanged": true
+}

@@ -1,0 +1,16 @@
+{
+  "scope": "Local M4 Pro only; separate from original PRD hardware and G1 artistic acceptance",
+  "source_ids": 117,
+  "source_variants": 170,
+  "explicit_geometry_variants": 86,
+  "source_load_hash_passed": true,
+  "geometry_budgets_passed": true,
+  "native_pressure_completed": true,
+  "visible_triangles_under_350k": true,
+  "draw_calls_under_200": false,
+  "sampled_process_rss_under_1_5_GiB": true,
+  "target_hardware_tested": false,
+  "g1_user_visual_acceptance": "pending",
+  "per_spec_manual_acceptance": "pending",
+  "g2_complete": false
+}

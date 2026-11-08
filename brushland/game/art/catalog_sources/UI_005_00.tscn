@@ -1,0 +1,194 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://game/ui/vectors/UI_001_00.svg" id="1_kv82j"]
+[ext_resource type="Texture2D" path="res://game/ui/vectors/UI_001_01.svg" id="2_voc1i"]
+[ext_resource type="Texture2D" path="res://game/ui/vectors/UI_001_02.svg" id="3_ws4o7"]
+[ext_resource type="Texture2D" path="res://game/ui/vectors/UI_001_03.svg" id="4_6xgs7"]
+[ext_resource type="Texture2D" path="res://game/ui/vectors/UI_001_04.svg" id="5_rhkq2"]
+[ext_resource type="Texture2D" path="res://game/ui/vectors/UI_001_05.svg" id="6_5cxse"]
+[ext_resource type="Texture2D" path="res://game/ui/vectors/UI_001_06.svg" id="7_k8vgd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t2icn"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.9, 0.9, 0.8, 0.1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.48235294, 0.60784316, 0.5372549, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_16kvt"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.9098039, 0.9098039, 0.827451, 1)
+border_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ftqgm"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.9647059, 0.9411765, 0.87058824, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8745098, 0.8745098, 0.7921569, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gg8m0"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.43529412, 0.5529412, 0.4745098, 1)
+border_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="SystemFont" id="SystemFont_w1i3q"]
+font_names = PackedStringArray("PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "sans-serif")
+
+[sub_resource type="Theme" id="Theme_4w4nx"]
+default_font = SubResource("SystemFont_w1i3q")
+default_font_size = 16
+Button/colors/font_color = Color(0.27450982, 0.38039216, 0.34509805, 1)
+Button/colors/font_hover_color = Color(0.15294118, 0.29411766, 0.2509804, 1)
+Button/colors/font_pressed_color = Color(0.972549, 0.94509804, 0.8627451, 1)
+Button/styles/focus = SubResource("StyleBoxFlat_t2icn")
+Button/styles/hover = SubResource("StyleBoxFlat_16kvt")
+Button/styles/normal = SubResource("StyleBoxFlat_ftqgm")
+Button/styles/pressed = SubResource("StyleBoxFlat_gg8m0")
+Label/colors/font_color = Color(0.2509804, 0.36078432, 0.32941177, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dexcr"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.96862745, 0.94509804, 0.8745098, 1)
+border_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="UI_005_00" type="PanelContainer" unique_id=1898741276]
+custom_minimum_size = Vector2(740, 124)
+offset_right = 535.0
+offset_bottom = 40.0
+theme = SubResource("Theme_4w4nx")
+theme_override_styles/panel = SubResource("StyleBoxFlat_dexcr")
+metadata/asset_id = "UI_005"
+metadata/variant = 0
+
+[node name="@VBoxContainer@774" type="VBoxContainer" parent="." unique_id=1058370797]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="@HBoxContainer@775" type="HBoxContainer" parent="@VBoxContainer@774" unique_id=1396070756]
+layout_mode = 2
+
+[node name="@Button@776" type="Button" parent="@VBoxContainer@774/@HBoxContainer@775" unique_id=1780711365]
+custom_minimum_size = Vector2(70, 36)
+layout_mode = 2
+text = "地貌"
+
+[node name="@Button@777" type="Button" parent="@VBoxContainer@774/@HBoxContainer@775" unique_id=1655211573]
+custom_minimum_size = Vector2(70, 36)
+layout_mode = 2
+text = "建造"
+
+[node name="@Button@778" type="Button" parent="@VBoxContainer@774/@HBoxContainer@775" unique_id=1831796960]
+custom_minimum_size = Vector2(70, 36)
+layout_mode = 2
+text = "花草与摆件"
+
+[node name="@Button@779" type="Button" parent="@VBoxContainer@774/@HBoxContainer@775" unique_id=822176067]
+custom_minimum_size = Vector2(70, 36)
+layout_mode = 2
+text = "整理"
+
+[node name="@Label@780" type="Label" parent="@VBoxContainer@774/@HBoxContainer@775" unique_id=650590923]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 13
+text = "一笔一座岛 · 慢慢画，不必着急"
+horizontal_alignment = 2
+
+[node name="@HFlowContainer@781" type="HFlowContainer" parent="@VBoxContainer@774" unique_id=455762827]
+layout_mode = 2
+
+[node name="@Button@782" type="Button" parent="@VBoxContainer@774/@HFlowContainer@781" unique_id=1406080937]
+custom_minimum_size = Vector2(88, 50)
+layout_mode = 2
+tooltip_text = "草地"
+theme_override_constants/icon_max_width = 30
+text = "草地"
+icon = ExtResource("1_kv82j")
+
+[node name="@Button@783" type="Button" parent="@VBoxContainer@774/@HFlowContainer@781" unique_id=973950798]
+custom_minimum_size = Vector2(88, 50)
+layout_mode = 2
+tooltip_text = "沙滩"
+theme_override_constants/icon_max_width = 30
+text = "沙滩"
+icon = ExtResource("2_voc1i")
+
+[node name="@Button@784" type="Button" parent="@VBoxContainer@774/@HFlowContainer@781" unique_id=143700836]
+custom_minimum_size = Vector2(88, 50)
+layout_mode = 2
+tooltip_text = "岩台"
+theme_override_constants/icon_max_width = 30
+text = "岩台"
+icon = ExtResource("3_ws4o7")
+
+[node name="@Button@785" type="Button" parent="@VBoxContainer@774/@HFlowContainer@781" unique_id=1878743721]
+custom_minimum_size = Vector2(88, 50)
+layout_mode = 2
+tooltip_text = "海水"
+theme_override_constants/icon_max_width = 30
+text = "海水"
+icon = ExtResource("4_6xgs7")
+
+[node name="@Button@786" type="Button" parent="@VBoxContainer@774/@HFlowContainer@781" unique_id=872996398]
+custom_minimum_size = Vector2(88, 50)
+layout_mode = 2
+tooltip_text = "抬高"
+theme_override_constants/icon_max_width = 30
+text = "抬高"
+icon = ExtResource("5_rhkq2")
+
+[node name="@Button@787" type="Button" parent="@VBoxContainer@774/@HFlowContainer@781" unique_id=366461761]
+custom_minimum_size = Vector2(88, 50)
+layout_mode = 2
+tooltip_text = "降低"
+theme_override_constants/icon_max_width = 30
+text = "降低"
+icon = ExtResource("6_5cxse")
+
+[node name="@Button@788" type="Button" parent="@VBoxContainer@774/@HFlowContainer@781" unique_id=1282408685]
+custom_minimum_size = Vector2(88, 50)
+layout_mode = 2
+tooltip_text = "小路"
+theme_override_constants/icon_max_width = 30
+text = "小路"
+icon = ExtResource("7_k8vgd")

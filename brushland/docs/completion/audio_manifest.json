@@ -1,0 +1,159 @@
+{
+  "origin": "Original deterministic synthesis; no samples; listening acceptance remains separate",
+  "records": [
+    {
+      "name": "paint",
+      "rate": 48000,
+      "frames": 15360,
+      "loop": false,
+      "sha256": "da9e7c88c34e09a3871574ff52a872cb655f2fabbb09add45ac6851f2b6403db"
+    },
+    {
+      "name": "road",
+      "rate": 48000,
+      "frames": 15360,
+      "loop": false,
+      "sha256": "73f6fe7fd6465b6619e49f52c83c6f62b2176477bc24c743b05e6da0f823cffc"
+    },
+    {
+      "name": "place",
+      "rate": 48000,
+      "frames": 15360,
+      "loop": false,
+      "sha256": "a4618c168a8aa80685d5deda1374f026c7a033d91f0c27faf1a65c224660030b"
+    },
+    {
+      "name": "move",
+      "rate": 48000,
+      "frames": 15360,
+      "loop": false,
+      "sha256": "c02fb7d1e45c57491bd0d9153b2eda9d6164ea1b782262af6bb54cf32b1f67fb"
+    },
+    {
+      "name": "remove",
+      "rate": 48000,
+      "frames": 15360,
+      "loop": false,
+      "sha256": "c567d8ac9960d24288c3417f693f176040741b03ba34e7aa990bb084ab693ddb"
+    },
+    {
+      "name": "undo",
+      "rate": 48000,
+      "frames": 15360,
+      "loop": false,
+      "sha256": "65037b940c9a85e0248f356abdfc3924f6c556a297c88ed18c277b7c344094da"
+    },
+    {
+      "name": "journal",
+      "rate": 48000,
+      "frames": 15360,
+      "loop": false,
+      "sha256": "4322b15a68b0ac5457951c5e6d10026eae192d4a3851afc33c2c9d1a3703356a"
+    },
+    {
+      "name": "photo",
+      "rate": 48000,
+      "frames": 15360,
+      "loop": false,
+      "sha256": "2550d25d75846204fde4b767d107bd19bdae2dca2040a313fec9affad0476272"
+    },
+    {
+      "name": "click",
+      "rate": 48000,
+      "frames": 15360,
+      "loop": false,
+      "sha256": "be5e9dd73a1c93320b51e4e9a4bfd17e8935f08fad39fec9cdfc72aeed74d9b7"
+    },
+    {
+      "name": "step_wood",
+      "rate": 48000,
+      "frames": 15360,
+      "loop": false,
+      "sha256": "206e8a3a9f676d18c848f0e7db9617e6f921255b95ed15073772fb12e97073db"
+    },
+    {
+      "name": "step_stone",
+      "rate": 48000,
+      "frames": 15360,
+      "loop": false,
+      "sha256": "a457b64bba37e9671097bc62f61d16522a4dc1d4ec839b7373ed89a2927395cd"
+    },
+    {
+      "name": "boat",
+      "rate": 48000,
+      "frames": 28800,
+      "loop": false,
+      "sha256": "5de18ccf286f4050efffea6cd3066a58a3ee97af5fee56b8a86f1ebc76e6565c"
+    },
+    {
+      "name": "cup",
+      "rate": 48000,
+      "frames": 15360,
+      "loop": false,
+      "sha256": "8f9c03eda67f5cd59d9aba5797326d31762b28e8a415ff77e919cd9da575fdfe"
+    },
+    {
+      "name": "greet",
+      "rate": 48000,
+      "frames": 28800,
+      "loop": false,
+      "sha256": "5ac0f071cf11df34547d290a8c8d10a0787bc5c3c5d554eead0c1a32c65f6b37"
+    },
+    {
+      "name": "cat",
+      "rate": 48000,
+      "frames": 28800,
+      "loop": false,
+      "sha256": "2403a860ee2bde77e3f72e8d3c1fa4df407d08f05cf53e9aa119d44de27942f9"
+    },
+    {
+      "name": "lighthouse",
+      "rate": 48000,
+      "frames": 28800,
+      "loop": false,
+      "sha256": "f19d151c416fb6378f671fcdd44b91098339c77faae65acbc5df82865a5ef356"
+    },
+    {
+      "name": "sea",
+      "rate": 48000,
+      "frames": 576000,
+      "loop": true,
+      "sha256": "d44012f423aecd441577419c4304ffac3e7d2aed87c153538aae73c4e0645cfa"
+    },
+    {
+      "name": "wind",
+      "rate": 48000,
+      "frames": 576000,
+      "loop": true,
+      "sha256": "fd0c1933707348a44a5a9c317c5c655357c4c69d40df03c738c6ba1eed1ba278"
+    },
+    {
+      "name": "leaves",
+      "rate": 48000,
+      "frames": 576000,
+      "loop": true,
+      "sha256": "84282c57db61285cf29094b2523325dcfa2bb08acc48617d30f2ef2e6bfeae86"
+    },
+    {
+      "name": "birds",
+      "rate": 48000,
+      "frames": 576000,
+      "loop": true,
+      "sha256": "b5e77e5050f34537a94af2e4ae2c8de70a32aad1a2a46770d85f9fdf92699854"
+    },
+    {
+      "name": "day",
+      "rate": 48000,
+      "frames": 1536000,
+      "loop": true,
+      "sha256": "fb01859a1f526e8549b3d2a48922c60490bbf45866ee48776ae80f86fcc0ce73"
+    },
+    {
+      "name": "sunset",
+      "rate": 48000,
+      "frames": 1536000,
+      "loop": true,
+      "sha256": "d0a30e7cb47670a4759386f6eab4039304c91ebbd5de62a67949eb0586bcee68"
+    }
+  ]
+}

@@ -1,0 +1,604 @@
+[
+  {
+    "asset_id": "TER_001",
+    "limit": 80,
+    "passed": true,
+    "triangles": 8,
+    "variant": 0
+  },
+  {
+    "asset_id": "TER_002",
+    "limit": 160,
+    "passed": true,
+    "triangles": 2,
+    "variant": 0
+  },
+  {
+    "asset_id": "TER_003",
+    "limit": 200,
+    "passed": true,
+    "triangles": 8,
+    "variant": 0
+  },
+  {
+    "asset_id": "TER_004",
+    "limit": 200,
+    "passed": true,
+    "triangles": 8,
+    "variant": 0
+  },
+  {
+    "asset_id": "TER_005",
+    "limit": 140,
+    "passed": true,
+    "triangles": 8,
+    "variant": 0
+  },
+  {
+    "asset_id": "TER_006",
+    "limit": 180,
+    "passed": true,
+    "triangles": 8,
+    "variant": 0
+  },
+  {
+    "asset_id": "TER_007",
+    "limit": 180,
+    "passed": true,
+    "triangles": 8,
+    "variant": 0
+  },
+  {
+    "asset_id": "TER_008",
+    "limit": 180,
+    "passed": true,
+    "triangles": 8,
+    "variant": 0
+  },
+  {
+    "asset_id": "TER_009",
+    "limit": 128,
+    "passed": true,
+    "triangles": 2,
+    "variant": 0
+  },
+  {
+    "asset_id": "TER_010",
+    "limit": 120,
+    "passed": true,
+    "triangles": 12,
+    "variant": 0
+  },
+  {
+    "asset_id": "INF_001",
+    "limit": 100,
+    "passed": true,
+    "triangles": 88,
+    "variant": 0
+  },
+  {
+    "asset_id": "INF_002",
+    "limit": 120,
+    "passed": true,
+    "triangles": 88,
+    "variant": 0
+  },
+  {
+    "asset_id": "INF_003",
+    "limit": 140,
+    "passed": true,
+    "triangles": 100,
+    "variant": 0
+  },
+  {
+    "asset_id": "INF_004",
+    "limit": 140,
+    "passed": true,
+    "triangles": 112,
+    "variant": 0
+  },
+  {
+    "asset_id": "INF_005",
+    "limit": 80,
+    "passed": true,
+    "triangles": 76,
+    "variant": 0
+  },
+  {
+    "asset_id": "INF_006",
+    "limit": 400,
+    "passed": true,
+    "triangles": 48,
+    "variant": 0
+  },
+  {
+    "asset_id": "INF_006",
+    "limit": 400,
+    "passed": true,
+    "triangles": 88,
+    "variant": 1
+  },
+  {
+    "asset_id": "INF_007",
+    "limit": 400,
+    "passed": true,
+    "triangles": 48,
+    "variant": 0
+  },
+  {
+    "asset_id": "INF_007",
+    "limit": 400,
+    "passed": true,
+    "triangles": 64,
+    "variant": 1
+  },
+  {
+    "asset_id": "KIT_001",
+    "limit": 180,
+    "passed": true,
+    "triangles": 12,
+    "variant": 0
+  },
+  {
+    "asset_id": "KIT_002",
+    "limit": 300,
+    "passed": true,
+    "triangles": 132,
+    "variant": 0
+  },
+  {
+    "asset_id": "KIT_003",
+    "limit": 350,
+    "passed": true,
+    "triangles": 48,
+    "variant": 0
+  },
+  {
+    "asset_id": "KIT_004",
+    "limit": 400,
+    "passed": true,
+    "triangles": 114,
+    "variant": 0
+  },
+  {
+    "asset_id": "KIT_005",
+    "limit": 300,
+    "passed": true,
+    "triangles": 114,
+    "variant": 0
+  },
+  {
+    "asset_id": "KIT_006",
+    "limit": 450,
+    "passed": true,
+    "triangles": 64,
+    "variant": 0
+  },
+  {
+    "asset_id": "KIT_007",
+    "limit": 900,
+    "passed": true,
+    "triangles": 180,
+    "variant": 0
+  },
+  {
+    "asset_id": "KIT_008",
+    "limit": 350,
+    "passed": true,
+    "triangles": 36,
+    "variant": 0
+  },
+  {
+    "asset_id": "KIT_009",
+    "limit": 450,
+    "passed": true,
+    "triangles": 60,
+    "variant": 0
+  },
+  {
+    "asset_id": "KIT_010",
+    "limit": 1600,
+    "passed": true,
+    "triangles": 128,
+    "variant": 0
+  },
+  {
+    "asset_id": "KIT_011",
+    "limit": 120,
+    "passed": true,
+    "triangles": 24,
+    "variant": 0
+  },
+  {
+    "asset_id": "KIT_012",
+    "limit": 180,
+    "passed": true,
+    "triangles": 12,
+    "variant": 0
+  },
+  {
+    "asset_id": "BLD_001",
+    "limit": 3000,
+    "passed": true,
+    "triangles": 490,
+    "variant": 0
+  },
+  {
+    "asset_id": "BLD_002",
+    "limit": 3000,
+    "passed": true,
+    "triangles": 526,
+    "variant": 0
+  },
+  {
+    "asset_id": "BLD_003",
+    "limit": 3000,
+    "passed": true,
+    "triangles": 1082,
+    "variant": 0
+  },
+  {
+    "asset_id": "BLD_004",
+    "limit": 4000,
+    "passed": true,
+    "triangles": 1440,
+    "variant": 0
+  },
+  {
+    "asset_id": "BLD_005",
+    "limit": 4000,
+    "passed": true,
+    "triangles": 722,
+    "variant": 0
+  },
+  {
+    "asset_id": "BLD_006",
+    "limit": 5000,
+    "passed": true,
+    "triangles": 860,
+    "variant": 0
+  },
+  {
+    "asset_id": "NAT_001",
+    "limit": 1500,
+    "passed": true,
+    "triangles": 204,
+    "variant": 0
+  },
+  {
+    "asset_id": "NAT_001",
+    "limit": 1500,
+    "passed": true,
+    "triangles": 164,
+    "variant": 1
+  },
+  {
+    "asset_id": "NAT_002",
+    "limit": 180,
+    "passed": true,
+    "triangles": 8,
+    "variant": 0
+  },
+  {
+    "asset_id": "NAT_002",
+    "limit": 180,
+    "passed": true,
+    "triangles": 68,
+    "variant": 1
+  },
+  {
+    "asset_id": "NAT_003",
+    "limit": 60,
+    "passed": true,
+    "triangles": 6,
+    "variant": 0
+  },
+  {
+    "asset_id": "NAT_004",
+    "limit": 140,
+    "passed": true,
+    "triangles": 60,
+    "variant": 0
+  },
+  {
+    "asset_id": "NAT_005",
+    "limit": 120,
+    "passed": true,
+    "triangles": 100,
+    "variant": 0
+  },
+  {
+    "asset_id": "NAT_006",
+    "limit": 140,
+    "passed": true,
+    "triangles": 96,
+    "variant": 0
+  },
+  {
+    "asset_id": "NAT_007",
+    "limit": 260,
+    "passed": true,
+    "triangles": 64,
+    "variant": 0
+  },
+  {
+    "asset_id": "NAT_007",
+    "limit": 260,
+    "passed": true,
+    "triangles": 64,
+    "variant": 1
+  },
+  {
+    "asset_id": "NAT_007",
+    "limit": 260,
+    "passed": true,
+    "triangles": 64,
+    "variant": 2
+  },
+  {
+    "asset_id": "NAT_008",
+    "limit": 320,
+    "passed": true,
+    "triangles": 64,
+    "variant": 0
+  },
+  {
+    "asset_id": "NAT_009",
+    "limit": 180,
+    "passed": true,
+    "triangles": 144,
+    "variant": 0
+  },
+  {
+    "asset_id": "NAT_010",
+    "limit": 1500,
+    "passed": true,
+    "triangles": 204,
+    "variant": 0
+  },
+  {
+    "asset_id": "PROP_001",
+    "limit": 160,
+    "passed": true,
+    "triangles": 64,
+    "variant": 0
+  },
+  {
+    "asset_id": "PROP_002",
+    "limit": 220,
+    "passed": true,
+    "triangles": 192,
+    "variant": 0
+  },
+  {
+    "asset_id": "PROP_003",
+    "limit": 450,
+    "passed": true,
+    "triangles": 108,
+    "variant": 0
+  },
+  {
+    "asset_id": "PROP_004",
+    "limit": 300,
+    "passed": true,
+    "triangles": 96,
+    "variant": 0
+  },
+  {
+    "asset_id": "PROP_005",
+    "limit": 280,
+    "passed": true,
+    "triangles": 96,
+    "variant": 0
+  },
+  {
+    "asset_id": "PROP_006",
+    "limit": 200,
+    "passed": true,
+    "triangles": 112,
+    "variant": 0
+  },
+  {
+    "asset_id": "PROP_007",
+    "limit": 220,
+    "passed": true,
+    "triangles": 80,
+    "variant": 0
+  },
+  {
+    "asset_id": "PROP_008",
+    "limit": 350,
+    "passed": true,
+    "triangles": 116,
+    "variant": 0
+  },
+  {
+    "asset_id": "PROP_009",
+    "limit": 500,
+    "passed": true,
+    "triangles": 96,
+    "variant": 0
+  },
+  {
+    "asset_id": "PROP_010",
+    "limit": 1200,
+    "passed": true,
+    "triangles": 372,
+    "variant": 0
+  },
+  {
+    "asset_id": "PROP_011",
+    "limit": 180,
+    "passed": true,
+    "triangles": 128,
+    "variant": 0
+  },
+  {
+    "asset_id": "PROP_011",
+    "limit": 180,
+    "passed": true,
+    "triangles": 128,
+    "variant": 1
+  },
+  {
+    "asset_id": "PROP_011",
+    "limit": 180,
+    "passed": true,
+    "triangles": 24,
+    "variant": 2
+  },
+  {
+    "asset_id": "PROP_011",
+    "limit": 180,
+    "passed": true,
+    "triangles": 140,
+    "variant": 3
+  },
+  {
+    "asset_id": "PROP_012",
+    "limit": 350,
+    "passed": true,
+    "triangles": 60,
+    "variant": 0
+  },
+  {
+    "asset_id": "PROP_012",
+    "limit": 350,
+    "passed": true,
+    "triangles": 76,
+    "variant": 1
+  },
+  {
+    "asset_id": "PROP_013",
+    "limit": 300,
+    "passed": true,
+    "triangles": 48,
+    "variant": 0
+  },
+  {
+    "asset_id": "PROP_014",
+    "limit": 300,
+    "passed": true,
+    "triangles": 32,
+    "variant": 0
+  },
+  {
+    "asset_id": "PROP_014",
+    "limit": 300,
+    "passed": true,
+    "triangles": 144,
+    "variant": 1
+  },
+  {
+    "asset_id": "PROP_015",
+    "limit": 300,
+    "passed": true,
+    "triangles": 48,
+    "variant": 0
+  },
+  {
+    "asset_id": "PROP_015",
+    "limit": 300,
+    "passed": true,
+    "triangles": 72,
+    "variant": 1
+  },
+  {
+    "asset_id": "PROP_016",
+    "limit": 300,
+    "passed": true,
+    "triangles": 68,
+    "variant": 0
+  },
+  {
+    "asset_id": "PROP_016",
+    "limit": 300,
+    "passed": true,
+    "triangles": 64,
+    "variant": 1
+  },
+  {
+    "asset_id": "ACT_001",
+    "limit": 1500,
+    "passed": true,
+    "triangles": 784,
+    "variant": 0
+  },
+  {
+    "asset_id": "ACT_004",
+    "limit": 1200,
+    "passed": true,
+    "triangles": 444,
+    "variant": 0
+  },
+  {
+    "asset_id": "ACT_005",
+    "limit": 1200,
+    "passed": true,
+    "triangles": 720,
+    "variant": 0
+  },
+  {
+    "asset_id": "ACT_006",
+    "limit": 350,
+    "passed": true,
+    "triangles": 52,
+    "variant": 0
+  },
+  {
+    "asset_id": "ACT_006",
+    "limit": 350,
+    "passed": true,
+    "triangles": 60,
+    "variant": 1
+  },
+  {
+    "asset_id": "ACT_006",
+    "limit": 350,
+    "passed": true,
+    "triangles": 24,
+    "variant": 2
+  },
+  {
+    "asset_id": "ACT_006",
+    "limit": 350,
+    "passed": true,
+    "triangles": 24,
+    "variant": 3
+  },
+  {
+    "asset_id": "ACT_006",
+    "limit": 350,
+    "passed": true,
+    "triangles": 36,
+    "variant": 4
+  },
+  {
+    "asset_id": "POST_001",
+    "limit": 900,
+    "passed": true,
+    "triangles": 204,
+    "variant": 0
+  },
+  {
+    "asset_id": "POST_001",
+    "limit": 900,
+    "passed": true,
+    "triangles": 164,
+    "variant": 1
+  },
+  {
+    "asset_id": "POST_003",
+    "limit": 300,
+    "passed": true,
+    "triangles": 180,
+    "variant": 0
+  },
+  {
+    "asset_id": "POST_004",
+    "limit": 400,
+    "passed": true,
+    "triangles": 13,
+    "variant": 0
+  }
+]

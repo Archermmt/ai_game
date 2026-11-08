@@ -1,0 +1,23 @@
+[gd_scene format=4]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8wl26"]
+albedo_color = Color(0.7176471, 0.7137255, 0.6392157, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gljr1"]
+_surfaces = [{
+"aabb": AABB(0, 0, 0, 1, 0.5, 1e-05),
+"attribute_data": PackedByteArray("AAAAAAAAAAAAAIA/AAAAAAAAgD8AAAA/AAAAAAAAAAAAAIA/AAAAPwAAAAAAAAA/"),
+"format": 34359738391,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAD8AAAAAAAAAAAAAAAAAAAAAAACAPwAAAD8AAAAAAAAAAAAAAD8AAAAA////f/9//7////9//3//v////3//f/+/////f/9//7////9//3//v////3//f/+/")
+}]
+
+[node name="TER_002_00" type="Node3D" unique_id=1995557337]
+metadata/asset_id = "TER_002"
+metadata/variant = 0
+
+[node name="@MeshInstance3D@3" type="MeshInstance3D" parent="." unique_id=524323720]
+material_override = SubResource("StandardMaterial3D_8wl26")
+mesh = SubResource("ArrayMesh_gljr1")

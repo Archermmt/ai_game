@@ -1,0 +1,21 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ijdq"]
+albedo_color = Color(0.6666667, 0.5019608, 0.3764706, 1)
+roughness = 0.95
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_omh26"]
+top_radius = 0.065
+bottom_radius = 0.065
+height = 0.36
+radial_segments = 8
+rings = 0
+
+[node name="PROP_014_00" type="Node3D" unique_id=842601808]
+metadata/asset_id = "PROP_014"
+metadata/variant = 0
+
+[node name="@MeshInstance3D@515" type="MeshInstance3D" parent="." unique_id=695211376]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18, 0)
+material_override = SubResource("StandardMaterial3D_4ijdq")
+mesh = SubResource("CylinderMesh_omh26")

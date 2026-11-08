@@ -1,0 +1,37 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fqcqs"]
+albedo_color = Color(0.6666667, 0.5019608, 0.3764706, 1)
+roughness = 0.95
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_555bc"]
+top_radius = 0.035
+bottom_radius = 0.035
+height = 1.8
+radial_segments = 8
+rings = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mqtcg"]
+albedo_color = Color(0.84313726, 0.72156864, 0.61960787, 1)
+roughness = 0.95
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_67v7k"]
+top_radius = 0.02
+bottom_radius = 0.72
+height = 0.35
+radial_segments = 16
+rings = 0
+
+[node name="PROP_009_00" type="Node3D" unique_id=91652035]
+metadata/asset_id = "PROP_009"
+metadata/variant = 0
+
+[node name="@MeshInstance3D@493" type="MeshInstance3D" parent="." unique_id=688733074]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+material_override = SubResource("StandardMaterial3D_fqcqs")
+mesh = SubResource("CylinderMesh_555bc")
+
+[node name="@MeshInstance3D@494" type="MeshInstance3D" parent="." unique_id=960901603]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+material_override = SubResource("StandardMaterial3D_mqtcg")
+mesh = SubResource("CylinderMesh_67v7k")

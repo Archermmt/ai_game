@@ -1,0 +1,37 @@
+[gd_scene format=3]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkp0n"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.96862745, 0.94509804, 0.8745098, 1)
+border_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="UI_010_00" type="PanelContainer" unique_id=1859785225]
+custom_minimum_size = Vector2(320, 120)
+theme_override_styles/panel = SubResource("StyleBoxFlat_qkp0n")
+metadata/asset_id = "UI_010"
+metadata/variant = 0
+
+[node name="@VBoxContainer@1060" type="VBoxContainer" parent="." unique_id=718056800]
+layout_mode = 2
+
+[node name="@Label@1061" type="Label" parent="@VBoxContainer@1060" unique_id=1040494017]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "存档与恢复"
+
+[node name="@Label@1062" type="Label" parent="@VBoxContainer@1060" unique_id=1710503697]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "槽位 1   槽位 2   槽位 3"
+
+[node name="@Label@1063" type="Label" parent="@VBoxContainer@1060" unique_id=1617254910]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "自动备份 · 照片文件夹"

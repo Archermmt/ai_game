@@ -1,0 +1,24 @@
+[gd_scene format=4]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_np20s"]
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4ufxk"]
+_surfaces = [{
+"aabb": AABB(0, -0.15, 0, 1, 0.65, 1),
+"attribute_data": PackedByteArray("18ml/9fJpf/XyaX/18ml/9fJpf/XyaX/18ml/9fJpf/XyaX/18ml/9fJpf/XyaX/18ml/9fJpf/XyaX/18ml/9fJpf/XyaX/18ml/9fJpf/XyaX/18ml/9fJpf/XyaX/"),
+"format": 34359738383,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAAAD8AAAAAAAAAP83MTDwAAAA/AAAAADMzMz4AAAA/AAAAAAAAAD8AAAAAAAAAPzMzMz4AAAAAAAAAP83MTDwAAAA/AAAAPzMzMz4AAAAAAACAP5qZGb4AAAA/AAAAP83MTDwAAAA/AAAAPzMzMz4AAAAAAACAP5qZGb4AAAAAAACAP5qZGb4AAAA/AAAAADMzMz4AAAA/AAAAP5qZGb4AAIA/AAAAAJqZGb4AAIA/AAAAADMzMz4AAAA/AAAAP83MTDwAAAA/AAAAP5qZGb4AAIA/AAAAP83MTDwAAAA/AACAP5qZGb4AAIA/AAAAP5qZGb4AAIA/AAAAP83MTDwAAAA/AACAP5qZGb4AAAA/AACAP5qZGb4AAIA/NZmSzWMv/sc1mZLNYy/+x3mLnsayOtm3NZmSzWMv/sfmrZ7G2EI+0TWZks1jL/7H5q2exthCPtHjkRruVhS+yDWZks1jL/7H5q2exthCPtFkn5nghyaJzuORGu5WFL7IeYuexrI62bf/fxruVhSTvv9/meCHJkW7eYuexrI62bc1mZLNYy/+x/9/Gu5WFJO+NZmSzWMv/sf/f///AAD/v/9/Gu5WFJO+NZmSzWMv/sfjkRruVhS+yP9///8AAP+/")
+}]
+
+[node name="TER_006_00" type="Node3D" unique_id=821509928]
+metadata/asset_id = "TER_006"
+metadata/variant = 0
+
+[node name="@MeshInstance3D@7" type="MeshInstance3D" parent="." unique_id=1264325911]
+material_override = SubResource("StandardMaterial3D_np20s")
+mesh = SubResource("ArrayMesh_4ufxk")

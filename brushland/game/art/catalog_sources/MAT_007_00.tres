@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[sub_resource type="Shader" id="Shader_vb5uq"]
+code = "shader_type spatial;
+uniform bool night=false;
+void fragment(){ALBEDO=night?vec3(0.82,0.60,0.30):vec3(0.33,0.52,0.55);EMISSION=night?vec3(0.36,0.22,0.08):vec3(0.0);ROUGHNESS=0.55;}
+"
+
+[resource]
+render_priority = 0
+shader = SubResource("Shader_vb5uq")
+shader_parameter/night = true
+metadata/static_batch_safe = true

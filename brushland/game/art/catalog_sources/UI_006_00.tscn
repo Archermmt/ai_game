@@ -1,0 +1,263 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://game/ui/vectors/UI_003_00.svg" id="1_kpps1"]
+[ext_resource type="Texture2D" path="res://game/ui/vectors/UI_003_01.svg" id="2_5eb7u"]
+[ext_resource type="Texture2D" path="res://game/ui/vectors/UI_003_02.svg" id="3_o5kys"]
+[ext_resource type="Texture2D" path="res://game/ui/vectors/UI_003_03.svg" id="4_ifvuf"]
+[ext_resource type="Texture2D" path="res://game/ui/vectors/UI_003_04.svg" id="5_0lpnm"]
+[ext_resource type="Texture2D" path="res://game/ui/vectors/UI_003_05.svg" id="6_nqewi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pibah"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.9, 0.9, 0.8, 0.1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.48235294, 0.60784316, 0.5372549, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xkpym"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.9098039, 0.9098039, 0.827451, 1)
+border_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1sy13"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.9647059, 0.9411765, 0.87058824, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8745098, 0.8745098, 0.7921569, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ab3lp"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.43529412, 0.5529412, 0.4745098, 1)
+border_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="SystemFont" id="SystemFont_pjbaf"]
+font_names = PackedStringArray("PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "sans-serif")
+
+[sub_resource type="Theme" id="Theme_ycjf3"]
+default_font = SubResource("SystemFont_pjbaf")
+default_font_size = 16
+Button/colors/font_color = Color(0.27450982, 0.38039216, 0.34509805, 1)
+Button/colors/font_hover_color = Color(0.15294118, 0.29411766, 0.2509804, 1)
+Button/colors/font_pressed_color = Color(0.972549, 0.94509804, 0.8627451, 1)
+Button/styles/focus = SubResource("StyleBoxFlat_pibah")
+Button/styles/hover = SubResource("StyleBoxFlat_xkpym")
+Button/styles/normal = SubResource("StyleBoxFlat_1sy13")
+Button/styles/pressed = SubResource("StyleBoxFlat_ab3lp")
+Label/colors/font_color = Color(0.2509804, 0.36078432, 0.32941177, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee3wj"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.96862745, 0.94509804, 0.8745098, 1)
+border_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="UI_006_00" type="PanelContainer" unique_id=1992779554]
+custom_minimum_size = Vector2(244, 356)
+offset_right = 211.0
+offset_bottom = 388.0
+theme = SubResource("Theme_ycjf3")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ee3wj")
+metadata/asset_id = "UI_006"
+metadata/variant = 0
+
+[node name="@VBoxContainer@806" type="VBoxContainer" parent="." unique_id=510820394]
+layout_mode = 2
+
+[node name="@Label@807" type="Label" parent="@VBoxContainer@806" unique_id=1667050073]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+text = "岛上的小心愿"
+
+[node name="@Label@808" type="Label" parent="@VBoxContainer@806" unique_id=1690803225]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "0 / 6 个日常片段   ·   没有期限"
+
+[node name="@VBoxContainer@809" type="VBoxContainer" parent="@VBoxContainer@806" unique_id=260547065]
+layout_mode = 2
+
+[node name="@HBoxContainer@810" type="HBoxContainer" parent="@VBoxContainer@806/@VBoxContainer@809" unique_id=180546655]
+layout_mode = 2
+
+[node name="@TextureRect@811" type="TextureRect" parent="@VBoxContainer@806/@VBoxContainer@809/@HBoxContainer@810" unique_id=1561475432]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+texture = ExtResource("1_kpps1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="@Label@812" type="Label" parent="@VBoxContainer@806/@VBoxContainer@809/@HBoxContainer@810" unique_id=1727633433]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "○  海风座位"
+
+[node name="@Label@813" type="Label" parent="@VBoxContainer@806/@VBoxContainer@809" unique_id=1791397083]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "在连通的小路旁放一张长椅"
+autowrap_mode = 3
+
+[node name="@VBoxContainer@814" type="VBoxContainer" parent="@VBoxContainer@806" unique_id=114495615]
+layout_mode = 2
+
+[node name="@HBoxContainer@815" type="HBoxContainer" parent="@VBoxContainer@806/@VBoxContainer@814" unique_id=1867895903]
+layout_mode = 2
+
+[node name="@TextureRect@816" type="TextureRect" parent="@VBoxContainer@806/@VBoxContainer@814/@HBoxContainer@815" unique_id=1922138291]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+texture = ExtResource("2_5eb7u")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="@Label@817" type="Label" parent="@VBoxContainer@806/@VBoxContainer@814/@HBoxContainer@815" unique_id=480131125]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "○  第一簇花"
+
+[node name="@Label@818" type="Label" parent="@VBoxContainer@806/@VBoxContainer@814" unique_id=292843987]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "在小屋周围画至少三格花圃"
+autowrap_mode = 3
+
+[node name="@VBoxContainer@819" type="VBoxContainer" parent="@VBoxContainer@806" unique_id=2052569752]
+layout_mode = 2
+
+[node name="@HBoxContainer@820" type="HBoxContainer" parent="@VBoxContainer@806/@VBoxContainer@819" unique_id=81198873]
+layout_mode = 2
+
+[node name="@TextureRect@821" type="TextureRect" parent="@VBoxContainer@806/@VBoxContainer@819/@HBoxContainer@820" unique_id=29973043]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+texture = ExtResource("3_o5kys")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="@Label@822" type="Label" parent="@VBoxContainer@806/@VBoxContainer@819/@HBoxContainer@820" unique_id=1195341647]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "○  茶还温着"
+
+[node name="@Label@823" type="Label" parent="@VBoxContainer@806/@VBoxContainer@819" unique_id=1934311796]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "接通茶屋，邀请两位邻居喝茶"
+autowrap_mode = 3
+
+[node name="@VBoxContainer@824" type="VBoxContainer" parent="@VBoxContainer@806" unique_id=1845552614]
+layout_mode = 2
+
+[node name="@HBoxContainer@825" type="HBoxContainer" parent="@VBoxContainer@806/@VBoxContainer@824" unique_id=1448413804]
+layout_mode = 2
+
+[node name="@TextureRect@826" type="TextureRect" parent="@VBoxContainer@806/@VBoxContainer@824/@HBoxContainer@825" unique_id=890903761]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+texture = ExtResource("4_ifvuf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="@Label@827" type="Label" parent="@VBoxContainer@806/@VBoxContainer@824/@HBoxContainer@825" unique_id=1294126872]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "○  桥的另一头"
+
+[node name="@Label@828" type="Label" parent="@VBoxContainer@806/@VBoxContainer@824" unique_id=593155159]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "用木桥接通两岸，让居民走过"
+autowrap_mode = 3
+
+[node name="@VBoxContainer@829" type="VBoxContainer" parent="@VBoxContainer@806" unique_id=1453890998]
+layout_mode = 2
+
+[node name="@HBoxContainer@830" type="HBoxContainer" parent="@VBoxContainer@806/@VBoxContainer@829" unique_id=865715185]
+layout_mode = 2
+
+[node name="@TextureRect@831" type="TextureRect" parent="@VBoxContainer@806/@VBoxContainer@829/@HBoxContainer@830" unique_id=675621641]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+texture = ExtResource("5_0lpnm")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="@Label@832" type="Label" parent="@VBoxContainer@806/@VBoxContainer@829/@HBoxContainer@830" unique_id=1074522962]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "○  玻璃里的绿意"
+
+[node name="@Label@833" type="Label" parent="@VBoxContainer@806/@VBoxContainer@829" unique_id=1737793696]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "让居民走到温室赏花"
+autowrap_mode = 3
+
+[node name="@VBoxContainer@834" type="VBoxContainer" parent="@VBoxContainer@806" unique_id=682591345]
+layout_mode = 2
+
+[node name="@HBoxContainer@835" type="HBoxContainer" parent="@VBoxContainer@806/@VBoxContainer@834" unique_id=2045454022]
+layout_mode = 2
+
+[node name="@TextureRect@836" type="TextureRect" parent="@VBoxContainer@806/@VBoxContainer@834/@HBoxContainer@835" unique_id=1460419294]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+texture = ExtResource("6_nqewi")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="@Label@837" type="Label" parent="@VBoxContainer@806/@VBoxContainer@834/@HBoxContainer@835" unique_id=2042875603]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "○  今晚有灯"
+
+[node name="@Label@838" type="Label" parent="@VBoxContainer@806/@VBoxContainer@834" unique_id=2078161068]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "切换日落，等居民到灯塔旁"
+autowrap_mode = 3

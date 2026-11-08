@@ -1,0 +1,23 @@
+{
+  "animals": 6,
+  "build_ms": 2112.661,
+  "buildings": 40,
+  "camera_orthographic_size": 42,
+  "day_frame_ms_p95": 14.371,
+  "decorations": 400,
+  "draw_calls_peak": 219,
+  "driver": "opengl3",
+  "duration_wall_seconds": 300.014075,
+  "engine": "4.7-stable (official)",
+  "engine_static_bytes": 148117386.0,
+  "frame_count": 35678,
+  "frame_ms_p50": 6.825,
+  "frame_ms_p95": 14.721,
+  "grass_density_lod": 0.55,
+  "night_frame_ms_p95": 14.878,
+  "renderer": "gl_compatibility",
+  "residents": 12,
+  "scope": "Five minute native M4 Pro pressure run; M1/8GB and Windows remain unverified",
+  "target_device_tested": false,
+  "visible_primitives_peak": 179906
+}

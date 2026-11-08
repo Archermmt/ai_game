@@ -1,0 +1,66 @@
+[gd_scene format=4]
+
+[ext_resource type="Shader" path="res://game/art/shaders/leaves.gdshader" id="1_ndwcb"]
+[ext_resource type="Texture2D" path="res://game/art/generated/leaf_cluster.png" id="2_exga5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1v6ft"]
+render_priority = 0
+shader = ExtResource("1_ndwcb")
+shader_parameter/leaves = ExtResource("2_exga5")
+shader_parameter/tint = null
+shader_parameter/clock = null
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_klii2"]
+_surfaces = [{
+"aabb": AABB(-0.42, 0.030000001, -0.38, 0.84, 0.5400001, 0.76),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAIA/AACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAA"),
+"format": 34359738385,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("PQrXvpDC9TwAAAAAPQrXPpDC9TwAAAAAPQrXPobrET8AAAAAPQrXvpDC9TwAAAAAPQrXPobrET8AAAAAPQrXvobrET8AAAAAPQpXvpDC9TznOrq+PQpXPpDC9TznOro+PQpXPobrET/nOro+PQpXvpDC9TznOrq+PQpXPobrET/nOro+PQpXvobrET/nOrq+PQpXPpDC9TznOrq+PQpXvpDC9TznOro+PQpXvobrET/nOro+PQpXPpDC9TznOrq+PQpXvobrET/nOro+PQpXPobrET/nOrq+XI/CvpqZmT5cj8K+XI/CPpqZmT5cj8K+XI/CPpqZmT5cj8I+XI/CvpqZmT5cj8K+XI/CPpqZmT5cj8I+XI/CvpqZmT5cj8I+")
+}]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dto36"]
+albedo_color = Color(0.47058824, 0.58431375, 0.4745098, 1)
+roughness = 0.95
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fud52"]
+top_radius = 0.018
+bottom_radius = 0.018
+height = 0.3
+radial_segments = 6
+rings = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_la225"]
+cull_mode = 2
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_k4gbo"]
+_surfaces = [{
+"aabb": AABB(-0.10663119, 0.71000004, -0.109875225, 0.2266312, 0.014999986, 0.21975045),
+"attribute_data": PackedByteArray("2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/2J6J/9ieif/Ynon/17Nl/9ezZf/Xs2X/17Nl/9ezZf/Xs2X/17Nl/9ezZf/Xs2X/17Nl/9ezZf/Xs2X/17Nl/9ezZf/Xs2X/17Nl/9ezZf/Xs2X/"),
+"format": 34359738383,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 108,
+"vertex_data": PackedByteArray("KVyPPZDCNT8AAAAAkML1PZDCNT8AAAAAXI/CPZDCNT+sXDE9KVyPPZDCNT8AAAAAXI/CPZDCNT+sXDE97FE4PZDCNT+sXDE9KVyPPZDCNT8AAAAA7FE4PZDCNT+sXDE9CtejPJDCNT9P6OEiKVyPPZDCNT8AAAAACtejPJDCNT9P6OEi7FE4PZDCNT+sXDG9KVyPPZDCNT8AAAAA7FE4PZDCNT+sXDG9XI/CPZDCNT+sXDG9KVyPPZDCNT8AAAAAXI/CPZDCNT+sXDG9kML1PZDCNT9P6GGj5DOxPJDCNT/tV4g9YLOSPZDCNT/tV4g9WAA/PZDCNT9DBuE95DOxPJDCNT/tV4g9WAA/PZDCNT9DBuE9SMdcu5DCNT9DBuE95DOxPJDCNT/tV4g9SMdcu5DCNT9DBuE9tmXovJDCNT/tV4g95DOxPJDCNT/tV4g9tmXovJDCNT/tV4g9SMdcu5DCNT9cpr485DOxPJDCNT/tV4g9SMdcu5DCNT9cpr48WAA/PZDCNT9cpr485DOxPJDCNT/tV4g9WAA/PZDCNT9cpr48YLOSPZDCNT/tV4g9G/ZnvZDCNT+ghyg9cErZu5DCNT+ghyg9tI8BvZDCNT8m8qw9G/ZnvZDCNT+ghyg9tI8BvZDCNT8m8qw9QS6nvZDCNT8m8qw9G/ZnvZDCNT+ghyg9QS6nvZDCNT8m8qw9dGHavZDCNT+ghyg9G/ZnvZDCNT+ghyg9dGHavZDCNT+ghyg9QS6nvZDCNT/AUA27G/ZnvZDCNT+ghyg9QS6nvZDCNT/AUA27tI8BvZDCNT/AUA27G/ZnvZDCNT+ghyg9tI8BvZDCNT/AUA27cErZu5DCNT+ghyg9G/ZnvZDCNT+ghyi9cErZu5DCNT+ghyi9tI8BvZDCNT/AUA07G/ZnvZDCNT+ghyi9tI8BvZDCNT/AUA07QS6nvZDCNT/AUA07G/ZnvZDCNT+ghyi9QS6nvZDCNT/AUA07dGHavZDCNT+ghyi9G/ZnvZDCNT+ghyi9dGHavZDCNT+ghyi9QS6nvZDCNT8m8qy9G/ZnvZDCNT+ghyi9QS6nvZDCNT8m8qy9tI8BvZDCNT8m8qy9G/ZnvZDCNT+ghyi9tI8BvZDCNT8m8qy9cErZu5DCNT+ghyi95DOxPJDCNT/tV4i9YLOSPZDCNT/tV4i9WAA/PZDCNT9cpr685DOxPJDCNT/tV4i9WAA/PZDCNT9cpr68SMdcu5DCNT9cpr685DOxPJDCNT/tV4i9SMdcu5DCNT9cpr68tmXovJDCNT/tV4i95DOxPJDCNT/tV4i9tmXovJDCNT/tV4i9SMdcu5DCNT9DBuG95DOxPJDCNT/tV4i9SMdcu5DCNT9DBuG9WAA/PZDCNT9DBuG95DOxPJDCNT/tV4i9WAA/PZDCNT9DBuG9YLOSPZDCNT/tV4i9AAAAAJqZOT8AAAAAKVwPPZqZOT8AAAAAKVyPPJqZOT+LTvg8AAAAAJqZOT8AAAAAKVyPPJqZOT+LTvg8KVyPvJqZOT+LTvg8AAAAAJqZOT8AAAAAKVyPvJqZOT+LTvg8KVwPvZqZOT+eIp4iAAAAAJqZOT8AAAAAKVwPvZqZOT+eIp4iKVyPvJqZOT+LTvi8AAAAAJqZOT8AAAAAKVyPvJqZOT+LTvi8KVyPPJqZOT+LTvi8AAAAAJqZOT8AAAAAKVyPPJqZOT+LTvi8KVwPPZqZOT+eIh6j/3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+/")
+}]
+
+[node name="NAT_002_01" type="Node3D" unique_id=515207074]
+metadata/asset_id = "NAT_002"
+metadata/variant = 1
+
+[node name="@MeshInstance3D@414" type="MeshInstance3D" parent="." unique_id=1531098013]
+material_override = SubResource("ShaderMaterial_1v6ft")
+mesh = SubResource("ArrayMesh_klii2")
+
+[node name="@MeshInstance3D@415" type="MeshInstance3D" parent="." unique_id=846271905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+material_override = SubResource("StandardMaterial3D_dto36")
+mesh = SubResource("CylinderMesh_fud52")
+
+[node name="@MeshInstance3D@416" type="MeshInstance3D" parent="." unique_id=71267308]
+material_override = SubResource("StandardMaterial3D_la225")
+mesh = SubResource("ArrayMesh_k4gbo")

@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://game/art/shaders/foliage.gdshader" id="1_lukgc"]
+[ext_resource type="Texture2D" path="res://game/art/generated/meadow_tuft.png" id="2_1natk"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_lukgc")
+shader_parameter/tuft = ExtResource("2_1natk")
+shader_parameter/clock = null
+shader_parameter/flower = null

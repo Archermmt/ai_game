@@ -1,0 +1,51 @@
+{
+  "animals": 6,
+  "build_ms": 2071.449,
+  "buildings": 40,
+  "camera_orthographic_size": 42,
+  "day_frame_ms_p95": 14.421,
+  "decorations": 400,
+  "draw_calls_peak": 190,
+  "driver": "opengl3",
+  "duration_wall_seconds": 10.004912,
+  "edit_ms_p95": 81.497,
+  "edit_phases": [
+    {
+      "generate_ms": 36.51,
+      "props_ms": 5.399,
+      "render_publish_ms": 36.542,
+      "terrain_publish_ms": 0.323
+    },
+    {
+      "generate_ms": 36.623,
+      "props_ms": 5.307,
+      "render_publish_ms": 36.065,
+      "terrain_publish_ms": 0.215
+    },
+    {
+      "generate_ms": 36.296,
+      "props_ms": 5.548,
+      "render_publish_ms": 35.724,
+      "terrain_publish_ms": 0.225
+    },
+    {
+      "generate_ms": 34.942,
+      "props_ms": 5.436,
+      "render_publish_ms": 36.375,
+      "terrain_publish_ms": 0.233
+    }
+  ],
+  "edit_samples": 4,
+  "engine": "4.7-stable (official)",
+  "engine_static_bytes": 164882245.0,
+  "frame_count": 1001,
+  "frame_ms_p50": 6.262,
+  "frame_ms_p95": 15.114,
+  "grass_density_lod": 0.55,
+  "night_frame_ms_p95": 15.287,
+  "renderer": "gl_compatibility",
+  "residents": 12,
+  "scope": "Short smoke sample, not five minute native M4 Pro pressure run; M1/8GB and Windows remain unverified",
+  "target_device_tested": false,
+  "visible_primitives_peak": 179454
+}

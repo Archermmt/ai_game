@@ -1,0 +1,35 @@
+[gd_scene format=3]
+
+[ext_resource type="Shader" path="res://game/art/shaders/bay_water.gdshader" id="1_n8kc1"]
+
+[sub_resource type="Image" id="Image_w5ctp"]
+data = {
+"data": PackedByteArray(0, 127, 0),
+"format": "RGB8",
+"height": 1,
+"mipmaps": false,
+"width": 1
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_ao66k"]
+image = SubResource("Image_w5ctp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jfwpp"]
+render_priority = 0
+shader = ExtResource("1_n8kc1")
+shader_parameter/island_field = SubResource("ImageTexture_ao66k")
+shader_parameter/shallow = null
+shader_parameter/deep_color = null
+shader_parameter/clock = null
+shader_parameter/motion = null
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ljgyp"]
+size = Vector2(8, 8)
+
+[node name="TER_009_00" type="Node3D" unique_id=1233318812]
+metadata/asset_id = "TER_009"
+metadata/variant = 0
+
+[node name="@MeshInstance3D@10" type="MeshInstance3D" parent="." unique_id=1697934378]
+material_override = SubResource("ShaderMaterial_jfwpp")
+mesh = SubResource("PlaneMesh_ljgyp")

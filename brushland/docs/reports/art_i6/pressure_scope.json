@@ -1,0 +1,17 @@
+{
+  "land_cells": 1600,
+  "buildings": 40,
+  "building_mix": {
+    "house": 25,
+    "tea": 5,
+    "greenhouse": 5,
+    "lighthouse": 5
+  },
+  "decorations": 400,
+  "residents": 12,
+  "animals": 6,
+  "comparison_to_prd": "Uses more land than the 1200-cell PRD example and a different 40-building mix; counts do not imply original AC or M1/Windows acceptance",
+  "rss": "Own process sampled every 2 seconds; sample maximum is not total GPU memory or a guaranteed instantaneous peak",
+  "timing": "Real wall-clock frame intervals, 300 seconds, full camera orbit and daytime/nighttime halves; no fixed-FPS recording",
+  "before_evidence": "pressure_before.json/log/process plus minute_1..4 screenshots; minute_0 was not retained; smoke evidence is separate"
+}

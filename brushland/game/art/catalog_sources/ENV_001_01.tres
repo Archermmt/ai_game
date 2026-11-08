@@ -1,0 +1,23 @@
+[gd_resource type="Environment" format=3]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qowak"]
+sky_top_color = Color(0.5372549, 0.7254902, 0.77254903, 1)
+sky_horizon_color = Color(0.7921569, 0.85882354, 0.77254903, 1)
+
+[sub_resource type="Sky" id="Sky_5nq4g"]
+sky_material = SubResource("ProceduralSkyMaterial_qowak")
+
+[resource]
+background_mode = 1
+background_color = Color(0.54509807, 0.7372549, 0.7254902, 1)
+sky = SubResource("Sky_5nq4g")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.3
+reflected_light_source = 2
+fog_enabled = true
+fog_light_color = Color(0.6509804, 0.7882353, 0.7490196, 1)
+fog_density = 0.0015
+metadata/sun_color = Color(1, 0.83137256, 0.6392157, 1)
+metadata/sun_energy = 0.375
+metadata/sun_rotation = Vector3(-19.999998, 0, 0)

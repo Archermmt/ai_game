@@ -1,0 +1,37 @@
+[gd_scene format=4]
+
+[ext_resource type="Shader" path="res://game/art/shaders/foliage.gdshader" id="1_f3f51"]
+[ext_resource type="Texture2D" path="res://game/art/generated/meadow_tuft.png" id="2_thkrd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6y7sm"]
+render_priority = 0
+shader = ExtResource("1_f3f51")
+shader_parameter/tuft = ExtResource("2_thkrd")
+shader_parameter/clock = null
+shader_parameter/flower = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_83e7r"]
+_surfaces = [{
+"aabb": AABB(-0.17, 0, -0.14722432, 0.34, 0.2, 0.29444864),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAIA/AACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAA"),
+"format": 34359738385,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("exQuvgAAAIAAAACAexQuPgAAAAAAAAAAexQuPs3MTD4AAAAAexQuvgAAAIAAAACAexQuPs3MTD4AAAAAexQuvs3MTD4AAAAAexSuvQAAAID5wRa+exSuPQAAAAD5wRY+exSuPc3MTD75wRY+exSuvQAAAID5wRa+exSuPc3MTD75wRY+exSuvc3MTD75wRa+exSuPQAAAID5wRa+exSuvQAAAAD5wRY+exSuvc3MTD75wRY+exSuPQAAAID5wRa+exSuvc3MTD75wRY+exSuPc3MTD75wRa+")
+}]
+
+[sub_resource type="MultiMesh" id="MultiMesh_nhofd"]
+transform_format = 1
+use_colors = true
+instance_count = 1
+mesh = SubResource("ArrayMesh_83e7r")
+
+[node name="NAT_003_00" type="Node3D" unique_id=1967717265]
+metadata/asset_id = "NAT_003"
+metadata/variant = 0
+
+[node name="@MultiMeshInstance3D@417" type="MultiMeshInstance3D" parent="." unique_id=531173718]
+material_override = SubResource("ShaderMaterial_6y7sm")
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_nhofd")

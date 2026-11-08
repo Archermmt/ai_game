@@ -1,0 +1,53 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2dx6g"]
+albedo_color = Color(0.8509804, 0.78039217, 0.64705884, 1)
+roughness = 0.95
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_u3ttu"]
+top_radius = 0.325
+bottom_radius = 0.325
+height = 0.035
+radial_segments = 16
+rings = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_mewqf"]
+size = Vector3(1, 0.04, 0.65)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g76u7"]
+size = Vector3(1, 0.04, 0.65)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qb2ea"]
+size = Vector3(0.65, 0.04, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7g1fg"]
+size = Vector3(0.65, 0.04, 1)
+
+[node name="INF_004_00" type="Node3D" unique_id=386083543]
+metadata/asset_id = "INF_004"
+metadata/variant = 0
+
+[node name="@MeshInstance3D@22" type="MeshInstance3D" parent="." unique_id=2003679597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
+material_override = SubResource("StandardMaterial3D_2dx6g")
+mesh = SubResource("CylinderMesh_u3ttu")
+
+[node name="@MeshInstance3D@23" type="MeshInstance3D" parent="." unique_id=1249054560]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.025, 0)
+material_override = SubResource("StandardMaterial3D_2dx6g")
+mesh = SubResource("BoxMesh_mewqf")
+
+[node name="@MeshInstance3D@24" type="MeshInstance3D" parent="." unique_id=496768942]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.025, 0)
+material_override = SubResource("StandardMaterial3D_2dx6g")
+mesh = SubResource("BoxMesh_g76u7")
+
+[node name="@MeshInstance3D@25" type="MeshInstance3D" parent="." unique_id=977864298]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0.25)
+material_override = SubResource("StandardMaterial3D_2dx6g")
+mesh = SubResource("BoxMesh_qb2ea")
+
+[node name="@MeshInstance3D@26" type="MeshInstance3D" parent="." unique_id=433944959]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, -0.25)
+material_override = SubResource("StandardMaterial3D_2dx6g")
+mesh = SubResource("BoxMesh_7g1fg")
