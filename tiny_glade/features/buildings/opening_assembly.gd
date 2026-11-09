@@ -2,6 +2,7 @@ class_name OpeningAssembly
 extends RefCounted
 ## Five formal opening packs; sizes remain authored metres on flat and curved walls.
 
+const RECESS: float = 0.05
 const PACKS: Dictionary = {
 	"plank": preload("res://assets/buildings/door_plank.glb"),
 	"arch": preload("res://assets/buildings/door_arch.glb"),
@@ -11,7 +12,9 @@ const PACKS: Dictionary = {
 }
 
 
-static func attach(view: Node3D, spec: Dictionary, paint: Callable) -> void:
+static func attach(
+	view: Node3D, spec: Dictionary, paint: Callable, generate: Callable = Callable()
+) -> void:
 	for opening: Dictionary in spec["openings"]:
 		var is_window: bool = opening["height"] < 1.8
 		var kind: String = "round_window" if opening["kind"] == "round" else "rect_window"
@@ -19,7 +22,10 @@ static func attach(view: Node3D, spec: Dictionary, paint: Callable) -> void:
 			kind = "arch" if opening["kind"] == "arch" else "plank"
 			if opening.get("variant") == "glass":
 				kind = "glass"
-		var node: Node3D = PACKS[kind].instantiate() as Node3D
+		var node: Node3D = (
+			generate.call(kind, opening) if generate.is_valid() else PACKS[kind].instantiate()
+			as Node3D
+		)
 		node.set_meta("opening_kind", kind)
 		var width: float = spec["size"][0]
 		var depth: float = spec["size"][2]
@@ -30,9 +36,10 @@ static func attach(view: Node3D, spec: Dictionary, paint: Callable) -> void:
 		var normal: Vector3 = BuildingGeometry._normal(u, facade, width, depth, rounded)
 		node.position = (
 			BuildingGeometry._point(u, facade, width, depth, rounded)
-			- normal * 0.05
+			- normal * RECESS
 			+ Vector3.UP * opening.get("sill", 0)
 		)
 		node.rotation.y = atan2(normal.x, normal.z)
 		view.add_child(node)
-		paint.call(node)
+		if paint.is_valid():
+			paint.call(node)

@@ -11,17 +11,25 @@ func prepare(data: Dictionary, stage: ResourceStage = null) -> Dictionary:
 
 func _foliage(items: Array, poses: Dictionary) -> Node3D:
 	var asset: String = items[0]["asset_id"]
-	if not ArtFoliageCatalog.supports(asset):
+	if not WoodlandNature.supports(asset):
 		return super._foliage(items, poses)
 	if not foliage_parts.has(asset):
-		foliage_parts[asset] = describe(asset, owner_root.wood_material, owner_root.stone_material)
+		foliage_parts[asset] = describe(
+			asset, owner_root.wood_material, owner_root.stone_material, owner_root._woodland_style()
+		)
 	return build_batch(
 		items, poses, owner_root.wood_material, owner_root.stone_material, foliage_parts[asset]
 	)
 
 
-static func describe(asset: String, wood: Material, stone: Material) -> Array[Dictionary]:
-	var prototype: Node3D = ArtFoliageCatalog.create(asset, "art_batch", wood, stone)
+static func describe(
+	asset: String, wood: Material, stone: Material, woodland: bool = false
+) -> Array[Dictionary]:
+	var prototype: Node3D = (
+		WoodlandNature.create(asset, "art_batch")
+		if woodland
+		else ArtFoliageCatalog.create(asset, "art_batch", wood, stone)
+	)
 	var result: Array[Dictionary] = []
 	var shared: Dictionary = {}
 	for node: Node in prototype.find_children("*", "MeshInstance3D", true, false):

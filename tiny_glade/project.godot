@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="风栖小筑 · 手绘林间"
+config/name="风栖小筑 · 温馨林中小屋"
 config/version="0.13.0-w13"
 run/main_scene="res://app/living_root.tscn"
 config/use_custom_user_dir=true

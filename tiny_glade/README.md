@@ -1,10 +1,10 @@
 # 风栖小筑 · Godot MVP
 
-工程版本标识仍为 **0.13.0-w13**，当前源码已完成W14的Terrain3D、四层Painterly Grass、体积云、厚雪、拨草与渐隐脚印接入。默认入口 `app/living_root.tscn`，F5运行正式主场景。
+在 Godot 4.7.2 打开 `project.godot` 后按 **F5**，进入可编辑的「温馨林中小屋」。沿石径走到右侧浅塘、将林间历调到傍晚看暖窗，或打开底部相机进入第一人称漫步。屋瓦、门窗、林缘树、四层草花和雪面由项目原创生成，正式场景可以直接从 Git 工作树导入。旧作品继续使用原有槽位和建造数据。参见[实拍与验收](docs/weekly/week_15/WOODLAND_CABIN.md)。
 
-**G0–G5本地集成已收口：G4性能按授权后置，G5本地技术候选完成。** 冬景20ms、素材分发、独立导出包与Windows实机等仍开放；旧W12安装包未替换。进度见[STATUS](STATUS.md)、[G阶段台账](docs/weekly/week_14/G_STAGE_ACCEPTANCE.md)、[本地候选说明](docs/weekly/week_14/G5_CANDIDATE.md)。
+## 历史 G5 候选与新旧草对照
 
-## 本地候选与新旧草对照
+以下记录对应 `9ebe3bf8` 的旧草地版本。复验该候选请使用相应版本的代码和本地供应目录。
 
 已验证候选可从 `reports/week_14/g5/handoff_9ebe3bf8/` 启动：
 
@@ -29,7 +29,7 @@ python3 tools/quality/g5_handoff_checks.py
 
 打开 `app/painterly_grass_patch.tscn` 按F6，可在屋前8×8m区域切换新旧草，使用五个固定机位、日间/黄昏、暂停和第一人称漫步，Esc返回俯视。统一入口 `app/painterly_grass_preview.tscn` 提供G1单体展示与G2庭园对照的双向按钮；F5仍为正常游戏。
 
-预览只读，直接F6也隔离正式存档和偏好。派生素材目前本地供应，Git单独检出需按[G1提取说明](art_source/painterly_grass/README.md)准备；[G2报告与五组对照](docs/weekly/week_14/G2_GRASS_PATCH.md)记录技术结果。这些早期预览保留用于历史对照；当前正式实现和验收状态以G阶段台账为准。
+预览只读，直接F6也隔离正式存档和偏好。派生素材目前本地供应，Git单独检出需按[G1提取说明](art_source/painterly_grass/README.md)准备；[G2报告与五组对照](docs/weekly/week_14/G2_GRASS_PATCH.md)记录技术结果。这些早期预览保留用于历史对照；旧版本验收见 G 阶段台账，当前画面见 W15 报告。
 
 打开 `app/painterly_grass_garden.tscn` 按F6，可直接用新草建造、刷坡、撤销重做，切换四季雨雪、漫步和导出照片；存档与偏好使用独立预览目录。统一入口和G2中都可点击“编辑庭园 G3”。详见[G3报告](docs/weekly/week_14/G3_EDITABLE_GRASS_GARDEN.md)。
 
@@ -40,12 +40,11 @@ python3 tools/quality/g5_handoff_checks.py
 
 ```bash
 python3 tools/quality/bootstrap.py
-python3 tools/quality/candidate_asset_supply_checks.py
-python3 tools/quality/winter_render_optimization_checks.py
+python3 tools/quality/run_game.py --headless --editor --import
 python3 tools/quality/run_game.py
 ```
 
-本机已准备 `.tools/` 和 `.venv/`，素材在本地齐备时可直接运行验证与启动命令。也可使用相同版本 Godot 打开
+本机已准备 `.tools/` 和 `.venv/`，可直接运行验证与启动命令。也可使用相同版本 Godot 打开
 `project.godot` 后按 F5；单场景测试请打开 `app/living_root.tscn` 后按 F6。系统的 Godot 4.7 不满足本项目补丁版本锁。
 可通过 `GODOT_BIN` 指定同版本引擎；下载的引擎、缓存、试玩包和用户存档不进入 Git。
 
@@ -84,7 +83,14 @@ python3 tools/quality/run_game.py
 
 ## 测试与导出
 
-当前W14正式场景与G5本地交付：
+温馨林中小屋的功能回归与 GPU 实拍可在项目根目录执行。
+
+```sh
+python3 tools/quality/run_checks.py --week 9 --negative-control
+python3 tools/quality/woodland_checks.py --native
+```
+
+以下 W14 的性能基线与 G5 交付命令针对历史候选分支。
 
 ```sh
 python3 tools/quality/winter_render_optimization_checks.py

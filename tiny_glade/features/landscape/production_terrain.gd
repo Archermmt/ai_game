@@ -5,9 +5,9 @@ extends LandscapeTerrainAdapter
 signal published(snapshot: Dictionary)
 
 const SNOW_DEPTH: float = 0.14
-const SNOW_ALBEDO: Texture2D = preload("res://addons/puchik_snow/textures/snow/snow_02_diff_2k.jpg")
+const SNOW_ALBEDO: Texture2D = preload("res://assets/materials/woodland_ground/snow_drift.png")
 const SNOW_NORMAL: Texture2D = preload(
-	"res://addons/puchik_snow/textures/snow/snow_02_nor_gl_1k.jpg"
+	"res://assets/materials/woodland_ground/snow_drift_normal.png"
 )
 const CLIMATE_DECLARATIONS: String = """
 global uniform float living_time;
@@ -34,7 +34,7 @@ const CLIMATE_FRAGMENT: String = """
     float production_cover = clamp(living_snow, 0.0, 1.0) * smoothstep(0.45, 0.9, w_normal.y);
     ALBEDO *= 1.0 - production_wetness * (1.0 - production_cover) * 0.24;
     ROUGHNESS = mix(ROUGHNESS, 0.55, production_wetness * (1.0 - production_cover));
-    // The pinned puchik material's albedo/normal/roughness inputs, in terrain UV space.
+    // The painted flutes and the shading gradient share one periodic snow heightfield.
     vec2 snow_uv = v_vertex.xz * 0.55;
     vec3 snow_paint = mix(vec3(0.80, 0.86, 0.88),
         texture(production_snow_albedo, snow_uv).rgb, 0.25);
@@ -174,6 +174,27 @@ func _resample_height() -> Image:
 	return _source_height.duplicate() as Image
 
 
+func _create_assets() -> Terrain3DAssets:
+	var result: Terrain3DAssets = Terrain3DAssets.new()
+	result.set_texture(
+		0,
+		_texture_asset(
+			preload("res://assets/materials/woodland_ground/leaf_mould.png"),
+			"Forest humus",
+			Color.WHITE
+		)
+	)
+	result.set_texture(
+		1,
+		_texture_asset(
+			preload("res://assets/materials/woodland_ground/grass_wash.png"),
+			"Woodland sward",
+			Color.WHITE
+		)
+	)
+	return result
+
+
 func _install_climate_shader() -> void:
 	var material: Terrain3DMaterial = terrain.material
 	material.shader_override_enabled = true
@@ -226,7 +247,16 @@ static func build_maps(snapshot: Dictionary) -> Dictionary:
 			var wet: float = 0.0
 			if not field.pool.is_empty():
 				wet = 1.0 - smoothstep(-0.2, 0.75, PondShape.distance(field.pool, point))
-			var color: Color = Color.WHITE.lerp(Color("829287"), wet * 0.35)
+			var clearing: float = smoothstep(7.0, 24.0, point.length())
+			var patch: float = (
+				0.5
+				+ 0.30 * sin(point.x * 0.27 + sin(point.y * 0.31))
+				+ 0.20 * cos(point.y * 0.45 - point.x * 0.16)
+			)
+			var color: Color = Color("fffde6").lerp(
+				Color("93b7a3"), clearing * (0.32 + 0.56 * patch)
+			)
+			color = color.lerp(Color("829287"), wet * 0.42)
 			color.a = lerpf(0.5, 0.30, wet)
 			colors.set_pixel(x, z, color)
 	return {"height": heights, "color": colors}

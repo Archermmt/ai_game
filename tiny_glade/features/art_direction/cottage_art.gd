@@ -4,9 +4,10 @@ extends RefCounted
 ## Tiles, rounded timber sections and masonry are merged into three detail draws.
 
 const MeshBuilder = preload("res://features/art_direction/architecture/cottage_mesh.gd")
-const CLAY: Color = Color("bc7851")
-const HONEY: Color = Color("a77c49")
-const LIMESTONE: Color = Color("bdb69c")
+const Joinery = preload("res://features/art_direction/architecture/woodland_joinery.gd")
+const SLATE: Color = Color("536675")
+const TIMBER: Color = Color("584c3f")
+const LIMESTONE: Color = Color("9f9682")
 const TILE_WIDTH: float = 0.49
 const TILE_COURSE: float = 0.42
 
@@ -20,7 +21,7 @@ static func decorate(
 	root.material_override = _material(materials, "wall")
 	root.position = Vector3(home["position"][0], home["position"][1], home["position"][2])
 	root.set_meta("object_id", home["id"])
-	root.set_meta("art_direction", "cottage_01")
+	root.set_meta("art_direction", "woodland_cottage")
 	var roof: CottageMesh = MeshBuilder.new()
 	var timber: CottageMesh = MeshBuilder.new()
 	var stonework: CottageMesh = MeshBuilder.new()
@@ -33,9 +34,13 @@ static func decorate(
 		_round_roof(home, roof, timber, seed_value)
 	else:
 		_rect_roof(home, neighbors, roof, timber, seed_value)
+		Joinery.dormer(home, roof, timber, SLATE)
 	_eave_soffits(home, neighbors, timber)
 	_wall_details(home, neighbors, timber, stonework, seed_value)
 	_opening_details(home, timber, stonework, seed_value)
+	Joinery.wall_bays(home, neighbors, timber, seed_value)
+	if has_chimney(home):
+		Joinery.chimney(home, stonework, seed_value)
 	for entry: Array in [
 		["HandLaidTiles", roof, "roof"],
 		["HoneyTimber", timber, "wood"],
@@ -50,6 +55,15 @@ static func decorate(
 		detail.material_override = _material(materials, entry[2])
 		root.add_child(detail)
 	return root
+
+
+static func has_chimney(home: Dictionary) -> bool:
+	return (
+		home["shape"] == "rect"
+		and float(home["size"][0]) >= 3.8
+		and float(home["size"][2]) >= 3.5
+		and RoofProfile.rise(home) > 0.65
+	)
 
 
 static func wall_mesh(shell: ArrayMesh) -> ArrayMesh:
@@ -85,7 +99,7 @@ static func _material(materials: Dictionary, key: String) -> Material:
 
 
 static func _roof_underlay(shell: ArrayMesh, roof: CottageMesh) -> void:
-	# Closed, dark-clay boarding remains underneath the lapped tiles. Minute gaps
+	# Closed, dark boarding remains underneath the lapped tiles. Minute gaps
 	# and clipped tile corners therefore show a roof bed rather than sky/interior.
 	for surface: int in range(shell.get_surface_count()):
 		var arrays: Array = shell.surface_get_arrays(surface)
@@ -100,7 +114,7 @@ static func _roof_underlay(shell: ArrayMesh, roof: CottageMesh) -> void:
 				var index: int = start + offset
 				roof.vertices.append(positions[index])
 				roof.normals.append(source_normals[index])
-				roof.colors.append(CLAY.darkened(0.17))
+				roof.colors.append(SLATE.darkened(0.17))
 				roof.uvs.append(source_uvs[index])
 
 
@@ -173,7 +187,7 @@ static func _rect_roof(
 			Vector3(side * half_width, height + 0.02, front),
 			Vector3(0, ridge + 0.02, front),
 			Vector3(side, 1, 0),
-			CLAY.darkened(0.17)
+			SLATE.darkened(0.17)
 		)
 		for row: int in range(rows):
 			var low: float = float(row) / rows
@@ -206,7 +220,7 @@ static func _rect_roof(
 				last + Vector3.DOWN * 0.065,
 				0.18,
 				0.17,
-				HONEY.darkened(0.10),
+				TIMBER.darkened(0.10),
 				seed_value
 			)
 		if not trim:
@@ -232,7 +246,7 @@ static func _rect_roof(
 					outer + Vector3.DOWN * 0.12,
 					0.085,
 					0.11,
-					HONEY.darkened(0.08),
+					TIMBER.darkened(0.08),
 					seed_value + index * 1.3
 				)
 		for end: float in [-1.0, 1.0]:
@@ -256,7 +270,7 @@ static func _rect_roof(
 					point + Vector3.DOWN * 0.09,
 					0.18,
 					0.20,
-					HONEY,
+					TIMBER,
 					seed_value + end
 				)
 				previous = point
@@ -280,7 +294,7 @@ static func _rect_roof(
 			Vector3(width * 0.5, height - 0.03, z),
 			0.17,
 			0.15,
-			HONEY,
+			TIMBER,
 			seed_value
 		)
 		timber.beam(
@@ -288,7 +302,7 @@ static func _rect_roof(
 			Vector3(0, ridge - 0.06, z),
 			0.13,
 			0.13,
-			HONEY.lightened(0.04),
+			TIMBER.lightened(0.04),
 			seed_value + 9.0
 		)
 		for side: float in [-1.0, 1.0]:
@@ -297,7 +311,7 @@ static func _rect_roof(
 				Vector3(side * width * 0.055, ridge - width * 0.07, z),
 				0.085,
 				0.095,
-				HONEY.lightened(0.05),
+				TIMBER.lightened(0.05),
 				seed_value + side
 			)
 
@@ -369,7 +383,7 @@ static func _tile(
 	tint: Color,
 	seed_value: float
 ) -> void:
-	# A fired-clay edge has real thickness, but a quiet lip. Repeated deep ridges
+	# A split slate edge has real thickness, but a quiet lip. Repeated deep ridges
 	# read as plastic scales at the garden camera and overwhelm the roof colour.
 	var outline: Array[Vector2] = [
 		Vector2(0.025, 0),
@@ -470,7 +484,7 @@ static func _round_roof(
 			var b: float = float(column + 1) * TAU / columns + stagger
 			var key: float = seed_value + row * 17.13 + column * 4.27
 			_tile(roof, mapper, a + 0.0008, b - 0.0008, low, high, _tile_color(key), key)
-	# A small fired-clay apex closes the only area without individually laid tiles.
+	# A small slate apex closes the only area without individually laid tiles.
 	var tip: Vector3 = Vector3(0, height + rise + 0.17, 0)
 	for index: int in range(16):
 		var a: float = float(index) * TAU / 16
@@ -481,7 +495,7 @@ static func _round_roof(
 		var q: Vector3 = Vector3(
 			sin(b) * radius * 0.115, height + rise * 0.91, cos(b) * radius * 0.115
 		)
-		roof.triangle(p, q, tip, Vector3(sin(a), 0.5, cos(a)), CLAY.lightened(0.03))
+		roof.triangle(p, q, tip, Vector3(sin(a), 0.5, cos(a)), SLATE.lightened(0.03))
 	for index: int in range(48):
 		var a: float = float(index) * TAU / 48
 		var b: float = float(index + 1) * TAU / 48
@@ -490,7 +504,7 @@ static func _round_roof(
 			Vector3(sin(b) * radius, height - 0.055, cos(b) * radius),
 			0.13,
 			0.13,
-			HONEY.darkened(0.08),
+			TIMBER.darkened(0.08),
 			seed_value + index
 		)
 
@@ -517,7 +531,7 @@ static func _eave_soffits(home: Dictionary, neighbors: Array, timber: CottageMes
 				if not flat:
 					y += rise * (1.0 - corner.x / radius)
 				points.append(Vector3(sin(corner.y) * corner.x, y, cos(corner.y) * corner.x))
-			timber.solid_panel(points, 0.07, HONEY.darkened(0.09))
+			timber.solid_panel(points, 0.07, TIMBER.darkened(0.09))
 		return
 	var margins: Array[float] = [0.35, 0.35, 0.35, 0.35]
 	if not flat:
@@ -551,7 +565,7 @@ static func _eave_soffits(home: Dictionary, neighbors: Array, timber: CottageMes
 				if not flat:
 					y += rise * (1.0 - corner.x / roof_half)
 				points.append(Vector3(side * corner.x, y, corner.y))
-			timber.solid_panel(points, 0.07, HONEY.darkened(0.09))
+			timber.solid_panel(points, 0.07, TIMBER.darkened(0.09))
 
 
 static func _wall_details(
@@ -585,7 +599,7 @@ static func _wall_details(
 				q,
 				0.14,
 				0.12,
-				HONEY.lightened(0.015 * sin(seed_value + index)),
+				TIMBER.lightened(0.015 * sin(seed_value + index)),
 				seed_value + index
 			)
 		# Two staggered courses with individual rounded corners avoid a flat slab base.
@@ -646,7 +660,7 @@ static func _wall_details(
 					point + Vector3.UP * (height - 0.08),
 					0.115,
 					0.125,
-					HONEY.darkened(0.025),
+					TIMBER.darkened(0.025),
 					seed_value + edge
 				)
 
@@ -730,7 +744,7 @@ static func _opening_details(
 					p + Vector3.UP * (rise + trim * 0.5),
 					trim * 0.8,
 					trim * 0.8,
-					HONEY,
+					TIMBER,
 					seed_value + side,
 					Vector3.UP.cross(outward)
 				)
@@ -744,7 +758,7 @@ static func _opening_details(
 				)
 				var a: Vector3 = mapper.call(left, rise + trim * 0.5, 0.055)
 				var b: Vector3 = mapper.call(right, rise + trim * 0.5, 0.055)
-				timber.beam(a, b, trim * 0.8, trim * 0.8, HONEY, seed_value)
+				timber.beam(a, b, trim * 0.8, trim * 0.8, TIMBER, seed_value)
 			continue
 		var radius: float = span * 0.5
 		var arch_spring: float = rise - radius if opening["kind"] == "arch" else rise
@@ -817,10 +831,10 @@ static func _opening_details(
 
 
 static func _tile_color(seed_value: float) -> Color:
-	# Individual tiles remain legible near the eaves; broad painted clay washes
+	# Individual tiles remain legible near the eaves; broad slate washes
 	# carry the roof from the normal camera instead of a checkerboard of colours.
 	var shade: float = sin(seed_value * 3.17) * 0.016 + cos(seed_value * 0.89) * 0.010
-	return CLAY.lightened(shade) if shade >= 0 else CLAY.darkened(-shade)
+	return SLATE.lightened(shade) if shade >= 0 else SLATE.darkened(-shade)
 
 
 static func _trim_allowance(
@@ -850,14 +864,14 @@ static func _flat_roof(home: Dictionary, roof: CottageMesh) -> void:
 			var b: float = (i + 1) * TAU / 64
 			var p: Vector3 = Vector3(sin(a) * half.x, y, cos(a) * half.x)
 			var q: Vector3 = Vector3(sin(b) * half.x, y, cos(b) * half.x)
-			roof.triangle(Vector3(0, y, 0), p, q, Vector3.UP, CLAY)
+			roof.triangle(Vector3(0, y, 0), p, q, Vector3.UP, SLATE)
 			roof.quad(
 				p,
 				q,
 				q - Vector3.UP * 0.15,
 				p - Vector3.UP * 0.15,
 				Vector3(sin(a), 0, cos(a)),
-				CLAY.darkened(0.15)
+				SLATE.darkened(0.15)
 			)
 	else:
 		var columns: int = ceili(half.x * 2 / TILE_WIDTH)
@@ -895,5 +909,5 @@ static func _flat_roof(home: Dictionary, roof: CottageMesh) -> void:
 				b - Vector3.UP * 0.15,
 				a - Vector3.UP * 0.15,
 				(a + b).normalized(),
-				CLAY.darkened(0.15)
+				SLATE.darkened(0.15)
 			)

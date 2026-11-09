@@ -1,6 +1,12 @@
 # 风栖小筑 · 开发状态
 
-更新日期：2026-10-28（Asia/Shanghai）
+更新日期：2026-11-10（Asia/Shanghai）
+
+## W15 · 温馨林中小屋正式美术
+
+F5 使用原创半木结构小屋、青灰板瓦、分层树冠、四种草花、浮叶浅池和程序雪纹。示范庭园和空地继续经 WorldDocument 与编辑事务生成。四季音乐、风声音量及原有作品目录沿用。旧的下载资产仅供历史样板，正式主场景无需本地供应 PainterlyGrass 或 Valley 派生件。
+
+本轮 W01–W09 累计 446 项及失败负控通过。定稿专项 74 项、3,283 个断言和 24 项 Metal 实拍检查通过，覆盖旧庭园序列化、50 次混合编辑的撤销重做、存读档、足印、拨草及黄昏灯光。复验命令为 `python3 tools/quality/run_checks.py --week 9 --negative-control` 和 `python3 tools/quality/woodland_checks.py --native`。截图与收据见[W15 美术验收](docs/weekly/week_15/WOODLAND_CABIN.md)。新画风的主观体验、性能预算和 Windows 真机仍待验收。
 
 
 ## G0–G5 · 本地集成阶段已收口

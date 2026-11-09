@@ -2,7 +2,7 @@ extends GutTest
 ## Exercise the actual F5 scene while isolating all test IO before inherited ready.
 
 const SCENE_PATH: String = "res://app/living_root.tscn"
-const TRIANGLES: Array[int] = [24, 2288, 28, 8]
+const TRIANGLES: Array[int] = [48, 32, 57, 44]
 var garden: Variant
 var original: Dictionary
 var test_directory: String
@@ -114,7 +114,7 @@ func _surface_error(points: Array[Vector2]) -> float:
 	return maximum
 
 
-func test_f5_uses_editable_production_scene_and_four_real_valley_models() -> void:
+func test_f5_uses_editable_production_scene_and_four_generated_meadow_species() -> void:
 	assert_true(_production_ready())
 	if not _production_ready():
 		return
@@ -128,8 +128,12 @@ func test_f5_uses_editable_production_scene_and_four_real_valley_models() -> voi
 		assert_eq(mesh.get_surface_count(), 1)
 		var arrays: Array = mesh.surface_get_arrays(0)
 		assert_eq((arrays[Mesh.ARRAY_INDEX] as PackedInt32Array).size() / 3, TRIANGLES[kind])
-	var texture: Texture2D = garden.meadow.material.get_shader_parameter("coverage")
-	assert_eq(texture.get_size(), Vector2(4096, 4096))
+		assert_eq(mesh.resource_name, WoodlandGrasses.NAMES[kind])
+		assert_true(mesh.resource_path.is_empty())
+		assert_eq(
+			arrays[Mesh.ARRAY_VERTEX],
+			WoodlandGrasses.make(kind).surface_get_arrays(0)[Mesh.ARRAY_VERTEX]
+		)
 	assert_eq(garden.document.state.keys(), original.keys())
 	assert_eq(garden.document.state["instances"], original["instances"])
 

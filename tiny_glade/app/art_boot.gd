@@ -1,6 +1,8 @@
 extends "res://app/week_nine_boot.gd"
 ## Art-direction revision. Same editable document and transactions, new presentation.
 
+const CabinOpenings = preload("res://features/art_direction/architecture/cabin_openings.gd")
+
 var art_materials: Dictionary = {}
 var _art_sync_paths: Dictionary = {}
 var _art_worker_paths: Dictionary = {}
@@ -12,9 +14,13 @@ var _art_wind_cache: Dictionary = {}
 var _art_wind_collections: int = 0
 
 
+func _woodland_style() -> bool:
+	return false
+
+
 func _setup_materials() -> void:
 	super._setup_materials()
-	art_materials = ArtMaterials.create()
+	art_materials = ArtMaterials.create(_woodland_style())
 	architecture_material = art_materials["architecture"]
 	terrain_material = art_materials["terrain"]
 	water_material = art_materials["water"]
@@ -23,7 +29,8 @@ func _setup_materials() -> void:
 	window_material = art_materials["window"]
 	path_material = stone_material.duplicate()
 	path_material.vertex_color_use_as_albedo = true
-	ArtFoliageCatalog.configure(art_materials["foliage"].shader)
+	if not _woodland_style():
+		ArtFoliageCatalog.configure(art_materials["foliage"].shader)
 	_planner = ArtViewPlan.new(self)
 
 
@@ -105,65 +112,79 @@ func _decorated_building_view(home: Dictionary, mesh: ArrayMesh, snapshot: Dicti
 		{
 			"wall": architecture_material,
 			"roof": art_materials["roof"],
-			"wood": wood_material,
-			"stone": stone_material
+			"wood": art_materials["joinery"],
+			"stone": art_materials["masonry"]
 		}
 	)
-	OpeningAssembly.attach(root, home, _apply_asset_materials)
+	OpeningAssembly.attach(
+		root,
+		home,
+		Callable(),
+		func(kind: String, opening: Dictionary) -> Node3D:
+			var radius: float = float(home["size"][0]) * 0.5 if home["shape"] == "round" else 0.0
+			return CabinOpenings.make(
+				kind, opening, art_materials["joinery"], window_material, radius
+			)
+	)
+	if CottageArt.has_chimney(home):
+		var smoke: MeshInstance3D = MeshInstance3D.new()
+		smoke.name = "HearthSmoke"
+		var card: QuadMesh = QuadMesh.new()
+		card.size = Vector2(1.45, 2.08)
+		smoke.mesh = card
+		smoke.material_override = art_materials["smoke"]
+		smoke.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		smoke.position = CottageArt.Joinery.chimney_mouth(home) + Vector3.UP * card.size.y * 0.5
+		smoke.set_instance_shader_parameter("phase", float(hash(home["id"]) % 127) * 0.24)
+		smoke.extra_cull_margin = 0.73
+		root.add_child(smoke)
 	return root
 
 
 func _instance_view(item: Dictionary, snapshot: Dictionary) -> Node3D:
-	var wrapper: Node3D = super._instance_view(item, snapshot)
-	if ArtFoliageCatalog.supports(item["asset_id"]):
-		var old: Node = wrapper.get_node("Visual")
-		wrapper.remove_child(old)
-		old.free()
-		var visual: Node3D
-		if item.has("hedge"):
-			var layout: Dictionary = HedgeView.plan(item, snapshot)
-			visual = ArtViewPlan.build_batch(
-				layout["items"],
-				layout["poses"],
-				wood_material,
-				stone_material,
-				ArtViewPlan.describe("NAT-06", wood_material, stone_material)
-			)
-			visual.set_meta("object_id", item["id"])
-			visual.set_meta("asset_id", "NAT-07")
-		else:
-			visual = ArtFoliageCatalog.create(
-				item["asset_id"], item["id"], wood_material, stone_material
-			)
-			var bounds: AABB = visual.get_meta("pick_bounds")
-			var proxy: CollisionShape3D = wrapper.get_node("PickProxy/SelectionShape")
-			(proxy.shape as BoxShape3D).size = bounds.size.max(Vector3.ONE * 0.1)
-			proxy.position = bounds.get_center()
-		visual.name = "Visual"
-		wrapper.add_child(visual)
-		wrapper.visual = visual
-	return wrapper
+	if not WoodlandNature.supports(item["asset_id"]):
+		return super._instance_view(item, snapshot)
+	var visual: Node3D
+	if item.has("hedge"):
+		var layout: Dictionary = HedgeView.plan(item, snapshot)
+		visual = ArtViewPlan.build_batch(
+			layout["items"],
+			layout["poses"],
+			wood_material,
+			stone_material,
+			ArtViewPlan.describe("NAT-06", wood_material, stone_material, _woodland_style())
+		)
+		visual.set_meta("object_id", item["id"])
+		visual.set_meta("asset_id", "NAT-07")
+	elif _woodland_style():
+		visual = WoodlandNature.create(item["asset_id"], item["id"])
+	else:
+		visual = ArtFoliageCatalog.create(
+			item["asset_id"], item["id"], wood_material, stone_material
+		)
+	return AssetRegistry.create(item, snapshot, wood_material, stone_material, visual)
 
 
 func _on_published(snapshot: Dictionary, prepared: Dictionary) -> void:
 	super._on_published(snapshot, prepared)
 	if art_materials.is_empty():
 		return
-	art_materials["roof"].set_shader_parameter(
-		"roof_tint", GardenPalette.tint(snapshot["environment"], "roof")
-	)
-	art_materials["roof"].set_shader_parameter("aged", snapshot["environment"].get("aged", false))
+	ArtMaterials.sync_cottage_palette(art_materials, snapshot["environment"])
 	if _curtain == null or _curtain_seed != str(snapshot["world_seed"]):
 		if is_instance_valid(_curtain):
 			_curtain.queue_free()
-		_curtain = ArtScenery.curtain(snapshot, wood_material, stone_material, terrain_material)
+		_curtain = ArtScenery.curtain(
+			snapshot, wood_material, stone_material, terrain_material, _woodland_style()
+		)
 		_curtain_seed = str(snapshot["world_seed"])
 		world_view.add_child(_curtain)
 	var signature: int = ArtScenery.bank_signature(snapshot)
 	if signature != _bank_signature:
 		if is_instance_valid(_pond_bank):
 			_pond_bank.queue_free()
-		_pond_bank = ArtScenery.bank(snapshot, wood_material, stone_material)
+		_pond_bank = ArtScenery.bank(snapshot, wood_material, stone_material, _woodland_style())
+		if _woodland_style():
+			WoodlandPond.add_leaves(_pond_bank, snapshot)
 		world_view.add_child(_pond_bank)
 		_bank_signature = signature
 	wind_materials.assign(_collect_art_wind())

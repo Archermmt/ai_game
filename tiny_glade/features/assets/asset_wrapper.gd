@@ -6,15 +6,23 @@ extends Node3D
 var visual: Node3D
 
 
-func configure(item: Dictionary, snapshot: Dictionary, wood: Material, stone: Material) -> void:
+func configure(
+	item: Dictionary,
+	snapshot: Dictionary,
+	wood: Material,
+	stone: Material,
+	supplied_visual: Node3D = null
+) -> void:
 	name = "Asset_" + String(item["id"])
 	set_meta("object_id", item["id"])
 	set_meta("asset_id", asset_id)
-	visual = (
-		HedgeView.create(item, snapshot, wood, stone)
-		if item.has("hedge")
-		else WeekSixCatalog.create(asset_id, item["id"], wood, stone)
-	)
+	visual = supplied_visual
+	if visual == null:
+		visual = (
+			HedgeView.create(item, snapshot, wood, stone)
+			if item.has("hedge")
+			else WeekSixCatalog.create(asset_id, item["id"], wood, stone)
+		)
 	visual.name = "Visual"
 	add_child(visual)
 	var body: StaticBody3D = StaticBody3D.new()
@@ -36,6 +44,10 @@ func configure(item: Dictionary, snapshot: Dictionary, wood: Material, stone: Ma
 			rect.size.x + item["hedge"]["width"], 1.0, rect.size.y + item["hedge"]["width"]
 		)
 		shape.position = Vector3(rect.get_center().x, 0.5, rect.get_center().y)
+	if visual.has_meta("pick_bounds"):
+		var bounds: AABB = visual.get_meta("pick_bounds")
+		box.size = bounds.size.max(Vector3.ONE * 0.1)
+		shape.position = bounds.get_center()
 	body.add_child(shape)
 	add_child(body)
 	for pair: Array in [

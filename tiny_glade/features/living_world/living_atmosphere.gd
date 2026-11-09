@@ -124,21 +124,21 @@ func update(delta: float, state: Dictionary) -> void:
 	var altitude: float = sin((hour - 6.0) * PI / 12.0)
 	var daylight: float = smoothstep(-0.12, 0.35, altitude)
 	var summer: bool = _season == "summer"
-	var energy: float = (1.48 if summer else 1.22) * maxf(0.0, altitude)
+	var energy: float = (1.24 if summer else 1.05) * maxf(0.0, altitude)
 	energy *= float(visual["energy"])
 	host.sun.light_energy = maxf(0.035, energy)
 	host.sun.rotation_degrees = Vector3(
-		-maxf(9.0, altitude * (66 if summer else 48)), -105 + hour * 9, 0
+		-maxf(9.0, altitude * (66 if summer else 48)), -135 + hour * 9, 0
 	)
-	host.sun.light_color = Color("a5b9d9").lerp(Color("fff2da"), daylight)
+	host.sun.light_color = Color("a5b9d9").lerp(Color("fff1cf"), daylight)
 	host.sun.light_color = host.sun.light_color.lerp(
 		Color("edb18c"), (1.0 - smoothstep(0.0, 0.35, absf(altitude))) * daylight
 	)
 	var environment: Environment = host.world_environment.environment
-	environment.ambient_light_color = Color("8298bc").lerp(Color("a8bfca"), daylight)
-	environment.ambient_light_energy = lerpf(0.20, 0.32 + 0.10 * float(visual["cloud"]), daylight)
-	environment.fog_light_color = Color("536783").lerp(Color("c2cdd0"), daylight)
-	environment.fog_density = visual["fog"]
+	environment.ambient_light_color = Color("8298bc").lerp(Color("c1cec7"), daylight)
+	environment.ambient_light_energy = lerpf(0.20, 0.52 + 0.10 * float(visual["cloud"]), daylight)
+	environment.fog_light_color = Color("536783").lerp(Color("c0ccbf"), daylight)
+	environment.fog_density = float(visual["fog"]) + 0.0012 * daylight
 	environment.fog_light_color = environment.fog_light_color.lerp(Color("bda277"), visual["dust"])
 	environment.ambient_light_color = environment.ambient_light_color.lerp(
 		Color("b4a480"), visual["dust"]
@@ -161,6 +161,8 @@ func update(delta: float, state: Dictionary) -> void:
 	)
 	bolt.visible = pulse
 	flash.light_energy = 0.65 if pulse else 0.0
+	if host.lanterns != null:
+		host.lanterns.advance(host.camera_rig.camera.global_position, 1.0 - daylight)
 	if host.light_rig != null:
 		host.light_rig.sync(
 			host.document.state["environment"].get("lamp_probes", []),

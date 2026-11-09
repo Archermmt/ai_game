@@ -1,0 +1,13 @@
+[gd_resource type="NoiseTexture3D" format=3]
+
+[sub_resource type="FastNoiseLite" id="Field"]
+seed = 8417
+frequency = 0.14
+fractal_octaves = 3
+
+[resource]
+width = 40
+height = 40
+depth = 40
+seamless = true
+noise = SubResource("Field")

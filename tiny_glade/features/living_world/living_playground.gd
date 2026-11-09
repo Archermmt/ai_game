@@ -14,12 +14,14 @@ var _climate_frozen: bool = false
 var _calendar_revision: int = 0
 
 
+func _garden_layout(empty: bool) -> Dictionary:
+	return TerrainRelief.apply(ArtLayout.empty() if empty else ArtLayout.create())
+
+
 func _setup_initial_buildings() -> void:
-	var source: Dictionary = ArtLayout.create()
+	var source: Dictionary = _garden_layout(false)
 	if "--w09-stress" in OS.get_cmdline_user_args():
 		source = StressLayout.create()
-	else:
-		source = TerrainRelief.apply(source)
 	_show_result(session.replace_document(source, _prepare_views), "四季林间庭园")
 
 
@@ -132,9 +134,7 @@ func _restore_extra_presentation(value: Dictionary) -> void:
 
 func _apply_layout() -> void:
 	_cancel_edit()
-	var source: Dictionary = TerrainRelief.apply(
-		ArtLayout.empty() if _layout_kind == "empty" else ArtLayout.create()
-	)
+	var source: Dictionary = _garden_layout(_layout_kind == "empty")
 	var result: Dictionary = session.replace_document(source, _prepare_views)
 	if result["ok"]:
 		active_slot = -1

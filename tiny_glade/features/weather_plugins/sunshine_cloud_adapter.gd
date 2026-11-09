@@ -191,6 +191,15 @@ func _detach_effect() -> void:
 
 
 func _apply_preset() -> void:
+	# Supply all seven art inputs before the plugin initializes its GPU bindings.
+	# Cameras share immutable noise fields, while keeping separate temporal histories.
+	clouds.dither_noise = preload("res://assets/woodland/clouds/sampling.png")
+	clouds.curl_noise = preload("res://assets/woodland/clouds/wisps.png")
+	clouds.height_gradient = preload("res://assets/woodland/clouds/altitude.tres")
+	clouds.extra_large_noise_patterns = preload("res://assets/woodland/clouds/cover.tres")
+	clouds.large_scale_noise = preload("res://assets/woodland/clouds/billows.tres")
+	clouds.medium_scale_noise = preload("res://assets/woodland/clouds/folds.tres")
+	clouds.small_scale_noise = preload("res://assets/woodland/clouds/grain.tres")
 	clouds.cloud_floor = cloud_base
 	clouds.cloud_ceiling = maxf(cloud_base + 100.0, cloud_top)
 	clouds.clouds_coverage = clear_coverage

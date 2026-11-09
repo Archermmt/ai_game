@@ -28,7 +28,7 @@ func sync(
 ) -> void:
 	var altitude: float = sin((hour - 6.0) * PI / 12.0)
 	var elevation: float = deg_to_rad(altitude * (66 if summer else 48))
-	var azimuth: float = deg_to_rad(-105 + hour * 9)
+	var azimuth: float = deg_to_rad(-135 + hour * 9)
 	var ridge: Vector3 = (
 		{
 			"spring": Vector3(0.10, 0.21, 0.18),

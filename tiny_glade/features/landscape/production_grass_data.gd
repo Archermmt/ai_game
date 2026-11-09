@@ -31,6 +31,13 @@ static func generate(source: Dictionary, candidates: Array[Array], cache: Dictio
 				or not MeadowData.clear(point, obstacles, source["pool"])
 			):
 				continue
+			# Small drifts of wildflowers leave the central lawn quiet.
+			if kind == 2:
+				var flowers: float = (
+					sin(point.x * 0.57 + cos(point.y * 0.41)) + sin(point.y * 0.83 - point.x * 0.32)
+				)
+				if flowers < 0.95:
+					continue
 			var normal: Vector3 = field.normal_at(point)
 			if normal.y < 0.54:
 				continue

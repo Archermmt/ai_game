@@ -1,0 +1,8 @@
+[gd_resource type="GradientTexture1D" format=3]
+
+[sub_resource type="Gradient" id="Dome"]
+offsets = PackedFloat32Array(0, 0.10, 0.32, 0.68, 0.9, 1)
+colors = PackedColorArray(0, 0.25, 0.86, 0.18, 0.93, 0.61, 1, 0.58, 1, 0.83, 0.98, 0.93, 0.89, 0.91, 0.84, 0.97, 0.54, 0.97, 0.65, 1, 0, 1, 0.3, 1)
+
+[resource]
+gradient = SubResource("Dome")

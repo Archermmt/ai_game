@@ -14,6 +14,18 @@ var _landscape_environment_key: String = ""
 var _footprint_source_signature: int = 0
 
 
+func _woodland_style() -> bool:
+	return true
+
+
+func _garden_layout(empty: bool) -> Dictionary:
+	return WoodlandLayout.empty() if empty else WoodlandLayout.create()
+
+
+func _recommended_view(index: int) -> void:
+	_restore_camera(WoodlandLayout.VIEWS[index])
+
+
 func _create_meadow() -> MeadowRenderer:
 	return ProductionGrassRenderer.new()
 
@@ -186,7 +198,7 @@ func _process(delta: float) -> void:
 			and not stage.is_busy()
 		):
 			landscape_ready = true
-			hud.set_status("林间庭园 · 点示意图建造，或进入相机在草地间漫步")
+			hud.set_status("温馨林中小屋 · 点示意图建造，或进入相机在草地间漫步")
 
 
 func _sync_surface_visibility() -> void:
@@ -214,7 +226,7 @@ func _delivery_metrics() -> Dictionary:
 	result["landscape_failed"] = landscape_failed
 	result["terrain_renderer"] = "Terrain3D"
 	result["grass_renderer"] = (
-		"Valley four layers / ProtonScatter"
+		"Woodland grasses and wildflowers / ProtonScatter"
 		if meadow is ProductionGrassRenderer
 		else "Legacy meadow comparison"
 	)

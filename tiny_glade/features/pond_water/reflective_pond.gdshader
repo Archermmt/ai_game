@@ -24,7 +24,7 @@ void vertex() {
 }
 
 void fragment() {
-    float t = reduce_motion ? 0.0 : (freeze_time ? sample_time : TIME) * 0.55;
+    float t = reduce_motion ? 0.0 : (freeze_time ? sample_time : TIME) * 0.40;
     vec2 p = world_xz;
     float a = dot(p, vec2(1.7, 0.8)) + t;
     float b = dot(p, vec2(-0.9, 2.3)) - t * 1.17;
@@ -40,7 +40,7 @@ void fragment() {
     scene.xyz /= scene.w;
     float depth = max(0.0, -scene.z + VERTEX.z);
     float absorption = 1.0 - exp(-depth * 1.2);
-    float foam = (1.0 - smoothstep(0.025, 0.16, depth)) * 0.32;
+    float foam = (1.0 - smoothstep(0.025, 0.16, depth)) * 0.095;
     float rings = 0.0;
     for (int i = 0; i < 2; i++) {
         float phase = fract(t * 0.27 + float(i) * 0.47);
@@ -48,9 +48,11 @@ void fragment() {
         float d = abs(length(p - center) - (0.12 + phase * 1.65));
         rings += (1.0 - smoothstep(0.018, 0.055, d)) * (1.0 - phase);
     }
-    vec3 shallow = vec3(0.20, 0.42, 0.36);
-    vec3 deep = vec3(0.065, 0.20, 0.22);
+    vec3 shallow = vec3(0.13, 0.23, 0.14);
+    vec3 deep = vec3(0.029, 0.081, 0.072);
     ALBEDO = mix(shallow, deep, absorption);
+    float brush = sin(p.x * 5.6 + sin(p.y * 4.0) * 0.38 - t) * sin(p.y * 2.1 + t * 0.13);
+    ALBEDO += vec3(0.08, 0.075, 0.035) * smoothstep(0.82, 0.98, brush) * (1.0 - absorption);
     ALBEDO = mix(ALBEDO, vec3(0.71, 0.81, 0.70), foam + rings * (0.12 + rain_amount * 0.18));
     vec4 clip = reflection_projection * reflection_view * vec4(world_position, 1.0);
     vec2 reflect_uv = vec2(clip.x, -clip.y) / max(clip.w, 0.001) * 0.5 + 0.5;
@@ -59,9 +61,9 @@ void fragment() {
     float fresnel = 0.45 + 0.5 * pow(1.0 - max(dot(NORMAL, VIEW), 0.0), 3.0);
     float reflect_mix = reflection_enabled ? reflection_strength * fresnel * edge : 0.0;
     ALBEDO *= 1.0 - reflect_mix;
-    EMISSION = texture(reflection_texture, clamp(reflect_uv, vec2(0.001), vec2(0.999))).rgb * reflect_mix;
+    EMISSION = texture(reflection_texture, clamp(reflect_uv, vec2(0.001), vec2(0.999))).rgb * reflect_mix * vec3(0.53, 0.65, 0.58);
     METALLIC = 0.0;
-    SPECULAR = 0.7;
-    ROUGHNESS = 0.06 + foam * 0.25;
-    ALPHA = opaque_probe ? 1.0 : mix(0.70, 0.94, absorption);
+    SPECULAR = 0.27;
+    ROUGHNESS = 0.18 + foam * 0.20;
+    ALPHA = opaque_probe ? 1.0 : mix(0.84, 0.97, absorption);
 }

@@ -47,12 +47,16 @@ static func dimensions(asset_id: String) -> Vector3:
 
 
 static func create(
-	item: Dictionary, snapshot: Dictionary, wood: Material, stone: Material
+	item: Dictionary,
+	snapshot: Dictionary,
+	wood: Material,
+	stone: Material,
+	supplied_visual: Node3D = null
 ) -> Node3D:
 	if not WRAPPERS.has(item["asset_id"]):
 		return WeekSixCatalog.create(item["asset_id"], item["id"], wood, stone)
 	var wrapper: GardenAssetWrapper = WRAPPERS[item["asset_id"]].instantiate()
-	wrapper.configure(item, snapshot, wood, stone)
+	wrapper.configure(item, snapshot, wood, stone, supplied_visual)
 	return wrapper
 
 

@@ -1,0 +1,54 @@
+{
+  "tests": 74,
+  "assertions": 3283,
+  "suites": {
+    "tests/week_13/test_living_scene.gd": 18,
+    "tests/week_13/test_walk.gd": 8,
+    "tests/week_14/immersion/test_snow_footprints.gd": 8,
+    "tests/week_14/immersive/test_walker_grass.gd": 7,
+    "tests/week_14/production_landscape/test_production_landscape.gd": 9,
+    "tests/week_14/weather_production/test_weather_adoption.gd": 9,
+    "tests/week_14/winter_optimization/test_winter_rendering.gd": 6,
+    "tests/week_15/test_woodland_cottage.gd": 3,
+    "tests/week_15/test_woodland_layout.gd": 2,
+    "tests/week_15/test_woodland_nature.gd": 4
+  },
+  "capture": {
+    "checks": {
+      "actual GPU": true,
+      "authored cloud input curl_noise": true,
+      "authored cloud input dither_noise": true,
+      "authored cloud input extra_large_noise_patterns": true,
+      "authored cloud input height_gradient": true,
+      "authored cloud input large_scale_noise": true,
+      "authored cloud input medium_scale_noise": true,
+      "authored cloud input small_scale_noise": true,
+      "automatic porch lantern warms the steps at dusk": true,
+      "daylight porch lantern rests": true,
+      "editor saved": true,
+      "evening saved": true,
+      "formal garden ready": true,
+      "native cloud renderer ready": true,
+      "orbit restored": true,
+      "photo entry": true,
+      "procedural pond follows shore": true,
+      "same source passes edit rules": true,
+      "spring saved": true,
+      "views leave editable state intact": true,
+      "walk entry": true,
+      "walk saved": true,
+      "winter saved": true,
+      "winter snow cover": true
+    },
+    "driver": "metal",
+    "passed": true
+  },
+  "images": {
+    "editor": "14f3bb82bd1bc4ca23a524d4bcb5d29ad117d8f5436cde6e5a0a9d68bfbf4632",
+    "spring": "bf0b2f69c64511f365d4763d76c0daa958a4d5671032e68b0b7e1a841c1d2917",
+    "evening": "318ccc83dfb60776b491864028fe7dfbabb06373d91e0f5a0ea1e56f9d7b8217",
+    "winter": "791506b5e384c7cffd9639537e99766b104d25f55324bc1b4336e18d1785f749",
+    "walk": "01bf2ed5190c1c18d2440ed7434e9ebe0fdf55c8bb31392ff508975d0441634d"
+  },
+  "player_files_unchanged": true
+}

@@ -108,6 +108,10 @@ func close_context() -> void:
 		weather_controls.hide()
 
 
+func _template_preview() -> Texture2D:
+	return preload("res://assets/ui/woodland_clearing.png")
+
+
 func _ready() -> void:
 	super._ready()
 	var stack: VBoxContainer = photo_note.get_parent()
