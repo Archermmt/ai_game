@@ -1,0 +1,5 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M4 Pro (Apple9)
+
+PASS UI signals, undo/redo, photo pause restore, safe actor relocation, mid-bridge removal/recovery and save menu
+2026-11-11 06:58:18.413 godot[3990:27924489] +[IMKClient subclass]: chose IMKClient_Modern

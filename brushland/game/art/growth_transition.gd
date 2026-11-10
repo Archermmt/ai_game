@@ -26,10 +26,10 @@ func terrain(node: MeshInstance3D, arrays: Array, old_surface: IslandSurface, su
 	node.set_meta("batch_exclude", true)
 	entries.append({"node": node, "material": final_material, "arrays": arrays})
 
-func building(node: Node3D) -> void:
+func building(node: Node3D, existing: bool = false) -> void:
 	node.set_meta("batch_exclude", true)
-	node.scale = Vector3(0.88, 0.025, 0.88)
-	entries.append({"node": node})
+	node.scale = Vector3.ONE * 0.97 if existing else Vector3(0.88, 0.025, 0.88)
+	entries.append({"node": node, "existing": existing})
 
 func advance(delta: float) -> bool:
 	if entries.is_empty():
@@ -45,7 +45,10 @@ func advance(delta: float) -> bool:
 		else:
 			# A restrained overshoot adds weight without bouncing below the soil.
 			var rise := 1.0 + 2.2 * pow(t - 1.0, 3) + 1.2 * pow(t - 1.0, 2)
-			node.scale = Vector3(lerpf(0.88, 1.0, t), maxf(0.025, rise), lerpf(0.88, 1.0, t))
+			if entry.get("existing", false):
+				node.scale = Vector3.ONE * lerpf(0.97, 1.0, 1.0-pow(1.0-t,3))
+			else:
+				node.scale = Vector3(lerpf(0.88, 1.0, t), maxf(0.025, rise), lerpf(0.88, 1.0, t))
 	if t < 1.0:
 		return false
 	finish()

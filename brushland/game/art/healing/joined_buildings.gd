@@ -208,7 +208,7 @@ static func front_gable(g: Geometry, x: float, y: float, half: float, rise: floa
 		g.beam(outer,far,0.041,TRIM)
 	g.beam(peak,Vector3(x,peak.y,rear),0.047,BRICK)
 
-static func enrich_front(g: Geometry, root: Node3D, door: float, form: int, garden: bool, ports: Array, hall: bool) -> void:
+static func enrich_front(g: Geometry, root: Node3D, door: float, form: int, garden: bool, ports: Array, hall: bool, rhythm: int = 0) -> void:
 	var open_door := true
 	var open_window := true
 	var window_x := -signf(door)*0.40
@@ -220,7 +220,7 @@ static func enrich_front(g: Geometry, root: Node3D, door: float, form: int, gard
 	var top := eave(form)
 	if open_door:
 		var x := signf(door)*0.36
-		if not hall:
+		if not hall and rhythm != 1:
 			front_gable(g,x,top-0.02,0.31,0.47,0.847,0.16,false)
 		front_gable(g,door,0.98,0.253,0.16,0.99,0.76,false)
 		for edge in [-1,1]:
@@ -228,7 +228,7 @@ static func enrich_front(g: Geometry, root: Node3D, door: float, form: int, gard
 			g.beam(pier,pier+Vector3.UP*0.93,0.047,WOOD)
 		g.panel(Vector3.BACK,door+0.104,door+0.134,0.868,0.44,0.50,Color("#c1975a"))
 	if open_window:
-		if not hall:
+		if not hall and rhythm != 2:
 			front_gable(g,window_x,top+0.21,0.16,0.18,0.56,0.20,true)
 		var base := Vector3(window_x,0.46,HALF+0.08)
 		g.beam(base-Vector3.RIGHT*0.19,base+Vector3.RIGHT*0.19,0.103,TRIM)
@@ -370,7 +370,42 @@ static func glass_pavilion(g: Geometry, kit: ArtKit, root: Node3D, tint: Color) 
 			kit.pot(root,Vector3(x,0.53,z))
 	lantern(g,crown,0.30,0.34,0.38,true)
 
-static func make(kit: ArtKit, o: Dictionary, variant: String, seams: Array, windows: Material, is_hall: bool = false) -> Node3D:
+static func spatial_details(g: Geometry, object: Dictionary, layout: Dictionary, is_hall: bool) -> void:
+	if layout.is_empty():
+		return
+	var turn := Basis(Vector3.UP, int(object.rotation) * PI * 0.5)
+	var role: String = layout.role
+	if int(object.get("form", 0)) == 0 and not object.get("locked", false) and not is_hall:
+		if role == "corner":
+			lantern(g, Vector3(0, 1.72, 0), 0.39, 0.43, 0.48, true)
+		elif role == "junction":
+			front_gable(g, 0.0, 1.70, 0.63, 0.83, 0.57, -0.37, true)
+	# The inner eave is a continuous shaded gallery. All columns stay inside
+	# the occupied foundation, leaving the logical door cell open.
+	for direction: Vector2i in layout.courts:
+		var side: Vector3 = (turn * Vector3(direction.x, 0, direction.y)).round()
+		var tangent := Vector3(side.z, 0, -side.x)
+		var inner := side * 0.76 + Vector3.UP * 1.35
+		var outer := side * 0.98 + Vector3.UP * 1.16
+		g.quad(inner-tangent*0.73, inner+tangent*0.73,
+			outer+tangent*0.73, outer-tangent*0.73, Vector3.UP, g.roof_color, 1)
+		for x in [-0.65, 0.0, 0.65]:
+			var foot: Vector3 = side*0.93 + tangent*x
+			g.beam(foot+Vector3.UP*0.12, foot+Vector3.UP*1.18, 0.048, WOOD)
+		g.beam(outer-tangent*0.74, outer+tangent*0.74, 0.055, TRIM)
+	# Recessed shutters and a side trellis vary the exposed ends using position,
+	# so deleting and recreating a plot gives the same visual result.
+	if role == "end":
+		var accent: int = layout.accent
+		var side := Vector3.LEFT if accent != 1 else Vector3.RIGHT
+		for z in [-0.33, 0.33]:
+			var center := side*0.82 + Vector3(0,0.62,z)
+			g.beam(center+Vector3(0,-0.20,0),center+Vector3(0,0.20,0),0.055, TRIM)
+		if accent == 2:
+			for height in [0.29,0.47,0.65,0.83]:
+				g.beam(side*0.83+Vector3(0,height,-0.42),side*0.83+Vector3(0,height,0.42),0.025,WOOD)
+
+static func make(kit: ArtKit, o: Dictionary, variant: String, seams: Array, windows: Material, is_hall: bool = false, layout: Dictionary = {}) -> Node3D:
 	var form := int(o.get("form",0))
 	var color_index := int(o.get("color",0))
 	var hall: bool = o.kind in ["house","tea"]
@@ -391,7 +426,7 @@ static func make(kit: ArtKit, o: Dictionary, variant: String, seams: Array, wind
 				join_wing(g,side,port,form,HALF,true)
 				start = float(port.b)*inset
 			wall(g,side,start,HALF,form,door_at)
-		enrich_front(g,root,clampf(door.x,-0.50,0.50),form,variant=="garden",ports.get(Vector3.BACK,[]),is_hall)
+		enrich_front(g,root,clampf(door.x,-0.50,0.50),form,variant=="garden",ports.get(Vector3.BACK,[]),is_hall,int(layout.get("accent",0)))
 		if is_hall:
 			great_hall(g,ports)
 		elif form==2:
@@ -427,5 +462,6 @@ static func make(kit: ArtKit, o: Dictionary, variant: String, seams: Array, wind
 		tiles_material = ShaderMaterial.new()
 		tiles_material.shader = PAN_TILES
 		tiles_material.set_meta("static_batch_safe",true)
+	spatial_details(g, o, layout, is_hall)
 	g.finish(root,tiles_material,windows)
 	return root

@@ -14,6 +14,7 @@ var camera=Camera3D.new()
 var sun=DirectionalLight3D.new()
 var world_env=WorldEnvironment.new()
 var preview=Node3D.new()
+var brush_volume = preload("res://game/art/brush_volume.gd").new()
 var tool:String="grass"
 var radius:int=1
 var span:int=3
@@ -54,7 +55,7 @@ func _ready() -> void:
 	capturing=OS.get_cmdline_user_args().has("--capture")
 	preload("res://game/world/cottage_cove.gd").create(data)
 	if OS.get_cmdline_user_args().has("--empty"):data.clear_world()
-	add_child(view);view.setup(data);add_child(preview)
+	add_child(view);view.setup(data);add_child(preview);preview.add_child(brush_volume)
 	add_child(wildlife);wildlife.setup()
 	var env=Environment.new();env.background_mode=Environment.BG_COLOR;env.background_color=Color("8bbcb9")
 	env.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR;env.ambient_light_color=Color.WHITE;env.ambient_light_energy=0.5
@@ -108,7 +109,13 @@ func select_tool(id:String) -> void:
 	tool=id;discard_stroke();moving_id=0
 	hud.toast({"house":"贴着旧屋加建，拖动连建；再点屋顶换形","dock":"从一至二级海岸向海延伸；R 旋转，−/+ 调长度","bridge":"选择第一端岸边，R 转向、−/+ 调跨度，两岸须同高","flower":"在小屋外圈画三格花圃，试试它的新模样","move":"先点物件，再点新位置；右键取消","lock":"点击建筑，保留或解锁当前外观","color":"点击建筑，更换屋顶配色"}.get(id,"选择了"+IslandHud.NAMES[id]));refresh_preview()
 func rebuild() -> void:
-	sim.reconcile(data);view.day=not sim.sunset;view.rebuild();view.update_actors(sim,time);hud.refresh_journal(sim.completed,sim.hidden_wishes);refresh_preview()
+	sim.reconcile(data)
+	view.day = not sim.sunset
+	view.rebuild()
+	view.update_actors(sim,time)
+	hud.discoveries = preload("res://game/life/creative_discovery.gd").describe(data,sim,view.neighborhood_state)
+	hud.refresh_journal(sim.completed,sim.hidden_wishes)
+	refresh_preview()
 func default_pitch_degrees() -> float:
 	return lerpf(12.0, 43.0, smoothstep(13.0, 31.0, camera.size))
 
@@ -237,7 +244,9 @@ func placement_preview(object: Dictionary, moving: bool = false) -> String:
 
 func refresh_preview(cursor: Variant = null) -> void:
 	preview_note.visible=false
-	for n in preview.get_children():n.free()
+	for n in preview.get_children():
+		if n != brush_volume:n.free()
+	brush_volume.hide()
 	if photo_mode or modal!=null or view.surface == null or get_viewport().gui_get_hovered_control() != null:return
 	var screen: Vector2 = cursor if cursor != null else get_viewport().get_mouse_position()
 	var p := tool_cell_at(screen)
@@ -256,6 +265,7 @@ func refresh_preview(cursor: Variant = null) -> void:
 	elif dragging and sweeping and construction != null:
 		for item in construction.added:
 			cells.append_array(BuildingRules.footprint(item))
+		valid = not cells.is_empty()
 		reason = "连建 %d 栋 · 松开落笔" % construction.added.size() if not cells.is_empty() else "沿同高空地拖动可加建"
 	elif tool in BuildingRules.TOOLS:
 		var target := BuildingRules.reshape_target(data, p, tool)
@@ -275,6 +285,20 @@ func refresh_preview(cursor: Variant = null) -> void:
 		for x in range(-radius,radius+1):
 			for z in range(-radius,radius+1):
 				cells.append(p+Vector2i(x,z))
+	if valid:
+		var key := [data.revision, tool, placement_rotation, cells.hash(), sweeping]
+		if dragging and sweeping and construction != null:
+			brush_volume.buildings(view, construction.draft, construction.added, key)
+		elif tool in BuildingRules.BUILDINGS and BuildingRules.reshape_target(data,p,tool).is_empty():
+			var proposal := prototype(p)
+			var draft := IslandData.new()
+			draft.tiles = data.tiles
+			draft.objects = data.objects.duplicate()
+			proposal.id = data.next_id
+			draft.objects.append(proposal)
+			brush_volume.buildings(view,draft,[proposal],key)
+		elif tool in ["grass","sand","rock","water","raise","lower","flower","road"]:
+			brush_volume.terrain(data,cells,tool,key)
 	var marked: Dictionary = {}
 	for q in cells:
 		if not BuildingRules.inside(q):
@@ -364,7 +388,7 @@ func commit_stroke_at(p: Vector2i) -> void:
 			hud.toast("%s · %s" % [IslandHud.NAMES[tool], FORM_NAMES[tool][int(target.get("form", 0))]])
 		else:
 			var o := prototype(p)
-			var result := BuildingRules.place(data, Vector2i(o.x, o.z), tool, placement_rotation, span)
+			var result := BuildingRules.place(data, Vector2i(o.x, o.z), tool, int(o.rotation), span)
 			if not result.begins_with("Placed"):
 				hud.toast(result)
 				stroke.clear()
@@ -529,7 +553,14 @@ func _process(dt:float) -> void:
 	wildlife.surface=view.surface
 	view.update_environment(dt,not sim.paused and not reduced_motion and not photo_mode)
 	if not sim.paused:time+=dt
-	sim.tick(data,dt);view.update_actors(sim,time);autosave_clock+=dt
+	var population_before: int = sim.people.size()
+	sim.tick(data,dt)
+	if sim.people.size() > population_before:
+		var visitor: Dictionary = sim.people.back()
+		hud.toast("岛民 %d 正乘船来小屋 %d，沿着你接好的路回家。" % [visitor.id,visitor.home])
+		hud.discoveries = preload("res://game/life/creative_discovery.gd").describe(data,sim,view.neighborhood_state)
+		hud.refresh_journal(sim.completed,sim.hidden_wishes)
+	view.update_actors(sim,time);autosave_clock+=dt
 	listener.position=center+Vector3.UP*3;audio.update_residents(data,sim,dt,not sim.paused and not photo_mode)
 	if not sim.events.is_empty():
 		for key in sim.events:hud.toast("收录了新的日常："+IslandHud.JOURNAL[key][0])
@@ -666,7 +697,7 @@ func welcome() -> void:
 	col.add_child(message)
 	var enter = hud.button(col, "走进暖树湾", func():
 		close_modal()
-		hud.toast("选小屋，沿旧屋的侧墙加建；再点屋顶换形。"))
+		hud.toast("手记里有下一笔的灵感。先沿小屋侧墙添一间，看看屋檐。"))
 	enter.add_theme_stylebox_override("normal", hud.style(Color("58624d")))
 	enter.add_theme_color_override("font_color", Color("fff4df"))
 	if FileAccess.file_exists("user://island.json"):

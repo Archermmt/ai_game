@@ -36,9 +36,14 @@ static func foundation(data: IslandData, cell: Vector2i, kind: String, rotation:
 				score += maxi(0, 2 - dz)
 			if dz == 2:
 				score += maxi(0, 2 - dx)
-		if score > best_score and BuildingRules.check(data, candidate).is_empty():
-			best = candidate
-			best_score = score
+		if score <= best_score:
+			continue
+		for turn in range(4):
+			candidate.rotation = posmod(rotation + turn, 4)
+			if BuildingRules.check(data, candidate).is_empty():
+				best = candidate.duplicate()
+				best_score = score
+				break
 	return best
 
 # Plan against a shallow, append-only copy. The real world enters its undo

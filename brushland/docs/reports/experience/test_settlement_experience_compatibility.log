@@ -1,0 +1,6 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+OpenGL API 4.1 Metal - 89.3 - Compatibility - Using Device: Apple - Apple M4 Pro
+
+PASS live volume preview without mutation, three spatial compositions, court discovery and cleanup
+2026-11-11 07:01:20.058 godot[5396:27932409] +[IMKClient subclass]: chose IMKClient_Modern
+2026-11-11 07:01:21.970 godot[5396:27932409] +[IMKInputSession subclass]: chose IMKInputSession_Modern

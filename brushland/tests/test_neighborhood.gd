@@ -15,7 +15,8 @@ func _initialize() -> void:
 	var before := d.snapshot()
 	var plain := BuildingRules.neighborhood(d)
 	assert(plain.variants == {home.id: "basic", second.id: "basic", third.id: "basic"})
-	var proposed := {"id": 0, "x": 12, "z": 15, "kind": "greenhouse", "rotation": 0}
+	# Layouts now include every building identity, including greenhouses.
+	var proposed := {"id": d.next_id, "x": 12, "z": 15, "kind": "greenhouse", "rotation": 0}
 	var preview := BuildingRules.neighborhood(d, proposed)
 	assert(d.snapshot() == before)
 	assert(preview.variants == {home.id: "garden", second.id: "garden", third.id: "basic"})

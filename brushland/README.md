@@ -18,7 +18,9 @@ godot --path .
 3. 用草地笔把岸边往外画，再用小屋笔在同高陆地上拖出一排地基。松开鼠标同时建成，撤销一次收回整笔。三栋以上连成一组时，居中的住宅或茶屋可长出带三联窗的共用主厅。入口须留空，相隔一格或对角的建筑各自保留屋面。
 4. 在场景上按住右键拖动，左右环绕，上下调俯角。触控板双指滑动也能转镜头，捏合可缩放。轻点右键仍是取消。摄影模式沿用这些操作。
 
-“新建海湾（无建筑）”可从头建岛，“其他海湾”中有月牙湾、花园池畔、灯塔岩岬和空白海面。“继续上次的岛”会读取已有存档。新版体验包在本地 `builds/BreezelyIsles-Miniature-macOS.zip` 和 `builds/BreezelyIsles-Miniature-Windows.zip`。[新版微缩场景与建造实录](snapshots/miniature/build_and_grow.mp4) · [开发进度](docs/STATUS.md)
+落笔前可看到半透明的建筑体积与地貌预览。连屋会区分直排、转角和分叉；围住一块空地会生成中庭与朝内的檐廊，拆开后重算。新房探出，原有邻屋只轻微落稳。按 Tab 打开手记，按“试一笔”选择下一项创作工具。
+
+“新建海湾（无建筑）”可从头建岛，“其他海湾”中有月牙湾、花园池畔、灯塔岩岬和空白海面。“继续上次的岛”会读取已有存档。新版体验包在本地 `builds/BreezelyIsles-Experience-macOS.zip` 和 `builds/BreezelyIsles-Experience-Windows.zip`。[本轮建造实录](snapshots/experience/build_and_preview.mp4) · [优化计划](docs/EXPERIENCE_OPTIMIZATION_PLAN.md) · [开发进度](docs/STATUS.md)
 
 ## 操作
 
@@ -53,7 +55,7 @@ godot --path .
 godot --headless --path . --script game/art/export_models.gd
 ```
 
-建筑与居民使用 `game/art/models/` 的GLB，地形、花草、基础设施与环境动物由程序生成。音频为原创合成资源，补全源程序在 `game/audio/make_completion_audio.py`。Noto中文字体随包提供，Poly Haven材质与生成贴图的来源、许可和哈希见 `THIRD_PARTY_NOTICES.md` 及docs/completion；没有引用第三方模型或音效。
+当前暖树湾使用美术参考工程的房屋、树与花草、CC0 木舟以及程序生成的连屋与地貌；居民使用 GLB 与程序动作。音频为原创合成资源，补全源程序在 `game/audio/make_completion_audio.py`。Noto 中文字体随包提供。模型、Poly Haven 材质与生成贴图的来源、许可和哈希见 `THIRD_PARTY_NOTICES.md`、`docs/healing_model_sources.json` 及 docs/completion。
 
 规则与数据测试位于 `tests/test_*.gd`，例如：
 

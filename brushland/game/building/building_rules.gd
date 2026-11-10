@@ -126,7 +126,13 @@ static func neighborhood(d: IslandData, proposal: Dictionary = {}) -> Dictionary
 				ground[cell] = surface if ground.get(cell, surface) == surface else "courtyard"
 	var seams := BuildingSeams.for_world(d, buildings, owner)
 	var halls := BuildingSeams.group_halls(buildings, seams)
-	return {"variants": variants, "ground": ground, "reasons": reasons, "seams": seams, "halls": halls}
+	var layout := preload("res://game/building/settlement_layout.gd").describe(d, buildings, seams)
+	for region in layout.courts:
+		for cell in region:
+			var tile := d.cell(cell)
+			if tile.h > 0 and not tile.road and not tile.flower:
+				ground[cell] = "meadow"
+	return {"variants": variants, "ground": ground, "reasons": reasons, "seams": seams, "halls": halls, "layouts": layout.buildings, "courts": layout.courts}
 
 # A second stroke belongs to the same building family. Crossing another family
 # with the brush is still a blocked placement, and a reserved door is never a hit.

@@ -18,6 +18,7 @@ var guide:Label
 var help:Label
 var toast_time:float=0
 var tool_buttons:Dictionary={}
+var discoveries: Dictionary = {}
 const NAMES={"grass":"草地","sand":"沙滩","rock":"岩台","water":"海水","raise":"抬高","lower":"降低","flower":"花圃","road":"小路","house":"小屋","bridge":"木桥","dock":"码头","tea":"茶屋","greenhouse":"温室","lighthouse":"灯塔","bench":"长椅","pot":"盆栽","tree":"树木","move":"移动","erase":"移除","lock":"定形","color":"配色"}
 const JOURNAL={"bench":["海风座位","在连通的小路旁放一张长椅"],"garden":["第一簇花","在小屋周围画至少三格花圃"],"tea":["茶还温着","接通茶屋，邀请两位邻居喝茶"],"bridge":["桥的另一头","用木桥接通两岸，让居民走过"],"greenhouse":["玻璃里的绿意","让居民走到温室赏花"],"lighthouse":["今晚有灯","切换日落，等居民到灯塔旁"]}
 func style(color:Color,border:Color=Color.TRANSPARENT) -> StyleBoxFlat:
@@ -89,6 +90,21 @@ func refresh_status(population:int,tool:String,radius:int,span:int,paused:bool) 
 	status.text="%d 位岛民   ·   %s %s%s"%[population,NAMES.get(tool,tool),str(span)+" 格" if tool in ["bridge","dock"] else str(radius)+" 号笔", "   已暂停" if paused else ""]
 func refresh_journal(completed:Array,hidden:Array=[]) -> void:
 	for n in journal.get_children():n.queue_free()
+	if not discoveries.is_empty():
+		journal.add_child(label("下一笔的发现",21))
+		for idea in preload("res://game/life/creative_discovery.gd").IDEAS:
+			journal.add_child(label(("● " if discoveries.done[idea[0]] else "○ ") + idea[1],15))
+		if not discoveries.next.is_empty():
+			var idea: Array = discoveries.next
+			var suggestion := label(idea[2],13)
+			suggestion.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			suggestion.custom_minimum_size.x = 205
+			journal.add_child(suggestion)
+			button(journal,"试一笔 · "+NAMES[idea[3]],func():
+				show_category("land" if idea[3] in ["road","water"] else "build")
+				tool_selected.emit(idea[3])
+				highlight(idea[3]))
+		journal.add_child(HSeparator.new())
 	journal.add_child(label("岛上的小心愿",21))
 	journal.add_child(label("%d / 6 个日常片段   ·   没有期限"%completed.size(),12))
 	for key in JOURNAL:

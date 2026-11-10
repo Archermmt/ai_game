@@ -1,5 +1,15 @@
 # 开发进度
 
+## 第 16 周 · 体积预览与空间创作（2026-11-11）
+
+- 已完成[体验优化计划 P1–P5](EXPERIENCE_OPTIMIZATION_PLAN.md)，并补入[开发计划第11.9节](DEVELOPMENT_PLAN.md#119-第16周--创作体验优化2026-11-11)。本轮重点是落笔预期、建筑空间组合和发现反馈。
+- 建筑悬停与整笔拖画显示半透明的实际候选模型；地貌使用未来地表采样预览，降低/挖水时也能看到预计表面。松手前不写入世界；松手一次提交，跨工具栏取消与整笔撤销继续有效。贴墙候选会优先保留所选方向，入口受阻时尝试其他合法朝向。
+- 从建筑占用识别直排、转角、分叉与封闭院落。转角加顶灯、分叉加交叉山墙，院内生成檐廊及花园地表，长屋立面按位置分配细节。拆开围合会移除庭院表现；跨块邻屋也更新，不新增存档字段。新房保留探出动画，已有邻屋改为 97%–100% 的轻微落稳。
+- 手记新增五项当前岛屿的发现和“试一笔”工具按钮。建议根据实际道路、码头、外海状态变化。真实来客触发具体房屋的入住提示；空白岛的第一位居民也可完成发现，拆屋/恢复不复制居民。
+- [落笔前体积](../snapshots/experience/preview.png) · [地貌预览](../snapshots/experience/terrain_preview.png) · [手记](../snapshots/experience/journal.png) · [13.9秒视口输入录像](../snapshots/experience/build_and_preview.mp4)。同样八间房、同机位：[直排](../snapshots/experience/street.png)、[L形](../snapshots/experience/corner.png)、[庭院](../snapshots/experience/court.png)。[本周截图](../snapshots/week_16.png)
+- [检查汇总](reports/experience/checks.json)记录 7 项规则/数据测试、6 项窗口运行及1段录制。覆盖预览不改世界、降低预览、分叉识别、跨块庭院重绘、撤销/旧档、同数构图、手记选笔、实际来客提示、原有建造与相机。Forward+ / Metal 与 Compatibility 均实际运行。
+- 本地体验包：`builds/BreezelyIsles-Experience-macOS.zip`、`builds/BreezelyIsles-Experience-Windows.zip`。[包校验与哈希](reports/experience/packages.json)：Mac 包已独立解压、验签和启动；两个包均用包内资源执行建造输入回归。Windows 操作系统启动、目标 M1/8GB 性能和真人舒适度仍未执行。本轮不将体感或美术效果写为已与官方等效。
+
 ## 第 15 周 · 探出、微缩对焦与方形地貌（2026-11-11）
 
 - 新建/改形建筑和受影响邻屋从地基探出，地貌从旧表面过渡到新表面，约 0.42 秒落稳。动画完成后归回批渲染；连续编辑、撤销和减少动画设置均可用。摄影会先让编辑落稳。

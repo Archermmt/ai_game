@@ -23,6 +23,7 @@ var batch_stats:Dictionary={}
 var growth = preload("res://game/art/growth_transition.gd").new()
 var reduced_motion := false
 var growing_ids: Dictionary = {}
+var new_ids: Dictionary = {}
 var data:IslandData
 func setup(d:IslandData) -> void:
 	data=d;add_child(ground);add_child(props);add_child(inhabitants)
@@ -106,7 +107,7 @@ func update_water_field() -> void:
 	else:water_texture.update(water_image)
 var surface:IslandSurface
 var previous_world:Dictionary={}
-var neighborhood_state := {"variants": {}, "ground": {}, "reasons": {}, "seams": {}, "halls": {}}
+var neighborhood_state := {"variants": {}, "ground": {}, "reasons": {}, "seams": {}, "halls": {}, "layouts": {}, "courts": []}
 
 func update_neighborhood(dirty: Dictionary) -> void:
 	var next := BuildingRules.neighborhood(data)
@@ -122,6 +123,7 @@ func update_neighborhood(dirty: Dictionary) -> void:
 	for object in data.objects:
 		var id := int(object.id)
 		if (next.variants.get(id) != neighborhood_state.variants.get(id)
+				or next.layouts.get(id) != neighborhood_state.layouts.get(id)
 				or next.seams.get(id, []) != neighborhood_state.seams.get(id, [])
 				or next.halls.has(id) != neighborhood_state.halls.has(id)):
 			dirty[Vector2i(floori(object.x / 8.0), floori(object.z / 8.0))] = true
@@ -182,12 +184,14 @@ func rebuild() -> void:
 
 	update_neighborhood(dirty)
 	growing_ids.clear()
+	new_ids.clear()
 	if old_surface != null and not reduced_motion:
 		var old_objects: Dictionary = {}
 		for object in previous_world.get("objects", []):old_objects[int(object.id)] = object
 		for object in world.objects:
 			var id := int(object.id)
-			if old_objects.get(id) != object or old_neighborhood.variants.get(id) != neighborhood_state.variants.get(id) or old_neighborhood.get("seams", {}).get(id) != neighborhood_state.get("seams", {}).get(id) or old_neighborhood.get("halls", {}).has(id) != neighborhood_state.get("halls", {}).has(id):
+			if not old_objects.has(id):new_ids[id] = true
+			if old_neighborhood.get("layouts", {}).get(id) != neighborhood_state.get("layouts", {}).get(id) or old_objects.get(id) != object or old_neighborhood.variants.get(id) != neighborhood_state.variants.get(id) or old_neighborhood.get("seams", {}).get(id) != neighborhood_state.get("seams", {}).get(id) or old_neighborhood.get("halls", {}).has(id) != neighborhood_state.get("halls", {}).has(id):
 				growing_ids[id] = true
 	if dirty.is_empty():
 		if surface==null:
@@ -275,6 +279,17 @@ func instance_leaf_cards(parent:Node3D) -> void:
 		for source in sources:source.free()
 func tri(st:SurfaceTool,a:Vector3,b:Vector3,c:Vector3,color:Color) -> void:
 	st.set_normal((b-a).cross(c-a).normalized());st.set_color(color);st.add_vertex(a);st.add_vertex(b);st.add_vertex(c)
+func create_building_model(object: Dictionary, state: Dictionary) -> Node3D:
+	var kind: String = object.kind
+	var variant: String = state.variants.get(int(object.id), "basic")
+	var seams: Array = state.seams.get(int(object.id), [])
+	var hall: bool = state.halls.has(int(object.id))
+	if hall or int(object.get("form", 0)) != 0 or not seams.is_empty():
+		return preload("res://game/art/healing/joined_buildings.gd").make(kit, object, variant, seams, material_library.window_material(), hall, state.get("layouts", {}).get(int(object.id), {}))
+	if kind in ["house","tea"] or int(object.get("color",0)) != 0:
+		return kit.building(kind, variant, int(object.get("color",0)))
+	return MODELS[kind].instantiate()
+
 func draw_object(o:Dictionary) -> void:
 	var p=Vector2i(o.x,o.z);var y=float(data.cell(p).h)*0.5
 	if o.kind in ["bridge","dock"]:
@@ -300,12 +315,12 @@ func draw_object(o:Dictionary) -> void:
 	if kind=="tree":
 		node=Node3D.new()
 		ArtKit.Village.tree(node,Vector3.ZERO,int(o.id),false,int(o.id)==focal_tree_id)
-	elif kind in BuildingRules.BUILDINGS and (is_hall or int(o.get("form",0)) != 0 or not seams.is_empty()):
-		node = preload("res://game/art/healing/joined_buildings.gd").make(kit, o, house_variant, seams, material_library.window_material(), is_hall)
-	elif kind in ["house","tea"] or int(o.get("color",0))!=0:
-		node=kit.building(kind,house_variant,int(o.get("color",0)))
+	elif kind in BuildingRules.BUILDINGS:
+		node = create_building_model(o, neighborhood_state)
+	elif int(o.get("color", 0)) != 0:
+		node = kit.building(kind, house_variant, int(o.color))
 	else:
-		node=MODELS[kind].instantiate()
+		node = MODELS[kind].instantiate()
 	node.position=Vector3(p.x+0.5 if kind in ["house","tea","greenhouse","lighthouse"] else p.x,y,p.y+0.5 if kind in ["house","tea","greenhouse","lighthouse"] else p.y)
 	material_library.dress(node,kind)
 	if kind=="house":
@@ -318,7 +333,7 @@ func draw_object(o:Dictionary) -> void:
 	node.rotation.y=-float(o.rotation)*PI/2;props.add_child(node)
 	if kind in BuildingRules.BUILDINGS:
 		building_picker.register(Vector2i(floori(p.x / 8.0), floori(p.y / 8.0)), p, node)
-	if growing_ids.has(int(o.id)):growth.building(node)
+	if growing_ids.has(int(o.id)):growth.building(node, not new_ids.has(int(o.id)))
 	if kind=="lighthouse":
 		IslandEffects.lighthouse(node,not day)
 		var lamp=OmniLight3D.new();lamp.position=Vector3(0,4,0);lamp.light_color=Color("ffd08a");lamp.light_energy=0.6;lamp.omni_range=6;lamp.visible=not day;node.add_child(lamp);lamp.add_to_group("island_lanterns")

@@ -1,0 +1,16 @@
+[
+  {
+    "file": "BreezelyIsles-Experience-macOS.zip",
+    "sha256": "c7145f6fd1e86c6d2c2a8affa8d3553f8389a79e26e1352c0829b388b5b54cc6",
+    "bytes": 91440894,
+    "interaction_test_with_exported_resources": true,
+    "native_os_launch": true
+  },
+  {
+    "file": "BreezelyIsles-Experience-Windows.zip",
+    "sha256": "03df170dbb02af436d2aba01c645997be13f168b98129f4212138a7a6050ef2b",
+    "bytes": 69067142,
+    "interaction_test_with_exported_resources": true,
+    "native_os_launch": false
+  }
+]
