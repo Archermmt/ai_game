@@ -6,7 +6,17 @@ extends ViewPlan
 func prepare(data: Dictionary, stage: ResourceStage = null) -> Dictionary:
 	if data.get("ok", false) and data.has("art_path_arrays"):
 		data["path_arrays"] = data["art_path_arrays"]
-	return super.prepare(data, stage)
+	var plan: Dictionary = super.prepare(data, stage)
+	if data.get("ok", false) and data.has("woodland_contacts") and owner_root._woodland_style():
+		_unit(
+			"woodland_contacts",
+			data["woodland_contact_signature"],
+			func() -> Node3D: return WoodlandContacts.view(data["woodland_contacts"]),
+			plan["payload"],
+			plan["jobs"],
+			stage
+		)
+	return plan
 
 
 func _foliage(items: Array, poses: Dictionary) -> Node3D:

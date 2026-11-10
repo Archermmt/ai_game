@@ -225,6 +225,9 @@ func test_fifty_mixed_commits_undo_and_redo_keep_latest_source_and_meshes() -> v
 		return
 	var initial: Dictionary = _without_revision(garden.document.snapshot())
 	var initial_versions: Dictionary = garden.meadow._published_versions.duplicate(true)
+	var initial_contacts: PackedVector3Array = (
+		garden._woodland_contacts.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX].duplicate()
+	)
 	for index: int in 50:
 		var candidate: Dictionary = garden.document.snapshot()
 		match index % 5:
@@ -243,18 +246,30 @@ func test_fifty_mixed_commits_undo_and_redo_keep_latest_source_and_meshes() -> v
 	assert_eq(garden.session.history_count(), 50)
 	var final: Dictionary = _without_revision(garden.document.snapshot())
 	var final_versions: Dictionary = garden.meadow._published_versions.duplicate(true)
+	var final_contacts: PackedVector3Array = (
+		garden._woodland_contacts.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX].duplicate()
+	)
+	assert_ne(
+		initial_contacts, final_contacts, "Ground transitions follow the same mixed transactions"
+	)
 	for index: int in 50:
 		garden._on_action(&"undo")
 		await _settle(true)
 	await _settle()
 	assert_eq(_without_revision(garden.document.snapshot()), initial)
 	assert_eq(garden.meadow._published_versions, initial_versions)
+	assert_eq(
+		garden._woodland_contacts.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX], initial_contacts
+	)
 	for index: int in 50:
 		garden._on_action(&"redo")
 		await _settle(true)
 	await _settle()
 	assert_eq(_without_revision(garden.document.snapshot()), final)
 	assert_eq(garden.meadow._published_versions, final_versions)
+	assert_eq(
+		garden._woodland_contacts.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX], final_contacts
+	)
 	assert_lt(_surface_error([Vector2(16, 16), Vector2.ZERO]), 0.02)
 
 

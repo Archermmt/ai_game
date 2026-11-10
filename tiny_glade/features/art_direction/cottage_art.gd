@@ -6,7 +6,7 @@ extends RefCounted
 const MeshBuilder = preload("res://features/art_direction/architecture/cottage_mesh.gd")
 const Joinery = preload("res://features/art_direction/architecture/woodland_joinery.gd")
 const SLATE: Color = Color("536675")
-const TIMBER: Color = Color("584c3f")
+const TIMBER: Color = Color("6a5745")
 const LIMESTONE: Color = Color("9f9682")
 const TILE_WIDTH: float = 0.49
 const TILE_COURSE: float = 0.42
@@ -725,8 +725,8 @@ static func _opening_details(
 		if rise < 1.8:
 			# A little stone sill has a worn bright top and never crosses the aperture.
 			stonework.stone(
-				center + Vector3.UP * -0.072 + normal * 0.035,
-				Vector3(span + trim * 2.0, 0.115, 0.21),
+				center + Vector3.UP * -0.095 + normal * 0.075,
+				Vector3(span + trim * 2.0, 0.16, 0.30),
 				normal,
 				LIMESTONE.lightened(0.05),
 				seed_value + u
@@ -760,6 +760,16 @@ static func _opening_details(
 				var b: Vector3 = mapper.call(right, rise + trim * 0.5, 0.055)
 				timber.beam(a, b, trim * 0.8, trim * 0.8, TIMBER, seed_value)
 			continue
+		# A worn step projects from the real doorway, below the clear aperture.
+		# Do not add a threshold to an elevated window that happens to be tall.
+		if sill <= 0.1:
+			stonework.stone(
+				center + normal * 0.14 + Vector3.DOWN * 0.065,
+				Vector3(span + trim, 0.12, 0.38),
+				normal,
+				LIMESTONE.lightened(0.08),
+				seed_value + u
+			)
 		var radius: float = span * 0.5
 		var arch_spring: float = rise - radius if opening["kind"] == "arch" else rise
 		var count_value: int = ceili(arch_spring / 0.29)

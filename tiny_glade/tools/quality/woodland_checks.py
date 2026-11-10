@@ -12,6 +12,7 @@ from run_checks import run_step
 
 OUT = ROOT / "reports/week_15/woodland"
 SUITES = {
+    "tests/week_16/test_woodland_refinement.gd",
     "tests/week_15/test_woodland_cottage.gd",
     "tests/week_15/test_woodland_nature.gd",
     "tests/week_15/test_woodland_layout.gd",
@@ -70,7 +71,8 @@ def main():
         totals["images"] = {name: hashlib.sha256((OUT / (name + ".png")).read_bytes()).hexdigest()
                             for name in ("editor", "spring", "evening", "winter", "walk",
                                          "build_tools", "weather_controls", "walk_controls", "settings", "spring_export", "scaled_weather",
-                                         "autumn_without_mist", "autumn_mist_6", "autumn_mist_8", "autumn_mist_10", "winter_mist")}
+                                         "autumn_without_mist", "autumn_mist_6", "autumn_mist_8", "autumn_mist_10", "winter_mist",
+                                         "spring_baseline_camera", "cottage_detail", "contacts_on", "contacts_off")}
     if production_files() != before:
         raise RuntimeError("Formal save or preferences changed")
     totals["player_files_unchanged"] = True

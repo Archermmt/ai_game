@@ -10,6 +10,7 @@ var _curtain: Node3D
 var _pond_bank: Node3D
 var _curtain_seed: String = ""
 var _bank_signature: int = 0
+var _woodland_contacts: MeshInstance3D
 var _art_wind_cache: Dictionary = {}
 var _art_wind_collections: int = 0
 
@@ -101,6 +102,12 @@ static func _evaluate_art(
 			paths["signature"] = signature
 			paths["arrays"] = ArtPathGeometry.arrays(snapshot)
 		data["art_path_arrays"] = paths["arrays"]
+		var contact_key: String = WoodlandContacts.signature(snapshot)
+		if paths.get("contact_signature", "") != contact_key:
+			paths["contact_signature"] = contact_key
+			paths["contacts"] = WoodlandContacts.generate(snapshot)
+		data["woodland_contact_signature"] = contact_key
+		data["woodland_contacts"] = paths["contacts"]
 	return data
 
 
@@ -170,6 +177,12 @@ func _on_published(snapshot: Dictionary, prepared: Dictionary) -> void:
 	if art_materials.is_empty():
 		return
 	ArtMaterials.sync_cottage_palette(art_materials, snapshot["environment"])
+	if _woodland_style() and prepared["units"].has("woodland_contacts"):
+		_woodland_contacts = prepared["units"]["woodland_contacts"]
+		if _woodland_contacts.material_override != null:
+			_woodland_contacts.material_override.set_shader_parameter(
+				"foliage_tint", GardenPalette.tint(snapshot["environment"], "foliage")
+			)
 	if _curtain == null or _curtain_seed != str(snapshot["world_seed"]):
 		if is_instance_valid(_curtain):
 			_curtain.queue_free()
@@ -203,7 +216,9 @@ func _collect_art_wind() -> Array[ShaderMaterial]:
 	for key: String in _live_units:
 		if key.begins_with("item:") or key.begins_with("batch:"):
 			roots[key] = _live_units[key]
-	for pair: Array in [["curtain", _curtain], ["bank", _pond_bank]]:
+	for pair: Array in [
+		["curtain", _curtain], ["bank", _pond_bank], ["contacts", _woodland_contacts]
+	]:
 		if is_instance_valid(pair[1]):
 			roots[pair[0]] = pair[1]
 	var result: Array[ShaderMaterial] = []

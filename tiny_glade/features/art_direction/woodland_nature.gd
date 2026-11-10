@@ -114,7 +114,7 @@ static func _broadleaf(
 			shoulder + direction * arm * 0.66 + Vector3.UP * height * rng.randf_range(0.09, 0.16)
 		)
 		var center: Vector3 = shoulder + direction * arm
-		center.y = height * (0.60 + 0.37 * tier) + rng.randf_range(-0.30, 0.25)
+		center.y = height * (0.54 + 0.43 * tier) + rng.randf_range(-0.30, 0.25)
 		body.stem(shoulder, elbow, height * 0.020 * (1.0 - tier * 0.45), 0.067, 5, BARK)
 		body.stem(elbow, center, 0.076, 0.018, 5, BARK)
 		var twig: Vector3 = (
@@ -170,16 +170,21 @@ static func _broadleaf(
 static func _crown(
 	leaves: WoodlandMesh, center: Vector3, radius: Vector3, pigment: Color, phase: float, low: bool
 ) -> void:
-	leaves.lobe(center, radius * 0.92, 7 if low else 9, phase, pigment, LEAF)
+	leaves.lobe(center, radius * 0.88, 8 if low else 11, phase, pigment, LEAF)
 	if radius.y > 0.32:
 		var lateral: Vector3 = Vector3(cos(phase), -0.25, sin(phase))
 		var ledge: Vector3 = center + lateral * radius * 0.62
 		leaves.lobe(
-			ledge, radius * Vector3(0.68, 0.54, 0.64), 7, phase + 1.72, pigment.darkened(0.05), LEAF
+			ledge,
+			radius * Vector3(0.58, 0.48, 0.56),
+			8,
+			phase + 1.72,
+			pigment.darkened(0.035),
+			LEAF
 		)
 	# Broad overlapping sprigs flare outside the crown body. Blades are
 	# attached to a short twig and point in related but distinct directions.
-	var count: int = 13 if low else 32
+	var count: int = 17 if low else 42
 	for i: int in count:
 		var t: float = (i + 0.5) / count
 		var y: float = lerpf(-0.73, 0.99, t)
@@ -194,11 +199,11 @@ static func _crown(
 			var start: Vector3 = pos + tangent * radius * j * 0.105
 			var tip: Vector3 = (
 				start
-				+ radius * (direction * (0.21 + j * 0.055) + Vector3.UP * 0.06 * sin(angle + j))
+				+ radius * (direction * (0.18 + j * 0.045) + Vector3.UP * 0.06 * sin(angle + j))
 			)
 			var axis: Vector3 = outward.lerp(Vector3.UP, 0.22).normalized()
 			leaves.leaflet(
-				start - direction * radius * 0.19, tip, tangent * radius * 0.105, axis, ink
+				start - direction * radius * 0.15, tip, tangent * radius * 0.075, axis, ink
 			)
 
 

@@ -74,10 +74,10 @@ void fragment() {
 		// Broad and fine clustered pigment breaks up the smooth canopy surface
 		// while the outermost leaves and their shadows are actual geometry.
 		vec2 brush = vec2(local_position.x + 0.69 * local_position.y, local_position.z - 0.54 * local_position.y);
-		float broad = washy_patch(brush * 2.3);
-		float fine = washy_patch(brush * 7.2 + vec2(3.6, 8.9));
-		float strokes = smoothstep(0.41, 0.59, broad * 0.65 + fine * 0.35);
-		paint *= mix(vec3(0.79, 0.85, 0.88), vec3(1.07, 1.05, 0.98), strokes);
+		float broad = washy_patch(brush * 1.35);
+		float fine = washy_patch(brush * 5.2 + vec2(3.6, 8.9));
+		float strokes = smoothstep(0.28, 0.74, broad * 0.78 + fine * 0.22);
+		paint *= mix(vec3(0.87, 0.91, 0.94), vec3(1.06, 1.04, 0.98), strokes);
 	}
 	float autumn = 1.0 - step(0.45, abs(living_season - 2.0));
 	if (season_deciduous) {

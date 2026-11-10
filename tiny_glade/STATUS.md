@@ -1,6 +1,12 @@
 # 风栖小筑 · 开发状态
 
-更新日期：2026-11-10（Asia/Shanghai）
+更新日期：2026-11-11（Asia/Shanghai）
+
+## W16 · 建筑、接触区域与林缘精修
+
+按用户确认的 Tiny Glade 对比结论，完成 [分阶段精修计划](docs/weekly/week_16/ART_REFINEMENT_PLAN.md)：柔化梁木收边与断面、加厚窗台和门槛、降低灰泥碎纹；墙脚、树根、石径边缘和池岸生成低矮地被，入口/桥阶/摆件避让，冬季下沉埋雪。派生数组在后台计算，经现有 ResourceStage 发布为一个表面，编辑、撤销和重做联动，不进入存档。池岸使用实际轮廓的湿土遮罩；树冠细化外缘、草地形成连续长短变化，新示范林缘打散行列并突出小屋。现有作品摆放、玩法、音乐和插件固定版本沿用。
+
+101 项专项、JUnit 3,631 个断言、59 项正式 Metal 检查通过；50 次混合编辑及撤销重做覆盖新增地被网格恢复，存读档/漫步/拨草/脚印/摄影回归通过。累计 W01–W09 446 项及失败负控通过；313 份 GDScript 格式/静态检查通过，正式作品与偏好摘要不变。命令：`python3 tools/quality/run_checks.py --week 9 --negative-control`、`python3 tools/quality/woodland_checks.py --native`。实拍、首次失败修正与边界见 [W16 验收报告](docs/weekly/week_16/ART_REFINEMENT_REPORT.md)。美术主观体验、Windows 真机和新增效果的满容量性能仍待验，未宣称达到原版整体品质或性能放行。
 
 ## W15 · 恢复微缩景深与森林晨雾
 

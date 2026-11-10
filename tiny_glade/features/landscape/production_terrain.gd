@@ -19,9 +19,16 @@ uniform float production_wetness = 0.0;
 uniform sampler2D production_snow_albedo : source_color, filter_linear_mipmap_anisotropic;
 uniform sampler2D production_snow_normal : hint_normal, filter_linear_mipmap_anisotropic;
 uniform float production_snow_depth = 0.14;
+uniform sampler2D production_bank_mask : filter_linear, repeat_disable;
 """
 const CLIMATE_FRAGMENT: String = """
     ALBEDO *= production_tint.rgb;
+    // A source-derived moist shore softens the automatic slope texture boundary.
+    // Pixel centres match the .25 m imported height grid; geometry stays authoritative.
+    vec2 bank_uv = ((v_vertex.xz + vec2(32.0)) * 4.0 + vec2(0.5)) / 256.0;
+    float bank_moisture = texture(production_bank_mask, bank_uv).r;
+    vec3 damp_bank = ALBEDO * vec3(0.65, 0.74, 0.66);
+    ALBEDO = mix(ALBEDO, damp_bank, bank_moisture * 0.85);
     vec2 production_cp = v_vertex.xz * 0.13 + vec2(living_time * 0.025, living_time * 0.011);
     float production_cloud_mask = smoothstep(0.40, 0.72,
         0.5 + sin(production_cp.x + sin(production_cp.y)) * 0.22
@@ -152,6 +159,9 @@ func _deliver(token: int, map_signature: String, maps: Dictionary) -> void:
 			color_image = maps["color"]
 			_publish_maps()
 		if data_ready:
+			terrain.material.set_shader_param(
+				"production_bank_mask", ImageTexture.create_from_image(maps["bank"])
+			)
 			published_signature = map_signature
 			published_token = token
 			_publish_metadata()
@@ -240,13 +250,16 @@ static func build_maps(snapshot: Dictionary) -> Dictionary:
 	var field: TerrainField = TerrainField.new(snapshot)
 	var heights: Image = Image.create(256, 256, false, Image.FORMAT_RF)
 	var colors: Image = Image.create(256, 256, false, Image.FORMAT_RGBA8)
+	var bank: Image = Image.create(256, 256, false, Image.FORMAT_R8)
 	for z: int in 256:
 		for x: int in 256:
 			var point: Vector2 = SOURCE_ORIGIN + Vector2(x, z) * VERTEX_SPACING
 			heights.set_pixel(x, z, Color(field.height_at(point), 0, 0, 1))
 			var wet: float = 0.0
 			if not field.pool.is_empty():
-				wet = 1.0 - smoothstep(-0.2, 0.75, PondShape.distance(field.pool, point))
+				var shore_width: float = 0.60 + 0.12 * sin(point.x * 3.2 + sin(point.y * 2.8))
+				wet = 1.0 - smoothstep(-0.2, shore_width, PondShape.distance(field.pool, point))
+			bank.set_pixel(x, z, Color(wet, 0, 0, 1))
 			var clearing: float = smoothstep(7.0, 24.0, point.length())
 			var patch: float = (
 				0.5
@@ -259,7 +272,7 @@ static func build_maps(snapshot: Dictionary) -> Dictionary:
 			color = color.lerp(Color("829287"), wet * 0.42)
 			color.a = lerpf(0.5, 0.30, wet)
 			colors.set_pixel(x, z, color)
-	return {"height": heights, "color": colors}
+	return {"height": heights, "color": colors, "bank": bank}
 
 
 static func _function_end(code: String, declaration: String) -> int:

@@ -86,7 +86,7 @@ func beam(
 	if across.length_squared() < 0.1:
 		across = Vector3.RIGHT
 	var up: Vector3 = across.cross(axis).normalized()
-	var bevel: float = minf(width, depth) * 0.18
+	var bevel: float = minf(width, depth) * 0.26
 	var section: Array[Vector2] = [
 		Vector2(-width * 0.5 + bevel, -depth * 0.5),
 		Vector2(width * 0.5 - bevel, -depth * 0.5),
@@ -111,11 +111,12 @@ func beam(
 	for span: int in range(4):
 		var t: float = float(span) / 3.0
 		var center: Vector3 = a.lerp(b, t)
-		center += across * sin(t * PI) * sin(seed_value * 0.73) * 0.012
-		center += up * sin(t * PI) * cos(seed_value * 0.41) * 0.009
+		center += across * sin(t * PI) * sin(seed_value * 0.73) * minf(0.023, width * 0.12)
+		center += up * sin(t * PI) * cos(seed_value * 0.41) * minf(0.016, depth * 0.10)
 		var current: Array[Vector3] = []
+		var taper: float = 1.0 + sin(seed_value * 1.3 + t * 2.1) * 0.035
 		for p: Vector2 in section:
-			current.append(center + across * p.x + up * p.y)
+			current.append(center + (across * p.x + up * p.y) * taper)
 		if span == 0 or span == 3:
 			for index: int in range(8):
 				triangle_uv(

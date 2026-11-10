@@ -1,7 +1,7 @@
 extends RefCounted
 ## Wall bays and chimney derived entirely from the editable house in local metres.
 
-const TIMBER: Color = Color("51483c")
+const TIMBER: Color = Color("66533f")
 const STONE: Color = Color("948578")
 const MORTAR: Color = Color("736b5e")
 

@@ -5,8 +5,8 @@ extends RefCounted
 const VIEWS: Array[Dictionary] = [
 	{
 		"id": "recommended_day",
-		"target": [0.9, 2.35, 0.4],
-		"distance": 29.5,
+		"target": [0.9, 2.05, 0.4],
+		"distance": 27.0,
 		"yaw": -0.68,
 		"pitch": 0.59
 	},
@@ -46,10 +46,12 @@ static func _clearing() -> Dictionary:
 		for col: int in range(9):
 			var x: float = -19.0 + 4.75 * col + rng.randf_range(-1.2, 1.2)
 			var z: float = -7.0 - row * 6.2 + rng.randf_range(-1.35, 1.35)
-			if row == 0 and col in [1, 5]:
+			if (row == 0 and col in [1, 4, 5]) or (row == 1 and col in [2, 7]):
 				continue
 			var species: String = "NAT-02" if (col + row * 2) % 5 == 0 else "NAT-01"
-			_place(source, species, Vector2(x, z), rng.randf_range(0.94, 1.42))
+			# Offset entire groves as well as individual trunks to hide row rhythm.
+			z += 1.7 * sin(col * 1.65 + row * 0.8)
+			_place(source, species, Vector2(x, z), rng.randf_range(0.80, 1.43))
 	for tree: Array in [
 		[-13, -2, 1.35],
 		[-17, 4, 1.5],
@@ -58,7 +60,7 @@ static func _clearing() -> Dictionary:
 		[13.8, -2.5, 1.32],
 		[15, 4, 1.42],
 		[12.8, 10.4, 0.91],
-		[-2.45, 17.35, 1.03],
+		[-8.6, 16.8, 0.92],
 		[-21, 14, 1.3],
 		[18, 17, 1.35],
 		[-17, 20, 1.52],

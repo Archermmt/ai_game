@@ -105,6 +105,42 @@ func _run() -> void:
 		garden.hud.settings.hide()
 		garden.hud.hide()
 		await _capture("spring")
+		_check(
+			"ground transitions publish with the formal scene",
+			is_instance_valid(garden._woodland_contacts) and garden._woodland_contacts.mesh != null
+		)
+		_check(
+			"ground transitions use one merged surface",
+			garden._woodland_contacts.mesh.get_surface_count() == 1
+		)
+		_check(
+			"ground transitions join photo freeze and wind",
+			garden._woodland_contacts.material_override in garden.wind_materials
+		)
+		garden.camera_rig.distance = 29.5
+		garden.camera_rig.target = Vector3(0.9, 2.35, 0.4)
+		garden.camera_rig.refresh()
+		await _capture("spring_baseline_camera")
+		garden._recommended_view(1)
+		await _capture("cottage_detail")
+		garden._freeze_photo(true)
+		garden.set_process(false)
+		await _capture("contacts_on")
+		var contacts_on: Image = root.get_texture().get_image()
+		garden._woodland_contacts.hide()
+		await _capture("contacts_off")
+		var contacts_off: Image = root.get_texture().get_image()
+		var contact_pixels: int = 0
+		for y: int in range(0, root.size.y, 2):
+			for x: int in range(0, root.size.x, 2):
+				var delta: Color = contacts_on.get_pixel(x, y) - contacts_off.get_pixel(x, y)
+				if absf(delta.r) + absf(delta.g) + absf(delta.b) > 0.025:
+					contact_pixels += 1
+		_check("ground transitions affect visible pixels", contact_pixels > 20)
+		garden._woodland_contacts.show()
+		garden.set_process(true)
+		garden._freeze_photo(false)
+		garden._recommended_view(0)
 		var photo: Dictionary = await garden.photography.capture(
 			garden.camera_rig.camera, Vector2i(1920, 1080), FOLDER.path_join("spring_export.png")
 		)
