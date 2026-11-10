@@ -18,6 +18,7 @@ SUITES = {
     "tests/week_14/production_landscape/test_production_landscape.gd",
     "tests/week_14/weather_production/test_weather_adoption.gd",
     "tests/week_13/test_living_scene.gd",
+    "tests/week_13/test_painterly_environment.gd",
     "tests/week_13/test_walk.gd",
     "tests/week_14/immersive/test_walker_grass.gd",
     "tests/week_14/immersion/test_snow_footprints.gd",
@@ -27,7 +28,7 @@ SUITES = {
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--native", action="store_true", help="Also capture five actual GPU frames.")
+    parser.add_argument("--native", action="store_true", help="Also capture actual GPU views and HUD panels.")
     args = parser.parse_args()
     check_assets()
     OUT.mkdir(parents=True, exist_ok=True)
@@ -66,7 +67,8 @@ def main():
             raise RuntimeError("Woodland GPU capture failed")
         totals["capture"] = capture
         totals["images"] = {name: hashlib.sha256((OUT / (name + ".png")).read_bytes()).hexdigest()
-                            for name in ("editor", "spring", "evening", "winter", "walk")}
+                            for name in ("editor", "spring", "evening", "winter", "walk",
+                                         "build_tools", "weather_controls", "walk_controls", "settings", "spring_export", "scaled_weather")}
     if production_files() != before:
         raise RuntimeError("Formal save or preferences changed")
     totals["player_files_unchanged"] = True

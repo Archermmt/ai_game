@@ -85,3 +85,28 @@ func test_distant_tree_envelopes_clear_the_entire_editable_square() -> void:
 		var z: float = maxf(envelope.position.z, -envelope.end.z)
 		nearest = minf(nearest, maxf(x, z))
 	assert_gt(nearest, 24.0)
+
+
+func test_broadleaf_lods_light_as_one_crown_with_local_leaf_relief() -> void:
+	for asset: String in ["NAT-01", "NAT-03"]:
+		var tree: Node3D = WoodlandNature.create(asset, "crown_lighting")
+		for part: MeshInstance3D in tree.get_children():
+			if part.mesh.resource_name != "foliage_deciduous_boughs":
+				continue
+			var center: Vector3 = part.mesh.get_aabb().get_center()
+			var arrays: Array = part.mesh.surface_get_arrays(0)
+			var positions: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+			var normals: PackedVector3Array = arrays[Mesh.ARRAY_NORMAL]
+			var masks: PackedVector2Array = arrays[Mesh.ARRAY_TEX_UV]
+			var alignment: float = 0.0
+			var leaf_count: int = 0
+			for i: int in positions.size():
+				if masks[i].y == 1.0:
+					alignment += normals[i].dot((positions[i] - center).normalized())
+					leaf_count += 1
+			assert_gt(leaf_count, 0)
+			if leaf_count > 0:
+				var average: float = alignment / leaf_count
+				assert_gt(average, 0.65, "Neighbouring boughs share the light-facing side")
+				assert_lt(average, 0.98, "Individual sprigs retain their own relief")
+		tree.free()

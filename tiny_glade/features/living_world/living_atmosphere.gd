@@ -22,7 +22,12 @@ var _weather: String = ""
 
 func configure(root: Node3D) -> void:
 	host = root
-	sky.configure(host.world_environment.environment)
+	var environment: Environment = host.world_environment.environment
+	sky.configure(environment)
+	environment.tonemap_mode = Environment.TONE_MAPPER_AGX
+	environment.tonemap_exposure = 1.55
+	environment.adjustment_enabled = true
+	environment.adjustment_saturation = 1.10
 	name = "LivingAtmosphere"
 	rain = _precipitation(false, 1400)
 	snow = _precipitation(true, 900)
@@ -127,16 +132,15 @@ func update(delta: float, state: Dictionary) -> void:
 	var energy: float = (1.24 if summer else 1.05) * maxf(0.0, altitude)
 	energy *= float(visual["energy"])
 	host.sun.light_energy = maxf(0.035, energy)
-	host.sun.rotation_degrees = Vector3(
-		-maxf(9.0, altitude * (66 if summer else 48)), -135 + hour * 9, 0
-	)
+	var angles: Vector2 = PaintedSky.sun_angles(hour, summer)
+	host.sun.rotation_degrees = Vector3(-maxf(9.0, angles.y), angles.x, 0)
 	host.sun.light_color = Color("a5b9d9").lerp(Color("fff1cf"), daylight)
 	host.sun.light_color = host.sun.light_color.lerp(
 		Color("edb18c"), (1.0 - smoothstep(0.0, 0.35, absf(altitude))) * daylight
 	)
 	var environment: Environment = host.world_environment.environment
 	environment.ambient_light_color = Color("8298bc").lerp(Color("c1cec7"), daylight)
-	environment.ambient_light_energy = lerpf(0.20, 0.52 + 0.10 * float(visual["cloud"]), daylight)
+	environment.ambient_light_energy = lerpf(0.31, 0.64 + 0.10 * float(visual["cloud"]), daylight)
 	environment.fog_light_color = Color("536783").lerp(Color("c0ccbf"), daylight)
 	environment.fog_density = float(visual["fog"]) + 0.0012 * daylight
 	environment.fog_light_color = environment.fog_light_color.lerp(Color("bda277"), visual["dust"])

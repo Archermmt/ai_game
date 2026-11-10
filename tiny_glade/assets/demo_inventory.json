@@ -673,9 +673,19 @@
       "sha256": "3fd498c7e9ace642431bed84a199d5f47b40f29fc32a6a1b0217f4152920fdc9"
     },
     {
+      "path": "assets/ui/garden/field_paper.svg",
+      "bytes": 713,
+      "sha256": "f1176168551f7186523f34580f31f3cfebc4fc09f2d5a2e16e2c25361d8b348e"
+    },
+    {
       "path": "assets/ui/garden/library.svg",
       "bytes": 250,
       "sha256": "c5fd0fba6fe37ab120f7450eaaa29eaf3d6e149c224c9fba15376f5d527c7894"
+    },
+    {
+      "path": "assets/ui/garden/oak_rail.svg",
+      "bytes": 796,
+      "sha256": "1698412610555afd9b42ef0c8a3c854fc49c0ac21ed93b104eb3f5797ad683f8"
     },
     {
       "path": "assets/ui/garden/palette.svg",
@@ -691,6 +701,11 @@
       "path": "assets/ui/garden/settings.svg",
       "bytes": 330,
       "sha256": "d62b0c8f0c68f3415be855aad37db56a55847477af721a92e54438ca9ccdd41a"
+    },
+    {
+      "path": "assets/ui/garden/slider_bead.svg",
+      "bytes": 338,
+      "sha256": "117a4cef11acaddb265e0986cd2d9387653a91a18a3de29de576785593b0f745"
     },
     {
       "path": "assets/ui/garden/sun.svg",
@@ -794,8 +809,8 @@
     },
     {
       "path": "assets/ui/woodland_clearing.png",
-      "bytes": 256417,
-      "sha256": "1bb94965d60f13c51785c421be05ff99cde2caaee0451ca552c05384be48d671"
+      "bytes": 247148,
+      "sha256": "ab7977fc9db9191059a8126252b5dc566f904012be2729a3161ac72ecfb97d3d"
     },
     {
       "path": "assets/week_04/bench.asset.json",

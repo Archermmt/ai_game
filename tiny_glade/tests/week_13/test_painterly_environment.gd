@@ -29,7 +29,11 @@ func test_sky_ridges_and_daylight_follow_seasons_without_changing_the_weather_so
 	assert_ne(summer, winter)
 	assert_true(noon.is_normalized())
 	assert_gt(noon.y, 0.0)
-	assert_lt(sky.material.get_shader_parameter("sun_direction").y, 0.0)
+	var midnight: Vector3 = sky.material.get_shader_parameter("sun_direction")
+	assert_lt(midnight.y, 0.0)
+	sky.sync(0, 0.0, 24.0, false, visual, "winter")
+	var next_midnight: Vector3 = sky.material.get_shader_parameter("sun_direction")
+	assert_lt(midnight.distance_to(next_midnight), 0.00001)
 	assert_eq(environment.sky.radiance_size, Sky.RADIANCE_SIZE_32)
 	assert_eq(source, before)
 

@@ -38,11 +38,11 @@ func _ready() -> void:
 	_persist_preferences()
 	pond_reflections = PondReflections.new()
 	world_view.add_child(pond_reflections)
-	pond_reflections.configure(self)
 	hud.attach_calendar(calendar)
 	atmosphere = LivingAtmosphere.new()
 	world_view.add_child(atmosphere)
 	atmosphere.configure(self)
+	pond_reflections.configure(self)
 	hud.calendar.changed.connect(_calendar_changed)
 	for argument: String in OS.get_cmdline_user_args():
 		if qa_mode and argument.begins_with("--season="):

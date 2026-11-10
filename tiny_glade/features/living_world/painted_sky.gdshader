@@ -52,7 +52,12 @@ void sky() {
     float sunset = (1.0-smoothstep(0.0,0.32,abs(sun_direction.y))) * smoothstep(-0.22,0.02,sun_direction.y);
     rim = mix(rim,vec3(0.92,0.55,0.34),sunset*0.65);
     vec3 color = mix(top,rim,horizon);
-    if (!AT_CUBEMAP_PASS) {
+    if (AT_CUBEMAP_PASS) {
+        // The lower hemisphere represents bounced light from the forest floor.
+        // Keep it dimmer than the horizon so overhangs and lower boughs read in shade.
+        vec3 ground = mix(vec3(0.022,0.034,0.042),ridge_tint * 0.74,daylight);
+        color = mix(color,ground,smoothstep(0.0,0.65,-d.y));
+    } else {
         float up = smoothstep(-0.04,0.10,d.y);
         float night = (1.0-daylight)*up;
         vec3 cells = d*210.0;

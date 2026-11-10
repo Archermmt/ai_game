@@ -15,13 +15,15 @@ func configure(value: CalendarState) -> void:
 	clock = value
 	name = "WeatherWeights"
 	theme = GardenTheme.create()
-	add_theme_stylebox_override("panel", GardenTheme.box(GardenTheme.CREAM))
+	add_theme_stylebox_override("panel", GardenTheme.panel(12))
 	var stack: VBoxContainer = VBoxContainer.new()
+	stack.add_theme_constant_override("separation", 8)
 	add_child(stack)
 	var heading: HBoxContainer = HBoxContainer.new()
 	stack.add_child(heading)
 	var title: Label = Label.new()
 	title.text = "四季天气比例"
+	title.add_theme_font_size_override("font_size", 19)
 	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	heading.add_child(title)
 	season_choice = OptionButton.new()
@@ -37,11 +39,11 @@ func configure(value: CalendarState) -> void:
 	close.custom_minimum_size = Vector2(28, 28)
 	close.add_theme_constant_override("icon_max_width", 20)
 	close.tooltip_text = "收起天气设置"
+	close.accessibility_name = close.tooltip_text
 	close.pressed.connect(hide)
 	heading.add_child(close)
+	stack.add_child(HSeparator.new())
 	automatic = CheckBox.new()
-	automatic.add_theme_color_override("font_pressed_color", GardenTheme.INK)
-	automatic.add_theme_color_override("font_hover_pressed_color", GardenTheme.INK)
 	automatic.text = "自动天气 · 每3游戏小时抽取，换日重新抽取"
 	automatic.toggled.connect(
 		func(enabled: bool) -> void:
@@ -80,24 +82,21 @@ func configure(value: CalendarState) -> void:
 		slider.custom_minimum_size = Vector2(200, 26)
 		slider.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		slider.accessibility_name = label.text + "出现比例"
-		for state: String in ["slider", "grabber_area", "grabber_area_highlight"]:
-			var rail: StyleBoxFlat = StyleBoxFlat.new()
-			rail.bg_color = Color("b8bda0") if state == "slider" else Color("809474")
-			rail.set_corner_radius_all(3)
-			rail.content_margin_top = 3
-			rail.content_margin_bottom = 3
-			slider.add_theme_stylebox_override(state, rail)
 		row_widgets[key] = [picture, label]
 		slider.value_changed.connect(func(weight: float) -> void: _weight_changed(key, weight))
 		sliders[key] = slider
 		grid.add_child(slider)
 		var percent: Label = Label.new()
 		percent.custom_minimum_size.x = 48
+		percent.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 		percentages[key] = percent
 		grid.add_child(percent)
 	var note: Label = Label.new()
 	note.text = "拖动一项，其余按比例分配，总和100%。灰色天气不适合该季节。"
 	note.add_theme_font_size_override("font_size", 12)
+	note.add_theme_color_override("font_color", GardenTheme.MOSS)
+	note.custom_minimum_size.x = 300
+	note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	stack.add_child(note)
 	sync()
 
@@ -123,7 +122,7 @@ func sync() -> void:
 		slider.value = clock.weather_weights[season][key]
 		slider.tooltip_text = "调整比例" if permitted else "本季节不会出现"
 		percentages[key].text = "%.1f%%" % clock.weather_weights[season][key]
-		percentages[key].modulate.a = 1.0 if permitted else 0.35
+		percentages[key].modulate.a = 1.0 if permitted else 0.58
 		for widget: Control in row_widgets[key]:
-			widget.modulate.a = 1.0 if permitted else 0.35
+			widget.modulate.a = 1.0 if permitted else 0.58
 	_syncing = false

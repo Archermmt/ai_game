@@ -10,6 +10,13 @@ func _initialize() -> void:
 	_run.call_deferred()
 
 
+func _process(_delta: float) -> bool:
+	# An occluded native window must still deliver the exporter's post-draw frames.
+	if is_instance_valid(garden) and garden.photography != null and garden.photography.busy:
+		RenderingServer.force_draw(false)
+	return false
+
+
 func _run() -> void:
 	DirAccess.make_dir_recursive_absolute(FOLDER)
 	root.size = Vector2i(1600, 900)
@@ -56,9 +63,52 @@ func _run() -> void:
 					clouds.get(key).resource_path.begins_with("res://assets/woodland/")
 				)
 		_climate(5, 10.5, "clear")
+		var pointer: InputEventMouseMotion = InputEventMouseMotion.new()
+		pointer.position = _screen_rect(garden.hud.calendar).position + Vector2(6, 6)
+		pointer.global_position = pointer.position
+		Input.parse_input_event(pointer)
 		await _capture("editor")
+		var environment: Environment = garden.world_environment.environment
+		_check("daylight is side lit", absf(garden.sun.rotation.y - garden.camera_rig.yaw) > 1.0)
+		_check(
+			"main camera uses sky fill and AgX",
+			(
+				environment.tonemap_mode == Environment.TONE_MAPPER_AGX
+				and environment.ambient_light_source == Environment.AMBIENT_SOURCE_SKY
+			)
+		)
+		var reflected: Environment = garden.pond_reflections.camera.environment
+		_check(
+			"pond shares the sky and exposure",
+			(
+				reflected.sky == environment.sky
+				and reflected.ambient_light_source == environment.ambient_light_source
+				and is_equal_approx(reflected.tonemap_exposure, environment.tonemap_exposure)
+			)
+		)
+		garden.hud.open_group("build")
+		_check("build tray visible", garden.hud.quick.is_visible_in_tree())
+		await _capture("build_tools")
+		var choices: HFlowContainer = garden.hud.quick_choices
+		_check("all building choices fit on one row", choices.get_line_count() == 1)
+		garden.hud.open_group("light")
+		_check("weather controls visible", garden.hud.weather_controls.is_visible_in_tree())
+		await _capture("weather_controls")
+		_check(
+			"weather panel clears tool rail",
+			not _screen_rect(garden.hud.weather_controls).intersects(_screen_rect(garden.hud._dock))
+		)
+		garden.hud.close_context()
+		garden.hud.settings.popup_centered()
+		_check("settings open", garden.hud.settings.visible)
+		await _capture("settings")
+		garden.hud.settings.hide()
 		garden.hud.hide()
 		await _capture("spring")
+		var photo: Dictionary = await garden.photography.capture(
+			garden.camera_rig.camera, Vector2i(1920, 1080), FOLDER.path_join("spring_export.png")
+		)
+		_check("production photography exports 1080p", photo.get("ok", false))
 		_check("daylight porch lantern rests", garden.lanterns.active_ids.is_empty())
 		garden._recommended_view(1)
 		_climate(5, 17.85, "clear")
@@ -78,9 +128,13 @@ func _run() -> void:
 		_check("photo entry", garden.enter_photo())
 		_check("walk entry", garden.start_walk())
 		if garden.walk_controller.active:
+			garden.hud.hide()
 			await _capture("walk")
+			garden.hud.show()
+			await _capture("walk_controls")
 		garden.exit_photo()
 		_check("orbit restored", not garden.walk_controller.active and not garden.photo_active)
+		await _check_scaled_hud()
 		_check("views leave editable state intact", source == garden.document.snapshot())
 	var driver: String = RenderingServer.get_current_rendering_driver_name()
 	_check("actual GPU", driver in ["metal", "vulkan"])
@@ -98,6 +152,29 @@ func _run() -> void:
 		await process_frame
 	print("WOODLAND CAPTURE ", result["passed"])
 	quit(0 if result["passed"] else 1)
+
+
+func _screen_rect(control: Control) -> Rect2:
+	return control.get_global_transform_with_canvas() * Rect2(Vector2.ZERO, control.size)
+
+
+func _check_scaled_hud() -> void:
+	root.size = Vector2i(1280, 800)
+	root.content_scale_size = root.size
+	garden._preference_changed("ui_scale", 1.5)
+	garden.hud.open_group("light")
+	await _capture("scaled_weather")
+	var bounds: Rect2 = Rect2(Vector2.ZERO, Vector2(root.size))
+	var panel: Rect2 = _screen_rect(garden.hud.weather_controls)
+	var rail: Rect2 = _screen_rect(garden.hud._dock)
+	_check("scaled weather panel fits game window", bounds.encloses(panel))
+	_check("scaled tool rail fits game window", bounds.encloses(rail))
+	_check("scaled calendar fits game window", bounds.encloses(_screen_rect(garden.hud.calendar)))
+	_check("scaled weather panel clears tool rail", not panel.intersects(rail))
+	_check(
+		"scaled weather panel clears calendar",
+		not panel.intersects(_screen_rect(garden.hud.calendar))
+	)
 
 
 func _climate(month: int, hour: float, weather: String) -> void:

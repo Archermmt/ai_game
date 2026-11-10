@@ -21,38 +21,42 @@ func configure(value: CalendarState) -> void:
 	clock = value
 	name = "GardenCalendar"
 	theme = GardenTheme.create()
-	var paper: StyleBoxFlat = StyleBoxFlat.new()
-	paper.bg_color = Color("eee8d6f5")
-	paper.border_color = Color("a6ad8b")
-	paper.set_border_width_all(1)
-	paper.set_corner_radius_all(12)
-	paper.content_margin_left = 15
-	paper.content_margin_right = 15
-	paper.content_margin_top = 12
-	paper.content_margin_bottom = 12
-	add_theme_stylebox_override("panel", paper)
+	add_theme_stylebox_override("panel", GardenTheme.panel(12))
 	var stack: VBoxContainer = VBoxContainer.new()
-	stack.add_theme_constant_override("separation", 9)
+	stack.add_theme_constant_override("separation", 4)
 	add_child(stack)
 	var heading: HBoxContainer = HBoxContainer.new()
+	heading.add_theme_constant_override("separation", 10)
 	stack.add_child(heading)
 	weather_icon = _choice("Weather")
 	weather_icon.fit_to_longest_item = false
 	weather_icon.custom_minimum_size = Vector2(48, 48)
 	weather_icon.add_theme_constant_override("icon_max_width", 36)
 	weather_icon.accessibility_name = "天气，点击更改"
+	var seal: StyleBoxFlat = GardenTheme.box(Color("deddbb"))
+	seal.set_corner_radius_all(21)
+	seal.border_color = GardenTheme.BRASS
+	weather_icon.add_theme_stylebox_override("normal", seal)
 	heading.add_child(weather_icon)
 	season_label = Label.new()
 	season_label.add_theme_font_size_override("font_size", 19)
 	heading.add_child(season_label)
+	season_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var heading_label: Label = Label.new()
+	heading_label.text = "林间历"
+	heading_label.add_theme_font_size_override("font_size", 13)
+	heading_label.add_theme_color_override("font_color", GardenTheme.MOSS)
+	heading.add_child(heading_label)
+	stack.add_child(HSeparator.new())
 	var grid: GridContainer = GridContainer.new()
 	grid.columns = 2
 	grid.add_theme_constant_override("h_separation", 12)
-	grid.add_theme_constant_override("v_separation", 7)
+	grid.add_theme_constant_override("v_separation", 5)
 	stack.add_child(grid)
 	for field: String in ["Year", "Date", "Time", "Speed"]:
 		var label: Label = Label.new()
-		label.text = field
+		label.text = {"Year": "年份", "Date": "日期", "Time": "时刻", "Speed": "流速"}[field]
+		label.add_theme_color_override("font_color", GardenTheme.MOSS)
 		grid.add_child(label)
 		if field == "Year":
 			var year: SpinBox = SpinBox.new()
@@ -90,8 +94,9 @@ func configure(value: CalendarState) -> void:
 	next_day_button.pressed.connect(_skip_day)
 	stack.add_child(next_day_button)
 	var note: Label = Label.new()
-	note.text = "林间历 · 每月30日\n1×：每秒一游戏分钟"
-	note.add_theme_font_size_override("font_size", 11)
+	note.text = "每月30日 · 1× 为每秒一游戏分钟"
+	note.add_theme_font_size_override("font_size", 12)
+	note.add_theme_color_override("font_color", GardenTheme.MOSS)
 	stack.add_child(note)
 	sync()
 
@@ -114,18 +119,12 @@ func _speed_control() -> HBoxContainer:
 	slider.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	slider.tooltip_text = "拖动调整时间：1–60倍"
 	slider.accessibility_name = "时间流速，1至60倍"
-	for state: String in ["slider", "grabber_area", "grabber_area_highlight"]:
-		var rail: StyleBoxFlat = StyleBoxFlat.new()
-		rail.bg_color = Color("b8bda0") if state == "slider" else Color("809474")
-		rail.set_corner_radius_all(3)
-		rail.content_margin_top = 3
-		rail.content_margin_bottom = 3
-		slider.add_theme_stylebox_override(state, rail)
 	slider.value_changed.connect(_speed_changed)
 	fields["Speed"] = slider
 	row.add_child(slider)
 	speed_label = Label.new()
 	speed_label.custom_minimum_size.x = 32
+	speed_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	row.add_child(speed_label)
 	return row
 
@@ -154,14 +153,21 @@ func _choice(field: String) -> OptionButton:
 		choice.fit_to_longest_item = false
 		for state: String in ["normal", "hover", "pressed", "focus", "disabled"]:
 			var compact: StyleBoxFlat = StyleBoxFlat.new()
-			compact.bg_color = (
-				Color(0.4, 0.45, 0.3, 0.12) if state == "hover" else Color.TRANSPARENT
-			)
-			compact.content_margin_left = 1
-			compact.content_margin_right = 1
+			compact.bg_color = Color.TRANSPARENT
+			if state == "hover":
+				compact.bg_color = Color(GardenTheme.MOSS, 0.14)
+			elif state == "pressed":
+				compact.bg_color = GardenTheme.MOSS
+			elif state == "focus":
+				compact.border_color = GardenTheme.MOSS
+				compact.set_border_width_all(2)
+			compact.set_corner_radius_all(5)
+			compact.content_margin_left = 2
+			compact.content_margin_right = 2
 			compact.content_margin_top = 4
 			compact.content_margin_bottom = 4
 			choice.add_theme_stylebox_override(state, compact)
+		choice.add_theme_color_override("font_pressed_color", GardenTheme.CREAM)
 		var blank: Image = Image.create(1, 1, false, Image.FORMAT_RGBA8)
 		blank.fill(Color.TRANSPARENT)
 		choice.add_theme_icon_override("arrow", ImageTexture.create_from_image(blank))
@@ -249,10 +255,7 @@ func sync() -> void:
 			i, not WeatherCycle.allowed(clock.season(), CalendarState.WEATHER[i])
 		)
 	next_day_button.disabled = clock.year == 99999 and clock.month == 12 and clock.day == 30
-	season_label.text = (
-		"Season\n"
-		+ {"spring": "春 · 萌芽", "summer": "夏 · 盛光", "autumn": "秋 · 金叶", "winter": "冬 · 静林"}[
-			clock.season()
-		]
-	)
+	season_label.text = ({
+		"spring": "春 · 萌芽", "summer": "夏 · 盛光", "autumn": "秋 · 金叶", "winter": "冬 · 静林"
+	}[clock.season()])
 	_syncing = false

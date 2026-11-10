@@ -20,10 +20,11 @@ static func configure(environment: Environment, sun: DirectionalLight3D) -> void
 	environment.tonemap_mode = Environment.TONE_MAPPER_FILMIC
 	environment.tonemap_exposure = 0.96
 	environment.ssao_enabled = true
-	environment.ssao_radius = 0.7
+	environment.ssao_radius = 0.52
 	environment.ssao_intensity = 0.92
 	environment.ssao_power = 1.0
-	environment.ssao_detail = 0.15
+	environment.ssao_detail = 0.34
+	environment.ssao_light_affect = 0.14
 	environment.fog_enabled = true
 	environment.fog_density = 0.0008
 	environment.fog_height = 0.0
@@ -37,8 +38,8 @@ static func configure(environment: Environment, sun: DirectionalLight3D) -> void
 	sun.light_angular_distance = 2.2
 	sun.directional_shadow_max_distance = 90.0
 	sun.directional_shadow_blend_splits = true
-	sun.shadow_bias = 0.10
-	sun.shadow_normal_bias = 2.0
+	sun.shadow_bias = 0.055
+	sun.shadow_normal_bias = 1.3
 
 
 static func apply(root: Node3D, mix_value: float) -> void:

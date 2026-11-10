@@ -2,17 +2,17 @@ extends "res://features/garden_presentation/garden_hud.gd"
 ## Direct-tool ribbon and compact palettes; the legacy inspector is an explicit option.
 
 const SIMPLE_GROUPS: Array = [
-	["build", "house", "建筑", "c78d68"],
-	["path", "path", "石径", "c99b87"],
-	["openings", "window", "门窗 / 摆件", "d8b56d"],
-	["palette", "paint", "整园色板", "c1a47e"],
-	["erase", "eraser", "橡皮 · 点删对象", "cb9f7b"],
-	["terrain", "raise", "地形", "aaa977"],
-	["plants", "plant", "花草", "b1bd84"],
-	["trees", "tree", "树木", "8ea777"],
-	["water", "pond", "池岸", "90b2b4"],
-	["photo", "photo", "摄影", "9ba8aa"],
-	["light", "sun", "光线", "c8c17c"]
+	["build", "house", "建筑"],
+	["path", "path", "石径"],
+	["openings", "window", "门窗 / 摆件"],
+	["palette", "paint", "整园色板"],
+	["erase", "eraser", "橡皮 · 点删对象"],
+	["terrain", "raise", "地形"],
+	["plants", "plant", "花草"],
+	["trees", "tree", "树木"],
+	["water", "pond", "池岸"],
+	["photo", "photo", "摄影"],
+	["light", "sun", "光线"]
 ]
 @export var legacy_parameter_entry: bool = true
 
@@ -36,7 +36,7 @@ func _ready() -> void:
 	quick = PanelContainer.new()
 	quick.name = "QuickOptions"
 	quick.theme = GardenTheme.create()
-	quick.add_theme_stylebox_override("panel", _paper(Color("eee8d6"), 10))
+	quick.add_theme_stylebox_override("panel", GardenTheme.panel(10))
 	add_child(quick)
 	_quick_scroll = ScrollContainer.new()
 	_quick_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
@@ -89,7 +89,7 @@ func _ready() -> void:
 	object_bar = PanelContainer.new()
 	object_bar.name = "ObjectActions"
 	object_bar.theme = GardenTheme.create()
-	object_bar.add_theme_stylebox_override("panel", _paper(Color("eee8d6"), 6))
+	object_bar.add_theme_stylebox_override("panel", GardenTheme.panel(6))
 	add_child(object_bar)
 	var row: HBoxContainer = HBoxContainer.new()
 	object_bar.add_child(row)
@@ -124,28 +124,27 @@ func _ready() -> void:
 func _make_ribbon() -> void:
 	_dock = PanelContainer.new()
 	_dock.name = "SimpleRibbon"
-	_dock.add_theme_stylebox_override("panel", StyleBoxEmpty.new())
+	_dock.theme = GardenTheme.create()
+	_dock.add_theme_stylebox_override("panel", GardenTheme.rail())
 	add_child(_dock)
 	var scroll: ScrollContainer = ScrollContainer.new()
 	scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	_dock.add_child(scroll)
 	var row: HBoxContainer = HBoxContainer.new()
-	row.add_theme_constant_override("separation", 6)
+	row.add_theme_constant_override("separation", 4)
 	scroll.add_child(row)
 	for card: Array in SIMPLE_GROUPS:
 		var button: Button = Button.new()
 		button.icon = IllustratedIcons.texture(card[1])
 		button.expand_icon = true
 		button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		button.custom_minimum_size = Vector2(50, 56)
+		button.custom_minimum_size = Vector2(48, 46)
+		button.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 		button.add_theme_constant_override("icon_max_width", 34)
 		button.tooltip_text = card[2] + " · 点选后在场景操作"
 		button.accessibility_name = card[2]
 		button.toggle_mode = true
-		for state: String in ["normal", "hover", "pressed"]:
-			button.add_theme_stylebox_override(
-				state, _paper(Color(card[3]).lightened(0.18 if state != "normal" else 0))
-			)
+		GardenTheme.icon_key(button)
 		button.pressed.connect(func() -> void: open_group(card[0]))
 		row.add_child(button)
 		ribbon_buttons[card[0]] = button
@@ -232,8 +231,7 @@ func _choice(parent: Node, title: String, callback: Callable) -> Button:
 	button.icon = IllustratedIcons.texture(title)
 	button.tooltip_text = title
 	button.accessibility_name = title
-	button.add_theme_stylebox_override("normal", _paper(Color("dec29c"), 7))
-	button.add_theme_stylebox_override("hover", _paper(Color("efe0bb"), 7))
+	GardenTheme.icon_key(button)
 	button.expand_icon = true
 	button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	button.custom_minimum_size = Vector2(62, 62)
@@ -279,10 +277,18 @@ func _layout_panels() -> void:
 		return
 	var available: Vector2 = get_viewport().get_visible_rect().size / _scale_value
 	var width: float = minf(720, available.x - 24)
-	_dock.position.x = (available.x - width) * 0.5
-	_dock.size.x = width
+	var tray_width: float = minf(SIMPLE_GROUPS.size() * 52 + 18, available.x - 24)
+	_dock.size = Vector2(tray_width, 64)
+	_dock.position = Vector2((available.x - tray_width) * 0.5, available.y - 78)
+	var palette_width: float = 330 if quick_radius.visible or quick_path_width.visible else 0
+	for row: HFlowContainer in [quick_choices, quick_assets]:
+		var row_width: float = 0
+		for child: Control in row.get_children():
+			row_width += child.get_combined_minimum_size().x
+		row_width += maxi(0, row.get_child_count() - 1) * row.get_theme_constant("h_separation")
+		palette_width = maxf(palette_width, row_width)
 	quick.size = Vector2(
-		width,
+		minf(width, palette_width + 20 + _quick_scroll.get_v_scroll_bar().get_minimum_size().x),
 		(
 			220
 			if group == "plants"
@@ -293,11 +299,10 @@ func _layout_panels() -> void:
 			)
 		)
 	)
-	quick.position = Vector2((available.x - width) * 0.5, available.y - 125 - quick.size.y)
+	quick.position = Vector2((available.x - quick.size.x) * 0.5, available.y - 125 - quick.size.y)
 	object_bar.size = Vector2(330, 36)
 	object_bar.position = Vector2((available.x - object_bar.size.x) * 0.5, available.y - 166)
-	breadcrumbs.position.y = available.y - 119
-	breadcrumbs.size = Vector2(width, 42)
+	_layout_hint(available, width)
 
 
 func set_photo_mode(enabled: bool) -> void:
@@ -331,3 +336,33 @@ func set_active_tool(mode: String) -> void:
 		active_group = "openings"
 	for key: String in ribbon_buttons:
 		ribbon_buttons[key].set_pressed_no_signal(key == active_group)
+
+
+func _layout_hint(available: Vector2, width: float) -> void:
+	var font: Font = breadcrumbs.get_theme_font("font")
+	var measured: float = (
+		font
+		. get_string_size(
+			breadcrumbs.text,
+			HORIZONTAL_ALIGNMENT_LEFT,
+			-1,
+			breadcrumbs.get_theme_font_size("font_size")
+		)
+		. x
+	)
+	var hint_width: float = minf(width, ceilf(measured) + 24)
+	var single_line: bool = measured + 24 <= width
+	breadcrumbs.autowrap_mode = (
+		TextServer.AUTOWRAP_OFF if single_line else TextServer.AUTOWRAP_WORD_SMART
+	)
+	breadcrumbs.size = Vector2(hint_width, 26 if single_line else 42)
+	breadcrumbs.position = Vector2(
+		(available.x - hint_width) * 0.5, _dock.position.y - breadcrumbs.size.y - 5
+	)
+
+
+func set_status(message: String) -> void:
+	super.set_status(message)
+	if breadcrumbs != null and quick != null:
+		var available: Vector2 = get_viewport().get_visible_rect().size / _scale_value
+		_layout_hint(available, minf(720, available.x - 24))

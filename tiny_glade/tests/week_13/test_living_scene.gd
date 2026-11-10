@@ -264,6 +264,16 @@ func test_next_morning_and_seasonal_probability_controls_do_not_edit_world() -> 
 	assert_true(playground.hud.weather_controls.visible)
 	assert_eq(playground.calendar.minute_of_day, minute)
 	var controls: WeatherControls = playground.hud.weather_controls
+	# Test the first-open geometry before relayout can hide a wrapped-label minimum
+	# from the frame in which the panel first appeared.
+	await get_tree().process_frame
+	await get_tree().process_frame
+	assert_lte(controls.get_rect().end.y, playground.hud._dock.position.y)
+	var initial_scale: float = playground.hud._scale_value
+	playground.hud.set_ui_scale(1.5)
+	await get_tree().process_frame
+	assert_lte(controls.get_rect().end.y, playground.hud._dock.position.y)
+	playground.hud.set_ui_scale(initial_scale)
 	controls.season_choice.select(3)
 	controls.sync()
 	assert_false(controls.sliders["rain"].editable)

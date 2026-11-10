@@ -152,6 +152,19 @@ static func _broadleaf(
 			for j: int in 3:
 				var pos: Vector3 = center + Vector3(cos(j * 2.4), -0.62, sin(j * 2.4)) * radius
 				leaves.lobe(pos, Vector3.ONE * 0.095, 5, angle, Color("#bf7453"), FLOWER)
+	# Give the leaves a shared light direction across overlapping boughs. The
+	# gradient of the crown ellipsoid points outward even on its flatter top.
+	var crown_center: Vector3 = Vector3.UP * height * 0.77
+	var lateral_radius: float = spread * 1.3
+	var vertical_radius: float = height * 0.28
+	var vertical_weight: float = (
+		(lateral_radius * lateral_radius) / (vertical_radius * vertical_radius)
+	)
+	for i: int in leaves.normals.size():
+		if leaves.masks[i].y == LEAF.y:
+			var outward: Vector3 = leaves.positions[i] - crown_center
+			outward.y *= vertical_weight
+			leaves.normals[i] = leaves.normals[i].lerp(outward.normalized(), 0.62).normalized()
 
 
 static func _crown(
