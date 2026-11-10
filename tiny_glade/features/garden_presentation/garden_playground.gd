@@ -1,6 +1,8 @@
 extends "res://app/week_ten_boot.gd"
 ## Presentation refinement: contextual ribbon, adaptive far focus, GPU meadow.
 
+const FOCUS_OFFSET: float = 3.0
+
 var meadow: MeadowRenderer
 var _focus_distance: float = -1
 
@@ -72,14 +74,17 @@ func _update_focus() -> void:
 	if (
 		is_equal_approx(focus, _focus_distance)
 		and attributes.dof_blur_far_enabled == preferences.values.get("garden_focus", true)
+		and attributes.dof_blur_near_enabled == preferences.values.get("garden_focus", true)
 	):
 		return
 	_focus_distance = focus
 	attributes.dof_blur_far_enabled = preferences.values.get("garden_focus", true)
-	attributes.dof_blur_near_enabled = false
-	attributes.dof_blur_far_distance = focus + 6.0
-	attributes.dof_blur_far_transition = clampf(focus * 0.55, 10, 22)
-	attributes.dof_blur_amount = 0.045
+	attributes.dof_blur_near_enabled = attributes.dof_blur_far_enabled
+	attributes.dof_blur_near_distance = maxf(0.1, focus - FOCUS_OFFSET)
+	attributes.dof_blur_near_transition = clampf(focus * 0.22, 2.0, 7.0)
+	attributes.dof_blur_far_distance = focus + FOCUS_OFFSET
+	attributes.dof_blur_far_transition = clampf(focus * 0.30, 3.0, 10.0)
+	attributes.dof_blur_amount = 0.085
 
 
 func _on_published(snapshot: Dictionary, prepared: Dictionary) -> void:

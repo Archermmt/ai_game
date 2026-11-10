@@ -16,6 +16,8 @@ var lightning_enabled: bool = true
 var sky: PaintedSky = PaintedSky.new()
 var blend: WeatherBlend = WeatherBlend.new()
 var phase: Vector3 = Vector3.ZERO
+var morning_fog: FogVolume
+var morning_fog_material: FogMaterial
 var _season: String = ""
 var _weather: String = ""
 
@@ -29,6 +31,20 @@ func configure(root: Node3D) -> void:
 	environment.adjustment_enabled = true
 	environment.adjustment_saturation = 1.10
 	name = "LivingAtmosphere"
+	morning_fog_material = FogMaterial.new()
+	morning_fog_material.albedo = Color("dbe8ea")
+	morning_fog_material.edge_fade = 0.7
+	morning_fog_material.height_falloff = 0.0
+	morning_fog_material.emission = Color(0.3, 0.36, 0.4)
+	morning_fog = FogVolume.new()
+	morning_fog.name = "ForestMorningMist"
+	morning_fog.size = Vector3(76, 5.2, 76)
+	morning_fog.position.y = 0.9
+	morning_fog.material = morning_fog_material
+	add_child(morning_fog)
+	environment.volumetric_fog_density = 0.0
+	environment.volumetric_fog_length = 78.0
+	environment.volumetric_fog_anisotropy = 0.3
 	rain = _precipitation(false, 1400)
 	snow = _precipitation(true, 900)
 	dust = _precipitation(false, 700)
@@ -108,6 +124,13 @@ func _precipitation(is_snow: bool, count: int) -> MultiMeshInstance3D:
 	return node
 
 
+static func morning_mist(hour: float, season: String) -> float:
+	var seasonal: float = {"spring": 0.34, "summer": 0.12, "autumn": 0.86, "winter": 1.0}.get(
+		season, 0.34
+	)
+	return seasonal * smoothstep(4.5, 6.0, hour) * (1.0 - smoothstep(6.5, 10.5, hour))
+
+
 func update(delta: float, state: Dictionary) -> void:
 	if not frozen:
 		elapsed += delta * (0.25 if reduced_motion else 1.0)
@@ -143,6 +166,10 @@ func update(delta: float, state: Dictionary) -> void:
 	environment.ambient_light_energy = lerpf(0.31, 0.64 + 0.10 * float(visual["cloud"]), daylight)
 	environment.fog_light_color = Color("536783").lerp(Color("c0ccbf"), daylight)
 	environment.fog_density = float(visual["fog"]) + 0.0012 * daylight
+	var mist: float = morning_mist(hour, season_value)
+	morning_fog_material.density = mist * 0.45
+	morning_fog.visible = mist > 0.001
+	environment.volumetric_fog_enabled = morning_fog.visible
 	environment.fog_light_color = environment.fog_light_color.lerp(Color("bda277"), visual["dust"])
 	environment.ambient_light_color = environment.ambient_light_color.lerp(
 		Color("b4a480"), visual["dust"]

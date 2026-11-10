@@ -103,7 +103,11 @@ func tick(delta: float, state: Dictionary) -> void:
 	camera.environment.sky = environment.sky
 	camera.environment.background_mode = environment.background_mode
 	for property: String in [
-		"ambient_light_color", "ambient_light_energy", "fog_density", "fog_light_color"
+		"ambient_light_color",
+		"ambient_light_energy",
+		"fog_density",
+		"fog_light_color",
+		"volumetric_fog_enabled"
 	]:
 		camera.environment.set(property, environment.get(property))
 	host.water_material.set_shader_parameter(

@@ -336,7 +336,7 @@ func sync_preferences(value: UserPreferences) -> void:
 		return
 	_garden_sync = true
 	grass_slider.value = value.values.get("grass_density", 0.45)
-	dof_control.text = "远景柔焦 · 小屋附近保持清晰"
+	dof_control.text = "微缩景深 · 前后景柔焦，小屋保持清晰"
 	dof_control.set_pressed_no_signal(value.values.get("garden_focus", true))
 	_garden_sync = false
 

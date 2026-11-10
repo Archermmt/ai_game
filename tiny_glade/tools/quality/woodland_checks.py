@@ -19,6 +19,7 @@ SUITES = {
     "tests/week_14/weather_production/test_weather_adoption.gd",
     "tests/week_13/test_living_scene.gd",
     "tests/week_13/test_painterly_environment.gd",
+    "tests/garden_presentation/test_garden_scene.gd",
     "tests/week_13/test_walk.gd",
     "tests/week_14/immersive/test_walker_grass.gd",
     "tests/week_14/immersion/test_snow_footprints.gd",
@@ -68,7 +69,8 @@ def main():
         totals["capture"] = capture
         totals["images"] = {name: hashlib.sha256((OUT / (name + ".png")).read_bytes()).hexdigest()
                             for name in ("editor", "spring", "evening", "winter", "walk",
-                                         "build_tools", "weather_controls", "walk_controls", "settings", "spring_export", "scaled_weather")}
+                                         "build_tools", "weather_controls", "walk_controls", "settings", "spring_export", "scaled_weather",
+                                         "autumn_without_mist", "autumn_mist_6", "autumn_mist_8", "autumn_mist_10", "winter_mist")}
     if production_files() != before:
         raise RuntimeError("Formal save or preferences changed")
     totals["player_files_unchanged"] = True

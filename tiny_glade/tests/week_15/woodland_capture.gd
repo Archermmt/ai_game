@@ -110,6 +110,36 @@ func _run() -> void:
 		)
 		_check("production photography exports 1080p", photo.get("ok", false))
 		_check("daylight porch lantern rests", garden.lanterns.active_ids.is_empty())
+		garden._recommended_view(0)
+		garden._freeze_photo(true)
+		for hour: float in [6.5, 8.5, 10.5]:
+			_climate(10, hour, "clear")
+			await _capture("autumn_mist_" + str(int(hour)))
+			if hour == 6.5:
+				garden.set_process(false)
+				var with_mist: Image = root.get_texture().get_image()
+				garden.world_environment.environment.volumetric_fog_enabled = false
+				garden.atmosphere.morning_fog.hide()
+				await _capture("autumn_without_mist")
+				var without_mist: Image = root.get_texture().get_image()
+				var difference: float = 0.0
+				for y: int in range(200, 800, 16):
+					for x: int in range(100, 1500, 16):
+						var delta: Color = with_mist.get_pixel(x, y) - without_mist.get_pixel(x, y)
+						difference += absf(delta.r) + absf(delta.g) + absf(delta.b)
+				_check("morning volume changes visible forest pixels", difference > 2.0)
+				garden.set_process(true)
+		_check("late morning disperses low mist", not garden.atmosphere.morning_fog.visible)
+		_climate(1, 7.5, "clear")
+		await _capture("winter_mist")
+		_check(
+			"winter dawn has ground mist",
+			(
+				garden.atmosphere.morning_fog.visible
+				and garden.world_environment.environment.volumetric_fog_enabled
+			)
+		)
+		garden._freeze_photo(false)
 		garden._recommended_view(1)
 		_climate(5, 17.85, "clear")
 		await _capture("evening")

@@ -49,9 +49,28 @@ func test_default_focus_and_local_lightning_keep_view_contracts() -> void:
 	var attributes: CameraAttributesPractical = world.camera_rig.camera.attributes
 	assert_not_null(attributes)
 	if attributes != null:
-		assert_lte(attributes.dof_blur_amount, 0.06)
-		assert_false(attributes.dof_blur_near_enabled)
-		assert_gt(attributes.dof_blur_far_distance, world.camera_rig.distance + 5)
+		assert_between(attributes.dof_blur_amount, 0.07, 0.10)
+		assert_true(attributes.dof_blur_near_enabled)
+		assert_lt(attributes.dof_blur_near_distance, world.camera_rig.distance)
+		assert_gt(attributes.dof_blur_far_distance, world.camera_rig.distance + 2)
 	world.soundscape.shutdown()
 	await SceneShutdown.wait_wallclock(get_tree(), 0.4)
 	await SceneShutdown.release_scene(world)
+
+
+func test_forest_morning_mist_is_seasonal_and_disperses_with_daylight() -> void:
+	for season: String in ["spring", "summer", "autumn", "winter"]:
+		assert_eq(LivingAtmosphere.morning_mist(3.0, season), 0.0)
+		assert_eq(LivingAtmosphere.morning_mist(11.0, season), 0.0)
+		assert_gt(
+			LivingAtmosphere.morning_mist(6.5, season), LivingAtmosphere.morning_mist(8.5, season)
+		)
+		assert_gt(
+			LivingAtmosphere.morning_mist(8.5, season), LivingAtmosphere.morning_mist(10, season)
+		)
+	assert_gt(
+		LivingAtmosphere.morning_mist(6.5, "winter"), LivingAtmosphere.morning_mist(6.5, "summer")
+	)
+	assert_gt(
+		LivingAtmosphere.morning_mist(6.5, "autumn"), LivingAtmosphere.morning_mist(6.5, "spring")
+	)
