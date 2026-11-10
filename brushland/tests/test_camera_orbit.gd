@@ -55,7 +55,7 @@ func run() -> void:
 	move(world + Vector2(2, 0))
 	assert(app.angle == initial_angle)
 	move(world + Vector2(85, 45))
-	assert(not is_equal_approx(initial_angle, app.angle) and app.pitch_offset > 0.0)
+	assert(not is_equal_approx(initial_angle, app.angle) and app.pitch_offset < 0.0)
 	assert(app.moving_id != 0)
 	var terrain_point := Vector3(30.0, app.view.surface.height_at(Vector2(30, 33)), 33.0)
 	var cell: Vector2i = app.pick_at(app.camera.unproject_position(terrain_point))
@@ -86,8 +86,10 @@ func run() -> void:
 	assert(not app.dragging and app.data.snapshot() == before)
 	var site: Vector2 = previous_pointer
 	angle = app.angle
+	var tilt_before: float = app.pitch_offset
 	gesture(Vector2(7, 2))
-	assert(not is_equal_approx(angle, app.angle))
+	assert(is_equal_approx(angle_difference(angle, app.angle), 7.0 * 0.025))
+	assert(is_equal_approx(app.pitch_offset - tilt_before, -rad_to_deg(2.0 * 0.02)))
 	var zoom := InputEventMagnifyGesture.new()
 	zoom.position = site
 	zoom.factor = 1.15

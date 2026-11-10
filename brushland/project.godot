@@ -23,7 +23,8 @@ window/stretch/mode="canvas_items"
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
+renderer/rendering_method="forward_plus"
+rendering_device/driver.macos="metal"
 limits/opengl/max_lights_per_object=32
 textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.68, 0.81, 0.8, 1)

@@ -123,11 +123,27 @@ func update_camera() -> void:
 	center.x=clampf(center.x,8,56);center.z=clampf(center.z,8,56)
 	# Close framing shows the façades and their reflections. Pulling back gradually
 	# returns to a steeper angle for editing the far side of a large island.
-	var pitch := deg_to_rad(clampf(default_pitch_degrees() + pitch_offset, 8.0, 72.0))
+	var pitch := deg_to_rad(clampf(default_pitch_degrees() + pitch_offset + 12.0, 8.0, 72.0))
 	var distance_to_focus := float(camera.size) * 0.5 / tan(deg_to_rad(camera.fov * 0.5))
 	var eye_direction := Vector3(sin(angle) * cos(pitch), sin(pitch), cos(angle) * cos(pitch))
 	camera.position = center + eye_direction * distance_to_focus
 	camera.look_at(center)
+	update_focus()
+func update_focus() -> void:
+	if RenderingServer.get_current_rendering_method() != "forward_plus":
+		return
+	if camera.attributes == null:
+		camera.attributes = CameraAttributesPractical.new()
+	var focus := camera.attributes as CameraAttributesPractical
+	var distance: float = camera.global_position.distance_to(center)
+	focus.dof_blur_near_enabled = preferences.values.quality != "low"
+	focus.dof_blur_far_enabled = preferences.values.quality != "low"
+	focus.dof_blur_near_distance = maxf(0.1, distance - 3.2)
+	focus.dof_blur_far_distance = distance + 4.5
+	focus.dof_blur_near_transition = 5.0
+	focus.dof_blur_far_transition = 7.0
+	focus.dof_blur_amount = 0.13
+
 func pick() -> Vector2i:
 	return tool_cell_at(get_viewport().get_mouse_position())
 
@@ -258,7 +274,7 @@ func refresh_preview(cursor: Variant = null) -> void:
 	else:
 		for x in range(-radius,radius+1):
 			for z in range(-radius,radius+1):
-				if x*x+z*z<=radius*radius:cells.append(p+Vector2i(x,z))
+				cells.append(p+Vector2i(x,z))
 	var marked: Dictionary = {}
 	for q in cells:
 		if not BuildingRules.inside(q):
@@ -305,7 +321,7 @@ func collect_cell(cell: Vector2i, mouse: Vector2) -> void:
 			for x in range(-radius, radius+1):
 				for z in range(-radius, radius+1):
 					var q := Vector2i(point) + Vector2i(x, z)
-					if x*x+z*z <= radius*radius and not stroke.has(q):
+					if not stroke.has(q):
 						stroke.append(q)
 	last_stroke_cell = cell
 
@@ -415,7 +431,7 @@ func _input(event:InputEvent) -> void:
 			orbit_dragged = true
 		if orbit_dragged:
 			var travel: Vector2 = event.position - orbit_previous
-			turn_camera(-travel.x * 0.006, travel.y * 0.19)
+			turn_camera(travel.x * 0.006, -rad_to_deg(travel.y * 0.004))
 			orbit_previous = event.position
 		get_viewport().set_input_as_handled()
 		return
@@ -444,7 +460,7 @@ func _unhandled_input(event:InputEvent) -> void:
 		if dragging or get_viewport().gui_get_hovered_control() != null:
 			return
 		if event is InputEventPanGesture and event.delta.is_finite():
-			turn_camera(-event.delta.x * 0.025, event.delta.y * 0.75)
+			turn_camera(clampf(event.delta.x, -100.0, 100.0) * 0.025, -rad_to_deg(event.delta.y * 0.02))
 		elif event is InputEventMagnifyGesture and is_finite(event.factor) and event.factor > 0:
 			camera.size = clampf(camera.size / event.factor, 8.0, 58.0)
 			update_camera()
@@ -550,6 +566,7 @@ func set_sunset(value:bool) -> void:
 	view.set_night(value)
 	for lamp in get_tree().get_nodes_in_group("island_lanterns"):lamp.visible=value
 	sim.sunset=value;IslandLighting.apply(sun,world_env.environment,value)
+	update_visual_quality()
 func move_object(p:Vector2i) -> void:
 	if moving_id==0:
 		for o in data.objects:
@@ -565,6 +582,7 @@ func save_photo() -> void:
 	if photo_busy:return
 	orbit_tracking = false
 	photo_busy=true
+	view.finish_growth()
 	var paused=sim.paused;sim.paused=true
 	for n in preview.get_children():n.hide()
 	var resolution=Vector2i(1920,1080) if preferences.values.photo_resolution=="1080p" else Vector2i(get_viewport().get_visible_rect().size)
@@ -576,8 +594,20 @@ func save_photo() -> void:
 	sim.paused=paused;photo_busy=false
 	refresh_preview()
 	hud.toast("照片已保存："+ProjectSettings.globalize_path(path) if err==OK else "保存照片失败，可重试："+error_string(err))
+func update_visual_quality() -> void:
+	if RenderingServer.get_current_rendering_method() == "forward_plus":
+		var enabled: bool = preferences.values.quality != "low"
+		world_env.environment.ssao_enabled = enabled
+		world_env.environment.ssil_enabled = enabled
+	update_focus()
+
 func apply_preferences(persist:bool=true) -> void:
 	reduced_motion=preferences.values.reduced_motion
+	update_visual_quality()
+	view.reduced_motion = reduced_motion
+	if reduced_motion:view.finish_growth()
+	get_viewport().msaa_3d = Viewport.MSAA_DISABLED if preferences.values.quality == "low" else Viewport.MSAA_2X
+	update_focus()
 	view.detail_density=0.6 if preferences.values.quality=="low" else 1.0
 	sun.shadow_enabled=preferences.values.quality!="low"
 	audio.apply_settings(preferences.values)

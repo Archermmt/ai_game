@@ -1,0 +1,7 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M4 Pro (Apple9)
+
+BOOT_READY_MS 263
+CAPTURE /Users/tongmeng/Desktop/codes/ai_game/brushland/snapshots/miniature/day.png OK
+2026-11-11 06:06:05.652 godot[88453:27832558] +[IMKClient subclass]: chose IMKClient_Modern
+2026-11-11 06:06:05.939 godot[88453:27832558] +[IMKInputSession subclass]: chose IMKInputSession_Modern

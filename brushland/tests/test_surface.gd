@@ -8,6 +8,7 @@ func original_height(s:IslandSurface,v:Vector2) -> float:
 	for foundation in s.foundations:
 		if foundation.bounds.has_point(v):return foundation.height
 	var p=Vector2i(floori(v.x),floori(v.y));var t=v-Vector2(p);var heights:Array=[]
+	t=Vector2(smoothstep(0,1,t.x),smoothstep(0,1,t.y))
 	for q in [p,p+Vector2i.RIGHT,p+Vector2i.DOWN,p+Vector2i.ONE]:
 		var h=int(s.cell(q).h);heights.append(h*0.5 if h>0 else -0.15)
 	if heights.max()-heights.min()>0.66:
@@ -76,5 +77,6 @@ func check_garden_border() -> void:
 	check(after[Mesh.ARRAY_COLOR] != before[Mesh.ARRAY_COLOR])
 	garden.undo()
 	island.rebuild()
+	island.finish_growth()
 	check(island.terrain_chunks[edge].mesh.surface_get_arrays(0) == before)
 	island.free()

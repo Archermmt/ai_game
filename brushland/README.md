@@ -18,7 +18,7 @@ godot --path .
 3. 用草地笔把岸边往外画，再用小屋笔在同高陆地上拖出一排地基。松开鼠标同时建成，撤销一次收回整笔。三栋以上连成一组时，居中的住宅或茶屋可长出带三联窗的共用主厅。入口须留空，相隔一格或对角的建筑各自保留屋面。
 4. 在场景上按住右键拖动，左右环绕，上下调俯角。触控板双指滑动也能转镜头，捏合可缩放。轻点右键仍是取消。摄影模式沿用这些操作。
 
-“新建海湾（无建筑）”可从头建岛，“其他海湾”中有月牙湾、花园池畔、灯塔岩岬和空白海面。“继续上次的岛”会读取已有存档。新版体验包在本地 `builds/BreezelyIsles-CoveGrowth-macOS.zip` 和 `builds/BreezelyIsles-CoveGrowth-Windows.zip`。[扩地、合建、改形与旋转实录](snapshots/cove_growth/build_and_orbit.mp4) · [开发进度](docs/STATUS.md)
+“新建海湾（无建筑）”可从头建岛，“其他海湾”中有月牙湾、花园池畔、灯塔岩岬和空白海面。“继续上次的岛”会读取已有存档。新版体验包在本地 `builds/BreezelyIsles-Miniature-macOS.zip` 和 `builds/BreezelyIsles-Miniature-Windows.zip`。[新版微缩场景与建造实录](snapshots/miniature/build_and_grow.mp4) · [开发进度](docs/STATUS.md)
 
 ## 操作
 

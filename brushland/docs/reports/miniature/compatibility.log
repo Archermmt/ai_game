@@ -1,0 +1,6 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+OpenGL API 4.1 Metal - 89.3 - Compatibility - Using Device: Apple - Apple M4 Pro
+
+PASS square stroke, terrain emergence, house/neighbor emergence, settled rebatching, undo, reduced motion and miniature focus
+2026-11-11 06:03:40.310 godot[86964:27826053] +[IMKClient subclass]: chose IMKClient_Modern
+2026-11-11 06:03:42.799 godot[86964:27826053] +[IMKInputSession subclass]: chose IMKInputSession_Modern

@@ -20,6 +20,9 @@ var sea:MeshInstance3D
 var foam:Node3D
 var day:bool=true
 var batch_stats:Dictionary={}
+var growth = preload("res://game/art/growth_transition.gd").new()
+var reduced_motion := false
+var growing_ids: Dictionary = {}
 var data:IslandData
 func setup(d:IslandData) -> void:
 	data=d;add_child(ground);add_child(props);add_child(inhabitants)
@@ -37,7 +40,20 @@ func setup(d:IslandData) -> void:
 var foliage_shader=preload("res://game/art/shaders/foliage.gdshader")
 var foliage_nodes:Dictionary={}
 var generated_foliage:Array=[]
+func finish_growth() -> void:
+	if growth.entries.is_empty():return
+	growth.finish()
+	if use_project_batches:
+		render_batches.scope_cache.clear()
+		render_batches.rebuild(self, props, ground)
+	if reflection != null:reflection.refresh = true
+
 func update_environment(delta:float,active:bool) -> void:
+	if growth.advance(delta):
+		if use_project_batches:
+			render_batches.scope_cache.clear()
+			render_batches.rebuild(self, props, ground)
+		if reflection != null:reflection.refresh = true
 	if active:environment_clock+=delta
 	if reflection != null:
 		reflection.reflect_view(get_viewport().get_camera_3d(), sea, environment_clock)
@@ -127,6 +143,9 @@ func generate_chunk(index:int) -> void:
 	generated_foliage[index]=FoliageLayer.generate(surface,changed_chunks[index])
 var generated_arrays:Array=[]
 func rebuild() -> void:
+	finish_growth()
+	var old_surface: IslandSurface = surface
+	var old_neighborhood := neighborhood_state.duplicate(true)
 	var profile_start=Time.get_ticks_usec()
 	var world=data.snapshot();var dirty:Dictionary={}
 	var keys=world.tiles.keys()
@@ -162,6 +181,14 @@ func rebuild() -> void:
 						for dz in range(-2,3):dirty[Vector2i(floori((cell.x+dx)/8.0),floori((cell.y+dz)/8.0))]=true
 
 	update_neighborhood(dirty)
+	growing_ids.clear()
+	if old_surface != null and not reduced_motion:
+		var old_objects: Dictionary = {}
+		for object in previous_world.get("objects", []):old_objects[int(object.id)] = object
+		for object in world.objects:
+			var id := int(object.id)
+			if old_objects.get(id) != object or old_neighborhood.variants.get(id) != neighborhood_state.variants.get(id) or old_neighborhood.get("seams", {}).get(id) != neighborhood_state.get("seams", {}).get(id) or old_neighborhood.get("halls", {}).has(id) != neighborhood_state.get("halls", {}).has(id):
+				growing_ids[id] = true
 	if dirty.is_empty():
 		if surface==null:
 			surface=IslandSurface.new(world, neighborhood_state.ground);previous_world=world;update_water_field()
@@ -184,6 +211,7 @@ func rebuild() -> void:
 		if arrays[Mesh.ARRAY_VERTEX].is_empty():continue
 		var mesh=MeshInstance3D.new();mesh.set_meta("art_terrain",chunk);mesh.mesh=ArrayMesh.new();mesh.mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays);mesh.material_override=mat
 		ground.add_child(mesh);terrain_chunks[chunk]=mesh
+		if old_surface != null and not reduced_motion:growth.terrain(mesh, arrays, old_surface, surface, mat)
 	# Preserve unrelated decoration resources and imported models across terrain edits.
 	var profile_terrain=Time.get_ticks_usec()
 	var original_props=props
@@ -290,6 +318,7 @@ func draw_object(o:Dictionary) -> void:
 	node.rotation.y=-float(o.rotation)*PI/2;props.add_child(node)
 	if kind in BuildingRules.BUILDINGS:
 		building_picker.register(Vector2i(floori(p.x / 8.0), floori(p.y / 8.0)), p, node)
+	if growing_ids.has(int(o.id)):growth.building(node)
 	if kind=="lighthouse":
 		IslandEffects.lighthouse(node,not day)
 		var lamp=OmniLight3D.new();lamp.position=Vector3(0,4,0);lamp.light_color=Color("ffd08a");lamp.light_energy=0.6;lamp.omni_range=6;lamp.visible=not day;node.add_child(lamp);lamp.add_to_group("island_lanterns")

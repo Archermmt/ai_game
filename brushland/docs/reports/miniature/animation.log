@@ -1,0 +1,6 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M4 Pro (Apple9)
+
+PASS square stroke, terrain emergence, house/neighbor emergence, settled rebatching, undo, reduced motion and miniature focus
+2026-11-11 06:07:58.926 godot[90679:27841353] +[IMKClient subclass]: chose IMKClient_Modern
+2026-11-11 06:08:01.444 godot[90679:27841353] +[IMKInputSession subclass]: chose IMKInputSession_Modern

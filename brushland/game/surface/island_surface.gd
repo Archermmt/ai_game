@@ -78,6 +78,7 @@ func height_at(v:Vector2) -> float:
 	for f in foundation_grid.get(Vector2i(floori(v.x),floori(v.y)),[]):
 		if f.bounds.has_point(v):return f.height
 	var p=Vector2i(floori(v.x),floori(v.y));var t=v-Vector2(p)
+	t=Vector2(smoothstep(0.0,1.0,t.x),smoothstep(0.0,1.0,t.y))
 	var a=height_at_cell(p);var b=height_at_cell(p+Vector2i.RIGHT)
 	var c=height_at_cell(p+Vector2i.DOWN);var d=height_at_cell(p+Vector2i.ONE)
 	# Keep steep gameplay barriers visibly steep rather than invent walkable slopes.
@@ -91,7 +92,15 @@ func sample_surface(v:Vector2) -> Dictionary:
 func ground_color(position: Vector2, sample: Dictionary) -> Color:
 	var p := Vector2i(roundi(position.x), roundi(position.y))
 	var tile := cell(p)
-	var color: Color = SWATCHES.get(tile.surface, SWATCHES.water)
+	var source := position - Vector2.ONE * 0.5
+	var base := Vector2i(floori(source.x), floori(source.y))
+	var blend := source - Vector2(base)
+	blend = Vector2(smoothstep(0,1,blend.x),smoothstep(0,1,blend.y))
+	var a: Color = SWATCHES.get(cell(base).surface, SWATCHES.water)
+	var b: Color = SWATCHES.get(cell(base+Vector2i.RIGHT).surface, SWATCHES.water)
+	var c: Color = SWATCHES.get(cell(base+Vector2i.DOWN).surface, SWATCHES.water)
+	var d: Color = SWATCHES.get(cell(base+Vector2i.ONE).surface, SWATCHES.water)
+	var color: Color = a.lerp(b,blend.x).lerp(c.lerp(d,blend.x),blend.y)
 	var influence: String = garden_ground.get(p, "")
 	if SWATCHES.has(influence):
 		color = color.lerp(SWATCHES[influence], 0.72)
@@ -139,19 +148,19 @@ func build_chunk(chunk:Vector2i) -> Array:
 	var positions := PackedVector3Array()
 	var surface_normals := PackedVector3Array()
 	var swatches := PackedColorArray()
-	for z in range(17):
-		for x in range(17):
-			var point := Vector2(chunk * 8) + Vector2(x, z) * 0.5
+	for z in range(33):
+		for x in range(33):
+			var point := Vector2(chunk * 8) + Vector2(x, z) * 0.25
 			var sample := sample_surface(point)
 			positions.append(Vector3(point.x, sample.height, point.y))
 			surface_normals.append(sample.normal)
 			swatches.append(ground_color(point, sample))
-	for z in range(16):
-		for x in range(16):
-			var base := z * 17 + x
-			if maxf(maxf(positions[base].y, positions[base+1].y), maxf(positions[base+17].y, positions[base+18].y)) < -0.14:
+	for z in range(32):
+		for x in range(32):
+			var base := z * 33 + x
+			if maxf(maxf(positions[base].y, positions[base+1].y), maxf(positions[base+33].y, positions[base+34].y)) < -0.14:
 				continue
-			for offset in [0, 18, 17, 0, 1, 18]:
+			for offset in [0, 34, 33, 0, 1, 34]:
 				var index: int = base + offset
 				var v := positions[index]
 				vertices.append(v)

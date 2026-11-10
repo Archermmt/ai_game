@@ -11,7 +11,7 @@ static func apply(sun: DirectionalLight3D, environment: Environment, sunset: boo
 	environment.background_mode = Environment.BG_SKY
 	environment.sky.sky_material.set_shader_parameter("dusk", 1.0 if sunset else 0.0)
 	environment.reflected_light_source = Environment.REFLECTION_SOURCE_SKY
-	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
+	environment.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
 	environment.ambient_light_color = Color("d7c9df") if sunset else Color("e1e2ed")
 	environment.fog_sky_affect = 0.08
 	environment.fog_enabled = true
@@ -23,3 +23,12 @@ static func apply(sun: DirectionalLight3D, environment: Environment, sunset: boo
 	var scale := 0.50 if RenderingServer.get_current_rendering_method() == "gl_compatibility" else 1.0
 	sun.light_energy = (0.83 if sunset else 1.00) * scale
 	environment.ambient_light_energy = (0.53 if sunset else 0.56) * scale
+
+	if RenderingServer.get_current_rendering_method() == "forward_plus":
+		environment.tonemap_mode = Environment.TONE_MAPPER_AGX
+		environment.tonemap_exposure = 1.12
+		environment.ssao_enabled = true
+		environment.ssao_radius = 0.85
+		environment.ssao_intensity = 1.15
+		environment.ssil_enabled = true
+		environment.ssil_intensity = 0.65
