@@ -8,10 +8,14 @@ static func generate(surface:IslandSurface,chunk:Vector2i) -> Array:
 		for x in range(8):
 			var p=chunk*8+Vector2i(x,z);var cell=surface.cell(p)
 			if cell.surface!="grass" or cell.get("road",false) or occupied.has(p):continue
-			for i in range(36):
+			var garden: String = surface.garden_ground.get(p, "")
+			if garden == "courtyard" or garden == "shore":
+				continue
+			for i in range(25):
 				var h=posmod(p.x*73856093+p.y*19349663+i*83492791+SEED,65521)
-				var v=Vector2(p)+Vector2((i%6+float(h%91)/91.0)/6.0-0.5,(i/6+float(h%79)/79.0)/6.0-0.5)
-				var density=0.62+0.26*sin(v.x*0.71+v.y*0.39)*cos(v.y*0.56)
+				var v=Vector2(p)+Vector2((i%5+float(h%91)/91.0)/5.0-0.5,(i/5+float(h%79)/79.0)/5.0-0.5)
+				var density=0.24+0.19*sin(v.x*0.91+v.y*0.39)*cos(v.y*0.83)
+				if garden == "meadow": density += 0.12
 				if float(h%101)/101.0>density:continue
 				var sample=surface.sample_surface(v)
 				if sample.normal.y<0.82 or sample.height<0.35:continue
@@ -32,7 +36,7 @@ static func publish(parent:Node3D,layers:Array,shader:Shader) -> Array:
 	for layer in range(3):
 		if layers[layer].is_empty():continue
 		var st=SurfaceTool.new();st.begin(Mesh.PRIMITIVE_TRIANGLES)
-		var height=[0.20,0.38,0.30][layer];var width=0.17 if layer==0 else 0.25
+		var height=[0.115,0.21,0.19][layer];var width=0.105 if layer==0 else 0.13
 		for angle in [0.0,PI/3,2*PI/3]:
 			var side=Vector3(cos(angle),0,sin(angle))*width
 			var vertices=[-side,side,side+Vector3.UP*height,-side+Vector3.UP*height]

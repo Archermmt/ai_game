@@ -1,0 +1,6 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+OpenGL API 4.1 Metal - 89.3 - Compatibility - Using Device: Apple - Apple M4 Pro
+
+PASS playable cottage cove, dock path, camera picking, preview/placement, garden ground, undo and redo
+2026-11-10 08:02:40.997 godot[91792:26589542] +[IMKClient subclass]: chose IMKClient_Modern
+2026-11-10 08:02:42.597 godot[91792:26589542] +[IMKInputSession subclass]: chose IMKInputSession_Modern

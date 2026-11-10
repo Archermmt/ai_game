@@ -1,0 +1,149 @@
+{
+  "animals": 6,
+  "build_ms": 698.799,
+  "buildings": 40,
+  "camera_orthographic_size": 42,
+  "cpu": "Apple M4 Pro",
+  "day_frame_ms_p95": 13.899,
+  "decorations": 400,
+  "device": "Apple M4 Pro",
+  "draw_calls_peak": 223,
+  "driver": "opengl3",
+  "duration_wall_seconds": 30.0063,
+  "edit_cpu_ms_p95": 59.26,
+  "edit_measurement": "paint + rebuild through RenderingServer.frame_post_draw; excludes OS compositor/display latency",
+  "edit_ms_p95": 79.038,
+  "edit_profiles": [
+    {
+      "generate_ms": 8.666,
+      "props_ms": 7.761,
+      "render_publish_ms": 39.103,
+      "terrain_publish_ms": 0.285
+    },
+    {
+      "generate_ms": 7.931,
+      "props_ms": 7.673,
+      "render_publish_ms": 39.083,
+      "terrain_publish_ms": 0.26
+    },
+    {
+      "generate_ms": 8.525,
+      "props_ms": 7.793,
+      "render_publish_ms": 39.024,
+      "terrain_publish_ms": 0.249
+    },
+    {
+      "generate_ms": 8.269,
+      "props_ms": 7.51,
+      "render_publish_ms": 39.759,
+      "terrain_publish_ms": 0.32
+    },
+    {
+      "generate_ms": 8.543,
+      "props_ms": 7.766,
+      "render_publish_ms": 39.288,
+      "terrain_publish_ms": 0.266
+    },
+    {
+      "generate_ms": 8.668,
+      "props_ms": 7.788,
+      "render_publish_ms": 39.289,
+      "terrain_publish_ms": 0.245
+    },
+    {
+      "generate_ms": 8.496,
+      "props_ms": 7.661,
+      "render_publish_ms": 39.677,
+      "terrain_publish_ms": 0.263
+    },
+    {
+      "generate_ms": 8.031,
+      "props_ms": 7.213,
+      "render_publish_ms": 38.859,
+      "terrain_publish_ms": 0.307
+    },
+    {
+      "generate_ms": 8.131,
+      "props_ms": 7.561,
+      "render_publish_ms": 39.88,
+      "terrain_publish_ms": 0.249
+    },
+    {
+      "generate_ms": 8.203,
+      "props_ms": 7.731,
+      "render_publish_ms": 40.368,
+      "terrain_publish_ms": 0.262
+    },
+    {
+      "generate_ms": 8.049,
+      "props_ms": 8.128,
+      "render_publish_ms": 40.404,
+      "terrain_publish_ms": 0.322
+    },
+    {
+      "generate_ms": 8.126,
+      "props_ms": 7.8,
+      "render_publish_ms": 39.89,
+      "terrain_publish_ms": 0.271
+    },
+    {
+      "generate_ms": 8.055,
+      "props_ms": 7.477,
+      "render_publish_ms": 40.385,
+      "terrain_publish_ms": 0.255
+    },
+    {
+      "generate_ms": 8.045,
+      "props_ms": 7.682,
+      "render_publish_ms": 40.32,
+      "terrain_publish_ms": 0.257
+    }
+  ],
+  "edit_samples": 14,
+  "edit_samples_ms": [
+    66.254,
+    66.655,
+    66.806,
+    66.815,
+    67.386,
+    67.414,
+    68.312,
+    69.948,
+    70.91,
+    71.079,
+    72.386,
+    74.94,
+    78.439,
+    79.038
+  ],
+  "engine": "4.7-stable (official)",
+  "engine_static_bytes": 214595560.0,
+  "frame_count": 3239,
+  "frame_ms_p50": 7.098,
+  "frame_ms_p95": 14.124,
+  "grass_density_lod": 0.55,
+  "land_cells": 1200,
+  "night_frame_ms_p95": 14.313,
+  "platform": "macOS",
+  "preview_mode": "compact",
+  "quality": "medium",
+  "reflection_peaks": {
+    "calls": 222,
+    "combined_calls": 445,
+    "combined_triangles": 335424,
+    "triangles": 167711
+  },
+  "render_resolution": [
+    1920,
+    1080
+  ],
+  "renderer": "gl_compatibility",
+  "residents": 12,
+  "scope": "30 s source build in native Godot on M4 Pro, not an exported release or target device sign-off",
+  "source_tile_records": 1200,
+  "target_device_tested": false,
+  "visible_primitives_peak": 167713,
+  "rss_peak_bytes": 673218560,
+  "rss_samples": 33,
+  "engine_exit_code": 0
+}

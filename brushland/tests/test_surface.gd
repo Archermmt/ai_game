@@ -48,4 +48,33 @@ func run() -> void:
 	var serialized=JSON.parse_string(JSON.stringify(snapshot));var loaded=IslandSurface.new(serialized)
 	check(loaded.build_chunk(Vector2i(2,4))==s.build_chunk(Vector2i(2,4)))
 	data.clear_world();view.rebuild();check(view.terrain_chunks.is_empty())
-	view.free();print("PASS surface consistency, undo/reload, unchanged chunk identity, empty cleanup (",checks," checks)");quit(1 if failed else 0)
+	view.free();check_garden_border();print("PASS surface consistency, undo/reload, unchanged chunk identity, empty cleanup (",checks," checks)");quit(1 if failed else 0)
+
+# The second cottage is in a different 8 m chunk from its greenhouse. Both the
+# painted soil and its pebbles must be rebuilt when the influence reaches it.
+func check_garden_border() -> void:
+	var garden := IslandData.new()
+	var cells := []
+	for z in range(8, 16):
+		for x in range(8, 24):
+			cells.append(Vector2i(x, z))
+	garden.paint(cells, "grass")
+	for x in [15, 18]:
+		check(BuildingRules.place(garden, Vector2i(x, 11), "house").begins_with("Placed"))
+	var island := IslandView.new()
+	root.add_child(island)
+	island.setup(garden)
+	island.rebuild()
+	var edge := Vector2i(2, 1)
+	var remote_cell := Vector2i(20, 11)
+	var before: Array = island.terrain_chunks[edge].mesh.surface_get_arrays(0)
+	check(island.surface.garden_ground[remote_cell] == "courtyard")
+	check(BuildingRules.place(garden, Vector2i(12, 11), "greenhouse").begins_with("Placed"))
+	island.rebuild()
+	check(island.surface.garden_ground[remote_cell] == "meadow")
+	var after: Array = island.terrain_chunks[edge].mesh.surface_get_arrays(0)
+	check(after[Mesh.ARRAY_COLOR] != before[Mesh.ARRAY_COLOR])
+	garden.undo()
+	island.rebuild()
+	check(island.terrain_chunks[edge].mesh.surface_get_arrays(0) == before)
+	island.free()

@@ -6,7 +6,7 @@ func run() -> void:
 	create_timer(35).timeout.connect(func():push_error("App timeout");quit(1))
 	app=load("res://game/island.tscn").instantiate();root.add_child(app)
 	await process_frame
-	app.close_modal();app.sim.paused=false
+	app.visit_island("harbor");app.sim.paused=false
 	app.hud.tool_selected.emit("tea");assert(app.tool=="tea")
 	app.data.paint([Vector2i(18,20)],"grass");app.rebuild();assert(app.data.cell(Vector2i(18,20)).h==1)
 	app.hud.action_requested.emit("undo");assert(app.data.cell(Vector2i(18,20)).h==0)

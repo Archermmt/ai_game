@@ -1,6 +1,19 @@
 # 开发进度
 
-## 当前可体验版本
+## 暖树湾 · 2026-11-10
+
+- F5 或双击 `play.command` 进入暖树湾。全部地块、房屋、树、花圃、长椅与码头可编辑。相机近处平视屋檐，拉远后抬高，支持原有的笔刷、拍照和存档。
+- 从美术稿随附的工程拆出木筋小屋、秋橡和毛地黄，制作海岸、花园和茶屋变体。湖面以同一世界的镜像相机映出真实建筑、舟和树影。木舟使用 Grab3D 的 CC0 Rowboat。[模型来源](healing_model_sources.json) · [许可与改造记录](../THIRD_PARTY_NOTICES.md)
+- 同高相邻建筑以两轮局部约束传播决定外观。三格花圃、近水和玩家锁定先定形，温室、灯塔与已有风貌的小屋可以影响邻屋；同距冲突保留普通庭院。花园会堆起约 14 厘米的土床，普通庭院铺出约 4.5 厘米的缓台，岸地降低约 8.5 厘米。新起伏沿可影响格的边缘收平，地基、门口、小路和玩家画的花圃保留原高程。玩家画的水陆、高度、路网和房屋功能仍由原世界数据决定。
+- 官方介绍举了环路改变房屋、田野令建筑变形的例子。观察官方预告的 0–15 秒笔刷与聚落、约 25–35 秒码头与村庄，以及约 40–50 秒密集聚落后，选取了“同一笔影响相邻单元、就地看到结果”作为本作对应机制。这里的传播规则是本项目的实现。 [官方介绍与玩法预告](https://store.steampowered.com/app/5163450/Brushland/)
+- [开场](../snapshots/healing_cove/welcome.png) · [暖树湾](../snapshots/healing_cove/cove.png) · [同机位放温室后](../snapshots/healing_cove/with_greenhouse.png) · [暮色](../snapshots/healing_cove/dusk.png) · [环绕](../snapshots/healing_cove/orbit.png)。截图由运行中的游戏生成。
+
+- [8.6 秒实机演示](../snapshots/healing_cove/placing_greenhouse.mp4) 记录放温室、邻屋变化、撤销和日落。[第 13 周截图](../snapshots/week_13.png)。
+- M4 Pro 上，Godot 4.7 的 1080p 中画质全岛短测运行 30 秒，含 1,200 格陆地、40 栋建筑、400 件摆设。帧时 p95 为 14.77 ms，编辑至绘制 p95 为 83.53 ms，绘制峰值 169，进程内存采样峰值约 649 MiB。全岛远景使用地形岸影，近景使用镜像相机。这份短测只覆盖上述场景与设备。[实测记录](reports/healing_cove/stress_summary.json)
+- 附近两间住宅的传播、冲突、锁定、移动、跨块重绘、受保护入口、花床实际高程、撤销重做及读档重建已通过规则与实际入口回归。[规则测试](reports/healing_cove/regression.log) · [暖树湾集成](reports/healing_cove/final_cove.log) · [月牙湾桥与居民回归](reports/healing_cove/harbor_regression.log)
+- 本机新版体验包位于 `builds/BreezelyIsles-Warmtree-macOS.zip`，已从独立目录解压、验证签名并实际启动。该包用于本地预览；旧的 Windows 0.3.0 测试包对应上一版。[包校验](reports/healing_cove/package_check.json)
+
+## 上一版 · 0.3.0
 
 当前为**0.3.0本机验证候选与可转交测试包**，可双击根目录play.command或执行godot --path .；无需编辑器的macOS/Windows ZIP在builds下。欢迎页提供无建筑海湾、空白海面及三处参观构图。
 

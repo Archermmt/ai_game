@@ -1,14 +1,13 @@
 class_name ArtKit
 extends RefCounted
+const Village = preload("res://game/art/healing/village_models.gd")
 const CREAM=Color("efe4c9")
 const WOOD=Color("aa8060")
 const CORAL=Color("c67c65")
 const BLUE=Color("6e919e")
 const GREEN=Color("789579")
 var materials:Dictionary={}
-static var leaf_meshes:Dictionary={}
 static var leaf_material:ShaderMaterial
-static var flower_material:StandardMaterial3D
 func material(color:Color) -> StandardMaterial3D:
 	var k=color.to_html()
 	if not materials.has(k):
@@ -47,42 +46,18 @@ func roof(parent:Node3D,y:float,color:Color,width:float=2.05,depth:float=2.05,ri
 		beam(parent,Vector3(side*w,y,-d),Vector3(side*w,y,d),0.12,CREAM)
 		for z in [-0.7,0.0,0.7]:beam(parent,Vector3(side*w,y+0.02,z),Vector3(0,y+rise+0.02,z),0.025,color.darkened(0.08))
 func flower(parent:Node3D,pos:Vector3,index:int=0) -> void:
-	cylinder(parent,pos+Vector3(0,0.15,0),0.018,0.3,GREEN)
-	var st=SurfaceTool.new();st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	for petal in range(6):
-		var angle=petal*TAU/5;var center=pos+Vector3(cos(angle)*0.07,0.31,sin(angle)*0.07) if petal<5 else pos+Vector3(0,0.325,0)
-		var radius=0.05 if petal<5 else 0.035;var color=(Color("f7eac5") if index%2==0 else Color("d89e89")) if petal<5 else Color("d7b365")
-		for i in range(6):
-			for point in [center,center+Vector3(cos(i*TAU/6)*radius,0,sin(i*TAU/6)*radius),center+Vector3(cos((i+1)*TAU/6)*radius,0,sin((i+1)*TAU/6)*radius)]:st.set_normal(Vector3.UP);st.set_color(color);st.add_vertex(point)
-	if flower_material==null:
-		flower_material=StandardMaterial3D.new();flower_material.vertex_color_use_as_albedo=true;flower_material.vertex_color_is_srgb=true;flower_material.cull_mode=BaseMaterial3D.CULL_DISABLED;flower_material.roughness=1.0
-	var node=MeshInstance3D.new();node.mesh=st.commit();node.material_override=flower_material;parent.add_child(node)
+	Village.flowers(parent,pos,index)
 func pot(parent:Node3D,pos:Vector3) -> void:
 	cylinder(parent,pos+Vector3(0,0.12,0),0.1,0.24,CORAL,0.15)
 	for a in range(3):sphere(parent,pos+Vector3(cos(a*2)*0.1,0.32,sin(a*2)*0.1),Vector3(0.18,0.25,0.18),GREEN)
 func tree(parent:Node3D,pos:Vector3,seed_value:int=0) -> void:
-	var root=Node3D.new();root.position=pos;root.rotation.y=seed_value*0.71;parent.add_child(root)
-	var shape=posmod(seed_value,3)
-	var slender=shape==2
-	cylinder(root,Vector3(0,0.9,0),0.12,1.8,WOOD,0.065)
-	var st=SurfaceTool.new();st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	for cluster in range(5 if shape==1 else 7):
-		var angle=cluster*2.399963
-		var center=Vector3(cos(angle)*(0.3 if slender else 0.65),(1.45+cluster*0.10+sin(angle)*0.10) if shape==1 else (1.6+cluster*0.15),sin(angle)*(0.3 if slender else 0.65))
-		beam(root,Vector3(0,0.9,0),center,0.065,WOOD)
-		if leaf_meshes.has(shape):continue
-		for plane in range(4):
-			var yaw=plane*PI/3;var side=Vector3(cos(yaw),0,sin(yaw))*0.65
-			var up=Vector3.UP*(0.85 if slender else 0.65)
-			if plane==3:side=Vector3(0.6,0,0);up=Vector3(0,0,0.6)
-			var points=[center-side-up,center+side-up,center+side+up,center-side+up]
-			var uv=[Vector2(0,1),Vector2(1,1),Vector2(1,0),Vector2(0,0)]
-			for i in [0,1,2,0,2,3]:st.set_uv(uv[i]);st.add_vertex(points[i])
-	if not leaf_meshes.has(shape):leaf_meshes[shape]=st.commit()
-	var leaves=MeshInstance3D.new();leaves.mesh=leaf_meshes[shape]
+	Village.tree(parent,pos,seed_value)
+static func shrub_material() -> ShaderMaterial:
 	if leaf_material==null:
-		leaf_material=ShaderMaterial.new();leaf_material.shader=load("res://game/art/shaders/leaves.gdshader");leaf_material.set_shader_parameter("leaves",load("res://game/art/generated/leaf_cluster.png"))
-	leaves.material_override=leaf_material;root.add_child(leaves);leaves.add_to_group("island_leaf_nodes")
+		leaf_material=ShaderMaterial.new()
+		leaf_material.shader=load("res://game/art/shaders/leaves.gdshader")
+		leaf_material.set_shader_parameter("leaves",load("res://game/art/generated/leaf_cluster.png"))
+	return leaf_material
 func bench(parent:Node3D) -> void:
 	for x in [-0.38,0.38]:
 		for z in [-0.16,0.16]:box(parent,Vector3(x,0.19,z),Vector3(0.08,0.38,0.08),WOOD.darkened(0.1))
@@ -94,72 +69,102 @@ func table(parent:Node3D,pos:Vector3) -> void:
 	for x in [-0.18,0.18]:
 		cylinder(parent,pos+Vector3(x,0.73,0),0.06,0.12,CREAM)
 func building(kind:String,variant:String="basic",roof_index:int=0) -> Node3D:
+	if kind in ["house", "tea"]:
+		return Village.cottage(self,variant,roof_index,kind=="tea")
 	var root=Node3D.new();root.name=kind.capitalize()
-	var roof_color=[CORAL,BLUE,Color("8f9d7d")][roof_index%3]
-	if variant=="coast" and roof_index==0:roof_color=BLUE
+	var roof_color=Village.ROOF_TINTS[posmod(roof_index, Village.ROOF_TINTS.size())]
 	if kind=="bench":bench(root);return root
 	if kind=="pot":pot(root,Vector3.ZERO);return root
 	if kind=="tree":tree(root,Vector3.ZERO);return root
 	if kind=="lighthouse":
-		cylinder(root,Vector3(0,1.85,0),0.65,3.7,CREAM,0.47)
-		for y in [0.2,2.7,3.5]:cylinder(root,Vector3(0,y,0),0.69,0.12,WOOD if y>3 else Color("d4cab2"))
-		cylinder(root,Vector3(0,3.98,0),0.5,0.8,Color("b4c8bd"))
-		cylinder(root,Vector3(0,4.48,0),0.72,0.5,CORAL,0.02)
-		sphere(root,Vector3(0,4.82,0),Vector3.ONE*0.16,WOOD)
+		var stone = Color("d7bea0")
+		var brick = Color("b08a67")
+		var trim = Color("875f49")
+		cylinder(root, Vector3(0,1.85,0), 0.65, 3.7, stone, 0.48)
+		cylinder(root, Vector3(0,0.12,0), 0.76, 0.24, brick, 0.70)
+		cylinder(root, Vector3(0,2.45,0), 0.56, 0.38, roof_color, 0.54)
+		cylinder(root, Vector3(0,3.54,0), 0.69, 0.15, trim)
+		cylinder(root, Vector3(0,3.98,0), 0.46, 0.78, Color("d0c39b"))
+		cylinder(root, Vector3(0,4.48,0), 0.72, 0.50, roof_color, 0.03)
+		sphere(root, Vector3(0,4.82,0), Vector3.ONE*0.14, trim)
 		for i in range(12):
-			var a=i*TAU/12;box(root,Vector3(cos(a)*0.7,3.77,sin(a)*0.7),Vector3(0.045,0.45,0.045),WOOD)
-		cylinder(root,Vector3(0,3.98,0),0.22,0.5,Color("efce85"))
-		box(root,Vector3(0,0.6,0.64),Vector3(0.48,1.2,0.08),BLUE)
-		for y in [1.9,2.8]:box(root,Vector3(0,y,0.57),Vector3(0.22,0.36,0.08),BLUE)
-		pot(root,Vector3(0.65,0,0.55));return root
-	if kind=="tea":
-		cylinder(root,Vector3(0,0.08,0),1,0.16,CREAM)
-		for x in [-0.75,0.75]:
-			for z in [-0.75,0.75]:box(root,Vector3(x,0.95,z),Vector3(0.1,1.8,0.1),CREAM)
-		roof(root,1.8,roof_color,2.0,2.0,0.6);table(root,Vector3.ZERO)
-		for x in [-0.65,0.65]:
-			cylinder(root,Vector3(x,0.25,0),0.18,0.5,WOOD)
-		pot(root,Vector3(-0.8,0,0.8));return root
-	if kind=="greenhouse":
-		box(root,Vector3(0,0.15,0),Vector3(1.85,0.3,1.85),CREAM)
-		for x in [-0.8,0.8]:
-			for z in [-0.8,0,0.8]:beam(root,Vector3(x,0.3,z),Vector3(x,1.8,z),0.06,CREAM)
-		for z in [-0.8,0,0.8]:
-			beam(root,Vector3(-0.8,1.8,z),Vector3(0,2.8,z),0.07,CREAM)
-			beam(root,Vector3(0,2.8,z),Vector3(0.8,1.8,z),0.07,CREAM)
-			pot(root,Vector3(-0.4,0.3,z*0.7));pot(root,Vector3(0.4,0.3,z*0.7))
-		# Separate transparent panels keep frame, panes and interior readable.
-		for x in [-0.8,0.8]:
-			var panel=box(root,Vector3(x,1.05,0),Vector3(0.025,1.35,1.55),Color("b4ccbd"))
-			var glass=StandardMaterial3D.new();glass.albedo_color=Color(0.64,0.80,0.73,0.2);glass.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA;glass.roughness=0.18;glass.cull_mode=BaseMaterial3D.CULL_DISABLED;panel.material_override=glass
-		beam(root,Vector3(0,2.8,-0.9),Vector3(0,2.8,0.9),0.08,CREAM)
+			var a = i * TAU/12
+			var b = (i+1) * TAU/12
+			var post = Vector3(cos(a)*0.64,3.79,sin(a)*0.64)
+			box(root, post, Vector3(0.042,0.42,0.042), trim)
+			beam(root, post+Vector3.UP*0.20, Vector3(cos(b)*0.64,3.99,sin(b)*0.64), 0.045, trim)
+			if i % 2 == 0:
+				box(root, Vector3(cos(a)*0.47,4.0,sin(a)*0.47), Vector3(0.048,0.8,0.048), trim)
+		for side in [-1,1]:
+			for i in range(4):
+				box(root, Vector3(side*0.28,0.16+i*0.25,0.61), Vector3(0.10,0.20,0.11), brick)
+		box(root, Vector3(0,0.59,0.64), Vector3(0.46,1.08,0.08), Color("697d79"))
+		box(root, Vector3(0,1.16,0.65), Vector3(0.68,0.13,0.14), trim)
+		for y in [1.68,2.81]:
+			box(root, Vector3(0,y,0.56), Vector3(0.27,0.39,0.08), trim)
+			box(root, Vector3(0,y,0.61), Vector3(0.19,0.31,0.035), BLUE)
+		pot(root, Vector3(0.65,0,0.55))
 		return root
-	box(root,Vector3(0,0.12,0),Vector3(1.9,0.24,1.9),Color("c7bfa9"))
-	box(root,Vector3(0,1,0),Vector3(1.65,1.7,1.65),CREAM)
-	roof(root,1.85,roof_color)
-	for z in [-0.84,0.84]:
-		for x in [-0.84,0,0.84]:box(root,Vector3(x,1,z),Vector3(0.06,1.72,0.045),WOOD)
-		for y in [0.28,1.55]:box(root,Vector3(0,y,z),Vector3(1.72,0.07,0.045),WOOD)
-	box(root,Vector3(0,0.63,0.84),Vector3(0.45,1.12,0.08),BLUE)
-	sphere(root,Vector3(0,1.2,0.84),Vector3(0.45,0.45,0.08),BLUE)
-	sphere(root,Vector3(0.13,0.65,0.91),Vector3.ONE*0.05,Color("e3c487"))
-	for side in [-1,1]:
-		box(root,Vector3(side*0.55,1.08,0.84),Vector3(0.32,0.42,0.08),BLUE)
-		for dx in [-0.21,0.21]:box(root,Vector3(side*0.55+dx,1.08,0.86),Vector3(0.08,0.48,0.07),GREEN)
-		box(root,Vector3(side*0.55,1.08,0.9),Vector3(0.025,0.42,0.03),CREAM)
-		box(root,Vector3(side*0.55,1.08,0.9),Vector3(0.32,0.025,0.03),CREAM)
-	box(root,Vector3(0.5,2.2,-0.4),Vector3(0.24,0.8,0.28),CREAM)
-	box(root,Vector3(0.5,2.63,-0.4),Vector3(0.32,0.09,0.36),WOOD)
-	box(root,Vector3(0,0.1,1),Vector3(0.6,0.2,0.25),Color("c6b89e"))
-	if variant=="garden":
-		for x in [-0.56,0.56]:
-			box(root,Vector3(x,0.79,0.98),Vector3(0.42,0.15,0.2),WOOD)
-			for i in range(3):flower(root,Vector3(x-0.13+i*0.13,0.8,0.98),i)
-		pot(root,Vector3(-0.65,0,0.98))
-	if variant=="coast":
-		box(root,Vector3(0,1.45,1.05),Vector3(1.45,0.09,0.4),BLUE)
-		for x in [-0.7,0.7]:box(root,Vector3(x,0.8,1.12),Vector3(0.06,1.6,0.06),WOOD)
+	if kind=="greenhouse":
+		var frame = [Color("a28b65"), Color("74918d"), Color("91a07b")][posmod(roof_index, 3)]
+		box(root, Vector3(0,0.17,0), Vector3(1.85,0.34,1.85), Color("c5b79a"))
+		for x in [-0.83,0.83]:
+			for z in [-0.80,0,0.80]:
+				beam(root, Vector3(x,0.31,z), Vector3(x,1.68,z), 0.065, frame)
+			for y in [0.60,1.18,1.68]:
+				box(root, Vector3(x,y,0), Vector3(0.065,0.055,1.7), frame)
+		for z in [-0.80,0,0.80]:
+			beam(root, Vector3(-0.84,1.68,z), Vector3(0,2.48,z), 0.07, frame)
+			beam(root, Vector3(0,2.48,z), Vector3(0.84,1.68,z), 0.07, frame)
+			for side in [-1,1]:
+				pot(root, Vector3(0.47*side,0.34,z*0.78))
+		# Translucent sage glass leaves the front aisle and plants readable.
+		var glass=StandardMaterial3D.new()
+		glass.albedo_color=Color(0.70,0.85,0.83,0.37)
+		glass.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA
+		glass.roughness=0.35
+		glass.cull_mode=BaseMaterial3D.CULL_DISABLED
+		var surfaces = SurfaceTool.new()
+		surfaces.begin(Mesh.PRIMITIVE_TRIANGLES)
+		for side in [-1,1]:
+			var x = 0.81*side
+			glass_quad(surfaces, Vector3(x,0.34,-0.80), Vector3(x,1.68,-0.80),
+					Vector3(x,1.68,0.80), Vector3(x,0.34,0.80))
+			glass_quad(surfaces, Vector3(x,1.68,-0.80), Vector3(0,2.48,-0.80),
+					Vector3(0,2.48,0.80), Vector3(x,1.68,0.80))
+			beam(root,Vector3(side*0.36,0.32,0.82),Vector3(side*0.36,1.77,0.82),0.057,frame)
+		for z in [-0.80,0.80]:
+			glass_quad(surfaces,Vector3(-0.81,0.34,z),Vector3(-0.81,1.68,z),
+					Vector3(0.81,1.68,z),Vector3(0.81,0.34,z))
+			for side in [-1,1]:
+				box(root,Vector3(side*0.60,1.18,z+0.016),Vector3(0.46,0.052,0.04),frame)
+			for v in [Vector3(-0.76,1.71,z),Vector3(0,2.43,z),Vector3(0.76,1.71,z)]:
+				surfaces.set_normal(Vector3.BACK if z>0 else Vector3.FORWARD)
+				surfaces.add_vertex(v)
+			beam(root,Vector3(0,1.68,z),Vector3(0,2.43,z),0.045,frame)
+		for side in [-1,1]:
+			var shelf_x=0.53*side
+			box(root,Vector3(shelf_x,0.81,-0.03),Vector3(0.45,0.07,1.38),Color("9a7755"))
+			for z in [-0.55,0.55]:
+				box(root,Vector3(shelf_x,0.58,z),Vector3(0.07,0.45,0.07),frame)
+				pot(root,Vector3(shelf_x,0.85,z))
+		var glazing = MeshInstance3D.new()
+		glazing.name = "SageGlass"
+		glazing.mesh = surfaces.commit()
+		glazing.material_override = glass
+		glazing.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		root.add_child(glazing)
+		box(root,Vector3(0,0.76,0.815),Vector3(0.68,0.07,0.04),frame)
+		box(root,Vector3(0.24,0.99,0.85),Vector3(0.12,0.048,0.05),Color("846042"))
+		beam(root,Vector3(0,2.48,-0.91),Vector3(0,2.48,0.91),0.095,frame)
+		beam(root,Vector3(-0.82,1.68,0.82),Vector3(0.82,1.68,0.82),0.065,frame)
+		return root
 	return root
+func glass_quad(builder: SurfaceTool, a: Vector3, b: Vector3, c: Vector3, d: Vector3) -> void:
+	var normal = (b-a).cross(c-a).normalized()
+	for v in [a,c,b,a,d,c]:
+		builder.set_normal(normal)
+		builder.add_vertex(v)
 func character(index:int) -> Node3D:
 	var root=Node3D.new();root.name="Resident"
 	var cloth=[Color("d3b461"),GREEN,CORAL,BLUE][index%4]

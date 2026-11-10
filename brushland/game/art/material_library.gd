@@ -28,6 +28,9 @@ func set_night(night:bool) -> void:
 func dress(root:Node3D,kind:String) -> void:
 	if kind not in ["house","tea","lighthouse"]:return
 	for node in root.find_children("*","MeshInstance3D",true,false):
+		if node.name == "Casements":
+			node.material_override = window_material()
+			continue
 		for s in range(node.mesh.get_surface_count()):
 			var m=node.get_active_material(s)
 			if not m is StandardMaterial3D:continue

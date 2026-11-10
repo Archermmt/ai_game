@@ -19,8 +19,9 @@ var radius:int=1
 var span:int=3
 var placement_rotation:int=0
 var moving_id:int=0
-var angle:float=0.3
-var center=Vector3(31.5,0,33)
+var angle:float=0.22
+var center=Vector3(29.9,1.85,32.5)
+var welcoming := false
 var stroke:Array=[]
 var dragging=false
 var time:float=0
@@ -36,7 +37,7 @@ var preview_note=Label.new()
 func _ready() -> void:
 	get_tree().auto_accept_quit=false
 	capturing=OS.get_cmdline_user_args().has("--capture")
-	DemoIsland.create(data)
+	preload("res://game/world/cottage_cove.gd").create(data)
 	if OS.get_cmdline_user_args().has("--empty"):data.clear_world()
 	add_child(view);view.setup(data);add_child(preview)
 	add_child(wildlife);wildlife.setup()
@@ -44,7 +45,7 @@ func _ready() -> void:
 	env.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR;env.ambient_light_color=Color.WHITE;env.ambient_light_energy=0.5
 	world_env.environment=env;add_child(world_env)
 	sun.rotation_degrees=Vector3(-48,-25,0);sun.light_color=Color("fff3de");sun.light_energy=0.9;sun.shadow_enabled=true;sun.directional_shadow_max_distance=70;add_child(sun)
-	add_child(camera);camera.projection=Camera3D.PROJECTION_ORTHOGONAL;camera.size=30.5;camera.current=true;update_camera()
+	add_child(camera);camera.projection=Camera3D.PROJECTION_PERSPECTIVE;camera.fov=28.0;camera.size=12.0;camera.current=true;update_camera()
 	add_child(audio);add_child(listener);listener.make_current()
 	add_child(hud);preferences.read();apply_preferences(false);hud.add_child(photo_hint);photo_hint.text="拍照模式 · Q/E 转向 · 滚轮缩放 · F12 保存 · Esc 返回";photo_hint.position=Vector2(30,24);photo_hint.visible=false
 	hud.root.add_child(preview_note);preview_note.mouse_filter=Control.MOUSE_FILTER_IGNORE;preview_note.add_theme_font_size_override("font_size",17);preview_note.add_theme_color_override("font_shadow_color",Color("fff6df"));preview_note.add_theme_constant_override("shadow_offset_x",1);preview_note.add_theme_constant_override("shadow_offset_y",1)
@@ -53,10 +54,7 @@ func _ready() -> void:
 		if id in sim.hidden_wishes:sim.hidden_wishes.erase(id)
 		else:sim.hidden_wishes.append(id)
 		hud.refresh_journal(sim.completed,sim.hidden_wishes))
-	for o in data.objects:
-		if o.kind=="house":
-			var p=RouteGraph.entrance(o)
-			sim.people.append({"id":sim.next_id,"home":o.id,"x":float(p.x),"z":float(p.y),"state":"home","route":[],"timer":float(sim.next_id),"target":0,"activity":"","crossed":false});sim.next_id+=1
+	settle_existing_homes()
 	rebuild();set_sunset(false)
 	if capturing:
 		for i in range(16):sim.tick(data,0.5)
@@ -65,15 +63,25 @@ func _ready() -> void:
 		await RenderingServer.frame_post_draw
 		var target="res://snapshots/playable_day.png"
 		if OS.get_cmdline_user_args().has("--sunset"):set_sunset(true);target="res://snapshots/playable_sunset.png"
-		if OS.get_cmdline_user_args().has("--photo"):hud.root.visible=false;target="res://snapshots/playable_photo.png"
+		if OS.get_cmdline_user_args().has("--photo"):
+			hud.root.hide()
+			preview.hide()
+			target="res://snapshots/playable_photo.png"
 		if OS.get_cmdline_user_args().has("--welcome"):welcome();target="res://snapshots/playable_welcome.png"
 		if OS.get_cmdline_user_args().has("--menu"):save_menu();target="res://snapshots/playable_menu.png"
 		for arg in OS.get_cmdline_user_args():
+			if arg=="--orbit-view":angle+=PI/2;update_camera()
 			if arg.begins_with("--capture-target="):target=arg.trim_prefix("--capture-target=")
 		await RenderingServer.frame_post_draw
 		var err=get_viewport().get_texture().get_image().save_png(target)
 		print("CAPTURE ",target," ",error_string(err));get_tree().quit()
 	else:welcome()
+func settle_existing_homes() -> void:
+	for o in data.objects:
+		if o.kind=="house":
+			var p=RouteGraph.entrance(o)
+			sim.people.append({"id":sim.next_id,"home":o.id,"x":float(p.x),"z":float(p.y),"state":"home","route":[],"timer":float(sim.next_id),"target":0,"activity":"","crossed":false});sim.next_id+=1
+
 func select_tool(id:String) -> void:
 	audio.effect("click")
 	tool=id;dragging=false;stroke.clear();moving_id=0
@@ -82,53 +90,112 @@ func rebuild() -> void:
 	sim.reconcile(data);view.day=not sim.sunset;view.rebuild();view.update_actors(sim,time);hud.refresh_journal(sim.completed,sim.hidden_wishes);refresh_preview()
 func update_camera() -> void:
 	center.x=clampf(center.x,8,56);center.z=clampf(center.z,8,56)
-	camera.position=center+Vector3(sin(angle)*38,38,cos(angle)*38);camera.look_at(center)
+	# Close framing shows the façades and their reflections. Pulling back gradually
+	# returns to a steeper angle for editing the far side of a large island.
+	var pitch := deg_to_rad(lerpf(12.0, 43.0, smoothstep(13.0, 31.0, camera.size)))
+	var distance_to_focus := float(camera.size) * 0.5 / tan(deg_to_rad(camera.fov * 0.5))
+	var eye_direction := Vector3(sin(angle) * cos(pitch), sin(pitch), cos(angle) * cos(pitch))
+	camera.position = center + eye_direction * distance_to_focus
+	camera.look_at(center)
 func pick() -> Vector2i:
-	var mouse=get_viewport().get_mouse_position();var origin=camera.project_ray_origin(mouse);var dir=camera.project_ray_normal(mouse)
+	return pick_at(get_viewport().get_mouse_position())
+
+func pick_at(mouse: Vector2) -> Vector2i:
+	var origin: Vector3 = camera.project_ray_origin(mouse)
+	var dir: Vector3 = camera.project_ray_normal(mouse)
 	# Solve against the same derived surface used for rendering and feet.
-	if view.surface!=null:
-		var previous=origin
-		for i in range(1,801):
-			var point=origin+dir*(i*0.15)
-			if point.y<=view.surface.height_at(Vector2(point.x,point.z)):
-				var lo=previous;var hi=point
+	if view.surface != null and dir.y < -0.001:
+		var begin := maxf(0.0, (2.1 - origin.y) / dir.y)
+		var finish := (-0.16 - origin.y) / dir.y
+		# Clip the shallow sight line to the editable board before marching.
+		for axis in [0, 2]:
+			if absf(dir[axis]) < 0.00001:
+				if origin[axis] < -0.5 or origin[axis] > 63.5:
+					return Vector2i(-1, -1)
+				continue
+			var near_t: float = (-0.5 - origin[axis]) / dir[axis]
+			var far_t: float = (63.5 - origin[axis]) / dir[axis]
+			begin = maxf(begin, minf(near_t, far_t))
+			finish = minf(finish, maxf(near_t, far_t))
+		var previous: Vector3 = origin + dir * begin
+		var step_count := ceili((finish - begin) / 0.15)
+		for i in range(0, step_count + 1):
+			var point: Vector3 = origin + dir * minf(finish, begin + i * 0.15)
+			if point.y <= view.surface.height_at(Vector2(point.x, point.z)):
+				var lo := previous
+				var hi := point
 				for step in range(10):
-					var mid=(lo+hi)*0.5
-					if mid.y>view.surface.height_at(Vector2(mid.x,mid.z)):lo=mid
-					else:hi=mid
-				return Vector2i(roundi(hi.x),roundi(hi.z))
-			previous=point
+					var mid := (lo + hi) * 0.5
+					if mid.y > view.surface.height_at(Vector2(mid.x, mid.z)):
+						lo = mid
+					else:
+						hi = mid
+				return Vector2i(roundi(hi.x), roundi(hi.z))
+			previous = point
 	return Vector2i(-1,-1)
 func prototype(p:Vector2i) -> Dictionary:
 	return {"id":0,"x":p.x,"z":p.y,"kind":tool,"rotation":placement_rotation,"length":span,"locked":false}
+var preview_reaction_key: Array = []
+var preview_reaction_text := ""
+
+func placement_preview(object: Dictionary, moving: bool = false) -> String:
+	var prefix := "移至此处" if moving else "可放置"
+	if object.kind not in BuildingRules.BUILDINGS:
+		return prefix + " · " + IslandHud.NAMES[object.kind]
+	var key := [data.revision, object.kind, object.id, object.x, object.z, object.rotation, moving]
+	if key == preview_reaction_key:
+		return preview_reaction_text
+	var proposal := BuildingRules.neighborhood(data, object)
+	var label_text: String = IslandHud.NAMES[object.kind]
+	if object.kind == "house":
+		label_text = {"basic": "普通居所", "coast": "海岸居所", "garden": "花园居所"}[proposal.variants[int(object.id)]]
+	var changed := 0
+	for id in view.neighborhood_state.variants:
+		if id != int(object.id) and view.neighborhood_state.variants[id] != proposal.variants.get(id):
+			changed += 1
+	var detail: String = proposal.reasons.get(int(object.id), "")
+	if changed > 0:
+		detail += (" · " if not detail.is_empty() else "") + "%d 间邻屋会换外观" % changed
+	preview_reaction_text = prefix + " · " + label_text
+	if not detail.is_empty():
+		preview_reaction_text += "\n" + detail
+	preview_reaction_key = key
+	return preview_reaction_text
+
 func refresh_preview() -> void:
 	preview_note.visible=false
 	for n in preview.get_children():n.free()
-	if photo_mode or modal!=null:return
+	if photo_mode or modal!=null or view.surface == null or get_viewport().gui_get_hovered_control() != null:return
 	var p=pick()
 	if not BuildingRules.inside(p):return
 	var cells:Array=[];var valid=true;var reason=""
 	if tool=="move" and moving_id!=0:
 		var o=sim.object_by_id(data,moving_id).duplicate(true)
-		if not o.is_empty():o.x=p.x;o.z=p.y;cells=BuildingRules.footprint(o);reason=BuildingRules.check(data,o,moving_id);valid=reason.is_empty()
+		if not o.is_empty():
+			o.x = p.x
+			o.z = p.y
+			cells = BuildingRules.footprint(o)
+			reason = BuildingRules.check(data, o, moving_id)
+			valid = reason.is_empty()
+			if valid:
+				reason = placement_preview(o, true)
 	elif tool in BuildingRules.TOOLS:
 		var o=prototype(p);cells=BuildingRules.footprint(o);reason=BuildingRules.check(data,o);valid=reason.is_empty()
-		if valid:reason="可放置 · "+({"basic":"普通居所","coast":"海岸居所","garden":"花园居所"}[BuildingRules.variant(data,o)] if tool=="house" else IslandHud.NAMES[tool])
+		if valid:reason=placement_preview(o)
 	elif dragging:cells=stroke
 	else:
 		for x in range(-radius,radius+1):
 			for z in range(-radius,radius+1):
 				if x*x+z*z<=radius*radius:cells.append(p+Vector2i(x,z))
+	var marked: Dictionary = {}
 	for q in cells:
-		if not BuildingRules.inside(q):continue
-		var protected=(not BuildingRules.road_paintable(data,q) if tool=="road" else BuildingRules.occupied(data,q,true)) and not tool in BuildingRules.TOOLS
-		var color=Color("d4b28d") if not valid or protected else Color("cdddb2")
-		var marker=view.kit.box(preview,Vector3(q.x,float(data.cell(q).h)*0.5+0.045,q.y),Vector3(0.88,0.035,0.88),color)
-		marker.layers=1<<19;marker.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-		if not valid or protected:
-			for angle_value in [-PI/4,PI/4]:
-				var stripe=view.kit.box(preview,marker.position+Vector3.UP*0.025,Vector3(0.85,0.02,0.06),Color("916a58"));stripe.rotation.y=angle_value;stripe.layers=1<<19;stripe.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-			if protected:reason="支撑 / 入口会保留"
+		if not BuildingRules.inside(q):
+			continue
+		var protected: bool = not tool in BuildingRules.TOOLS and (not BuildingRules.road_paintable(data, q) if tool == "road" else BuildingRules.occupied(data, q, true))
+		marked[q] = protected or not valid
+		if protected:
+			reason = "支撑 / 入口会保留"
+	preload("res://game/art/cove_brush.gd").outline(preview, view.surface, marked, valid)
 	if not reason.is_empty():
 		preview_note.text=reason;preview_note.visible=true
 		var mouse=hud.root.get_local_mouse_position();preview_note.position=Vector2(clampf(mouse.x+20,10,maxf(10,hud.root.size.x-380)),clampf(mouse.y-40,140,maxf(140,hud.root.size.y-160)))
@@ -139,8 +206,10 @@ func collect() -> void:
 			var q=p+Vector2i(x,z)
 			if x*x+z*z<=radius*radius and not stroke.has(q):stroke.append(q)
 func commit_stroke() -> void:
+	commit_stroke_at(pick())
+
+func commit_stroke_at(p: Vector2i) -> void:
 	var before=data.snapshot()
-	var p=pick()
 	var regions=resident_regions()
 	if tool in BuildingRules.TOOLS:
 		var result=BuildingRules.place(data,p,tool,placement_rotation,span)
@@ -186,8 +255,8 @@ func _unhandled_input(event:InputEvent) -> void:
 		if event is InputEventKey and event.pressed and not event.echo and preferences.matches(event,"cancel"):close_modal();get_viewport().set_input_as_handled()
 		return
 	if event is InputEventMouseButton:
-		if event.button_index==MOUSE_BUTTON_WHEEL_UP:camera.size=maxf(13,camera.size-1.5)
-		if event.button_index==MOUSE_BUTTON_WHEEL_DOWN:camera.size=minf(58,camera.size+1.5)
+		if event.button_index==MOUSE_BUTTON_WHEEL_UP:camera.size=maxf(8,camera.size-1.5);update_camera();refresh_preview()
+		if event.button_index==MOUSE_BUTTON_WHEEL_DOWN:camera.size=minf(58,camera.size+1.5);update_camera();refresh_preview()
 		if event.button_index==MOUSE_BUTTON_RIGHT:stroke.clear();dragging=false;moving_id=0;hud.toast("已取消")
 		if event.button_index==MOUSE_BUTTON_LEFT and event.pressed and not photo_mode:dragging=true;stroke.clear();collect()
 	if event is InputEventMouseMotion:
@@ -297,27 +366,83 @@ func open_modal(title:String) -> VBoxContainer:
 	dragging=false;stroke.clear();moving_id=0
 	if modal!=null:modal.queue_free()
 	modal=Control.new();hud.root.add_child(modal);modal.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	var shade=ColorRect.new();shade.color=Color(0.15,0.27,0.25,0.35);modal.add_child(shade);shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	var shade=ColorRect.new();shade.color=Color(0.15,0.19,0.16,0.04 if welcoming else 0.35);modal.add_child(shade);shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var panel=PanelContainer.new();modal_panel=panel;modal.add_child(panel);panel.set_anchors_and_offsets_preset(Control.PRESET_CENTER);layout_modal()
 	panel.add_theme_stylebox_override("panel",hud.style(Color("f7f1df")))
 	var scroll=ScrollContainer.new();scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;panel.add_child(scroll)
 	var col=VBoxContainer.new();col.size_flags_horizontal=Control.SIZE_EXPAND_FILL;col.add_theme_constant_override("separation",10);scroll.add_child(col);col.add_child(hud.label(title,27));return col
 func layout_modal() -> void:
 	if not is_instance_valid(modal_panel):return
+	if welcoming:
+		var margin := minf(36, hud.root.size.x * 0.035)
+		var width := minf(330, hud.root.size.x - margin * 2)
+		modal_panel.set_anchors_and_offsets_preset(Control.PRESET_CENTER_LEFT)
+		modal_panel.offset_left = margin
+		modal_panel.offset_right = width + margin
+		var content := modal_panel.get_child(0).get_child(0) as Control if modal_panel.get_child_count() else null
+		var desired := content.get_combined_minimum_size().y + 32 if content != null else 370.0
+		var height := minf(desired, hud.root.size.y - 2 * margin)
+		modal_panel.offset_top = -height / 2
+		modal_panel.offset_bottom = height / 2
+		var view_width: float = camera.size * get_viewport().get_visible_rect().size.aspect()
+		camera.h_offset = -view_width * minf(0.16, (width + margin) / hud.root.size.x * 0.34)
+		return
 	var extent=(hud.root.size-Vector2(48,48)).min(Vector2(640,680))*0.5
 	modal_panel.offset_left=-extent.x;modal_panel.offset_right=extent.x;modal_panel.offset_top=-extent.y;modal_panel.offset_bottom=extent.y
 func close_modal() -> void:
+	if welcoming:
+		welcoming = false
+		preview.show()
+		camera.h_offset = 0
+		hud.set_build_controls_visible(true)
+		sim.paused = false
 	binding_target=""
 	if modal!=null:modal.queue_free();modal=null
 func welcome() -> void:
 	sim.paused=true
-	var col=open_modal("欢迎来到风屿")
-	var text=hud.label("画一段海岸，留一盏灯。\n\n工具全部免费，喜欢的风景可以随时改。\n小屋旁添三格花，试试它的新模样。\n\n新建一座海湾，或参观准备好的风景。",17);col.add_child(text)
-	hud.button(col,"新建海湾（无建筑）",func():data.clear_world();data.seed_island();data.paint([Vector2i(28,33),Vector2i(29,33),Vector2i(30,33)],"road");data.history.clear();sim=ResidentSim.new();close_modal();rebuild();hud.toast("先画岸边，再摆小屋；门前接路，码头通向外海"))
-	hud.button(col,"参观月牙湾",func():close_modal();sim.paused=false;hud.toast("先添一片花圃，或在建造栏放下一间新屋"))
-	for composition in [["garden","去花园池畔"],["lighthouse","去灯塔岩岬"]]:hud.button(col,composition[1],func():IslandCompositions.create(data,composition[0]);sim=ResidentSim.new();close_modal();rebuild();sim.paused=false)
-	if FileAccess.file_exists("user://island.json"):hud.button(col,"继续上次的岛",func():load_slot("user://island.json");close_modal())
-	hud.button(col,"空白海面",func():data.clear_world();sim=ResidentSim.new();close_modal();rebuild())
+	welcoming = true
+	preview.hide()
+	preview_note.hide()
+	hud.set_build_controls_visible(false)
+	var col = open_modal("风屿手记")
+	var message = hud.label("暖树湾\n树荫下有间小屋，门前的小路通向湖边。", 16)
+	message.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	col.add_child(message)
+	var enter = hud.button(col, "走进暖树湾", func():
+		close_modal()
+		hud.toast("在小屋旁添一间温室，看看窗下的花和门前的庭院。"))
+	enter.add_theme_stylebox_override("normal", hud.style(Color("58624d")))
+	enter.add_theme_color_override("font_color", Color("fff4df"))
+	if FileAccess.file_exists("user://island.json"):
+		hud.button(col, "继续上次的岛", func(): close_modal(); load_slot("user://island.json"))
+	hud.button(col, "新建海湾（无建筑）", visit_island.bind("new"))
+	var places := VBoxContainer.new()
+	var more = hud.button(col, "其他海湾  ▾", func(): places.visible = not places.visible)
+	more.tooltip_text = "月牙湾、花园池畔、灯塔岩岬和空白海面"
+	col.add_child(places)
+	for item in [["harbor", "参观月牙湾"], ["garden", "去花园池畔"], ["lighthouse", "去灯塔岩岬"], ["empty", "空白海面"]]:
+		hud.button(places, item[1], visit_island.bind(item[0]))
+	places.hide()
+
+func visit_island(id: String) -> void:
+	close_modal()
+	sim = ResidentSim.new()
+	if id in ["empty", "new"]:
+		data.clear_world()
+		if id == "new":
+			data.seed_island()
+			data.paint([Vector2i(28,33),Vector2i(29,33),Vector2i(30,33)], "road")
+			data.history.clear()
+	else:
+		IslandCompositions.create(data, id)
+		if id == "harbor":
+			settle_existing_homes()
+	center = Vector3(31.5, 0, 33)
+	camera.size = 30.5
+	angle = 0.3
+	update_camera()
+	rebuild()
+
 func save_current(path:String="user://island.json") -> Error:
 	var presentation={"camera":{"center":[center.x,center.y,center.z],"size":camera.size,"angle":fposmod(angle,TAU)},"settings":preferences.values.duplicate(true)}
 	return SaveStore.save_game(data,sim,path,presentation)

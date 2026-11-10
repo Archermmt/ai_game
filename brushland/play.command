@@ -10,7 +10,10 @@ else
   read "?按回车关闭窗口"
   exit 1
 fi
-if [[ ! -d "$brushland_root/.godot/imported" ]]; then
+import_stamp="$brushland_root/.godot/brushland_source_imported"
+if [[ ! -d "$brushland_root/.godot/imported" || ! -f "$import_stamp" || "$brushland_root/project.godot" -nt "$import_stamp" ]] || \
+   [[ -n "$(find "$brushland_root/game" -type f -newer "$import_stamp" -print -quit)" ]]; then
   "$brushland_engine" --headless --path "$brushland_root" --editor --import
+  touch "$import_stamp"
 fi
 exec "$brushland_engine" --path "$brushland_root"

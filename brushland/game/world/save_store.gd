@@ -59,7 +59,7 @@ static func validate(payload) -> Error:
 		if not camera is Dictionary or not camera.has_all(["center","angle","size"]) or not camera.center is Array or camera.center.size()!=3:return ERR_FILE_CORRUPT
 		for value in camera.center+[camera.angle,camera.size]:
 			if not (value is int or value is float) or not is_finite(float(value)):return ERR_FILE_CORRUPT
-		if camera.size<13 or camera.size>58 or absf(camera.angle)>100000 or camera.center[0]<8 or camera.center[0]>56 or camera.center[2]<8 or camera.center[2]>56 or absf(camera.center[1])>16:return ERR_FILE_CORRUPT
+		if camera.size<8 or camera.size>58 or absf(camera.angle)>100000 or camera.center[0]<8 or camera.center[0]>56 or camera.center[2]<8 or camera.center[2]>56 or absf(camera.center[1])>16:return ERR_FILE_CORRUPT
 	# Validate layout in a temporary world, before touching live state or history.
 	var candidate=IslandData.new();candidate.restore(payload)
 	for object in candidate.objects:

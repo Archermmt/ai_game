@@ -1,0 +1,35 @@
+{
+  "fixture": "40 buildings, 400 decorations, 12 residents, 6 animals, 1200 occupied land cells",
+  "command": "godot --path . --rendering-method gl_compatibility -- --benchmark --duration=30 --quality=medium --compact",
+  "captures": "Window preview 640x360, render target 1920x1080; source project on Apple M4 Pro.",
+  "results": "stress_medium.json",
+  "before": "stress_medium_before.json",
+  "budget_checks": {
+    "draws": {
+      "threshold": 200,
+      "peak": 169,
+      "passed": true
+    },
+    "triangles": {
+      "threshold": 350000,
+      "peak": 171217,
+      "passed": true
+    },
+    "frame": {
+      "threshold": 16.666666666666668,
+      "p95_ms": 14.774,
+      "passed": true
+    },
+    "edit": {
+      "threshold": 100,
+      "p95_ms": 83.533,
+      "passed": true
+    },
+    "rss_bytes": {
+      "threshold": 1500000000,
+      "peak": 680968192,
+      "passed": true
+    }
+  },
+  "interpretation": "Comparative 30-second local test at 42 m overview. A single glass surface per greenhouse and a height-field shore reflection at this scale reduced visible draw calls. The close view keeps the geometry mirror; the 42 m counts do not describe a camera near a cottage. Target devices and a new five-minute export run remain unmeasured."
+}

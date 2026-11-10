@@ -79,12 +79,25 @@ func _ready() -> void:
 	print("PRESSURE_READY 40 buildings / 400 decorations / 12 residents / 6 animals");print("BENCHMARK_DIRECTORY ",ProjectSettings.globalize_path(destination))
 	var layer=CanvasLayer.new();add_child(layer);var status=Label.new();status.position=Vector2(20,20);status.add_theme_font_override("font",preload("res://game/ui/fonts/noto_sans_cjk_sc_regular.otf"));status.add_theme_font_size_override("font_size",22);layer.add_child(status)
 	# Observe completed draws without suspending simulation at that signal.
+	# The main viewport statistics omit the planar water camera.
+	var reflection_peaks := {"calls": 0, "triangles": 0, "combined_calls": 0, "combined_triangles": 0}
 	var on_render=func():
 		var now=Time.get_ticks_usec();var elapsed=(now-begin)/1000000.0
 		if observed.last_draw>0:
 			var frame_ms=(now-int(observed.last_draw))/1000.0;samples.append(frame_ms);phase_samples[1 if elapsed>=seconds/2 else 0].append(frame_ms)
 		observed.last_draw=now;observed.frames+=1
 		observed.draw_peak=maxi(observed.draw_peak,get_viewport().get_render_info(Viewport.RENDER_INFO_TYPE_VISIBLE,Viewport.RENDER_INFO_DRAW_CALLS_IN_FRAME));observed.primitive_peak=maxi(observed.primitive_peak,get_viewport().get_render_info(Viewport.RENDER_INFO_TYPE_VISIBLE,Viewport.RENDER_INFO_PRIMITIVES_IN_FRAME))
+		var mirror = view.reflection
+		if mirror != null and mirror.drawing_geometry:
+			var mirrored_calls: int = mirror.get_render_info(Viewport.RENDER_INFO_TYPE_VISIBLE, Viewport.RENDER_INFO_DRAW_CALLS_IN_FRAME)
+			var mirrored_triangles: int = mirror.get_render_info(Viewport.RENDER_INFO_TYPE_VISIBLE, Viewport.RENDER_INFO_PRIMITIVES_IN_FRAME)
+			reflection_peaks.calls = maxi(reflection_peaks.calls, mirrored_calls)
+			reflection_peaks.triangles = maxi(reflection_peaks.triangles, mirrored_triangles)
+			reflection_peaks.combined_calls = maxi(reflection_peaks.combined_calls, mirrored_calls + get_viewport().get_render_info(Viewport.RENDER_INFO_TYPE_VISIBLE, Viewport.RENDER_INFO_DRAW_CALLS_IN_FRAME))
+			reflection_peaks.combined_triangles = maxi(reflection_peaks.combined_triangles, mirrored_triangles + get_viewport().get_render_info(Viewport.RENDER_INFO_TYPE_VISIBLE, Viewport.RENDER_INFO_PRIMITIVES_IN_FRAME))
+		else:
+			reflection_peaks.combined_calls = maxi(reflection_peaks.combined_calls, observed.draw_peak)
+			reflection_peaks.combined_triangles = maxi(reflection_peaks.combined_triangles, observed.primitive_peak)
 		if observed.pending_edit>0:edit_samples.append((now-int(observed.pending_edit))/1000.0);observed.pending_edit=0
 		var minute=int(observed.capture_request)
 		if minute>=0 and minute!=int(observed.last_capture):
@@ -125,4 +138,5 @@ func _ready() -> void:
 		push_error("Benchmark interrupted: missing day/night/frame/edit samples; repeat without suspension");get_tree().quit(1);return
 	samples.sort();edit_samples.sort();edit_cpu.sort();for phase in phase_samples:phase.sort()
 	var report={"preview_mode":"compact" if compact else "full","render_resolution":[1920,1080],"edit_samples_ms":edit_samples,"edit_cpu_ms_p95":edit_cpu[int(edit_cpu.size()*0.95)] if not edit_cpu.is_empty() else 0.0,"edit_profiles":edit_profiles,"edit_measurement":"paint + rebuild through RenderingServer.frame_post_draw; excludes OS compositor/display latency","land_cells":land_count,"source_tile_records":data.tiles.size(),"quality":quality,"platform":OS.get_name(),"cpu":OS.get_processor_name(),"device":RenderingServer.get_video_adapter_name(),"edit_samples":edit_samples.size(),"edit_ms_p95":edit_samples[int(edit_samples.size()*0.95)] if not edit_samples.is_empty() else 0.0,"engine":Engine.get_version_info().string,"renderer":RenderingServer.get_current_rendering_method(),"driver":RenderingServer.get_current_rendering_driver_name(),"duration_wall_seconds":(Time.get_ticks_usec()-begin)/1000000.0,"build_ms":build_ms,"buildings":building_count,"decorations":decoration_count,"residents":sim.people.size(),"animals":wildlife.animals.size(),"frame_count":frame_count,"frame_ms_p50":samples[samples.size()/2],"frame_ms_p95":samples[int(samples.size()*0.95)],"day_frame_ms_p95":phase_samples[0][int(phase_samples[0].size()*0.95)],"night_frame_ms_p95":phase_samples[1][int(phase_samples[1].size()*0.95)],"draw_calls_peak":draw_peak,"visible_primitives_peak":primitive_peak,"engine_static_bytes":Performance.get_monitor(Performance.MEMORY_STATIC),"camera_orthographic_size":42,"grass_density_lod":0.55*view.detail_density,"target_device_tested":false,"scope":("Five minute" if seconds>=300 else "Short smoke sample, not five minute")+" exported benchmark on this device; not acceptance on any other device"}
+	report.reflection_peaks = reflection_peaks
 	DirAccess.make_dir_recursive_absolute(destination);var f=FileAccess.open(destination+"/report.json",FileAccess.WRITE);f.store_string(JSON.stringify(report,"  "));f.close();print("BENCHMARK_REPORT ",ProjectSettings.globalize_path(destination+"/report.json"));print("PRESSURE_PASS ",JSON.stringify(report));var tree=get_tree();queue_free();tree.create_timer(0.2).timeout.connect(tree.quit)
