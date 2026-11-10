@@ -90,7 +90,7 @@ func update_water_field() -> void:
 	else:water_texture.update(water_image)
 var surface:IslandSurface
 var previous_world:Dictionary={}
-var neighborhood_state := {"variants": {}, "ground": {}, "reasons": {}}
+var neighborhood_state := {"variants": {}, "ground": {}, "reasons": {}, "seams": {}, "halls": {}}
 
 func update_neighborhood(dirty: Dictionary) -> void:
 	var next := BuildingRules.neighborhood(data)
@@ -105,12 +105,15 @@ func update_neighborhood(dirty: Dictionary) -> void:
 				dirty[Vector2i(floori(x / 8.0), floori(z / 8.0))] = true
 	for object in data.objects:
 		var id := int(object.id)
-		if next.variants.get(id) != neighborhood_state.variants.get(id):
+		if (next.variants.get(id) != neighborhood_state.variants.get(id)
+				or next.seams.get(id, []) != neighborhood_state.seams.get(id, [])
+				or next.halls.has(id) != neighborhood_state.halls.has(id)):
 			dirty[Vector2i(floori(object.x / 8.0), floori(object.z / 8.0))] = true
 	neighborhood_state = next
 
 var terrain_chunks:Dictionary={}
 var decoration_chunks:Dictionary={}
+var building_picker = preload("res://game/building/building_picker.gd").new()
 var chunk_arrays:Dictionary={}
 var changed_chunks:Array=[]
 var rebuild_stats:Dictionary={}
@@ -185,6 +188,7 @@ func rebuild() -> void:
 	var profile_terrain=Time.get_ticks_usec()
 	var original_props=props
 	for chunk in changed_chunks:
+		building_picker.clear_chunk(chunk)
 		if decoration_chunks.has(chunk):decoration_chunks[chunk].free()
 		var node=Node3D.new();node.set_meta("art_chunk",chunk);original_props.add_child(node);decoration_chunks[chunk]=node;props=node
 		for key in data.tiles:
@@ -262,10 +266,14 @@ func draw_object(o:Dictionary) -> void:
 		return
 	var kind=String(o.kind)
 	var house_variant: String = neighborhood_state.variants.get(int(o.id), "basic")
+	var seams: Array = neighborhood_state.seams.get(int(o.id), [])
+	var is_hall: bool = neighborhood_state.halls.has(int(o.id))
 	var node:Node3D
 	if kind=="tree":
 		node=Node3D.new()
 		ArtKit.Village.tree(node,Vector3.ZERO,int(o.id),false,int(o.id)==focal_tree_id)
+	elif kind in BuildingRules.BUILDINGS and (is_hall or int(o.get("form",0)) != 0 or not seams.is_empty()):
+		node = preload("res://game/art/healing/joined_buildings.gd").make(kit, o, house_variant, seams, material_library.window_material(), is_hall)
 	elif kind in ["house","tea"] or int(o.get("color",0))!=0:
 		node=kit.building(kind,house_variant,int(o.get("color",0)))
 	else:
@@ -273,13 +281,15 @@ func draw_object(o:Dictionary) -> void:
 	node.position=Vector3(p.x+0.5 if kind in ["house","tea","greenhouse","lighthouse"] else p.x,y,p.y+0.5 if kind in ["house","tea","greenhouse","lighthouse"] else p.y)
 	material_library.dress(node,kind)
 	if kind=="house":
-		IslandEffects.chimney(node,Vector3(-0.52,2.62,-0.43))
+		IslandEffects.chimney(node,node.get_meta("smoke_mouth",Vector3(-0.52,2.62,-0.43)))
 		var mailbox=ArtExtras.create("PROP_008");mailbox.position=Vector3(0.9,0,0.8);node.add_child(mailbox)
 		if house_variant=="garden":
 			var ivy=ArtExtras.create("NAT_006");ivy.position=Vector3(-0.84,0,0.8);node.add_child(ivy)
 	if kind=="tea":
 		var teapot=ArtExtras.create("PROP_016");teapot.position=Vector3(0.17,0.68,0.66);node.add_child(teapot)
 	node.rotation.y=-float(o.rotation)*PI/2;props.add_child(node)
+	if kind in BuildingRules.BUILDINGS:
+		building_picker.register(Vector2i(floori(p.x / 8.0), floori(p.y / 8.0)), p, node)
 	if kind=="lighthouse":
 		IslandEffects.lighthouse(node,not day)
 		var lamp=OmniLight3D.new();lamp.position=Vector3(0,4,0);lamp.light_color=Color("ffd08a");lamp.light_energy=0.6;lamp.omni_range=6;lamp.visible=not day;node.add_child(lamp);lamp.add_to_group("island_lanterns")

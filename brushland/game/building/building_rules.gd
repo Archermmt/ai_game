@@ -2,6 +2,8 @@ class_name BuildingRules
 extends RefCounted
 const DIRS=[Vector2i(1,0),Vector2i(-1,0),Vector2i(0,1),Vector2i(0,-1)]
 const BUILDINGS=["house","tea","greenhouse","lighthouse"]
+const FORM_COUNT := 3
+const BuildingSeams = preload("res://game/building/building_seams.gd")
 const TOOLS=["house","tea","greenhouse","lighthouse","bench","pot","tree","bridge","dock"]
 static func footprint(o:Dictionary) -> Array:
 	var out:Array=[];var p=Vector2i(int(o.x),int(o.z));var kind=String(o.kind)
@@ -122,7 +124,36 @@ static func neighborhood(d: IslandData, proposal: Dictionary = {}) -> Dictionary
 				if height == 0 or int(tile.h) != height or tile.road or tile.flower:
 					continue
 				ground[cell] = surface if ground.get(cell, surface) == surface else "courtyard"
-	return {"variants": variants, "ground": ground, "reasons": reasons}
+	var seams := BuildingSeams.for_world(d, buildings, owner)
+	var halls := BuildingSeams.group_halls(buildings, seams)
+	return {"variants": variants, "ground": ground, "reasons": reasons, "seams": seams, "halls": halls}
+
+# A second stroke belongs to the same building family. Crossing another family
+# with the brush is still a blocked placement, and a reserved door is never a hit.
+static func reshape_target(d: IslandData, cell: Vector2i, brush_kind: String) -> Dictionary:
+	if brush_kind not in BUILDINGS:
+		return {}
+	for object in d.objects:
+		if object.kind == brush_kind and cell in footprint(object):
+			return object
+	return {}
+
+static func next_form(object: Dictionary) -> int:
+	return (int(object.get("form", 0)) + 1) % FORM_COUNT
+
+static func reshape(d: IslandData, cell: Vector2i, brush_kind: String) -> String:
+	var target := reshape_target(d, cell, brush_kind)
+	if target.is_empty():
+		return "请在同类建筑上落笔"
+	if target.get("locked", false):
+		return "外观已定形，先解锁再改建"
+	d.begin()
+	var new_form := next_form(target)
+	if new_form == 0:
+		target.erase("form")
+	else:
+		target.form = new_form
+	return ""
 
 static func _linked_buildings(d: IslandData, object: Dictionary, owner: Dictionary) -> Dictionary:
 	var linked: Dictionary = {}

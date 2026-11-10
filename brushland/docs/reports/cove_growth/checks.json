@@ -1,0 +1,84 @@
+[
+  {
+    "check": "import",
+    "ok": true,
+    "evidence": []
+  },
+  {
+    "check": "building",
+    "ok": true,
+    "evidence": [
+      "PASS week 2: occupied protection, garden, overlap, connected/disconnected route"
+    ]
+  },
+  {
+    "check": "playable",
+    "ok": true,
+    "evidence": [
+      "PASS playable integration"
+    ]
+  },
+  {
+    "check": "surface",
+    "ok": true,
+    "evidence": [
+      "PASS surface consistency, undo/reload, unchanged chunk identity, empty cleanup (33 checks)"
+    ]
+  },
+  {
+    "check": "camera_orbit",
+    "ok": true,
+    "evidence": [
+      "PASS viewport orbit: right-drag, click/cancel, toolbar, brush arbitration, touchpad, zoom, keys, photo, picking, focus loss and camera save compatibility"
+    ]
+  },
+  {
+    "check": "app",
+    "ok": true,
+    "evidence": [
+      "PASS UI signals, undo/redo, photo pause restore, safe actor relocation, mid-bridge removal/recovery and save menu"
+    ]
+  },
+  {
+    "check": "building_forms",
+    "ok": true,
+    "evidence": [
+      "PASS building forms: full/half walls, connected central halls, prediction, grades, entrances, all four families, lock, residents, undo, redo, move, delete and v1 saves"
+    ]
+  },
+  {
+    "check": "neighborhood",
+    "ok": true,
+    "evidence": [
+      "PASS neighbourhood: two waves, conflicts, locks, protected ground, move preview, undo/redo, order and save reconstruction"
+    ]
+  },
+  {
+    "check": "save_faults",
+    "ok": true,
+    "evidence": [
+      "PASS atomic partial-write/backup/rename failures, 3 recoverable backups, 16 corrupt saves, unchanged live world and camera/settings metadata"
+    ]
+  },
+  {
+    "check": "joined_roofs",
+    "ok": true,
+    "evidence": [
+      "PASS complete ridge, left eave and right eave coincide across plots for aligned, staggered and rotated mixed-use pairs"
+    ]
+  },
+  {
+    "check": "healing_cove",
+    "ok": true,
+    "evidence": [
+      "PASS playable cottage cove, dock path, camera picking, preview/placement, garden ground, undo and redo"
+    ]
+  },
+  {
+    "check": "input_movie",
+    "ok": true,
+    "evidence": [
+      "PASS viewport roof pick, side snapping, real join, repeat reshape, orbit, shoreline growth, drag construction, atomic undo and UI cancellation"
+    ]
+  }
+]

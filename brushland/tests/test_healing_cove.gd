@@ -8,9 +8,13 @@ func _initialize() -> void:
 	call_deferred("run")
 
 func snapshot(name: String) -> void:
+	if DisplayServer.get_name() == "headless":
+		return
+	# Even without a requested PNG, exercise the native viewport. Edits, dusk
+	# and the reflected sky need a submitted frame before the fixture is freed.
+	await RenderingServer.frame_post_draw
 	if output_dir.is_empty():
 		return
-	await RenderingServer.frame_post_draw
 	await RenderingServer.frame_post_draw
 	var image: Image = root.get_texture().get_image()
 	assert(image != null and image.save_png(output_dir.path_join(name + ".png")) == OK)

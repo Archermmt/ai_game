@@ -1,0 +1,16 @@
+[
+  {
+    "file": "BreezelyIsles-CoveGrowth-macOS.zip",
+    "sha256": "6357c362ef42b5c2bee0ae80e4343b48f855c2701c7c05a46186433196c86c48",
+    "bytes": 91424646,
+    "interaction_test_with_exported_resources": true,
+    "native_os_launch": true
+  },
+  {
+    "file": "BreezelyIsles-CoveGrowth-Windows.zip",
+    "sha256": "204d0ace6fea78c48f1488ac01281ee3f735f5a9031cec10e2df6dbaf06008f8",
+    "bytes": 69055084,
+    "interaction_test_with_exported_resources": true,
+    "native_os_launch": false
+  }
+]

@@ -53,7 +53,11 @@ func _ready() -> void:
 	guide=label("抬起画笔即可落笔",13);guide.size_flags_horizontal=Control.SIZE_EXPAND_FILL;guide.horizontal_alignment=HORIZONTAL_ALIGNMENT_RIGHT;categories.add_child(guide)
 	col.add_child(subbar);show_category("land")
 	toast_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;root.add_child(toast_label);toast_label.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE);toast_label.offset_top=-205;toast_label.offset_bottom=-165
-	help=label("左键绘制 / 放置   右键取消   WASD 平移   Q/E 转相机   R 转物件   滚轮缩放   [ ] 笔刷   −/+ 桥长   Tab 手记",13)
+	help=label("左键落笔   右键拖动或双指滑动环绕   轻点右键取消   WASD 平移   Q/E 转相机   R 转物件   滚轮缩放   [ ] 笔刷   −/+ 桥长   Tab 手记",13)
+	for caption in [help, toast_label]:
+		caption.add_theme_color_override("font_color", Color("fff4df"))
+		caption.add_theme_color_override("font_outline_color", Color("313b37"))
+		caption.add_theme_constant_override("outline_size", 4)
 	root.add_child(help);help.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE);help.offset_left=30;help.offset_top=-27;help.offset_bottom=-7
 func label(text:String,size:int=18) -> Label:
 	var n=Label.new();n.text=text;n.add_theme_font_size_override("font_size",size);return n
@@ -66,7 +70,7 @@ func set_build_controls_visible(value: bool) -> void:
 		control.visible = value
 
 func show_category(category:String) -> void:
-	guide.text = {"land":"左键涂画地貌", "build":"门前接上小路，邻屋会回应", "nature":"沿小路栽花、种树", "edit":"点击岛上的物件"}[category]
+	guide.text = {"land":"左键涂画地貌", "build":"贴边合建 · 点屋顶换形 · 拖动连建", "nature":"沿小路栽花、种树", "edit":"点击岛上的物件"}[category]
 	for n in subbar.get_children():n.queue_free()
 	tool_buttons.clear()
 	var items={"land":["grass","sand","rock","water","raise","lower","road"],"build":["house","tea","greenhouse","lighthouse","bridge","dock"],"nature":["flower","bench","pot","tree"],"edit":["move","erase","lock","color"]}[category]
