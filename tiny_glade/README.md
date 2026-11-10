@@ -2,36 +2,15 @@
 
 在 Godot 4.7.2 打开 `project.godot` 后按 **F5**，进入可编辑的「温馨林中小屋」。沿石径走到右侧浅塘、将林间历调到傍晚看暖窗，或打开底部相机进入第一人称漫步。屋瓦、门窗、林缘树、四层草花和雪面由项目原创生成，正式场景可以直接从 Git 工作树导入。旧作品继续使用原有槽位和建造数据。参见[实拍与验收](docs/weekly/week_15/WOODLAND_CABIN.md)。
 
-## 历史 G5 候选与新旧草对照
+## 项目与文档
 
-以下记录对应 `9ebe3bf8` 的旧草地版本。复验该候选请使用相应版本的代码和本地供应目录。
+运行资产、字体、音效和八首音乐位于 `assets/`。`assets/demo_inventory.json` 记录文件校验值，音乐来源与处理记录见 `assets/audio/seasonal_music/manifest.json`。原创几何在运行时由 `features/` 中的生成器构建，可编辑 Blender 源和导入设置保存在 `art_source/`。
 
-已验证候选可从 `reports/week_14/g5/handoff_9ebe3bf8/` 启动：
+- [策划指南](docs/guides/治愈系微缩建造游戏策划指南.md)
+- [核心玩法开发指南](docs/guides/治愈系微缩建造游戏核心玩法开发指南.md)
+- [demo 整理记录](docs/weekly/week_15/DEMO_CLEANUP.md)
 
-- `play_winter.command` / `play_summer.command`：实际主场景冬景/夏景。
-- `compare_new_grass.command` / `compare_original_grass.command`：同源容量样例的新/旧草；可在界面继续切换密度和天气。
-
-Finder双击脚本即可体验。候选拥有独立用户目录，直接打开候选工程也不会使用正式作品或其他QA阶段的数据。容量对照切换会重载样例，不是当前未保存作品的热切开关。
-
-首次准备和复建（派生美术素材须先按来源记录在本地供应，不会自动从Git获得）：
-
-```sh
-python3 tools/quality/candidate_asset_supply_checks.py
-# 源码提交后，从空导入缓存创建并验证候选
-python3 tools/quality/production_candidate_portable_checks.py
-# 校验候选与源码/素材、生成交付脚本并执行最终检查
-python3 tools/quality/g5_handoff_checks.py
-```
-
-候选目录、导入缓存、工具链和下载素材不提交Git。原项目F5继续沿用正常作品目录；本地交付不等于独立发行包。
-
-## 历史G1–G3美术试验入口
-
-打开 `app/painterly_grass_patch.tscn` 按F6，可在屋前8×8m区域切换新旧草，使用五个固定机位、日间/黄昏、暂停和第一人称漫步，Esc返回俯视。统一入口 `app/painterly_grass_preview.tscn` 提供G1单体展示与G2庭园对照的双向按钮；F5仍为正常游戏。
-
-预览只读，直接F6也隔离正式存档和偏好。派生素材目前本地供应，Git单独检出需按[G1提取说明](art_source/painterly_grass/README.md)准备；[G2报告与五组对照](docs/weekly/week_14/G2_GRASS_PATCH.md)记录技术结果。这些早期预览保留用于历史对照；旧版本验收见 G 阶段台账，当前画面见 W15 报告。
-
-打开 `app/painterly_grass_garden.tscn` 按F6，可直接用新草建造、刷坡、撤销重做，切换四季雨雪、漫步和导出照片；存档与偏好使用独立预览目录。统一入口和G2中都可点击“编辑庭园 G3”。详见[G3报告](docs/weekly/week_14/G3_EDITABLE_GRASS_GARDEN.md)。
+旧草地预览、容量对照和一次性探针已退出当前 demo，历史版本可从 Git 的 `6ce46c4` 及更早提交查看。周次命名的启动代码和回归目录中仍包含正式场景使用的继承与共享逻辑。
 
 ## 运行
 
@@ -88,15 +67,6 @@ python3 tools/quality/run_game.py
 ```sh
 python3 tools/quality/run_checks.py --week 9 --negative-control
 python3 tools/quality/woodland_checks.py --native
-```
-
-以下 W14 的性能基线与 G5 交付命令针对历史候选分支。
-
-```sh
-python3 tools/quality/winter_render_optimization_checks.py
-python3 tools/quality/g5_handoff_checks.py
-# 冬景20ms仍未通过；严格性能命令保留非零结果
-python3 tools/quality/winter_render_performance.py
 ```
 
 以下W13入口作为历史分层验证保留：

@@ -11,7 +11,7 @@ const FADE_BEGIN: float = 10.0
 const MIN_SNOW_COVER: float = 0.35
 const MAX_CONTACT_GAP: float = 2.0
 const PRINT_SIZE: Vector3 = Vector3(0.22, 0.30, 0.34)
-const SOLE: Texture2D = preload("res://features/immersion/assets/snow_sole.svg")
+const SOLE: Texture2D = preload("res://assets/textures/immersion/snow_sole.svg")
 
 var total_emitted: int = 0
 var rejected_contacts: int = 0

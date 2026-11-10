@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dmfcn03gvfaue"
-path="res://.godot/imported/eraser.svg-dc34be779b4e39516bef28c8a8cbd918.ctex"
+path="res://.godot/imported/eraser.svg-4cd967f23ad26e4afa62a439c7ac78d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://features/garden_presentation/eraser.svg"
-dest_files=["res://.godot/imported/eraser.svg-dc34be779b4e39516bef28c8a8cbd918.ctex"]
+source_file="res://assets/ui/garden/eraser.svg"
+dest_files=["res://.godot/imported/eraser.svg-4cd967f23ad26e4afa62a439c7ac78d0.ctex"]
 
 [params]
 

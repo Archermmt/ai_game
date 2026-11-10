@@ -151,8 +151,9 @@ def main():
     cumulative = None
     if args.cumulative:
         steps.append(run_step('landscape_lab_cumulative', [sys.executable,
-            'tools/quality/painterly_grass_checks.py', '--stage', '3'], timeout=1200))
-        cumulative = json.loads((ROOT / 'reports/week_14/g3/checks.json').read_text())
+            'tools/quality/run_checks.py', '--week', '9', '--negative-control'], timeout=1200))
+        cumulative = json.loads((ROOT / 'reports/week_09_checks.json').read_text())
+        cumulative = {'godot_tests': cumulative['tests'], 'python_tests': 0}
     xml_path = OUT / 'tests.xml'
     xml_path.unlink(missing_ok=True)
     steps.append(run_step('landscape_lab_tests', [engine_binary(), '--headless', '--path',

@@ -7,6 +7,7 @@ import xml.etree.ElementTree as ET
 
 from art_pass_render_checks import production_files
 from common import ROOT, engine_binary
+from demo_assets_checks import main as check_assets
 from run_checks import run_step
 
 OUT = ROOT / "reports/week_15/woodland"
@@ -28,6 +29,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--native", action="store_true", help="Also capture five actual GPU frames.")
     args = parser.parse_args()
+    check_assets()
     OUT.mkdir(parents=True, exist_ok=True)
     (ROOT / "reports/.gdignore").touch()
     before = production_files()
