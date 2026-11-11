@@ -6,6 +6,58 @@ const STONE: Color = Color("948578")
 const MORTAR: Color = Color("736b5e")
 
 
+static func door_bed(
+	masonry: CottageMesh,
+	mapper: Callable,
+	normal: Vector3,
+	radius: float,
+	spring: float,
+	trim: float,
+	arched: bool
+) -> void:
+	# Continuous bedding behind the individual stones, just proud of the plaster.
+	# The inboard edge only meets the boundary of the editable aperture.
+	var bed: float = 0.025
+	for side: float in [-1.0, 1.0]:
+		var inner: float = radius * side
+		var outer: float = (radius + trim * 0.95) * side
+		masonry.quad(
+			mapper.call(inner, 0, bed),
+			mapper.call(outer, 0, bed),
+			mapper.call(outer, spring, bed),
+			mapper.call(inner, spring, bed),
+			normal,
+			MORTAR
+		)
+	if arched:
+		for i: int in 22:
+			var a: Vector2 = Vector2.from_angle(PI * i / 22.0)
+			var b: Vector2 = Vector2.from_angle(PI * (i + 1) / 22.0)
+			var outer: float = radius + trim * 0.95
+			masonry.quad(
+				mapper.call(a.x * radius, spring + a.y * radius, bed),
+				mapper.call(b.x * radius, spring + b.y * radius, bed),
+				mapper.call(b.x * outer, spring + b.y * outer, bed),
+				mapper.call(a.x * outer, spring + a.y * outer, bed),
+				normal,
+				MORTAR
+			)
+	else:
+		# Split the lintel bed so it follows a round house's facade too.
+		var half: float = radius + trim * 0.95
+		for i: int in 8:
+			var a: float = lerpf(-half, half, i / 8.0)
+			var b: float = lerpf(-half, half, (i + 1) / 8.0)
+			masonry.quad(
+				mapper.call(a, spring, bed),
+				mapper.call(b, spring, bed),
+				mapper.call(b, spring + trim * 0.92, bed),
+				mapper.call(a, spring + trim * 0.92, bed),
+				normal,
+				MORTAR
+			)
+
+
 static func wall_bays(
 	home: Dictionary, neighbors: Array, timber: CottageMesh, seed_value: float
 ) -> void:

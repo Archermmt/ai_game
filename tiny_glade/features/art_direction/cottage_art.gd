@@ -5,6 +5,7 @@ extends RefCounted
 
 const MeshBuilder = preload("res://features/art_direction/architecture/cottage_mesh.gd")
 const Joinery = preload("res://features/art_direction/architecture/woodland_joinery.gd")
+const RoofJunctions = preload("res://features/art_direction/architecture/roof_junctions.gd")
 const SLATE: Color = Color("536675")
 const TIMBER: Color = Color("6a5745")
 const LIMESTONE: Color = Color("9f9682")
@@ -17,7 +18,9 @@ static func decorate(
 ) -> Node3D:
 	var root: MeshInstance3D = MeshInstance3D.new()
 	root.name = "Cottage"
-	root.mesh = _closed_gables(wall_mesh(shell), home, snapshot.get("buildings", []))
+	var neighbors: Array = snapshot.get("buildings", [])
+	var junctions: RoofJunctions = RoofJunctions.new(home, neighbors)
+	root.mesh = _closed_gables(wall_mesh(shell), home, junctions.margins)
 	root.material_override = _material(materials, "wall")
 	root.position = Vector3(home["position"][0], home["position"][1], home["position"][2])
 	root.set_meta("object_id", home["id"])
@@ -25,7 +28,6 @@ static func decorate(
 	var roof: CottageMesh = MeshBuilder.new()
 	var timber: CottageMesh = MeshBuilder.new()
 	var stonework: CottageMesh = MeshBuilder.new()
-	var neighbors: Array = snapshot.get("buildings", [])
 	var seed_value: float = float(absi(hash(String(home["id"]))) % 100003) * 0.013
 	if RoofProfile.rise(home) <= 0.02:
 		_flat_roof(home, roof)
@@ -33,9 +35,10 @@ static func decorate(
 		_roof_underlay(shell, roof)
 		_round_roof(home, roof, timber, seed_value)
 	else:
-		_rect_roof(home, neighbors, roof, timber, seed_value)
+		_rect_roof(home, neighbors, roof, timber, seed_value, junctions.margins)
 		Joinery.dormer(home, roof, timber, SLATE)
-	_eave_soffits(home, neighbors, timber)
+	junctions.clip(roof)
+	_eave_soffits(home, neighbors, timber, junctions)
 	_wall_details(home, neighbors, timber, stonework, seed_value)
 	_opening_details(home, timber, stonework, seed_value)
 	Joinery.wall_bays(home, neighbors, timber, seed_value)
@@ -118,7 +121,7 @@ static func _roof_underlay(shell: ArrayMesh, roof: CottageMesh) -> void:
 				roof.uvs.append(source_uvs[index])
 
 
-static func _closed_gables(walls: ArrayMesh, home: Dictionary, neighbors: Array) -> ArrayMesh:
+static func _closed_gables(walls: ArrayMesh, home: Dictionary, margins: Array[float]) -> ArrayMesh:
 	if home["shape"] == "round" or RoofProfile.rise(home) <= 0.02:
 		return walls
 	var width: float = float(home["size"][0])
@@ -126,7 +129,6 @@ static func _closed_gables(walls: ArrayMesh, home: Dictionary, neighbors: Array)
 	var height: float = float(home["size"][1])
 	var rise: float = RoofProfile.rise(home)
 	var half: float = width * 0.5
-	var margins: Array[float] = _roof_margins(home, neighbors)
 	# The original gable apex uses the wall span; its roof bed uses the larger
 	# overhang span. Close only the resulting narrow wedge, without overlapping
 	# any of the original plaster triangles or changing the actual openings.
@@ -160,12 +162,16 @@ static func _closed_gables(walls: ArrayMesh, home: Dictionary, neighbors: Array)
 
 
 static func _rect_roof(
-	home: Dictionary, neighbors: Array, roof: CottageMesh, timber: CottageMesh, seed_value: float
+	home: Dictionary,
+	neighbors: Array,
+	roof: CottageMesh,
+	timber: CottageMesh,
+	seed_value: float,
+	margins: Array[float]
 ) -> void:
 	var width: float = float(home["size"][0])
 	var height: float = float(home["size"][1])
 	var depth: float = float(home["size"][2])
-	var margins: Array[float] = _roof_margins(home, neighbors)
 	var front: float = depth * 0.5 + margins[0]
 	var back: float = depth * 0.5 + margins[2]
 	var span_depth: float = front + back
@@ -274,6 +280,9 @@ static func _rect_roof(
 					seed_value + end
 				)
 				previous = point
+	var pitches: Vector2 = Vector2(
+		(ridge - height) / (width * 0.5 + margins[3]), (ridge - height) / (width * 0.5 + margins[1])
+	)
 	var caps: int = ceili(span_depth / 0.49)
 	for index: int in range(caps):
 		var a: float = lerpf(
@@ -284,7 +293,7 @@ static func _rect_roof(
 		var b: float = minf(
 			front + (0.07 if margins[0] > 0 else 0.0), a + span_depth / caps + 0.055
 		)
-		_ridge_cap(roof, a, b, ridge + 0.035, _tile_color(seed_value + index * 2.71))
+		_ridge_cap(roof, a, b, ridge, pitches, _tile_color(seed_value + index * 2.71))
 	for end: float in [-1.0, 1.0]:
 		if margins[0 if end > 0 else 2] < 0.001:
 			continue
@@ -314,47 +323,6 @@ static func _rect_roof(
 				TIMBER.lightened(0.05),
 				seed_value + side
 			)
-
-
-static func _roof_margins(home: Dictionary, neighbors: Array) -> Array[float]:
-	var result: Array[float] = [0.36, 0.39, 0.36, 0.39]
-	var own_x: float = float(home["position"][0])
-	var own_top: float = float(home["position"][1]) + float(home["size"][1])
-	var own_half: float = float(home["size"][0]) * 0.5
-	var own_rise: float = RoofProfile.rise(home)
-	for facade: int in range(4):
-		for other: Dictionary in neighbors:
-			if other["id"] == home["id"] or other["shape"] != "rect":
-				continue
-			var contact: Array[Rect2] = BuildingContact.intervals(home, [other], facade)
-			if contact.is_empty():
-				continue
-			var other_half: float = float(other["size"][0]) * 0.5
-			var other_rise: float = RoofProfile.rise(other)
-			var other_top: float = float(other["position"][1]) + float(other["size"][1])
-			if facade % 2 == 1:
-				# Test the neighboring roof at the far edge of our possible eave.
-				# A low wing does not cut the main cottage's clear, high roof.
-				var neighbor_roof: float = (
-					other_top
-					+ other_rise * (1.0 - maxf(0.0, other_half - 0.45) / (other_half + 0.39))
-				)
-				if neighbor_roof >= own_top - 0.05:
-					result[facade] = 0.0
-			else:
-				var other_x: float = float(other["position"][0])
-				var left: float = maxf(own_x - own_half, other_x - other_half)
-				var right: float = minf(own_x + own_half, other_x + other_half)
-				for x: float in [left, (left + right) * 0.5, right]:
-					var own_roof: float = (
-						own_top + own_rise * (1.0 - absf(x - own_x) / (own_half + 0.39))
-					)
-					var neighbor_roof: float = (
-						other_top + other_rise * (1.0 - absf(x - other_x) / (other_half + 0.39))
-					)
-					if neighbor_roof >= own_roof - 0.05:
-						result[facade] = 0.0
-	return result
 
 
 static func _roof_point(
@@ -433,14 +401,23 @@ static func _tile(
 		)
 
 
-static func _ridge_cap(mesh: CottageMesh, a: float, b: float, y: float, tint: Color) -> void:
-	var radius: float = 0.13
+static func _cap_point(angle: float, ridge: float, z: float, pitches: Vector2) -> Vector3:
+	# Seat the rolled cap on the two sloping slate beds. A horizontal
+	# semicylinder leaves a skylight under both lips when seen from the garden.
+	var x: float = cos(angle) * 0.13
+	var bed: float = ridge - absf(x) * (pitches.x if x < 0.0 else pitches.y)
+	return Vector3(x, bed + 0.008 + sin(angle) * 0.13, z)
+
+
+static func _ridge_cap(
+	mesh: CottageMesh, a: float, b: float, ridge: float, pitches: Vector2, tint: Color
+) -> void:
 	for segment: int in range(6):
 		var first: float = float(segment) * PI / 6.0
 		var second: float = float(segment + 1) * PI / 6.0
-		var p: Vector3 = Vector3(cos(first) * radius, y + sin(first) * radius + 0.06, a)
-		var q: Vector3 = Vector3(cos(second) * radius, y + sin(second) * radius + 0.06, a)
-		var span: Vector3 = Vector3(0, 0.018, b - a)
+		var p: Vector3 = _cap_point(first, ridge, a, pitches)
+		var q: Vector3 = _cap_point(second, ridge, a, pitches)
+		var span: Vector3 = Vector3(0, 0.012, b - a)
 		mesh.quad_uv(
 			p,
 			q,
@@ -453,8 +430,8 @@ static func _ridge_cap(mesh: CottageMesh, a: float, b: float, y: float, tint: Co
 			Vector2(second / PI, 1),
 			Vector2(first / PI, 1)
 		)
-		mesh.triangle(Vector3(0, y + 0.055, a), q, p, Vector3.FORWARD, tint.darkened(0.045))
-		mesh.triangle(Vector3(0, y + 0.073, b), p + span, q + span, Vector3.BACK, tint)
+		mesh.triangle(Vector3(0, ridge - 0.015, a), q, p, Vector3.FORWARD, tint.darkened(0.045))
+		mesh.triangle(Vector3(0, ridge - 0.003, b), p + span, q + span, Vector3.BACK, tint)
 
 
 static func _round_roof(
@@ -509,7 +486,9 @@ static func _round_roof(
 		)
 
 
-static func _eave_soffits(home: Dictionary, neighbors: Array, timber: CottageMesh) -> void:
+static func _eave_soffits(
+	home: Dictionary, neighbors: Array, timber: CottageMesh, junctions: RoofJunctions = null
+) -> void:
 	# Only the exposed overhang gets wooden boarding. A complete downward roof
 	# prism would cut through the plaster gable and into the editable openings.
 	var half: float = float(home["size"][0]) * 0.5
@@ -535,7 +514,9 @@ static func _eave_soffits(home: Dictionary, neighbors: Array, timber: CottageMes
 		return
 	var margins: Array[float] = [0.35, 0.35, 0.35, 0.35]
 	if not flat:
-		margins = _roof_margins(home, neighbors)
+		if junctions == null:
+			junctions = RoofJunctions.new(home, neighbors)
+		margins = junctions.margins
 	for side: float in [-1.0, 1.0]:
 		var roof_half: float = half + margins[1 if side > 0.0 else 3]
 		# Rectangles partition the overhang ring; corners are only covered once.
@@ -566,6 +547,18 @@ static func _eave_soffits(home: Dictionary, neighbors: Array, timber: CottageMes
 					y += rise * (1.0 - corner.x / roof_half)
 				points.append(Vector3(side * corner.x, y, corner.y))
 			timber.solid_panel(points, 0.07, TIMBER.darkened(0.09))
+
+	if flat:
+		return
+	junctions.clip(timber)
+	for edge: Dictionary in junctions.returns:
+		var a: Vector3 = edge["inner"]
+		var b: Vector3 = a + edge["direction"] * margins[edge["facade"]]
+		var roof_half: float = half + margins[1 if a.x > 0.0 else 3]
+		a.y = height + rise * (1.0 - absf(a.x) / roof_half) + clearance
+		b.y = height + rise * (1.0 - absf(b.x) / roof_half) + clearance
+		var drop: Vector3 = Vector3.DOWN * 0.10
+		timber.quad(a, b, b + drop, a + drop, edge["normal"], TIMBER)
 
 
 static func _wall_details(
@@ -772,21 +765,24 @@ static func _opening_details(
 			)
 		var radius: float = span * 0.5
 		var arch_spring: float = rise - radius if opening["kind"] == "arch" else rise
+		Joinery.door_bed(
+			stonework, mapper, normal, radius, arch_spring, trim, opening["kind"] == "arch"
+		)
 		var count_value: int = ceili(arch_spring / 0.29)
 		for side: float in [-1.0, 1.0]:
 			for index: int in range(count_value):
 				var offset: float = (radius + trim * 0.55) * side
 				var p: Vector3 = mapper.call(
-					offset, (float(index) + 0.5) * arch_spring / count_value, 0.055
+					offset, (float(index) + 0.5) * arch_spring / count_value, 0.026
 				)
 				var outward: Vector3 = BuildingGeometry._normal(
 					u + offset, facade, width, depth, rounded
 				)
 				stonework.stone(
 					p,
-					Vector3(trim * 0.9, arch_spring / count_value - 0.013, 0.145),
+					Vector3(trim * 0.96, arch_spring / count_value - 0.009, 0.12),
 					outward,
-					LIMESTONE.lightened(0.025 * sin(seed_value + index)),
+					LIMESTONE.lightened(0.046 * sin(seed_value + index * 2.1 + side)),
 					seed_value + index
 				)
 		if opening["kind"] != "arch":

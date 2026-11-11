@@ -124,6 +124,26 @@ static func create() -> Dictionary:
 		Vector2(-5, 4.2), Vector2(0, 6.7), Vector2(2.4, -3.9), Vector2(9, 9.4), Vector2(-7, -4.4)
 	]:
 		VegetationBrush.paint(source, bed, "plants", 1.95, 0.49, {})
+	# Two pockets below the tall canopy. Keep a sightline between them from
+	# the door to the bridge. These are ordinary editable starter plants.
+	for planting: Array in [
+		["NAT-03", 11.7, 0.9, 0.62],
+		["NAT-01", 13.4, 1.6, 0.54],
+		["NAT-06", 10.7, 1.8, 1.78],
+		["NAT-06", 11.8, 3.1, 1.42],
+		["NAT-04", 10.5, 2.7, 1.35],
+		["NAT-04", 10.9, 3.4, 0.96],
+		["NAT-03", -5.2, -5.8, 0.60],
+		["NAT-01", -7.2, -6.4, 0.53],
+		["NAT-06", -5.9, -4.5, 1.72],
+		["NAT-06", -4.5, -5.1, 1.33],
+		["NAT-04", -5.2, -4.2, 1.17],
+	]:
+		_place(source, planting[0], Vector2(planting[1], planting[2]), planting[3])
+	# This orbit bookmark also places the normal walk spawn at the bridgehead.
+	source["camera_bookmarks"].append(
+		{"id": "桥头望小屋", "target": [4.64, 1.5, 4.58], "distance": 15.5, "yaw": 0.99, "pitch": 0.39}
+	)
 	return source
 
 

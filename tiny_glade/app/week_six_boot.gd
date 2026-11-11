@@ -437,7 +437,9 @@ func _delivery_metrics() -> Dictionary:
 	)
 	result["commit_latency_p95_ms"] = PerformanceSamples.percentile(_commit_latencies)
 	result["commit_percentile_method"] = "nearest_rank"
-	result["local_lights"] = lanterns.active_ids.size() if lanterns != null else 0
+	result["local_lights"] = (
+		lanterns.active_ids.size() + lanterns.active_window_count if lanterns != null else 0
+	)
 	return result
 
 

@@ -206,7 +206,7 @@ func start_walk() -> bool:
 		return false
 	if walk_controller.active:
 		return true
-	if not walk_controller.begin(camera_rig, document.snapshot()):
+	if not walk_controller.begin(camera_rig, document.snapshot(), _live_units.get("path")):
 		hud.photo_note.text = "附近没有安全的落脚点，请先换个俯瞰构图"
 		return false
 	_walk_was_frozen = hud.freeze.button_pressed

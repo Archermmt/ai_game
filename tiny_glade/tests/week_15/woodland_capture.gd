@@ -202,6 +202,7 @@ func _run() -> void:
 		_check("orbit restored", not garden.walk_controller.active and not garden.photo_active)
 		await _check_scaled_hud()
 		_check("views leave editable state intact", source == garden.document.snapshot())
+		await _additional_views()
 	var driver: String = RenderingServer.get_current_rendering_driver_name()
 	_check("actual GPU", driver in ["metal", "vulkan"])
 	var result: Dictionary = {
@@ -222,6 +223,10 @@ func _run() -> void:
 
 func _screen_rect(control: Control) -> Rect2:
 	return control.get_global_transform_with_canvas() * Rect2(Vector2.ZERO, control.size)
+
+
+func _additional_views() -> void:
+	pass
 
 
 func _check_scaled_hud() -> void:

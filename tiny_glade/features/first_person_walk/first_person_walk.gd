@@ -24,10 +24,10 @@ var _unhandled_enabled: bool
 var _mouse_mode: Input.MouseMode = Input.MOUSE_MODE_VISIBLE
 
 
-func begin(value: OrbitCamera, snapshot: Dictionary) -> bool:
+func begin(value: OrbitCamera, snapshot: Dictionary, path_mesh: Mesh = null) -> bool:
 	if active:
 		return true
-	surface.configure(snapshot)
+	surface.configure(snapshot, path_mesh)
 	var backward: Vector3 = value.camera.global_basis.z
 	var preferred: Vector2 = (
 		Vector2(value.target.x, value.target.z) + Vector2(backward.x, backward.z).normalized() * 4.5

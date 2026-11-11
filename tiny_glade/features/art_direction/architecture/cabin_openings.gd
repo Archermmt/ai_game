@@ -50,11 +50,15 @@ static func make(
 			var upper_l: float = _height(left, radius, leaf_top, kind)
 			var upper_r: float = _height(right, radius, leaf_top, kind)
 			var pigment: Color = OAK.lightened(0.03 * sin(i * 3.2))
+			# Overlap the inside of the reveal. The finished door is recessed and
+			# an exactly coextensive leaf exposes grass at grazing views.
+			var back_l: float = left - (0.035 if i == 0 else 0.0)
+			var back_r: float = right + (0.035 if i == boards - 1 else 0.0)
 			frame.quad(
-				Vector3(left, 0, 0),
-				Vector3(right, 0, 0),
-				Vector3(right, upper_r, 0),
-				Vector3(left, upper_l, 0),
+				Vector3(back_l, -0.045, -0.018),
+				Vector3(back_r, -0.045, -0.018),
+				Vector3(back_r, upper_r + 0.035, -0.018),
+				Vector3(back_l, upper_l + 0.035, -0.018),
 				Vector3.BACK,
 				DARK_WOOD
 			)
@@ -93,6 +97,8 @@ static func make(
 				_follow_wall(geometry, wall_radius)
 			view.mesh = geometry.mesh()
 			view.material_override = part[2]
+			if geometry == panes and glass is ShaderMaterial:
+				view.set_instance_shader_parameter("sill_plant", kind == "rect_window")
 			root.add_child(view)
 	return root
 

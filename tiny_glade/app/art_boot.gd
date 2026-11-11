@@ -30,6 +30,9 @@ func _setup_materials() -> void:
 	window_material = art_materials["window"]
 	path_material = stone_material.duplicate()
 	path_material.vertex_color_use_as_albedo = true
+	if _woodland_style():
+		path_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_HASH
+		path_material.alpha_hash_scale = 0.65
 	if not _woodland_style():
 		ArtFoliageCatalog.configure(art_materials["foliage"].shader)
 	_planner = ArtViewPlan.new(self)
@@ -97,7 +100,14 @@ static func _evaluate_art(
 ) -> Dictionary:
 	var data: Dictionary = LocalRebuild.evaluate(snapshot, geometry)
 	if data.get("ok", false):
-		var signature: String = data["versions"]["path"]
+		var path_region: Rect2 = DirtyGraph.union(snapshot["paths"])
+		var path_inputs: Array = [data["versions"]["path"]]
+		for kind: String in ["bridges", "stairs"]:
+			for structure: Dictionary in DirtyGraph.nearby(snapshot.get(kind, []), path_region):
+				# A slope edit at the opposite bridgehead can invalidate both landings.
+				path_inputs.append(data["versions"]["structure:" + structure["id"]])
+		var signature: String = DirtyGraph.key(path_inputs)
+		data["versions"]["path"] = signature
 		if paths.get("signature", "") != signature:
 			paths["signature"] = signature
 			paths["arrays"] = ArtPathGeometry.arrays(snapshot)
@@ -177,6 +187,8 @@ func _on_published(snapshot: Dictionary, prepared: Dictionary) -> void:
 	if art_materials.is_empty():
 		return
 	ArtMaterials.sync_cottage_palette(art_materials, snapshot["environment"])
+	if _woodland_style() and lanterns != null:
+		lanterns.configure_woodland(snapshot)
 	if _woodland_style() and prepared["units"].has("woodland_contacts"):
 		_woodland_contacts = prepared["units"]["woodland_contacts"]
 		if _woodland_contacts.material_override != null:
@@ -198,6 +210,7 @@ func _on_published(snapshot: Dictionary, prepared: Dictionary) -> void:
 		_pond_bank = ArtScenery.bank(snapshot, wood_material, stone_material, _woodland_style())
 		if _woodland_style():
 			WoodlandPond.add_leaves(_pond_bank, snapshot)
+			WoodlandPond.add_shallows(_pond_bank, snapshot)
 		world_view.add_child(_pond_bank)
 		_bank_signature = signature
 	wind_materials.assign(_collect_art_wind())
