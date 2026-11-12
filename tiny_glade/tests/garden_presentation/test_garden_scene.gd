@@ -65,11 +65,12 @@ func test_focus_tracks_camera_zoom_and_can_be_disabled() -> void:
 	playground._update_focus()
 	assert_almost_eq(
 		playground.camera_rig.camera.attributes.dof_blur_far_distance,
-		playground.camera_rig.distance + 6,
+		playground.camera_rig.distance + 3,
 		0.001
 	)
 	playground.hud.dof_control.toggled.emit(false)
 	assert_false(playground.camera_rig.camera.attributes.dof_blur_far_enabled)
+	assert_false(playground.camera_rig.camera.attributes.dof_blur_near_enabled)
 	assert_false(playground.preferences.values["garden_focus"])
 	assert_eq_deep(playground.document.state, before)
 

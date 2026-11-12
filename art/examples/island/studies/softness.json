@@ -1,0 +1,48 @@
+[
+  {
+    "output": "res://captures/island/optimization/final_clear.png",
+    "rotation": [
+      -32,
+      35,
+      0
+    ],
+    "sun": {
+      "light_energy": 2.0,
+      "light_color": "#fff0dc",
+      "shadow_opacity": 0.85
+    },
+    "environment": {
+      "fog_density": 0.0034,
+      "fog_light_color": "#b39786",
+      "ambient_light_energy": 0.34,
+      "glow_enabled": true,
+      "glow_intensity": 0.23,
+      "glow_strength": 0.7,
+      "glow_hdr_threshold": 0.6,
+      "glow_hdr_scale": 0.65
+    }
+  },
+  {
+    "output": "res://captures/island/optimization/final_soft.png",
+    "rotation": [
+      -32,
+      35,
+      0
+    ],
+    "sun": {
+      "light_energy": 2.0,
+      "light_color": "#fff0dc",
+      "shadow_opacity": 0.85
+    },
+    "environment": {
+      "fog_density": 0.0042,
+      "fog_light_color": "#b39786",
+      "ambient_light_energy": 0.34,
+      "glow_enabled": true,
+      "glow_intensity": 0.35,
+      "glow_strength": 0.7,
+      "glow_hdr_threshold": 0.45,
+      "glow_hdr_scale": 0.65
+    }
+  }
+]

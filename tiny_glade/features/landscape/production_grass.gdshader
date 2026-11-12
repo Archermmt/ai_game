@@ -5,7 +5,6 @@ global uniform float living_cloud;
 global uniform float living_snow;
 global uniform float living_season;
 
-uniform sampler2D coverage : filter_linear_mipmap_anisotropic, repeat_disable;
 uniform sampler2DArray height_layers : filter_linear, repeat_disable;
 uniform sampler2DArray clearance_layers : filter_linear, repeat_disable;
 uniform vec4 root_color : source_color = vec4(0.286, 0.369, 0.212, 1.0);
@@ -18,7 +17,6 @@ uniform float wind_direction = 0.4;
 uniform bool reduce_motion = false;
 uniform bool freeze_time = false;
 uniform float normal_softening = 0.55;
-uniform float facing_fade = 0.7;
 uniform bool winter_cull_enabled = true;
 uniform bool walker_interaction_active = false;
 uniform vec4 walker_contacts[4];
@@ -30,6 +28,7 @@ varying vec3 world_position;
 varying vec2 chunk_origin;
 varying float chunk_layer;
 varying float leaf_height;
+varying vec2 pigment;
 varying float color_variation;
 varying float low_cover;
 varying float snow_seed;
@@ -53,6 +52,7 @@ void vertex() {
     chunk_origin = floor(MODEL_MATRIX[3].xz / 8.0) * 8.0 - vec2(2.0);
     chunk_layer = INSTANCE_CUSTOM.b;
     leaf_height = COLOR.r;
+    pigment = COLOR.gb;
     color_variation = INSTANCE_CUSTOM.a;
     low_cover = 1.0 - step(0.5, INSTANCE_CUSTOM.g);
     snow_seed = fract(sin(dot(MODEL_MATRIX[3].xz, vec2(127.1, 311.7)) + INSTANCE_CUSTOM.r * 74.7) * 43758.5453);
@@ -99,21 +99,23 @@ void vertex() {
 }
 
 void fragment() {
-    float brush = texture(coverage, UV).a;
-    float facing = abs(dot(normalize(NORMAL), normalize(VIEW)));
-    float edge = mix(1.0, smoothstep(0.02, 0.32, facing), facing_fade);
+    // Leaf and petal edges follow the triangles themselves.
     float allowed = texture(clearance_layers, vec3(map_uv(world_position.xz), chunk_layer)).r;
     float snow_cover = clamp(living_snow, 0.0, 1.0);
     // Stable per-clump survival: bury the low carpet and most tall clumps.
     // No source edits or reseeding; thaw reveals the exact same summer plants.
     float snow_survival = winter_visibility(snow_cover, snow_seed, low_cover);
-    ALPHA = brush * edge * smoothstep(0.25, 0.75, allowed) * snow_survival;
+    ALPHA = smoothstep(0.25, 0.75, allowed) * snow_survival;
     ALPHA_HASH_SCALE = 1.0;
     vec3 tip = mix(tip_color.rgb, floor_color.rgb, low_cover);
     vec3 green = mix(root_color.rgb, tip, smoothstep(0.04, 0.9, leaf_height));
     float field = sin(world_position.x * 0.26 + sin(world_position.z * 0.21)) + cos(world_position.z * 0.31 - world_position.x * 0.12) * 0.5;
     green *= mix(vec3(0.88, 0.97, 1.02), vec3(1.08, 1.03, 0.84), smoothstep(-1.1, 1.1, field));
-    ALBEDO = green * mix(0.92, 1.08, color_variation) * mix(0.90, 1.0, brush) * foliage_tint.rgb;
+    ALBEDO = green * mix(0.92, 1.08, color_variation) * mix(0.94, 1.06, pigment.y) * foliage_tint.rgb;
+    // A few clustered flowers catch warm light. Their centers remain ochre.
+    vec3 petal = mix(vec3(0.86, 0.81, 0.62), vec3(0.72, 0.51, 0.14), smoothstep(0.36, 0.57, color_variation));
+    petal = mix(petal, vec3(0.75, 0.40, 0.045), pigment.y);
+    ALBEDO = mix(ALBEDO, petal, pigment.x);
     vec2 cp = world_position.xz * 0.13 + vec2(living_time * 0.025, living_time * 0.011);
     float cloud = smoothstep(0.40, 0.72, 0.5 + sin(cp.x + sin(cp.y)) * 0.22 + cos(cp.y * 0.8 - cp.x * 0.5) * 0.20);
     ALBEDO *= 1.0 - cloud * living_cloud * 0.30;

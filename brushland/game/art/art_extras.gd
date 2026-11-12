@@ -4,15 +4,13 @@ static func create(id:String,variant:int=0) -> Node3D:
 	var root=Node3D.new();root.name=id+"_%02d"%variant;var k=ArtKit.new()
 	match id:
 		"NAT_002":
-			if ArtKit.leaf_material==null:
-				var temporary=Node3D.new();k.tree(temporary,Vector3.ZERO);temporary.free()
 			var st=SurfaceTool.new();st.begin(Mesh.PRIMITIVE_TRIANGLES)
 			for plane in range(4):
 				var angle=plane*PI/3;var side=Vector3(cos(angle),0,sin(angle))*0.42;var up=Vector3.UP*0.27
 				if plane==3:side=Vector3(0.38,0,0);up=Vector3(0,0,0.38)
 				var points=[Vector3.UP*0.3-side-up,Vector3.UP*0.3+side-up,Vector3.UP*0.3+side+up,Vector3.UP*0.3-side+up];var uv=[Vector2(0,1),Vector2(1,1),Vector2(1,0),Vector2(0,0)]
 				for i in [0,1,2,0,2,3]:st.set_uv(uv[i]);st.add_vertex(points[i])
-			var node=MeshInstance3D.new();node.mesh=st.commit();node.material_override=ArtKit.leaf_material;root.add_child(node);node.add_to_group("island_leaf_nodes")
+			var node=MeshInstance3D.new();node.mesh=st.commit();node.material_override=ArtKit.shrub_material();root.add_child(node);node.add_to_group("island_leaf_nodes")
 			if variant==1:k.flower(root,Vector3(0,0.4,0),1)
 		"NAT_005":
 			for i in range(5):

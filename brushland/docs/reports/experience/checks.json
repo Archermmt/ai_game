@@ -1,0 +1,87 @@
+[
+  {
+    "test": "test_neighborhood",
+    "mode": "headless compatibility",
+    "ok": true,
+    "seconds": 0.25
+  },
+  {
+    "test": "test_settlement_experience",
+    "mode": "headless compatibility",
+    "ok": true,
+    "seconds": 0.24
+  },
+  {
+    "test": "test_building_forms",
+    "mode": "headless compatibility",
+    "ok": true,
+    "seconds": 0.25
+  },
+  {
+    "test": "test_surface",
+    "mode": "headless compatibility",
+    "ok": true,
+    "seconds": 1.12
+  },
+  {
+    "test": "test_camera_orbit",
+    "mode": "headless compatibility",
+    "ok": true,
+    "seconds": 0.64
+  },
+  {
+    "test": "test_building",
+    "mode": "headless compatibility",
+    "ok": true,
+    "seconds": 0.14
+  },
+  {
+    "test": "test_residents",
+    "mode": "headless compatibility",
+    "ok": true,
+    "seconds": 0.24
+  },
+  {
+    "test": "test_settlement_experience",
+    "mode": "native Metal Forward+",
+    "ok": true,
+    "seconds": 4.25
+  },
+  {
+    "test": "test_building_brush",
+    "mode": "native Metal Forward+",
+    "ok": true,
+    "seconds": 3.14
+  },
+  {
+    "test": "test_miniature",
+    "mode": "native Metal Forward+",
+    "ok": true,
+    "seconds": 4.44
+  },
+  {
+    "test": "test_joined_roofs",
+    "mode": "native Metal Forward+",
+    "ok": true,
+    "seconds": 0.57
+  },
+  {
+    "test": "test_app",
+    "mode": "native Metal Forward+",
+    "ok": true,
+    "seconds": 3.3
+  },
+  {
+    "test": "test_settlement_experience",
+    "mode": "compatibility",
+    "ok": true,
+    "seconds": 4.31
+  },
+  {
+    "test": "test_building_brush movie",
+    "mode": "native Metal Forward+ fixed 30fps",
+    "ok": true,
+    "frames": 416,
+    "seconds": 13.867
+  }
+]

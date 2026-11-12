@@ -3,7 +3,7 @@ extends RefCounted
 ## Derived ENV-02 tree curtain and pond-bank details. Editable core objects stay in source.
 
 
-static func curtain_placements(source: Dictionary) -> Array[Dictionary]:
+static func curtain_placements(source: Dictionary, woodland: bool = false) -> Array[Dictionary]:
 	# Derived ENV trees never occupy the editable 48 m square. Place the grove
 	# centres against a square envelope first, then retain their loose offsets.
 	# The 35.8 m inner centre minus the largest 5.6 m offset leaves >6 m for
@@ -16,7 +16,9 @@ static func curtain_placements(source: Dictionary) -> Array[Dictionary]:
 		for sector: int in range(16):
 			var angle: float = TAU * (float(sector) + 0.35) / 16
 			var direction: Vector2 = Vector2(sin(angle), cos(angle))
-			var center_axis: float = 35.8 + float(sector % 3) * 2.2
+			# The woodland oak has broader reaching limbs. Move its outer grove
+			# out so winter branches also clear the editable square at any yaw.
+			var center_axis: float = (40.8 if woodland else 35.8) + float(sector % 3) * 2.2
 			var center: Vector2 = (
 				direction * center_axis / maxf(absf(direction.x), absf(direction.y))
 			)
@@ -44,7 +46,7 @@ static func curtain_placements(source: Dictionary) -> Array[Dictionary]:
 
 
 static func curtain(
-	source: Dictionary, wood: Material, stone: Material, terrain: Material
+	source: Dictionary, wood: Material, stone: Material, terrain: Material, woodland: bool = false
 ) -> Node3D:
 	var root: Node3D = Node3D.new()
 	root.name = "ForestCurtain"
@@ -98,7 +100,7 @@ static func curtain(
 	floor_view.mesh = BuildingGeometry.mesh_from_arrays(MeshParts.arrays(floor_builder))
 	floor_view.material_override = terrain
 	root.add_child(floor_view)
-	var placements: Array[Dictionary] = curtain_placements(source)
+	var placements: Array[Dictionary] = curtain_placements(source, woodland)
 	for asset: String in ["NAT-01", "NAT-02"]:
 		var items: Array = []
 		var poses: Dictionary = {}
@@ -111,7 +113,7 @@ static func curtain(
 				Basis(Vector3.UP, item["yaw"]).scaled(Vector3.ONE * float(item["scale"])),
 				Vector3(p[0], p[1], p[2])
 			)
-		var parts: Array[Dictionary] = ArtViewPlan.describe(asset, wood, stone)
+		var parts: Array[Dictionary] = ArtViewPlan.describe(asset, wood, stone, woodland)
 		var cells: Dictionary = {}
 		for item: Dictionary in items:
 			var p: Array = item["position"]
@@ -145,7 +147,9 @@ static func bank_signature(source: Dictionary) -> int:
 	)
 
 
-static func bank(source: Dictionary, wood: Material, stone: Material) -> Node3D:
+static func bank(
+	source: Dictionary, wood: Material, stone: Material, woodland: bool = false
+) -> Node3D:
 	var root: Node3D = Node3D.new()
 	root.name = "LivingPondBank"
 	if source["pool"].is_empty():
@@ -206,7 +210,11 @@ static func bank(source: Dictionary, wood: Material, stone: Material) -> Node3D:
 		if not groups[asset].is_empty():
 			root.add_child(
 				ArtViewPlan.build_batch(
-					groups[asset], poses, wood, stone, ArtViewPlan.describe(asset, wood, stone)
+					groups[asset],
+					poses,
+					wood,
+					stone,
+					ArtViewPlan.describe(asset, wood, stone, woodland)
 				)
 			)
 	return root

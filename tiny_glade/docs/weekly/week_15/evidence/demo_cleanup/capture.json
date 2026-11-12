@@ -1,0 +1,30 @@
+{
+	"checks": {
+		"actual GPU": true,
+		"authored cloud input curl_noise": true,
+		"authored cloud input dither_noise": true,
+		"authored cloud input extra_large_noise_patterns": true,
+		"authored cloud input height_gradient": true,
+		"authored cloud input large_scale_noise": true,
+		"authored cloud input medium_scale_noise": true,
+		"authored cloud input small_scale_noise": true,
+		"automatic porch lantern warms the steps at dusk": true,
+		"daylight porch lantern rests": true,
+		"editor saved": true,
+		"evening saved": true,
+		"formal garden ready": true,
+		"native cloud renderer ready": true,
+		"orbit restored": true,
+		"photo entry": true,
+		"procedural pond follows shore": true,
+		"same source passes edit rules": true,
+		"spring saved": true,
+		"views leave editable state intact": true,
+		"walk entry": true,
+		"walk saved": true,
+		"winter saved": true,
+		"winter snow cover": true
+	},
+	"driver": "metal",
+	"passed": true
+}

@@ -1,0 +1,13 @@
+{
+  "asset_triangles": {
+    "angler": 332,
+    "spindle": 236,
+    "ribbon": 184,
+    "yellow_pool": 430,
+    "banks": 476,
+    "canyon": 3360
+  },
+  "instances": 100,
+  "seed": 3429,
+  "camera_fov": 56
+}

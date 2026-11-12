@@ -16,14 +16,35 @@ var lightning_enabled: bool = true
 var sky: PaintedSky = PaintedSky.new()
 var blend: WeatherBlend = WeatherBlend.new()
 var phase: Vector3 = Vector3.ZERO
+var morning_fog: FogVolume
+var morning_fog_material: FogMaterial
 var _season: String = ""
 var _weather: String = ""
 
 
 func configure(root: Node3D) -> void:
 	host = root
-	sky.configure(host.world_environment.environment)
+	var environment: Environment = host.world_environment.environment
+	sky.configure(environment)
+	environment.tonemap_mode = Environment.TONE_MAPPER_AGX
+	environment.tonemap_exposure = 1.55
+	environment.adjustment_enabled = true
+	environment.adjustment_saturation = 1.10
 	name = "LivingAtmosphere"
+	morning_fog_material = FogMaterial.new()
+	morning_fog_material.albedo = Color("dbe8ea")
+	morning_fog_material.edge_fade = 0.7
+	morning_fog_material.height_falloff = 0.0
+	morning_fog_material.emission = Color(0.3, 0.36, 0.4)
+	morning_fog = FogVolume.new()
+	morning_fog.name = "ForestMorningMist"
+	morning_fog.size = Vector3(76, 5.2, 76)
+	morning_fog.position.y = 0.9
+	morning_fog.material = morning_fog_material
+	add_child(morning_fog)
+	environment.volumetric_fog_density = 0.0
+	environment.volumetric_fog_length = 78.0
+	environment.volumetric_fog_anisotropy = 0.3
 	rain = _precipitation(false, 1400)
 	snow = _precipitation(true, 900)
 	dust = _precipitation(false, 700)
@@ -103,6 +124,13 @@ func _precipitation(is_snow: bool, count: int) -> MultiMeshInstance3D:
 	return node
 
 
+static func morning_mist(hour: float, season: String) -> float:
+	var seasonal: float = {"spring": 0.34, "summer": 0.12, "autumn": 0.86, "winter": 1.0}.get(
+		season, 0.34
+	)
+	return seasonal * smoothstep(4.5, 6.0, hour) * (1.0 - smoothstep(6.5, 10.5, hour))
+
+
 func update(delta: float, state: Dictionary) -> void:
 	if not frozen:
 		elapsed += delta * (0.25 if reduced_motion else 1.0)
@@ -124,21 +152,24 @@ func update(delta: float, state: Dictionary) -> void:
 	var altitude: float = sin((hour - 6.0) * PI / 12.0)
 	var daylight: float = smoothstep(-0.12, 0.35, altitude)
 	var summer: bool = _season == "summer"
-	var energy: float = (1.48 if summer else 1.22) * maxf(0.0, altitude)
+	var energy: float = (1.24 if summer else 1.05) * maxf(0.0, altitude)
 	energy *= float(visual["energy"])
 	host.sun.light_energy = maxf(0.035, energy)
-	host.sun.rotation_degrees = Vector3(
-		-maxf(9.0, altitude * (66 if summer else 48)), -105 + hour * 9, 0
-	)
-	host.sun.light_color = Color("a5b9d9").lerp(Color("fff2da"), daylight)
+	var angles: Vector2 = PaintedSky.sun_angles(hour, summer)
+	host.sun.rotation_degrees = Vector3(-maxf(9.0, angles.y), angles.x, 0)
+	host.sun.light_color = Color("a5b9d9").lerp(Color("fff1cf"), daylight)
 	host.sun.light_color = host.sun.light_color.lerp(
 		Color("edb18c"), (1.0 - smoothstep(0.0, 0.35, absf(altitude))) * daylight
 	)
 	var environment: Environment = host.world_environment.environment
-	environment.ambient_light_color = Color("8298bc").lerp(Color("a8bfca"), daylight)
-	environment.ambient_light_energy = lerpf(0.20, 0.32 + 0.10 * float(visual["cloud"]), daylight)
-	environment.fog_light_color = Color("536783").lerp(Color("c2cdd0"), daylight)
-	environment.fog_density = visual["fog"]
+	environment.ambient_light_color = Color("8298bc").lerp(Color("c1cec7"), daylight)
+	environment.ambient_light_energy = lerpf(0.31, 0.64 + 0.10 * float(visual["cloud"]), daylight)
+	environment.fog_light_color = Color("536783").lerp(Color("c0ccbf"), daylight)
+	environment.fog_density = float(visual["fog"]) + 0.0012 * daylight
+	var mist: float = morning_mist(hour, season_value)
+	morning_fog_material.density = mist * 0.45
+	morning_fog.visible = mist > 0.001
+	environment.volumetric_fog_enabled = morning_fog.visible
 	environment.fog_light_color = environment.fog_light_color.lerp(Color("bda277"), visual["dust"])
 	environment.ambient_light_color = environment.ambient_light_color.lerp(
 		Color("b4a480"), visual["dust"]
@@ -161,6 +192,8 @@ func update(delta: float, state: Dictionary) -> void:
 	)
 	bolt.visible = pulse
 	flash.light_energy = 0.65 if pulse else 0.0
+	if host.lanterns != null:
+		host.lanterns.advance(host.camera_rig.camera.global_position, 1.0 - daylight)
 	if host.light_rig != null:
 		host.light_rig.sync(
 			host.document.state["environment"].get("lamp_probes", []),

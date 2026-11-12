@@ -2,7 +2,7 @@ extends GutTest
 ## Exercise the actual F5 scene while isolating all test IO before inherited ready.
 
 const SCENE_PATH: String = "res://app/living_root.tscn"
-const TRIANGLES: Array[int] = [24, 2288, 28, 8]
+const TRIANGLES: Array[int] = [48, 32, 57, 44]
 var garden: Variant
 var original: Dictionary
 var test_directory: String
@@ -114,7 +114,7 @@ func _surface_error(points: Array[Vector2]) -> float:
 	return maximum
 
 
-func test_f5_uses_editable_production_scene_and_four_real_valley_models() -> void:
+func test_f5_uses_editable_production_scene_and_four_generated_meadow_species() -> void:
 	assert_true(_production_ready())
 	if not _production_ready():
 		return
@@ -128,8 +128,12 @@ func test_f5_uses_editable_production_scene_and_four_real_valley_models() -> voi
 		assert_eq(mesh.get_surface_count(), 1)
 		var arrays: Array = mesh.surface_get_arrays(0)
 		assert_eq((arrays[Mesh.ARRAY_INDEX] as PackedInt32Array).size() / 3, TRIANGLES[kind])
-	var texture: Texture2D = garden.meadow.material.get_shader_parameter("coverage")
-	assert_eq(texture.get_size(), Vector2(4096, 4096))
+		assert_eq(mesh.resource_name, WoodlandGrasses.NAMES[kind])
+		assert_true(mesh.resource_path.is_empty())
+		assert_eq(
+			arrays[Mesh.ARRAY_VERTEX],
+			WoodlandGrasses.make(kind).surface_get_arrays(0)[Mesh.ARRAY_VERTEX]
+		)
 	assert_eq(garden.document.state.keys(), original.keys())
 	assert_eq(garden.document.state["instances"], original["instances"])
 
@@ -221,6 +225,9 @@ func test_fifty_mixed_commits_undo_and_redo_keep_latest_source_and_meshes() -> v
 		return
 	var initial: Dictionary = _without_revision(garden.document.snapshot())
 	var initial_versions: Dictionary = garden.meadow._published_versions.duplicate(true)
+	var initial_contacts: PackedVector3Array = (
+		garden._woodland_contacts.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX].duplicate()
+	)
 	for index: int in 50:
 		var candidate: Dictionary = garden.document.snapshot()
 		match index % 5:
@@ -239,18 +246,30 @@ func test_fifty_mixed_commits_undo_and_redo_keep_latest_source_and_meshes() -> v
 	assert_eq(garden.session.history_count(), 50)
 	var final: Dictionary = _without_revision(garden.document.snapshot())
 	var final_versions: Dictionary = garden.meadow._published_versions.duplicate(true)
+	var final_contacts: PackedVector3Array = (
+		garden._woodland_contacts.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX].duplicate()
+	)
+	assert_ne(
+		initial_contacts, final_contacts, "Ground transitions follow the same mixed transactions"
+	)
 	for index: int in 50:
 		garden._on_action(&"undo")
 		await _settle(true)
 	await _settle()
 	assert_eq(_without_revision(garden.document.snapshot()), initial)
 	assert_eq(garden.meadow._published_versions, initial_versions)
+	assert_eq(
+		garden._woodland_contacts.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX], initial_contacts
+	)
 	for index: int in 50:
 		garden._on_action(&"redo")
 		await _settle(true)
 	await _settle()
 	assert_eq(_without_revision(garden.document.snapshot()), final)
 	assert_eq(garden.meadow._published_versions, final_versions)
+	assert_eq(
+		garden._woodland_contacts.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX], final_contacts
+	)
 	assert_lt(_surface_error([Vector2(16, 16), Vector2.ZERO]), 0.02)
 
 

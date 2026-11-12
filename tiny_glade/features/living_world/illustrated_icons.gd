@@ -12,7 +12,7 @@ static func texture(key: String) -> Texture2D:
 		return _textures[key]
 	var art: String = drawing(key)
 	var svg: String = (
-		'<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72"><g stroke="#655b43" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">'
+		'<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72"><g stroke="#51483b" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">'
 		+ art
 		+ "</g></svg>"
 	)
@@ -123,7 +123,7 @@ static func drawing(key: String) -> String:
 	if key.contains("圆形小屋") or key == "round":
 		return '<path d="M18 32v25q18 12 36 0V32" fill="#eddfba"/><path d="M14 33L36 8l22 25q-22 10-44 0z" fill="#ca916a"/><path d="M31 62V46q5-7 10 0v16" fill="#b29163"/>'
 	if key.contains("小屋") or key in ["house", "build", "rect"]:
-		return '<path d="M16 32l24-11 18 12v28H16z" fill="#eddfba"/><path d="M9 33L31 9l32 23-23 4-9-15-15 15z" fill="#cc9068"/><path d="M25 61V45h11v16" fill="#b19568"/><path d="M45 42h8v9h-8z" fill="#adc7bc"/>'
+		return '<path d="M12 34l18-16 29 9v28l-24 8-23-10z" fill="#cc967e"/><path d="M13 35l19-14 4 13 23-6v28l-24 7-23-10z" fill="#d7a18a"/><path d="M10 35l16-24 24-5 14 21-29 9-10-15-11 17z" fill="#536673"/><path d="M45 15V5l7-1v14" fill="#b9a487"/><path d="M13 43l21 9 24-8M34 36v25M52 31v25" fill="none"/><path d="M17 53V39l9 4v14" fill="#7f6952"/><path d="M39 39l9-3v10l-9 3z" fill="#edcb82"/>'
 	if key.contains("门") and not key.contains("窗"):
 		var arch: bool = key.contains("拱")
 		return (

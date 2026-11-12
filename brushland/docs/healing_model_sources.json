@@ -1,0 +1,41 @@
+{
+  "source": "用户提供的 治愈风格小岛.md 及所附工程",
+  "archive": "治愈风格小岛-工程源文件.zip",
+  "archive_sha256": "33b142803cbcad59ec4e840a6f9566a87eb0a581b523a44d95441975aac9f034",
+  "source_model": "examples/island/island_model.glb",
+  "source_sha256": "382133d5a788824c594fcbab306fc61438fb02c826dc8c2952bbe05275ab40ca",
+  "license": "随附工程未声明开放许可证",
+  "extraction_tool": "tools/build_healing_models.py",
+  "models": {
+    "game/art/healing/models/cottage.glb": {
+      "derived_from": [
+        "CottageWalls"
+      ],
+      "triangles": 2158,
+      "sha256": "1a5a21224f0026671c3abec5401f10a54405bffdaa8c72b36bd621d25ec8bc41"
+    },
+    "game/art/healing/models/autumn_oak.glb": {
+      "derived_from": [
+        "OakWood",
+        "AutumnOak"
+      ],
+      "triangles": 12612,
+      "sha256": "c609a25eae0c3b97034d1acc373f72dbdafe4ccf4739168ee37a86bc9cafd556"
+    },
+    "game/art/healing/models/grove_oak.glb": {
+      "derived_from": [
+        "OakWood",
+        "AutumnOak"
+      ],
+      "triangles": 856,
+      "sha256": "fc9361c0a54bb56386784ed592a886f2157c0602479d54ca92b5f294d3f1ead9"
+    },
+    "game/art/healing/models/foxgloves.glb": {
+      "derived_from": [
+        "FoxglovesAndWildflowers"
+      ],
+      "triangles": 96,
+      "sha256": "529d39b24548797a3c5524091fa69797335cf8ff7360728c16fe111e798fd6c3"
+    }
+  }
+}

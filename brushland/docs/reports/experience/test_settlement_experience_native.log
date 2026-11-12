@@ -1,0 +1,6 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M4 Pro (Apple9)
+
+PASS live volume preview without mutation, three spatial compositions, court discovery and cleanup
+2026-11-11 07:01:15.922 godot[5353:27931975] +[IMKClient subclass]: chose IMKClient_Modern
+2026-11-11 07:01:17.499 godot[5353:27931975] +[IMKInputSession subclass]: chose IMKInputSession_Modern

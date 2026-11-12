@@ -14,12 +14,14 @@ var _climate_frozen: bool = false
 var _calendar_revision: int = 0
 
 
+func _garden_layout(empty: bool) -> Dictionary:
+	return TerrainRelief.apply(ArtLayout.empty() if empty else ArtLayout.create())
+
+
 func _setup_initial_buildings() -> void:
-	var source: Dictionary = ArtLayout.create()
+	var source: Dictionary = _garden_layout(false)
 	if "--w09-stress" in OS.get_cmdline_user_args():
 		source = StressLayout.create()
-	else:
-		source = TerrainRelief.apply(source)
 	_show_result(session.replace_document(source, _prepare_views), "四季林间庭园")
 
 
@@ -36,11 +38,11 @@ func _ready() -> void:
 	_persist_preferences()
 	pond_reflections = PondReflections.new()
 	world_view.add_child(pond_reflections)
-	pond_reflections.configure(self)
 	hud.attach_calendar(calendar)
 	atmosphere = LivingAtmosphere.new()
 	world_view.add_child(atmosphere)
 	atmosphere.configure(self)
+	pond_reflections.configure(self)
 	hud.calendar.changed.connect(_calendar_changed)
 	for argument: String in OS.get_cmdline_user_args():
 		if qa_mode and argument.begins_with("--season="):
@@ -132,9 +134,7 @@ func _restore_extra_presentation(value: Dictionary) -> void:
 
 func _apply_layout() -> void:
 	_cancel_edit()
-	var source: Dictionary = TerrainRelief.apply(
-		ArtLayout.empty() if _layout_kind == "empty" else ArtLayout.create()
-	)
+	var source: Dictionary = _garden_layout(_layout_kind == "empty")
 	var result: Dictionary = session.replace_document(source, _prepare_views)
 	if result["ok"]:
 		active_slot = -1
@@ -206,7 +206,7 @@ func start_walk() -> bool:
 		return false
 	if walk_controller.active:
 		return true
-	if not walk_controller.begin(camera_rig, document.snapshot()):
+	if not walk_controller.begin(camera_rig, document.snapshot(), _live_units.get("path")):
 		hud.photo_note.text = "附近没有安全的落脚点，请先换个俯瞰构图"
 		return false
 	_walk_was_frozen = hud.freeze.button_pressed

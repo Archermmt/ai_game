@@ -1,0 +1,28 @@
+{
+  "engine": "4.7-stable (official)",
+  "device": "Apple M4 Pro (Apple9)",
+  "renderer": "forward_plus",
+  "backend": "metal",
+  "mesh_count": 46,
+  "mesh_instances": 204,
+  "unique_triangles": 284850,
+  "instanced_triangles_before_lod_culling": 1609651,
+  "source_rebuild_matches": true,
+  "model_sha256": "aca60d72b388b0d4c479fb882c56d3384bb426852b4159dacfbf3d5a65a82b91",
+  "source_sha256": "c4644f1332ce20dd7ae7911e4e9d066fdb73f845b9626539169f648cca1b131b",
+  "captures": {
+    "final": "39fb32e6ba025dca60bb4c4601ad06f72cd1612c13165f09f699393fb3393948",
+    "orbit": "73b70bb4214d7f43ded288133af2136e15ce35af5a4e00f03ebab8d7ff726913"
+  },
+  "capture_size": [
+    1704,
+    960
+  ],
+  "azimuth_degrees": [
+    0,
+    18
+  ],
+  "msaa": 4,
+  "color_review": "../color_review.json",
+  "offscreen": "measurement.json"
+}

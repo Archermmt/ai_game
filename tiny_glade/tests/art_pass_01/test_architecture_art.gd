@@ -203,7 +203,18 @@ func test_partially_offset_equal_roofs_clip_only_the_touching_gable_end() -> voi
 		fixture["snapshot"]
 	)
 	var roof: MeshInstance3D = view.get_node("HandLaidTiles")
-	assert_lte(roof.mesh.get_aabb().end.z, 2.50001)
+	# The offset neighbour is higher over the right half and absent at the
+	# far left. Both regions used to share a single AABB-based end cut.
+	var covered_z: float = -INF
+	var exposed_z: float = -INF
+	var positions: PackedVector3Array = roof.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX]
+	for point: Vector3 in positions:
+		if point.x >= 0.8:
+			covered_z = maxf(covered_z, point.z)
+		elif point.x < -1.71:
+			exposed_z = maxf(exposed_z, point.z)
+	assert_almost_eq(covered_z, 2.5, 0.00002)
+	assert_gt(exposed_z, 2.8)
 	assert_lt(roof.mesh.get_aabb().position.z, -2.8)
 	assert_true(_finite_mesh(roof.mesh))
 	view.free()

@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-11",
+  "godot": "4.7.stable.official.5b4e0cb0f",
+  "device": "Apple M4 Pro",
+  "backend": "Metal Forward+",
+  "viewport": [
+    1704,
+    960
+  ],
+  "source_triangles": 37103,
+  "model_sha256": "e796df052b737231aaf91eb707c142f0a5c3e44a4cfd584c244c16488aa9258a",
+  "source_sha256": "e41db1c6cba780f618b09cd261337bd598fe48c5fdecb9d46186fab07c6e837c",
+  "deterministic_rebuild_byte_identical": true,
+  "captures": {
+    "captures/island/final.png": "94c83808da5a986b800d7c3ca53190637444b779e25510f7cbf23290a213fe90",
+    "captures/island/orbit.png": "0e0dd92a191846a39fa4555cffb88838aaf75afd66c1c57fb40607184e9d3d72"
+  },
+  "checks": [
+    "headless editor resource import: exit 0",
+    "main scene hardware capture: exit 0, status 0",
+    "18 degree orbit hardware capture: exit 0, status 0",
+    "no Godot ERROR/SCRIPT ERROR/WARNING in import and capture logs",
+    "11 fixed ROI review, no overall similarity claim"
+  ],
+  "performance": "Previous performance reports predate this revision; no new performance measurement."
+}

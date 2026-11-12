@@ -40,11 +40,17 @@ func test_terrain_snow_assets_preserve_authoritative_heightfield() -> void:
 	# Headless cannot reflect native shader uniforms; the Metal probe checks bindings and pixels.
 	assert_eq(ProductionTerrainRenderer.SNOW_DEPTH, 0.14)
 	assert_true(
-		ProductionTerrainRenderer.SNOW_ALBEDO.resource_path.begins_with("res://addons/puchik_snow/")
+		ProductionTerrainRenderer.SNOW_ALBEDO.resource_path.begins_with(
+			"res://assets/materials/woodland_ground/"
+		)
 	)
 	assert_true(
-		ProductionTerrainRenderer.SNOW_NORMAL.resource_path.begins_with("res://addons/puchik_snow/")
+		ProductionTerrainRenderer.SNOW_NORMAL.resource_path.begins_with(
+			"res://assets/materials/woodland_ground/"
+		)
 	)
+	assert_eq(garden.snow_cover._material.albedo_texture, ProductionTerrainRenderer.SNOW_ALBEDO)
+	assert_eq(garden.snow_cover._material.normal_texture, ProductionTerrainRenderer.SNOW_NORMAL)
 	assert_eq(garden.landscape_terrain.source_snapshot["terrain"], garden.document.state["terrain"])
 
 

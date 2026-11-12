@@ -1,6 +1,49 @@
 # 开发进度
 
-## 当前可体验版本
+## 第 16 周 · 体积预览与空间创作（2026-11-11）
+
+- 已完成[体验优化计划 P1–P5](EXPERIENCE_OPTIMIZATION_PLAN.md)，并补入[开发计划第11.9节](DEVELOPMENT_PLAN.md#119-第16周--创作体验优化2026-11-11)。本轮重点是落笔预期、建筑空间组合和发现反馈。
+- 建筑悬停与整笔拖画显示半透明的实际候选模型；地貌使用未来地表采样预览，降低/挖水时也能看到预计表面。松手前不写入世界；松手一次提交，跨工具栏取消与整笔撤销继续有效。贴墙候选会优先保留所选方向，入口受阻时尝试其他合法朝向。
+- 从建筑占用识别直排、转角、分叉与封闭院落。转角加顶灯、分叉加交叉山墙，院内生成檐廊及花园地表，长屋立面按位置分配细节。拆开围合会移除庭院表现；跨块邻屋也更新，不新增存档字段。新房保留探出动画，已有邻屋改为 97%–100% 的轻微落稳。
+- 手记新增五项当前岛屿的发现和“试一笔”工具按钮。建议根据实际道路、码头、外海状态变化。真实来客触发具体房屋的入住提示；空白岛的第一位居民也可完成发现，拆屋/恢复不复制居民。
+- [落笔前体积](../snapshots/experience/preview.png) · [地貌预览](../snapshots/experience/terrain_preview.png) · [手记](../snapshots/experience/journal.png) · [13.9秒视口输入录像](../snapshots/experience/build_and_preview.mp4)。同样八间房、同机位：[直排](../snapshots/experience/street.png)、[L形](../snapshots/experience/corner.png)、[庭院](../snapshots/experience/court.png)。[本周截图](../snapshots/week_16.png)
+- [检查汇总](reports/experience/checks.json)记录 7 项规则/数据测试、6 项窗口运行及1段录制。覆盖预览不改世界、降低预览、分叉识别、跨块庭院重绘、撤销/旧档、同数构图、手记选笔、实际来客提示、原有建造与相机。Forward+ / Metal 与 Compatibility 均实际运行。
+- 本地体验包：`builds/BreezelyIsles-Experience-macOS.zip`、`builds/BreezelyIsles-Experience-Windows.zip`。[包校验与哈希](reports/experience/packages.json)：Mac 包已独立解压、验签和启动；两个包均用包内资源执行建造输入回归。Windows 操作系统启动、目标 M1/8GB 性能和真人舒适度仍未执行。本轮不将体感或美术效果写为已与官方等效。
+
+## 第 15 周 · 探出、微缩对焦与方形地貌（2026-11-11）
+
+- 新建/改形建筑和受影响邻屋从地基探出，地貌从旧表面过渡到新表面，约 0.42 秒落稳。动画完成后归回批渲染；连续编辑、撤销和减少动画设置均可用。摄影会先让编辑落稳。
+- 地貌笔的预览与落笔均使用方形范围。相邻水陆用更细的四分之一米网格和平滑插值更新岸缘，地表材质交界做柔和混合，地块间的拼接随涂画和撤销重算。
+- 相机默认略提高俯角，焦点跟随观察中心。启用 Forward+ 的真实前后景深、2×MSAA、AgX、天空环境光、SSAO 与 SSIL。后两者补充接触阴影和屏幕空间间接光。低画质关闭景深、抗锯齿和这两项效果。兼容模式可启动，景深限 Forward+。
+- Mac 触控板方向与同目录 tiny_glade 的 orbit_camera.gd 对齐。双指横滑采用同一 yaw 符号与灵敏度，竖滑采用同一反向 pitch 增量；右键拖动也统一到参考方向，捏合缩放沿用原方式。合成手势回归验证方向和增量，物理触控板手感待试玩。
+- [日间微缩画面](../snapshots/miniature/day.png) · [暮色](../snapshots/miniature/evening.png) · [实际建造录像](../snapshots/miniature/build_and_grow.mp4) · [探出中段](../snapshots/miniature/house_mid.png) · [本周截图](../snapshots/week_15.png)。
+- [回归检查](reports/miniature/checks.json)覆盖方形范围、相邻地貌融合、探出/稳定批处理、减少动画、撤销、建筑联动、相机与触控板。新版采用不同后端和更细地表，之前的性能记录对应旧版。
+- 本地包为 `builds/BreezelyIsles-Miniature-macOS.zip` 和 `builds/BreezelyIsles-Miniature-Windows.zip`。Mac 包从独立目录实际启动，两个导出包加载资源执行建造回归。[包校验](reports/miniature/packages.json)
+
+## 第 14 周 · 连屋改建与自由环绕（2026-11-10）
+
+在暖树湾选择小屋，沿已有小屋的侧墙落笔，可以把两个 2×2 地基合成一排。点住拖动时先显示本笔能放下的地基，松开后一次提交。同类笔点屋顶或墙面会改造命中的那户，三种形态可以循环。温室、茶屋、灯塔也有自己的形态。门口与入住关系跟随原建筑 ID，定形工具锁住选定形态，接边随相邻建筑重建。读旧档时使用原式。
+
+- **合建条件。** 同高地基共享一格或两格长的直边，四类建筑可以混合。两个地块分别生成接到同一接缝的半段屋面和翼墙。隔路、斜角、高差不会生成接缝。移动、拆除和撤销都会重新计算相关地块。三栋以上连成一组后，按各地基中心选取一间居中的住宅或茶屋，生成宽山墙与三联窗构成的共用主厅。中心已有手动造型时保留该造型，玩家定形的主厅可以保留到拆回独栋。
+- **旋转。** 在世界上右键横拖环绕、竖拖调整俯角，轻点取消；触控板可以双指滑动和捏合。Q/E 分步转向。镜头调整可用于建造和摄影，角度随存档恢复。
+- **参考。** 官方预告约 0–3 秒可见笔刷扩出岸线，约 10–15 秒可见沿岸屋群连续生长并变高。官方文字明确描述邻格决定建筑结果。本作把玩家提出的重复落笔做成可预览、可撤销的三态循环；形态顺序与接缝尺寸为本项目设计。[官方介绍和预告](https://store.steampowered.com/app/5163450/Brushland/)
+- [实机操作录像](../snapshots/cove_growth/build_and_orbit.mp4) · [本周截图](../snapshots/week_14.png) · [接缝与输入测试](reports/cove_growth/checks.json)。鼠标路径经实际视口投射，验证了点屋顶、放置预览、整笔连建、跨工具栏取消、触控板手势事件与旧存档。Windows 已在 Mac 上加载导出包内资源跑过建造流程，操作系统层面的启动和实体触控板手感仍待实机验证。
+- 本地体验包为 `builds/BreezelyIsles-CoveGrowth-macOS.zip` 和 `builds/BreezelyIsles-CoveGrowth-Windows.zip`。Mac 包已从独立目录解压启动并验证签名。[包校验记录](reports/cove_growth/packages.json)
+
+## 暖树湾 · 2026-11-10
+
+- F5 或双击 `play.command` 进入暖树湾。全部地块、房屋、树、花圃、长椅与码头可编辑。相机近处平视屋檐，拉远后抬高，支持原有的笔刷、拍照和存档。
+- 从美术稿随附的工程拆出木筋小屋、秋橡和毛地黄，制作海岸、花园和茶屋变体。湖面以同一世界的镜像相机映出真实建筑、舟和树影。木舟使用 Grab3D 的 CC0 Rowboat。[模型来源](healing_model_sources.json) · [许可与改造记录](../THIRD_PARTY_NOTICES.md)
+- 同高相邻建筑以两轮局部约束传播决定外观。三格花圃、近水和玩家锁定先定形，温室、灯塔与已有风貌的小屋可以影响邻屋；同距冲突保留普通庭院。花园会堆起约 14 厘米的土床，普通庭院铺出约 4.5 厘米的缓台，岸地降低约 8.5 厘米。新起伏沿可影响格的边缘收平，地基、门口、小路和玩家画的花圃保留原高程。玩家画的水陆、高度、路网和房屋功能仍由原世界数据决定。
+- 官方介绍举了环路改变房屋、田野令建筑变形的例子。观察官方预告的 0–15 秒笔刷与聚落、约 25–35 秒码头与村庄，以及约 40–50 秒密集聚落后，选取了“同一笔影响相邻单元、就地看到结果”作为本作对应机制。这里的传播规则是本项目的实现。 [官方介绍与玩法预告](https://store.steampowered.com/app/5163450/Brushland/)
+- [开场](../snapshots/healing_cove/welcome.png) · [暖树湾](../snapshots/healing_cove/cove.png) · [同机位放温室后](../snapshots/healing_cove/with_greenhouse.png) · [暮色](../snapshots/healing_cove/dusk.png) · [环绕](../snapshots/healing_cove/orbit.png)。截图由运行中的游戏生成。
+
+- [8.6 秒实机演示](../snapshots/healing_cove/placing_greenhouse.mp4) 记录放温室、邻屋变化、撤销和日落。[第 13 周截图](../snapshots/week_13.png)。
+- M4 Pro 上，Godot 4.7 的 1080p 中画质全岛短测运行 30 秒，含 1,200 格陆地、40 栋建筑、400 件摆设。帧时 p95 为 14.77 ms，编辑至绘制 p95 为 83.53 ms，绘制峰值 169，进程内存采样峰值约 649 MiB。全岛远景使用地形岸影，近景使用镜像相机。这份短测只覆盖上述场景与设备。[实测记录](reports/healing_cove/stress_summary.json)
+- 附近两间住宅的传播、冲突、锁定、移动、跨块重绘、受保护入口、花床实际高程、撤销重做及读档重建已通过规则与实际入口回归。[规则测试](reports/healing_cove/regression.log) · [暖树湾集成](reports/healing_cove/final_cove.log) · [月牙湾桥与居民回归](reports/healing_cove/harbor_regression.log)
+- 本机新版体验包位于 `builds/BreezelyIsles-Warmtree-macOS.zip`，已从独立目录解压、验证签名并实际启动。该包用于本地预览；旧的 Windows 0.3.0 测试包对应上一版。[包校验](reports/healing_cove/package_check.json)
+
+## 上一版 · 0.3.0
 
 当前为**0.3.0本机验证候选与可转交测试包**，可双击根目录play.command或执行godot --path .；无需编辑器的macOS/Windows ZIP在builds下。欢迎页提供无建筑海湾、空白海面及三处参观构图。
 

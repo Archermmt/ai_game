@@ -1,0 +1,831 @@
+{
+  "sources": {
+    "reference": {
+      "file": "docs/examples/island/reference.jpg",
+      "sha256": "f193762347f2aa6b3694c778888ff115e192afd04d86572497761fea0d4cf5ad"
+    },
+    "before": {
+      "file": "captures/island/optimization/round1.png",
+      "sha256": "94c83808da5a986b800d7c3ca53190637444b779e25510f7cbf23290a213fe90"
+    },
+    "after": {
+      "file": "captures/island/final.png",
+      "sha256": "b8d0fa86d4b26ae7f1b6c445d3ebd592d0ad2a02be835155a277e31733de2617"
+    }
+  },
+  "compare_size_px": [
+    852,
+    480
+  ],
+  "coordinate_convention": "Pixel coordinates from the top left, (x0,y0,x1,y1), upper bounds exclusive.",
+  "excluded_xyxy": {
+    "upper_left_video_watermark": [
+      0,
+      0,
+      209,
+      50
+    ],
+    "desktop_taskbar": [
+      0,
+      457,
+      852,
+      480
+    ]
+  },
+  "method": "Each input is decoded and resampled to 852 x 480 with Lanczos, without color matching or content registration. For each fixed ROI, sRGB values are on the 0-255 scale. L* percentiles use D65 CIELAB. Each reported median CIEDE2000 is computed from individual corresponding pixel pairs (kL=kC=kH=1).",
+  "interpretation": "Changed geometry, silhouettes and occlusion can place different surfaces inside the same fixed ROI. These are per-region diagnostics and should be reviewed alongside the images.",
+  "regions": {
+    "sky_right": {
+      "xyxy": [
+        680,
+        19,
+        740,
+        46
+      ],
+      "pixels": 1620,
+      "reference": {
+        "median_srgb": [
+          114.0,
+          93.0,
+          76.0
+        ],
+        "lstar_p10_p50_p90": [
+          39.962,
+          41.147,
+          41.383
+        ]
+      },
+      "before": {
+        "median_srgb": [
+          113.0,
+          93.0,
+          76.0
+        ],
+        "lstar_p10_p50_p90": [
+          40.585,
+          40.995,
+          41.511
+        ],
+        "median_delta_e00_to_reference": 1.457
+      },
+      "after": {
+        "median_srgb": [
+          113.0,
+          93.0,
+          76.0
+        ],
+        "lstar_p10_p50_p90": [
+          40.585,
+          40.995,
+          41.511
+        ],
+        "median_delta_e00_to_reference": 1.421
+      }
+    },
+    "lake_far": {
+      "xyxy": [
+        660,
+        96,
+        730,
+        112
+      ],
+      "pixels": 1120,
+      "reference": {
+        "median_srgb": [
+          95.0,
+          76.0,
+          72.0
+        ],
+        "lstar_p10_p50_p90": [
+          32.855,
+          34.128,
+          35.815
+        ]
+      },
+      "before": {
+        "median_srgb": [
+          95.0,
+          76.0,
+          72.0
+        ],
+        "lstar_p10_p50_p90": [
+          33.307,
+          34.128,
+          35.084
+        ],
+        "median_delta_e00_to_reference": 0.87
+      },
+      "after": {
+        "median_srgb": [
+          96.0,
+          77.0,
+          73.0
+        ],
+        "lstar_p10_p50_p90": [
+          33.705,
+          34.551,
+          35.615
+        ],
+        "median_delta_e00_to_reference": 0.979
+      }
+    },
+    "lake_middle": {
+      "xyxy": [
+        657,
+        161,
+        736,
+        190
+      ],
+      "pixels": 2291,
+      "reference": {
+        "median_srgb": [
+          63.0,
+          61.0,
+          80.0
+        ],
+        "lstar_p10_p50_p90": [
+          24.343,
+          26.695,
+          29.03
+        ]
+      },
+      "before": {
+        "median_srgb": [
+          63.0,
+          60.0,
+          77.0
+        ],
+        "lstar_p10_p50_p90": [
+          24.936,
+          26.174,
+          27.306
+        ],
+        "median_delta_e00_to_reference": 1.715
+      },
+      "after": {
+        "median_srgb": [
+          67.0,
+          62.0,
+          79.0
+        ],
+        "lstar_p10_p50_p90": [
+          25.826,
+          27.249,
+          29.155
+        ],
+        "median_delta_e00_to_reference": 1.943
+      }
+    },
+    "lake_near": {
+      "xyxy": [
+        665,
+        335,
+        744,
+        367
+      ],
+      "pixels": 2528,
+      "reference": {
+        "median_srgb": [
+          36.0,
+          44.0,
+          63.0
+        ],
+        "lstar_p10_p50_p90": [
+          17.532,
+          18.077,
+          19.154
+        ]
+      },
+      "before": {
+        "median_srgb": [
+          38.0,
+          45.0,
+          64.0
+        ],
+        "lstar_p10_p50_p90": [
+          18.159,
+          18.622,
+          19.134
+        ],
+        "median_delta_e00_to_reference": 0.888
+      },
+      "after": {
+        "median_srgb": [
+          39.0,
+          46.0,
+          65.0
+        ],
+        "lstar_p10_p50_p90": [
+          18.622,
+          19.085,
+          20.512
+        ],
+        "median_delta_e00_to_reference": 1.097
+      }
+    },
+    "crown_bright": {
+      "xyxy": [
+        464,
+        55,
+        500,
+        99
+      ],
+      "pixels": 1584,
+      "reference": {
+        "median_srgb": [
+          199.0,
+          181.0,
+          155.0
+        ],
+        "lstar_p10_p50_p90": [
+          71.849,
+          74.785,
+          76.845
+        ]
+      },
+      "before": {
+        "median_srgb": [
+          200.0,
+          181.0,
+          153.0
+        ],
+        "lstar_p10_p50_p90": [
+          69.123,
+          74.42,
+          80.0
+        ],
+        "median_delta_e00_to_reference": 3.605
+      },
+      "after": {
+        "median_srgb": [
+          212.0,
+          193.0,
+          168.0
+        ],
+        "lstar_p10_p50_p90": [
+          75.428,
+          78.961,
+          82.581
+        ],
+        "median_delta_e00_to_reference": 4.095
+      }
+    },
+    "crown_center": {
+      "xyxy": [
+        412,
+        62,
+        453,
+        107
+      ],
+      "pixels": 1845,
+      "reference": {
+        "median_srgb": [
+          192.0,
+          150.0,
+          118.0
+        ],
+        "lstar_p10_p50_p90": [
+          47.846,
+          65.523,
+          73.581
+        ]
+      },
+      "before": {
+        "median_srgb": [
+          193.0,
+          155.0,
+          126.0
+        ],
+        "lstar_p10_p50_p90": [
+          58.121,
+          66.733,
+          75.107
+        ],
+        "median_delta_e00_to_reference": 5.638
+      },
+      "after": {
+        "median_srgb": [
+          204.0,
+          165.0,
+          134.0
+        ],
+        "lstar_p10_p50_p90": [
+          60.165,
+          70.626,
+          74.24
+        ],
+        "median_delta_e00_to_reference": 5.731
+      }
+    },
+    "crown_dark": {
+      "xyxy": [
+        360,
+        65,
+        388,
+        101
+      ],
+      "pixels": 1008,
+      "reference": {
+        "median_srgb": [
+          108.0,
+          80.0,
+          74.0
+        ],
+        "lstar_p10_p50_p90": [
+          35.737,
+          36.737,
+          38.554
+        ]
+      },
+      "before": {
+        "median_srgb": [
+          108.0,
+          81.0,
+          73.0
+        ],
+        "lstar_p10_p50_p90": [
+          31.232,
+          37.153,
+          48.032
+        ],
+        "median_delta_e00_to_reference": 5.355
+      },
+      "after": {
+        "median_srgb": [
+          94.0,
+          71.0,
+          64.0
+        ],
+        "lstar_p10_p50_p90": [
+          27.255,
+          32.495,
+          42.553
+        ],
+        "median_delta_e00_to_reference": 6.379
+      }
+    },
+    "grass": {
+      "xyxy": [
+        411,
+        291,
+        442,
+        306
+      ],
+      "pixels": 465,
+      "reference": {
+        "median_srgb": [
+          143.0,
+          135.0,
+          79.0
+        ],
+        "lstar_p10_p50_p90": [
+          40.127,
+          55.762,
+          62.056
+        ]
+      },
+      "before": {
+        "median_srgb": [
+          147.0,
+          141.0,
+          81.0
+        ],
+        "lstar_p10_p50_p90": [
+          41.359,
+          57.864,
+          74.525
+        ],
+        "median_delta_e00_to_reference": 7.632
+      },
+      "after": {
+        "median_srgb": [
+          163.0,
+          157.0,
+          87.0
+        ],
+        "lstar_p10_p50_p90": [
+          49.862,
+          63.758,
+          67.942
+        ],
+        "median_delta_e00_to_reference": 8.671
+      }
+    },
+    "undershore": {
+      "xyxy": [
+        336,
+        319,
+        395,
+        330
+      ],
+      "pixels": 649,
+      "reference": {
+        "median_srgb": [
+          89.0,
+          64.0,
+          41.0
+        ],
+        "lstar_p10_p50_p90": [
+          23.037,
+          29.453,
+          44.33
+        ]
+      },
+      "before": {
+        "median_srgb": [
+          107.0,
+          76.0,
+          56.0
+        ],
+        "lstar_p10_p50_p90": [
+          32.131,
+          35.288,
+          56.155
+        ],
+        "median_delta_e00_to_reference": 14.227
+      },
+      "after": {
+        "median_srgb": [
+          95.0,
+          79.0,
+          58.0
+        ],
+        "lstar_p10_p50_p90": [
+          27.833,
+          34.966,
+          45.142
+        ],
+        "median_delta_e00_to_reference": 10.255
+      }
+    },
+    "reflected_tree": {
+      "xyxy": [
+        443,
+        411,
+        470,
+        438
+      ],
+      "pixels": 729,
+      "reference": {
+        "median_srgb": [
+          128.0,
+          85.0,
+          61.0
+        ],
+        "lstar_p10_p50_p90": [
+          27.608,
+          40.224,
+          47.03
+        ]
+      },
+      "before": {
+        "median_srgb": [
+          141.0,
+          95.0,
+          66.0
+        ],
+        "lstar_p10_p50_p90": [
+          38.798,
+          44.454,
+          50.49
+        ],
+        "median_delta_e00_to_reference": 7.885
+      },
+      "after": {
+        "median_srgb": [
+          118.0,
+          77.0,
+          56.0
+        ],
+        "lstar_p10_p50_p90": [
+          27.991,
+          36.706,
+          45.021
+        ],
+        "median_delta_e00_to_reference": 7.724
+      }
+    },
+    "reflected_center": {
+      "xyxy": [
+        402,
+        405,
+        437,
+        427
+      ],
+      "pixels": 770,
+      "reference": {
+        "median_srgb": [
+          70.0,
+          47.0,
+          42.0
+        ],
+        "lstar_p10_p50_p90": [
+          20.654,
+          21.835,
+          28.356
+        ]
+      },
+      "before": {
+        "median_srgb": [
+          100.5,
+          63.0,
+          45.0
+        ],
+        "lstar_p10_p50_p90": [
+          24.188,
+          30.669,
+          35.319
+        ],
+        "median_delta_e00_to_reference": 8.777
+      },
+      "after": {
+        "median_srgb": [
+          71.0,
+          44.0,
+          36.0
+        ],
+        "lstar_p10_p50_p90": [
+          12.516,
+          20.97,
+          31.561
+        ],
+        "median_delta_e00_to_reference": 5.953
+      }
+    }
+  },
+  "low_frequency_method": "Pillow RGB Lanczos resize to 852 x 480; Gaussian filter on floating-point sRGB with sigma 3 pixels on each spatial axis and no channel mixing, before conversion to D65 Lab. Median CIEDE2000 over corresponding pixel pairs inside each fixed polygon, excluding the marked overlays.",
+  "low_frequency_regions": {
+    "crown": {
+      "polygon_xy": [
+        [
+          340,
+          17
+        ],
+        [
+          495,
+          15
+        ],
+        [
+          534,
+          75
+        ],
+        [
+          521,
+          151
+        ],
+        [
+          439,
+          167
+        ],
+        [
+          351,
+          132
+        ]
+      ],
+      "sigma_px": 3.0,
+      "pixels": 24397,
+      "before": {
+        "median_delta_e00_to_reference": 7.473
+      },
+      "after": {
+        "median_delta_e00_to_reference": 5.449
+      }
+    },
+    "house": {
+      "polygon_xy": [
+        [
+          288,
+          153
+        ],
+        [
+          464,
+          154
+        ],
+        [
+          464,
+          271
+        ],
+        [
+          311,
+          288
+        ],
+        [
+          285,
+          230
+        ]
+      ],
+      "sigma_px": 3.0,
+      "pixels": 22043,
+      "before": {
+        "median_delta_e00_to_reference": 10.091
+      },
+      "after": {
+        "median_delta_e00_to_reference": 8.392
+      }
+    },
+    "meadow": {
+      "polygon_xy": [
+        [
+          202,
+          253
+        ],
+        [
+          294,
+          249
+        ],
+        [
+          308,
+          282
+        ],
+        [
+          454,
+          259
+        ],
+        [
+          526,
+          251
+        ],
+        [
+          563,
+          286
+        ],
+        [
+          542,
+          316
+        ],
+        [
+          422,
+          346
+        ],
+        [
+          241,
+          332
+        ],
+        [
+          203,
+          305
+        ]
+      ],
+      "sigma_px": 3.0,
+      "pixels": 25312,
+      "before": {
+        "median_delta_e00_to_reference": 11.425
+      },
+      "after": {
+        "median_delta_e00_to_reference": 8.604
+      }
+    },
+    "waterline": {
+      "polygon_xy": [
+        [
+          204,
+          310
+        ],
+        [
+          320,
+          323
+        ],
+        [
+          407,
+          327
+        ],
+        [
+          519,
+          310
+        ],
+        [
+          560,
+          294
+        ],
+        [
+          554,
+          324
+        ],
+        [
+          445,
+          351
+        ],
+        [
+          325,
+          355
+        ],
+        [
+          218,
+          334
+        ]
+      ],
+      "sigma_px": 3.0,
+      "pixels": 9406,
+      "before": {
+        "median_delta_e00_to_reference": 11.852
+      },
+      "after": {
+        "median_delta_e00_to_reference": 9.699
+      }
+    },
+    "house_reflection": {
+      "polygon_xy": [
+        [
+          300,
+          344
+        ],
+        [
+          457,
+          340
+        ],
+        [
+          471,
+          386
+        ],
+        [
+          351,
+          420
+        ],
+        [
+          304,
+          392
+        ]
+      ],
+      "sigma_px": 3.0,
+      "pixels": 10216,
+      "before": {
+        "median_delta_e00_to_reference": 9.728
+      },
+      "after": {
+        "median_delta_e00_to_reference": 9.368
+      }
+    },
+    "crown_reflection": {
+      "polygon_xy": [
+        [
+          359,
+          413
+        ],
+        [
+          435,
+          377
+        ],
+        [
+          503,
+          386
+        ],
+        [
+          520,
+          417
+        ],
+        [
+          508,
+          455
+        ],
+        [
+          349,
+          455
+        ]
+      ],
+      "sigma_px": 3.0,
+      "pixels": 10608,
+      "before": {
+        "median_delta_e00_to_reference": 10.22
+      },
+      "after": {
+        "median_delta_e00_to_reference": 8.713
+      }
+    },
+    "sky_halo": {
+      "polygon_xy": [
+        [
+          524,
+          75
+        ],
+        [
+          582,
+          85
+        ],
+        [
+          581,
+          229
+        ],
+        [
+          467,
+          239
+        ],
+        [
+          465,
+          160
+        ],
+        [
+          512,
+          142
+        ]
+      ],
+      "sigma_px": 3.0,
+      "pixels": 14357,
+      "before": {
+        "median_delta_e00_to_reference": 3.929
+      },
+      "after": {
+        "median_delta_e00_to_reference": 2.906
+      }
+    }
+  }
+}

@@ -3,7 +3,6 @@ extends Node3D
 ## Disposable Blanket geometry, bound to the scene's published objects and terrain.
 
 const DEPTH: float = 0.20
-const MATERIAL: StandardMaterial3D = preload("res://addons/blanket/materials/snow_standard.tres")
 
 var host: Node3D
 var baked_count: int = 0
@@ -26,11 +25,15 @@ var _cover: float = 0.0
 func configure(value: Node3D) -> void:
 	host = value
 	name = "BlanketSnowCover"
-	_material = MATERIAL.duplicate() as StandardMaterial3D
-	_material.next_pass = null
-	_material.albedo_color = Color(0.65, 0.70, 0.76)
-	_material.albedo_texture = load("res://addons/puchik_snow/textures/snow/snow_02_diff_2k.jpg")
-	_material.normal_texture = load("res://addons/puchik_snow/textures/snow/snow_02_nor_gl_1k.jpg")
+	_material = StandardMaterial3D.new()
+	_material.cull_mode = BaseMaterial3D.CULL_DISABLED
+	_material.normal_enabled = true
+	_material.uv1_triplanar = true
+	_material.subsurf_scatter_enabled = true
+	_material.subsurf_scatter_strength = 0.34
+	_material.albedo_color = Color("dbe2e6")
+	_material.albedo_texture = ProductionTerrainRenderer.SNOW_ALBEDO
+	_material.normal_texture = ProductionTerrainRenderer.SNOW_NORMAL
 	_material.normal_scale = 0.38
 	_material.roughness = 0.92
 	_material.uv1_scale = Vector3.ONE * 0.55
@@ -281,7 +284,7 @@ func _rebuild_views() -> void:
 
 
 static func _bed_color(color: Color) -> bool:
-	var target: Color = CottageArt.CLAY.darkened(0.17)
+	var target: Color = CottageArt.SLATE.darkened(0.17)
 	return Vector3(color.r - target.r, color.g - target.g, color.b - target.b).length() < 0.01
 
 

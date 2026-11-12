@@ -31,12 +31,22 @@ static func generate(source: Dictionary, candidates: Array[Array], cache: Dictio
 				or not MeadowData.clear(point, obstacles, source["pool"])
 			):
 				continue
+			# Small drifts of wildflowers leave the central lawn quiet.
+			if kind == 2:
+				var flowers: float = (
+					sin(point.x * 0.57 + cos(point.y * 0.41)) + sin(point.y * 0.83 - point.x * 0.32)
+				)
+				if flowers < 0.95:
+					continue
 			var normal: Vector3 = field.normal_at(point)
 			if normal.y < 0.54:
 				continue
-			var scale_factor: float = 1.0
+			# Broad related swathes, rather than identical tufts over the whole lawn.
+			# Keep candidate/rank ordering so density controls still reveal stable subsets.
+			var drift: float = meadow_drift(point)
+			var scale_factor: float = lerpf(0.48, 1.24, drift) if kind < 2 else 1.0
 			if not PainterlyGardenGrassData.clear(point, 0.38, obstacles, source["pool"]):
-				scale_factor = 0.62
+				scale_factor *= 0.62
 			var up: Vector3 = Vector3.UP.slerp(normal, 0.92).normalized()
 			pose.basis = Basis(Quaternion(Vector3.UP, up)) * pose.basis * scale_factor
 			pose.origin.y = field.height_at(point) + float(candidate["ground_offset"])
@@ -79,6 +89,18 @@ static func generate(source: Dictionary, candidates: Array[Array], cache: Dictio
 	data["signature"] = MeadowData.signature(source)
 	data["worker_ms"] = float(Time.get_ticks_usec() - started) / 1000.0
 	return data
+
+
+static func meadow_drift(point: Vector2) -> float:
+	return clampf(
+		(
+			0.5
+			+ 0.28 * sin(point.x * 0.46 + sin(point.y * 0.29))
+			+ 0.22 * sin(point.y * 0.61 - point.x * 0.18)
+		),
+		0.0,
+		1.0
+	)
 
 
 static func height_key(source: Dictionary, key: Vector2i) -> String:

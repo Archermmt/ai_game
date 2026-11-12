@@ -121,7 +121,7 @@ func tick(d:IslandData,dt:float) -> bool:
 	return changed
 func choose_activity(d:IslandData,person:Dictionary) -> void:
 	var home=object_by_id(d,int(person.home))
-	if not home.is_empty() and BuildingRules.variant(d,home)=="garden":record("garden")
+	if flower_count(d, home) >= 3:record("garden")
 	var start=Vector2i(roundi(person.x),roundi(person.z))
 	var candidates=d.objects.duplicate()
 	# Stable rotation varies residents' routines without nondeterministic layout changes.
@@ -149,13 +149,7 @@ func choose_activity(d:IslandData,person:Dictionary) -> void:
 	person.target=0;person.activity="";person.timer=5.0
 
 func flower_count(d:IslandData,o:Dictionary) -> int:
-	if o.is_empty():return 0
-	var count=0
-	for x in range(-1,3):
-		for z in range(-1,3):
-			if x>=0 and x<2 and z>=0 and z<2:continue
-			if d.cell(Vector2i(o.x+x,o.z+z)).flower:count+=1
-	return count
+	return BuildingRules.flower_count(d, o)
 func has_sea_view(d:IslandData,o:Dictionary) -> bool:
 	if o.is_empty():return false
 	var dir=[Vector2i(0,1),Vector2i(-1,0),Vector2i(0,-1),Vector2i(1,0)][int(o.rotation)%4]

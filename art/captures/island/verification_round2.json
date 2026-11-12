@@ -1,0 +1,39 @@
+{
+  "engine": "4.7-stable (official)",
+  "device": "Apple M4 Pro (Apple9)",
+  "backend": "metal",
+  "geometry_triangles": 108142,
+  "mesh_triangles": {
+    "TurfAndEarth": 1088,
+    "SlateAndCobbles": 1914,
+    "CottageWalls": 11468,
+    "Fence": 736,
+    "OakWood": 1952,
+    "AutumnOak": 73617,
+    "Meadow": 4499,
+    "FoxglovesAndWildflowers": 4320,
+    "Sheep": 1332,
+    "PorchAndGarden": 1032,
+    "BankFoliage": 5242,
+    "LilyPads": 882,
+    "ChimneySmoke": 60
+  },
+  "rebuild_byte_identical": true,
+  "generator_sha256": "5f811ec9331378ac354398d3927f546aba60af653f88e0491fd248a6dcc4645d",
+  "model_sha256": "ead086685ab3e835a4f400f796986a0789b1ba4834f3c8bb4aa70d4a49bbae38",
+  "frame_sha256": {
+    "final.png": "b8d0fa86d4b26ae7f1b6c445d3ebd592d0ad2a02be835155a277e31733de2617",
+    "orbit.png": "fa52cfa296126f86ebb2a3157294d6840325981c06574e051f7d99a98b5fc751",
+    "optimization/round1.png": "94c83808da5a986b800d7c3ca53190637444b779e25510f7cbf23290a213fe90"
+  },
+  "frame_size": [
+    1704,
+    960
+  ],
+  "views": [
+    "main",
+    "azimuth 18 degrees"
+  ],
+  "regional_comparison": "color_review_round2.json",
+  "offscreen_measurement": "offscreen_round2.json"
+}

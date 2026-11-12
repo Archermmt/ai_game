@@ -1,0 +1,16 @@
+{
+  "backend": "metal",
+  "camera_motion": false,
+  "draw_calls": 43,
+  "duration_s": 30.111781,
+  "fps": 1.39480291783472,
+  "frames_drawn": 42,
+  "gpu": "Apple M4 Pro (Apple9)",
+  "max_ms": 811.305,
+  "median_ms": 16.664,
+  "msaa_3d": 2,
+  "p95_ms": 17.475,
+  "primitives": 234357,
+  "samples": 1760,
+  "viewport": "(1704.0, 960.0)"
+}

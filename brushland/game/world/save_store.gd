@@ -18,6 +18,12 @@ static func validate(payload) -> Error:
 			if not whole(object.get(key),1 if key=="id" else 0,2147483647 if key=="id" else 63 if key in ["x","z"] else 3 if key=="rotation" else 6):return ERR_FILE_CORRUPT
 		if int(object.length)<2 or (object.kind=="dock" and int(object.length)>4):return ERR_FILE_CORRUPT
 		if not whole(object.get("color",0),0,2) or object.get("variant","basic") not in ["basic","garden","coast"]:return ERR_FILE_CORRUPT
+		if object.has("form") and (object.kind not in BuildingRules.BUILDINGS or not whole(object.form, 0, BuildingRules.FORM_COUNT - 1)):return ERR_FILE_CORRUPT
+		if object.has("hall_locked"):
+			if not object.hall_locked is bool or object.kind not in ["house", "tea"]:
+				return ERR_FILE_CORRUPT
+			if object.hall_locked and (not object.locked or object.get("form", 0) != 0):
+				return ERR_FILE_CORRUPT
 		var id=int(object.id)
 		if ids.has(id):return ERR_FILE_CORRUPT
 		ids[id]=true;highest=maxi(highest,id)
@@ -57,9 +63,11 @@ static func validate(payload) -> Error:
 	if presentation.has("camera"):
 		var camera=presentation.camera
 		if not camera is Dictionary or not camera.has_all(["center","angle","size"]) or not camera.center is Array or camera.center.size()!=3:return ERR_FILE_CORRUPT
-		for value in camera.center+[camera.angle,camera.size]:
+		var pitch_offset = camera.get("pitch_offset", 0.0)
+		for value in camera.center+[camera.angle,camera.size,pitch_offset]:
 			if not (value is int or value is float) or not is_finite(float(value)):return ERR_FILE_CORRUPT
-		if camera.size<13 or camera.size>58 or absf(camera.angle)>100000 or camera.center[0]<8 or camera.center[0]>56 or camera.center[2]<8 or camera.center[2]>56 or absf(camera.center[1])>16:return ERR_FILE_CORRUPT
+		if pitch_offset < -35.0 or pitch_offset > 60.0:return ERR_FILE_CORRUPT
+		if camera.size<8 or camera.size>58 or absf(camera.angle)>100000 or camera.center[0]<8 or camera.center[0]>56 or camera.center[2]<8 or camera.center[2]>56 or absf(camera.center[1])>16:return ERR_FILE_CORRUPT
 	# Validate layout in a temporary world, before touching live state or history.
 	var candidate=IslandData.new();candidate.restore(payload)
 	for object in candidate.objects:

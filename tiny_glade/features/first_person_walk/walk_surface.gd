@@ -25,12 +25,14 @@ const FOOT_OFFSETS: Array[Vector2] = [
 var field: TerrainField
 var structures: Array[Dictionary] = []
 var obstacles: Dictionary = {}
+var _raised_paving: Dictionary = {}
 
 
-func configure(snapshot: Dictionary) -> void:
+func configure(snapshot: Dictionary, path_mesh: Mesh = null) -> void:
 	field = TerrainField.new(snapshot)
 	structures.clear()
 	obstacles.clear()
+	_index_raised_paving(path_mesh)
 	for home: Dictionary in snapshot.get("buildings", []):
 		var center: Vector2 = Vector2(home["position"][0], home["position"][2])
 		var half: Vector2 = Vector2(home["size"][0], home["size"][2]) * 0.5
@@ -63,6 +65,53 @@ func configure(snapshot: Dictionary) -> void:
 			)
 	for fence: Dictionary in snapshot.get("fences", []):
 		_fence(snapshot, fence)
+
+
+func _index_raised_paving(mesh: Mesh) -> void:
+	_raised_paving.clear()
+	if mesh == null:
+		return
+	# The current published mesh includes the final clearance and overlap decisions.
+	# Index the prominent tread triangles once on entry to walking mode.
+	var faces: PackedVector3Array = mesh.get_faces()
+	for i: int in range(0, faces.size(), 3):
+		var a: Vector3 = faces[i]
+		var b: Vector3 = faces[i + 1]
+		var c: Vector3 = faces[i + 2]
+		var p: Vector2 = Vector2(a.x, a.z)
+		var q: Vector2 = Vector2(b.x, b.z)
+		var r: Vector2 = Vector2(c.x, c.z)
+		if (
+			a.y - field.height_at(p) < 0.085
+			and b.y - field.height_at(q) < 0.085
+			and c.y - field.height_at(r) < 0.085
+		):
+			continue
+		var projection: Transform2D = Transform2D(q - p, r - p, p)
+		if absf(projection.determinant()) < 0.000001:
+			continue
+		var triangle: Dictionary = {
+			"barycentric": projection.affine_inverse(), "height": Vector3(a.y, b.y - a.y, c.y - a.y)
+		}
+		var low: Vector2i = Vector2i((p.min(q).min(r) / CELL_SIZE).floor())
+		var high: Vector2i = Vector2i((p.max(q).max(r) / CELL_SIZE).floor())
+		for x: int in range(low.x, high.x + 1):
+			for z: int in range(low.y, high.y + 1):
+				var cell: Vector2i = Vector2i(x, z)
+				if not _raised_paving.has(cell):
+					_raised_paving[cell] = []
+				_raised_paving[cell].append(triangle)
+
+
+func _paving_top(point: Vector2) -> Variant:
+	var best: Variant = null
+	for triangle: Dictionary in _raised_paving.get(Vector2i((point / CELL_SIZE).floor()), []):
+		var uv: Vector2 = triangle.barycentric * point
+		if uv.x >= -0.00001 and uv.y >= -0.00001 and uv.x + uv.y <= 1.00001:
+			var height: float = triangle.height.dot(Vector3(1.0, uv.x, uv.y))
+			if best == null or height > float(best):
+				best = height
+	return best
 
 
 func ground_at(point: Vector2) -> Variant:
@@ -147,7 +196,7 @@ func _support_at(point: Vector2) -> Variant:
 
 
 func _structure_at(point: Vector2) -> Variant:
-	var best: Variant = null
+	var best: Variant = _paving_top(point)
 	for item: Dictionary in structures:
 		var a: Vector2 = item["a"]
 		var b: Vector2 = item["b"]

@@ -237,9 +237,8 @@ func rebuild(view:Node3D,props:Node3D,ground:Node3D) -> void:
 	for key in smoke_groups:
 		var sources=smoke_groups[key]
 		if not smoke_nodes.has(key):
-			var multi=MultiMesh.new();multi.transform_format=MultiMesh.TRANSFORM_3D;multi.use_colors=true;multi.mesh=sources[0].mesh
-			var mat=sources[0].material_override.duplicate();mat.albedo_color=Color.WHITE;mat.vertex_color_use_as_albedo=true;mat.vertex_color_is_srgb=true
-			var node=MultiMeshInstance3D.new();node.multimesh=multi;node.material_override=mat;node.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF;output.add_child(node);smoke_nodes[key]=node
+			var multi=MultiMesh.new();multi.transform_format=MultiMesh.TRANSFORM_3D;multi.mesh=sources[0].mesh
+			var node=MultiMeshInstance3D.new();node.multimesh=multi;node.material_override=sources[0].material_override;node.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF;output.add_child(node);smoke_nodes[key]=node
 		var node=smoke_nodes[key]
 		if node.multimesh.instance_count!=sources.size():node.multimesh.instance_count=sources.size()
 		smoke.append({"node":node,"sources":sources})
@@ -258,7 +257,6 @@ func update_smoke(camera:Camera3D) -> void:
 		if camera!=null:sources.sort_custom(func(a,b):return (-camera.global_basis.z).dot(a.global_position-camera.global_position)>(-camera.global_basis.z).dot(b.global_position-camera.global_position))
 		for i in range(sources.size()):
 			group.node.multimesh.set_instance_transform(i,inverse*sources[i].global_transform)
-			group.node.multimesh.set_instance_color(i,sources[i].material_override.albedo_color)
 
 func static_branch(node:Node,boundary:Node) -> bool:
 	var current=node

@@ -14,8 +14,15 @@ func configure(environment: Environment) -> void:
 	environment.sky = sky
 	environment.background_mode = Environment.BG_SKY
 	environment.fog_sky_affect = 0.15
-	# Lighting remains analytic; the cubemap branch renders only the cheap gradient.
-	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
+	# Share the painted sky with diffuse lighting while keeping some forest fill at night.
+	environment.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
+	environment.ambient_light_sky_contribution = 0.48
+
+
+static func sun_angles(hour: float, summer: bool) -> Vector2:
+	# The low morning sun crosses the clearing from the side of the cottage.
+	var altitude: float = sin((hour - 6.0) * PI / 12.0)
+	return Vector2(-121.0 + hour * 15.0, altitude * (56.0 if summer else 42.0))
 
 
 func sync(
@@ -26,9 +33,9 @@ func sync(
 	blend: Dictionary,
 	season: String = "spring"
 ) -> void:
-	var altitude: float = sin((hour - 6.0) * PI / 12.0)
-	var elevation: float = deg_to_rad(altitude * (66 if summer else 48))
-	var azimuth: float = deg_to_rad(-105 + hour * 9)
+	var angles: Vector2 = sun_angles(hour, summer)
+	var elevation: float = deg_to_rad(angles.y)
+	var azimuth: float = deg_to_rad(angles.x)
 	var ridge: Vector3 = (
 		{
 			"spring": Vector3(0.10, 0.21, 0.18),

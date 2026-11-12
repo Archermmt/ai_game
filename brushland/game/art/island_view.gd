@@ -8,30 +8,56 @@ var detail_density=1.0
 var use_project_batches=DisplayServer.get_name()!="headless"
 var render_batches=preload("res://game/art/project_render_batches.gd").new()
 const MODELS={
-	"house_basic":preload("res://game/art/models/house_basic.glb"),"house_coast":preload("res://game/art/models/house_coast.glb"),"house_garden":preload("res://game/art/models/house_garden.glb"),
-	"tea":preload("res://game/art/models/tea.glb"),"greenhouse":preload("res://game/art/models/greenhouse.glb"),"lighthouse":preload("res://game/art/models/lighthouse.glb"),
-	"bench":preload("res://game/art/models/bench.glb"),"pot":preload("res://game/art/models/pot.glb"),"tree":preload("res://game/art/models/tree.glb")}
+	"greenhouse":preload("res://game/art/models/greenhouse.glb"),"lighthouse":preload("res://game/art/models/lighthouse.glb"),
+	"bench":preload("res://game/art/models/bench.glb"),"pot":preload("res://game/art/models/pot.glb")}
 const RESIDENTS=[preload("res://game/art/models/resident_0.glb"),preload("res://game/art/models/resident_1.glb"),preload("res://game/art/models/resident_2.glb"),preload("res://game/art/models/resident_3.glb")]
 var ground=Node3D.new()
 var props=Node3D.new()
 var inhabitants=Node3D.new()
 var actor_nodes:Dictionary={}
+var reflection: SubViewport
 var sea:MeshInstance3D
 var foam:Node3D
 var day:bool=true
 var batch_stats:Dictionary={}
+var growth = preload("res://game/art/growth_transition.gd").new()
+var reduced_motion := false
+var growing_ids: Dictionary = {}
+var new_ids: Dictionary = {}
 var data:IslandData
 func setup(d:IslandData) -> void:
 	data=d;add_child(ground);add_child(props);add_child(inhabitants)
 	ground.name="Ground";props.name="Buildings";inhabitants.name="Inhabitants"
-	var plane=PlaneMesh.new();plane.size=Vector2(180,180)
+	var plane=PlaneMesh.new();plane.size=Vector2(1200,1200)
 	sea=MeshInstance3D.new();sea.mesh=plane;sea.position=Vector3(32,-0.04,32)
+	sea.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	sea.layers = 1 << 18
 	var mat=ShaderMaterial.new();mat.shader=preload("res://game/art/shaders/bay_water.gdshader");sea.material_override=mat;add_child(sea)
+	if DisplayServer.get_name() != "headless":
+		reflection = preload("res://game/art/lake_reflection.gd").new()
+		reflection.world_3d = get_world_3d()
+		add_child(reflection)
+		mat.set_shader_parameter("reflection_tex", reflection.get_texture())
 var foliage_shader=preload("res://game/art/shaders/foliage.gdshader")
 var foliage_nodes:Dictionary={}
 var generated_foliage:Array=[]
+func finish_growth() -> void:
+	if growth.entries.is_empty():return
+	growth.finish()
+	if use_project_batches:
+		render_batches.scope_cache.clear()
+		render_batches.rebuild(self, props, ground)
+	if reflection != null:reflection.refresh = true
+
 func update_environment(delta:float,active:bool) -> void:
+	if growth.advance(delta):
+		if use_project_batches:
+			render_batches.scope_cache.clear()
+			render_batches.rebuild(self, props, ground)
+		if reflection != null:reflection.refresh = true
 	if active:environment_clock+=delta
+	if reflection != null:
+		reflection.reflect_view(get_viewport().get_camera_3d(), sea, environment_clock)
 	IslandEffects.update(get_tree(),environment_clock)
 	if use_project_batches:render_batches.update_smoke(get_viewport().get_camera_3d())
 	sea.material_override.set_shader_parameter("clock",environment_clock)
@@ -81,12 +107,36 @@ func update_water_field() -> void:
 	else:water_texture.update(water_image)
 var surface:IslandSurface
 var previous_world:Dictionary={}
+var neighborhood_state := {"variants": {}, "ground": {}, "reasons": {}, "seams": {}, "halls": {}, "layouts": {}, "courts": []}
+
+func update_neighborhood(dirty: Dictionary) -> void:
+	var next := BuildingRules.neighborhood(data)
+	var old_ground: Dictionary = neighborhood_state.ground
+	var new_ground: Dictionary = next.ground
+	for cell in old_ground.keys() + new_ground.keys():
+		if old_ground.get(cell) == new_ground.get(cell):
+			continue
+		# Vertices at the edges of the cell can belong to a neighboring chunk.
+		for z in range(cell.y - 1, cell.y + 2):
+			for x in range(cell.x - 1, cell.x + 2):
+				dirty[Vector2i(floori(x / 8.0), floori(z / 8.0))] = true
+	for object in data.objects:
+		var id := int(object.id)
+		if (next.variants.get(id) != neighborhood_state.variants.get(id)
+				or next.layouts.get(id) != neighborhood_state.layouts.get(id)
+				or next.seams.get(id, []) != neighborhood_state.seams.get(id, [])
+				or next.halls.has(id) != neighborhood_state.halls.has(id)):
+			dirty[Vector2i(floori(object.x / 8.0), floori(object.z / 8.0))] = true
+	neighborhood_state = next
+
 var terrain_chunks:Dictionary={}
 var decoration_chunks:Dictionary={}
+var building_picker = preload("res://game/building/building_picker.gd").new()
 var chunk_arrays:Dictionary={}
 var changed_chunks:Array=[]
 var rebuild_stats:Dictionary={}
 var rebuild_profile:Dictionary={}
+var focal_tree_id: int = 0
 func sample_surface(xz:Vector2) -> Dictionary:
 	return surface.sample_surface(xz)
 func generate_chunk(index:int) -> void:
@@ -95,6 +145,9 @@ func generate_chunk(index:int) -> void:
 	generated_foliage[index]=FoliageLayer.generate(surface,changed_chunks[index])
 var generated_arrays:Array=[]
 func rebuild() -> void:
+	finish_growth()
+	var old_surface: IslandSurface = surface
+	var old_neighborhood := neighborhood_state.duplicate(true)
 	var profile_start=Time.get_ticks_usec()
 	var world=data.snapshot();var dirty:Dictionary={}
 	var keys=world.tiles.keys()
@@ -107,6 +160,17 @@ func rebuild() -> void:
 			for dz in range(-2,3):dirty[Vector2i(floori((p.x+dx)/8.0),floori((p.y+dz)/8.0))]=true
 	var object_change=world.objects!=previous_world.get("objects",[])
 	if object_change:
+		# The first planted oak is the canopy focal point. Rebuild its successor
+		# even across chunk boundaries after removing it or restoring an old save.
+		var next_focal: int = 0
+		for tree in world.objects:
+			if tree.kind == "tree" and (next_focal == 0 or tree.id < next_focal):
+				next_focal = int(tree.id)
+		if focal_tree_id != next_focal:
+			for tree in world.objects:
+				if tree.id in [focal_tree_id, next_focal]:
+					dirty[Vector2i(floori(tree.x / 8.0), floori(tree.z / 8.0))] = true
+			focal_tree_id = next_focal
 		var old:Dictionary={};var current:Dictionary={};var ids:Dictionary={}
 		for object in previous_world.get("objects",[]):old[int(object.id)]=object;ids[int(object.id)]=true
 		for object in world.objects:current[int(object.id)]=object;ids[int(object.id)]=true
@@ -118,12 +182,24 @@ func rebuild() -> void:
 					for dx in range(-2,3):
 						for dz in range(-2,3):dirty[Vector2i(floori((cell.x+dx)/8.0),floori((cell.y+dz)/8.0))]=true
 
+	update_neighborhood(dirty)
+	growing_ids.clear()
+	new_ids.clear()
+	if old_surface != null and not reduced_motion:
+		var old_objects: Dictionary = {}
+		for object in previous_world.get("objects", []):old_objects[int(object.id)] = object
+		for object in world.objects:
+			var id := int(object.id)
+			if not old_objects.has(id):new_ids[id] = true
+			if old_neighborhood.get("layouts", {}).get(id) != neighborhood_state.get("layouts", {}).get(id) or old_objects.get(id) != object or old_neighborhood.variants.get(id) != neighborhood_state.variants.get(id) or old_neighborhood.get("seams", {}).get(id) != neighborhood_state.get("seams", {}).get(id) or old_neighborhood.get("halls", {}).has(id) != neighborhood_state.get("halls", {}).has(id):
+				growing_ids[id] = true
 	if dirty.is_empty():
 		if surface==null:
-			surface=IslandSurface.new(world);previous_world=world;update_water_field()
+			surface=IslandSurface.new(world, neighborhood_state.ground);previous_world=world;update_water_field()
 		return
+	if reflection != null: reflection.refresh = true
 	if use_project_batches:render_batches.restore(true)
-	surface=IslandSurface.new(world);changed_chunks=dirty.keys();generated_arrays=[];generated_arrays.resize(changed_chunks.size());generated_foliage=[];generated_foliage.resize(changed_chunks.size())
+	surface=IslandSurface.new(world, neighborhood_state.ground);changed_chunks=dirty.keys();generated_arrays=[];generated_arrays.resize(changed_chunks.size());generated_foliage=[];generated_foliage.resize(changed_chunks.size())
 	if not changed_chunks.is_empty():
 		var task=WorkerThreadPool.add_group_task(generate_chunk,changed_chunks.size())
 		WorkerThreadPool.wait_for_group_task_completion(task)
@@ -139,10 +215,12 @@ func rebuild() -> void:
 		if arrays[Mesh.ARRAY_VERTEX].is_empty():continue
 		var mesh=MeshInstance3D.new();mesh.set_meta("art_terrain",chunk);mesh.mesh=ArrayMesh.new();mesh.mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays);mesh.material_override=mat
 		ground.add_child(mesh);terrain_chunks[chunk]=mesh
+		if old_surface != null and not reduced_motion:growth.terrain(mesh, arrays, old_surface, surface, mat)
 	# Preserve unrelated decoration resources and imported models across terrain edits.
 	var profile_terrain=Time.get_ticks_usec()
 	var original_props=props
 	for chunk in changed_chunks:
+		building_picker.clear_chunk(chunk)
 		if decoration_chunks.has(chunk):decoration_chunks[chunk].free()
 		var node=Node3D.new();node.set_meta("art_chunk",chunk);original_props.add_child(node);decoration_chunks[chunk]=node;props=node
 		for key in data.tiles:
@@ -151,15 +229,15 @@ func rebuild() -> void:
 			var c=data.cell(p)
 			if c.h==0:continue
 			var y=surface.height_at(Vector2(p))
-			if c.road:draw_road(p,y)
 			if c.flower:
 				for j in range(4):kit.flower(props,Vector3(p.x+sin(j*2.4)*0.25,y,p.y+cos(j*2.4)*0.25),p.x+j)
 			if not c.road and not c.flower and not BuildingRules.occupied(data,p):
 				var noise=posmod(p.x*31+p.y*19,83)
-				if noise==0 and c.surface=="grass":kit.tree(props,Vector3(p.x,y,p.y),p.x+p.y)
+				if noise==0 and c.surface=="grass":ArtKit.Village.tree(props,Vector3(p.x,y,p.y),p.x+p.y,true)
 				elif noise in [1,2] and c.surface!="grass":
 					var rock=kit.sphere(props,Vector3(p.x,y+0.14,p.y),Vector3(0.75,0.5,0.6),Color("a1a596"))
 					rock.material_override=material_library.material("rocky_terrain_02",Color("c4c7b4"),0.7)
+		preload("res://game/art/cove_shoreline.gd").add_to(node, surface, chunk)
 		for o in data.objects:
 			if Vector2i(floori(o.x/8.0),floori(o.z/8.0))==chunk:draw_object(o)
 		if not use_project_batches:
@@ -177,6 +255,10 @@ func rebuild() -> void:
 	if not dirty.is_empty():update_water_field()
 func set_night(value:bool) -> void:
 	day=not value;material_library.set_night(value)
+	ArtKit.Village.set_dusk(value)
+	if reflection != null: reflection.refresh = true
+	if sea != null:
+		sea.material_override.set_shader_parameter("dusk", 1.0 if value else 0.0)
 func instance_leaf_cards(parent:Node3D) -> void:
 	var groups:Dictionary={}
 	for leaf in parent.find_children("*","MeshInstance3D",true,false):
@@ -197,14 +279,17 @@ func instance_leaf_cards(parent:Node3D) -> void:
 		for source in sources:source.free()
 func tri(st:SurfaceTool,a:Vector3,b:Vector3,c:Vector3,color:Color) -> void:
 	st.set_normal((b-a).cross(c-a).normalized());st.set_color(color);st.add_vertex(a);st.add_vertex(b);st.add_vertex(c)
-func draw_road(p:Vector2i,y:float) -> void:
-	kit.cylinder(props,Vector3(p.x,y+0.015,p.y),0.325,0.035,Color("d9c7a5"))
-	for dir in [Vector2i.RIGHT,Vector2i.DOWN]:
-		var next=data.cell(p+dir)
-		if next.road and absi(int(next.h)-int(data.cell(p).h))<=1:
-			var a=Vector3(p.x,y+0.025,p.y);var b=Vector3(p.x+dir.x,surface.height_at(Vector2(p+dir))+0.025,p.y+dir.y)
-			var piece=kit.box(props,(a+b)/2,Vector3(0.65,0.04,a.distance_to(b)),Color("d9c7a5"))
-			piece.look_at_from_position((a+b)/2,b,Vector3.UP)
+func create_building_model(object: Dictionary, state: Dictionary) -> Node3D:
+	var kind: String = object.kind
+	var variant: String = state.variants.get(int(object.id), "basic")
+	var seams: Array = state.seams.get(int(object.id), [])
+	var hall: bool = state.halls.has(int(object.id))
+	if hall or int(object.get("form", 0)) != 0 or not seams.is_empty():
+		return preload("res://game/art/healing/joined_buildings.gd").make(kit, object, variant, seams, material_library.window_material(), hall, state.get("layouts", {}).get(int(object.id), {}))
+	if kind in ["house","tea"] or int(object.get("color",0)) != 0:
+		return kit.building(kind, variant, int(object.get("color",0)))
+	return MODELS[kind].instantiate()
+
 func draw_object(o:Dictionary) -> void:
 	var p=Vector2i(o.x,o.z);var y=float(data.cell(p).h)*0.5
 	if o.kind in ["bridge","dock"]:
@@ -223,21 +308,32 @@ func draw_object(o:Dictionary) -> void:
 		if o.kind=="dock":draw_boat(o,y)
 		return
 	var kind=String(o.kind)
-	var model_id="house_"+BuildingRules.variant(data,o) if kind=="house" else kind
+	var house_variant: String = neighborhood_state.variants.get(int(o.id), "basic")
+	var seams: Array = neighborhood_state.seams.get(int(o.id), [])
+	var is_hall: bool = neighborhood_state.halls.has(int(o.id))
 	var node:Node3D
 	if kind=="tree":
-		node=Node3D.new();kit.tree(node,Vector3.ZERO,int(o.id))
-	else:node=MODELS[model_id].instantiate() if int(o.get("color",0))==0 else kit.building(kind,BuildingRules.variant(data,o) if kind=="house" else "basic",int(o.get("color",0)))
+		node=Node3D.new()
+		ArtKit.Village.tree(node,Vector3.ZERO,int(o.id),false,int(o.id)==focal_tree_id)
+	elif kind in BuildingRules.BUILDINGS:
+		node = create_building_model(o, neighborhood_state)
+	elif int(o.get("color", 0)) != 0:
+		node = kit.building(kind, house_variant, int(o.color))
+	else:
+		node = MODELS[kind].instantiate()
 	node.position=Vector3(p.x+0.5 if kind in ["house","tea","greenhouse","lighthouse"] else p.x,y,p.y+0.5 if kind in ["house","tea","greenhouse","lighthouse"] else p.y)
 	material_library.dress(node,kind)
 	if kind=="house":
-		IslandEffects.chimney(node)
+		IslandEffects.chimney(node,node.get_meta("smoke_mouth",Vector3(-0.52,2.62,-0.43)))
 		var mailbox=ArtExtras.create("PROP_008");mailbox.position=Vector3(0.9,0,0.8);node.add_child(mailbox)
-		if BuildingRules.variant(data,o)=="garden":
+		if house_variant=="garden":
 			var ivy=ArtExtras.create("NAT_006");ivy.position=Vector3(-0.84,0,0.8);node.add_child(ivy)
 	if kind=="tea":
-		var teapot=ArtExtras.create("PROP_016");teapot.position=Vector3(0,0.68,0);node.add_child(teapot)
+		var teapot=ArtExtras.create("PROP_016");teapot.position=Vector3(0.17,0.68,0.66);node.add_child(teapot)
 	node.rotation.y=-float(o.rotation)*PI/2;props.add_child(node)
+	if kind in BuildingRules.BUILDINGS:
+		building_picker.register(Vector2i(floori(p.x / 8.0), floori(p.y / 8.0)), p, node)
+	if growing_ids.has(int(o.id)):growth.building(node, not new_ids.has(int(o.id)))
 	if kind=="lighthouse":
 		IslandEffects.lighthouse(node,not day)
 		var lamp=OmniLight3D.new();lamp.position=Vector3(0,4,0);lamp.light_color=Color("ffd08a");lamp.light_energy=0.6;lamp.omni_range=6;lamp.visible=not day;node.add_child(lamp);lamp.add_to_group("island_lanterns")
@@ -246,11 +342,16 @@ func draw_boat(o:Dictionary,_y:float) -> void:
 	var node=Node3D.new();props.add_child(node);node.name="Boat";node.add_to_group("island_boats");node.add_to_group("dynamic_visual")
 	node.position=Vector3(o.x+dir.x*2+side.x,0.1,o.z+dir.y*2+side.y)
 	node.set_meta("dock_id",int(o.id));node.set_meta("mooring",node.position);node.set_meta("direction",Vector3(dir.x,0,dir.y))
-	node.rotation.y=PI/2 if dir.x!=0 else 0
-	kit.sphere(node,Vector3.ZERO,Vector3(0.87,0.42,2.8),ArtKit.BLUE)
-	kit.sphere(node,Vector3(0,0.12,0),Vector3(0.7,0.2,2.55),ArtKit.CREAM)
-	for z in [-0.65,0,0.65]:kit.box(node,Vector3(0,0.25,z),Vector3(0.65,0.06,0.18),ArtKit.WOOD)
-	kit.beam(node,Vector3(-0.5,0.25,-0.1),Vector3(0.55,0.25,-0.1),0.04,ArtKit.WOOD)
+	# The imported hull points along +Z. Keep its bow facing the mooring.
+	node.rotation.y = atan2(-float(dir.x), -float(dir.y))
+	var hull = preload("res://game/art/healing/boat/rowboat.glb").instantiate()
+	hull.scale = Vector3(0.61, 0.70, 0.75)
+	hull.position.y = -0.292
+	node.add_child(hull)
+	# Raise the central thwart to the existing arrival passenger anchor (0.35 m).
+	for side_x in [-0.25, 0.25]:
+		kit.box(node, Vector3(side_x, 0.17, 0), Vector3(0.08, 0.28, 0.18), ArtKit.WOOD)
+	kit.box(node, Vector3(0, 0.315, 0), Vector3(0.72, 0.07, 0.23), ArtKit.WOOD)
 func update_actors(sim:ResidentSim,time:float) -> void:
 	var passengers:Dictionary={}
 	for boat in get_tree().get_nodes_in_group("island_boats"):
@@ -264,7 +365,8 @@ func update_actors(sim:ResidentSim,time:float) -> void:
 				var probe=mooring+direction*(step*0.5+1.5);var cell=Vector2i(roundi(probe.x),roundi(probe.z))
 				if not BuildingRules.inside(cell) or int(data.cell(cell).h)>0 or BuildingRules.occupied(data,cell):break
 				distance=step*0.5
-			boat.position+=direction*distance*clampf(float(person.timer)/4.0,0,1);passengers[int(person.id)]=boat.position+Vector3.UP*0.35
+			boat.position += direction * distance * clampf(float(person.timer) / 4.0, 0, 1)
+			passengers[int(person.id)] = {"seat": boat.position + Vector3.UP * 0.35, "yaw": boat.rotation.y}
 	var active:Dictionary={}
 	for person in sim.people:
 		var id=int(person.id);active[id]=true
@@ -274,10 +376,17 @@ func update_actors(sim:ResidentSim,time:float) -> void:
 		var p=Vector2i(roundi(person.x),roundi(person.z));var y=surface.height_at(Vector2(person.x,person.z))
 		for o in data.objects:
 			if o.kind=="bridge" and p in BuildingRules.footprint(o):y=float(data.cell(Vector2i(o.x,o.z)).h)*0.5+0.08
+		if passengers.has(id):
+			var passenger: Dictionary = passengers[id]
+			n.position = passenger.seat
+			n.rotation.y = passenger.yaw
+			n.animate("bench", false, time + id * 0.2)
+			# The rig origin is at its feet. Set the hips onto the thwart.
+			n.skeleton.set_bone_pose_position(0, Vector3.UP * 0.05)
+			continue
 		var moving=not person.route.is_empty()
 		n.animate(String(person.state),moving,time+id*0.2)
 		n.position=Vector3(person.x,y+(absf(sin(time*8+id))*0.045 if moving else 0),person.z)
-		if passengers.has(id):n.position=passengers[id];n.animate("bench",false,time);continue
 		if moving:
 			var target:Vector2i=person.route[0];var facing=Vector3(target.x,0,target.y)-Vector3(person.x,0,person.z)
 			if facing.length()>0.02:n.rotation.y=atan2(facing.x,facing.z)

@@ -1,0 +1,1226 @@
+{
+  "main_scene": "res://app/living_root.tscn",
+  "generated_mesh_sources": [
+    "features/art_direction/woodland_nature.gd",
+    "features/art_direction/cottage_art.gd",
+    "features/landscape/woodland_grasses.gd"
+  ],
+  "music_manifest": "assets/audio/seasonal_music/manifest.json",
+  "files": [
+    {
+      "path": "assets/README.md",
+      "bytes": 877,
+      "sha256": "981284c97de256626fb8fa87211bd2c5b5c8ad823ecbd7f89400ad5f2220e629"
+    },
+    {
+      "path": "assets/audio/forest.wav",
+      "bytes": 768044,
+      "sha256": "ae889db9cb5859fe37490e1f8d3e4225668cb06b65382bf4ed2b17c93956462c"
+    },
+    {
+      "path": "assets/audio/forest_stereo.wav",
+      "bytes": 1536044,
+      "sha256": "12d76b0fa73094b6a67caf6dc2f5f550b1dff2650a1b8fff8d1403d1bf29edc0"
+    },
+    {
+      "path": "assets/audio/grass_1.wav",
+      "bytes": 38444,
+      "sha256": "90e8d21519bb21732ee48d30a4b9519c8f9590787a71a32c873835f01f0ff40c"
+    },
+    {
+      "path": "assets/audio/grass_2.wav",
+      "bytes": 38444,
+      "sha256": "16cb9f032b795a666dde112a9370063e2a9d21038d7694687eb817007c2f1835"
+    },
+    {
+      "path": "assets/audio/grass_3.wav",
+      "bytes": 38444,
+      "sha256": "a85c45774a01de8bf03c45be23609fdc37b0d89c61115b9f3db185a04dac031a"
+    },
+    {
+      "path": "assets/audio/manifest.json",
+      "bytes": 9290,
+      "sha256": "5a549936ec3d06f6ef79c68d32fa5d50e8926f0ce6394a71720252626d15d3a8"
+    },
+    {
+      "path": "assets/audio/seasonal_music/all_seasons.mp3",
+      "bytes": 2923437,
+      "sha256": "15f55e1da9c3095c22e74f19725f3681d992eaf65ef7b111cf796f309e3f0326"
+    },
+    {
+      "path": "assets/audio/seasonal_music/autumn.mp3",
+      "bytes": 3279789,
+      "sha256": "296eb4c39e0c31b869073cdbbce0bd5745b124222eeaabe94d7686a90324aa4d"
+    },
+    {
+      "path": "assets/audio/seasonal_music/manifest.json",
+      "bytes": 4646,
+      "sha256": "b677581d76676a55c9e8408c2d2ec1388f6f256e4099a4ea4221bf3fc92391d6"
+    },
+    {
+      "path": "assets/audio/seasonal_music/pastoral.mp3",
+      "bytes": 2607789,
+      "sha256": "2f55e3d7daa02bfe8395ad532a7bea2f157c2f8b42f62e5e03dccd8b5730599b"
+    },
+    {
+      "path": "assets/audio/seasonal_music/stars.mp3",
+      "bytes": 3837741,
+      "sha256": "0b0de56762b76d936e9a48ebc9478280df9299f7d26027e4e7494fd5783abc77"
+    },
+    {
+      "path": "assets/audio/seasonal_music/summer_breeze.mp3",
+      "bytes": 2641965,
+      "sha256": "054c13e8243a8e2525ee75503f72fb598afd786b3ec1ae2807cb279f7a51dbfd"
+    },
+    {
+      "path": "assets/audio/seasonal_music/summer_flowers.mp3",
+      "bytes": 2479149,
+      "sha256": "708653d935b9693d4015568b9543b4b71dc9b7906fdbe5cad7e0a8faeb0f3024"
+    },
+    {
+      "path": "assets/audio/seasonal_music/sunny_pasture.mp3",
+      "bytes": 1440045,
+      "sha256": "8299c4afbef05689279c86b9e664071548ff3b71a834e337af45c329b00e8337"
+    },
+    {
+      "path": "assets/audio/seasonal_music/winter.mp3",
+      "bytes": 2765613,
+      "sha256": "ac21938563edc25266976a576216cbc4e4381153258cc8d3027c3a70e2ab5810"
+    },
+    {
+      "path": "assets/audio/sparse_music.wav",
+      "bytes": 2304044,
+      "sha256": "79807bb14e61e38d02cadb79c81f0c02a5de162c77c06b8b6bcaaa7c1079bbe0"
+    },
+    {
+      "path": "assets/audio/stone_1.wav",
+      "bytes": 38444,
+      "sha256": "21347e064327a34900477c48663e59d2b5ab0ccb5031f863fd82d2d7f55d9a94"
+    },
+    {
+      "path": "assets/audio/stone_2.wav",
+      "bytes": 38444,
+      "sha256": "a4d8ff2a78fafee141af365080a4add0f7a37bb95e9b97ff9df71e3b195de014"
+    },
+    {
+      "path": "assets/audio/stone_3.wav",
+      "bytes": 38444,
+      "sha256": "d3ab0331261f0697d0d3a8c3688201d5ca1e9be110726315f585d9c8987c0243"
+    },
+    {
+      "path": "assets/audio/ui_1.wav",
+      "bytes": 17324,
+      "sha256": "5e85c1aa236c08ee898451a5649f326bdc76c76f874ebfa37fa67f52281105e6"
+    },
+    {
+      "path": "assets/audio/ui_2.wav",
+      "bytes": 17324,
+      "sha256": "93f3d20174d9f3858045e2c06426034f84f361846b16f9efea42f975953d4ef0"
+    },
+    {
+      "path": "assets/audio/ui_3.wav",
+      "bytes": 17324,
+      "sha256": "063b858ee967f572ae793a1aad3a612412fbe9656d9665f5ec48391fec20b25d"
+    },
+    {
+      "path": "assets/audio/water.wav",
+      "bytes": 768044,
+      "sha256": "29d17ba55aa60000e02ddb2d7ef6a9ce426fef43f708c8f8146e1d16312667a7"
+    },
+    {
+      "path": "assets/audio/wind_high.wav",
+      "bytes": 768044,
+      "sha256": "fd1e15b6a3a4703f96a5ba223860e85114162daa08b81d88d581b5b3425bc590"
+    },
+    {
+      "path": "assets/audio/wind_low.wav",
+      "bytes": 768044,
+      "sha256": "b3a9abab61eff4c311cda062847586b02867a0cc2d15af2f48898e195b9911fd"
+    },
+    {
+      "path": "assets/audio/wood_1.wav",
+      "bytes": 38444,
+      "sha256": "e3654fd19508b8133225345715c507933c4c29b56d949d4ccb63d7293ed9d227"
+    },
+    {
+      "path": "assets/audio/wood_2.wav",
+      "bytes": 38444,
+      "sha256": "414feae363bb0aa34fd1221cd972a76cd329b799064c494db116c0c82a6dde29"
+    },
+    {
+      "path": "assets/audio/wood_3.wav",
+      "bytes": 38444,
+      "sha256": "d30bde3dff000abb24fb91ffe515963b66d861668e72c7e67b8cc9fb5f906a61"
+    },
+    {
+      "path": "assets/buildings/door_arch.asset.json",
+      "bytes": 515,
+      "sha256": "d80e1c2cc80ca8c0e2419fa4b9cea49fe4d02cf86e93e88586217b7f6d007546"
+    },
+    {
+      "path": "assets/buildings/door_arch.glb",
+      "bytes": 222308,
+      "sha256": "4717584f8aeb6c23498d8ad9a638da2f2c221e57c16910b65b145674d8065dc4"
+    },
+    {
+      "path": "assets/buildings/door_glass.asset.json",
+      "bytes": 529,
+      "sha256": "4d6ea62fe6b05434c61a4608f81c7c28f3423df6c3c664d11a495511fda63e52"
+    },
+    {
+      "path": "assets/buildings/door_glass.glb",
+      "bytes": 91236,
+      "sha256": "bc1a002b61999029ed91e222b4308188fa924680bd5b33b60faa24d1fefc02f9"
+    },
+    {
+      "path": "assets/buildings/door_plank.asset.json",
+      "bytes": 516,
+      "sha256": "648192c30b28a2d28cae8f032f52bc836b3d21e4332175d33332fcd9b639685f"
+    },
+    {
+      "path": "assets/buildings/door_plank.glb",
+      "bytes": 70088,
+      "sha256": "5abbfbc09e4758201ee3054965762cc0521ae09634da6b5ee09085f6e53679f6"
+    },
+    {
+      "path": "assets/buildings/window_rect.asset.json",
+      "bytes": 447,
+      "sha256": "747678db1ab5d97e78293d7d6d579acecbc6c649146b604a939c150f3076307c"
+    },
+    {
+      "path": "assets/buildings/window_rect.glb",
+      "bytes": 63612,
+      "sha256": "1b2b674629d31197ca3401611e4ee744479325ddf069f99a9b2d50c4cea1957c"
+    },
+    {
+      "path": "assets/buildings/window_round.asset.json",
+      "bytes": 450,
+      "sha256": "9f45adb0d79cf4e1520f77d057204082393f348ed8f14e74fe1af789ffc43c11"
+    },
+    {
+      "path": "assets/buildings/window_round.glb",
+      "bytes": 375932,
+      "sha256": "0a1246b8856a07b2a88563491b80a85522f7f739cac84347f7c20d85f1f4c9e5"
+    },
+    {
+      "path": "assets/fonts/NotoSansSC-Regular.otf",
+      "bytes": 8331336,
+      "sha256": "faa6c9df652116dde789d351359f3d7e5d2285a2b2a1f04a2d7244df706d5ea9"
+    },
+    {
+      "path": "assets/fonts/OFL.txt",
+      "bytes": 4301,
+      "sha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2"
+    },
+    {
+      "path": "assets/fonts/manifest.json",
+      "bytes": 466,
+      "sha256": "916c23609a9a25afb36faa1524b9ce5a07194d02dc9135914660636d5e3d7bb2"
+    },
+    {
+      "path": "assets/icon.svg",
+      "bytes": 362,
+      "sha256": "dddc67b2a53867438ff7cd243d32248b2e3c9a9dcc6dbe7138c126abc3145500"
+    },
+    {
+      "path": "assets/materials/art_pass_01/honey_timber.png",
+      "bytes": 241423,
+      "sha256": "36325390a48bd3e4d1dd406d2d8ab4afb2885e3d5f2bc4130bf75de447601322"
+    },
+    {
+      "path": "assets/materials/art_pass_01/meadow.png",
+      "bytes": 206784,
+      "sha256": "6c8254dc1376faa1bd3d1feff75fcd663685af5e90dcdd7e713a0897334b37ce"
+    },
+    {
+      "path": "assets/materials/art_pass_01/meadow_macro.png",
+      "bytes": 321642,
+      "sha256": "9f83a6080ce6d84513b8cbb5120836cb62cf87e732db44bfd87776714fb6da1c"
+    },
+    {
+      "path": "assets/materials/art_pass_01/moss_stone.png",
+      "bytes": 400711,
+      "sha256": "adbcfe7dfc5e4bfb68a32d1e300d3d29827cc006aef4b2850543b5a287c4e8a8"
+    },
+    {
+      "path": "assets/materials/art_pass_01/plaster.png",
+      "bytes": 516747,
+      "sha256": "0da0220d9a09a158aa33efb8e5ea1f1991fb11551b7323444f6e0764536cb3cb"
+    },
+    {
+      "path": "assets/materials/art_pass_01/terracotta.png",
+      "bytes": 518556,
+      "sha256": "99cad3959aa5a20eaf566ea4611aec507b09325c6624f12448352dd56812b712"
+    },
+    {
+      "path": "assets/materials/art_pass_01/warm_soil.png",
+      "bytes": 120184,
+      "sha256": "2ff013788c3e2f8761a34a4fbb83ea4603be4c64b37aa063f3bf538ca3ed8822"
+    },
+    {
+      "path": "assets/materials/art_pass_01/wet_bank.png",
+      "bytes": 168709,
+      "sha256": "42577a3c461b8feed552a5845f272ce5eea95dc7eb23c0dd82a996182342ad30"
+    },
+    {
+      "path": "assets/materials/art_pass_01/window_glow.png",
+      "bytes": 25334,
+      "sha256": "f3199b73aa51c276eb445070f544f9e0cc6246cb28553d381148dd7d7e9cd80b"
+    },
+    {
+      "path": "assets/materials/textures/grass.png",
+      "bytes": 726558,
+      "sha256": "cb90eddf0f8313938127c8eedf404cd15836a9c5ce254103e526b874cb89b720"
+    },
+    {
+      "path": "assets/materials/textures/plaster.png",
+      "bytes": 304494,
+      "sha256": "3dc706b9f6f723511a833cef2117ebb1581d681a4fe0b3efecf14e613815ae64"
+    },
+    {
+      "path": "assets/materials/textures/soil.png",
+      "bytes": 726999,
+      "sha256": "f172680e5619a98564c31baf9361b8e393819dad8e35dd79f123b36cffef5475"
+    },
+    {
+      "path": "assets/materials/textures/stone.png",
+      "bytes": 367436,
+      "sha256": "ca9d99d75e74db069ffae6996ddf3194c972da6d458bff9208001a5d565d9700"
+    },
+    {
+      "path": "assets/materials/textures/terracotta.png",
+      "bytes": 305834,
+      "sha256": "61d8c03dd5b9f73a0749083f878cea78174200ff5f47afe2b1ec28aa4fa0ed79"
+    },
+    {
+      "path": "assets/materials/textures/vegetation_atlas.png",
+      "bytes": 2047962,
+      "sha256": "b8b0d3adcf82d73f9ae7c97414450b84f0dcb8f1a852f67bf2944505f871d709"
+    },
+    {
+      "path": "assets/materials/textures/wet_bank.png",
+      "bytes": 695437,
+      "sha256": "19abf41bf591f1f308ac8c958abda4d4cbabd931ee356adbc39fab97480bcfdc"
+    },
+    {
+      "path": "assets/materials/textures/window_emission.png",
+      "bytes": 207110,
+      "sha256": "53121d8babafd5140c71cdbf33cd93fef30e08d32f9f017313cb2300985f6591"
+    },
+    {
+      "path": "assets/materials/textures/wood.png",
+      "bytes": 445968,
+      "sha256": "acb3161d12e6cd07a660cdca3ab8c605cbdb68b19832d641727f5c57d0bbe89e"
+    },
+    {
+      "path": "assets/materials/woodland_cabin/fieldstone.png",
+      "bytes": 29641,
+      "sha256": "99c0c61f30c1bf85ea8111c3b14ceeef51ecca0dd078243cdc8024f22318bd44"
+    },
+    {
+      "path": "assets/materials/woodland_cabin/weathered_oak.png",
+      "bytes": 40239,
+      "sha256": "d879ad48a3fa1269c848506c47e933354f376c1b5f82ce6fab5a521ad07ac85d"
+    },
+    {
+      "path": "assets/materials/woodland_ground/grass_wash.png",
+      "bytes": 75281,
+      "sha256": "134842b52372c8419c837af80e9b265af8b56ad16299be9f126e5456bdb9715f"
+    },
+    {
+      "path": "assets/materials/woodland_ground/leaf_mould.png",
+      "bytes": 50218,
+      "sha256": "3d8af4df93f3671779ee7d80c9bd2f5e6e4eefb000a5ec3c637426d7170e28b5"
+    },
+    {
+      "path": "assets/materials/woodland_ground/snow_drift.png",
+      "bytes": 38003,
+      "sha256": "be05c46bb4379c57291ffa16c3bf4b6780f1d678e4350803c670132537b7b2e5"
+    },
+    {
+      "path": "assets/materials/woodland_ground/snow_drift_normal.png",
+      "bytes": 147547,
+      "sha256": "c6e489b07290360126610a2f0acbc8b02465212eec1e5d03bd92b3e05c52ee6f"
+    },
+    {
+      "path": "assets/nature/art_pass_01/fern.asset.json",
+      "bytes": 944,
+      "sha256": "06f08a170aa6560249e9a97a8b71344b4e6e3ee97707f97d2d39f953f7461bb6"
+    },
+    {
+      "path": "assets/nature/art_pass_01/fern.glb",
+      "bytes": 28960,
+      "sha256": "40b49325862de0327caffcc0c2a5ca5e97a4b4a7160159ba594bcd28c8f69247"
+    },
+    {
+      "path": "assets/nature/art_pass_01/flat_rock.asset.json",
+      "bytes": 958,
+      "sha256": "14c804b533eeca8369da981e145a1e2f6329dca571228c9b9963f276ab14bd8e"
+    },
+    {
+      "path": "assets/nature/art_pass_01/flat_rock.glb",
+      "bytes": 23956,
+      "sha256": "bad1a0406abf711de94cca1f3b7dbc851bd0db5fb986d89dcae09db71434a929"
+    },
+    {
+      "path": "assets/nature/art_pass_01/moss_rock.asset.json",
+      "bytes": 959,
+      "sha256": "5da11a3983c533869b80aae4f036ab85f1516a5db63324bfe5b2c92c1cb48875"
+    },
+    {
+      "path": "assets/nature/art_pass_01/moss_rock.glb",
+      "bytes": 34872,
+      "sha256": "4c76be9ffb2213035c1fab15b637c55236ce507abd55ba9de6169bcd3a8501c2"
+    },
+    {
+      "path": "assets/nature/art_pass_01/painted_forest_atlas.png",
+      "bytes": 3335028,
+      "sha256": "e01c4641f51326e5f86a8ae666cb4c73b1b65c81d15374ae7c61a7878e281e27"
+    },
+    {
+      "path": "assets/nature/art_pass_01/shrub.asset.json",
+      "bytes": 967,
+      "sha256": "4517cbab98f50beae2564096d901e64f1a60c5434b38e1b84f339b787a05f5b0"
+    },
+    {
+      "path": "assets/nature/art_pass_01/shrub.glb",
+      "bytes": 14648,
+      "sha256": "c148be50f953275f620b2ef40a3a98c09a10e96f5dc72bea5fea39470421100b"
+    },
+    {
+      "path": "assets/nature/art_pass_01/tree_broadleaf.asset.json",
+      "bytes": 1092,
+      "sha256": "26e4f3f44e7a0dd1a836905e1de66d0a20702f84f19c0644267f5957bbae8ffe"
+    },
+    {
+      "path": "assets/nature/art_pass_01/tree_broadleaf.glb",
+      "bytes": 148784,
+      "sha256": "09bf9559808349ac8872c9ae0cad27c156227ccffd439d778a47aaad20e4599a"
+    },
+    {
+      "path": "assets/nature/art_pass_01/tree_broadleaf_lod1.asset.json",
+      "bytes": 1018,
+      "sha256": "418c2dd8566011135a0b79791a9b888d2230d90f29b073fa3de56c32bd537b3f"
+    },
+    {
+      "path": "assets/nature/art_pass_01/tree_broadleaf_lod1.glb",
+      "bytes": 73372,
+      "sha256": "cb738a326ad9f8e6bda7de3a1cd2f760231d6cd08e9c3c9b4ee8013d617be334"
+    },
+    {
+      "path": "assets/nature/art_pass_01/tree_conifer.asset.json",
+      "bytes": 1097,
+      "sha256": "6333aafc5e6d87ff4d38e645edba8c7e3696c15975205e72c89cb98d57e9d276"
+    },
+    {
+      "path": "assets/nature/art_pass_01/tree_conifer.glb",
+      "bytes": 148688,
+      "sha256": "93eaec72ff61aeb1b72dd6db3380d675ca8fc8161ec8e96ca3988e529afc80f6"
+    },
+    {
+      "path": "assets/nature/art_pass_01/tree_conifer_lod1.asset.json",
+      "bytes": 1027,
+      "sha256": "edb84e23edc84123f376cd25008afffc6e2f5b7547af37f05ff28bfb45909311"
+    },
+    {
+      "path": "assets/nature/art_pass_01/tree_conifer_lod1.glb",
+      "bytes": 76452,
+      "sha256": "48e87bec135f4bc92171264e21db8c9bd33dff10c6fe606c7e7893edef42d99a"
+    },
+    {
+      "path": "assets/nature/art_pass_01/tree_fruit.asset.json",
+      "bytes": 1107,
+      "sha256": "ef20e9a732c0417afd089f1442df15b426692ffc9d1199f38797517653298f8b"
+    },
+    {
+      "path": "assets/nature/art_pass_01/tree_fruit.glb",
+      "bytes": 128220,
+      "sha256": "7c4cbf7aeebb7981356d5b9354054b7e347206727ba2b83dcd6f0b8f31e17ee1"
+    },
+    {
+      "path": "assets/nature/art_pass_01/tree_fruit_lod1.asset.json",
+      "bytes": 1037,
+      "sha256": "1cb98f0cb0edd89c4125395712556bbf7a2635b37e2f26414ac6e99f9ad31211"
+    },
+    {
+      "path": "assets/nature/art_pass_01/tree_fruit_lod1.glb",
+      "bytes": 65180,
+      "sha256": "c462e64f40b0a865d1d93e1b28628090832ac3e70eb0d997a17a90ed994bb49b"
+    },
+    {
+      "path": "assets/nature/art_pass_01/wildflower.asset.json",
+      "bytes": 992,
+      "sha256": "372588a84015ddae329ea61fa5d9efa5a916290cd93d677e304f9bf2cdf77244"
+    },
+    {
+      "path": "assets/nature/art_pass_01/wildflower.glb",
+      "bytes": 20424,
+      "sha256": "757365e4dd7b2e52f5c284dcbfdf6c7e73a060c6db8a65705a5763241d3d57d1"
+    },
+    {
+      "path": "assets/nature/tree_broadleaf.asset.json",
+      "bytes": 437,
+      "sha256": "82bfa8eb730f7440a7f03b63ecc1c9d4dc04cf287501068eec1b53e5412587a6"
+    },
+    {
+      "path": "assets/nature/tree_broadleaf.glb",
+      "bytes": 67488,
+      "sha256": "ecc0cd7c6be0b2b5efddd892a13a43bf4b7711683154862cf02bf9c262ed7e7e"
+    },
+    {
+      "path": "assets/nature/tree_conifer.asset.json",
+      "bytes": 433,
+      "sha256": "87fef380f6cdea488dec4caf9f19b577ce23396e51303e6091fd73fb5488541f"
+    },
+    {
+      "path": "assets/nature/tree_conifer.glb",
+      "bytes": 19416,
+      "sha256": "09bd12107837d59ea8f9c2d34157d4c3d43329f8f50ddcd10866aa72867e3224"
+    },
+    {
+      "path": "assets/nature/tree_fruit.asset.json",
+      "bytes": 441,
+      "sha256": "a04e4c173cdd9b308affa2a08b6740a9d0e743e95d00c47bfb5ebad02eb4bac3"
+    },
+    {
+      "path": "assets/nature/tree_fruit.glb",
+      "bytes": 97008,
+      "sha256": "a81a5636d4a45f7f3f9a7c6f67a57426076658d5ea8704beadfd0017bdb2ea5d"
+    },
+    {
+      "path": "assets/nature/week_03/fern.asset.json",
+      "bytes": 365,
+      "sha256": "c8afa390ae76bbd37a55d8c256f8f734d38bedfe93607f46051e3f764f62704d"
+    },
+    {
+      "path": "assets/nature/week_03/fern.glb",
+      "bytes": 7164,
+      "sha256": "9d8c54caf3f68d6644986dbef542b2c6a2627eb15da5df121d0a460f6189486b"
+    },
+    {
+      "path": "assets/nature/week_03/flat_rock.asset.json",
+      "bytes": 375,
+      "sha256": "8980e2958f75c93ea21487163218d5a233a1e182b1a32a63e8aa77353a304bc3"
+    },
+    {
+      "path": "assets/nature/week_03/flat_rock.glb",
+      "bytes": 11284,
+      "sha256": "59efed62cb43435c98ecc05eb879bb53599f67391146b599149f2d1fabf9266f"
+    },
+    {
+      "path": "assets/nature/week_03/moss_rock.asset.json",
+      "bytes": 375,
+      "sha256": "6b1e1672fdc0bcd1359195e3044f700827df42a0d6f6384391dace080510f2c3"
+    },
+    {
+      "path": "assets/nature/week_03/moss_rock.glb",
+      "bytes": 11272,
+      "sha256": "c270963479245deb908a7443e2be197bd8778d32bc8849d433a31391654afa18"
+    },
+    {
+      "path": "assets/nature/week_03/shrub.asset.json",
+      "bytes": 367,
+      "sha256": "61d20efb44a2b1b1065ad26bf94e1abe84b81d8423fb19b37238cc7148dc35c5"
+    },
+    {
+      "path": "assets/nature/week_03/shrub.glb",
+      "bytes": 13380,
+      "sha256": "17399939aa8c66bd5d69c966339ea6635d7c9163d451cb00b22521e6cc0d8a0f"
+    },
+    {
+      "path": "assets/nature/week_03/tree_broadleaf.asset.json",
+      "bytes": 369,
+      "sha256": "9460eef8b4749401881b260b1856206c9edb70274ebb787c52e6fdfc41fc10bf"
+    },
+    {
+      "path": "assets/nature/week_03/tree_broadleaf.glb",
+      "bytes": 192740,
+      "sha256": "b0f24e5ddc1942e5b321c687d3bb557c017d9cb59343aa1baa144b05f1cb8ce7"
+    },
+    {
+      "path": "assets/nature/week_03/tree_broadleaf_lod1.asset.json",
+      "bytes": 381,
+      "sha256": "6bd8068f6cfd3764370f03f5cbeccf6ad19c07b7a1021c1c4bd8bc1aec653ab0"
+    },
+    {
+      "path": "assets/nature/week_03/tree_broadleaf_lod1.glb",
+      "bytes": 62592,
+      "sha256": "79465d4208a38b6e2919f04ef6e07c2593ef9894092b71a20d99fc2a91907ebb"
+    },
+    {
+      "path": "assets/nature/week_03/tree_conifer.asset.json",
+      "bytes": 364,
+      "sha256": "b16dd8b793d1e75c1d2aa108a8879db7b36b2f54bc3a4d49f2ed2ad5c5ed948a"
+    },
+    {
+      "path": "assets/nature/week_03/tree_conifer.glb",
+      "bytes": 30484,
+      "sha256": "fdabcaf932e82015ae3e39ff9ede79835356b86629c24427a66331dc3bb18169"
+    },
+    {
+      "path": "assets/nature/week_03/tree_conifer_lod1.asset.json",
+      "bytes": 377,
+      "sha256": "b668081830ca534318ad0345fb9deba943b3bd7d6ae51799caff969cd25f1c4e"
+    },
+    {
+      "path": "assets/nature/week_03/tree_conifer_lod1.glb",
+      "bytes": 20660,
+      "sha256": "45d9f5c2ab5105c7b40a6086cf63e309bdc3b8e3846b413694da375eccd4bcda"
+    },
+    {
+      "path": "assets/nature/week_03/tree_fruit.asset.json",
+      "bytes": 361,
+      "sha256": "a9dc79b61e217635a5b3bb13c5121b37a9215ec25ae58736be4ca9336e98b5dc"
+    },
+    {
+      "path": "assets/nature/week_03/tree_fruit.glb",
+      "bytes": 231732,
+      "sha256": "03954fc6d844998cf72995c1ab7553635617ec956f08bd91a1681efd9d4cedb1"
+    },
+    {
+      "path": "assets/nature/week_03/tree_fruit_lod1.asset.json",
+      "bytes": 373,
+      "sha256": "baefec5f68cbb90f450c7b7384deb643dd6303eb90bbf20f21cb25a56132a2d1"
+    },
+    {
+      "path": "assets/nature/week_03/tree_fruit_lod1.glb",
+      "bytes": 101264,
+      "sha256": "872cf714f45edb7c3724d1300febb4aabd94c023969eaf468ba856243cfa039b"
+    },
+    {
+      "path": "assets/nature/week_03/wildflower.asset.json",
+      "bytes": 377,
+      "sha256": "a1c20ba1a4e4ee82e1a8cfca417caa0771d725a6f60f24c5eba01e1d6ceb66a2"
+    },
+    {
+      "path": "assets/nature/week_03/wildflower.glb",
+      "bytes": 7248,
+      "sha256": "62ebe7b107ff22490ba00de1bfa24dcf2604218fe9e3de52a8ef2fc5461e688f"
+    },
+    {
+      "path": "assets/samples/bench_sample.asset.json",
+      "bytes": 516,
+      "sha256": "79f73d254704ae2f8b20c84abb394d184dbbcb45f3f1aa624af15f0208b1270e"
+    },
+    {
+      "path": "assets/samples/bench_sample.glb",
+      "bytes": 105984,
+      "sha256": "548484b49c66cb6acb6b9683ca2e30b9e521266077c4e19392204de723715cc3"
+    },
+    {
+      "path": "assets/samples/cloth_sample.asset.json",
+      "bytes": 502,
+      "sha256": "0e7ea0a25428a8efa30254918a0b69483330e83b4075211fdfba6b8de712c908"
+    },
+    {
+      "path": "assets/samples/cloth_sample.glb",
+      "bytes": 72092,
+      "sha256": "648fba4f1cb9ba7ca184bdb234768b42467d468793fab807e66e399bc5388bbc"
+    },
+    {
+      "path": "assets/samples/tree_sample.asset.json",
+      "bytes": 501,
+      "sha256": "a8b9936ca5348247f27ba04edb9d240c2d820352e6862a2015263f0244c5664b"
+    },
+    {
+      "path": "assets/samples/tree_sample.glb",
+      "bytes": 67488,
+      "sha256": "ecc0cd7c6be0b2b5efddd892a13a43bf4b7711683154862cf02bf9c262ed7e7e"
+    },
+    {
+      "path": "assets/textures/immersion/snow_sole.svg",
+      "bytes": 693,
+      "sha256": "24e0dabd057e606a0e0ba1438e48d1a413426862b410f244bc4292616b4d1c98"
+    },
+    {
+      "path": "assets/ui/art_pass_01/template_forest.png",
+      "bytes": 260989,
+      "sha256": "a638947f190267119ee710b41ccdc56ebacbf3f3e066f6520ff301f9df2be3e5"
+    },
+    {
+      "path": "assets/ui/bridge.svg",
+      "bytes": 288,
+      "sha256": "22cfd54909676c06f49bf475fc57c3d3176526ecb0b579ac0488b7a810a1b0b4"
+    },
+    {
+      "path": "assets/ui/dimensions.svg",
+      "bytes": 325,
+      "sha256": "0d71e7a08ef6b2284e13788b8a8acafda3996c1e14a4684bb90949dd330e98e5"
+    },
+    {
+      "path": "assets/ui/door.svg",
+      "bytes": 255,
+      "sha256": "4bda075de0b6194147eee51e11d49d83b0e72af947b55e87b399e6bcc11a0d4d"
+    },
+    {
+      "path": "assets/ui/fence.svg",
+      "bytes": 271,
+      "sha256": "26b028ba9f65c5c0d457e2693741267a64c4d364972f01e0278481ee1848f3ea"
+    },
+    {
+      "path": "assets/ui/garden/camera.svg",
+      "bytes": 284,
+      "sha256": "43c0dfac94e2c979cf6b6e22d6d89bd7acc9b61e5d2be56c731b60f1ee5f1884"
+    },
+    {
+      "path": "assets/ui/garden/edit.svg",
+      "bytes": 261,
+      "sha256": "86329bacab6b27ea6ce9c237134fc9821d1135f9368294c78a7834208d1863ff"
+    },
+    {
+      "path": "assets/ui/garden/eraser.svg",
+      "bytes": 298,
+      "sha256": "3fd498c7e9ace642431bed84a199d5f47b40f29fc32a6a1b0217f4152920fdc9"
+    },
+    {
+      "path": "assets/ui/garden/field_paper.svg",
+      "bytes": 713,
+      "sha256": "f1176168551f7186523f34580f31f3cfebc4fc09f2d5a2e16e2c25361d8b348e"
+    },
+    {
+      "path": "assets/ui/garden/library.svg",
+      "bytes": 250,
+      "sha256": "c5fd0fba6fe37ab120f7450eaaa29eaf3d6e149c224c9fba15376f5d527c7894"
+    },
+    {
+      "path": "assets/ui/garden/oak_rail.svg",
+      "bytes": 796,
+      "sha256": "1698412610555afd9b42ef0c8a3c854fc49c0ac21ed93b104eb3f5797ad683f8"
+    },
+    {
+      "path": "assets/ui/garden/palette.svg",
+      "bytes": 320,
+      "sha256": "256f71af1acec27d069aaf296b067a64e4699590bb81ac86e87db0434c1feed9"
+    },
+    {
+      "path": "assets/ui/garden/redo.svg",
+      "bytes": 255,
+      "sha256": "d2eca00d31a52e4daf6ebb0c9cec4d079dd150304dbaa0feb5709e937c93cc8c"
+    },
+    {
+      "path": "assets/ui/garden/settings.svg",
+      "bytes": 330,
+      "sha256": "d62b0c8f0c68f3415be855aad37db56a55847477af721a92e54438ca9ccdd41a"
+    },
+    {
+      "path": "assets/ui/garden/slider_bead.svg",
+      "bytes": 338,
+      "sha256": "117a4cef11acaddb265e0986cd2d9387653a91a18a3de29de576785593b0f745"
+    },
+    {
+      "path": "assets/ui/garden/sun.svg",
+      "bytes": 339,
+      "sha256": "5b6236e00aea4726115670d98bc99c119046e7c86bc42e019c92fe7d4f8ed28d"
+    },
+    {
+      "path": "assets/ui/garden/undo.svg",
+      "bytes": 253,
+      "sha256": "5dbf5d499597c96f8f4b309bdf9ccff92d4b3bddcaf62c855e4b8bf14158fa76"
+    },
+    {
+      "path": "assets/ui/house.svg",
+      "bytes": 275,
+      "sha256": "1d48d0c72627cd7fcf185ab8146f3ba7bf7710919e7047f8b288320691ef58dd"
+    },
+    {
+      "path": "assets/ui/invalid.svg",
+      "bytes": 258,
+      "sha256": "916d12de1307d1023215a20df9ed4e16883ef1f4dd96d047b708a4223b422e7c"
+    },
+    {
+      "path": "assets/ui/light.svg",
+      "bytes": 291,
+      "sha256": "bf2ef07c0ca89370c14f8faa6699a0f4f706747cb3d65717aec0ed4260455aa3"
+    },
+    {
+      "path": "assets/ui/lower.svg",
+      "bytes": 268,
+      "sha256": "fc1b54fbb1a8c06dc4f9ac51bfacac0df3a3de6fe4daadb4c73788e91b6c1444"
+    },
+    {
+      "path": "assets/ui/manifest.json",
+      "bytes": 428,
+      "sha256": "22e63046aae101a89d7f2620b2cc39763dd17b319f1a0b428063c13972756fce"
+    },
+    {
+      "path": "assets/ui/path.svg",
+      "bytes": 281,
+      "sha256": "2b584efd26509380f15dee24eb47206f631968a445703c0f8715fa54f6188936"
+    },
+    {
+      "path": "assets/ui/plant.svg",
+      "bytes": 292,
+      "sha256": "7f131dad8ccbfa3e2eb4b284431f43f62994dc346f5bca54bd4e012854722490"
+    },
+    {
+      "path": "assets/ui/pond.svg",
+      "bytes": 279,
+      "sha256": "e9d5c5dafa7ebe7a1fa15aeac209549dfc95a9d247d0858c8fac4805a5a1c8b8"
+    },
+    {
+      "path": "assets/ui/props.svg",
+      "bytes": 289,
+      "sha256": "a8b7f79df89215862656eea0dc4b4f32082e142b42e33adf4ed5978ab5a7d080"
+    },
+    {
+      "path": "assets/ui/raise.svg",
+      "bytes": 268,
+      "sha256": "7ce524e404a168afc54e603bb9c2cf9727d2b0e27917adb38c062fa485ae5177"
+    },
+    {
+      "path": "assets/ui/round_house.svg",
+      "bytes": 284,
+      "sha256": "5e2b4771ebd8a8adb003e7fb1c62f56e7a88eb0cc5916f1224a5958a97e30cbb"
+    },
+    {
+      "path": "assets/ui/selected.svg",
+      "bytes": 300,
+      "sha256": "63cb3e2b36f4a5d9e60efb28dab2686998c55e89f95be124209c2d691c25e2b2"
+    },
+    {
+      "path": "assets/ui/smooth.svg",
+      "bytes": 254,
+      "sha256": "44cecf338a3cb6939ddd03d22129d6ee53d69df9d5a6a3edf3d1cef5acfb8766"
+    },
+    {
+      "path": "assets/ui/snap.svg",
+      "bytes": 280,
+      "sha256": "09891620c8776d8236748c789f058ef85cce4793e6464d5ddb01d41d139021f3"
+    },
+    {
+      "path": "assets/ui/stair.svg",
+      "bytes": 262,
+      "sha256": "01c6521fc7dfbcde536a7b9d337897781b61bd7ed9642c0af991780c4c3e1da7"
+    },
+    {
+      "path": "assets/ui/template_forest.png",
+      "bytes": 300145,
+      "sha256": "f8079e6e00a72246c85495c7a27efae8200995a0e7ab17b84f2f6ca7fde95f71"
+    },
+    {
+      "path": "assets/ui/tree.svg",
+      "bytes": 288,
+      "sha256": "03f45263054f3853257d3876c61c96124e2baa6759c5ada70d6e691ad402baf8"
+    },
+    {
+      "path": "assets/ui/window.svg",
+      "bytes": 260,
+      "sha256": "e1af150abe6eb9756e7ba8c74ef6dab1481e9f98e2dba4dc97e61ebd293e9061"
+    },
+    {
+      "path": "assets/ui/woodland_clearing.png",
+      "bytes": 247148,
+      "sha256": "ab7977fc9db9191059a8126252b5dc566f904012be2729a3161ac72ecfb97d3d"
+    },
+    {
+      "path": "assets/week_04/bench.asset.json",
+      "bytes": 363,
+      "sha256": "c3ec56a86b5b4f1c128cbdbfe7275fd7065102adede3a5b57333ac16e78040b1"
+    },
+    {
+      "path": "assets/week_04/bench.glb",
+      "bytes": 105984,
+      "sha256": "ffec305ce030b3e0eb1b9852f33635d87e50f09d9f2b2fc8db00adf67e3e3a55"
+    },
+    {
+      "path": "assets/week_04/clothesline.asset.json",
+      "bytes": 358,
+      "sha256": "c8380a98ecc8560bb83f7872137cf4726eb89189e874bf6e08cec93116d63790"
+    },
+    {
+      "path": "assets/week_04/clothesline.glb",
+      "bytes": 72092,
+      "sha256": "b8600807d2ea49895040be78661a9acfecb7a04de4f73c5c1679e9bd70b26dc1"
+    },
+    {
+      "path": "assets/week_04/fern.asset.json",
+      "bytes": 360,
+      "sha256": "888c8010aa2b7aaa069a902b45d7beae42515dd4e240ab4961b2b329fb66fd50"
+    },
+    {
+      "path": "assets/week_04/fern.glb",
+      "bytes": 113440,
+      "sha256": "1af62170e071ab8b183ac3a27abb68bcf9a7ba9fd81c395eb0b22c823b14185a"
+    },
+    {
+      "path": "assets/week_04/flat_rock.asset.json",
+      "bytes": 370,
+      "sha256": "11401ab4c1ac89469d4a4f9ed4f00a6a56ceb495e27ee2daadee65dc90c5bd46"
+    },
+    {
+      "path": "assets/week_04/flat_rock.glb",
+      "bytes": 14368,
+      "sha256": "eb2b61a14341636c258600c7d382a329b3243c1ed58b64f3dd922ec3f545e4af"
+    },
+    {
+      "path": "assets/week_04/mailbox.asset.json",
+      "bytes": 340,
+      "sha256": "f861a18572923884b7a4f89fd720c641e2f86427840bcd33b8bb99e213ec50da"
+    },
+    {
+      "path": "assets/week_04/mailbox.glb",
+      "bytes": 60328,
+      "sha256": "4e9a58cef679e6662dedbf689663f1adb62aa54d016e18808d4255053774dd48"
+    },
+    {
+      "path": "assets/week_04/moss_rock.asset.json",
+      "bytes": 370,
+      "sha256": "63c8cc4c5d075142d46977cc053779a3eb1081894131473f0155a9357fee608e"
+    },
+    {
+      "path": "assets/week_04/moss_rock.glb",
+      "bytes": 14356,
+      "sha256": "8fe37786c3039f24f8bf98a07bd4020847db466143e425570e2214a69fae7827"
+    },
+    {
+      "path": "assets/week_04/pot.asset.json",
+      "bytes": 342,
+      "sha256": "a2ec48762a76bffff459a38b118239b26b0976f2a8d00ad5b135ba3505779dbc"
+    },
+    {
+      "path": "assets/week_04/pot.glb",
+      "bytes": 25412,
+      "sha256": "dafc649ad0ec20c41db918401df1df4898f1fef5e54dd9c6c0a1b8dea8f5a095"
+    },
+    {
+      "path": "assets/week_04/shrub.asset.json",
+      "bytes": 362,
+      "sha256": "a8c3fc80eb57bf0514c3882c44c2322d306a654ffa1dba454b0cf098f4569fc1"
+    },
+    {
+      "path": "assets/week_04/shrub.glb",
+      "bytes": 53020,
+      "sha256": "21beb7825d5e847b7113814c70143a495e479c59735976d621aa3f3daa387b3f"
+    },
+    {
+      "path": "assets/week_04/wildflower.asset.json",
+      "bytes": 372,
+      "sha256": "3dba05215a5d677c4e42b3cb2b2c06016d538bb792112ddca42a4e4bb9885a46"
+    },
+    {
+      "path": "assets/week_04/wildflower.glb",
+      "bytes": 72976,
+      "sha256": "ad061ca42631f4645be8a4e8d9653fa1e6932349373223be397e264c3c72953e"
+    },
+    {
+      "path": "assets/week_05/clothesline.asset.json",
+      "bytes": 394,
+      "sha256": "69f2ff8a75b3ce75abd904ec7959d581b7c80641c0110dbe4d627f0dd1bde803"
+    },
+    {
+      "path": "assets/week_05/clothesline.glb",
+      "bytes": 124532,
+      "sha256": "0759c437b37a0f8c257ae6d0ffdb278e215ec53b4c70b9830c50604092321e40"
+    },
+    {
+      "path": "assets/week_05/crate.asset.json",
+      "bytes": 384,
+      "sha256": "4ab52de8106c2e45d1f79c71c6e0712ef83523eec0b9ecc3e21dca35a71b280e"
+    },
+    {
+      "path": "assets/week_05/crate.glb",
+      "bytes": 52788,
+      "sha256": "8b772c40f5ec6284a467736daf45e768ceae95a33f425f773464cc77d6fd7c99"
+    },
+    {
+      "path": "assets/week_05/lantern.asset.json",
+      "bytes": 407,
+      "sha256": "dfac4de604c939f36630bc34e376d74396873aea48ed9d6437bc2e8f9a6d68e9"
+    },
+    {
+      "path": "assets/week_05/lantern.glb",
+      "bytes": 86664,
+      "sha256": "0b1863ced87115c1667a05669268a6c4fd55090fce79c9065a9729f644137c2a"
+    },
+    {
+      "path": "assets/week_05/pot.asset.json",
+      "bytes": 377,
+      "sha256": "cbdb96accca00fa93550655e4c4674ee2fb9c8a60219a4657d60d789e9156ad0"
+    },
+    {
+      "path": "assets/week_05/pot.glb",
+      "bytes": 51548,
+      "sha256": "06146ca998ce19012c1f48acfe2ed052779dbd43f13f7ba211b9e1ff483d37ae"
+    },
+    {
+      "path": "assets/week_05/tea_set.asset.json",
+      "bytes": 368,
+      "sha256": "bc1c678f3c6928deaa22b2a2d5ea44bcc2d3bf5fdb75d077d55707c30cc872bc"
+    },
+    {
+      "path": "assets/week_05/tea_set.glb",
+      "bytes": 77568,
+      "sha256": "418a2efe43dd554bfcfbb81209d6a6d8de65fa9ef353002125aee4c18f571dcc"
+    },
+    {
+      "path": "assets/week_05/watering_can.asset.json",
+      "bytes": 368,
+      "sha256": "6a5dcf866fb248872070303a8a808220e20c74744bf7150ee81acaea00fc825c"
+    },
+    {
+      "path": "assets/week_05/watering_can.glb",
+      "bytes": 55904,
+      "sha256": "5ebefdc26ef1af77082efd6e15484b490151f3db246038572e72c88f7177fad9"
+    },
+    {
+      "path": "assets/week_06/corner_post.asset.json",
+      "bytes": 449,
+      "sha256": "990a781e058598406fa19e3f55ef96b1e61276d8624396c255f02163935a2332"
+    },
+    {
+      "path": "assets/week_06/corner_post.glb",
+      "bytes": 10840,
+      "sha256": "e537fcbc57d07d694ea95b3e1bcdd7972178d1fd1471d5c333ff13151e2af603"
+    },
+    {
+      "path": "assets/week_06/foundation_piece.asset.json",
+      "bytes": 464,
+      "sha256": "2ca917c75ee2fbb91a521bc9d21c6e9acc5138b9af0ac93e4b5bfe15a74fe815"
+    },
+    {
+      "path": "assets/week_06/foundation_piece.glb",
+      "bytes": 10784,
+      "sha256": "3a255947520cf4ee6a0d8479bec9c34f4e603dac8244a0bb436e928e2e0e364a"
+    },
+    {
+      "path": "assets/week_06/lantern.asset.json",
+      "bytes": 468,
+      "sha256": "9e26eb469ed8ffc1cb2ea8c9ba6834a772be813efd2c380b2523812a6dc10730"
+    },
+    {
+      "path": "assets/week_06/lantern.glb",
+      "bytes": 94208,
+      "sha256": "646efddf6e886853c01522f93780872a296822d00c9a05abf191cfc02d802315"
+    },
+    {
+      "path": "assets/week_06/profiles.json",
+      "bytes": 1186,
+      "sha256": "b4ddfb31b178276704e645c366627c21078137bf96f57c68e3fffad0a8ef0300"
+    },
+    {
+      "path": "assets/week_06/stone_tread.asset.json",
+      "bytes": 449,
+      "sha256": "440d958238d240b196bcf6f40c4014468f7475fdd5e815f7333f4ad8826a3ad2"
+    },
+    {
+      "path": "assets/week_06/stone_tread.glb",
+      "bytes": 10824,
+      "sha256": "843fc63a61df283a3a95d9a0301a2c10956b9800bfc16b36c37cd9dadf1b49d8"
+    },
+    {
+      "path": "assets/week_06/tea_set.asset.json",
+      "bytes": 459,
+      "sha256": "301a60513fbb9e9e8c7d550a54696e7a61299296364335b1e783071b7ace5789"
+    },
+    {
+      "path": "assets/week_06/tea_set.glb",
+      "bytes": 158856,
+      "sha256": "a8565687335d99ec3ffe08fb8f72dcf805af44e1400f0e90f68cecdbd2261823"
+    },
+    {
+      "path": "assets/week_06/timber_trim.asset.json",
+      "bytes": 449,
+      "sha256": "4211527ed9b1fa492fc8ab95c03dd0a0e3b5309b020499f75401c4431f0039fb"
+    },
+    {
+      "path": "assets/week_06/timber_trim.glb",
+      "bytes": 10824,
+      "sha256": "127c6cb16d52e9789e783de9a89c0ffd6ce7adf1469bbc2e42340c6aa80ac6d4"
+    },
+    {
+      "path": "assets/week_06/wood_post.asset.json",
+      "bytes": 443,
+      "sha256": "a31319dcf8ca0b5bd0c9df092a7140a45b4a456b5ec44aa93e4ed7d30d741ddc"
+    },
+    {
+      "path": "assets/week_06/wood_post.glb",
+      "bytes": 10848,
+      "sha256": "e2fde0058d374119eb86d525995acad2a3bc3013909fc181aae3f4d9c764d3e3"
+    },
+    {
+      "path": "assets/week_06/wood_rail.asset.json",
+      "bytes": 443,
+      "sha256": "83362047546df4200b710b532d281428f6ffeaad331e6f43fa7b3ef1fef3e424"
+    },
+    {
+      "path": "assets/week_06/wood_rail.glb",
+      "bytes": 10820,
+      "sha256": "f0dddae3a32dfcf15c7f3566782aa6a9944ec984171c33721fa40ca98a625208"
+    },
+    {
+      "path": "assets/week_07/asset_ledger.json",
+      "bytes": 17522,
+      "sha256": "87d038b35937c50b90cd130affeaf30adc27bcc7dac16a41ef4055c616bedfd2"
+    },
+    {
+      "path": "assets/week_07/palette_manifest.json",
+      "bytes": 1570,
+      "sha256": "00fd0a8b54ee8548d1af25d7d911afe01ac598890b8e2f97045453218dda3add"
+    },
+    {
+      "path": "assets/week_07/ui/foliage_deep.png",
+      "bytes": 3412,
+      "sha256": "fa1f3dd2045fcff2cce32d339858fccf58765327f54243cb99a6d8c567633109"
+    },
+    {
+      "path": "assets/week_07/ui/foliage_deep.svg",
+      "bytes": 1008,
+      "sha256": "c3c45ccdd36a33f6ac58d5aec120812498c5ac8d340a400b49328020a2d1cc39"
+    },
+    {
+      "path": "assets/week_07/ui/foliage_spring.png",
+      "bytes": 3716,
+      "sha256": "c5678c802158229ad53b5114c941d1969cef903920e87821688a87b86501c74d"
+    },
+    {
+      "path": "assets/week_07/ui/foliage_spring.svg",
+      "bytes": 1008,
+      "sha256": "4d6c5f166490eee441a00fe06034887b2696375aa18ccf23bd14a2fae5692fff"
+    },
+    {
+      "path": "assets/week_07/ui/plaster_cream.png",
+      "bytes": 4097,
+      "sha256": "988e04af7caf25780a533618b5c9ee3597753fbb6a9c788461ce717b1433d360"
+    },
+    {
+      "path": "assets/week_07/ui/plaster_cream.svg",
+      "bytes": 1014,
+      "sha256": "9e8e1a3a01f70a3478c1492e664a92654349e7cfb12a9bb7bba57c4b5f2c7ffd"
+    },
+    {
+      "path": "assets/week_07/ui/plaster_rose.png",
+      "bytes": 3818,
+      "sha256": "2ac7e7d7bcf0fb8e70115634fce3cccaa8c7191b6fa8d073dfa5d9d008c6b597"
+    },
+    {
+      "path": "assets/week_07/ui/plaster_rose.svg",
+      "bytes": 1014,
+      "sha256": "165261825b4db60a03aa27c6648dd2df9e91c1e808099f19273945ddec5b217b"
+    },
+    {
+      "path": "assets/week_07/ui/roof_smoke.png",
+      "bytes": 4382,
+      "sha256": "201b8583d12e8c861d4551b039724c6a690ec4ab27ed3db52bcdcf2541fde54e"
+    },
+    {
+      "path": "assets/week_07/ui/roof_smoke.svg",
+      "bytes": 1011,
+      "sha256": "3685dea637f63cb8b4e250d3ef0518797db13d5e31b35f08046f4ffd9bd3a167"
+    },
+    {
+      "path": "assets/week_07/ui/roof_terracotta.png",
+      "bytes": 5041,
+      "sha256": "34ef8f3257bc015528d947b2fc3ebc21ac19f8223bfbb8e191379f699f7e28df"
+    },
+    {
+      "path": "assets/week_07/ui/roof_terracotta.svg",
+      "bytes": 1011,
+      "sha256": "48416f24650d58d50aaa172b058d15259ef06e431406eb33759b7d3cc34442de"
+    },
+    {
+      "path": "assets/week_07/ui/stone_grey.png",
+      "bytes": 4394,
+      "sha256": "99f2352aedd56220c2023146be9c5adada5d86fac6bda7e87dc1a0dc470a7e59"
+    },
+    {
+      "path": "assets/week_07/ui/stone_grey.svg",
+      "bytes": 1011,
+      "sha256": "9ff6529fe0eac408501e20b153b4a6a5c2e5fcb8de559c061ed2cadcc121346c"
+    },
+    {
+      "path": "assets/week_07/ui/stone_moss.png",
+      "bytes": 4032,
+      "sha256": "37f3de8aee32c702e4f1ced9df156096dc17afbe94c60a701c1dc069f5b6b0b2"
+    },
+    {
+      "path": "assets/week_07/ui/stone_moss.svg",
+      "bytes": 1011,
+      "sha256": "6c135a177a3932e0f9ffb7d682842e3c3b0b812a5c88065d583aa14ad7730f47"
+    },
+    {
+      "path": "assets/week_07/ui/stone_sand.png",
+      "bytes": 4104,
+      "sha256": "ce76468277371cd5f02d9a49dac09586839820b7642ccc4830147f1a848ee820"
+    },
+    {
+      "path": "assets/week_07/ui/stone_sand.svg",
+      "bytes": 1011,
+      "sha256": "292aa26cb911180027658f4a9b6bb48cf2a19c21140f17e8907704b86f12c09d"
+    },
+    {
+      "path": "assets/week_07/ui/wood_honey.png",
+      "bytes": 5493,
+      "sha256": "84e78877fa692d37098bd6e78f39b74febae839abc2a3d431c06719cafba0582"
+    },
+    {
+      "path": "assets/week_07/ui/wood_honey.svg",
+      "bytes": 1011,
+      "sha256": "6c5555c51664a98e5ffaa84d45286745f17a9ca2f15aa87481d2a5fc4e2f8f99"
+    },
+    {
+      "path": "assets/week_07/ui/wood_sage.png",
+      "bytes": 4894,
+      "sha256": "cbfa0bc3a258ce4758c6f0746ae88e0be93cf7327ac6c98353362c9015ac78cc"
+    },
+    {
+      "path": "assets/week_07/ui/wood_sage.svg",
+      "bytes": 1014,
+      "sha256": "1cedca1bddd188ba29f7ea5e812b8ea83b4ff1b7679c1510f2eb647f0f4532ae"
+    },
+    {
+      "path": "assets/week_07/ui/wood_walnut.png",
+      "bytes": 4282,
+      "sha256": "1c1dcc640007db4b83cb70eefd3ef1870a1a5f1a2d8465033aa560d24ba7c1e6"
+    },
+    {
+      "path": "assets/week_07/ui/wood_walnut.svg",
+      "bytes": 1011,
+      "sha256": "6927185bdaea2f21ed52d286afcc43d7846652b035aec1d4448ebf0ef8f55d15"
+    },
+    {
+      "path": "assets/week_07/window_round.asset.json",
+      "bytes": 411,
+      "sha256": "26958ada720b87ace7606e4b0fb99510c26c0532155775d243773fd8ea9c8bc4"
+    },
+    {
+      "path": "assets/week_07/window_round.glb",
+      "bytes": 106136,
+      "sha256": "071f78c244cebfc8e20e60b5c3feac9b77bb0dca20f196649c232d53b26e0acd"
+    },
+    {
+      "path": "assets/woodland/clouds/altitude.tres",
+      "bytes": 339,
+      "sha256": "f2295138c2c1af037ef0864acbd73ba0fa1bdabc9847f7482df330ee7de9fb87"
+    },
+    {
+      "path": "assets/woodland/clouds/billows.tres",
+      "bytes": 234,
+      "sha256": "459d26ce510fcb1d2f82c15bd4bdfce599ac8d8fdc5b2d7232ea178de4ee01d6"
+    },
+    {
+      "path": "assets/woodland/clouds/cover.tres",
+      "bytes": 367,
+      "sha256": "48edb3822cacc39eea6a14bc52d1f0742973457abf4ded024b7e981c6dab3b79"
+    },
+    {
+      "path": "assets/woodland/clouds/folds.tres",
+      "bytes": 234,
+      "sha256": "cac2a0833bd12e7772801d986e7139becbd883efcfa89cb0e646c2a4a6d7befe"
+    },
+    {
+      "path": "assets/woodland/clouds/grain.tres",
+      "bytes": 233,
+      "sha256": "4d7f33ab252a9537407c7639afa654f3724a03daf7800cb3b085fc78abc6e67f"
+    },
+    {
+      "path": "assets/woodland/clouds/sampling.png",
+      "bytes": 48529,
+      "sha256": "cd7f323f68812ffe5a146c3e8c5833b0731575c7bd91510a17590f95625c2735"
+    },
+    {
+      "path": "assets/woodland/clouds/wisps.png",
+      "bytes": 35680,
+      "sha256": "5b6f331ce0c5bb58cd8e97e98efad97b00c3f30c9791b3adb95940a347bd276a"
+    }
+  ]
+}

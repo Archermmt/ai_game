@@ -1,0 +1,6 @@
+surface: PASS surface consistency, undo/reload, unchanged chunk identity, empty cleanup (33 checks)
+neighborhood: PASS neighbourhood: two waves, conflicts, locks, protected ground, move preview, undo/redo, order and save reconstruction
+building: PASS week 2: occupied protection, garden, overlap, connected/disconnected route
+playable: PASS playable integration
+acceptance_rules: PASS AC01 unique stroke/bounds, AC02 foundations, AC03/04 variant priority/lock/undo, AC06 bridges/entry and AC07 reservation release
+save_faults: PASS atomic partial-write/backup/rename failures, 3 recoverable backups, 16 corrupt saves, unchanged live world and camera/settings metadata

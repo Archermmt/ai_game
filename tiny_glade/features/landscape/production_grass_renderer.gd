@@ -3,8 +3,7 @@ extends MeadowRenderer
 ## Source state stays in WorldDocument. ProtonScatter supplies stable candidates;
 ## the inherited single worker/token lifecycle publishes disposable chunk views.
 
-const LOCAL: String = "res://assets/painterly_grass/local/valley/"
-const IDS: Array[String] = ["blades", "detail", "puffs", "floor"]
+const WOODLAND_GRASSES: GDScript = preload("res://features/landscape/woodland_grasses.gd")
 const CANDIDATE_COUNTS: Array[int] = [3040, 4800, 2640, 14400]
 
 var winter_floor_cull_enabled: bool = true
@@ -20,7 +19,6 @@ var published_chunks: Dictionary = {}
 var published_signature: int = -1
 var _snow_cover: float = 0.0
 var _floor_buried: bool = false
-var _profiles: Array[Dictionary] = []
 var _loading: bool = false
 var _preparing_candidates: bool = false
 var _candidate_seed: String = ""
@@ -32,9 +30,9 @@ var _walker_samples: PackedVector4Array = PackedVector4Array()
 
 func _init() -> void:
 	material.shader = preload("res://features/landscape/production_grass.gdshader")
-	material.set_shader_parameter("root_color", Color("495e36"))
-	material.set_shader_parameter("tip_color", Color("a2aa6b"))
-	material.set_shader_parameter("floor_color", Color("82954e"))
+	material.set_shader_parameter("root_color", Color("576c47"))
+	material.set_shader_parameter("tip_color", Color("99b960"))
+	material.set_shader_parameter("floor_color", Color("8fa75c"))
 	material.set_shader_parameter("reduce_motion", false)
 	material.set_shader_parameter("freeze_time", false)
 	material.set_shader_parameter("sample_time", 0.0)
@@ -51,66 +49,16 @@ func initialize() -> void:
 	if ready_for_grass or _loading or _closed or failed:
 		return
 	_loading = true
-	for id: String in IDS:
-		var pack: PackedScene = await _load_asset(LOCAL + id + ".glb") as PackedScene
-		if pack == null:
-			return
-		var mesh: Mesh = PainterlyGrassSamples.mesh_from(pack)
-		if mesh == null:
-			_fail("Valley草地缺少可用网格：" + id)
-			return
-		meshes.append(mesh)
-	var coverage: Texture2D = await _load_asset(LOCAL + "coverage4k.png") as Texture2D
-	if coverage == null:
-		return
-	var source: Variant = JSON.parse_string(
-		FileAccess.get_file_as_string(LOCAL + "scatter_full.json")
-	)
-	if not source is Dictionary or source.get("layers", []).size() != 4:
-		_fail("Valley草地缺少四层作者尺度与埋根数据。")
-		return
 	for kind: int in 4:
-		var layer_data: Dictionary = source["layers"][kind]
-		if layer_data.get("asset_id", "") != IDS[kind] or layer_data["instances"].is_empty():
-			_fail("Valley草地作者层次记录不完整。")
-			return
-		var scale_sum: float = 0.0
-		var offset_sum: float = 0.0
-		for item: Dictionary in layer_data["instances"]:
-			var up: Array = item["basis"][1]
-			scale_sum += Vector3(up[0], up[1], up[2]).length()
-			offset_sum += float(item["ground_offset_m"])
-		_profiles.append(
-			{
-				"scale": scale_sum / layer_data["instances"].size(),
-				"ground_offset": offset_sum / layer_data["instances"].size()
-			}
-		)
+		meshes.append(WOODLAND_GRASSES.make(kind))
 	height_layers = _empty_layers(Image.FORMAT_RF)
 	clearance_layers = _empty_layers(Image.FORMAT_R8)
 	material.set_shader_parameter("height_layers", height_layers)
 	material.set_shader_parameter("clearance_layers", clearance_layers)
-	material.set_shader_parameter("coverage", coverage)
 	_loading = false
 	ready_for_grass = true
 	if not _pending.is_empty() and density > 0:
 		_start()
-
-
-func _load_asset(path: String) -> Resource:
-	if not ResourceLoader.exists(path) or ResourceLoader.load_threaded_request(path) != OK:
-		_fail("缺少本地Valley草地素材：" + path.get_file())
-		return null
-	while ResourceLoader.load_threaded_get_status(path) == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
-		if _closed:
-			return null
-		await get_tree().process_frame
-	if _closed:
-		return null
-	if ResourceLoader.load_threaded_get_status(path) != ResourceLoader.THREAD_LOAD_LOADED:
-		_fail("Valley草地素材读取失败：" + path.get_file())
-		return null
-	return ResourceLoader.load_threaded_get(path)
 
 
 func _start() -> void:
@@ -133,7 +81,7 @@ func _start() -> void:
 			)
 			_deliver.call_deferred(job["token"], data),
 		false,
-		"Four-layer Valley grass"
+		"Woodland meadow"
 	)
 
 
@@ -145,30 +93,25 @@ func _prepare_candidates(seed_value: String) -> void:
 			_preparing_candidates = false
 			return
 		var adapter: LandscapeScatterAdapter = LandscapeScatterAdapter.new()
-		var scale_value: float = _profiles[kind]["scale"]
 		var poses: Array[Transform3D] = await adapter.generate(
 			self,
 			ProductionGrassData.BOUNDS,
 			CANDIDATE_COUNTS[kind],
-			(seed_value + ":valley:%d" % kind).hash(),
+			(seed_value + ":woodland:%d" % kind).hash(),
 			func(_point: Vector2) -> Dictionary:
 				return {"height": 0.0, "normal": Vector3.UP, "allowed": true},
-			{
-				"scale_min": scale_value * 0.78,
-				"scale_max": scale_value * 1.22,
-				"normal_alignment": 0.0
-			}
+			{"scale_min": 0.76, "scale_max": 1.28, "normal_alignment": 0.0}
 		)
 		if poses.size() != CANDIDATE_COUNTS[kind]:
 			_preparing_candidates = false
-			_fail("ProtonScatter未能生成完整的Valley草地候选。")
+			_fail("ProtonScatter未能生成完整的林间草甸候选。")
 			return
 		var items: Array[Dictionary] = []
 		for index: int in poses.size():
 			items.append(
 				{
 					"pose": poses[index],
-					"ground_offset": _profiles[kind]["ground_offset"],
+					"ground_offset": -0.018,
 					"rank": _fraction(seed_value + ":rank:%d:%d" % [kind, index]),
 					"phase": _fraction(seed_value + ":phase:%d:%d" % [kind, index]),
 					"tint": _fraction(seed_value + ":tint:%d:%d" % [kind, index])
@@ -201,7 +144,7 @@ func _process(delta: float) -> void:
 				if buffer.is_empty():
 					continue
 				var view: MultiMeshInstance3D = MultiMeshInstance3D.new()
-				view.name = "ValleyGrass%d" % kind
+				view.name = WOODLAND_GRASSES.NAMES[kind]
 				view.set_meta("grass_layer", kind)
 				view.position = Vector3(key.x * 8 + 4, 0, key.y * 8 + 4)
 				view.multimesh = MultiMesh.new()

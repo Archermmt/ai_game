@@ -77,7 +77,7 @@ func _ready() -> void:
 	context = PanelContainer.new()
 	context.name = "ContextCard"
 	context.theme = GardenTheme.create()
-	context.add_theme_stylebox_override("panel", _paper(Color("eee8d6"), 14))
+	context.add_theme_stylebox_override("panel", GardenTheme.panel(14))
 	add_child(context)
 	var card_stack: VBoxContainer = VBoxContainer.new()
 	card_stack.add_theme_constant_override("separation", 10)
@@ -158,6 +158,14 @@ func _ready() -> void:
 	_make_utilities()
 	breadcrumbs = Label.new()
 	breadcrumbs.text = "双指旋转 · 捏合缩放 · ⌥ + 左键平移"
+	breadcrumbs.theme = GardenTheme.create()
+	breadcrumbs.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	breadcrumbs.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	var hint_style: StyleBoxFlat = GardenTheme.box(Color("354035e6"))
+	hint_style.border_color = Color("a7956d")
+	hint_style.content_margin_top = 2
+	hint_style.content_margin_bottom = 2
+	breadcrumbs.add_theme_stylebox_override("normal", hint_style)
 	breadcrumbs.add_theme_color_override("font_color", Color("f8f2df"))
 	breadcrumbs.add_theme_color_override("font_shadow_color", Color("40594b"))
 	breadcrumbs.add_theme_constant_override("shadow_offset_y", 1)
@@ -221,6 +229,7 @@ func _make_ribbon() -> void:
 func _make_utilities() -> void:
 	utilities = HBoxContainer.new()
 	utilities.name = "QuietUtilities"
+	utilities.theme = GardenTheme.create()
 	utilities.add_theme_constant_override("separation", 8)
 	add_child(utilities)
 	for item: Array in [["undo", "撤销"], ["redo", "重做"], ["library", "我的作品"], ["settings", "设置"]]:
@@ -230,7 +239,7 @@ func _make_utilities() -> void:
 		button.add_theme_constant_override("icon_max_width", 23)
 		button.tooltip_text = item[1]
 		button.accessibility_name = item[1]
-		button.add_theme_stylebox_override("normal", _paper(Color("e9e5d2")))
+		GardenTheme.icon_key(button)
 		button.pressed.connect(
 			func() -> void:
 				action_requested.emit(
@@ -327,7 +336,7 @@ func sync_preferences(value: UserPreferences) -> void:
 		return
 	_garden_sync = true
 	grass_slider.value = value.values.get("grass_density", 0.45)
-	dof_control.text = "远景柔焦 · 小屋附近保持清晰"
+	dof_control.text = "微缩景深 · 前后景柔焦，小屋保持清晰"
 	dof_control.set_pressed_no_signal(value.values.get("garden_focus", true))
 	_garden_sync = false
 

@@ -165,6 +165,7 @@ func _window(caption: String, dimensions: Vector2i) -> Window:
 
 func _window_stack(window: Window) -> VBoxContainer:
 	var scroll: ScrollContainer = ScrollContainer.new()
+	scroll.add_theme_stylebox_override("panel", GardenTheme.panel(12))
 	scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	window.add_child(scroll)
 	var stack: VBoxContainer = VBoxContainer.new()

@@ -1,0 +1,26 @@
+{
+  "Houses": {
+    "distinct_bound_materials": 18,
+    "scene_instances_of_meshes": 23,
+    "source": "street/buildings/source/build_houses.py",
+    "triangles_including_instances": 288
+  },
+  "Landscape": {
+    "distinct_bound_materials": 21,
+    "scene_instances_of_meshes": 21,
+    "source": "street/layout/layout.gd",
+    "triangles_including_instances": 15128
+  },
+  "Orchard": {
+    "distinct_bound_materials": 7,
+    "scene_instances_of_meshes": 7,
+    "source": "street/vegetation/vegetation.gd",
+    "triangles_including_instances": 33936
+  },
+  "Station": {
+    "distinct_bound_materials": 100,
+    "scene_instances_of_meshes": 735,
+    "source": "street/railway/railway.gd",
+    "triangles_including_instances": 14832
+  }
+}

@@ -35,12 +35,17 @@ func _layout_panels() -> void:
 	if calendar != null:
 		var available: Vector2 = get_viewport().get_visible_rect().size / _scale_value
 		calendar.position = Vector2(available.x - 296, 76)
-		calendar.size = Vector2(280, 310)
+		calendar.size = Vector2(280, calendar.get_combined_minimum_size().y)
 		if weather_controls != null:
+			var panel_width: float = minf(452, available.x - 24)
+			var panel_bottom: float = _dock.position.y - 48
+			weather_controls.size = Vector2(panel_width, minf(414, panel_bottom - 12))
+			var centered_x: float = (available.x - weather_controls.size.x) * 0.5
+			var beside_calendar: float = calendar.position.x - weather_controls.size.x - 12
 			weather_controls.position = Vector2(
-				available.x * 0.5 - 280, maxf(76, available.y - 530)
+				minf(centered_x, beside_calendar) if beside_calendar >= 12 else centered_x,
+				maxf(12, panel_bottom - weather_controls.size.y)
 			)
-			weather_controls.size = Vector2(560, minf(400, available.y - 200))
 	if photo_icons != null:
 		var available: Vector2 = get_viewport().get_visible_rect().size / _scale_value
 		var width: float = minf(720, available.x - 24)
@@ -108,8 +113,13 @@ func close_context() -> void:
 		weather_controls.hide()
 
 
+func _template_preview() -> Texture2D:
+	return preload("res://assets/ui/woodland_clearing.png")
+
+
 func _ready() -> void:
 	super._ready()
+	photo_panel.add_theme_stylebox_override("panel", GardenTheme.panel(10))
 	var stack: VBoxContainer = photo_note.get_parent()
 	walk_toggle = Button.new()
 	walk_toggle.name = "FirstPersonWalk"
@@ -195,10 +205,7 @@ func _make_photo_icons(stack: VBoxContainer) -> void:
 			child.custom_minimum_size = Vector2(64, 64)
 			child.add_theme_constant_override("icon_max_width", 44)
 			child.reparent(photo_icons)
-			for state: String in ["normal", "hover", "pressed"]:
-				child.add_theme_stylebox_override(
-					state, _paper(Color("b8c1b1").lightened(0.12 if state != "normal" else 0))
-				)
+			GardenTheme.icon_key(child)
 	photo_settings = Button.new()
 	photo_settings.icon = IllustratedIcons.texture("settings")
 	photo_settings.expand_icon = true
@@ -207,6 +214,7 @@ func _make_photo_icons(stack: VBoxContainer) -> void:
 	photo_settings.tooltip_text = "照片尺寸、目录与已存构图"
 	photo_settings.accessibility_name = photo_settings.tooltip_text
 	photo_settings.toggle_mode = true
+	GardenTheme.icon_key(photo_settings)
 	photo_settings.toggled.connect(
 		func(enabled: bool) -> void:
 			photo_details.visible = enabled

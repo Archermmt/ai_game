@@ -7,8 +7,6 @@ signal configured
 const SOURCE_ORIGIN: Vector2 = Vector2(-32.0, -32.0)
 const VERTEX_SPACING: float = 0.25
 const SOURCE_SPACING: float = 64.0 / 255.0
-const SOIL_TEXTURE: Texture2D = preload("res://assets/materials/art_pass_01/warm_soil.png")
-const MEADOW_TEXTURE: Texture2D = preload("res://assets/materials/art_pass_01/meadow.png")
 const TEXTURE_SIZE: int = 512
 
 var terrain: Terrain3D
@@ -120,8 +118,22 @@ func _create_material() -> Terrain3DMaterial:
 
 func _create_assets() -> Terrain3DAssets:
 	var result: Terrain3DAssets = Terrain3DAssets.new()
-	result.set_texture(0, _texture_asset(SOIL_TEXTURE, "Exposed soil", Color(0.40, 0.38, 0.31)))
-	result.set_texture(1, _texture_asset(MEADOW_TEXTURE, "Painted meadow", Color(0.62, 0.69, 0.43)))
+	result.set_texture(
+		0,
+		_texture_asset(
+			load("res://assets/materials/art_pass_01/warm_soil.png"),
+			"Exposed soil",
+			Color(0.40, 0.38, 0.31)
+		)
+	)
+	result.set_texture(
+		1,
+		_texture_asset(
+			load("res://assets/materials/art_pass_01/meadow.png"),
+			"Painted meadow",
+			Color(0.62, 0.69, 0.43)
+		)
+	)
 	return result
 
 

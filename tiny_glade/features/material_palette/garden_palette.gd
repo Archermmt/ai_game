@@ -13,7 +13,7 @@ const CARDS: Array[Dictionary] = [
 	{
 		"id": "plaster_rose",
 		"group": "plaster",
-		"label": "暖粉灰泥",
+		"label": "赭粉灰泥",
 		"tint": "edc7b4",
 		"texture": "plaster"
 	},
@@ -30,7 +30,7 @@ const CARDS: Array[Dictionary] = [
 	{
 		"id": "roof_smoke",
 		"group": "roof",
-		"label": "烟灰瓦",
+		"label": "青灰石板瓦",
 		"tint": "9eaba7",
 		"texture": "terracotta"
 	},

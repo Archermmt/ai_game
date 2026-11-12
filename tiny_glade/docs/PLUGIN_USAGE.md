@@ -1,8 +1,10 @@
 # 插件使用心得与维护手册
 
-更新：2026-10-27。适用工程：风栖小筑；本地验证基线：Godot **4.7.2 Standard / Forward+ / macOS Metal / Apple M4 Pro**。
+更新于 2026-11-10。适用工程：风栖小筑；本地验证基线：Godot **4.7.2 Standard / Forward+ / macOS Metal / Apple M4 Pro**。
 
-本文总结当前工程实际采用的插件、接入边界和踩坑，不是通用插件排行榜，也不代表最新上游版本的兼容结论。版本以项目lock文件为准；详细实机证据见[正式地形与草地](weekly/week_14/PRODUCTION_LANDSCAPE.md)、[正式云雪采用](weekly/week_14/WEATHER_ADOPTION.md)。
+W15 正式美术已切换到温馨林中小屋。地形显示、散布、体积云和雪壳仍使用固定版本的插件。草木网格、地表和雪面纹理、体积云的七种图像输入均由项目生成。W14 的 Valley 草与 puchik 雪材质留在历史样板。见[当前实拍与验收](weekly/week_15/WOODLAND_CABIN.md)。
+
+下文记录 W14 的选型和测试条件。历史实机证据见[正式地形与草地](weekly/week_14/PRODUCTION_LANDSCAPE.md)、[正式云雪采用](weekly/week_14/WEATHER_ADOPTION.md)。
 
 ## 1. 当前插件清单
 
@@ -14,7 +16,7 @@
 | [ProtonScatter](https://github.com/HungryProton/scatter) | 4.2.0 / `7198cc0` | 编辑器可用；运行时调用修改器生成四层草的稳定候选 | 负责分布，项目继续负责贴地、避让、分块与渲染 |
 | [SunshineClouds2](https://github.com/Bonkahe/SunshineClouds2) | 2.7 + 上游4.7相机修复 / `a73a80b` | 正式相机的CompositorEffect；不启用编辑器Dock | 体积层次明显改善；Metal和多相机必须真实验证 |
 | [Blanket](https://github.com/1hue/Blanket) | `7b1166a` | 原计算子集 + 本地4.7/Metal缓冲桥；不启用原编辑器插件/autoload | 有界物件雪壳有效；不能拿这条路径直接覆盖完整大地形 |
-| [puchik snow material](https://github.com/puchik/godot-extras/tree/515900a4aee952cdc4487bed98cc69758c899a32/tutorials/snow-shader) | `515900a` | 材质参考与纹理输入复用；不是EditorPlugin | 能改善雪的表面质感，本身不生成厚度 |
+| [puchik snow material](https://github.com/puchik/godot-extras/tree/515900a4aee952cdc4487bed98cc69758c899a32/tutorials/snow-shader) | `515900a` | W14 历史雪材质参考，W15 主场景使用原创雪纹 | 能改善雪的表面质感，本身不生成厚度 |
 | [GUT](https://github.com/bitwes/Gut) | 9.7.1 / `aeb5d4f` | CLI自动回归；当前未启用其编辑器面板 | 适合逻辑、源状态与异步流程；不能替代GPU及美术验收 |
 
 版本与许可入口：[Terrain3D lock](../features/landscape_lab/terrain3d.lock.json)、[Scatter lock](../features/landscape_lab/proton_scatter.lock.json)、[Sunshine lock](../features/weather_plugins/sunshine_clouds.lock.json)、[Blanket lock](../features/weather_plugins/blanket.lock.json)、[puchik lock](../features/weather_plugins/puchik_snow.lock.json)、[GUT/toolchain lock](../toolchain.lock.json)。

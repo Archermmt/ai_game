@@ -19,7 +19,7 @@ func restore(s: Dictionary) -> void:
 	# JSON reads numbers as floats; keep source height levels canonical integers.
 	for tile in tiles.values():tile.h=int(tile.h)
 	for object in objects:
-		for key in ["id","x","z","rotation","length","color"]:
+		for key in ["id","x","z","rotation","length","color","form"]:
 			if object.has(key):object[key]=int(object[key])
 func begin() -> void:
 	revision+=1
