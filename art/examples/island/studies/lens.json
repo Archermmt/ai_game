@@ -1,0 +1,20 @@
+[
+  {
+    "output": "res://captures/island/optimization/lens_0.035.png",
+    "camera_attributes": {
+      "dof_blur_far_enabled": true,
+      "dof_blur_far_distance": 25.0,
+      "dof_blur_far_transition": 12.0,
+      "dof_blur_amount": 0.035
+    }
+  },
+  {
+    "output": "res://captures/island/optimization/lens_0.07.png",
+    "camera_attributes": {
+      "dof_blur_far_enabled": true,
+      "dof_blur_far_distance": 25.0,
+      "dof_blur_far_transition": 12.0,
+      "dof_blur_amount": 0.07
+    }
+  }
+]

@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://street/rendering/view.gd" id="1"]
+[ext_resource type="Script" path="res://street/layout/layout.gd" id="2"]
+[ext_resource type="Script" path="res://street/layout/blockout.gd" id="3"]
+[ext_resource type="Shader" path="res://street/rendering/wash.gdshader" id="4"]
+
+[sub_resource type="ShaderMaterial" id="Wash"]
+shader = ExtResource("4")
+
+[sub_resource type="Sky" id="Sky"]
+sky_material = SubResource("Wash")
+
+[sub_resource type="Environment" id="Env"]
+background_mode = 2
+sky = SubResource("Sky")
+ambient_light_source = 2
+ambient_light_color = Color(1,0.964,0.993,1)
+ambient_light_energy = 0.62
+reflected_light_source = 1
+tonemap_mode = 0
+
+[node name="SpringCrossing" type="Node3D"]
+script = ExtResource("1")
+camera_node = NodePath("CaptureCamera")
+focus_point = Vector3(0,0.55,0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Env")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-58, 125, 0)
+light_color = Color(1,0.984,0.962,1)
+light_energy = 0.74
+shadow_enabled = true
+shadow_bias = 0.035
+shadow_normal_bias = 0.4
+directional_shadow_max_distance = 76.0
+
+[node name="CaptureCamera" type="Camera3D" parent="."]
+current = true
+
+[node name="Landscape" type="Node3D" parent="."]
+script = ExtResource("2")
+
+[node name="Blockout" type="Node3D" parent="."]
+script = ExtResource("3")

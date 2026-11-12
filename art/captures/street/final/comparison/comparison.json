@@ -1,0 +1,399 @@
+{
+  "reference_sha256": "c7a5b335419ac28310a5c76dbcffd5dc0d388a5f60bf1925323f81d05d91ebad",
+  "capture": "captures/street/final/main.png",
+  "capture_sha256": "052df96eb342d3862184768d55fa9be526faa4778a15f1814ec9d4463bdfff35",
+  "compare_size": [
+    852,
+    480
+  ],
+  "watermark_exclusion_xyxy": [
+    635,
+    8,
+    852,
+    54
+  ],
+  "method": "sRGB D65 to CIELAB, per-pixel CIEDE2000; no registration. ROI statistics mix material and layout error.",
+  "overlay": "Equal weight RGB blend of reference and capture.",
+  "heatmap": "0 navy, 5 cyan, 12 yellow, >=30 red, masked watermark gray.",
+  "cherry_contours": "Thresholded visible pink occupancy, cyan = reference, red = capture, white = shared edge; background and occluders can affect boundaries.",
+  "whole_frame_delta_e00_median": 3.791,
+  "median_of_roi_medians": 3.773,
+  "roi_count_with_median_at_most_8": 12,
+  "regions": {
+    "upper_sky": {
+      "xyxy_exclusive": [
+        334,
+        52,
+        349,
+        67
+      ],
+      "median_pixel_delta_e00": 2.465,
+      "median_target_srgb": [
+        227.0,
+        247.0,
+        254.0
+      ],
+      "median_capture_srgb": [
+        215.0,
+        240.0,
+        251.0
+      ]
+    },
+    "lower_left_sky": {
+      "xyxy_exclusive": [
+        25,
+        330,
+        40,
+        345
+      ],
+      "median_pixel_delta_e00": 1.787,
+      "median_target_srgb": [
+        255.0,
+        252.0,
+        248.0
+      ],
+      "median_capture_srgb": [
+        252.0,
+        250.0,
+        249.0
+      ]
+    },
+    "teal_roof": {
+      "xyxy_exclusive": [
+        211,
+        305,
+        224,
+        316
+      ],
+      "median_pixel_delta_e00": 1.512,
+      "median_target_srgb": [
+        119.0,
+        162.0,
+        172.0
+      ],
+      "median_capture_srgb": [
+        123.0,
+        167.0,
+        177.0
+      ]
+    },
+    "umber_roof": {
+      "xyxy_exclusive": [
+        286,
+        354,
+        307,
+        365
+      ],
+      "median_pixel_delta_e00": 0.866,
+      "median_target_srgb": [
+        168.0,
+        134.0,
+        102.0
+      ],
+      "median_capture_srgb": [
+        170.0,
+        134.0,
+        103.0
+      ]
+    },
+    "umber_light_wall": {
+      "xyxy_exclusive": [
+        304,
+        389,
+        318,
+        399
+      ],
+      "median_pixel_delta_e00": 2.044,
+      "median_target_srgb": [
+        179.0,
+        167.0,
+        157.0
+      ],
+      "median_capture_srgb": [
+        183.0,
+        170.0,
+        163.0
+      ]
+    },
+    "asphalt": {
+      "xyxy_exclusive": [
+        598,
+        365,
+        608,
+        372
+      ],
+      "median_pixel_delta_e00": 10.893,
+      "median_target_srgb": [
+        115.0,
+        112.0,
+        121.0
+      ],
+      "median_capture_srgb": [
+        117.0,
+        114.0,
+        125.0
+      ]
+    },
+    "grass_beside_house": {
+      "xyxy_exclusive": [
+        358,
+        393,
+        366,
+        404
+      ],
+      "median_pixel_delta_e00": 6.488,
+      "median_target_srgb": [
+        124.0,
+        183.0,
+        82.0
+      ],
+      "median_capture_srgb": [
+        122.0,
+        161.0,
+        75.0
+      ]
+    },
+    "main_cherry_highlight": {
+      "xyxy_exclusive": [
+        504,
+        316,
+        517,
+        325
+      ],
+      "median_pixel_delta_e00": 6.469,
+      "median_target_srgb": [
+        254.0,
+        243.0,
+        255.0
+      ],
+      "median_capture_srgb": [
+        246.0,
+        232.0,
+        243.0
+      ]
+    },
+    "main_cherry_shadow": {
+      "xyxy_exclusive": [
+        467,
+        313,
+        476,
+        322
+      ],
+      "median_pixel_delta_e00": 5.625,
+      "median_target_srgb": [
+        195.0,
+        149.0,
+        186.0
+      ],
+      "median_capture_srgb": [
+        208.0,
+        155.0,
+        188.0
+      ]
+    },
+    "main_cherry_upper_pink": {
+      "xyxy_exclusive": [
+        530,
+        253,
+        539,
+        262
+      ],
+      "median_pixel_delta_e00": 4.956,
+      "median_target_srgb": [
+        245.0,
+        149.0,
+        201.0
+      ],
+      "median_capture_srgb": [
+        228.0,
+        151.0,
+        191.0
+      ]
+    },
+    "left_front_hedge": {
+      "xyxy_exclusive": [
+        188,
+        400,
+        197,
+        408
+      ],
+      "median_pixel_delta_e00": 3.773,
+      "median_target_srgb": [
+        89.5,
+        145.0,
+        66.0
+      ],
+      "median_capture_srgb": [
+        99.5,
+        153.5,
+        69.0
+      ]
+    },
+    "platform_face": {
+      "xyxy_exclusive": [
+        355,
+        234,
+        372,
+        243
+      ],
+      "median_pixel_delta_e00": 3.495,
+      "median_target_srgb": [
+        171.0,
+        164.0,
+        160.0
+      ],
+      "median_capture_srgb": [
+        182.0,
+        173.0,
+        170.0
+      ]
+    },
+    "platform_safety_stripe": {
+      "xyxy_exclusive": [
+        470,
+        231,
+        481,
+        235
+      ],
+      "median_pixel_delta_e00": 6.993,
+      "median_target_srgb": [
+        228.5,
+        215.0,
+        104.0
+      ],
+      "median_capture_srgb": [
+        251.0,
+        220.0,
+        83.5
+      ]
+    }
+  },
+  "cherry_regions": {
+    "front_left": {
+      "roi": [
+        110,
+        298,
+        215,
+        386
+      ],
+      "visible_pink_centers_xy": [
+        [
+          159.15,
+          343.54
+        ],
+        [
+          160.64,
+          342.32
+        ]
+      ],
+      "target_pixels": 4518,
+      "capture_pixels": 5207,
+      "iou": 0.602
+    },
+    "middle_left": {
+      "roi": [
+        242,
+        251,
+        367,
+        341
+      ],
+      "visible_pink_centers_xy": [
+        [
+          307.32,
+          300.28
+        ],
+        [
+          309.17,
+          297.76
+        ]
+      ],
+      "target_pixels": 6464,
+      "capture_pixels": 6763,
+      "iou": 0.736
+    },
+    "main": {
+      "roi": [
+        414,
+        235,
+        563,
+        356
+      ],
+      "visible_pink_centers_xy": [
+        [
+          490.22,
+          289.87
+        ],
+        [
+          492.55,
+          288.43
+        ]
+      ],
+      "target_pixels": 11720,
+      "capture_pixels": 11008,
+      "iou": 0.794
+    },
+    "front_small": {
+      "roi": [
+        365,
+        337,
+        441,
+        418
+      ],
+      "visible_pink_centers_xy": [
+        [
+          402.54,
+          385.78
+        ],
+        [
+          406.58,
+          385.28
+        ]
+      ],
+      "target_pixels": 2854,
+      "capture_pixels": 3117,
+      "iou": 0.63
+    },
+    "back": {
+      "roi": [
+        489,
+        99,
+        595,
+        174
+      ],
+      "visible_pink_centers_xy": [
+        [
+          542.63,
+          142.95
+        ],
+        [
+          545.3,
+          145.1
+        ]
+      ],
+      "target_pixels": 4534,
+      "capture_pixels": 4373,
+      "iou": 0.718
+    },
+    "back_right": {
+      "roi": [
+        639,
+        150,
+        711,
+        207
+      ],
+      "visible_pink_centers_xy": [
+        [
+          671.0,
+          177.06
+        ],
+        [
+          673.4,
+          182.26
+        ]
+      ],
+      "target_pixels": 2154,
+      "capture_pixels": 1718,
+      "iou": 0.446
+    }
+  }
+}

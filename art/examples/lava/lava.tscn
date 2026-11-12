@@ -1,0 +1,53 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://examples/shared/exhibit.gd" id="View"]
+[ext_resource type="PackedScene" path="res://examples/lava/garden.tscn" id="Garden"]
+[ext_resource type="Shader" path="res://examples/lava/sky.gdshader" id="SkyShader"]
+[ext_resource type="Shader" path="res://examples/lava/water.gdshader" id="WaterShader"]
+
+[sub_resource type="ShaderMaterial" id="Cloud"]
+shader = ExtResource("SkyShader")
+[sub_resource type="Sky" id="Sky"]
+sky_material = SubResource("Cloud")
+[sub_resource type="Environment" id="World"]
+background_mode = 2
+sky = SubResource("Sky")
+ambient_light_source = 2
+ambient_light_color = Color(0.84,0.86,1,1)
+ambient_light_energy = 0.70
+reflected_light_source = 1
+tonemap_mode = 0
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.47
+glow_strength = 0.63
+glow_hdr_threshold = 1.04
+
+[sub_resource type="ShaderMaterial" id="WaterMat"]
+shader = ExtResource("WaterShader")
+[sub_resource type="PlaneMesh" id="River"]
+size = Vector2(120,110)
+material = SubResource("WaterMat")
+
+[node name="LavaGarden" type="Node3D"]
+script = ExtResource("View")
+focus_point = Vector3(0,1.9,-6)
+[node name="Camera3D" type="Camera3D" parent="."]
+position = Vector3(0,2.7,8)
+rotation = Vector3(-0.041887902,0,0)
+fov = 56.0
+current = true
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = SubResource("World")
+[node name="LateSun" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-44,25,0)
+light_color = Color(1,0.85,0.73,1)
+light_energy = 1.18
+shadow_enabled = true
+shadow_opacity = 0.58
+directional_shadow_max_distance = 53.0
+[node name="River" type="MeshInstance3D" parent="."]
+position = Vector3(0,-0.02,-8)
+mesh = SubResource("River")
+cast_shadow = 0
+[node name="VolcanicGarden" parent="." instance=ExtResource("Garden")]

@@ -1,0 +1,427 @@
+{
+  "method": "sRGB D65 CIEDE2000 of target and capture regional median colors. Target UI/watermark excluded. Aspect ratio preserved with padding.",
+  "rois": {
+    "understory": {
+      "xyxy": [
+        480,
+        65,
+        610,
+        161
+      ],
+      "target_median_sRGB": [
+        106.0,
+        132.0,
+        90.0
+      ],
+      "final_median_sRGB": [
+        106.0,
+        130.0,
+        94.0
+      ],
+      "palette_pass_deltaE00": 16.38,
+      "final_deltaE00": 1.76
+    },
+    "upper_left_forest": {
+      "xyxy": [
+        157,
+        12,
+        330,
+        115
+      ],
+      "target_median_sRGB": [
+        115.0,
+        137.0,
+        96.0
+      ],
+      "final_median_sRGB": [
+        114.0,
+        132.0,
+        96.0
+      ],
+      "palette_pass_deltaE00": 15.08,
+      "final_deltaE00": 2.23
+    },
+    "lit_meadow": {
+      "xyxy": [
+        314,
+        412,
+        432,
+        462
+      ],
+      "target_median_sRGB": [
+        145.0,
+        187.0,
+        85.0
+      ],
+      "final_median_sRGB": [
+        144.0,
+        183.0,
+        86.0
+      ],
+      "palette_pass_deltaE00": 5.22,
+      "final_deltaE00": 1.2
+    },
+    "slate": {
+      "xyxy": [
+        375,
+        222,
+        402,
+        271
+      ],
+      "target_median_sRGB": [
+        89.0,
+        103.0,
+        112.0
+      ],
+      "final_median_sRGB": [
+        90.0,
+        105.0,
+        113.0
+      ],
+      "palette_pass_deltaE00": 13.53,
+      "final_deltaE00": 1.05
+    },
+    "pond": {
+      "xyxy": [
+        578,
+        333,
+        613,
+        353
+      ],
+      "target_median_sRGB": [
+        81.0,
+        107.0,
+        101.0
+      ],
+      "final_median_sRGB": [
+        82.0,
+        102.0,
+        98.0
+      ],
+      "palette_pass_deltaE00": 9.23,
+      "final_deltaE00": 2.72
+    },
+    "lower_left_foliage": {
+      "xyxy": [
+        64,
+        382,
+        197,
+        455
+      ],
+      "target_median_sRGB": [
+        133.0,
+        169.0,
+        78.0
+      ],
+      "final_median_sRGB": [
+        136.0,
+        174.0,
+        77.0
+      ],
+      "palette_pass_deltaE00": 10.14,
+      "final_deltaE00": 1.6
+    },
+    "lower_right_foliage": {
+      "xyxy": [
+        680,
+        383,
+        825,
+        456
+      ],
+      "target_median_sRGB": [
+        181.0,
+        192.0,
+        70.0
+      ],
+      "final_median_sRGB": [
+        181.0,
+        190.0,
+        76.0
+      ],
+      "palette_pass_deltaE00": 9.44,
+      "final_deltaE00": 1.01
+    }
+  },
+  "target": "docs/examples/cabin/reference.jpg",
+  "capture": "captures/cabin/final.png",
+  "target_sha256": "82c38c352202f5b00c127cb003dd9ac9f1e542df85de2204450be7ca47086b43",
+  "capture_sha256": "39fb32e6ba025dca60bb4c4601ad06f72cd1612c13165f09f699393fb3393948",
+  "previous_file": "captures/cabin/optimization/before.png",
+  "previous_sha256": "086ad3c0a4df81132d12321d6a78d1dd83d221755affcc9c9fb108aa216fce98",
+  "shape_comparison_method": "Median corresponding-pixel Delta E00 per polygon after Gaussian smoothing in display RGB at sigma=3 reference pixels.",
+  "shape_regions": {
+    "forest_behind_cottage": {
+      "polygon_xy": [
+        [
+          156,
+          35
+        ],
+        [
+          670,
+          35
+        ],
+        [
+          670,
+          235
+        ],
+        [
+          526,
+          253
+        ],
+        [
+          496,
+          191
+        ],
+        [
+          357,
+          195
+        ],
+        [
+          350,
+          255
+        ],
+        [
+          156,
+          279
+        ]
+      ],
+      "pixels": 104568,
+      "previous_deltaE00": 8.7,
+      "current_deltaE00": 7.24
+    },
+    "blue_slate_and_chimney": {
+      "polygon_xy": [
+        [
+          351,
+          208
+        ],
+        [
+          456,
+          192
+        ],
+        [
+          456,
+          161
+        ],
+        [
+          481,
+          158
+        ],
+        [
+          483,
+          192
+        ],
+        [
+          501,
+          190
+        ],
+        [
+          521,
+          287
+        ],
+        [
+          377,
+          320
+        ],
+        [
+          350,
+          261
+        ]
+      ],
+      "pixels": 17932,
+      "previous_deltaE00": 4.36,
+      "current_deltaE00": 3.21
+    },
+    "cottage_and_deck": {
+      "polygon_xy": [
+        [
+          307,
+          290
+        ],
+        [
+          373,
+          285
+        ],
+        [
+          378,
+          311
+        ],
+        [
+          503,
+          285
+        ],
+        [
+          506,
+          343
+        ],
+        [
+          443,
+          369
+        ],
+        [
+          379,
+          359
+        ],
+        [
+          318,
+          358
+        ]
+      ],
+      "pixels": 12608,
+      "previous_deltaE00": 11.0,
+      "current_deltaE00": 6.92
+    },
+    "pond_and_shore": {
+      "polygon_xy": [
+        [
+          534,
+          344
+        ],
+        [
+          566,
+          316
+        ],
+        [
+          623,
+          302
+        ],
+        [
+          673,
+          304
+        ],
+        [
+          683,
+          337
+        ],
+        [
+          664,
+          372
+        ],
+        [
+          589,
+          382
+        ],
+        [
+          539,
+          368
+        ]
+      ],
+      "pixels": 9090,
+      "previous_deltaE00": 11.32,
+      "current_deltaE00": 7.71
+    },
+    "meadow_and_figures": {
+      "polygon_xy": [
+        [
+          280,
+          391
+        ],
+        [
+          351,
+          369
+        ],
+        [
+          390,
+          362
+        ],
+        [
+          437,
+          372
+        ],
+        [
+          505,
+          376
+        ],
+        [
+          486,
+          410
+        ],
+        [
+          439,
+          440
+        ],
+        [
+          408,
+          473
+        ],
+        [
+          310,
+          473
+        ],
+        [
+          283,
+          440
+        ]
+      ],
+      "pixels": 17763,
+      "previous_deltaE00": 6.05,
+      "current_deltaE00": 4.17
+    },
+    "foreground_left": {
+      "polygon_xy": [
+        [
+          0,
+          316
+        ],
+        [
+          140,
+          316
+        ],
+        [
+          266,
+          380
+        ],
+        [
+          360,
+          450
+        ],
+        [
+          343,
+          477
+        ],
+        [
+          0,
+          477
+        ]
+      ],
+      "pixels": 44795,
+      "previous_deltaE00": 8.66,
+      "current_deltaE00": 8.87
+    },
+    "foreground_right": {
+      "polygon_xy": [
+        [
+          417,
+          477
+        ],
+        [
+          494,
+          401
+        ],
+        [
+          586,
+          353
+        ],
+        [
+          698,
+          328
+        ],
+        [
+          804,
+          300
+        ],
+        [
+          853,
+          247
+        ],
+        [
+          853,
+          477
+        ]
+      ],
+      "pixels": 55109,
+      "previous_deltaE00": 7.63,
+      "current_deltaE00": 7.34
+    }
+  }
+}

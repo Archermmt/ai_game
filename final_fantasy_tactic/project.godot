@@ -1,0 +1,11 @@
+config_version=5
+[application]
+config/name="灰桥前哨"
+run/main_scene="res://features/battle/presentation/battle.tscn"
+[display]
+window/size/viewport_width=1600
+window/size/viewport_height=900
+window/stretch/mode="canvas_items"
+[rendering]
+renderer/rendering_method="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.075,0.12,0.17,1)

@@ -1,0 +1,48 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://examples/shared/exhibit.gd" id="View"]
+[ext_resource type="PackedScene" path="res://examples/desert/desert_camp.glb" id="Camp"]
+[ext_resource type="Shader" path="res://examples/desert/desert_sky.gdshader" id="SkyShader"]
+
+[sub_resource type="ShaderMaterial" id="Clouds"]
+shader = ExtResource("SkyShader")
+
+[sub_resource type="Sky" id="Sky"]
+sky_material = SubResource("Clouds")
+
+[sub_resource type="Environment" id="Environment"]
+background_mode = 2
+sky = SubResource("Sky")
+ambient_light_source = 2
+ambient_light_color = Color(1, 0.934, 0.882, 1)
+ambient_light_energy = 0.67
+reflected_light_source = 1
+tonemap_mode = 0
+
+[node name="PaintedRaft" type="Node3D"]
+script = ExtResource("View")
+focus_point = Vector3(0,1,0)
+
+[node name="CampArt" parent="." instance=ExtResource("Camp")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment")
+
+[node name="AfternoonSun" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-37,-55,0)
+light_color = Color(1,0.969,0.86,1)
+light_energy = 0.86
+shadow_enabled = true
+light_angular_distance = 1.5
+shadow_opacity = 0.83
+directional_shadow_max_distance = 35.0
+shadow_bias = 0.03
+shadow_normal_bias = 0.3
+
+[node name="Camera3D" type="Camera3D" parent="."]
+position = Vector3(0,1.15,6.80)
+rotation_degrees = Vector3(-6.5,0,0)
+fov = 50.0
+near = 0.07
+far = 78.0
+current = true

@@ -1,0 +1,116 @@
+[gd_scene load_steps=14 format=3]
+[ext_resource type="PackedScene" path="res://examples/island/island_model.glb" id="Model"]
+[ext_resource type="Script" path="res://examples/island/model_materials.gd" id="ModelScript"]
+[ext_resource type="Script" path="res://examples/shared/exhibit.gd" id="Controls"]
+[ext_resource type="Shader" path="res://examples/island/water.gdshader" id="WaterShader"]
+[ext_resource type="Shader" path="res://examples/island/sunset_sky.gdshader" id="SkyShader"]
+
+[ext_resource type="PackedScene" path="res://examples/island/motes.tscn" id="Motes"]
+
+[sub_resource type="ShaderMaterial" id="SkyMat"]
+shader = ExtResource("SkyShader")
+[sub_resource type="Sky" id="Sky"]
+sky_material = SubResource("SkyMat")
+[sub_resource type="Environment" id="Evening"]
+background_mode = 2
+sky = SubResource("Sky")
+ambient_light_source = 2
+ambient_light_color = Color(0.58,0.64,0.75,1)
+ambient_light_energy = 0.34
+reflected_light_source = 1
+tonemap_mode = 0
+ssao_enabled = true
+ssao_radius = 0.70
+ssao_intensity = 1.0
+ssao_light_affect = 0.12
+fog_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_length = 52.0
+volumetric_fog_detail_spread = 1.0
+volumetric_fog_temporal_reprojection_enabled = false
+fog_density = 0.0042
+fog_light_color = Color(0.70196, 0.59216, 0.52549, 1)
+fog_light_energy = 0.8
+fog_sky_affect = 0.0
+glow_enabled = true
+glow_intensity = 0.35
+glow_strength = 0.7
+glow_hdr_threshold = 0.45
+glow_hdr_scale = 0.65
+
+[sub_resource type="ShaderMaterial" id="Water"]
+shader = ExtResource("WaterShader")
+render_priority = -5
+[sub_resource type="PlaneMesh" id="WaterPlane"]
+material = SubResource("Water")
+size = Vector2(280,280)
+[sub_resource type="FogMaterial" id="CanopyHaze"]
+density = 0.087
+edge_fade = 1.2
+albedo = Color(0.86,0.73,0.68,1)
+emission = Color(1.04,0.95,0.83,1)
+
+[sub_resource type="FogMaterial" id="CottageHaze"]
+density = 0.056
+edge_fade = 1.2
+albedo = Color(0.86,0.73,0.68,1)
+emission = Color(0.9,0.67,0.58,1)
+
+[sub_resource type="CameraAttributesPractical" id="Lens"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 25.0
+dof_blur_far_transition = 12.0
+dof_blur_amount = 0.022
+[node name="IslandAtDusk" type="Node3D"]
+script = ExtResource("Controls")
+focus_point = Vector3(1.44, 2.44, 0)
+[node name="Evening" type="WorldEnvironment" parent="."]
+environment = SubResource("Evening")
+[node name="Sun" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-32,48,0)
+light_color = Color(1,0.941176,0.862745,1)
+light_energy = 2.0
+light_angular_distance = 1.6
+shadow_enabled = true
+shadow_opacity = 0.85
+shadow_bias = 0.035
+shadow_normal_bias = 0.15
+directional_shadow_max_distance = 54.0
+[node name="Camera3D" type="Camera3D" parent="."]
+position = Vector3(8.92,8.17,29)
+rotation_degrees = Vector3(-10.83,14.46,0)
+fov = 30.0
+attributes = SubResource("Lens")
+current = true
+[node name="CottageIsland" parent="." instance=ExtResource("Model")]
+script = ExtResource("ModelScript")
+[node name="Reflection" parent="." instance=ExtResource("Model")]
+scale = Vector3(1,-0.75,1)
+script = ExtResource("ModelScript")
+reflected = true
+[node name="Water" type="MeshInstance3D" parent="."]
+mesh = SubResource("WaterPlane")
+cast_shadow = 0
+
+[node name="LakeMotes" parent="." instance=ExtResource("Motes")]
+
+[node name="CanopyHaze" type="FogVolume" parent="."]
+position = Vector3(3.0, 7.5, -3.05)
+shape = 0
+size = Vector3(5.2, 5, 7.8)
+material = SubResource("CanopyHaze")
+
+[node name="CottageHaze" type="FogVolume" parent="."]
+position = Vector3(-0.5, 3.7, 1.8)
+shape = 0
+size = Vector3(8.0, 5.0, 7.4)
+material = SubResource("CottageHaze")
+
+[node name="WarmBounce" type="OmniLight3D" parent="."]
+position = Vector3(4.4, 4.65, 2.55)
+light_color = Color(1,0.905,0.835,1)
+light_energy = 7.3
+light_volumetric_fog_energy = 0.0
+omni_range = 8.8
+omni_attenuation = 1.5

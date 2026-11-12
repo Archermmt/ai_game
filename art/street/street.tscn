@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://street/rendering/stage.tscn" id="Stage"]
+[ext_resource type="PackedScene" path="res://street/layout/landscape.scn" id="Landscape"]
+[ext_resource type="PackedScene" path="res://street/buildings/buildings.tscn" id="Houses"]
+[ext_resource type="PackedScene" path="res://street/vegetation/planting.scn" id="Orchard"]
+[ext_resource type="PackedScene" path="res://street/railway/station.scn" id="Station"]
+
+[node name="SpringCrossing" instance=ExtResource("Stage")]
+
+[node name="Landscape" parent="." instance=ExtResource("Landscape")]
+
+[node name="Houses" parent="." instance=ExtResource("Houses")]
+
+[node name="Orchard" parent="." instance=ExtResource("Orchard")]
+
+[node name="Station" parent="." instance=ExtResource("Station")]

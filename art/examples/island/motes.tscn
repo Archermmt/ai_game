@@ -1,0 +1,202 @@
+[gd_scene format=3]
+
+[ext_resource type="Shader" path="res://examples/island/mote.gdshader" id="Shader"]
+[sub_resource type="ShaderMaterial" id="Pearl"]
+shader = ExtResource("Shader")
+[sub_resource type="QuadMesh" id="Quad"]
+material = SubResource("Pearl")
+size = Vector2(1,1)
+
+[node name="LakeMotes" type="Node3D"]
+
+[node name="Drift00" type="MeshInstance3D" parent="."]
+position = Vector3(-3.701427,5.258158,4.441075)
+scale = Vector3(0.120577,0.120577,0.120577)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="Drift01" type="MeshInstance3D" parent="."]
+position = Vector3(-1.878829,4.653233,5.142028)
+scale = Vector3(0.087083,0.087083,0.087083)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="Drift02" type="MeshInstance3D" parent="."]
+position = Vector3(-2.654207,6.612371,0.749161)
+scale = Vector3(0.050240,0.050240,0.050240)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="Drift03" type="MeshInstance3D" parent="."]
+position = Vector3(-5.476688,6.045727,-3.668257)
+scale = Vector3(0.070337,0.070337,0.070337)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="Drift04" type="MeshInstance3D" parent="."]
+position = Vector3(5.441518,4.843272,1.113882)
+scale = Vector3(0.053143,0.053143,0.053143)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="Drift05" type="MeshInstance3D" parent="."]
+position = Vector3(7.087794,4.403115,-3.429456)
+scale = Vector3(0.039299,0.039299,0.039299)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="Drift06" type="MeshInstance3D" parent="."]
+position = Vector3(-2.102066,3.819176,9.570137)
+scale = Vector3(0.031931,0.031931,0.031931)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="Drift07" type="MeshInstance3D" parent="."]
+position = Vector3(8.622606,5.655298,-10.381273)
+scale = Vector3(0.046668,0.046668,0.046668)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="Drift08" type="MeshInstance3D" parent="."]
+position = Vector3(8.143422,3.947707,-1.508820)
+scale = Vector3(0.033494,0.033494,0.033494)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="Drift09" type="MeshInstance3D" parent="."]
+position = Vector3(7.161722,2.417660,1.149495)
+scale = Vector3(0.037513,0.037513,0.037513)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="Drift10" type="MeshInstance3D" parent="."]
+position = Vector3(-3.669196,7.982319,-1.362632)
+scale = Vector3(0.053590,0.053590,0.053590)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="Drift11" type="MeshInstance3D" parent="."]
+position = Vector3(4.504633,8.508673,-3.574427)
+scale = Vector3(0.039299,0.039299,0.039299)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="Drift12" type="MeshInstance3D" parent="."]
+position = Vector3(6.487538,4.686895,5.080801)
+scale = Vector3(0.029474,0.029474,0.029474)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="Drift13" type="MeshInstance3D" parent="."]
+position = Vector3(9.263935,3.227692,2.550242)
+scale = Vector3(0.029028,0.029028,0.029028)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="LakeSpeck00" type="MeshInstance3D" parent="."]
+position = Vector3(-0.336496,0.080000,10.717162)
+scale = Vector3(0.141870,0.141870,0.141870)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="LakeSpeck01" type="MeshInstance3D" parent="."]
+position = Vector3(0.219961,0.080000,10.249388)
+scale = Vector3(0.119947,0.119947,0.119947)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="LakeSpeck02" type="MeshInstance3D" parent="."]
+position = Vector3(6.512100,0.080000,1.076956)
+scale = Vector3(0.128024,0.128024,0.128024)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="LakeSpeck03" type="MeshInstance3D" parent="."]
+position = Vector3(5.879421,0.080000,2.689529)
+scale = Vector3(0.152335,0.152335,0.152335)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="LakeSpeck04" type="MeshInstance3D" parent="."]
+position = Vector3(6.728696,0.080000,4.538664)
+scale = Vector3(0.169626,0.169626,0.169626)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="LakeSpeck05" type="MeshInstance3D" parent="."]
+position = Vector3(6.715617,0.080000,6.009920)
+scale = Vector3(0.106849,0.106849,0.106849)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="LakeSpeck06" type="MeshInstance3D" parent="."]
+position = Vector3(7.703728,0.080000,5.836434)
+scale = Vector3(0.106504,0.106504,0.106504)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="LakeSpeck07" type="MeshInstance3D" parent="."]
+position = Vector3(9.493957,0.080000,7.180135)
+scale = Vector3(0.123545,0.123545,0.123545)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="LakeSpeck08" type="MeshInstance3D" parent="."]
+position = Vector3(-3.293074,0.080000,9.149312)
+scale = Vector3(0.104477,0.104477,0.104477)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="LakeSpeck09" type="MeshInstance3D" parent="."]
+position = Vector3(-1.804355,0.080000,10.232445)
+scale = Vector3(0.098246,0.098246,0.098246)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="LakeSpeck10" type="MeshInstance3D" parent="."]
+position = Vector3(-0.327233,0.080000,12.261382)
+scale = Vector3(0.132017,0.132017,0.132017)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="LakeSpeck11" type="MeshInstance3D" parent="."]
+position = Vector3(10.067948,0.080000,9.635953)
+scale = Vector3(0.087777,0.087777,0.087777)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="LakeSpeck12" type="MeshInstance3D" parent="."]
+position = Vector3(-1.602140,0.080000,12.309632)
+scale = Vector3(0.089203,0.089203,0.089203)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="LakeSpeck13" type="MeshInstance3D" parent="."]
+position = Vector3(-3.075528,0.080000,10.629018)
+scale = Vector3(0.097954,0.097954,0.097954)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="LakeSpeck14" type="MeshInstance3D" parent="."]
+position = Vector3(1.312536,0.080000,10.913330)
+scale = Vector3(0.091941,0.091941,0.091941)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="LakeSpeck15" type="MeshInstance3D" parent="."]
+position = Vector3(1.659473,0.080000,11.411533)
+scale = Vector3(0.067084,0.067084,0.067084)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="LakeSpeck16" type="MeshInstance3D" parent="."]
+position = Vector3(5.171330,0.080000,5.477508)
+scale = Vector3(0.083102,0.083102,0.083102)
+mesh = SubResource("Quad")
+cast_shadow = 0
+
+[node name="LakeSpeck17" type="MeshInstance3D" parent="."]
+position = Vector3(6.128076,0.080000,0.456453)
+scale = Vector3(0.131080,0.131080,0.131080)
+mesh = SubResource("Quad")
+cast_shadow = 0

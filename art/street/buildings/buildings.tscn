@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://street/buildings/buildings.gd" id="1"]
+[ext_resource type="PackedScene" path="res://street/buildings/teal_house.glb" id="2"]
+[ext_resource type="PackedScene" path="res://street/buildings/umber_house.glb" id="3"]
+[ext_resource type="PackedScene" path="res://street/buildings/slate_shed.glb" id="4"]
+
+[node name="Homes" type="Node3D"]
+script = ExtResource("1")
+
+[node name="TealHouse" parent="." instance=ExtResource("2")]
+position = Vector3(-7.804, 0, 4.729)
+rotation = Vector3(0, -0.19722221, 0)
+
+[node name="UmberHouse" parent="." instance=ExtResource("3")]
+position = Vector3(-4.008, 0, 6.518)
+rotation = Vector3(0, 0.255690735, 0)
+
+[node name="SlateShed" parent="." instance=ExtResource("4")]
+position = Vector3(1.02, 0, 6.388)
+rotation = Vector3(0, -0.12653637, 0)
